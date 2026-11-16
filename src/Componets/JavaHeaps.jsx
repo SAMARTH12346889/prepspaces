@@ -528,7 +528,7 @@ export default function JavaHeaps() {
   }, [searchFilter]);
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Top sticky module navigation bar */}
       <ModuleNav
         track="java"
@@ -549,15 +549,15 @@ export default function JavaHeaps() {
               <span className="px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-orange-500/20 text-orange-400 border border-orange-500/30">
                 Module 13 · Advanced DSA
               </span>
-              <span className="flex items-center gap-1.5 text-xs text-stone-300 font-medium">
+              <span className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                 28 Core Curriculum Topics
               </span>
-              <span className="flex items-center gap-1.5 text-xs text-stone-300 font-medium">
+              <span className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
                 <Activity className="w-3.5 h-3.5 text-orange-400" />
                 8 Interactive Workbenches
               </span>
-              <span className="flex items-center gap-1.5 text-xs text-stone-300 font-medium">
+              <span className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
                 <Award className="w-3.5 h-3.5 text-amber-400" />
                 45 Coding Laboratories
               </span>
@@ -566,7 +566,7 @@ export default function JavaHeaps() {
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
               Heaps, Priority Queues &amp; Advanced Trees
             </h1>
-            <p className="text-base sm:text-lg text-stone-300 max-w-3xl leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-400 max-w-3xl leading-relaxed">
               Master priority-driven systems and self-balancing architectures: Min/Max Heaps, complete binary tree array mapping, sift-up and sift-down mechanics, <code className="text-orange-400 font-mono">O(N)</code> bottom-up Build Heap proof, in-place Heap Sort, Java <code className="text-orange-400 font-mono">PriorityQueue</code> internals, running median balancing, AVL tree rotations (LL, RR, LR, RL), and Red-Black tree invariants.
             </p>
 
@@ -577,7 +577,7 @@ export default function JavaHeaps() {
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-xs cursor-pointer ${
                   activeTab === "workbench"
                     ? "bg-orange-500 text-white shadow-orange-500/25"
-                    : "bg-stone-800/80 hover:bg-stone-750 text-stone-300 border border-stone-700"
+                    : "bg-stone-800/80 hover:bg-stone-750 text-slate-400 border border-stone-700"
                 }`}
               >
                 <Cpu className="w-4 h-4" />
@@ -589,7 +589,7 @@ export default function JavaHeaps() {
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-xs cursor-pointer ${
                   activeTab === "reader"
                     ? "bg-orange-500 text-white shadow-orange-500/25"
-                    : "bg-stone-800/80 hover:bg-stone-750 text-stone-300 border border-stone-700"
+                    : "bg-stone-800/80 hover:bg-stone-750 text-slate-400 border border-stone-700"
                 }`}
               >
                 <BookOpen className="w-4 h-4" />
@@ -601,7 +601,7 @@ export default function JavaHeaps() {
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-xs cursor-pointer ${
                   activeTab === "quiz"
                     ? "bg-orange-500 text-white shadow-orange-500/25"
-                    : "bg-stone-800/80 hover:bg-stone-750 text-stone-300 border border-stone-700"
+                    : "bg-stone-800/80 hover:bg-stone-750 text-slate-400 border border-stone-700"
                 }`}
               >
                 <HelpCircle className="w-4 h-4" />
@@ -613,7 +613,7 @@ export default function JavaHeaps() {
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-xs cursor-pointer ${
                   activeTab === "labs"
                     ? "bg-orange-500 text-white shadow-orange-500/25"
-                    : "bg-stone-800/80 hover:bg-stone-750 text-stone-300 border border-stone-700"
+                    : "bg-stone-800/80 hover:bg-stone-750 text-slate-400 border border-stone-700"
                 }`}
               >
                 <FileCode className="w-4 h-4" />
@@ -630,7 +630,7 @@ export default function JavaHeaps() {
           <div className="space-y-6">
             
             {/* Workbench Navigation Sub-Bar */}
-            <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs">
+            <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs">
               {[
                 { id: "heap-studio", label: "Heap Studio (Min/Max)", icon: Layers },
                 { id: "build-sort", label: "Build Heap & Sort", icon: ArrowDownUp },
@@ -648,7 +648,7 @@ export default function JavaHeaps() {
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                       workbenchTool === tool.id
                         ? "bg-orange-500 text-white shadow-xs"
-                        : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
+                        : "text-slate-400 hover:text-white hover:bg-slate-950"
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -664,15 +664,15 @@ export default function JavaHeaps() {
                 
                 {/* Control Column */}
                 <div className="lg:col-span-4 space-y-4">
-                  <div className="p-5 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-4">
-                    <h3 className="text-base font-bold text-stone-900 flex items-center justify-between">
+                  <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-4">
+                    <h3 className="text-base font-bold text-white flex items-center justify-between">
                       <span>Binary Heap Studio</span>
-                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-orange-100 text-orange-800 uppercase">
+                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-orange-500/15 text-orange-300 uppercase">
                         {heapType} Heap
                       </span>
                     </h3>
 
-                    <div className="flex rounded-xl bg-stone-100 p-1">
+                    <div className="flex rounded-xl bg-slate-950 p-1">
                       <button
                         onClick={() => {
                           setHeapType("min");
@@ -680,7 +680,7 @@ export default function JavaHeaps() {
                           setHeapLogs(["Switched to Min Heap mode. Initialized sample Min Heap."]);
                         }}
                         className={`flex-1 py-1.5 rounded-lg text-xs font-semibold cursor-pointer ${
-                          heapType === "min" ? "bg-white text-stone-900 shadow-2xs" : "text-stone-600"
+                          heapType === "min" ? "bg-slate-900/80 text-white shadow-2xs" : "text-slate-400"
                         }`}
                       >
                         Min Heap (Parent &le; Children)
@@ -692,7 +692,7 @@ export default function JavaHeaps() {
                           setHeapLogs(["Switched to Max Heap mode. Initialized sample Max Heap."]);
                         }}
                         className={`flex-1 py-1.5 rounded-lg text-xs font-semibold cursor-pointer ${
-                          heapType === "max" ? "bg-white text-stone-900 shadow-2xs" : "text-stone-600"
+                          heapType === "max" ? "bg-slate-900/80 text-white shadow-2xs" : "text-slate-400"
                         }`}
                       >
                         Max Heap (Parent &ge; Children)
@@ -701,14 +701,14 @@ export default function JavaHeaps() {
 
                     {/* Insert Form */}
                     <div className="space-y-2">
-                      <label className="text-xs font-semibold text-stone-700">Insert Element</label>
+                      <label className="text-xs font-semibold text-slate-300">Insert Element</label>
                       <div className="flex gap-2">
                         <input
                           type="number"
                           value={heapInputVal}
                           onChange={(e) => setHeapInputVal(e.target.value)}
                           placeholder="e.g. 5 or 95"
-                          className="flex-1 px-3 py-2 rounded-xl border border-stone-300 text-sm font-mono focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                          className="flex-1 px-3 py-2 rounded-xl border border-slate-700 text-sm font-mono focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                           onKeyDown={(e) => e.key === "Enter" && handleHeapInsert()}
                         />
                         <button
@@ -739,7 +739,7 @@ export default function JavaHeaps() {
                           setHeapArray(heapType === "min" ? [5, 10, 15, 20, 30, 40] : [90, 80, 70, 60, 50, 40]);
                           setHeapLogs(["Reset to default balanced tree"]);
                         }}
-                        className="flex-1 py-1.5 rounded-lg border border-stone-200 text-stone-700 text-xs font-medium hover:bg-stone-50 cursor-pointer"
+                        className="flex-1 py-1.5 rounded-lg border border-slate-800 text-slate-300 text-xs font-medium hover:bg-slate-950 cursor-pointer"
                       >
                         Reset Tree
                       </button>
@@ -748,15 +748,15 @@ export default function JavaHeaps() {
                           setHeapArray([]);
                           setHeapLogs(["Cleared heap"]);
                         }}
-                        className="px-3 py-1.5 rounded-lg border border-stone-200 text-rose-600 text-xs font-medium hover:bg-rose-50 cursor-pointer"
+                        className="px-3 py-1.5 rounded-lg border border-slate-800 text-rose-600 text-xs font-medium hover:bg-rose-50 cursor-pointer"
                       >
                         Clear
                       </button>
                     </div>
 
                     {/* Arithmetic Legend */}
-                    <div className="p-3 rounded-xl bg-orange-50/70 border border-orange-200/80 text-xs font-mono space-y-1 text-orange-950">
-                      <div className="font-bold text-[11px] uppercase text-orange-800 mb-1">Index Arithmetic Formulas:</div>
+                    <div className="p-3 rounded-xl bg-orange-500/15/70 border border-orange-500/30/80 text-xs font-mono space-y-1 text-orange-950">
+                      <div className="font-bold text-[11px] uppercase text-orange-300 mb-1">Index Arithmetic Formulas:</div>
                       <div>Left Child(i) &nbsp;= 2i + 1</div>
                       <div>Right Child(i) = 2i + 2</div>
                       <div>Parent(i) &nbsp; &nbsp; &nbsp;= floor((i - 1) / 2)</div>
@@ -764,14 +764,14 @@ export default function JavaHeaps() {
                   </div>
 
                   {/* Operation Activity Logs */}
-                  <div className="p-4 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-2">
-                    <div className="text-xs font-bold text-stone-800 uppercase tracking-wider flex items-center gap-1.5">
-                      <Terminal className="w-3.5 h-3.5 text-stone-500" />
+                  <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-2">
+                    <div className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
+                      <Terminal className="w-3.5 h-3.5 text-slate-400" />
                       <span>Heap Sift Diagnostics</span>
                     </div>
-                    <div className="space-y-1 max-h-40 overflow-y-auto text-xs font-mono text-stone-600 [scrollbar-width:thin]">
+                    <div className="space-y-1 max-h-40 overflow-y-auto text-xs font-mono text-slate-400 [scrollbar-width:thin]">
                       {heapLogs.map((log, lIdx) => (
-                        <div key={lIdx} className="leading-snug py-0.5 border-b border-stone-100 last:border-0">
+                        <div key={lIdx} className="leading-snug py-0.5 border-b border-slate-800/60 last:border-0">
                           &gt; {log}
                         </div>
                       ))}
@@ -783,19 +783,19 @@ export default function JavaHeaps() {
                 <div className="lg:col-span-8 space-y-6">
                   
                   {/* Array Representation Bar */}
-                  <div className="p-5 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-3">
+                  <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-wider text-stone-600">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                         Zero-Based Backing Array Representation (Size = {heapArray.length})
                       </span>
-                      <span className="text-xs font-mono text-stone-500">
+                      <span className="text-xs font-mono text-slate-400">
                         Root at Index 0
                       </span>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 overflow-x-auto p-2 rounded-xl bg-stone-50 border border-stone-200 [scrollbar-width:thin]">
+                    <div className="flex flex-wrap gap-2 overflow-x-auto p-2 rounded-xl bg-slate-950 border border-slate-800 [scrollbar-width:thin]">
                       {heapArray.length === 0 ? (
-                        <div className="text-xs text-stone-400 italic py-2">Heap is empty. Insert elements above.</div>
+                        <div className="text-xs text-slate-500 italic py-2">Heap is empty. Insert elements above.</div>
                       ) : (
                         heapArray.map((num, i) => (
                           <div
@@ -804,12 +804,12 @@ export default function JavaHeaps() {
                               highlightIdx === i
                                 ? "bg-orange-500 text-white border-orange-600 scale-105 shadow-md"
                                 : i === 0
-                                ? "bg-orange-100 text-orange-900 border-orange-300 font-bold"
-                                : "bg-white text-stone-800 border-stone-300"
+                                ? "bg-orange-500/15 text-orange-900 border-orange-500/40 font-bold"
+                                : "bg-slate-900/80 text-slate-200 border-slate-700"
                             }`}
                           >
                             <span className="text-base font-mono font-bold">{num}</span>
-                            <span className={`text-[10px] font-mono mt-0.5 ${highlightIdx === i ? "text-orange-200" : "text-stone-400"}`}>
+                            <span className={`text-[10px] font-mono mt-0.5 ${highlightIdx === i ? "text-orange-200" : "text-slate-500"}`}>
                               idx {i}
                             </span>
                           </div>
@@ -819,20 +819,20 @@ export default function JavaHeaps() {
                   </div>
 
                   {/* Complete Binary Tree SVG Representation */}
-                  <div className="p-6 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-4">
+                  <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <FolderTree className="w-4 h-4 text-orange-600" />
-                        <span className="text-sm font-bold text-stone-900">Complete Binary Tree Topology</span>
+                        <FolderTree className="w-4 h-4 text-orange-400" />
+                        <span className="text-sm font-bold text-white">Complete Binary Tree Topology</span>
                       </div>
-                      <span className="text-xs text-stone-500 font-mono">
+                      <span className="text-xs text-slate-400 font-mono">
                         Height: {heapArray.length > 0 ? Math.floor(Math.log2(heapArray.length)) : 0}
                       </span>
                     </div>
 
-                    <div className="relative w-full h-[320px] bg-radial from-stone-50 to-stone-100/60 rounded-xl border border-stone-200 overflow-hidden flex items-center justify-center">
+                    <div className="relative w-full h-[320px] bg-radial from-stone-50 to-stone-100/60 rounded-xl border border-slate-800 overflow-hidden flex items-center justify-center">
                       {heapArray.length === 0 ? (
-                        <div className="text-sm text-stone-400 font-mono">No nodes in heap</div>
+                        <div className="text-sm text-slate-500 font-mono">No nodes in heap</div>
                       ) : (
                         <svg className="w-full h-full" viewBox="0 0 400 300">
                           {/* Edges */}
@@ -915,12 +915,12 @@ export default function JavaHeaps() {
 
             {/* TOOL 2: BUILD HEAP & HEAP SORT */}
             {workbenchTool === "build-sort" && (
-              <div className="p-6 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-200 pb-4">
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                   <div>
-                    <h3 className="text-lg font-bold text-stone-900">Bottom-Up Build Heap &amp; In-Place Heap Sort</h3>
-                    <p className="text-xs text-stone-600 mt-1">
-                      See why building a heap takes linear <code className="text-orange-600 font-mono">O(N)</code> time by heapifying from index <code className="text-orange-600 font-mono">&lfloor;n/2&rfloor; - 1</code> down to <code className="text-orange-600 font-mono">0</code>.
+                    <h3 className="text-lg font-bold text-white">Bottom-Up Build Heap &amp; In-Place Heap Sort</h3>
+                    <p className="text-xs text-slate-400 mt-1">
+                      See why building a heap takes linear <code className="text-orange-400 font-mono">O(N)</code> time by heapifying from index <code className="text-orange-400 font-mono">&lfloor;n/2&rfloor; - 1</code> down to <code className="text-orange-400 font-mono">0</code>.
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -962,18 +962,18 @@ export default function JavaHeaps() {
                 </div>
 
                 <div className="space-y-3">
-                  <div className="text-xs font-semibold text-stone-600 uppercase tracking-wider">Current Array:</div>
-                  <div className="flex gap-2 overflow-x-auto p-3 rounded-xl bg-stone-50 border border-stone-200">
+                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Current Array:</div>
+                  <div className="flex gap-2 overflow-x-auto p-3 rounded-xl bg-slate-950 border border-slate-800">
                     {sortArray.map((val, idx) => (
-                      <div key={idx} className="flex flex-col items-center justify-center p-3 min-w-[55px] rounded-xl bg-white border border-stone-300 shadow-2xs font-mono">
-                        <span className="text-lg font-bold text-stone-900">{val}</span>
-                        <span className="text-[11px] text-stone-400 mt-1">i: {idx}</span>
+                      <div key={idx} className="flex flex-col items-center justify-center p-3 min-w-[55px] rounded-xl bg-slate-900/80 border border-slate-700 shadow-2xs font-mono">
+                        <span className="text-lg font-bold text-white">{val}</span>
+                        <span className="text-[11px] text-slate-500 mt-1">i: {idx}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#fbf9f5] border border-orange-200 text-xs font-mono text-stone-800 space-y-1">
+                <div className="p-4 rounded-xl bg-[#fbf9f5] border border-orange-500/30 text-xs font-mono text-slate-200 space-y-1">
                   <div className="font-bold text-orange-950 uppercase">Step-by-Step Heap Sort Mechanics:</div>
                   <div>1. Build Max Heap: Root holds the absolute maximum value.</div>
                   <div>2. Swap root with arr[activeSize - 1] (moving largest element to its permanent final sorted spot).</div>
@@ -985,34 +985,34 @@ export default function JavaHeaps() {
 
             {/* TOOL 3: JAVA PRIORITYQUEUE PLAYGROUND */}
             {workbenchTool === "priority-queue" && (
-              <div className="p-6 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-6">
-                <div className="border-b border-stone-200 pb-4">
-                  <h3 className="text-lg font-bold text-stone-900">Java PriorityQueue &amp; Comparator Traps</h3>
-                  <p className="text-xs text-stone-600 mt-1">
-                    Understand how Java&apos;s <code className="text-orange-600 font-mono">PriorityQueue</code> behaves, why <code className="text-orange-600 font-mono">Comparator.reverseOrder()</code> creates a Max Heap, and why for-each iteration does NOT guarantee sorted order.
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-6">
+                <div className="border-b border-slate-800 pb-4">
+                  <h3 className="text-lg font-bold text-white">Java PriorityQueue &amp; Comparator Traps</h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Understand how Java&apos;s <code className="text-orange-400 font-mono">PriorityQueue</code> behaves, why <code className="text-orange-400 font-mono">Comparator.reverseOrder()</code> creates a Max Heap, and why for-each iteration does NOT guarantee sorted order.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="p-4 rounded-xl border border-stone-200 bg-stone-50 space-y-2">
-                    <span className="text-xs font-bold text-stone-700">1. Natural Ordering (Default)</span>
-                    <p className="text-xs text-stone-600">Acts as a <strong>Min Heap</strong>. Smallest element retrieved first.</p>
+                  <div className="p-4 rounded-xl border border-slate-800 bg-slate-950 space-y-2">
+                    <span className="text-xs font-bold text-slate-300">1. Natural Ordering (Default)</span>
+                    <p className="text-xs text-slate-400">Acts as a <strong>Min Heap</strong>. Smallest element retrieved first.</p>
                     <code className="block p-2 rounded bg-neutral-900 text-neutral-200 text-[11px] font-mono">
                       PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;();
                     </code>
                   </div>
 
-                  <div className="p-4 rounded-xl border border-stone-200 bg-stone-50 space-y-2">
-                    <span className="text-xs font-bold text-stone-700">2. Reverse Ordering</span>
-                    <p className="text-xs text-stone-600">Acts as a <strong>Max Heap</strong>. Largest element retrieved first.</p>
+                  <div className="p-4 rounded-xl border border-slate-800 bg-slate-950 space-y-2">
+                    <span className="text-xs font-bold text-slate-300">2. Reverse Ordering</span>
+                    <p className="text-xs text-slate-400">Acts as a <strong>Max Heap</strong>. Largest element retrieved first.</p>
                     <code className="block p-2 rounded bg-neutral-900 text-neutral-200 text-[11px] font-mono">
                       PriorityQueue&lt;Integer&gt; maxHeap = new PriorityQueue&lt;&gt;(Comparator.reverseOrder());
                     </code>
                   </div>
 
-                  <div className="p-4 rounded-xl border border-stone-200 bg-stone-50 space-y-2">
-                    <span className="text-xs font-bold text-stone-700">3. Custom Objects</span>
-                    <p className="text-xs text-stone-600">Safely compares fields avoiding overflow via <code className="font-mono">comparingInt()</code>.</p>
+                  <div className="p-4 rounded-xl border border-slate-800 bg-slate-950 space-y-2">
+                    <span className="text-xs font-bold text-slate-300">3. Custom Objects</span>
+                    <p className="text-xs text-slate-400">Safely compares fields avoiding overflow via <code className="font-mono">comparingInt()</code>.</p>
                     <code className="block p-2 rounded bg-neutral-900 text-neutral-200 text-[11px] font-mono">
                       new PriorityQueue&lt;&gt;(Comparator.comparingInt(s -&gt; s.marks));
                     </code>
@@ -1020,17 +1020,17 @@ export default function JavaHeaps() {
                 </div>
 
                 {/* PriorityQueue Interactive Test */}
-                <div className="p-5 rounded-xl border border-stone-200 bg-white space-y-4">
+                <div className="p-5 rounded-xl border border-slate-800 bg-slate-900/80 space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-semibold text-stone-700">Queue Mode:</span>
+                      <span className="text-xs font-semibold text-slate-300">Queue Mode:</span>
                       <select
                         value={pqOrder}
                         onChange={(e) => {
                           setPqOrder(e.target.value);
                           setPqPolledList([]);
                         }}
-                        className="px-3 py-1.5 rounded-lg border border-stone-300 text-xs font-mono bg-white"
+                        className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-mono bg-slate-900/80"
                       >
                         <option value="natural">Min Heap (Ascending / Natural)</option>
                         <option value="reverse">Max Heap (Comparator.reverseOrder())</option>
@@ -1043,7 +1043,7 @@ export default function JavaHeaps() {
                         placeholder="Value to offer()"
                         value={pqInputVal}
                         onChange={(e) => setPqInputVal(e.target.value)}
-                        className="w-36 px-3 py-1.5 rounded-lg border border-stone-300 text-xs font-mono"
+                        className="w-36 px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-mono"
                       />
                       <button
                         onClick={() => {
@@ -1076,10 +1076,10 @@ export default function JavaHeaps() {
                   </div>
 
                   <div className="space-y-2">
-                    <div className="text-xs font-bold text-stone-700">Current Heap Contents:</div>
+                    <div className="text-xs font-bold text-slate-300">Current Heap Contents:</div>
                     <div className="flex gap-2 flex-wrap">
                       {pqElements.map((el, i) => (
-                        <span key={i} className="px-3 py-1.5 rounded-lg bg-orange-100 text-orange-950 font-mono text-xs font-bold border border-orange-200">
+                        <span key={i} className="px-3 py-1.5 rounded-lg bg-orange-500/15 text-orange-950 font-mono text-xs font-bold border border-orange-500/30">
                           {el}
                         </span>
                       ))}
@@ -1087,7 +1087,7 @@ export default function JavaHeaps() {
                   </div>
 
                   {pqPolledList.length > 0 && (
-                    <div className="space-y-1 pt-2 border-t border-stone-200">
+                    <div className="space-y-1 pt-2 border-t border-slate-800">
                       <div className="text-xs font-bold text-emerald-800">Order of Elements Extracted via poll():</div>
                       <div className="flex gap-2 flex-wrap text-xs font-mono text-emerald-900">
                         {pqPolledList.map((p, idx) => (
@@ -1104,23 +1104,23 @@ export default function JavaHeaps() {
 
             {/* TOOL 4: TOP-K & KTH ELEMENT */}
             {workbenchTool === "top-k" && (
-              <div className="p-6 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-6">
-                <div className="border-b border-stone-200 pb-4">
-                  <h3 className="text-lg font-bold text-stone-900">Top-K &amp; Kth Element Finder (Optimal Size-K Heap)</h3>
-                  <p className="text-xs text-stone-600 mt-1">
-                    Master the opposite-heap interview pattern: use a <strong>Min Heap of size K</strong> to find the Kth largest element in <code className="text-orange-600 font-mono">O(N log K)</code> time!
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-6">
+                <div className="border-b border-slate-800 pb-4">
+                  <h3 className="text-lg font-bold text-white">Top-K &amp; Kth Element Finder (Optimal Size-K Heap)</h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Master the opposite-heap interview pattern: use a <strong>Min Heap of size K</strong> to find the Kth largest element in <code className="text-orange-400 font-mono">O(N log K)</code> time!
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <label className="text-xs font-semibold text-stone-700">Target Query:</label>
+                      <label className="text-xs font-semibold text-slate-300">Target Query:</label>
                       <div className="flex gap-2">
                         <button
                           onClick={() => setTopKMode("largest")}
                           className={`flex-1 py-2 rounded-xl text-xs font-semibold border cursor-pointer ${
-                            topKMode === "largest" ? "bg-orange-500 text-white border-orange-600" : "bg-white text-stone-700 border-stone-200"
+                            topKMode === "largest" ? "bg-orange-500 text-white border-orange-600" : "bg-slate-900/80 text-slate-300 border-slate-800"
                           }`}
                         >
                           Find Kth Largest (Min Heap)
@@ -1128,7 +1128,7 @@ export default function JavaHeaps() {
                         <button
                           onClick={() => setTopKMode("smallest")}
                           className={`flex-1 py-2 rounded-xl text-xs font-semibold border cursor-pointer ${
-                            topKMode === "smallest" ? "bg-orange-500 text-white border-orange-600" : "bg-white text-stone-700 border-stone-200"
+                            topKMode === "smallest" ? "bg-orange-500 text-white border-orange-600" : "bg-slate-900/80 text-slate-300 border-slate-800"
                           }`}
                         >
                           Find Kth Smallest (Max Heap)
@@ -1137,22 +1137,22 @@ export default function JavaHeaps() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-semibold text-stone-700">Value of K:</label>
+                      <label className="text-xs font-semibold text-slate-300">Value of K:</label>
                       <input
                         type="number"
                         min="1"
                         max={topKArray.length}
                         value={topKVal}
                         onChange={(e) => setTopKVal(Math.max(1, parseInt(e.target.value, 10) || 1))}
-                        className="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm font-mono"
+                        className="w-full px-3 py-2 rounded-xl border border-slate-700 text-sm font-mono"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-semibold text-stone-700">Test Array Numbers:</label>
+                      <label className="text-xs font-semibold text-slate-300">Test Array Numbers:</label>
                       <div className="flex gap-2 flex-wrap">
                         {topKArray.map((n, idx) => (
-                          <span key={idx} className="px-2.5 py-1 rounded bg-stone-100 font-mono text-xs text-stone-800">
+                          <span key={idx} className="px-2.5 py-1 rounded bg-slate-950 font-mono text-xs text-slate-200">
                             {n}
                           </span>
                         ))}
@@ -1161,19 +1161,19 @@ export default function JavaHeaps() {
                   </div>
 
                   {/* Output Box */}
-                  <div className="p-5 rounded-2xl bg-orange-50/70 border border-orange-200/80 space-y-4 flex flex-col justify-center">
-                    <span className="text-xs font-bold uppercase tracking-wider text-orange-800">
+                  <div className="p-5 rounded-2xl bg-orange-500/15/70 border border-orange-500/30/80 space-y-4 flex flex-col justify-center">
+                    <span className="text-xs font-bold uppercase tracking-wider text-orange-300">
                       Algorithmic Result:
                     </span>
                     {topKResult && (
                       <div className="space-y-3">
-                        <div className="text-3xl font-extrabold text-stone-900 font-mono">
-                          {topKResult.label}: <span className="text-orange-600">{topKResult.answer}</span>
+                        <div className="text-3xl font-extrabold text-white font-mono">
+                          {topKResult.label}: <span className="text-orange-400">{topKResult.answer}</span>
                         </div>
-                        <p className="text-xs text-stone-700 leading-relaxed">
+                        <p className="text-xs text-slate-300 leading-relaxed">
                           Kept a heap of size {topKVal}. Evicted all {topKMode === "largest" ? "smaller" : "larger"} candidates whenever size exceeded {topKVal}.
                         </p>
-                        <div className="text-xs font-mono bg-white p-3 rounded-xl border border-orange-200">
+                        <div className="text-xs font-mono bg-slate-900/80 p-3 rounded-xl border border-orange-500/30">
                           Active Heap Elements: [{topKResult.heapSnapshot.join(", ")}]
                         </div>
                       </div>
@@ -1185,11 +1185,11 @@ export default function JavaHeaps() {
 
             {/* TOOL 5: RUNNING MEDIAN */}
             {workbenchTool === "running-median" && (
-              <div className="p-6 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-6">
-                <div className="border-b border-stone-200 pb-4">
-                  <h3 className="text-lg font-bold text-stone-900">Continuous Data Stream Median Finder (LeetCode 295)</h3>
-                  <p className="text-xs text-stone-600 mt-1">
-                    Numbers arrive continuously. Maintain a <strong>Max Heap</strong> for the lower half and a <strong>Min Heap</strong> for the upper half to answer median queries in <code className="text-orange-600 font-mono">O(1)</code> time.
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-6">
+                <div className="border-b border-slate-800 pb-4">
+                  <h3 className="text-lg font-bold text-white">Continuous Data Stream Median Finder (LeetCode 295)</h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Numbers arrive continuously. Maintain a <strong>Max Heap</strong> for the lower half and a <strong>Min Heap</strong> for the upper half to answer median queries in <code className="text-orange-400 font-mono">O(1)</code> time.
                   </p>
                 </div>
 
@@ -1199,7 +1199,7 @@ export default function JavaHeaps() {
                     placeholder="Enter next stream number"
                     value={medianInputVal}
                     onChange={(e) => setMedianInputVal(e.target.value)}
-                    className="px-3 py-2 rounded-xl border border-stone-300 text-sm font-mono w-56"
+                    className="px-3 py-2 rounded-xl border border-slate-700 text-sm font-mono w-56"
                     onKeyDown={(e) => {
                       if (e.key === "Enter" && medianInputVal !== "") {
                         setMedianStream([...medianStream, parseInt(medianInputVal, 10)]);
@@ -1220,44 +1220,44 @@ export default function JavaHeaps() {
                   </button>
                   <button
                     onClick={() => setMedianStream([5, 2, 10, 4, 8])}
-                    className="px-3 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-xs font-medium cursor-pointer"
+                    className="px-3 py-2 bg-slate-950 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium cursor-pointer"
                   >
                     Reset Stream
                   </button>
                 </div>
 
                 <div className="p-4 rounded-xl bg-orange-500/10 border border-orange-500/20 text-center py-6">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-orange-800">Calculated Stream Median (O(1))</div>
-                  <div className="text-4xl font-extrabold text-stone-900 font-mono mt-2">{currentMedian}</div>
-                  <div className="text-xs text-stone-600 mt-1">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-orange-300">Calculated Stream Median (O(1))</div>
+                  <div className="text-4xl font-extrabold text-white font-mono mt-2">{currentMedian}</div>
+                  <div className="text-xs text-slate-400 mt-1">
                     Stream Count: {medianStream.length} numbers ({medianStream.length % 2 === 0 ? "Even count: average of roots" : "Odd count: root of lower Max Heap"})
                   </div>
                 </div>
 
                 {/* Two-Heaps Dual Display */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl border border-stone-200 bg-stone-50 space-y-2">
-                    <div className="flex justify-between items-center text-xs font-bold text-stone-800">
+                  <div className="p-4 rounded-xl border border-slate-800 bg-slate-950 space-y-2">
+                    <div className="flex justify-between items-center text-xs font-bold text-slate-200">
                       <span>Lower Half: Max Heap</span>
-                      <span className="font-mono text-orange-600">Root = {lowerMaxHeap[0] ?? "None"}</span>
+                      <span className="font-mono text-orange-400">Root = {lowerMaxHeap[0] ?? "None"}</span>
                     </div>
                     <div className="flex gap-2 flex-wrap">
                       {lowerMaxHeap.map((v, i) => (
-                        <span key={i} className="px-2 py-1 rounded bg-white border border-stone-300 font-mono text-xs">
+                        <span key={i} className="px-2 py-1 rounded bg-slate-900/80 border border-slate-700 font-mono text-xs">
                           {v}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl border border-stone-200 bg-stone-50 space-y-2">
-                    <div className="flex justify-between items-center text-xs font-bold text-stone-800">
+                  <div className="p-4 rounded-xl border border-slate-800 bg-slate-950 space-y-2">
+                    <div className="flex justify-between items-center text-xs font-bold text-slate-200">
                       <span>Upper Half: Min Heap</span>
-                      <span className="font-mono text-orange-600">Root = {upperMinHeap[0] ?? "None"}</span>
+                      <span className="font-mono text-orange-400">Root = {upperMinHeap[0] ?? "None"}</span>
                     </div>
                     <div className="flex gap-2 flex-wrap">
                       {upperMinHeap.map((v, i) => (
-                        <span key={i} className="px-2 py-1 rounded bg-white border border-stone-300 font-mono text-xs">
+                        <span key={i} className="px-2 py-1 rounded bg-slate-900/80 border border-slate-700 font-mono text-xs">
                           {v}
                         </span>
                       ))}
@@ -1269,11 +1269,11 @@ export default function JavaHeaps() {
 
             {/* TOOL 6: AVL TREE & 4 ROTATIONS */}
             {workbenchTool === "avl-rotations" && (
-              <div className="p-6 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-6">
-                <div className="border-b border-stone-200 pb-4">
-                  <h3 className="text-lg font-bold text-stone-900">AVL Self-Balancing Tree &amp; 4 Rotation Mechanics</h3>
-                  <p className="text-xs text-stone-600 mt-1">
-                    An AVL Tree strictly maintains <code className="text-orange-600 font-mono">|Balance Factor| &le; 1</code> for all nodes. When an insertion disrupts this balance, one of four rotations restores equilibrium in <code className="text-orange-600 font-mono">O(1)</code> time.
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-6">
+                <div className="border-b border-slate-800 pb-4">
+                  <h3 className="text-lg font-bold text-white">AVL Self-Balancing Tree &amp; 4 Rotation Mechanics</h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    An AVL Tree strictly maintains <code className="text-orange-400 font-mono">|Balance Factor| &le; 1</code> for all nodes. When an insertion disrupts this balance, one of four rotations restores equilibrium in <code className="text-orange-400 font-mono">O(1)</code> time.
                   </p>
                 </div>
 
@@ -1284,16 +1284,16 @@ export default function JavaHeaps() {
                     { name: "LR Case (Left-Right)", path: "Left → Right", action: "Left on child, Right on root", demo: [30, 10, 20] },
                     { name: "RL Case (Right-Left)", path: "Right → Left", action: "Right on child, Left on root", demo: [10, 30, 20] },
                   ].map((c, i) => (
-                    <div key={i} className="p-4 rounded-xl border border-stone-200 bg-stone-50/70 space-y-2">
-                      <span className="text-xs font-bold text-stone-900">{c.name}</span>
-                      <div className="text-[11px] text-stone-600">Path: <span className="font-mono text-orange-600">{c.path}</span></div>
-                      <div className="text-[11px] text-stone-600">Fix: {c.action}</div>
+                    <div key={i} className="p-4 rounded-xl border border-slate-800 bg-slate-950/70 space-y-2">
+                      <span className="text-xs font-bold text-white">{c.name}</span>
+                      <div className="text-[11px] text-slate-400">Path: <span className="font-mono text-orange-400">{c.path}</span></div>
+                      <div className="text-[11px] text-slate-400">Fix: {c.action}</div>
                       <button
                         onClick={() => {
                           setAvlKeys(c.demo);
                           setAvlRotationLog([`Loaded ${c.name} sequence: [${c.demo.join(", ")}]. Rotated into balanced root: ${c.demo[1]}`]);
                         }}
-                        className="w-full mt-2 py-1.5 bg-white hover:bg-stone-100 border border-stone-300 rounded-lg text-xs font-semibold text-stone-800 cursor-pointer"
+                        className="w-full mt-2 py-1.5 bg-slate-900/80 hover:bg-slate-950 border border-slate-700 rounded-lg text-xs font-semibold text-slate-200 cursor-pointer"
                       >
                         Load {c.name.split(" ")[0]} Demo
                       </button>
@@ -1302,19 +1302,19 @@ export default function JavaHeaps() {
                 </div>
 
                 {/* AVL Current Keys & Diagnostic Log */}
-                <div className="p-4 rounded-xl border border-stone-200 bg-white space-y-3">
+                <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/80 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-stone-800 uppercase tracking-wider">Active AVL Node Sequence:</span>
+                    <span className="text-xs font-bold text-slate-200 uppercase tracking-wider">Active AVL Node Sequence:</span>
                     <span className="text-xs font-mono text-emerald-600 font-bold">Balance Factor = 0 (Balanced)</span>
                   </div>
                   <div className="flex gap-2">
                     {avlKeys.map((k, idx) => (
-                      <div key={idx} className="p-2.5 px-4 bg-orange-50 border border-orange-200 rounded-xl font-mono text-sm font-bold text-orange-950">
+                      <div key={idx} className="p-2.5 px-4 bg-orange-500/15 border border-orange-500/30 rounded-xl font-mono text-sm font-bold text-orange-950">
                         {k}
                       </div>
                     ))}
                   </div>
-                  <div className="text-xs font-mono text-stone-600 bg-stone-50 p-2.5 rounded-lg border border-stone-200">
+                  <div className="text-xs font-mono text-slate-400 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
                     &gt; {avlRotationLog[0]}
                   </div>
                 </div>
@@ -1323,11 +1323,11 @@ export default function JavaHeaps() {
 
             {/* TOOL 7: RED-BLACK INVARIANTS */}
             {workbenchTool === "red-black" && (
-              <div className="p-6 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-6">
-                <div className="border-b border-stone-200 pb-4">
-                  <h3 className="text-lg font-bold text-stone-900">Red-Black Tree 5 Invariant Rules</h3>
-                  <p className="text-xs text-stone-600 mt-1">
-                    Instead of strict height balancing, Red-Black Trees enforce 5 color invariants that guarantee height is bounded by <code className="text-orange-600 font-mono">2 * log2(N + 1)</code>.
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-6">
+                <div className="border-b border-slate-800 pb-4">
+                  <h3 className="text-lg font-bold text-white">Red-Black Tree 5 Invariant Rules</h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Instead of strict height balancing, Red-Black Trees enforce 5 color invariants that guarantee height is bounded by <code className="text-orange-400 font-mono">2 * log2(N + 1)</code>.
                   </p>
                 </div>
 
@@ -1339,13 +1339,13 @@ export default function JavaHeaps() {
                     { rule: 4, title: "No Two Consecutive Red Nodes", desc: "If a node is red, both of its children MUST be black (red parent cannot have red child).", valid: true },
                     { rule: 5, title: "Equal Black-Height Invariant", desc: "Every path from any node to any descendant NIL leaf contains the exact same number of black nodes.", valid: true },
                   ].map((r) => (
-                    <div key={r.rule} className="p-4 rounded-xl border border-stone-200 bg-white flex items-start gap-3 shadow-2xs">
+                    <div key={r.rule} className="p-4 rounded-xl border border-slate-800 bg-slate-900/80 flex items-start gap-3 shadow-2xs">
                       <div className="w-6 h-6 rounded-full bg-red-100 text-red-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                         R{r.rule}
                       </div>
                       <div className="flex-1">
-                        <div className="text-sm font-bold text-stone-900">{r.title}</div>
-                        <div className="text-xs text-stone-600 mt-0.5">{r.desc}</div>
+                        <div className="text-sm font-bold text-white">{r.title}</div>
+                        <div className="text-xs text-slate-400 mt-0.5">{r.desc}</div>
                       </div>
                       <span className="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 text-[11px] font-mono font-bold flex items-center gap-1">
                         <ShieldCheck className="w-3.5 h-3.5" />
@@ -1355,8 +1355,8 @@ export default function JavaHeaps() {
                   ))}
                 </div>
 
-                <div className="p-4 rounded-xl bg-orange-50/70 border border-orange-200/80 text-xs text-orange-950 leading-relaxed">
-                  <strong>Industrial Use Case:</strong> Java&apos;s <code className="font-mono text-orange-800">TreeMap</code> and <code className="font-mono text-orange-800">TreeSet</code> are internally implemented as Red-Black Trees because their looser balance criteria require fewer rotations on insertions and deletions compared to AVL Trees while guaranteeing <code className="font-mono text-orange-800">O(log N)</code> search time.
+                <div className="p-4 rounded-xl bg-orange-500/15/70 border border-orange-500/30/80 text-xs text-orange-950 leading-relaxed">
+                  <strong>Industrial Use Case:</strong> Java&apos;s <code className="font-mono text-orange-300">TreeMap</code> and <code className="font-mono text-orange-300">TreeSet</code> are internally implemented as Red-Black Trees because their looser balance criteria require fewer rotations on insertions and deletions compared to AVL Trees while guaranteeing <code className="font-mono text-orange-300">O(log N)</code> search time.
                 </div>
               </div>
             )}
@@ -1372,21 +1372,21 @@ export default function JavaHeaps() {
             
             {/* Sidebar Table of Contents */}
             <div className="lg:col-span-4 space-y-4">
-              <div className="sticky top-20 p-4 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-stone-200">
-                  <span className="text-xs font-bold uppercase tracking-wider text-stone-700">Course Index</span>
-                  <span className="text-xs text-stone-500 font-mono">28 Sections</span>
+              <div className="sticky top-20 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-3">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Course Index</span>
+                  <span className="text-xs text-slate-400 font-mono">28 Sections</span>
                 </div>
 
                 {/* Filter Input */}
                 <div className="relative">
-                  <Search className="w-3.5 h-3.5 text-stone-400 absolute left-3 top-2.5" />
+                  <Search className="w-3.5 h-3.5 text-slate-500 absolute left-3 top-2.5" />
                   <input
                     type="text"
                     value={searchFilter}
                     onChange={(e) => setSearchFilter(e.target.value)}
                     placeholder="Search topics..."
-                    className="w-full pl-8 pr-3 py-1.5 rounded-lg border border-stone-200 text-xs focus:outline-hidden focus:ring-1 focus:ring-orange-500"
+                    className="w-full pl-8 pr-3 py-1.5 rounded-lg border border-slate-800 text-xs focus:outline-hidden focus:ring-1 focus:ring-orange-500"
                   />
                 </div>
 
@@ -1407,7 +1407,7 @@ export default function JavaHeaps() {
                         className={`w-full text-left p-2 rounded-lg flex items-start justify-between transition-colors cursor-pointer ${
                           isActive
                             ? "bg-orange-500 text-white font-semibold shadow-xs"
-                            : "text-stone-700 hover:bg-stone-100"
+                            : "text-slate-300 hover:bg-slate-950"
                         }`}
                       >
                         <span className="break-words whitespace-normal leading-snug flex-1 pr-2">{s.title}</span>
@@ -1429,14 +1429,14 @@ export default function JavaHeaps() {
                   <div
                     key={section.id}
                     id={section.anchor}
-                    className="p-6 sm:p-8 rounded-3xl bg-white border border-[#e7e3da] shadow-2xs space-y-4 scroll-mt-24"
+                    className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-4 scroll-mt-24"
                   >
-                    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-stone-100 pb-3">
+                    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/60 pb-3">
                       <div>
-                        <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-orange-600">
+                        <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-orange-400">
                           {section.category}
                         </span>
-                        <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mt-0.5">
+                        <h2 className="text-xl sm:text-2xl font-bold text-white mt-0.5">
                           {section.title}
                         </h2>
                       </div>
@@ -1445,16 +1445,16 @@ export default function JavaHeaps() {
                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer border transition-colors ${
                           isCompleted
                             ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                            : "bg-stone-50 text-stone-600 border-stone-200 hover:bg-stone-100"
+                            : "bg-slate-950 text-slate-400 border-slate-800 hover:bg-slate-950"
                         }`}
                       >
-                        <CheckCircle2 className={`w-4 h-4 ${isCompleted ? "text-emerald-600" : "text-stone-400"}`} />
+                        <CheckCircle2 className={`w-4 h-4 ${isCompleted ? "text-emerald-600" : "text-slate-500"}`} />
                         <span>{isCompleted ? "Completed" : "Mark as Done"}</span>
                       </button>
                     </div>
 
                     {/* Section Body */}
-                    <div className="text-stone-700 leading-relaxed text-sm">
+                    <div className="text-slate-300 leading-relaxed text-sm">
                       {section.content}
                     </div>
                   </div>
@@ -1469,11 +1469,11 @@ export default function JavaHeaps() {
         {/* TAB 3: DIAGNOSTIC QUIZ (15 MCQs)                          */}
         {/* ========================================================= */}
         {activeTab === "quiz" && (
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#e7e3da] shadow-2xs space-y-6">
-            <div className="border-b border-stone-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-6">
+            <div className="border-b border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <h3 className="text-xl font-bold text-stone-900">Module 13 Mastery Quiz (15 Assessment MCQs)</h3>
-                <p className="text-xs text-stone-600 mt-1">
+                <h3 className="text-xl font-bold text-white">Module 13 Mastery Quiz (15 Assessment MCQs)</h3>
+                <p className="text-xs text-slate-400 mt-1">
                   Evaluate your understanding of binary heaps, PriorityQueue mechanics, streaming algorithms, and self-balancing trees.
                 </p>
               </div>
@@ -1492,9 +1492,9 @@ export default function JavaHeaps() {
                 const isCorrect = selectedOpt === q.correct;
 
                 return (
-                  <div key={q.id} className="p-5 rounded-2xl border border-stone-200 bg-stone-50/50 space-y-3">
+                  <div key={q.id} className="p-5 rounded-2xl border border-slate-800 bg-slate-950/50 space-y-3">
                     <div className="flex items-start justify-between gap-2">
-                      <span className="text-sm font-bold text-stone-900">
+                      <span className="text-sm font-bold text-white">
                         {idx + 1}. {q.question}
                       </span>
                       {showQuizResults && isAnswered && (
@@ -1516,7 +1516,7 @@ export default function JavaHeaps() {
                             className={`p-3 rounded-xl text-xs text-left border transition-all cursor-pointer ${
                               isSelected
                                 ? "bg-orange-500 text-white border-orange-600 font-medium shadow-xs"
-                                : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50"
+                                : "bg-slate-900/80 text-slate-200 border-slate-800 hover:bg-slate-950"
                             }`}
                           >
                             <span className="font-mono font-bold mr-2">{String.fromCharCode(65 + oIdx)}.</span>
@@ -1527,7 +1527,7 @@ export default function JavaHeaps() {
                     </div>
 
                     {showQuizResults && (
-                      <div className="p-3 rounded-xl bg-orange-50/80 border border-orange-200 text-xs text-stone-800 leading-relaxed space-y-1">
+                      <div className="p-3 rounded-xl bg-orange-500/15/80 border border-orange-500/30 text-xs text-slate-200 leading-relaxed space-y-1">
                         <div className="font-bold text-orange-950">
                           Correct Answer: Option {String.fromCharCode(65 + q.correct)} ({q.options[q.correct]})
                         </div>
@@ -1545,23 +1545,23 @@ export default function JavaHeaps() {
         {/* TAB 4: 45 PRACTICE LABS TRACKER                           */}
         {/* ========================================================= */}
         {activeTab === "labs" && (
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#e7e3da] shadow-2xs space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-200 pb-4">
+          <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
               <div>
-                <h3 className="text-xl font-bold text-stone-900">45 Practical Coding Laboratories Tracker</h3>
-                <p className="text-xs text-stone-600 mt-1">
+                <h3 className="text-xl font-bold text-white">45 Practical Coding Laboratories Tracker</h3>
+                <p className="text-xs text-slate-400 mt-1">
                   Hierarchical problem progression from array heap implementations to advanced Red-Black recoloring and high-throughput leaderboards.
                 </p>
               </div>
 
               {/* Tier Filters */}
-              <div className="flex rounded-xl bg-stone-100 p-1">
+              <div className="flex rounded-xl bg-slate-950 p-1">
                 {["All", "Beginner", "Intermediate", "Advanced"].map(t => (
                   <button
                     key={t}
                     onClick={() => setLabTierFilter(t)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer ${
-                      labTierFilter === t ? "bg-white text-stone-900 shadow-2xs" : "text-stone-600"
+                      labTierFilter === t ? "bg-slate-900/80 text-white shadow-2xs" : "text-slate-400"
                     }`}
                   >
                     {t}
@@ -1582,26 +1582,26 @@ export default function JavaHeaps() {
                       className={`p-4 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between space-y-2 ${
                         isDone
                           ? "bg-emerald-50/50 border-emerald-200 shadow-xs"
-                          : "bg-white border-stone-200 hover:border-orange-300"
+                          : "bg-slate-900/80 border-slate-800 hover:border-orange-500/40"
                       }`}
                     >
                       <div className="space-y-1">
                         <div className="flex items-center justify-between">
                           <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase ${
                             lab.tier === "Beginner"
-                              ? "bg-blue-100 text-blue-800"
+                              ? "bg-orange-500/15 text-orange-300 border border-orange-500/30"
                               : lab.tier === "Intermediate"
                               ? "bg-amber-100 text-amber-800"
                               : "bg-orange-500 text-orange-400"
                           }`}>
                             {lab.tier} #{lab.id}
                           </span>
-                          <CheckCircle2 className={`w-4 h-4 ${isDone ? "text-emerald-600" : "text-stone-300"}`} />
+                          <CheckCircle2 className={`w-4 h-4 ${isDone ? "text-emerald-600" : "text-slate-400"}`} />
                         </div>
-                        <h4 className="text-sm font-bold text-stone-900 pt-1">{lab.title}</h4>
-                        <p className="text-xs text-stone-600 leading-snug">{lab.desc}</p>
+                        <h4 className="text-sm font-bold text-white pt-1">{lab.title}</h4>
+                        <p className="text-xs text-slate-400 leading-snug">{lab.desc}</p>
                       </div>
-                      <div className="text-[11px] font-medium text-stone-400 pt-2 border-t border-stone-100">
+                      <div className="text-[11px] font-medium text-slate-500 pt-2 border-t border-slate-800/60">
                         {isDone ? "Status: Completed" : "Status: In Progress"}
                       </div>
                     </div>

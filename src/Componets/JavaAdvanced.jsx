@@ -457,47 +457,47 @@ export default function JavaAdvanced() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 pb-16 selection:bg-orange-500/20 selection:text-orange-900">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Top Banner / Breadcrumb */}
-      <div className="border-b border-[#e7e3da] bg-white/80 backdrop-blur-md sticky top-0 z-30">
+      <div className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <button
               onClick={() => goBack()}
-              className="p-1.5 rounded-lg border border-[#e7e3da] hover:bg-stone-100 text-stone-600 transition"
+              className="p-1.5 rounded-lg border border-slate-800 hover:bg-slate-950 text-slate-400 transition"
               title="Return to Track Overview"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
-            <div className="flex items-center gap-1.5 text-xs text-stone-500">
-              <span className="font-semibold text-stone-800">Java Master Course</span>
+            <div className="flex items-center gap-1.5 text-xs text-slate-400">
+              <span className="font-semibold text-slate-200">Java Master Course</span>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-orange-600 font-bold">Module 5: Advanced Java Programming</span>
+              <span className="text-orange-400 font-bold">Module 5: Advanced Java Programming</span>
             </div>
           </div>
 
           {/* Mode Switcher */}
-          <div className="flex items-center bg-[#f4f1ea] p-1 rounded-xl border border-[#e7e3da]">
+          <div className="flex items-center bg-[#f4f1ea] p-1 rounded-xl border border-slate-800">
             <button
               onClick={() => setActiveTab("curriculum")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 activeTab === "curriculum"
-                  ? "bg-white text-stone-900 shadow-2xs"
-                  : "text-stone-600 hover:text-stone-900"
+                  ? "bg-slate-900/80 text-white shadow-2xs"
+                  : "text-slate-400 hover:text-white"
               }`}
             >
-              <BookOpen className="w-3.5 h-3.5 text-orange-600" />
+              <BookOpen className="w-3.5 h-3.5 text-orange-400" />
               <span>Curriculum (43 Sections)</span>
             </button>
             <button
               onClick={() => setActiveTab("workbench")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 activeTab === "workbench"
-                  ? "bg-white text-stone-900 shadow-2xs"
-                  : "text-stone-600 hover:text-stone-900"
+                  ? "bg-slate-900/80 text-white shadow-2xs"
+                  : "text-slate-400 hover:text-white"
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5 text-orange-600" />
+              <Sparkles className="w-3.5 h-3.5 text-orange-400" />
               <span>Interactive Workbenches (9 Labs)</span>
             </button>
           </div>
@@ -513,7 +513,7 @@ export default function JavaAdvanced() {
               <span className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 font-mono text-xs font-bold border border-orange-500/30">
                 MODULE 5
               </span>
-              <span className="px-3 py-1 rounded-full bg-stone-800 text-stone-300 text-xs font-medium border border-stone-700">
+              <span className="px-3 py-1 rounded-full bg-stone-800 text-slate-400 text-xs font-medium border border-stone-700">
                 14-16 Hours Study Time
               </span>
               <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
@@ -524,7 +524,7 @@ export default function JavaAdvanced() {
             <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
               Advanced Java Programming & Standard Library
             </h1>
-            <p className="text-sm sm:text-base text-stone-300 max-w-3xl leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-400 max-w-3xl leading-relaxed">
               Master industrial Java engineering: robust exception hierarchies, custom exceptions, try-with-resources, generic classes/methods, bounded wildcards (PECS), Collections Framework deep dive, lambdas, functional interfaces, Stream API pipelines, collectors, Optional monadic flow, NIO.2 file handling, byte/character streams, and serialization security.
             </p>
 
@@ -569,7 +569,7 @@ export default function JavaAdvanced() {
         ) : (
           <div className="mt-8 space-y-8">
             {/* WORKBENCH SUB-TABS */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-[#e7e3da] text-xs font-semibold [scrollbar-width:none]">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800 text-xs font-semibold [scrollbar-width:none]">
               {[
                 { id: "exception-studio", label: "1. Exception Call Stack Studio", icon: AlertTriangle },
                 { id: "generics-lab", label: "2. Generics & PECS Lab", icon: Box },
@@ -590,7 +590,7 @@ export default function JavaAdvanced() {
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-orange-600 text-white font-bold shadow-xs"
-                        : "bg-white text-stone-600 hover:text-stone-900 border border-stone-200 hover:bg-stone-50"
+                        : "bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800 hover:bg-slate-950"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />
@@ -603,21 +603,21 @@ export default function JavaAdvanced() {
             {/* 1. EXCEPTION CALL STACK STUDIO */}
             {activeWorkbenchTab === "exception-studio" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-100 pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                        <AlertTriangle className="w-5 h-5 text-orange-400" />
                         JVM Call Stack Unwinding & Exception Propagation Simulator
                       </h3>
-                      <p className="text-xs text-stone-500 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         Visualize how the Java Virtual Machine searches the runtime call stack frame-by-frame for matching catch blocks, checked exception contracts, and finally block guarantees.
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
                       <button
                         onClick={handleResetStack}
-                        className="px-3 py-1.5 rounded-lg border border-stone-300 text-xs font-semibold text-stone-700 hover:bg-stone-50 flex items-center gap-1.5"
+                        className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-semibold text-slate-300 hover:bg-slate-950 flex items-center gap-1.5"
                       >
                         <RefreshCw className="w-3.5 h-3.5" />
                         <span>Reset Stack</span>
@@ -628,8 +628,8 @@ export default function JavaAdvanced() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     {/* Controls & Active Exception */}
                     <div className="lg:col-span-4 space-y-4">
-                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-stone-200 space-y-3">
-                        <label className="text-xs font-bold text-stone-700 uppercase tracking-wider block">
+                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-slate-800 space-y-3">
+                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
                           Select Throwable to Trigger:
                         </label>
                         <div className="space-y-2">
@@ -644,17 +644,17 @@ export default function JavaAdvanced() {
                               onClick={() => handleThrowException(ex.name)}
                               className={`w-full text-left p-3 rounded-lg border transition ${
                                 activeException === ex.name
-                                  ? "bg-orange-50 border-orange-300 text-orange-950 font-bold"
-                                  : "bg-white border-stone-200 text-stone-800 hover:bg-stone-50"
+                                  ? "bg-orange-500/15 border-orange-500/40 text-orange-950 font-bold"
+                                  : "bg-slate-900/80 border-slate-800 text-slate-200 hover:bg-slate-950"
                               } ${stackStatus !== "idle" ? "opacity-60 cursor-not-allowed" : ""}`}
                             >
                               <div className="flex items-center justify-between text-xs">
                                 <span>{ex.name}</span>
-                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 font-mono text-stone-600">
+                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-950 font-mono text-slate-400">
                                   {ex.type}
                                 </span>
                               </div>
-                              <div className="text-[11px] text-stone-500 font-normal mt-0.5">{ex.desc}</div>
+                              <div className="text-[11px] text-slate-400 font-normal mt-0.5">{ex.desc}</div>
                             </button>
                           ))}
                         </div>
@@ -666,7 +666,7 @@ export default function JavaAdvanced() {
                             className={`w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition ${
                               stackStatus === "thrown" || stackStatus === "unwinding"
                                 ? "bg-orange-600 text-white hover:bg-orange-500 shadow-sm"
-                                : "bg-stone-200 text-stone-400 cursor-not-allowed"
+                                : "bg-slate-800 text-slate-500 cursor-not-allowed"
                             }`}
                           >
                             <Play className="w-3.5 h-3.5" />
@@ -686,9 +686,9 @@ export default function JavaAdvanced() {
 
                     {/* Visual Stack Frames */}
                     <div className="lg:col-span-8 space-y-4">
-                      <div className="text-xs font-bold text-stone-700 uppercase tracking-wider flex items-center justify-between">
+                      <div className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
                         <span>JVM Thread Stack (Top = Active Frame)</span>
-                        <span className="text-stone-500 font-mono font-normal">State: {stackStatus.toUpperCase()}</span>
+                        <span className="text-slate-400 font-mono font-normal">State: {stackStatus.toUpperCase()}</span>
                       </div>
 
                       <div className="space-y-2">
@@ -704,24 +704,24 @@ export default function JavaAdvanced() {
                                 isCaughtHere
                                   ? "bg-emerald-50 border-emerald-400 shadow-xs"
                                   : isPopped
-                                  ? "bg-stone-100/70 border-stone-200 opacity-40 line-through text-stone-400"
+                                  ? "bg-slate-950/70 border-slate-800 opacity-40 line-through text-slate-500"
                                   : isCurrent
-                                  ? "bg-orange-50/80 border-orange-400 shadow-sm"
-                                  : "bg-white border-stone-200 text-stone-800"
+                                  ? "bg-orange-500/15/80 border-orange-400 shadow-sm"
+                                  : "bg-slate-900/80 border-slate-800 text-slate-200"
                               }`}
                             >
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
-                                  <span className="font-mono text-xs font-bold text-stone-900">{frame.method}</span>
-                                  <span className="text-xs text-stone-500 font-mono">({frame.file}:{frame.line})</span>
+                                  <span className="font-mono text-xs font-bold text-white">{frame.method}</span>
+                                  <span className="text-xs text-slate-400 font-mono">({frame.file}:{frame.line})</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                   {frame.hasTryCatch ? (
-                                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800">
+                                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-orange-500/15 text-orange-300 border border-orange-500/30">
                                       catches [{frame.catches.join(", ")}]
                                     </span>
                                   ) : (
-                                    <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-stone-100 text-stone-500">
+                                    <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-950 text-slate-400">
                                       no local catch
                                     </span>
                                   )}
@@ -744,7 +744,7 @@ export default function JavaAdvanced() {
 
                       {/* Event Log Console */}
                       <div className="mt-4 bg-stone-950 text-stone-200 p-4 rounded-xl font-mono text-xs space-y-1.5 max-h-48 overflow-y-auto border border-stone-800">
-                        <div className="text-[10px] uppercase font-bold text-stone-400 mb-1 border-b border-stone-800 pb-1">
+                        <div className="text-[10px] uppercase font-bold text-slate-500 mb-1 border-b border-stone-800 pb-1">
                           JVM Execution & Unwinding Log
                         </div>
                         {stackLogs.map((log, i) => (
@@ -763,28 +763,28 @@ export default function JavaAdvanced() {
             {/* 2. GENERICS & PECS LAB */}
             {activeWorkbenchTab === "generics-lab" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-                      <Box className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <Box className="w-5 h-5 text-orange-400" />
                       Generics, Bounded Types & PECS (Producer Extends, Consumer Super)
                     </h3>
-                    <p className="text-xs text-stone-500 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Experience compile-time type safety, verify bounded wildcard read/write constraints, and inspect JVM type erasure bytecode decompilation.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* Generic Box<T> Studio */}
-                    <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-stone-200 space-y-4">
-                      <h4 className="text-xs font-bold text-stone-800 uppercase tracking-wider flex items-center gap-2">
-                        <Code2 className="w-4 h-4 text-orange-600" />
+                    <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-slate-800 space-y-4">
+                      <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                        <Code2 className="w-4 h-4 text-orange-400" />
                         Generic Container: Box&lt;T extends Number&gt;
                       </h4>
 
                       <div className="space-y-3">
                         <div>
-                          <label className="text-xs text-stone-600 font-medium block mb-1">
+                          <label className="text-xs text-slate-400 font-medium block mb-1">
                             Choose Type Parameter &lt;T&gt;:
                           </label>
                           <div className="grid grid-cols-3 gap-2">
@@ -796,8 +796,8 @@ export default function JavaAdvanced() {
                                   genericType === t
                                     ? t === "String"
                                       ? "bg-rose-50 border-rose-400 text-rose-800"
-                                      : "bg-orange-50 border-orange-300 text-orange-900"
-                                    : "bg-white border-stone-200 text-stone-700 hover:bg-stone-50"
+                                      : "bg-orange-500/15 border-orange-500/40 text-orange-900"
+                                    : "bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-950"
                                 }`}
                               >
                                 &lt;{t}&gt;
@@ -825,10 +825,10 @@ export default function JavaAdvanced() {
                         )}
 
                         <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs">
-                          <div className="text-stone-400">// Java Source Definition</div>
+                          <div className="text-slate-500">// Java Source Definition</div>
                           <span className="text-orange-400">public class</span> Box&lt;<span className="text-amber-300">T extends Number</span>&gt; &#123;<br />
                           &nbsp;&nbsp;<span className="text-orange-400">private</span> T value;<br />
-                          &nbsp;&nbsp;<span className="text-orange-400">public void</span> set(T v) &#123; <span className="text-stone-400">this</span>.value = v; &#125;<br />
+                          &nbsp;&nbsp;<span className="text-orange-400">public void</span> set(T v) &#123; <span className="text-slate-500">this</span>.value = v; &#125;<br />
                           &nbsp;&nbsp;<span className="text-orange-400">public</span> T get() &#123; <span className="text-orange-400">return</span> value; &#125;<br />
                           &#125;
                         </div>
@@ -836,10 +836,10 @@ export default function JavaAdvanced() {
                     </div>
 
                     {/* PECS Rule Visualizer */}
-                    <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-stone-200 space-y-4">
+                    <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-slate-800 space-y-4">
                       <div className="flex items-center justify-between">
-                        <h4 className="text-xs font-bold text-stone-800 uppercase tracking-wider flex items-center gap-2">
-                          <SlidersHorizontal className="w-4 h-4 text-orange-600" />
+                        <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                          <SlidersHorizontal className="w-4 h-4 text-orange-400" />
                           PECS Rule Interactive Demonstration
                         </h4>
                         <div className="flex items-center gap-1">
@@ -848,7 +848,7 @@ export default function JavaAdvanced() {
                             className={`px-2.5 py-1 rounded-md text-[11px] font-bold border transition ${
                               pecsScenario === "producer"
                                 ? "bg-orange-600 text-white border-orange-600"
-                                : "bg-white text-stone-600 border-stone-200"
+                                : "bg-slate-900/80 text-slate-400 border-slate-800"
                             }`}
                           >
                             ? extends T (Producer)
@@ -858,7 +858,7 @@ export default function JavaAdvanced() {
                             className={`px-2.5 py-1 rounded-md text-[11px] font-bold border transition ${
                               pecsScenario === "consumer"
                                 ? "bg-orange-600 text-white border-orange-600"
-                                : "bg-white text-stone-600 border-stone-200"
+                                : "bg-slate-900/80 text-slate-400 border-slate-800"
                             }`}
                           >
                             ? super T (Consumer)
@@ -881,13 +881,13 @@ export default function JavaAdvanced() {
                               <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-rose-200 text-rose-900">FORBIDDEN (Read-Only)</span>
                             </div>
                           </div>
-                          <p className="text-[11px] text-stone-500">
+                          <p className="text-[11px] text-slate-400">
                             Why forbidden? Because <code>List&lt;? extends Number&gt;</code> could be a <code>List&lt;Double&gt;</code> at runtime; inserting an Integer would corrupt type safety!
                           </p>
                         </div>
                       ) : (
                         <div className="space-y-3">
-                          <div className="p-3 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-900 leading-relaxed">
+                          <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-300 leading-relaxed">
                             <span className="font-bold">CONSUMER SUPER:</span> When you WRITE into a collection, use <code>List&lt;? super Integer&gt;</code>. It consumes items.
                           </div>
                           <div className="space-y-2 text-xs">
@@ -900,17 +900,17 @@ export default function JavaAdvanced() {
                               <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-200 text-amber-900">RETURNS OBJECT</span>
                             </div>
                           </div>
-                          <p className="text-[11px] text-stone-500">
+                          <p className="text-[11px] text-slate-400">
                             Because the list holds Integer or any superclass (Number, Object), writing an Integer is 100% type-safe, but reading only yields Object.
                           </p>
                         </div>
                       )}
 
                       {/* Bytecode Erasure Toggle */}
-                      <div className="pt-2 border-t border-stone-200">
+                      <div className="pt-2 border-t border-slate-800">
                         <button
                           onClick={() => setShowErasureBytecode(!showErasureBytecode)}
-                          className="text-xs font-semibold text-orange-600 hover:text-orange-700 flex items-center gap-1.5"
+                          className="text-xs font-semibold text-orange-400 hover:text-orange-300 flex items-center gap-1.5"
                         >
                           <Terminal className="w-3.5 h-3.5" />
                           <span>{showErasureBytecode ? "Hide JVM Bytecode Erasure" : "Inspect JVM Bytecode Erasure (javap -c)"}</span>
@@ -918,7 +918,7 @@ export default function JavaAdvanced() {
 
                         {showErasureBytecode && (
                           <div className="mt-3 p-3 rounded-xl bg-stone-900 text-stone-200 font-mono text-[11px] leading-relaxed">
-                            <div className="text-stone-400">// javap -c Box.class (Notice: T is erased to java.lang.Number!)</div>
+                            <div className="text-slate-500">// javap -c Box.class (Notice: T is erased to java.lang.Number!)</div>
                             public class Box &#123;<br />
                             &nbsp;&nbsp;java.lang.Number value;<br />
                             &nbsp;&nbsp;public void set(java.lang.Number);<br />
@@ -940,13 +940,13 @@ export default function JavaAdvanced() {
             {/* 3. COLLECTIONS BENCHMARK & ARCHITECTURE */}
             {activeWorkbenchTab === "collections-studio" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-                      <Layers className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <Layers className="w-5 h-5 text-orange-400" />
                       Collections Framework Architecture & Live Benchmark Matrix
                     </h3>
-                    <p className="text-xs text-stone-500 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Compare internal memory allocation, node pointer overhead, treeification thresholds, and asymptotic time complexities across List, Set, and Map implementations.
                     </p>
                   </div>
@@ -964,7 +964,7 @@ export default function JavaAdvanced() {
                             className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition ${
                               collectionCategory === cat
                                 ? "bg-orange-600 text-white shadow-xs"
-                                : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                                : "bg-slate-950 text-slate-300 hover:bg-slate-800"
                             }`}
                           >
                             {cat} Hierarchy
@@ -984,20 +984,20 @@ export default function JavaAdvanced() {
                     {/* Benchmark Results Display */}
                     {simulatedOps ? (
                       <div className="space-y-3">
-                        <div className="text-xs font-bold text-stone-800 uppercase tracking-wider">
+                        <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">
                           Simulation Results: {simulatedOps.type} (n = 100,000 elements)
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                           {simulatedOps.results.map((res, i) => (
-                            <div key={i} className="p-4 rounded-xl border border-stone-200 bg-[#fcfbf9] space-y-2">
-                              <div className="text-sm font-black text-orange-600 border-b border-stone-200 pb-1.5 flex items-center justify-between">
+                            <div key={i} className="p-4 rounded-xl border border-slate-800 bg-[#fcfbf9] space-y-2">
+                              <div className="text-sm font-black text-orange-400 border-b border-slate-800 pb-1.5 flex items-center justify-between">
                                 <span>{res.impl}</span>
-                                <span className="text-[10px] font-mono text-stone-500">Benchmark Tested</span>
+                                <span className="text-[10px] font-mono text-slate-400">Benchmark Tested</span>
                               </div>
                               {Object.entries(res).filter(([k]) => k !== "impl").map(([k, v]) => (
                                 <div key={k} className="text-xs flex flex-col gap-0.5">
-                                  <span className="text-stone-500 font-mono text-[10px] uppercase">{k}:</span>
-                                  <span className="font-semibold text-stone-800">{v}</span>
+                                  <span className="text-slate-400 font-mono text-[10px] uppercase">{k}:</span>
+                                  <span className="font-semibold text-slate-200">{v}</span>
                                 </div>
                               ))}
                             </div>
@@ -1005,10 +1005,10 @@ export default function JavaAdvanced() {
                         </div>
                       </div>
                     ) : (
-                      <div className="p-8 text-center rounded-2xl bg-[#fcfbf9] border border-dashed border-stone-300">
-                        <Layers className="w-8 h-8 text-stone-400 mx-auto mb-2" />
-                        <div className="text-xs font-bold text-stone-700">Click 'Run 100,000 Operations Benchmark'</div>
-                        <p className="text-xs text-stone-500 mt-1 max-w-md mx-auto">
+                      <div className="p-8 text-center rounded-2xl bg-[#fcfbf9] border border-dashed border-slate-700">
+                        <Layers className="w-8 h-8 text-slate-500 mx-auto mb-2" />
+                        <div className="text-xs font-bold text-slate-300">Click 'Run 100,000 Operations Benchmark'</div>
+                        <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
                           Generates side-by-side empirical performance metrics and heap memory footprint comparisons for {collectionCategory.toUpperCase()} implementations.
                         </p>
                       </div>
@@ -1016,11 +1016,11 @@ export default function JavaAdvanced() {
 
                     {/* Architecture Hierarchy Blueprint */}
                     <div className="p-4 rounded-xl bg-stone-900 text-stone-100 font-mono text-xs space-y-2">
-                      <div className="text-stone-400 text-[11px] font-bold uppercase">Collections Framework Class Tree (JDK 21)</div>
+                      <div className="text-slate-500 text-[11px] font-bold uppercase">Collections Framework Class Tree (JDK 21)</div>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
                         <div>
                           <div className="text-orange-400 font-bold">List&lt;E&gt;</div>
-                          <div className="text-stone-300 text-[11px] mt-1 space-y-1">
+                          <div className="text-slate-400 text-[11px] mt-1 space-y-1">
                             <div>├── ArrayList (Dynamic array)</div>
                             <div>├── LinkedList (Doubly linked)</div>
                             <div>└── Vector / Stack (Legacy)</div>
@@ -1028,7 +1028,7 @@ export default function JavaAdvanced() {
                         </div>
                         <div>
                           <div className="text-orange-400 font-bold">Set&lt;E&gt;</div>
-                          <div className="text-stone-300 text-[11px] mt-1 space-y-1">
+                          <div className="text-slate-400 text-[11px] mt-1 space-y-1">
                             <div>├── HashSet (O(1) hash bucket)</div>
                             <div>├── LinkedHashSet (Insertion order)</div>
                             <div>└── TreeSet (Red-Black O(log n))</div>
@@ -1036,7 +1036,7 @@ export default function JavaAdvanced() {
                         </div>
                         <div>
                           <div className="text-orange-400 font-bold">Map&lt;K, V&gt;</div>
-                          <div className="text-stone-300 text-[11px] mt-1 space-y-1">
+                          <div className="text-slate-400 text-[11px] mt-1 space-y-1">
                             <div>├── HashMap (Bucket + Treeify 8)</div>
                             <div>├── LinkedHashMap (LRU order)</div>
                             <div>└── TreeMap (Sorted Red-Black)</div>
@@ -1052,13 +1052,13 @@ export default function JavaAdvanced() {
             {/* 4. FUNCTIONAL INTERFACES & LAMBDAS PLAYGROUND */}
             {activeWorkbenchTab === "functional-playground" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-                      <Zap className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-orange-400" />
                       Functional Interfaces & Lambda Expression Playground
                     </h3>
-                    <p className="text-xs text-stone-500 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Experiment with the foundational four functional interfaces in <code>java.util.function</code>, test custom lambda behaviors, and translate to method references (<code>::</code>).
                     </p>
                   </div>
@@ -1066,7 +1066,7 @@ export default function JavaAdvanced() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     {/* Select Interface */}
                     <div className="lg:col-span-4 space-y-3">
-                      <label className="text-xs font-bold text-stone-700 uppercase tracking-wider block">
+                      <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
                         Core Functional Interface:
                       </label>
                       <div className="space-y-2">
@@ -1076,12 +1076,12 @@ export default function JavaAdvanced() {
                             onClick={() => setSelectedFI(name)}
                             className={`w-full text-left p-3 rounded-xl border transition ${
                               selectedFI === name
-                                ? "bg-orange-50 border-orange-300 text-orange-950 font-bold shadow-2xs"
-                                : "bg-white border-stone-200 text-stone-700 hover:bg-stone-50"
+                                ? "bg-orange-500/15 border-orange-500/40 text-orange-950 font-bold shadow-2xs"
+                                : "bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-950"
                             }`}
                           >
                             <div className="text-xs font-bold">{name}&lt;T...&gt;</div>
-                            <div className="text-[11px] text-stone-500 font-mono mt-0.5">
+                            <div className="text-[11px] text-slate-400 font-mono mt-0.5">
                               {name === "Predicate" && "T -> boolean (Condition testing)"}
                               {name === "Function" && "T -> R (Transformation mapping)"}
                               {name === "Consumer" && "T -> void (Side-effect consumer)"}
@@ -1092,24 +1092,24 @@ export default function JavaAdvanced() {
                       </div>
 
                       {/* Interactive Inputs */}
-                      <div className="pt-3 border-t border-stone-200 space-y-3">
+                      <div className="pt-3 border-t border-slate-800 space-y-3">
                         <div>
-                          <label className="text-xs font-semibold text-stone-700 block mb-1">
+                          <label className="text-xs font-semibold text-slate-300 block mb-1">
                             Input Argument (String):
                           </label>
                           <input
                             type="text"
                             value={fiInput}
                             onChange={(e) => setFiInput(e.target.value)}
-                            className="w-full px-3 py-2 rounded-lg border border-stone-300 text-xs font-mono focus:outline-none focus:border-orange-500"
+                            className="w-full px-3 py-2 rounded-lg border border-slate-700 text-xs font-mono focus:outline-none focus:border-orange-500"
                           />
                         </div>
 
                         {selectedFI === "Predicate" && (
                           <div>
-                            <label className="text-xs font-semibold text-stone-700 flex justify-between mb-1">
+                            <label className="text-xs font-semibold text-slate-300 flex justify-between mb-1">
                               <span>Length Threshold:</span>
-                              <span className="font-mono text-orange-600 font-bold">{fiThreshold}</span>
+                              <span className="font-mono text-orange-400 font-bold">{fiThreshold}</span>
                             </label>
                             <input
                               type="range"
@@ -1126,9 +1126,9 @@ export default function JavaAdvanced() {
 
                     {/* Execution Display */}
                     <div className="lg:col-span-8 space-y-4">
-                      <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-stone-200 space-y-4">
+                      <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-slate-800 space-y-4">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider font-mono">
+                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">
                             {fiExecutionResult.signature}
                           </span>
                           <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold font-mono">
@@ -1137,20 +1137,20 @@ export default function JavaAdvanced() {
                         </div>
 
                         <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs space-y-2">
-                          <div className="text-stone-400">// Lambda Expression Target</div>
+                          <div className="text-slate-500">// Lambda Expression Target</div>
                           <div className="text-amber-300">{fiExecutionResult.code}</div>
-                          <div className="text-stone-400 pt-2">// Method Reference Equivalent (::)</div>
+                          <div className="text-slate-500 pt-2">// Method Reference Equivalent (::)</div>
                           <div className="text-emerald-400">{fiExecutionResult.methodRefEquivalent}</div>
                         </div>
 
-                        <div className="p-4 rounded-xl bg-white border border-stone-200 space-y-2">
-                          <div className="text-xs font-bold text-stone-500 uppercase tracking-wider">
+                        <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                             Evaluation Result:
                           </div>
-                          <div className="text-base font-black text-stone-900 font-mono">
+                          <div className="text-base font-black text-white font-mono">
                             {String(fiExecutionResult.evaluated)}
                           </div>
-                          <div className="text-[11px] text-stone-500 font-mono">
+                          <div className="text-[11px] text-slate-400 font-mono">
                             Return Type: {fiExecutionResult.displayType}
                           </div>
                         </div>
@@ -1164,13 +1164,13 @@ export default function JavaAdvanced() {
             {/* 5. STREAM PIPELINE STUDIO */}
             {activeWorkbenchTab === "stream-studio" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-                      <Workflow className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <Workflow className="w-5 h-5 text-orange-400" />
                       Stream API Pipeline & Multi-Stage Collector Visualizer
                     </h3>
-                    <p className="text-xs text-stone-500 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Construct lazy functional pipelines on real dataset records. Watch intermediate filters and mappers flow directly into terminal collectors.
                     </p>
                   </div>
@@ -1178,16 +1178,16 @@ export default function JavaAdvanced() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     {/* Pipeline Controls */}
                     <div className="lg:col-span-4 space-y-4">
-                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-stone-200 space-y-4">
-                        <div className="text-xs font-bold text-stone-800 uppercase tracking-wider">
+                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-slate-800 space-y-4">
+                        <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">
                           Pipeline Step Controls:
                         </div>
 
                         {/* Filter Min Experience */}
                         <div>
-                          <label className="text-xs text-stone-600 font-semibold flex justify-between mb-1">
+                          <label className="text-xs text-slate-400 font-semibold flex justify-between mb-1">
                             <span>.filter(e -&gt; e.exp &gt;= {streamMinExp})</span>
-                            <span className="font-mono text-orange-600 font-bold">{streamMinExp} yrs</span>
+                            <span className="font-mono text-orange-400 font-bold">{streamMinExp} yrs</span>
                           </label>
                           <input
                             type="range"
@@ -1201,13 +1201,13 @@ export default function JavaAdvanced() {
 
                         {/* Filter Department */}
                         <div>
-                          <label className="text-xs text-stone-600 font-semibold block mb-1">
+                          <label className="text-xs text-slate-400 font-semibold block mb-1">
                             .filter(e -&gt; e.dept.equals(...))
                           </label>
                           <select
                             value={streamDept}
                             onChange={(e) => setStreamDept(e.target.value)}
-                            className="w-full px-3 py-2 rounded-lg border border-stone-300 text-xs bg-white focus:outline-none focus:border-orange-500"
+                            className="w-full px-3 py-2 rounded-lg border border-slate-700 text-xs bg-slate-900/80 focus:outline-none focus:border-orange-500"
                           >
                             <option value="ALL">All Departments</option>
                             <option value="Backend">Backend</option>
@@ -1218,13 +1218,13 @@ export default function JavaAdvanced() {
 
                         {/* Sort */}
                         <div>
-                          <label className="text-xs text-stone-600 font-semibold block mb-1">
+                          <label className="text-xs text-slate-400 font-semibold block mb-1">
                             .sorted(Comparator...)
                           </label>
                           <select
                             value={streamSort}
                             onChange={(e) => setStreamSort(e.target.value)}
-                            className="w-full px-3 py-2 rounded-lg border border-stone-300 text-xs bg-white focus:outline-none focus:border-orange-500"
+                            className="w-full px-3 py-2 rounded-lg border border-slate-700 text-xs bg-slate-900/80 focus:outline-none focus:border-orange-500"
                           >
                             <option value="salaryDesc">Salary (Highest First)</option>
                             <option value="salaryAsc">Salary (Lowest First)</option>
@@ -1235,13 +1235,13 @@ export default function JavaAdvanced() {
 
                         {/* Terminal Collector */}
                         <div>
-                          <label className="text-xs text-stone-600 font-semibold block mb-1">
+                          <label className="text-xs text-slate-400 font-semibold block mb-1">
                             Terminal Operation .collect(...)
                           </label>
                           <select
                             value={streamCollector}
                             onChange={(e) => setStreamCollector(e.target.value)}
-                            className="w-full px-3 py-2 rounded-lg border border-stone-300 text-xs bg-white focus:outline-none focus:border-orange-500"
+                            className="w-full px-3 py-2 rounded-lg border border-slate-700 text-xs bg-slate-900/80 focus:outline-none focus:border-orange-500"
                           >
                             <option value="toList">.toList() (List of records)</option>
                             <option value="averageSalary">Collectors.averagingInt(Salary)</option>
@@ -1252,7 +1252,7 @@ export default function JavaAdvanced() {
 
                       {/* Stream Code Generator */}
                       <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-[11px] leading-relaxed">
-                        <div className="text-stone-400">// Equivalent Java Stream Pipeline</div>
+                        <div className="text-slate-500">// Equivalent Java Stream Pipeline</div>
                         engineers.stream()<br />
                         &nbsp;&nbsp;.filter(e -&gt; e.getExp() &gt;= {streamMinExp})<br />
                         {streamDept !== "ALL" && `  .filter(e -> "${streamDept}".equals(e.getDept()))\n`}
@@ -1265,20 +1265,20 @@ export default function JavaAdvanced() {
 
                     {/* Pipeline Visualization */}
                     <div className="lg:col-span-8 space-y-4">
-                      <div className="flex items-center justify-between text-xs font-bold text-stone-700">
+                      <div className="flex items-center justify-between text-xs font-bold text-slate-300">
                         <span>Pipeline Flow: {streamPipelineResult.sourceCount} Source Elements &rarr; {streamPipelineResult.filteredCount} Filtered</span>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {streamPipelineResult.sortedRecords.map((dev) => (
-                          <div key={dev.id} className="p-3.5 rounded-xl border border-stone-200 bg-white shadow-2xs space-y-1">
+                          <div key={dev.id} className="p-3.5 rounded-xl border border-slate-800 bg-slate-900/80 shadow-2xs space-y-1">
                             <div className="flex items-center justify-between">
-                              <span className="text-xs font-bold text-stone-900">{dev.name}</span>
-                              <span className="text-[10px] px-2 py-0.5 rounded font-mono font-bold bg-orange-100 text-orange-800">
+                              <span className="text-xs font-bold text-white">{dev.name}</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded font-mono font-bold bg-orange-500/15 text-orange-300">
                                 {dev.dept}
                               </span>
                             </div>
-                            <div className="flex items-center justify-between text-xs text-stone-500 font-mono">
+                            <div className="flex items-center justify-between text-xs text-slate-400 font-mono">
                               <span>{dev.lang} · {dev.exp} yrs exp</span>
                               <span className="text-emerald-700 font-bold">${dev.salary.toLocaleString()}</span>
                             </div>
@@ -1287,12 +1287,12 @@ export default function JavaAdvanced() {
                       </div>
 
                       {/* Terminal Result Card */}
-                      <div className="p-5 rounded-2xl bg-orange-50 border border-orange-200 space-y-2">
+                      <div className="p-5 rounded-2xl bg-orange-500/15 border border-orange-500/30 space-y-2">
                         <div className="text-xs font-bold text-orange-950 uppercase tracking-wider flex items-center gap-1.5">
-                          <CheckCircle2 className="w-4 h-4 text-orange-600" />
+                          <CheckCircle2 className="w-4 h-4 text-orange-400" />
                           Terminal Collector Output:
                         </div>
-                        <div className="bg-white p-3.5 rounded-xl border border-orange-200 font-mono text-xs text-stone-800">
+                        <div className="bg-slate-900/80 p-3.5 rounded-xl border border-orange-500/30 font-mono text-xs text-slate-200">
                           {typeof streamPipelineResult.terminalOutput === "object" ? (
                             <pre className="whitespace-pre-wrap">{JSON.stringify(streamPipelineResult.terminalOutput, null, 2)}</pre>
                           ) : (
@@ -1309,38 +1309,38 @@ export default function JavaAdvanced() {
             {/* 6. OPTIONAL STATE MACHINE */}
             {activeWorkbenchTab === "optional-lab" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-                      <ShieldCheck className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <ShieldCheck className="w-5 h-5 text-orange-400" />
                       Optional&lt;T&gt; Monadic Container & Eager vs Lazy Supplier Lab
                     </h3>
-                    <p className="text-xs text-stone-500 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Understand how Optional eliminates NullPointerException, transforms values safely with <code>.map()</code>, and differentiates eager <code>orElse()</code> from lazy <code>orElseGet()</code>.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* Controls */}
-                    <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-stone-200 space-y-4">
-                      <h4 className="text-xs font-bold text-stone-800 uppercase tracking-wider">
+                    <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-slate-800 space-y-4">
+                      <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">
                         Container Configuration:
                       </h4>
 
                       <div>
-                        <label className="text-xs text-stone-600 font-medium block mb-1">
+                        <label className="text-xs text-slate-400 font-medium block mb-1">
                           Underlying Value:
                         </label>
                         <div className="grid grid-cols-3 gap-2 mb-2">
                           <button
                             onClick={() => setOptRawValue("user@prepspaces.com")}
-                            className="py-1.5 px-2 rounded-lg text-xs font-medium border bg-white hover:bg-stone-50"
+                            className="py-1.5 px-2 rounded-lg text-xs font-medium border bg-slate-900/80 hover:bg-slate-950"
                           >
                             "Valid Email"
                           </button>
                           <button
                             onClick={() => setOptRawValue("")}
-                            className="py-1.5 px-2 rounded-lg text-xs font-medium border bg-white hover:bg-stone-50"
+                            className="py-1.5 px-2 rounded-lg text-xs font-medium border bg-slate-900/80 hover:bg-slate-950"
                           >
                             "" (Empty String)
                           </button>
@@ -1355,12 +1355,12 @@ export default function JavaAdvanced() {
                           type="text"
                           value={optRawValue}
                           onChange={(e) => setOptRawValue(e.target.value)}
-                          className="w-full px-3 py-2 rounded-lg border border-stone-300 text-xs font-mono"
+                          className="w-full px-3 py-2 rounded-lg border border-slate-700 text-xs font-mono"
                         />
                       </div>
 
                       <div>
-                        <label className="text-xs text-stone-600 font-medium block mb-1">
+                        <label className="text-xs text-slate-400 font-medium block mb-1">
                           Wrapping Factory Method:
                         </label>
                         <div className="grid grid-cols-3 gap-2">
@@ -1375,7 +1375,7 @@ export default function JavaAdvanced() {
                               className={`py-2 px-2 rounded-lg text-xs font-bold border transition text-center ${
                                 optWrapType === wrap.id
                                   ? "bg-orange-600 text-white border-orange-600"
-                                  : "bg-white text-stone-700 border-stone-200 hover:bg-stone-50"
+                                  : "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950"
                               }`}
                             >
                               {wrap.label}
@@ -1385,20 +1385,20 @@ export default function JavaAdvanced() {
                       </div>
 
                       {/* Fallback Comparison */}
-                      <div className="pt-2 border-t border-stone-200 space-y-2">
-                        <div className="text-xs font-bold text-stone-800 uppercase tracking-wider">
+                      <div className="pt-2 border-t border-slate-800 space-y-2">
+                        <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">
                           Eager vs Lazy Fallback Benchmark:
                         </div>
-                        <div className="p-3 rounded-xl bg-white border border-stone-200 space-y-2 text-xs">
+                        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
                           <div>
-                            <span className="font-mono text-orange-600 font-bold">.orElse(fetchFromDb())</span>
-                            <p className="text-[11px] text-stone-500">
+                            <span className="font-mono text-orange-400 font-bold">.orElse(fetchFromDb())</span>
+                            <p className="text-[11px] text-slate-400">
                               Eagerly executed even if the Optional contains a value! Wastes CPU and network calls.
                             </p>
                           </div>
                           <div>
                             <span className="font-mono text-emerald-600 font-bold">.orElseGet(() -&gt; fetchFromDb())</span>
-                            <p className="text-[11px] text-stone-500">
+                            <p className="text-[11px] text-slate-400">
                               Lazily executed by Supplier only when the Optional is completely empty. Best practice.
                             </p>
                           </div>
@@ -1407,8 +1407,8 @@ export default function JavaAdvanced() {
                     </div>
 
                     {/* State Display */}
-                    <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-stone-200 space-y-4">
-                      <h4 className="text-xs font-bold text-stone-800 uppercase tracking-wider">
+                    <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-slate-800 space-y-4">
+                      <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">
                         Monadic Container Internal State:
                       </h4>
 
@@ -1427,25 +1427,25 @@ export default function JavaAdvanced() {
                           <div className={`p-4 rounded-xl border flex items-center justify-between ${
                             optEvaluated.isPresent
                               ? "bg-emerald-50 border-emerald-300 text-emerald-950"
-                              : "bg-stone-100 border-stone-300 text-stone-600"
+                              : "bg-slate-950 border-slate-700 text-slate-400"
                           }`}>
                             <div className="flex items-center gap-2">
                               {optEvaluated.isPresent ? (
                                 <CheckCircle className="w-5 h-5 text-emerald-600" />
                               ) : (
-                                <AlertTriangle className="w-5 h-5 text-stone-400" />
+                                <AlertTriangle className="w-5 h-5 text-slate-500" />
                               )}
                               <span className="font-bold text-xs font-mono">
                                 {optEvaluated.isPresent ? `Present: "${optEvaluated.container}"` : "Empty Container (Optional.empty)"}
                               </span>
                             </div>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded font-bold bg-white border">
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded font-bold bg-slate-900/80 border">
                               isPresent() = {String(optEvaluated.isPresent)}
                             </span>
                           </div>
 
                           <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs space-y-2">
-                            <div className="text-stone-400">// Monadic Safe Transformations</div>
+                            <div className="text-slate-500">// Monadic Safe Transformations</div>
                             <div>opt.map(String::toUpperCase) &rarr; <span className="text-amber-300">"{optEvaluated.mappedUpper}"</span></div>
                             <div>opt.orElse("backup@fallback.com") &rarr; <span className="text-emerald-400">"{optEvaluated.eagerDefault}"</span></div>
                           </div>
@@ -1460,23 +1460,23 @@ export default function JavaAdvanced() {
             {/* 7. NIO.2 & SERIALIZATION INSPECTOR */}
             {activeWorkbenchTab === "io-serialization-inspector" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-                      <HardDrive className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <HardDrive className="w-5 h-5 text-orange-400" />
                       Modern NIO.2 Path Inspector & Object Serialization Security
                     </h3>
-                    <p className="text-xs text-stone-500 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Validate filesystem boundaries against Directory Traversal attacks using NIO.2 Path normalization, and observe how transient fields protect secrets during ObjectOutputStream serialization.
                     </p>
                   </div>
 
                   <div className="space-y-6">
-                    <div className="flex items-center gap-2 border-b border-stone-200 pb-3">
+                    <div className="flex items-center gap-2 border-b border-slate-800 pb-3">
                       <button
                         onClick={() => setInspectorSubTab("nio")}
                         className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                          inspectorSubTab === "nio" ? "bg-orange-600 text-white" : "bg-stone-100 text-stone-700"
+                          inspectorSubTab === "nio" ? "bg-orange-600 text-white" : "bg-slate-950 text-slate-300"
                         }`}
                       >
                         NIO.2 Path Traversal Validator
@@ -1484,7 +1484,7 @@ export default function JavaAdvanced() {
                       <button
                         onClick={() => setInspectorSubTab("serialization")}
                         className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                          inspectorSubTab === "serialization" ? "bg-orange-600 text-white" : "bg-stone-100 text-stone-700"
+                          inspectorSubTab === "serialization" ? "bg-orange-600 text-white" : "bg-slate-950 text-slate-300"
                         }`}
                       >
                         Serialization & transient Keyword Security
@@ -1496,24 +1496,24 @@ export default function JavaAdvanced() {
                         <div className="space-y-4">
                           <div className="space-y-3">
                             <div>
-                              <label className="text-xs font-semibold text-stone-700 block mb-1">
+                              <label className="text-xs font-semibold text-slate-300 block mb-1">
                                 Base Storage Directory (Whitelisted):
                               </label>
                               <input
                                 type="text"
                                 value={nioBaseDir}
                                 onChange={(e) => setNioBaseDir(e.target.value)}
-                                className="w-full px-3 py-2 rounded-lg border border-stone-300 text-xs font-mono"
+                                className="w-full px-3 py-2 rounded-lg border border-slate-700 text-xs font-mono"
                               />
                             </div>
                             <div>
-                              <label className="text-xs font-semibold text-stone-700 block mb-1">
+                              <label className="text-xs font-semibold text-slate-300 block mb-1">
                                 User Input Relative Path:
                               </label>
                               <div className="flex gap-2 mb-2">
                                 <button
                                   onClick={() => setNioUserPath("reports/2026/q1_summary.json")}
-                                  className="px-2.5 py-1 rounded bg-stone-100 text-stone-700 text-[11px] font-medium hover:bg-stone-200"
+                                  className="px-2.5 py-1 rounded bg-slate-950 text-slate-300 text-[11px] font-medium hover:bg-slate-800"
                                 >
                                   Safe Path
                                 </button>
@@ -1528,7 +1528,7 @@ export default function JavaAdvanced() {
                                 type="text"
                                 value={nioUserPath}
                                 onChange={(e) => setNioUserPath(e.target.value)}
-                                className="w-full px-3 py-2 rounded-lg border border-stone-300 text-xs font-mono"
+                                className="w-full px-3 py-2 rounded-lg border border-slate-700 text-xs font-mono"
                               />
                             </div>
                           </div>
@@ -1553,7 +1553,7 @@ export default function JavaAdvanced() {
                           </div>
 
                           <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs space-y-1">
-                            <div className="text-stone-400">// NIO.2 Security Pattern</div>
+                            <div className="text-slate-500">// NIO.2 Security Pattern</div>
                             Path base = Path.of(baseDir);<br />
                             Path target = base.resolve(userInput).normalize();<br />
                             <span className="text-orange-400">if</span> (!target.startsWith(base)) &#123;<br />
@@ -1566,7 +1566,7 @@ export default function JavaAdvanced() {
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <div className="space-y-4">
                           <div className="p-4 rounded-xl bg-stone-900 text-stone-100 font-mono text-xs space-y-1">
-                            <div className="text-stone-400">// UserSession.java with transient keyword</div>
+                            <div className="text-slate-500">// UserSession.java with transient keyword</div>
                             <span className="text-orange-400">public class</span> UserSession <span className="text-orange-400">implements</span> Serializable &#123;<br />
                             &nbsp;&nbsp;<span className="text-orange-400">private static final long</span> serialVersionUID = 1L;<br />
                             &nbsp;&nbsp;<span className="text-blue-400">private int</span> userId = 84920;<br />
@@ -1586,22 +1586,22 @@ export default function JavaAdvanced() {
                         </div>
 
                         <div className="space-y-4">
-                          <div className="text-xs font-bold text-stone-800 uppercase tracking-wider">
+                          <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">
                             Deserialized Object in Memory:
                           </div>
 
                           {deserializedResult ? (
-                            <div className="p-4 rounded-xl bg-white border border-stone-200 space-y-3 font-mono text-xs">
+                            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 font-mono text-xs">
                               <div>userId: <span className="text-emerald-600 font-bold">{deserializedResult.userId}</span></div>
                               <div>username: <span className="text-emerald-600 font-bold">"{deserializedResult.username}"</span></div>
                               <div>passwordHash: <span className="text-rose-600 font-bold">null (STRIPPED BY TRANSIENT)</span></div>
                               <div>authToken: <span className="text-rose-600 font-bold">null (STRIPPED BY TRANSIENT)</span></div>
-                              <div className="pt-2 border-t border-stone-200 text-[11px] text-stone-500 font-sans">
+                              <div className="pt-2 border-t border-slate-800 text-[11px] text-slate-400 font-sans">
                                 {deserializedResult.note}
                               </div>
                             </div>
                           ) : (
-                            <div className="p-8 text-center rounded-xl bg-stone-50 border border-dashed border-stone-300 text-xs text-stone-500">
+                            <div className="p-8 text-center rounded-xl bg-slate-950 border border-dashed border-slate-700 text-xs text-slate-400">
                               Click 'Serialize & Deserialize' to view deserialized memory fields.
                             </div>
                           )}
@@ -1616,22 +1616,22 @@ export default function JavaAdvanced() {
             {/* 8. 30-QUESTION ASSESSMENT EXAM */}
             {activeWorkbenchTab === "quiz" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-100 pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-                        <HelpCircle className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                        <HelpCircle className="w-5 h-5 text-orange-400" />
                         Module 5 Assessment: 30 Multiple-Choice Questions
                       </h3>
-                      <p className="text-xs text-stone-500 mt-0.5">
+                      <p className="text-xs text-slate-400 mt-0.5">
                         Comprehensive evaluation across Exceptions, Generics, PECS, Collections, Lambdas, Streams, Optional, NIO.2, and Serialization Security.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <div className="text-xs font-semibold text-stone-600 bg-stone-100 px-3 py-1.5 rounded-lg border">
+                      <div className="text-xs font-semibold text-slate-400 bg-slate-950 px-3 py-1.5 rounded-lg border">
                         Progress:{" "}
-                        <strong className="text-orange-600">
+                        <strong className="text-orange-400">
                           {Object.keys(quizAnswers).length} / {quizQuestions.length}
                         </strong>
                       </div>
@@ -1647,12 +1647,12 @@ export default function JavaAdvanced() {
                   {showResults && (
                     <div className="mb-6 p-4 rounded-xl bg-stone-900 text-white flex items-center justify-between">
                       <div>
-                        <div className="text-xs text-stone-400 font-mono">YOUR TOTAL EXAM SCORE:</div>
+                        <div className="text-xs text-slate-500 font-mono">YOUR TOTAL EXAM SCORE:</div>
                         <div className="text-2xl font-black text-orange-400 font-mono">
                           {quizScore} / {quizQuestions.length} ({Math.round((quizScore / quizQuestions.length) * 100)}%)
                         </div>
                       </div>
-                      <div className="text-xs text-stone-300 max-w-sm text-right">
+                      <div className="text-xs text-slate-400 max-w-sm text-right">
                         {quizScore >= 24
                           ? "🎉 Outstanding enterprise mastery! You have completely conquered Core Java Phase 1 and are ready for Data Structures, Algorithms & Spring Boot."
                           : "Review the question explanations below and revisit the corresponding curriculum sections."}
@@ -1675,18 +1675,18 @@ export default function JavaAdvanced() {
                                 ? "bg-emerald-50/50 border-emerald-300"
                                 : isAnswered
                                 ? "bg-rose-50/50 border-rose-300"
-                                : "bg-stone-50 border-stone-200"
-                              : "bg-white border-stone-200 hover:border-stone-300"
+                                : "bg-slate-950 border-slate-800"
+                              : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                           }`}
                         >
-                          <div className="font-semibold text-xs text-stone-900 mb-2.5">
+                          <div className="font-semibold text-xs text-white mb-2.5">
                             {q.question}
                           </div>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {q.options.map((opt, optIdx) => {
                               const isSelected = selectedOpt === optIdx;
-                              let optBtnClass = "bg-stone-50 hover:bg-stone-100 border-stone-200 text-stone-700";
+                              let optBtnClass = "bg-slate-950 hover:bg-slate-950 border-slate-800 text-slate-300";
 
                               if (showResults) {
                                 if (optIdx === q.correct) {
@@ -1714,8 +1714,8 @@ export default function JavaAdvanced() {
                           </div>
 
                           {showResults && (
-                            <div className="mt-3 p-3 rounded-lg bg-stone-100 text-[11px] text-stone-700 leading-relaxed">
-                              <span className="font-bold text-stone-900">Explanation: </span>
+                            <div className="mt-3 p-3 rounded-lg bg-slate-950 text-[11px] text-slate-300 leading-relaxed">
+                              <span className="font-bold text-white">Explanation: </span>
                               {q.explanation}
                             </div>
                           )}
@@ -1730,13 +1730,13 @@ export default function JavaAdvanced() {
             {/* 9. LABS, PROJECTS & INTERVIEW QUESTIONS */}
             {activeWorkbenchTab === "labs" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-                      <Award className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <Award className="w-5 h-5 text-orange-400" />
                       Labs, Capstone Projects & 40 Technical Interview Questions Tracker
                     </h3>
-                    <p className="text-xs text-stone-500 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Track your hands-on coding implementations in your local IDE and master the 40 core enterprise Java technical interview questions.
                     </p>
                   </div>
@@ -1751,18 +1751,18 @@ export default function JavaAdvanced() {
                           className={`p-4 rounded-xl border cursor-pointer transition-all ${
                             isDone
                               ? "bg-emerald-50/50 border-emerald-300"
-                              : "bg-white border-stone-200 hover:border-stone-300"
+                              : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                           }`}
                         >
                           <div className="flex items-start gap-3">
                             <button
                               type="button"
-                              className="mt-0.5 text-stone-400 hover:text-stone-600 focus:outline-none"
+                              className="mt-0.5 text-slate-500 hover:text-slate-400 focus:outline-none"
                             >
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-600" />
                               ) : (
-                                <Square className="w-4 h-4 text-stone-400" />
+                                <Square className="w-4 h-4 text-slate-500" />
                               )}
                             </button>
                             <div className="space-y-1">
@@ -1770,7 +1770,7 @@ export default function JavaAdvanced() {
                                 <span
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     lab.type === "Lab"
-                                      ? "bg-orange-100 text-orange-800"
+                                      ? "bg-orange-500/15 text-orange-300"
                                       : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
@@ -1778,13 +1778,13 @@ export default function JavaAdvanced() {
                                 </span>
                                 <h4
                                   className={`text-xs font-bold ${
-                                    isDone ? "text-stone-500 line-through" : "text-stone-900"
+                                    isDone ? "text-slate-400 line-through" : "text-white"
                                   }`}
                                 >
                                   {lab.title}
                                 </h4>
                               </div>
-                              <p className="text-xs text-stone-600 leading-relaxed">{lab.goal}</p>
+                              <p className="text-xs text-slate-400 leading-relaxed">{lab.goal}</p>
                             </div>
                           </div>
                         </div>

@@ -651,27 +651,27 @@ class Notification {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 pb-24 font-sans selection:bg-orange-500/20">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* HEADER & COURSE TRACK BREADCRUMB */}
-      <header className="sticky top-0 z-40 bg-[#fcfbf9]/90 backdrop-blur-md border-b border-[#e7e3da]">
+      <header className="sticky top-0 z-40 bg-[#fcfbf9]/90 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <button
               onClick={goBack}
-              className="p-2 -ml-2 rounded-xl text-stone-600 hover:text-stone-900 hover:bg-stone-100/80 transition-colors"
+              className="p-2 -ml-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-950/80 transition-colors"
               title="Return to Module 3"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-600 flex items-center justify-center font-bold font-mono text-sm border border-orange-500/20">
+              <span className="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono text-sm border border-orange-500/20">
                 04
               </span>
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600 font-mono block">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-orange-400 font-mono block">
                   Java Programming Track · Module 4 (Phase 1 Capstone)
                 </span>
-                <h1 className="text-base sm:text-lg font-bold text-stone-900 truncate">
+                <h1 className="text-base sm:text-lg font-bold text-white truncate">
                   Object-Oriented Programming (OOP) with Java
                 </h1>
               </div>
@@ -679,13 +679,13 @@ class Notification {
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="flex rounded-xl bg-stone-100 p-1 border border-stone-200">
+            <div className="flex rounded-xl bg-slate-950 p-1 border border-slate-800">
               <button
                 onClick={() => setActiveTab("curriculum")}
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
                   activeTab === "curriculum"
-                    ? "bg-white text-stone-900 shadow-2xs font-bold"
-                    : "text-stone-600 hover:text-stone-900"
+                    ? "bg-slate-900/80 text-white shadow-2xs font-bold"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
                 <BookOpen className="w-3.5 h-3.5" />
@@ -696,7 +696,7 @@ class Notification {
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
                   activeTab === "workbench"
                     ? "bg-orange-600 text-white shadow-xs font-bold"
-                    : "text-stone-600 hover:text-stone-900"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
                 <Sparkles className="w-3.5 h-3.5" />
@@ -719,12 +719,12 @@ class Notification {
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono">
                   Phase 1 Capstone Milestone
                 </span>
-                <span className="text-xs text-stone-400">12–14 Hours Intensive</span>
+                <span className="text-xs text-slate-500">12–14 Hours Intensive</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
                 Object-Oriented Programming (OOP) with Java
               </h2>
-              <p className="text-sm sm:text-base text-stone-300 max-w-3xl leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-400 max-w-3xl leading-relaxed">
                 Master the architectural paradigm powering mission-critical software: classes, runtime objects, encapsulation, constructor chaining, inheritance hierarchies, runtime dynamic method dispatch, interfaces, static metaspace members, UML class modeling, and SOLID principles.
               </p>
             </div>
@@ -772,7 +772,7 @@ class Notification {
         ) : (
           <div className="mt-8 space-y-8">
             {/* WORKBENCH SUB-TABS */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-[#e7e3da] text-xs font-semibold [scrollbar-width:none]">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800 text-xs font-semibold [scrollbar-width:none]">
               {[
                 { id: "instance-studio", label: "1. Instance State Studio", icon: Box },
                 { id: "encapsulation-shield", label: "2. Encapsulation Shield", icon: ShieldCheck },
@@ -793,7 +793,7 @@ class Notification {
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-orange-600 text-white font-bold shadow-xs"
-                        : "bg-white text-stone-600 hover:text-stone-900 border border-stone-200 hover:bg-stone-50"
+                        : "bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800 hover:bg-slate-950"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />
@@ -806,16 +806,16 @@ class Notification {
             {/* 1. INSTANCE STATE STUDIO */}
             {activeWorkbenchTab === "instance-studio" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-100 pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4 mb-6">
                     <div>
-                      <span className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider">
+                      <span className="text-[11px] font-mono text-orange-400 font-bold uppercase tracking-wider">
                         Interactive Blueprint vs Instance Visualizer
                       </span>
-                      <h3 className="text-xl font-bold text-stone-900">
+                      <h3 className="text-xl font-bold text-white">
                         Class Blueprint & Heap Object Allocations
                       </h3>
-                      <p className="text-xs text-stone-500 mt-0.5">
+                      <p className="text-xs text-slate-400 mt-0.5">
                         Witness how independent objects maintain distinct instance state while sharing one class definition.
                       </p>
                     </div>
@@ -831,7 +831,7 @@ class Notification {
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     {/* INSTANCE SELECTOR & HEAP CARDS */}
                     <div className="space-y-3 lg:col-span-1">
-                      <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block font-mono">
+                      <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block font-mono">
                         Active Heap Objects ({accounts.length})
                       </span>
                       {accounts.map((acc) => {
@@ -842,18 +842,18 @@ class Notification {
                             onClick={() => setSelectedAccId(acc.id)}
                             className={`p-4 rounded-xl border cursor-pointer transition-all ${
                               isSelected
-                                ? "bg-orange-50/50 border-orange-400 ring-2 ring-orange-500/20"
-                                : "bg-white border-stone-200 hover:border-stone-300"
+                                ? "bg-orange-500/15/50 border-orange-400 ring-2 ring-orange-500/20"
+                                : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                             }`}
                           >
                             <div className="flex items-center justify-between text-xs mb-1 font-mono">
-                              <span className="font-bold text-stone-900">{acc.id}</span>
-                              <span className="text-stone-400">Heap @ {acc.heapAddr}</span>
+                              <span className="font-bold text-white">{acc.id}</span>
+                              <span className="text-slate-500">Heap @ {acc.heapAddr}</span>
                             </div>
-                            <h4 className="text-sm font-bold text-stone-800">{acc.holder}</h4>
-                            <div className="flex items-center justify-between text-xs text-stone-600 mt-2 pt-2 border-t border-stone-100">
-                              <span className="text-stone-500">Balance:</span>
-                              <span className="font-mono font-bold text-stone-900 text-sm">
+                            <h4 className="text-sm font-bold text-slate-200">{acc.holder}</h4>
+                            <div className="flex items-center justify-between text-xs text-slate-400 mt-2 pt-2 border-t border-slate-800/60">
+                              <span className="text-slate-400">Balance:</span>
+                              <span className="font-mono font-bold text-white text-sm">
                                 ${acc.balance.toLocaleString()}
                               </span>
                             </div>
@@ -863,20 +863,20 @@ class Notification {
                     </div>
 
                     {/* METHOD CONTROLS */}
-                    <div className="space-y-4 lg:col-span-1 p-5 rounded-xl bg-stone-50 border border-stone-200">
-                      <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block font-mono">
+                    <div className="space-y-4 lg:col-span-1 p-5 rounded-xl bg-slate-950 border border-slate-800">
+                      <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block font-mono">
                         Method Invocations on [{selectedAccId}]
                       </span>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-medium text-stone-600">
+                        <label className="text-xs font-medium text-slate-400">
                           Operation Amount ($)
                         </label>
                         <input
                           type="number"
                           value={opAmount}
                           onChange={(e) => setOpAmount(Number(e.target.value))}
-                          className="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-white font-mono focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+                          className="w-full px-3 py-2 text-sm rounded-lg border border-slate-700 bg-slate-900/80 font-mono focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
                         />
                       </div>
 
@@ -895,18 +895,18 @@ class Notification {
                         </button>
                       </div>
 
-                      <div className="p-3.5 rounded-lg bg-white border border-stone-200 space-y-1.5 text-xs text-stone-600">
+                      <div className="p-3.5 rounded-lg bg-slate-900/80 border border-slate-800 space-y-1.5 text-xs text-slate-400">
                         <div className="flex justify-between font-mono">
                           <span>Target Object:</span>
-                          <span className="font-bold text-stone-900">{activeAccount.holder}</span>
+                          <span className="font-bold text-white">{activeAccount.holder}</span>
                         </div>
                         <div className="flex justify-between font-mono">
                           <span>State (balance):</span>
-                          <span className="font-bold text-orange-600">${activeAccount.balance}</span>
+                          <span className="font-bold text-orange-400">${activeAccount.balance}</span>
                         </div>
                         <div className="flex justify-between font-mono">
                           <span>Reference Type:</span>
-                          <span className="text-stone-500">BankAccount</span>
+                          <span className="text-slate-400">BankAccount</span>
                         </div>
                       </div>
                     </div>
@@ -914,19 +914,19 @@ class Notification {
                     {/* JVM EXECUTION LOG */}
                     <div className="lg:col-span-1 p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-hidden flex flex-col justify-between border border-neutral-800">
                       <div>
-                        <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3">
+                        <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3">
                           <span className="text-orange-400 font-bold uppercase">JVM HEAP LOG</span>
-                          <span className="text-stone-500">Live Memory Trace</span>
+                          <span className="text-slate-400">Live Memory Trace</span>
                         </div>
                         <div className="space-y-1.5 max-h-56 overflow-y-auto [scrollbar-width:thin]">
                           {accActionLog.map((log, idx) => (
-                            <p key={idx} className="text-stone-300 text-[11px] leading-relaxed">
+                            <p key={idx} className="text-slate-400 text-[11px] leading-relaxed">
                               {log}
                             </p>
                           ))}
                         </div>
                       </div>
-                      <div className="pt-3 border-t border-neutral-800 text-[10px] text-stone-500">
+                      <div className="pt-3 border-t border-neutral-800 text-[10px] text-slate-400">
                         Independent state verified: modifying one object never impacts another.
                       </div>
                     </div>
@@ -938,28 +938,28 @@ class Notification {
             {/* 2. ENCAPSULATION SHIELD */}
             {activeWorkbenchTab === "encapsulation-shield" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-100 pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4 mb-6">
                     <div>
-                      <span className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider">
+                      <span className="text-[11px] font-mono text-orange-400 font-bold uppercase tracking-wider">
                         Data Hiding & Validation Guards
                       </span>
-                      <h3 className="text-xl font-bold text-stone-900">
+                      <h3 className="text-xl font-bold text-white">
                         Encapsulation & Invariant Shield Lab
                       </h3>
-                      <p className="text-xs text-stone-500 mt-0.5">
+                      <p className="text-xs text-slate-400 mt-0.5">
                         Test how private modifiers and getter/setter validation protect objects from corrupted states.
                       </p>
                     </div>
 
                     {/* TOGGLE MODE */}
-                    <div className="flex rounded-xl bg-stone-100 p-1 border border-stone-200 text-xs">
+                    <div className="flex rounded-xl bg-slate-950 p-1 border border-slate-800 text-xs">
                       <button
                         onClick={() => setIsEncapsulatedMode(true)}
                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
                           isEncapsulatedMode
                             ? "bg-emerald-600 text-white font-bold shadow-xs"
-                            : "text-stone-600 hover:text-stone-900"
+                            : "text-slate-400 hover:text-white"
                         }`}
                       >
                         <Lock className="w-3.5 h-3.5" />
@@ -970,7 +970,7 @@ class Notification {
                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
                           !isEncapsulatedMode
                             ? "bg-red-600 text-white font-bold shadow-xs"
-                            : "text-stone-600 hover:text-stone-900"
+                            : "text-slate-400 hover:text-white"
                         }`}
                       >
                         <Unlock className="w-3.5 h-3.5" />
@@ -981,13 +981,13 @@ class Notification {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* TEST CONTROLS */}
-                    <div className="space-y-4 p-5 rounded-xl bg-stone-50 border border-stone-200">
-                      <h4 className="text-xs font-bold text-stone-700 uppercase tracking-wider font-mono">
+                    <div className="space-y-4 p-5 rounded-xl bg-slate-950 border border-slate-800">
+                      <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">
                         Attempt Malicious / Boundary Injections
                       </h4>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-medium text-stone-600">
+                        <label className="text-xs font-medium text-slate-400">
                           1. Deposit Invariant Test (Try negative values like -500)
                         </label>
                         <div className="flex gap-2">
@@ -995,7 +995,7 @@ class Notification {
                             type="number"
                             value={testDepositAmt}
                             onChange={(e) => setTestDepositAmt(Number(e.target.value))}
-                            className="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-white font-mono"
+                            className="w-full px-3 py-2 text-sm rounded-lg border border-slate-700 bg-slate-900/80 font-mono"
                           />
                           <button
                             onClick={handleTestFieldAccess}
@@ -1006,8 +1006,8 @@ class Notification {
                         </div>
                       </div>
 
-                      <div className="space-y-2 pt-2 border-t border-stone-200">
-                        <label className="text-xs font-medium text-stone-600">
+                      <div className="space-y-2 pt-2 border-t border-slate-800">
+                        <label className="text-xs font-medium text-slate-400">
                           2. Account Holder Name Invariant (Try empty string "")
                         </label>
                         <div className="flex gap-2">
@@ -1016,7 +1016,7 @@ class Notification {
                             placeholder='e.g. "" (blank)'
                             value={testHolderInput}
                             onChange={(e) => setTestHolderInput(e.target.value)}
-                            className="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-white font-mono"
+                            className="w-full px-3 py-2 text-sm rounded-lg border border-slate-700 bg-slate-900/80 font-mono"
                           />
                           <button
                             onClick={handleTestNameSetter}
@@ -1027,16 +1027,16 @@ class Notification {
                         </div>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-white border border-stone-200 text-xs space-y-2">
+                      <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs space-y-2">
                         <div className="flex justify-between font-mono">
-                          <span className="text-stone-500">Current Balance:</span>
+                          <span className="text-slate-400">Current Balance:</span>
                           <span className={`font-bold ${encapBalance < 0 ? "text-red-600" : "text-emerald-700"}`}>
                             ${encapBalance}
                           </span>
                         </div>
                         <div className="flex justify-between font-mono">
-                          <span className="text-stone-500">Current Holder Name:</span>
-                          <span className={`font-bold ${encapHolder === "" ? "text-red-500 italic" : "text-stone-900"}`}>
+                          <span className="text-slate-400">Current Holder Name:</span>
+                          <span className={`font-bold ${encapHolder === "" ? "text-red-500 italic" : "text-white"}`}>
                             {encapHolder === "" ? "<EMPTY_STRING_INVALID>" : encapHolder}
                           </span>
                         </div>
@@ -1046,13 +1046,13 @@ class Notification {
                     {/* SHIELD LOGS */}
                     <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs flex flex-col justify-between border border-neutral-800">
                       <div>
-                        <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3">
+                        <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3">
                           <span className="text-orange-400 font-bold uppercase">ENCAPSULATION AUDIT</span>
-                          <span className="text-stone-500">Invariant Monitor</span>
+                          <span className="text-slate-400">Invariant Monitor</span>
                         </div>
                         <div className="space-y-2 max-h-56 overflow-y-auto [scrollbar-width:thin]">
                           {shieldLog.length === 0 ? (
-                            <p className="text-stone-500 italic text-[11px]">
+                            <p className="text-slate-400 italic text-[11px]">
                               Run an injection test above to watch validation guards intercept invalid state mutations.
                             </p>
                           ) : (
@@ -1064,7 +1064,7 @@ class Notification {
                           )}
                         </div>
                       </div>
-                      <div className="pt-3 border-t border-neutral-800 text-[10px] text-stone-400">
+                      <div className="pt-3 border-t border-neutral-800 text-[10px] text-slate-500">
                         {isEncapsulatedMode
                           ? "Shield active: Mutators guard fields with preconditions."
                           : "Shield disabled: Direct access corrupts critical invariants."}
@@ -1078,23 +1078,23 @@ class Notification {
             {/* 3. DYNAMIC METHOD DISPATCH STUDIO */}
             {activeWorkbenchTab === "dispatch-lab" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <span className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <span className="text-[11px] font-mono text-orange-400 font-bold uppercase tracking-wider">
                       Runtime Polymorphism & Virtual Method Table
                     </span>
-                    <h3 className="text-xl font-bold text-stone-900">
+                    <h3 className="text-xl font-bold text-white">
                       Inheritance & Dynamic Method Dispatch Studio
                     </h3>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-slate-400 mt-0.5">
                       Explore how superclass references invoke the specialized overridden method of the actual runtime object.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* HIERARCHY SELECTOR */}
-                    <div className="space-y-3 p-5 rounded-xl bg-stone-50 border border-stone-200">
-                      <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block font-mono">
+                    <div className="space-y-3 p-5 rounded-xl bg-slate-950 border border-slate-800">
+                      <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block font-mono">
                         Select Concrete Instance Type
                       </span>
                       <div className="space-y-2">
@@ -1108,12 +1108,12 @@ class Notification {
                           }}
                           className={`w-full p-3 rounded-xl border text-left transition-all ${
                             polymorphicType === "SavingsAccount"
-                              ? "bg-orange-50/60 border-orange-400 ring-2 ring-orange-500/20"
-                              : "bg-white border-stone-200 hover:border-stone-300"
+                              ? "bg-orange-500/15/60 border-orange-400 ring-2 ring-orange-500/20"
+                              : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                           }`}
                         >
-                          <div className="text-xs font-bold text-stone-900">SavingsAccount</div>
-                          <div className="text-[11px] text-stone-500 mt-0.5">
+                          <div className="text-xs font-bold text-white">SavingsAccount</div>
+                          <div className="text-[11px] text-slate-400 mt-0.5">
                             Strict balance check. Overdraft not permitted.
                           </div>
                         </button>
@@ -1128,18 +1128,18 @@ class Notification {
                           }}
                           className={`w-full p-3 rounded-xl border text-left transition-all ${
                             polymorphicType === "CurrentAccount"
-                              ? "bg-orange-50/60 border-orange-400 ring-2 ring-orange-500/20"
-                              : "bg-white border-stone-200 hover:border-stone-300"
+                              ? "bg-orange-500/15/60 border-orange-400 ring-2 ring-orange-500/20"
+                              : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                           }`}
                         >
-                          <div className="text-xs font-bold text-stone-900">CurrentAccount</div>
-                          <div className="text-[11px] text-stone-500 mt-0.5">
+                          <div className="text-xs font-bold text-white">CurrentAccount</div>
+                          <div className="text-[11px] text-slate-400 mt-0.5">
                             Specialized overdraft limit up to $10,000.
                           </div>
                         </button>
                       </div>
 
-                      <div className="pt-3 border-t border-stone-200 text-xs space-y-1 text-stone-600">
+                      <div className="pt-3 border-t border-slate-800 text-xs space-y-1 text-slate-400">
                         <p className="font-mono text-[11px]">
                           <strong>Reference:</strong> BankAccount (Superclass)
                         </p>
@@ -1150,20 +1150,20 @@ class Notification {
                     </div>
 
                     {/* DISPATCH INVOKER */}
-                    <div className="space-y-4 p-5 rounded-xl bg-stone-50 border border-stone-200">
-                      <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block font-mono">
+                    <div className="space-y-4 p-5 rounded-xl bg-slate-950 border border-slate-800">
+                      <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block font-mono">
                         Call Polymorphic withdraw()
                       </span>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-medium text-stone-600">
+                        <label className="text-xs font-medium text-slate-400">
                           Withdrawal Amount ($)
                         </label>
                         <input
                           type="number"
                           value={withdrawRequest}
                           onChange={(e) => setWithdrawRequest(Number(e.target.value))}
-                          className="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-white font-mono"
+                          className="w-full px-3 py-2 text-sm rounded-lg border border-slate-700 bg-slate-900/80 font-mono"
                         />
                       </div>
 
@@ -1174,15 +1174,15 @@ class Notification {
                         Invoke account.withdraw({withdrawRequest})
                       </button>
 
-                      <div className="p-3.5 rounded-lg bg-white border border-stone-200 space-y-1 text-xs">
+                      <div className="p-3.5 rounded-lg bg-slate-900/80 border border-slate-800 space-y-1 text-xs">
                         <div className="flex justify-between font-mono">
-                          <span className="text-stone-500">Account Balance:</span>
-                          <span className={`font-bold ${dispatchBalance < 0 ? "text-orange-600" : "text-stone-900"}`}>
+                          <span className="text-slate-400">Account Balance:</span>
+                          <span className={`font-bold ${dispatchBalance < 0 ? "text-orange-400" : "text-white"}`}>
                             ${dispatchBalance.toLocaleString()}
                           </span>
                         </div>
                         {dispatchBalance < 0 && (
-                          <div className="text-[10px] text-orange-600 font-mono">
+                          <div className="text-[10px] text-orange-400 font-mono">
                             Overdraft active (-${Math.abs(dispatchBalance).toLocaleString()})
                           </div>
                         )}
@@ -1192,9 +1192,9 @@ class Notification {
                     {/* VTABLE LOGS */}
                     <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs flex flex-col justify-between border border-neutral-800">
                       <div>
-                        <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3">
+                        <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3">
                           <span className="text-orange-400 font-bold uppercase">DYNAMIC DISPATCH TRACE</span>
-                          <span className="text-stone-500">vtable lookup</span>
+                          <span className="text-slate-400">vtable lookup</span>
                         </div>
                         <div className="space-y-2 max-h-56 overflow-y-auto [scrollbar-width:thin]">
                           {dispatchLog.map((log, i) => (
@@ -1204,7 +1204,7 @@ class Notification {
                           ))}
                         </div>
                       </div>
-                      <div className="pt-3 border-t border-neutral-800 text-[10px] text-stone-400">
+                      <div className="pt-3 border-t border-neutral-800 text-[10px] text-slate-500">
                         Method execution is determined at runtime based on the actual object, not reference type.
                       </div>
                     </div>
@@ -1216,23 +1216,23 @@ class Notification {
             {/* 4. INTERFACE CONTRACTS & LOOSE COUPLING */}
             {activeWorkbenchTab === "interface-sim" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <span className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <span className="text-[11px] font-mono text-orange-400 font-bold uppercase tracking-wider">
                       Contract-Driven Architecture & Dependency Inversion
                     </span>
-                    <h3 className="text-xl font-bold text-stone-900">
+                    <h3 className="text-xl font-bold text-white">
                       Interface Realization & Loose Coupling Simulator
                     </h3>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-slate-400 mt-0.5">
                       Experience how the Open/Closed Principle (OCP) and Dependency Inversion Principle (DIP) decouple services from concrete implementations.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* STRATEGY PICKER */}
-                    <div className="space-y-3 p-5 rounded-xl bg-stone-50 border border-stone-200">
-                      <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block font-mono">
+                    <div className="space-y-3 p-5 rounded-xl bg-slate-950 border border-slate-800">
+                      <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block font-mono">
                         Select PaymentMethod Provider
                       </span>
                       <div className="space-y-2">
@@ -1246,30 +1246,30 @@ class Notification {
                             onClick={() => setPaymentStrategy(m.id)}
                             className={`p-3 rounded-xl border cursor-pointer transition-all ${
                               paymentStrategy === m.id
-                                ? "bg-orange-50/60 border-orange-400 ring-2 ring-orange-500/20"
-                                : "bg-white border-stone-200 hover:border-stone-300"
+                                ? "bg-orange-500/15/60 border-orange-400 ring-2 ring-orange-500/20"
+                                : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                             }`}
                           >
-                            <div className="text-xs font-bold text-stone-900">{m.name}</div>
-                            <div className="text-[11px] text-stone-500">{m.desc}</div>
+                            <div className="text-xs font-bold text-white">{m.name}</div>
+                            <div className="text-[11px] text-slate-400">{m.desc}</div>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* PROCESSOR INVOKER */}
-                    <div className="space-y-4 p-5 rounded-xl bg-stone-50 border border-stone-200">
-                      <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block font-mono">
+                    <div className="space-y-4 p-5 rounded-xl bg-slate-950 border border-slate-800">
+                      <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block font-mono">
                         PaymentProcessor Execution
                       </span>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-medium text-stone-600">Charge Amount ($)</label>
+                        <label className="text-xs font-medium text-slate-400">Charge Amount ($)</label>
                         <input
                           type="number"
                           value={payAmount}
                           onChange={(e) => setPayAmount(Number(e.target.value))}
-                          className="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-white font-mono"
+                          className="w-full px-3 py-2 text-sm rounded-lg border border-slate-700 bg-slate-900/80 font-mono"
                         />
                       </div>
 
@@ -1280,7 +1280,7 @@ class Notification {
                         processor.process(strategy, ${payAmount})
                       </button>
 
-                      <div className="p-3 rounded-lg bg-white border border-stone-200 text-xs text-stone-600 space-y-1">
+                      <div className="p-3 rounded-lg bg-slate-900/80 border border-slate-800 text-xs text-slate-400 space-y-1">
                         <p className="font-mono text-[11px]">
                           <strong>Contract:</strong> interface PaymentMethod
                         </p>
@@ -1293,13 +1293,13 @@ class Notification {
                     {/* EXECUTION LOGS */}
                     <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs flex flex-col justify-between border border-neutral-800">
                       <div>
-                        <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3">
+                        <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3">
                           <span className="text-orange-400 font-bold uppercase">DECOUPLING ENGINE</span>
-                          <span className="text-stone-500">DIP Audit</span>
+                          <span className="text-slate-400">DIP Audit</span>
                         </div>
                         <div className="space-y-2 max-h-56 overflow-y-auto [scrollbar-width:thin]">
                           {paymentLogs.length === 0 ? (
-                            <p className="text-stone-500 italic text-[11px]">
+                            <p className="text-slate-400 italic text-[11px]">
                               Process a payment to see how the client interacts with the interface contract alone.
                             </p>
                           ) : (
@@ -1311,7 +1311,7 @@ class Notification {
                           )}
                         </div>
                       </div>
-                      <div className="pt-3 border-t border-neutral-800 text-[10px] text-stone-400">
+                      <div className="pt-3 border-t border-neutral-800 text-[10px] text-slate-500">
                         Zero modification required in caller code when introducing future payment implementations.
                       </div>
                     </div>
@@ -1323,15 +1323,15 @@ class Notification {
             {/* 5. STATIC VS HEAP MEMORY MODEL */}
             {activeWorkbenchTab === "static-inspector" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <span className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <span className="text-[11px] font-mono text-orange-400 font-bold uppercase tracking-wider">
                       Metaspace (Class Level) vs Heap (Instance Level)
                     </span>
-                    <h3 className="text-xl font-bold text-stone-900">
+                    <h3 className="text-xl font-bold text-white">
                       Static Members vs Instance Variables Inspector
                     </h3>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-slate-400 mt-0.5">
                       Inspect how static fields belong to the loaded class type itself (one shared slot in Metaspace) while each instance maintains isolated memory.
                     </p>
                   </div>
@@ -1347,14 +1347,14 @@ class Notification {
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-xs font-semibold text-stone-700">
-                          Edit Shared Class Variable: <code className="text-orange-700">static String university</code>
+                        <label className="text-xs font-semibold text-slate-300">
+                          Edit Shared Class Variable: <code className="text-orange-300">static String university</code>
                         </label>
                         <input
                           type="text"
                           value={staticUniName}
                           onChange={(e) => setStaticUniName(e.target.value)}
-                          className="w-full px-3 py-2 text-sm rounded-lg border border-amber-300 bg-white font-mono font-bold text-stone-900 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                          className="w-full px-3 py-2 text-sm rounded-lg border border-amber-300 bg-slate-900/80 font-mono font-bold text-white focus:outline-none focus:ring-2 focus:ring-amber-500/20"
                         />
                       </div>
 
@@ -1364,24 +1364,24 @@ class Notification {
                     </div>
 
                     {/* HEAP INSTANCES */}
-                    <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200 space-y-4">
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-stone-200 text-stone-800 uppercase inline-block">
+                    <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-slate-800 text-slate-200 uppercase inline-block">
                         JVM Heap Memory (Individual Instances)
                       </span>
 
                       <div className="grid grid-cols-3 gap-2">
                         {studentInstances.map((s) => (
-                          <div key={s.id} className="p-3 rounded-xl bg-white border border-stone-200 shadow-2xs space-y-1 text-center">
-                            <div className="text-[10px] font-mono text-stone-400">ID #{s.id}</div>
-                            <div className="text-xs font-bold text-stone-900">{s.name}</div>
-                            <div className="pt-2 border-t border-stone-100 text-[10px] font-mono text-orange-600 truncate">
+                          <div key={s.id} className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 shadow-2xs space-y-1 text-center">
+                            <div className="text-[10px] font-mono text-slate-500">ID #{s.id}</div>
+                            <div className="text-xs font-bold text-white">{s.name}</div>
+                            <div className="pt-2 border-t border-slate-800/60 text-[10px] font-mono text-orange-400 truncate">
                               {staticUniName}
                             </div>
                           </div>
                         ))}
                       </div>
 
-                      <p className="text-xs text-stone-600 leading-relaxed">
+                      <p className="text-xs text-slate-400 leading-relaxed">
                         Every student instance displays the shared university name instantaneously without copying it across individual heap objects.
                       </p>
                     </div>
@@ -1393,23 +1393,23 @@ class Notification {
             {/* 6. UML CLASS DIAGRAM EXPLORER */}
             {activeWorkbenchTab === "uml-explorer" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <span className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <span className="text-[11px] font-mono text-orange-400 font-bold uppercase tracking-wider">
                       Visual System Architecture & Relationships
                     </span>
-                    <h3 className="text-xl font-bold text-stone-900">
+                    <h3 className="text-xl font-bold text-white">
                       UML Class Diagram & Relationship Explorer
                     </h3>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-slate-400 mt-0.5">
                       Interactive visual blueprint of the University Course Registration capstone system. Click classes to inspect their compartments and relationships.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     {/* DIAGRAM INTERACTIVE CANVAS */}
-                    <div className="lg:col-span-2 p-5 rounded-2xl bg-stone-50 border border-stone-200 space-y-4">
-                      <div className="flex items-center justify-between text-xs font-mono text-stone-500 border-b border-stone-200 pb-2">
+                    <div className="lg:col-span-2 p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
+                      <div className="flex items-center justify-between text-xs font-mono text-slate-400 border-b border-slate-800 pb-2">
                         <span>SYSTEM BLUEPRINT CANVAS</span>
                         <span>Click node to inspect metadata</span>
                       </div>
@@ -1424,20 +1424,20 @@ class Notification {
                               onClick={() => setSelectedUmlNode(key)}
                               className={`p-3.5 rounded-xl border cursor-pointer transition-all ${
                                 isSelected
-                                  ? "bg-orange-50/70 border-orange-500 shadow-xs ring-2 ring-orange-500/20"
-                                  : "bg-white border-stone-200 hover:border-stone-300"
+                                  ? "bg-orange-500/15/70 border-orange-500 shadow-xs ring-2 ring-orange-500/20"
+                                  : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                               }`}
                             >
-                              <div className="text-[10px] font-mono text-orange-600 font-bold">{item.stereotype}</div>
-                              <h4 className="text-sm font-bold text-stone-900 mt-0.5">{item.name}</h4>
-                              <p className="text-[11px] text-stone-500 mt-1 line-clamp-2">{item.role}</p>
+                              <div className="text-[10px] font-mono text-orange-400 font-bold">{item.stereotype}</div>
+                              <h4 className="text-sm font-bold text-white mt-0.5">{item.name}</h4>
+                              <p className="text-[11px] text-slate-400 mt-1 line-clamp-2">{item.role}</p>
                             </div>
                           );
                         })}
                       </div>
 
-                      <div className="p-3.5 rounded-xl bg-white border border-stone-200 text-xs text-stone-600 flex flex-wrap items-center gap-4">
-                        <span className="font-bold text-stone-800">UML Notation Key:</span>
+                      <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-400 flex flex-wrap items-center gap-4">
+                        <span className="font-bold text-slate-200">UML Notation Key:</span>
                         <span className="flex items-center gap-1 font-mono text-[11px]">
                           <strong>+</strong> Public
                         </span>
@@ -1465,13 +1465,13 @@ class Notification {
                         <h4 className="text-base font-bold text-white mt-1">
                           {umlDetails[selectedUmlNode].name}
                         </h4>
-                        <p className="text-[11px] text-stone-400 mt-0.5">
+                        <p className="text-[11px] text-slate-500 mt-0.5">
                           {umlDetails[selectedUmlNode].role}
                         </p>
                       </div>
 
                       <div className="space-y-1.5 pt-3 border-t border-stone-800">
-                        <span className="text-[10px] text-stone-400 font-bold uppercase">Attributes / Fields:</span>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase">Attributes / Fields:</span>
                         <div className="space-y-1">
                           {umlDetails[selectedUmlNode].members.map((m, idx) => (
                             <div key={idx} className="text-[11px] text-amber-300">
@@ -1482,7 +1482,7 @@ class Notification {
                       </div>
 
                       <div className="space-y-1.5 pt-3 border-t border-stone-800">
-                        <span className="text-[10px] text-stone-400 font-bold uppercase">Operations / Methods:</span>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase">Operations / Methods:</span>
                         <div className="space-y-1">
                           {umlDetails[selectedUmlNode].methods.map((meth, idx) => (
                             <div key={idx} className="text-[11px] text-emerald-400">
@@ -1492,7 +1492,7 @@ class Notification {
                         </div>
                       </div>
 
-                      <div className="pt-3 border-t border-stone-800 text-[11px] text-stone-300 leading-relaxed">
+                      <div className="pt-3 border-t border-stone-800 text-[11px] text-slate-400 leading-relaxed">
                         <strong>Relationships:</strong> {umlDetails[selectedUmlNode].relationship}
                       </div>
                     </div>
@@ -1504,15 +1504,15 @@ class Notification {
             {/* 7. SOLID PRINCIPLES CLINIC */}
             {activeWorkbenchTab === "solid-clinic" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <span className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <span className="text-[11px] font-mono text-orange-400 font-bold uppercase tracking-wider">
                       Architectural Code Refactoring
                     </span>
-                    <h3 className="text-xl font-bold text-stone-900">
+                    <h3 className="text-xl font-bold text-white">
                       SOLID Principles Interactive Diagnostic Clinic
                     </h3>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-slate-400 mt-0.5">
                       Examine the 5 bedrock design principles: compare tight-coupling anti-patterns against clean, loosely coupled production refactorings.
                     </p>
                   </div>
@@ -1528,7 +1528,7 @@ class Notification {
                           className={`py-3 rounded-xl border text-center font-bold text-sm transition-all ${
                             isSel
                               ? "bg-orange-600 text-white border-orange-600 shadow-2xs"
-                              : "bg-white text-stone-700 border-stone-200 hover:border-stone-300"
+                              : "bg-slate-900/80 text-slate-300 border-slate-800 hover:border-slate-700"
                           }`}
                         >
                           {code}
@@ -1539,11 +1539,11 @@ class Notification {
 
                   {/* ACTIVE PRINCIPLE CARD */}
                   <div className="space-y-5">
-                    <div className="p-4 rounded-xl bg-orange-50/60 border border-orange-200">
-                      <h4 className="text-base font-bold text-stone-900">
+                    <div className="p-4 rounded-xl bg-orange-500/15/60 border border-orange-500/30">
+                      <h4 className="text-base font-bold text-white">
                         {solidData[selectedSolid].title}
                       </h4>
-                      <p className="text-xs text-stone-700 mt-1 leading-relaxed">
+                      <p className="text-xs text-slate-300 mt-1 leading-relaxed">
                         {solidData[selectedSolid].description}
                       </p>
                     </div>
@@ -1572,7 +1572,7 @@ class Notification {
                       </div>
                     </div>
 
-                    <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-700 leading-relaxed">
+                    <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed">
                       <strong>Architectural Rationale:</strong> {solidData[selectedSolid].benefit}
                     </div>
                   </div>
@@ -1583,24 +1583,24 @@ class Notification {
             {/* 8. 20-QUESTION MCQ QUIZ */}
             {activeWorkbenchTab === "quiz" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4 mb-6">
                     <div>
-                      <span className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider">
+                      <span className="text-[11px] font-mono text-orange-400 font-bold uppercase tracking-wider">
                         Official Curriculum Knowledge Check
                       </span>
-                      <h3 className="text-xl font-bold text-stone-900">
+                      <h3 className="text-xl font-bold text-white">
                         Module 4 Assessment: 20 Multiple-Choice Questions
                       </h3>
-                      <p className="text-xs text-stone-500 mt-0.5">
+                      <p className="text-xs text-slate-400 mt-0.5">
                         Test your comprehension of OOP principles, constructors, inheritance, interfaces, static members, and SOLID guidelines.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-3">
                       <div className="text-right font-mono text-xs">
-                        <span className="text-stone-500">Answered:</span>{" "}
-                        <strong className="text-stone-900">
+                        <span className="text-slate-400">Answered:</span>{" "}
+                        <strong className="text-white">
                           {Object.keys(quizAnswers).length} / {quizQuestions.length}
                         </strong>
                       </div>
@@ -1624,7 +1624,7 @@ class Notification {
                           {Math.round((quizScore / quizQuestions.length) * 100)}%)
                         </div>
                       </div>
-                      <div className="text-xs text-stone-300 max-w-sm text-right">
+                      <div className="text-xs text-slate-400 max-w-sm text-right">
                         {quizScore >= 16
                           ? "🎉 Excellent mastery! You are ready to design full OOP applications and advance to Data Structures & Algorithms."
                           : "Review the detailed explanations below to cement your understanding of Java OOP design rules."}
@@ -1641,14 +1641,14 @@ class Notification {
                       return (
                         <div
                           key={q.id}
-                          className="p-5 rounded-xl border border-stone-200 bg-white space-y-3"
+                          className="p-5 rounded-xl border border-slate-800 bg-slate-900/80 space-y-3"
                         >
-                          <h4 className="text-sm font-bold text-stone-900">{q.question}</h4>
+                          <h4 className="text-sm font-bold text-white">{q.question}</h4>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {q.options.map((opt, optIdx) => {
                               const isThisSelected = selectedOpt === optIdx;
-                              let btnClass = "border-stone-200 bg-stone-50 text-stone-700 hover:bg-stone-100";
+                              let btnClass = "border-slate-800 bg-slate-950 text-slate-300 hover:bg-slate-950";
 
                               if (showResults) {
                                 if (optIdx === q.correct) {
@@ -1657,7 +1657,7 @@ class Notification {
                                   btnClass = "border-red-300 bg-red-50 text-red-800 line-through";
                                 }
                               } else if (isThisSelected) {
-                                btnClass = "border-orange-500 bg-orange-50 text-orange-950 font-bold";
+                                btnClass = "border-orange-500 bg-orange-500/15 text-orange-950 font-bold";
                               }
 
                               return (
@@ -1673,7 +1673,7 @@ class Notification {
                           </div>
 
                           {showResults && (
-                            <div className="p-3 rounded-lg bg-stone-100 text-stone-700 text-xs leading-relaxed">
+                            <div className="p-3 rounded-lg bg-slate-950 text-slate-300 text-xs leading-relaxed">
                               <strong>Explanation:</strong> {q.explanation}
                             </div>
                           )}
@@ -1688,15 +1688,15 @@ class Notification {
             {/* 9. LABS & ASSIGNMENTS TRACKER */}
             {activeWorkbenchTab === "labs" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-stone-100 pb-4 mb-6">
-                    <span className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800/60 pb-4 mb-6">
+                    <span className="text-[11px] font-mono text-orange-400 font-bold uppercase tracking-wider">
                       Hands-on Laboratory Portfolio
                     </span>
-                    <h3 className="text-xl font-bold text-stone-900">
+                    <h3 className="text-xl font-bold text-white">
                       10 Practical Laboratory Exercises & 8 Programming Assignments
                     </h3>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-slate-400 mt-0.5">
                       Mark completed tasks as you build and compile them in your local Java development environment.
                     </p>
                   </div>
@@ -1711,18 +1711,18 @@ class Notification {
                           className={`p-4 rounded-xl border cursor-pointer transition-all ${
                             isDone
                               ? "bg-emerald-50/50 border-emerald-300"
-                              : "bg-white border-stone-200 hover:border-stone-300"
+                              : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                           }`}
                         >
                           <div className="flex items-start gap-3">
                             <button
                               type="button"
-                              className="mt-0.5 text-stone-400 hover:text-stone-600 focus:outline-none"
+                              className="mt-0.5 text-slate-500 hover:text-slate-400 focus:outline-none"
                             >
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-600" />
                               ) : (
-                                <Square className="w-4 h-4 text-stone-400" />
+                                <Square className="w-4 h-4 text-slate-500" />
                               )}
                             </button>
                             <div className="space-y-1">
@@ -1730,21 +1730,21 @@ class Notification {
                                 <span
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     lab.type === "Lab"
-                                      ? "bg-orange-100 text-orange-800"
-                                      : "bg-stone-100 text-stone-700"
+                                      ? "bg-orange-500/15 text-orange-300"
+                                      : "bg-slate-950 text-slate-300"
                                   }`}
                                 >
                                   {lab.type}
                                 </span>
                                 <h4
                                   className={`text-xs font-bold ${
-                                    isDone ? "text-stone-500 line-through" : "text-stone-900"
+                                    isDone ? "text-slate-400 line-through" : "text-white"
                                   }`}
                                 >
                                   {lab.title}
                                 </h4>
                               </div>
-                              <p className="text-xs text-stone-600 leading-relaxed">{lab.goal}</p>
+                              <p className="text-xs text-slate-400 leading-relaxed">{lab.goal}</p>
                             </div>
                           </div>
                         </div>

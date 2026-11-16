@@ -279,18 +279,21 @@ export default function ModuleNav({
   trackId,
   currentTrack,
   course,
+  courseId,
   currentModuleId: propCurrentModuleId,
   activeModuleId,
   showAiTutor,
   onAiTutorToggle,
   aiTutorLabel,
+  dark: propDark,
 }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated, user, logout } = useAuth();
   const scrollRef = useRef(null);
 
-  const rawTrack = propTrack || trackId || currentTrack || course;
+  const explicitModuleId = propCurrentModuleId || activeModuleId;
+  const rawTrack = propTrack || trackId || currentTrack || course || courseId;
 
   // Auto-detect track if omitted, defaulted to "cloud", or passed as trackId/course
   const track = useMemo(() => {
@@ -313,12 +316,13 @@ export default function ModuleNav({
     if (path.includes("/learning/os") || path.includes("/learn/os")) return "os";
     if (path.includes("/learning/networks") || path.includes("/learn/networks")) return "networks";
     if (path.includes("/learning/cybersecurity") || path.includes("/learn/cybersecurity")) return "cybersecurity";
-    if (path.includes("/learning/system-design") || path.includes("/learn/system-design")) return "system-design";
+    if (path.includes("/system-design") || path.includes("/learn/system-design")) return "system-design";
     if (path.includes("/learning/devops") || path.includes("/learn/devops")) return "devops";
     if (path.includes("/learning/blockchain") || path.includes("/learn/blockchain")) return "blockchain";
     if (path.includes("/learning/cloud") || path.includes("/learn/cloud")) return "cloud";
+    if (JAVA_MODULES.some((m) => m.id === explicitModuleId)) return "java";
     return rawTrack || "cloud";
-  }, [rawTrack, location?.pathname]);
+  }, [rawTrack, location?.pathname, explicitModuleId]);
 
   const courseIdMap = {
     os: "operating-systems",
@@ -378,7 +382,6 @@ export default function ModuleNav({
     }
   }, [track, resolvedCourseId, getModulesForTrack]);
 
-  const explicitModuleId = propCurrentModuleId || activeModuleId;
   const currentModuleId = useMemo(() => {
     if (explicitModuleId) return explicitModuleId;
     const currentPath = (location?.pathname || "").toLowerCase().replace(/\/+$/, "");
@@ -388,6 +391,13 @@ export default function ModuleNav({
     });
     return found ? found.id : (modules[0]?.id || "foundations");
   }, [explicitModuleId, location?.pathname, modules]);
+
+  const isDark = Boolean(
+    propDark ||
+    track === "java" ||
+    track === "java-programming" ||
+    (location?.pathname || "").toLowerCase().includes("/learning/java")
+  );
 
   const [accessState, setAccessState] = useState(() => getCachedCourseAccess(resolvedCourseId));
   const [completedModuleIds, setCompletedModuleIds] = useState(() => {
@@ -587,12 +597,18 @@ export default function ModuleNav({
   return (
     <div className="w-full max-w-6xl mx-auto mb-4 sm:mb-8 flex flex-col gap-2 sm:gap-3 px-3 sm:px-6 lg:px-8 pt-2 sm:pt-6">
       {/* Top Breadcrumb & User Actions */}
-      <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-[#e7e3da] pb-3 sm:pb-4">
+      <div className={`flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b pb-3 sm:pb-4 ${
+        isDark ? "border-slate-800" : "border-[#e7e3da]"
+      }`}>
         <div className="flex items-center gap-2 shrink-0">
           <button
             type="button"
             onClick={() => goBack(defaultFallback)}
-            className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3.5 py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer shrink-0"
+            className={`flex items-center gap-1.5 rounded-xl border px-3.5 py-2 text-xs font-bold transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer shrink-0 ${
+              isDark
+                ? "border-slate-800 bg-slate-900/90 text-slate-200 hover:border-orange-500/50 hover:text-[#f97316]"
+                : "border-[#e7e3da] bg-white/90 text-stone-700 hover:border-orange-300 hover:text-[#f97316]"
+            }`}
             title="Go back to previous page"
             aria-label="Go back"
           >
@@ -600,12 +616,16 @@ export default function ModuleNav({
             <span>Back</span>
           </button>
 
-          <span className="hidden sm:inline text-stone-300 select-none">/</span>
+          <span className={`hidden sm:inline select-none ${isDark ? "text-slate-600" : "text-stone-300"}`}>/</span>
 
           <button
             type="button"
             onClick={() => navigate("/learning")}
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-2 py-1.5 text-xs font-semibold text-stone-500 hover:text-[#f97316] transition cursor-pointer shrink-0"
+            className={`hidden sm:inline-flex items-center gap-1.5 rounded-xl px-2 py-1.5 text-xs font-semibold transition cursor-pointer shrink-0 ${
+              isDark
+                ? "text-slate-400 hover:text-[#f97316]"
+                : "text-stone-500 hover:text-[#f97316]"
+            }`}
             title="Jump to Curriculum Overview"
           >
             <span>Curriculum Overview</span>
@@ -618,7 +638,11 @@ export default function ModuleNav({
             <div className="flex items-center gap-1.5 sm:gap-2">
               <Link
                 to="/dashboard"
-                className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer"
+                className={`flex items-center gap-1.5 rounded-xl border px-2.5 py-1.5 sm:py-2 text-xs font-bold transition shadow-2xs backdrop-blur-md cursor-pointer ${
+                  isDark
+                    ? "border-slate-800 bg-slate-900/90 text-slate-200 hover:border-orange-500/50 hover:text-[#f97316]"
+                    : "border-[#e7e3da] bg-white/90 text-stone-700 hover:border-orange-300 hover:text-[#f97316]"
+                }`}
                 title="Go to Dashboard"
               >
                 {user?.picture ? (
@@ -645,7 +669,11 @@ export default function ModuleNav({
                 }}
                 title="Log Out"
                 aria-label="Log Out"
-                className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
+                className={`flex items-center gap-1 rounded-xl border px-2.5 py-1.5 sm:py-2 text-xs font-semibold transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95 ${
+                  isDark
+                    ? "border-slate-800 bg-slate-900/90 text-slate-400 hover:text-red-400 hover:border-red-500/30"
+                    : "border-[#e7e3da] bg-white/90 text-stone-600 hover:text-red-600 hover:border-red-200"
+                }`}
               >
                 <LogOut size={13} />
                 <span className="hidden md:inline">Log Out</span>
@@ -655,7 +683,11 @@ export default function ModuleNav({
             <Link
               to="/login"
               state={{ from: location.pathname }}
-              className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
+              className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 sm:py-2 text-xs font-bold transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95 ${
+                isDark
+                  ? "border-slate-800 bg-slate-900/90 text-slate-200 hover:border-orange-500/50 hover:text-[#f97316]"
+                  : "border-[#e7e3da] bg-white/90 text-stone-700 hover:border-orange-300 hover:text-[#f97316]"
+              }`}
             >
               Sign In
             </Link>
@@ -668,6 +700,8 @@ export default function ModuleNav({
               className={`flex items-center gap-2 rounded-xl border px-3.5 py-2 text-xs font-bold transition shadow-xs backdrop-blur-md active:scale-95 ${
                 showAiTutor
                   ? "border-[#f97316] bg-[#f97316] text-white shadow-orange-500/20"
+                  : isDark
+                  ? "border-slate-800 bg-slate-900/90 text-slate-300 hover:border-orange-500/50 hover:text-[#f97316]"
                   : "border-[#e7e3da] bg-white/90 text-stone-700 hover:border-orange-300 hover:text-[#f97316]"
               }`}
             >
@@ -677,6 +711,7 @@ export default function ModuleNav({
           ) : (
             <Logo
               size="xs"
+              dark={isDark}
               suffix={
                 track === "devops"
                   ? "DevOps"
@@ -708,14 +743,22 @@ export default function ModuleNav({
         <button
           onClick={() => scroll("left")}
           aria-label="Scroll modules left"
-          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300 transition mr-1 sm:mr-1.5 shadow-2xs active:scale-95 cursor-pointer"
+          className={`flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border transition mr-1 sm:mr-1.5 shadow-2xs active:scale-95 cursor-pointer ${
+            isDark
+              ? "border-slate-800 bg-slate-900/90 text-slate-400 hover:text-white hover:border-orange-500/50"
+              : "border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300"
+          }`}
         >
           <ChevronLeft size={15} />
         </button>
 
         <div
           ref={scrollRef}
-          className="flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto rounded-xl sm:rounded-2xl border border-[#e7e3da] bg-white/90 p-1 sm:p-1.5 shadow-2xs backdrop-blur-md scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
+          className={`flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto rounded-xl sm:rounded-2xl border p-1 sm:p-1.5 shadow-2xs backdrop-blur-md scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x ${
+            isDark
+              ? "border-slate-800 bg-slate-900/90"
+              : "border-[#e7e3da] bg-white/90"
+          }`}
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {modules.map((mod) => {
@@ -731,6 +774,8 @@ export default function ModuleNav({
                 className={`shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer min-h-[34px] sm:min-h-[38px] inline-flex items-center gap-1.5 ${
                   isActive
                     ? "bg-[#f97316] text-white shadow-sm shadow-orange-500/25"
+                    : isDark
+                    ? "text-slate-400 hover:bg-slate-800/80 hover:text-white"
                     : "text-stone-600 hover:bg-stone-100/80 hover:text-stone-900"
                 }`}
               >
@@ -740,10 +785,12 @@ export default function ModuleNav({
                     className={`inline-flex items-center gap-0.5 rounded-md px-1.5 py-0.5 text-[9px] font-bold shrink-0 ${
                       isActive
                         ? "bg-white/20 text-white"
+                        : isDark
+                        ? "bg-emerald-950/60 text-emerald-400 border border-emerald-500/30"
                         : "bg-emerald-100 text-emerald-800 border border-emerald-200/80"
                     }`}
                   >
-                    <CheckCircle2 size={10} className={isActive ? "text-white" : "text-emerald-600"} />
+                    <CheckCircle2 size={10} className={isActive ? "text-white" : "text-emerald-500"} />
                     <span>Done</span>
                   </span>
                 )}
@@ -755,7 +802,11 @@ export default function ModuleNav({
         <button
           onClick={() => scroll("right")}
           aria-label="Scroll modules right"
-          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300 transition ml-1 sm:ml-1.5 shadow-2xs active:scale-95 cursor-pointer"
+          className={`flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border transition ml-1 sm:ml-1.5 shadow-2xs active:scale-95 cursor-pointer ${
+            isDark
+              ? "border-slate-800 bg-slate-900/90 text-slate-400 hover:text-white hover:border-orange-500/50"
+              : "border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300"
+          }`}
         >
           <ChevronRight size={15} />
         </button>

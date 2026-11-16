@@ -5,39 +5,39 @@ export default function JavaOOPSections() {
   return (
     <div className="space-y-10">
       {/* SECTION 0: Module 4: Complete Curriculum Specification */}
-      <section id="overview" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="overview" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Course Roadmap · Overview
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 0</span>
+          <span className="text-xs font-mono text-slate-400">Section 0</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           Module 4: Complete Curriculum Specification
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Module Overview</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Object-Oriented Programming (OOP) is a programming paradigm that organizes software around objects containing data and behavior.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Instead of writing an entire application as a collection of unrelated statements and methods, OOP allows developers to represent real-world entities, define their responsibilities, establish relationships, and organize application behavior into reusable components.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java is a class-based, object-oriented programming language. Its core OOP capabilities include classes, objects, encapsulation, inheritance, polymorphism, abstraction, and interfaces.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This module explores these concepts from beginner to intermediate level and introduces fundamental software design practices used in professional Java development.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Prerequisites</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Students should understand:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Java variables and data types.</li>
             <li>Arrays and String manipulation.</li>
             <li>Methods and method parameters.</li>
@@ -46,13 +46,13 @@ export default function JavaOOPSections() {
             <li>Basic algorithms and problem-solving.</li>
             <li>Java references and object behavior.</li>
           </ul>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Learning Objectives</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             By the end of this module, students should be able to:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Explain object-oriented programming and its importance.</li>
             <li>Understand the four major OOP principles.</li>
             <li>Design and declare Java classes.</li>
@@ -60,9 +60,9 @@ export default function JavaOOPSections() {
             <li>Understand object state, behavior, and identity.</li>
             <li>Implement default and parameterized constructors.</li>
             <li>Implement constructor overloading and chaining.</li>
-            <li>Understand the <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this</code> and <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">super</code> keywords.</li>
+            <li>Understand the <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this</code> and <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">super</code> keywords.</li>
             <li>Apply encapsulation and data hiding.</li>
-            <li>Implement inheritance using <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">extends</code>.</li>
+            <li>Implement inheritance using <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">extends</code>.</li>
             <li>Understand Java's inheritance hierarchy.</li>
             <li>Override inherited methods correctly.</li>
             <li>Understand runtime polymorphism and dynamic method dispatch.</li>
@@ -71,7 +71,7 @@ export default function JavaOOPSections() {
             <li>Design and implement interfaces.</li>
             <li>Understand multiple interface implementation.</li>
             <li>Work with static and instance members.</li>
-            <li>Apply the <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">final</code> keyword.</li>
+            <li>Apply the <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">final</code> keyword.</li>
             <li>Use access modifiers correctly.</li>
             <li>Organize applications using packages.</li>
             <li>Compare composition and inheritance.</li>
@@ -80,80 +80,80 @@ export default function JavaOOPSections() {
             <li>Understand and apply the five SOLID principles.</li>
             <li>Design a modular Java application using OOP principles.</li>
           </ol>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 1: 1. Introduction to Object-Oriented Programming */}
-      <section id="section-1" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-1" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 1 · Paradigm Shift
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 1</span>
+          <span className="text-xs font-mono text-slate-400">Section 1</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           1. Introduction to Object-Oriented Programming
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>1.1 What is Object-Oriented Programming?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Object-Oriented Programming is a programming paradigm in which software is organized around objects that combine state and behavior.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             An object represents an entity or concept within a program.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For example, consider a banking application.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A bank account can be represented as an object containing:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">State:</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">State:</strong>
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Account number.</li>
             <li>Account holder name.</li>
             <li>Current balance.</li>
             <li>Account status.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Behavior:</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Behavior:</strong>
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Deposit money.</li>
             <li>Withdraw money.</li>
             <li>Check balance.</li>
             <li>Display account information.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Instead of writing unrelated variables and methods for each account, we can create a class that defines the common structure and behavior of bank accounts.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each individual bank account can then be represented by a separate object.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>1.2 Procedural programming versus object-oriented programming</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Before understanding OOP deeply, it is useful to compare it with procedural programming.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Procedural programming</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Procedural programming organizes a program primarily around procedures or functions.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class BankingProcedure {
@@ -181,22 +181,22 @@ export default function JavaOOPSections() {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This program works for a basic demonstration, but all accounts share the same balance variable.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It becomes difficult to manage multiple independent accounts.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Object-oriented programming</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             In OOP, data and the methods that operate on that data are organized into objects.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class BankAccount {
@@ -215,13 +215,13 @@ export default function JavaOOPSections() {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Now we can create multiple accounts.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class BankingApplication {
@@ -247,38 +247,38 @@ export default function JavaOOPSections() {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`6000.0
 12000.0`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each object maintains its own instance state.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is one of the major benefits of object-oriented programming.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>1.3 Why do we need OOP?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Large applications contain many interacting components.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Consider an e-commerce platform.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It may contain:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Customers.</li>
             <li>Products.</li>
             <li>Shopping carts.</li>
@@ -288,19 +288,19 @@ export default function JavaOOPSections() {
             <li>Reviews.</li>
             <li>Notifications.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Developing such a system using only unrelated variables and methods would make it difficult to organize the code.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             OOP provides a structured way to represent each responsibility.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`E-Commerce Application
@@ -320,101 +320,101 @@ export default function JavaOOPSections() {
 +-- Notification`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each class defines specific responsibilities, and objects interact to implement application behavior.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>1.4 Major advantages of OOP</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">1. Modularity</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">1. Modularity</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Applications can be divided into independent classes and components.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">2. Reusability</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">2. Reusability</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Existing classes and interfaces can be reused in different parts of an application.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">3. Maintainability</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">3. Maintainability</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Well-organized classes make software easier to understand and modify.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">4. Encapsulation</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">4. Encapsulation</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Internal implementation details can be hidden while controlled operations are exposed.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">5. Extensibility</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">5. Extensibility</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             New functionality can be introduced by extending or implementing appropriate abstractions.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">6. Testability</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">6. Testability</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Individual components can be tested independently when their dependencies are designed appropriately.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">7. Real-world modeling</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">7. Real-world modeling</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Objects can represent entities, responsibilities, and relationships found in real systems.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 2: 2. The Four Main Principles of OOP */}
-      <section id="section-2" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-2" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 1 · OOP Pillars
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 2</span>
+          <span className="text-xs font-mono text-slate-400">Section 2</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           2. The Four Main Principles of OOP
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Object-oriented programming is commonly explained using four fundamental principles:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Encapsulation.</li>
             <li>Inheritance.</li>
             <li>Polymorphism.</li>
             <li>Abstraction.</li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These concepts work together rather than operating as completely separate features.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>2.1 Encapsulation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Encapsulation combines data and related behavior within a class while controlling access to internal state.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A bank account should not allow an external application to directly change its balance to any arbitrary value.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Instead, it should provide controlled methods such as <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">deposit()</code> and <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">withdraw()</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Instead, it should provide controlled methods such as <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">deposit()</code> and <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">withdraw()</code>.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class BankAccount {
@@ -436,49 +436,49 @@ export default function JavaOOPSections() {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The balance is private.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             External classes must use the public methods to interact with it.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Benefits:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Protects internal data.</li>
             <li>Enforces validation.</li>
             <li>Prevents uncontrolled modification.</li>
             <li>Makes implementation changes easier.</li>
             <li>Provides a well-defined public API.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>2.2 Inheritance</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Inheritance allows one class to acquire accessible members and behavior from another class.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A student and an instructor are both people.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             They may share:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Name.</li>
             <li>Age.</li>
             <li>Email address.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             However, they also have different responsibilities.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`           Person
@@ -488,42 +488,42 @@ export default function JavaOOPSections() {
      Student    Instructor`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The common features can be defined in a parent class called <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Person</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The common features can be defined in a parent class called <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Person</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Student</code> and <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Instructor</code> can then extend it.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Student</code> and <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Instructor</code> can then extend it.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Benefits:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Reuse of common implementation.</li>
             <li>Reduced duplication.</li>
             <li>Clear class hierarchies.</li>
             <li>Support for polymorphism.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>2.3 Polymorphism</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Polymorphism means that a common interface or parent type can represent objects with different implementations or behaviors.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For example, an application may work with different payment methods:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Credit card.</li>
             <li>UPI.</li>
             <li>Bank transfer.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each payment method can provide its own implementation of a common payment operation.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Payment {
@@ -532,52 +532,52 @@ export default function JavaOOPSections() {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Different implementations can provide different behaviors.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The application can use a common <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Payment</code> reference without needing to know every implementation detail.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The application can use a common <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Payment</code> reference without needing to know every implementation detail.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Benefits:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Flexible code.</li>
             <li>Extensible application design.</li>
             <li>Reduced dependency on specific implementations.</li>
             <li>Supports runtime method selection.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>2.4 Abstraction</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Abstraction focuses on exposing essential functionality while hiding implementation details.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For example, when using an ATM, a customer selects an option such as withdrawing money without needing to understand the internal banking software, transaction management, or database operations.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             In Java, abstraction is commonly implemented using:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Abstract classes.</li>
             <li>Interfaces.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Benefits:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Hides unnecessary implementation details.</li>
             <li>Reduces complexity.</li>
             <li>Defines clear contracts.</li>
             <li>Allows implementation flexibility.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>2.5 Comparison of the four principles</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Principle</th>
                   <th className="px-4 py-3">Main idea</th>
@@ -585,85 +585,85 @@ export default function JavaOOPSections() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Encapsulation</td>
-                  <td className="px-4 py-2.5 text-stone-700">Protect and control object state</td>
-                  <td className="px-4 py-2.5 text-stone-700">Private fields and public methods</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Encapsulation</td>
+                  <td className="px-4 py-2.5 text-slate-300">Protect and control object state</td>
+                  <td className="px-4 py-2.5 text-slate-300">Private fields and public methods</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Inheritance</td>
-                  <td className="px-4 py-2.5 text-stone-700">Reuse and specialize class behavior</td>
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">extends</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Inheritance</td>
+                  <td className="px-4 py-2.5 text-slate-300">Reuse and specialize class behavior</td>
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">extends</code></td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Polymorphism</td>
-                  <td className="px-4 py-2.5 text-stone-700">Different implementations through common types</td>
-                  <td className="px-4 py-2.5 text-stone-700">Overriding and interfaces</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Polymorphism</td>
+                  <td className="px-4 py-2.5 text-slate-300">Different implementations through common types</td>
+                  <td className="px-4 py-2.5 text-slate-300">Overriding and interfaces</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Abstraction</td>
-                  <td className="px-4 py-2.5 text-stone-700">Expose essential functionality</td>
-                  <td className="px-4 py-2.5 text-stone-700">Abstract classes and interfaces</td>
+                  <td className="px-4 py-2.5 text-slate-300">Abstraction</td>
+                  <td className="px-4 py-2.5 text-slate-300">Expose essential functionality</td>
+                  <td className="px-4 py-2.5 text-slate-300">Abstract classes and interfaces</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 3: 3. Classes and Objects */}
-      <section id="section-3" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-3" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 2 · Blueprints & Runtime Instances
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 3</span>
+          <span className="text-xs font-mono text-slate-400">Section 3</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           3. Classes and Objects
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>3.1 What is a class?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A class is a user-defined reference type that acts as a blueprint for creating objects.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A class defines the structure and behavior that its instances can have.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Consider a student management application.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            A <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Student</code> class may define:
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            A <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Student</code> class may define:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Attributes:</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Attributes:</strong>
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Student ID.</li>
             <li>Student name.</li>
             <li>Age.</li>
             <li>Course.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Methods:</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Methods:</strong>
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Display details.</li>
             <li>Update course.</li>
             <li>Calculate academic performance.</li>
             <li>Check enrollment status.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -689,42 +689,42 @@ export default function JavaOOPSections() {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This class defines a structure for student objects.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It does not itself represent a particular student.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>3.2 What is an object?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             An object is a runtime instance of a class.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each object has:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Identity.</li>
             <li>State.</li>
             <li>Behavior.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Identity:</strong> Distinguishes one object from another.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Identity:</strong> Distinguishes one object from another.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">State:</strong> Represented through its instance fields.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">State:</strong> Represented through its instance fields.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Behavior:</strong> Represented through its methods.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Behavior:</strong> Represented through its methods.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class StudentApplication {
@@ -758,108 +758,108 @@ export default function JavaOOPSections() {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each object has its own instance fields.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>3.3 Class versus object</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Class</th>
                   <th className="px-4 py-3">Object</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Blueprint or reference type</td>
-                  <td className="px-4 py-2.5 text-stone-700">Runtime instance</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Blueprint or reference type</td>
+                  <td className="px-4 py-2.5 text-slate-300">Runtime instance</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Defines fields and methods</td>
-                  <td className="px-4 py-2.5 text-stone-700">Holds actual instance state</td>
+                  <td className="px-4 py-2.5 text-slate-300">Defines fields and methods</td>
+                  <td className="px-4 py-2.5 text-slate-300">Holds actual instance state</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Declared using <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">class</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Commonly created using <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">new</code></td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Declared using <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">class</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Commonly created using <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">new</code></td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Defines possible behavior</td>
-                  <td className="px-4 py-2.5 text-stone-700">Performs behavior when methods are called</td>
+                  <td className="px-4 py-2.5 text-slate-300">Defines possible behavior</td>
+                  <td className="px-4 py-2.5 text-slate-300">Performs behavior when methods are called</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Example: Student</td>
-                  <td className="px-4 py-2.5 text-stone-700">Example: Alex's student object</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Example: Student</td>
+                  <td className="px-4 py-2.5 text-slate-300">Example: Alex's student object</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>3.4 Creating objects using new</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Syntax:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`ClassName referenceName = new ClassName();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student student = new Student();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This statement involves several concepts.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">ClassName</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">ClassName</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The reference type is <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Student</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The reference type is <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Student</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">referenceName</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">referenceName</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The local variable is <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">student</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The local variable is <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">student</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">new</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">new</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Creates a new instance.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">ClassName()</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">ClassName()</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Invokes the constructor.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The resulting reference is assigned to the variable.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Conceptually:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Local variable
@@ -875,16 +875,16 @@ Student object
 +----------------------+`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The exact physical layout and allocation strategy are JVM implementation details. The conceptual model is enough for understanding Java object references.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>3.5 Creating multiple objects</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student s1 = new Student();
@@ -894,25 +894,25 @@ Student s2 = new Student();
 Student s3 = new Student();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each statement creates a separate object.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Objects of the same class share the class definition but generally maintain independent instance state.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>3.6 Instance variables and instance methods</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            A field declared inside a class, outside its methods and without <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">static</code>, is an instance variable.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            A field declared inside a class, outside its methods and without <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">static</code>, is an instance variable.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Employee {
@@ -928,19 +928,19 @@ Student s3 = new Student();`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Each Employee object has its own <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">name</code> and <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">salary</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Each Employee object has its own <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">name</code> and <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">salary</code>.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>3.7 Object references</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Consider:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student first = new Student();
@@ -948,16 +948,16 @@ Student s3 = new Student();`}</code>
 Student second = first;`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The two variables refer to the same object.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Changing its fields through either reference affects the same object.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`first.name = "Alex";
@@ -965,137 +965,137 @@ Student second = first;`}</code>
 System.out.println(second.name);`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Alex`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is important because assigning an object reference does not automatically create an independent object.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>3.8 Null references</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            A reference variable can contain <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">null</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            A reference variable can contain <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">null</code>.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student student = null;`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It does not refer to any object.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Calling a method through this reference causes a <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">NullPointerException</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Calling a method through this reference causes a <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">NullPointerException</code>.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`student.displayDetails();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Objects should be created and references validated before accessing their members.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>3.9 The Object class</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            In Java, <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Object</code> is the root superclass of the ordinary class hierarchy.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            In Java, <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Object</code> is the root superclass of the ordinary class hierarchy.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            If a class does not explicitly extend another class, it implicitly extends <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Object</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            If a class does not explicitly extend another class, it implicitly extends <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Object</code>.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Conceptually:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student extends Object {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Important methods inherited from <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Object</code> include:
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Important methods inherited from <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Object</code> include:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">toString()</code></li>
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">equals(Object obj)</code></li>
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">hashCode()</code></li>
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">getClass()</code></li>
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">toString()</code></li>
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">equals(Object obj)</code></li>
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">hashCode()</code></li>
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">getClass()</code></li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These methods become useful when implementing custom object behavior and working with collections.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 4: 4. Constructors */}
-      <section id="section-4" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-4" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 2 · Object Initialization & Chaining
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 4</span>
+          <span className="text-xs font-mono text-slate-400">Section 4</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           4. Constructors
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>4.1 What is a constructor?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A constructor is a special declaration used during object creation to initialize a new instance.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A constructor:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Has the same name as its class.</li>
             <li>Does not declare a return type.</li>
             <li>Can accept parameters.</li>
             <li>Can be overloaded.</li>
             <li>Is invoked when an object is created through object creation expressions.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -1120,13 +1120,13 @@ System.out.println(second.name);`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create the object:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student student = new Student();
@@ -1134,60 +1134,60 @@ System.out.println(second.name);`}</code>
 student.display();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Unknown
 18`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The constructor initializes the object.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>4.2 Why are constructors required?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Without proper initialization, an object may contain values that are not suitable for the application's requirements.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For example:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A bank account should not be created with arbitrary or invalid initial state.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A constructor can ensure that an object receives the information needed to establish a valid starting state.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Constructors help:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Initialize fields.</li>
             <li>Enforce required information.</li>
             <li>Establish object invariants.</li>
             <li>Reduce repeated initialization code.</li>
             <li>Provide multiple ways to construct objects.</li>
           </ol>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>4.3 Default constructor</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A default constructor is the no-argument constructor implicitly provided by the compiler when a class declares no constructors.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Employee {
@@ -1198,37 +1198,37 @@ student.display();`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The compiler provides an implicit no-argument constructor.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Therefore:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Employee employee = new Employee();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             is valid.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Important distinction:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             When a programmer declares any constructor, the compiler no longer supplies the implicit default constructor.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Employee {
@@ -1239,31 +1239,31 @@ student.display();`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Now:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Employee employee = new Employee();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             is invalid unless a no-argument constructor is also explicitly declared.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>4.4 No-argument constructor</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A programmer can explicitly declare a constructor without parameters.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Employee {
@@ -1281,22 +1281,22 @@ student.display();`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is called a no-argument constructor.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It is not the same thing as the compiler-provided default constructor.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>4.5 Parameterized constructor</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A parameterized constructor accepts values used to initialize fields.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -1321,13 +1321,13 @@ student.display();`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Object creation:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class StudentDemo {
@@ -1345,13 +1345,13 @@ student.display();`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Alex
@@ -1360,22 +1360,22 @@ Sam
 22`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each object receives different initialization values.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>4.6 Constructor overloading</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Constructor overloading means defining multiple constructors with different parameter lists.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -1424,13 +1424,13 @@ Sam
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             All of the following are valid:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student s1 = new Student();
@@ -1442,26 +1442,26 @@ Student s3 = new Student("Sam", 22);
 Student s4 = new Student("John", 21, "Java");`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>4.7 Constructor chaining</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Constructor chaining allows one constructor to invoke another constructor.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java uses:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this()</code> to invoke another constructor in the same class.</li>
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">super()</code> to invoke a constructor in the superclass.</li>
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this()</code> to invoke another constructor in the same class.</li>
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">super()</code> to invoke a constructor in the superclass.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Employee {
@@ -1493,102 +1493,102 @@ Student s4 = new Student("John", 21, "Java");`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The first constructor delegates initialization to the third constructor.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The second constructor also delegates to the third constructor.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This reduces duplicated initialization logic.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>4.8 Constructor versus method</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Constructor</th>
                   <th className="px-4 py-3">Method</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Initializes a new instance</td>
-                  <td className="px-4 py-2.5 text-stone-700">Performs an operation</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Initializes a new instance</td>
+                  <td className="px-4 py-2.5 text-slate-300">Performs an operation</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Has the class name</td>
-                  <td className="px-4 py-2.5 text-stone-700">Has a programmer-defined method name</td>
+                  <td className="px-4 py-2.5 text-slate-300">Has the class name</td>
+                  <td className="px-4 py-2.5 text-slate-300">Has a programmer-defined method name</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Declares no return type</td>
-                  <td className="px-4 py-2.5 text-stone-700">Has a return type or <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">void</code></td>
-                </tr>
-                <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Invoked during object construction</td>
-                  <td className="px-4 py-2.5 text-stone-700">Invoked through a method call</td>
-                </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Cannot be overridden</td>
-                  <td className="px-4 py-2.5 text-stone-700">Can be overridden where Java permits</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Declares no return type</td>
+                  <td className="px-4 py-2.5 text-slate-300">Has a return type or <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">void</code></td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Can be overloaded</td>
-                  <td className="px-4 py-2.5 text-stone-700">Can be overloaded</td>
+                  <td className="px-4 py-2.5 text-slate-300">Invoked during object construction</td>
+                  <td className="px-4 py-2.5 text-slate-300">Invoked through a method call</td>
+                </tr>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Cannot be overridden</td>
+                  <td className="px-4 py-2.5 text-slate-300">Can be overridden where Java permits</td>
+                </tr>
+                <tr className="bg-[#fcfbf9]">
+                  <td className="px-4 py-2.5 text-slate-300">Can be overloaded</td>
+                  <td className="px-4 py-2.5 text-slate-300">Can be overloaded</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Constructors are not inherited by subclasses.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 5: 5. The this Keyword */}
-      <section id="section-5" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-5" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 3 · Instance References
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 5</span>
+          <span className="text-xs font-mono text-slate-400">Section 5</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           5. The this Keyword
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>5.1 What is this?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this</code> keyword refers to the current object instance.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this</code> keyword refers to the current object instance.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It is commonly used inside instance methods and constructors.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Its most common applications include:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Distinguishing instance fields from local variables.</li>
             <li>Calling another constructor in the same class.</li>
             <li>Passing the current object as an argument.</li>
             <li>Returning the current object.</li>
             <li>Accessing current instance members.</li>
           </ol>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>5.2 Using this to distinguish instance variables</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Consider:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -1606,25 +1606,25 @@ Student s4 = new Student("John", 21, "Java");`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Here:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">name</code> represents the constructor parameter.</li>
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this.name</code> represents the current object's instance field.</li>
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">age</code> represents the constructor parameter.</li>
-            <li><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this.age</code> represents the current object's instance field.</li>
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">name</code> represents the constructor parameter.</li>
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this.name</code> represents the current object's instance field.</li>
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">age</code> represents the constructor parameter.</li>
+            <li><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this.age</code> represents the current object's instance field.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Without <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this</code>, the assignment could accidentally refer to the parameter itself.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Without <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this</code>, the assignment could accidentally refer to the parameter itself.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>5.3 Using this() for constructor chaining</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Product {
@@ -1647,25 +1647,25 @@ Student s4 = new Student("John", 21, "Java");`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The no-argument constructor delegates to the parameterized constructor.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Important rule:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            A constructor invocation using <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this()</code> must be the first constructor statement in Java 17.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            A constructor invocation using <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this()</code> must be the first constructor statement in Java 17.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            You cannot use both <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this()</code> and <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">super()</code> as separate constructor invocations within the same constructor.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            You cannot use both <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this()</code> and <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">super()</code> as separate constructor invocations within the same constructor.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>5.4 Passing this as an argument</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -1687,19 +1687,19 @@ Student s4 = new Student("John", 21, "Java");`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The current object is passed to another method.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>5.5 Returning this</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Returning <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this</code> is sometimes used in fluent APIs and method chaining.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Returning <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this</code> is sometimes used in fluent APIs and method chaining.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Builder {
@@ -1720,13 +1720,13 @@ Student s4 = new Student("John", 21, "Java");`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Builder builder = new Builder();
@@ -1734,43 +1734,43 @@ Student s4 = new Student("John", 21, "Java");`}</code>
 builder.setName("Java").display();`}</code>
             </pre>
           </div>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 6: 6. The super Keyword */}
-      <section id="section-6" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-6" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 3 · Superclass Invocations
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 6</span>
+          <span className="text-xs font-mono text-slate-400">Section 6</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           6. The super Keyword
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>6.1 What is super?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">super</code> keyword refers to the superclass portion of the current object.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">super</code> keyword refers to the superclass portion of the current object.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It allows a subclass to:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Invoke a superclass constructor.</li>
             <li>Access an accessible superclass field hidden by a subclass field.</li>
             <li>Invoke an overridden superclass method.</li>
           </ol>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>6.2 Calling a superclass constructor</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Person {
@@ -1796,31 +1796,31 @@ class Student extends Person {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Here:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`super(name);`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            invokes the constructor of <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Person</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            invokes the constructor of <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Person</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is useful when the parent class is responsible for initializing common data.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>6.3 Calling a superclass method</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Animal {
@@ -1843,29 +1843,29 @@ class Dog extends Animal {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Animal makes a sound
 Dog barks`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The child class adds its behavior while reusing the parent implementation.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>6.4 Accessing a hidden superclass field</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Parent {
@@ -1886,73 +1886,73 @@ class Child extends Parent {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`200
 100`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The first statement accesses the child field.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The second accesses the accessible parent field.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>6.5 this versus super</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">this</th>
                   <th className="px-4 py-3">super</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Refers to the current object</td>
-                  <td className="px-4 py-2.5 text-stone-700">Refers to the superclass portion of the current object</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Refers to the current object</td>
+                  <td className="px-4 py-2.5 text-slate-300">Refers to the superclass portion of the current object</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Accesses current class members</td>
-                  <td className="px-4 py-2.5 text-stone-700">Accesses accessible superclass members</td>
+                  <td className="px-4 py-2.5 text-slate-300">Accesses current class members</td>
+                  <td className="px-4 py-2.5 text-slate-300">Accesses accessible superclass members</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Calls another constructor using <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this()</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Calls a superclass constructor using <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">super()</code></td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Calls another constructor using <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this()</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Calls a superclass constructor using <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">super()</code></td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Refers to current instance</td>
-                  <td className="px-4 py-2.5 text-stone-700">Used in subclass context</td>
+                  <td className="px-4 py-2.5 text-slate-300">Refers to current instance</td>
+                  <td className="px-4 py-2.5 text-slate-300">Used in subclass context</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Cannot be used in a static context</td>
-                  <td className="px-4 py-2.5 text-stone-700">Cannot be used in a static context</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Cannot be used in a static context</td>
+                  <td className="px-4 py-2.5 text-slate-300">Cannot be used in a static context</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>6.6 Constructor execution order</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             When an object of a subclass is created, its superclass constructor chain runs before the subclass constructor completes.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Parent {
@@ -1980,26 +1980,26 @@ public class ConstructorOrder {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Parent constructor
 Child constructor`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Conceptually:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`new Child()
@@ -2014,54 +2014,54 @@ Child constructor
 Child object initialized`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             If no explicit constructor invocation is written, Java inserts an implicit no-argument superclass constructor invocation when permitted. If the superclass does not have an accessible no-argument constructor, the subclass constructor must explicitly invoke an appropriate superclass constructor.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 7: 7. Encapsulation */}
-      <section id="section-7" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-7" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 4 · Data Hiding & Invariants
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 7</span>
+          <span className="text-xs font-mono text-slate-400">Section 7</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           7. Encapsulation
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>7.1 What is encapsulation?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Encapsulation is the OOP principle of combining data and the methods that operate on it while controlling access to the internal state of an object.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             In Java, encapsulation is commonly implemented through:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Classes.</li>
             <li>Private fields.</li>
             <li>Public methods.</li>
             <li>Controlled validation.</li>
             <li>Appropriate access modifiers.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The goal is to ensure that objects maintain valid internal state.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>7.2 Problem without encapsulation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Consider:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class BankAccount {
@@ -2070,13 +2070,13 @@ Child object initialized`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Any external class can directly assign an arbitrary balance.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`BankAccount account = new BankAccount();
@@ -2084,19 +2084,19 @@ Child object initialized`}</code>
 account.balance = -100000;`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is dangerous because the program does not enforce any business rules.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>7.3 Encapsulation using private fields</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Improved implementation:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class BankAccount {
@@ -2118,13 +2118,13 @@ account.balance = -100000;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class BankDemo {
@@ -2142,37 +2142,37 @@ account.balance = -100000;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`6000.0`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The balance is accessed through a public method rather than directly.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>7.4 Getters and setters</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A getter retrieves the value of a private field.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A setter updates it using a controlled method.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Employee {
@@ -2209,13 +2209,13 @@ account.balance = -100000;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Employee employee = new Employee();
@@ -2229,55 +2229,55 @@ System.out.println(employee.getName());
 System.out.println(employee.getSalary());`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>7.5 Why should fields be private?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Private fields provide several advantages:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Controlled modification:</strong> External classes cannot directly change internal fields.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Controlled modification:</strong> External classes cannot directly change internal fields.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Validation:</strong> Methods can reject invalid values.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Validation:</strong> Methods can reject invalid values.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Implementation independence:</strong> Internal storage can change without necessarily changing the external interface.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Implementation independence:</strong> Internal storage can change without necessarily changing the external interface.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Improved maintainability:</strong> State-changing rules are centralized.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Improved maintainability:</strong> State-changing rules are centralized.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Data integrity:</strong> Objects can protect important invariants.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Data integrity:</strong> Objects can protect important invariants.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>7.6 Encapsulation versus data hiding</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These terms are related but not identical.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Data hiding</strong> emphasizes restricting direct access to implementation details.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Data hiding</strong> emphasizes restricting direct access to implementation details.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Encapsulation</strong> combines state and related behavior within a defined unit while controlling interaction with that unit.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Encapsulation</strong> combines state and related behavior within a defined unit while controlling interaction with that unit.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Private fields are a common data-hiding mechanism used to implement encapsulation.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>7.7 Encapsulation with immutable objects</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Some classes are designed so their state cannot change after construction.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`final class EmployeeRecord {
@@ -2305,60 +2305,60 @@ System.out.println(employee.getSalary());`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The fields are private and final, and no setters are provided.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is a simple immutable-object design.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             If a class contains mutable objects, immutability requires additional care, such as defensive copying.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 8: 8. Inheritance */}
-      <section id="section-8" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-8" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 5 · Class Hierarchies & IS-A
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 8</span>
+          <span className="text-xs font-mono text-slate-400">Section 8</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           8. Inheritance
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>8.1 What is inheritance?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Inheritance is the mechanism through which a subclass derives from a superclass and receives accessible inherited behavior and state.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Inheritance represents an IS-A relationship.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Examples:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Student is a Person.</li>
             <li>Dog is an Animal.</li>
             <li>Car is a Vehicle.</li>
             <li>SavingsAccount is a BankAccount.</li>
             <li>Manager is an Employee.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Inheritance helps reduce duplication and establish meaningful type hierarchies.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>8.2 Inheritance syntax</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Parent {
@@ -2372,16 +2372,16 @@ class Child extends Parent {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The keyword <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">extends</code> establishes class inheritance.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The keyword <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">extends</code> establishes class inheritance.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>8.3 Basic inheritance example</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Animal {
@@ -2401,13 +2401,13 @@ class Dog extends Animal {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class InheritanceExample {
@@ -2423,38 +2423,38 @@ class Dog extends Animal {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Animal is eating
 Dog is barking`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Dog</code> object can access the inherited public or otherwise accessible <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">eat()</code> method and its own <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">bark()</code> method.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Dog</code> object can access the inherited public or otherwise accessible <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">eat()</code> method and its own <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">bark()</code> method.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>8.4 Types of inheritance</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java class inheritance is commonly explained using several structural patterns.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>A. Single inheritance</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A class inherits directly from one parent class.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Animal
@@ -2462,13 +2462,13 @@ Dog is barking`}</code>
   Dog`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Animal {
@@ -2478,16 +2478,16 @@ class Dog extends Animal {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>B. Multilevel inheritance</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A class inherits from a class that itself inherits from another class.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Animal
@@ -2497,13 +2497,13 @@ class Dog extends Animal {
 Puppy`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Animal {
@@ -2516,16 +2516,16 @@ class Puppy extends Dog {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>C. Hierarchical inheritance</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Several subclasses inherit from the same superclass.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`       Animal
@@ -2533,13 +2533,13 @@ class Puppy extends Dog {
      Dog    Cat`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Animal {
@@ -2552,35 +2552,35 @@ class Cat extends Animal {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>D. Multiple inheritance</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Multiple inheritance means inheriting implementation or state from more than one parent class.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java does not support extending multiple classes.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is invalid:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class C extends A, B {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             However, Java supports implementing multiple interfaces.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Printable {
@@ -2607,19 +2607,19 @@ class Machine implements Printable, Scannable {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This gives Java a way to support multiple behavioral contracts without allowing a class to inherit from multiple concrete classes.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>8.5 Java inheritance hierarchy</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Consider:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`           Person
@@ -2631,28 +2631,28 @@ class Machine implements Printable, Scannable {
                    Instructor`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Common fields and methods can be defined in <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Person</code> and <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Employee</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Common fields and methods can be defined in <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Person</code> and <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Employee</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             More specialized classes can introduce their own information and behavior.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>8.6 Inheritance with constructors</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Constructors are not inherited.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             However, subclass construction must initialize its superclass portion.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Person {
@@ -2685,41 +2685,41 @@ class Student extends Person {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">super(name)</code> statement initializes the parent-class state.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">super(name)</code> statement initializes the parent-class state.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 9: 9. Method Overriding */}
-      <section id="section-9" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-9" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 5 · Behavioral Specialization
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 9</span>
+          <span className="text-xs font-mono text-slate-400">Section 9</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           9. Method Overriding
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>9.1 What is method overriding?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Method overriding occurs when a subclass provides a new implementation of an inheritable instance method defined by its superclass or an inherited interface.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The overridden method must follow Java's method-signature and return-type rules.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Animal {
@@ -2740,13 +2740,13 @@ class Dog extends Animal {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class OverridingExample {
@@ -2760,34 +2760,34 @@ class Dog extends Animal {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Dog barks`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The subclass provides its specialized implementation.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>9.2 The @Override annotation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">@Override</code> indicates that a method is intended to override an inherited method.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">@Override</code> indicates that a method is intended to override an inherited method.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`@Override
@@ -2797,19 +2797,19 @@ void sound() {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The compiler checks that the method actually satisfies the overriding rules.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It helps detect accidental mistakes in names and signatures.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>9.3 Rules of method overriding</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Important rules include:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>An overriding method must have a compatible method signature.</li>
             <li>The return type must be the same or covariant where reference types permit it.</li>
             <li>The access level cannot be more restrictive than the overridden method.</li>
@@ -2819,57 +2819,57 @@ void sound() {
             <li>Checked exceptions must follow the restrictions imposed by the overridden method.</li>
             <li>The method being overridden must be inherited and accessible under Java's rules.</li>
           </ol>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>9.4 Overriding versus overloading</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Overriding</th>
                   <th className="px-4 py-3">Overloading</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Related to inheritance or inherited interface behavior</td>
-                  <td className="px-4 py-2.5 text-stone-700">Can occur within one class or across an inheritance hierarchy</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Related to inheritance or inherited interface behavior</td>
+                  <td className="px-4 py-2.5 text-slate-300">Can occur within one class or across an inheritance hierarchy</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Replaces an inherited instance-method implementation</td>
-                  <td className="px-4 py-2.5 text-stone-700">Defines multiple methods with different parameter lists</td>
+                  <td className="px-4 py-2.5 text-slate-300">Replaces an inherited instance-method implementation</td>
+                  <td className="px-4 py-2.5 text-slate-300">Defines multiple methods with different parameter lists</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Same compatible signature</td>
-                  <td className="px-4 py-2.5 text-stone-700">Different parameter lists</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Same compatible signature</td>
+                  <td className="px-4 py-2.5 text-slate-300">Different parameter lists</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Runtime dispatch selects overridden implementation</td>
-                  <td className="px-4 py-2.5 text-stone-700">Compiler resolves the overload</td>
+                  <td className="px-4 py-2.5 text-slate-300">Runtime dispatch selects overridden implementation</td>
+                  <td className="px-4 py-2.5 text-slate-300">Compiler resolves the overload</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Supports runtime polymorphism</td>
-                  <td className="px-4 py-2.5 text-stone-700">Commonly described as compile-time polymorphism</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Supports runtime polymorphism</td>
+                  <td className="px-4 py-2.5 text-slate-300">Commonly described as compile-time polymorphism</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>9.5 Static method hiding</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Static methods are associated with classes, not individual instances.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             If a subclass declares a static method with a matching signature, it hides the superclass method rather than overriding it.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Parent {
@@ -2889,13 +2889,13 @@ class Child extends Parent {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Parent.display();
@@ -2903,63 +2903,63 @@ class Child extends Parent {
 Child.display();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Parent
 Child`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This behavior differs from runtime overriding of instance methods.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 10: 10. Polymorphism */}
-      <section id="section-10" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-10" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 6 · Dynamic Dispatch & Polymorphism
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 10</span>
+          <span className="text-xs font-mono text-slate-400">Section 10</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           10. Polymorphism
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>10.1 What is polymorphism?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Polymorphism means many forms.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             In Java, a reference of a common type can refer to objects of different concrete classes, and overridden instance methods can execute according to the actual object type at runtime.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This allows application code to work with general abstractions instead of depending on every concrete implementation.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>10.2 Compile-time polymorphism</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Method overloading is commonly described as compile-time polymorphism because overload resolution occurs at compile time.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Calculator {
@@ -2976,19 +2976,19 @@ Child`}</code>
 }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>10.3 Runtime polymorphism</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Runtime polymorphism occurs through overridden instance methods.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Animal {
@@ -3018,13 +3018,13 @@ class Cat extends Animal {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class RuntimePolymorphism {
@@ -3044,41 +3044,41 @@ class Cat extends Animal {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Dog barks
 Cat meows`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The declared reference type is <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Animal</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The declared reference type is <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Animal</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The actual objects are <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Dog</code> and <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Cat</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The actual objects are <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Dog</code> and <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Cat</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java selects the overridden instance-method implementation based on the runtime class of the object.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>10.4 Dynamic method dispatch</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Dynamic method dispatch is the mechanism through which Java determines which overridden instance method to execute at runtime.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Conceptually:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`         Animal reference
@@ -3092,22 +3092,22 @@ Cat meows`}</code>
      Dog.sound()   Cat.sound()`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The same method call can result in different implementations.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>10.5 Upcasting</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Upcasting means treating a subclass object as an instance of its superclass type.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Dog dog = new Dog();
@@ -3115,25 +3115,25 @@ Cat meows`}</code>
 Animal animal = dog;`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is valid because every Dog is an Animal.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The reference type controls which members are accessible through the reference, while overridden instance methods can still dispatch according to the actual object.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>10.6 Downcasting</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Downcasting means converting a superclass reference back to a more specific subclass reference.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Animal animal = new Dog();
@@ -3143,16 +3143,16 @@ Dog dog = (Dog) animal;
 dog.sound();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is valid because the object actually is a Dog.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             But:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Animal animal = new Cat();
@@ -3160,16 +3160,16 @@ dog.sound();`}</code>
 Dog dog = (Dog) animal;`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            causes a <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">ClassCastException</code> at runtime.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            causes a <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">ClassCastException</code> at runtime.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Use <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">instanceof</code> when a safe type check is needed.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Use <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">instanceof</code> when a safe type check is needed.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`if (animal instanceof Dog) {
@@ -3180,13 +3180,13 @@ Dog dog = (Dog) animal;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Java 17 also supports pattern matching for <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">instanceof</code>:
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Java 17 also supports pattern matching for <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">instanceof</code>:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`if (animal instanceof Dog dog) {
@@ -3195,13 +3195,13 @@ Dog dog = (Dog) animal;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This combines the type check and local variable declaration.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>10.7 Benefits of polymorphism</span>
           </h3>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Flexible application design.</li>
             <li>Common APIs for multiple implementations.</li>
             <li>Easier extension.</li>
@@ -3209,87 +3209,87 @@ Dog dog = (Dog) animal;`}</code>
             <li>Better support for reusable components.</li>
             <li>Simplified application logic.</li>
           </ul>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 11: 11. Abstraction */}
-      <section id="section-11" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-11" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 7 · Essential Operations
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 11</span>
+          <span className="text-xs font-mono text-slate-400">Section 11</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           11. Abstraction
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>11.1 What is abstraction?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Abstraction is the process of exposing essential operations while hiding unnecessary implementation details.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For example, a car driver uses the steering wheel, accelerator, and brake without needing to understand every internal engine operation.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             In Java, abstract classes and interfaces provide important abstraction mechanisms.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>11.2 Abstraction versus encapsulation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These concepts are related but have different goals.
           </p>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Abstraction</th>
                   <th className="px-4 py-3">Encapsulation</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Focuses on what an object exposes</td>
-                  <td className="px-4 py-2.5 text-stone-700">Controls how internal state and implementation are accessed</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Focuses on what an object exposes</td>
+                  <td className="px-4 py-2.5 text-slate-300">Controls how internal state and implementation are accessed</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Hides unnecessary implementation complexity</td>
-                  <td className="px-4 py-2.5 text-stone-700">Protects internal data</td>
+                  <td className="px-4 py-2.5 text-slate-300">Hides unnecessary implementation complexity</td>
+                  <td className="px-4 py-2.5 text-slate-300">Protects internal data</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Defines essential operations</td>
-                  <td className="px-4 py-2.5 text-stone-700">Controls access to state and behavior</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Defines essential operations</td>
+                  <td className="px-4 py-2.5 text-slate-300">Controls access to state and behavior</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Implemented using interfaces and abstract classes</td>
-                  <td className="px-4 py-2.5 text-stone-700">Commonly implemented using private fields and controlled methods</td>
+                  <td className="px-4 py-2.5 text-slate-300">Implemented using interfaces and abstract classes</td>
+                  <td className="px-4 py-2.5 text-slate-300">Commonly implemented using private fields and controlled methods</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>11.3 Real-world abstraction example</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Imagine a payment application.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The application needs a payment operation.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It should not need to understand every internal detail of each payment provider.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A common abstraction can define:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface PaymentMethod {
@@ -3298,41 +3298,41 @@ Dog dog = (Dog) animal;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each implementation handles its own payment behavior.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 12: 12. Abstract Classes */}
-      <section id="section-12" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-12" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 7 · Incomplete Base Classes
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 12</span>
+          <span className="text-xs font-mono text-slate-400">Section 12</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           12. Abstract Classes
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>12.1 What is an abstract class?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            An abstract class is a class declared using the <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">abstract</code> keyword.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            An abstract class is a class declared using the <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">abstract</code> keyword.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It is designed to serve as a base for other classes.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             An abstract class cannot be instantiated directly.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It can contain:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Instance fields.</li>
             <li>Constructors.</li>
             <li>Concrete methods.</li>
@@ -3340,13 +3340,13 @@ Dog dog = (Dog) animal;`}</code>
             <li>Static members.</li>
             <li>Final methods.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`abstract class Animal {
@@ -3360,19 +3360,19 @@ Dog dog = (Dog) animal;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The method <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">sound()</code> is abstract because it declares no implementation.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The method <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">sound()</code> is abstract because it declares no implementation.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The method <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">sleep()</code> is concrete because it contains a body.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The method <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">sleep()</code> is concrete because it contains a body.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>12.2 Implementing an abstract class</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Dog extends Animal {
@@ -3394,13 +3394,13 @@ class Cat extends Animal {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class AbstractExample {
@@ -3420,13 +3420,13 @@ class Cat extends Animal {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Dog barks
@@ -3434,10 +3434,10 @@ Animal is sleeping
 Cat meows`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>12.3 Rules of abstract classes</span>
           </h3>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>An abstract class cannot be instantiated directly.</li>
             <li>It can contain abstract and concrete methods.</li>
             <li>It can contain constructors.</li>
@@ -3447,28 +3447,28 @@ Cat meows`}</code>
             <li>A concrete subclass must implement inherited abstract methods.</li>
             <li>An abstract subclass can leave abstract methods unimplemented.</li>
           </ol>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>12.4 Abstract methods</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             An abstract method declares behavior without implementing it.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`abstract double calculateArea();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A subclass can provide the implementation:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Circle extends Shape {
@@ -3488,19 +3488,19 @@ Cat meows`}</code>
 }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>12.5 Abstract class with constructor</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Abstract classes can have constructors.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These constructors are invoked when concrete subclass objects are created.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`abstract class Employee {
@@ -3534,57 +3534,57 @@ class FullTimeEmployee extends Employee {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The abstract class initializes common employee information.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The subclass provides its salary calculation.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 13: 13. Interfaces */}
-      <section id="section-13" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-13" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 8 · Contracts & Multiple Realization
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 13</span>
+          <span className="text-xs font-mono text-slate-400">Section 13</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           13. Interfaces
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.1 What is an interface?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             An interface defines a contract that implementing classes agree to provide.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Interfaces are useful for expressing capabilities and common behavior across otherwise unrelated classes.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For example:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>A printer can print.</li>
             <li>A scanner can scan.</li>
             <li>A payment method can process a payment.</li>
             <li>A notification service can send a message.</li>
             <li>A sortable object can define a comparison order.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.2 Interface declaration</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Syntax:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface InterfaceName {
@@ -3593,13 +3593,13 @@ class FullTimeEmployee extends Employee {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Printable {
@@ -3608,16 +3608,16 @@ class FullTimeEmployee extends Employee {
 }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.3 Implementing an interface</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            A class uses <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">implements</code> to implement an interface.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            A class uses <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">implements</code> to implement an interface.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Document implements Printable {
@@ -3630,13 +3630,13 @@ class FullTimeEmployee extends Employee {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class InterfaceExample {
@@ -3650,47 +3650,47 @@ class FullTimeEmployee extends Employee {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Printing document`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The implementation method must be public because ordinary interface abstract methods are public.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.4 Interface characteristics</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Interfaces can contain:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Abstract methods.</li>
             <li>Default methods.</li>
             <li>Static methods.</li>
             <li>Private methods.</li>
             <li>Constants.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Fields declared in an interface are implicitly <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">public static final</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Fields declared in an interface are implicitly <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">public static final</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Ordinary abstract methods are implicitly <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">public abstract</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Ordinary abstract methods are implicitly <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">public abstract</code>.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.5 Interface constants</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface ApplicationConfig {
@@ -3701,31 +3701,31 @@ class FullTimeEmployee extends Employee {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These fields are implicitly:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public static final`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             They cannot be reassigned.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.6 Default methods</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A default method contains an implementation that implementing classes inherit unless they override it.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Vehicle {
@@ -3739,13 +3739,13 @@ class FullTimeEmployee extends Employee {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Implementation:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Car implements Vehicle {
@@ -3758,13 +3758,13 @@ class FullTimeEmployee extends Employee {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Car car = new Car();
@@ -3774,32 +3774,32 @@ car.start();
 car.stop();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Car started
 Vehicle stopped`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Default methods were introduced to allow interfaces to evolve by adding behavior without requiring every existing implementation to immediately provide a new implementation.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.7 Static methods in interfaces</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Interfaces can define static methods.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Calculator {
@@ -3811,34 +3811,34 @@ Vehicle stopped`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Call it using the interface name:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`System.out.println(Calculator.add(10, 20));`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Static interface methods are not inherited as ordinary instance methods by implementing classes.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.8 Private methods in interfaces</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java 9 and later support private interface methods.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             They can be used to share implementation within default or static methods.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Notification {
@@ -3857,22 +3857,22 @@ Vehicle stopped`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Private interface methods are not inherited as public API methods by implementing classes.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.9 Multiple interface implementation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             One of the major advantages of Java interfaces is that a class can implement multiple interfaces.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Printable {
@@ -3913,22 +3913,22 @@ class OfficeMachine
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This allows one class to provide multiple capabilities.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.10 Conflicting default methods</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Suppose two interfaces define the same default method.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java requires the implementing class to resolve the ambiguity.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface A {
@@ -3959,71 +3959,71 @@ class C implements A, B {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This explicitly selects which inherited default implementations to invoke.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.11 Abstract class versus interface</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Abstract class</th>
                   <th className="px-4 py-3">Interface</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Declared using <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">abstract class</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Declared using <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">interface</code></td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Declared using <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">abstract class</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Declared using <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">interface</code></td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Can contain instance fields</td>
-                  <td className="px-4 py-2.5 text-stone-700">Fields are implicitly constants</td>
+                  <td className="px-4 py-2.5 text-slate-300">Can contain instance fields</td>
+                  <td className="px-4 py-2.5 text-slate-300">Fields are implicitly constants</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Can contain constructors</td>
-                  <td className="px-4 py-2.5 text-stone-700">Cannot declare constructors</td>
-                </tr>
-                <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Can maintain instance state</td>
-                  <td className="px-4 py-2.5 text-stone-700">Does not provide ordinary per-object instance fields</td>
-                </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Can contain concrete methods</td>
-                  <td className="px-4 py-2.5 text-stone-700">Can contain default, static, private, and abstract methods</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Can contain constructors</td>
+                  <td className="px-4 py-2.5 text-slate-300">Cannot declare constructors</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">A class extends one class</td>
-                  <td className="px-4 py-2.5 text-stone-700">A class can implement multiple interfaces</td>
+                  <td className="px-4 py-2.5 text-slate-300">Can maintain instance state</td>
+                  <td className="px-4 py-2.5 text-slate-300">Does not provide ordinary per-object instance fields</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Useful for shared state and implementation</td>
-                  <td className="px-4 py-2.5 text-stone-700">Useful for contracts and capabilities</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Can contain concrete methods</td>
+                  <td className="px-4 py-2.5 text-slate-300">Can contain default, static, private, and abstract methods</td>
+                </tr>
+                <tr className="bg-[#fcfbf9]">
+                  <td className="px-4 py-2.5 text-slate-300">A class extends one class</td>
+                  <td className="px-4 py-2.5 text-slate-300">A class can implement multiple interfaces</td>
+                </tr>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Useful for shared state and implementation</td>
+                  <td className="px-4 py-2.5 text-slate-300">Useful for contracts and capabilities</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.12 When should you use an abstract class?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Use an abstract class when:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Related subclasses share common state.</li>
             <li>They need common constructor logic.</li>
             <li>They share implementation.</li>
             <li>They form a meaningful inheritance hierarchy.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Employee
@@ -4033,25 +4033,25 @@ class C implements A, B {
    +-- PartTimeEmployee`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>13.13 When should you use an interface?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Use an interface when:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Different classes need a common capability.</li>
             <li>A shared contract is required.</li>
             <li>Implementation details should remain independent.</li>
             <li>A class needs to support several unrelated roles.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Printable
@@ -4061,53 +4061,53 @@ class C implements A, B {
     +-- Report`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These types do not necessarily need to share a class hierarchy.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 14: 14. Static Members */}
-      <section id="section-14" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-14" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 9 · Class-Level State & Methods
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 14</span>
+          <span className="text-xs font-mono text-slate-400">Section 14</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           14. Static Members
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>14.1 What is static?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">static</code> keyword declares a member that belongs to the class rather than an individual object.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">static</code> keyword declares a member that belongs to the class rather than an individual object.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Static members are shared or accessed at the class level.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java supports:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Static variables.</li>
             <li>Static methods.</li>
             <li>Static initialization blocks.</li>
             <li>Static nested classes.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>14.2 Static variables</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Consider:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -4118,19 +4118,19 @@ class C implements A, B {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Every Student object has its own <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">rollNumber</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Every Student object has its own <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">rollNumber</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            All Student objects share the same class-level <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">university</code> field.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            All Student objects share the same class-level <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">university</code> field.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class StaticExample {
@@ -4150,22 +4150,22 @@ class C implements A, B {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Accessing a static member through the class name is generally clearer than accessing it through an object reference.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>14.3 Static methods</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Static methods belong to the class.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Calculator {
@@ -4177,34 +4177,34 @@ class C implements A, B {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`int result = Calculator.add(10, 20);`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             No Calculator object is required.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>14.4 Static method restrictions</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A static method cannot directly access instance members because it does not operate on a particular object instance.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Incorrect:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Example {
@@ -4218,16 +4218,16 @@ class C implements A, B {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A static method must access instance data through an object reference.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Correct:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Example {
@@ -4243,19 +4243,19 @@ class C implements A, B {
 }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>14.5 Static initialization block</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Static initialization blocks execute when the class is initialized.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Application {
@@ -4271,76 +4271,76 @@ class C implements A, B {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The static field is initialized through the static block.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Such blocks are useful for certain class-level initialization tasks, although ordinary static field initialization is often simpler.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>14.6 Static versus instance members</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Static members</th>
                   <th className="px-4 py-3">Instance members</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Belong to a class</td>
-                  <td className="px-4 py-2.5 text-stone-700">Belong to individual objects</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Belong to a class</td>
+                  <td className="px-4 py-2.5 text-slate-300">Belong to individual objects</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">One shared class variable per defining class</td>
-                  <td className="px-4 py-2.5 text-stone-700">Each object has its own instance state</td>
+                  <td className="px-4 py-2.5 text-slate-300">One shared class variable per defining class</td>
+                  <td className="px-4 py-2.5 text-slate-300">Each object has its own instance state</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Accessible using the class name</td>
-                  <td className="px-4 py-2.5 text-stone-700">Accessed through object references</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Accessible using the class name</td>
+                  <td className="px-4 py-2.5 text-slate-300">Accessed through object references</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Static methods lack an implicit current object</td>
-                  <td className="px-4 py-2.5 text-stone-700">Instance methods have access to <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Static methods lack an implicit current object</td>
+                  <td className="px-4 py-2.5 text-slate-300">Instance methods have access to <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this</code></td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Cannot directly access instance members</td>
-                  <td className="px-4 py-2.5 text-stone-700">Can access instance and accessible static members</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Cannot directly access instance members</td>
+                  <td className="px-4 py-2.5 text-slate-300">Can access instance and accessible static members</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 15: 15. The final Keyword */}
-      <section id="section-15" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-15" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 9 · Immutability & Sealing
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 15</span>
+          <span className="text-xs font-mono text-slate-400">Section 15</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           15. The final Keyword
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">final</code> keyword restricts reassignment, overriding, or inheritance depending on where it is used.
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">final</code> keyword restricts reassignment, overriding, or inheritance depending on where it is used.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>15.1 Final variables</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A final variable can be assigned only once.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class FinalVariable {
@@ -4354,31 +4354,31 @@ class C implements A, B {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The following is invalid after initialization:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`// MAX_USERS = 200;`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>15.2 Blank final variables</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A blank final variable is declared without an initial value and assigned later under the language's definite-assignment rules.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Employee {
@@ -4392,25 +4392,25 @@ class C implements A, B {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Every constructor path must ensure the blank final instance field is assigned exactly once.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>15.3 Final reference variables</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A final reference variable cannot be reassigned to a different reference after assignment.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             However, the referenced object may still be mutable.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`final int[] numbers = {10, 20, 30};
@@ -4418,37 +4418,37 @@ class C implements A, B {
 numbers[0] = 100;`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is allowed.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             But:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`// numbers = new int[]{1, 2, 3};`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             is not allowed.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The reference cannot change, but the array contents can.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>15.4 Final methods</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A final instance method cannot be overridden in subclasses.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Parent {
@@ -4460,19 +4460,19 @@ numbers[0] = 100;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A subclass cannot override this method.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>15.5 Final classes</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A final class cannot be extended.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`final class SecurityConfig {
@@ -4484,46 +4484,46 @@ numbers[0] = 100;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is invalid:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`// class CustomConfig extends SecurityConfig {}`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Final classes are useful when a design intentionally prevents inheritance.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>15.6 static final constants</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The combination:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`static final`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             is commonly used for class-level constants.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class AppConfig {
@@ -4532,103 +4532,103 @@ numbers[0] = 100;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Access:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`System.out.println(AppConfig.MAX_CONNECTIONS);`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>15.7 Summary of final</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Usage</th>
                   <th className="px-4 py-3">Meaning</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Final variable</td>
-                  <td className="px-4 py-2.5 text-stone-700">Cannot be reassigned</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Final variable</td>
+                  <td className="px-4 py-2.5 text-slate-300">Cannot be reassigned</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Final parameter</td>
-                  <td className="px-4 py-2.5 text-stone-700">Cannot be reassigned inside the method</td>
+                  <td className="px-4 py-2.5 text-slate-300">Final parameter</td>
+                  <td className="px-4 py-2.5 text-slate-300">Cannot be reassigned inside the method</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Final method</td>
-                  <td className="px-4 py-2.5 text-stone-700">Cannot be overridden</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Final method</td>
+                  <td className="px-4 py-2.5 text-slate-300">Cannot be overridden</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Final class</td>
-                  <td className="px-4 py-2.5 text-stone-700">Cannot be subclassed</td>
+                  <td className="px-4 py-2.5 text-slate-300">Final class</td>
+                  <td className="px-4 py-2.5 text-slate-300">Cannot be subclassed</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Static final field</td>
-                  <td className="px-4 py-2.5 text-stone-700">Commonly used for class-level constants</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Static final field</td>
+                  <td className="px-4 py-2.5 text-slate-300">Commonly used for class-level constants</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 16: 16. Access Modifiers */}
-      <section id="section-16" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-16" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 10 · Visibility Boundaries
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 16</span>
+          <span className="text-xs font-mono text-slate-400">Section 16</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           16. Access Modifiers
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>16.1 What are access modifiers?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Access modifiers determine where classes and their members can be accessed.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             They are an essential part of encapsulation and application design.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java provides four member access levels:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>public.</li>
             <li>protected.</li>
             <li>package-private.</li>
             <li>private.</li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Package-private means no explicit access modifier is written.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>16.2 Public</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A public member can generally be accessed from any code that can access its declaring type.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class Student {
@@ -4637,19 +4637,19 @@ numbers[0] = 100;`}</code>
 }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>16.3 Private</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A private member is accessible only within the enclosing top-level class or interface body, subject to Java's nested-type rules.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Employee {
@@ -4658,29 +4658,29 @@ numbers[0] = 100;`}</code>
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            Other unrelated classes cannot directly access <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">salary</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            Other unrelated classes cannot directly access <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">salary</code>.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>16.4 Protected</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Protected members are accessible:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Within the declaring package.</li>
             <li>From subclasses under Java's cross-package protected-access rules.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The cross-package rule is more specific than simply saying all subclasses can access the member through any object reference.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Person {
@@ -4697,22 +4697,22 @@ class Student extends Person {
 }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>16.5 Package-private</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             When no access modifier is specified, a member or top-level class receives package access.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It can be accessed by appropriate code within the same package.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -4721,15 +4721,15 @@ class Student extends Person {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Here, both the class and its field have package-private access.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>16.6 Access modifier comparison</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Modifier</th>
                   <th className="px-4 py-3">Same class</th>
@@ -4739,149 +4739,149 @@ class Student extends Person {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">public</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes, if type is accessible</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">public</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes, if type is accessible</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">protected</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes, subject to protected-access rules</td>
-                  <td className="px-4 py-2.5 text-stone-700">No</td>
+                  <td className="px-4 py-2.5 text-slate-300">protected</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes, subject to protected-access rules</td>
+                  <td className="px-4 py-2.5 text-slate-300">No</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">package-private</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes</td>
-                  <td className="px-4 py-2.5 text-stone-700">No, unless also in same package</td>
-                  <td className="px-4 py-2.5 text-stone-700">No</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">package-private</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes</td>
+                  <td className="px-4 py-2.5 text-slate-300">No, unless also in same package</td>
+                  <td className="px-4 py-2.5 text-slate-300">No</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">private</td>
-                  <td className="px-4 py-2.5 text-stone-700">Yes</td>
-                  <td className="px-4 py-2.5 text-stone-700">No</td>
-                  <td className="px-4 py-2.5 text-stone-700">No</td>
-                  <td className="px-4 py-2.5 text-stone-700">No</td>
+                  <td className="px-4 py-2.5 text-slate-300">private</td>
+                  <td className="px-4 py-2.5 text-slate-300">Yes</td>
+                  <td className="px-4 py-2.5 text-slate-300">No</td>
+                  <td className="px-4 py-2.5 text-slate-300">No</td>
+                  <td className="px-4 py-2.5 text-slate-300">No</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These rules concern members. Top-level classes and interfaces have a smaller set of permitted access declarations: public or package-private.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>16.7 Choosing appropriate access levels</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A good object-oriented design generally uses the least permissive access level that satisfies the requirement.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For example:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li>Use <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">private</code> for internal fields.</li>
-            <li>Use <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">public</code> for intended external operations.</li>
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li>Use <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">private</code> for internal fields.</li>
+            <li>Use <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">public</code> for intended external operations.</li>
             <li>Use package-private for implementation details shared inside a package.</li>
-            <li>Use <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">protected</code> for carefully designed subclass extension points.</li>
+            <li>Use <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">protected</code> for carefully designed subclass extension points.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Do not make every field public simply to make a program easier to write.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 17: 17. Packages in Java */}
-      <section id="section-17" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-17" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 10 · Modular Namespaces
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 17</span>
+          <span className="text-xs font-mono text-slate-400">Section 17</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           17. Packages in Java
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>17.1 What is a package?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A package is a namespace used to organize related Java classes, interfaces, and other types.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Packages help:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Organize large applications.</li>
             <li>Avoid name conflicts.</li>
             <li>Control package-level access.</li>
             <li>Improve modularity.</li>
             <li>Make code easier to maintain.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java's standard library is organized into packages.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Examples:
           </p>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Package</th>
                   <th className="px-4 py-3">Purpose</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">java.lang</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Fundamental Java language classes</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">java.lang</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Fundamental Java language classes</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">java.util</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Collections and utility classes</td>
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">java.util</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Collections and utility classes</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">java.io</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Input and output</td>
-                </tr>
-                <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">java.nio</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Modern input/output and file APIs</td>
-                </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">java.net</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Networking</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">java.io</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Input and output</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">java.time</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Date and time</td>
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">java.nio</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Modern input/output and file APIs</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">java.sql</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Database connectivity</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">java.net</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Networking</td>
+                </tr>
+                <tr className="bg-[#fcfbf9]">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">java.time</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Date and time</td>
+                </tr>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">java.sql</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Database connectivity</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>17.2 Declaring a package</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example file:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Student.java</code>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Student.java</code>
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.students;
@@ -4902,22 +4902,22 @@ public class Student {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The package declaration identifies the package containing the class.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             For an ordinary compilation unit, the package declaration appears before import declarations and type declarations.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>17.3 Using import</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Suppose another class wants to use Student.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.app;
@@ -4935,32 +4935,32 @@ public class Main {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The import declaration allows the class to refer to <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Student</code> by its simple name.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The import declaration allows the class to refer to <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Student</code> by its simple name.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Alternatively, a fully qualified name can be used:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`university.students.Student student =
         new university.students.Student("Alex");`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>17.4 Package structure</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A project may be organized as follows:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`UniversityApplication
@@ -4984,64 +4984,64 @@ public class Main {
 +-- out`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Package names are conventionally lowercase.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>17.5 Compiling package-based Java code</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             From the project directory, compile source files into an output directory:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">BASH</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`javac -d out src/university/students/Student.java`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Compile the application class along with its dependencies when necessary:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">BASH</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`javac -d out -sourcepath src src/university/app/Main.java`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Run the application using its fully qualified class name:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">BASH</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`java -cp out university.app.Main`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            The <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">-cp</code> option sets the classpath.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            The <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">-cp</code> option sets the classpath.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>17.6 Static imports</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java supports importing static members.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`import static java.lang.Math.PI;
@@ -5058,22 +5058,22 @@ public class StaticImportExample {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Static imports can make selected utility methods easier to use, but excessive static imports can reduce readability.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>17.7 Package naming conventions</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Packages commonly use reverse domain notation.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Examples:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`com.company.application
@@ -5081,51 +5081,51 @@ org.university.students
 in.prepspaces.courses`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This reduces the likelihood of package-name conflicts.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 18: 18. Composition Versus Inheritance */}
-      <section id="section-18" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-18" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 11 · HAS-A vs IS-A Design
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 18</span>
+          <span className="text-xs font-mono text-slate-400">Section 18</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           18. Composition Versus Inheritance
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>18.1 What is composition?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Composition is an object-oriented design technique in which an object contains or uses other objects to provide its functionality.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It represents a HAS-A relationship.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Examples:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>A car has an engine.</li>
             <li>A university has departments.</li>
             <li>A computer has a processor.</li>
             <li>An order has order items.</li>
             <li>A course has learning modules.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Engine {
@@ -5149,22 +5149,22 @@ class Car {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The Car object uses an Engine object.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>18.2 What is inheritance?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Inheritance establishes an IS-A relationship.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Vehicle {
@@ -5184,76 +5184,76 @@ class Car extends Vehicle {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Car IS-A Vehicle.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>18.3 Composition versus inheritance</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Composition</th>
                   <th className="px-4 py-3">Inheritance</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Represents HAS-A</td>
-                  <td className="px-4 py-2.5 text-stone-700">Represents IS-A</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Represents HAS-A</td>
+                  <td className="px-4 py-2.5 text-slate-300">Represents IS-A</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Uses other objects</td>
-                  <td className="px-4 py-2.5 text-stone-700">Extends another class</td>
+                  <td className="px-4 py-2.5 text-slate-300">Uses other objects</td>
+                  <td className="px-4 py-2.5 text-slate-300">Extends another class</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Often supports flexible behavior replacement</td>
-                  <td className="px-4 py-2.5 text-stone-700">Establishes a class hierarchy</td>
-                </tr>
-                <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Uses object references</td>
-                  <td className="px-4 py-2.5 text-stone-700">Uses <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">extends</code></td>
-                </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Helps reduce inheritance coupling</td>
-                  <td className="px-4 py-2.5 text-stone-700">Reuses inherited implementation</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Often supports flexible behavior replacement</td>
+                  <td className="px-4 py-2.5 text-slate-300">Establishes a class hierarchy</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Useful when responsibilities are separate</td>
-                  <td className="px-4 py-2.5 text-stone-700">Useful for genuine subtype relationships</td>
+                  <td className="px-4 py-2.5 text-slate-300">Uses object references</td>
+                  <td className="px-4 py-2.5 text-slate-300">Uses <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">extends</code></td>
+                </tr>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Helps reduce inheritance coupling</td>
+                  <td className="px-4 py-2.5 text-slate-300">Reuses inherited implementation</td>
+                </tr>
+                <tr className="bg-[#fcfbf9]">
+                  <td className="px-4 py-2.5 text-slate-300">Useful when responsibilities are separate</td>
+                  <td className="px-4 py-2.5 text-slate-300">Useful for genuine subtype relationships</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>18.4 Why composition is often preferred</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Inheritance creates a relationship between a child and parent class.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Changes to a parent implementation may affect subclasses.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Composition can provide a more flexible structure because components can be replaced or configured independently.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This is why software design often prefers composition over inheritance when there is no genuine IS-A relationship.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             However, inheritance is still valuable when a meaningful subtype relationship exists and the child can correctly satisfy the parent's behavioral contract.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>18.5 Composition with dependency injection</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Instead of creating a dependency internally, a class can receive it through its constructor.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Engine {
@@ -5286,13 +5286,13 @@ class Car {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class CompositionExample {
@@ -5308,71 +5308,71 @@ class Car {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This design allows a different Engine implementation to be supplied without rewriting the Car class.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This technique is called constructor injection and is closely related to dependency inversion.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 19: 19. Object Relationships */}
-      <section id="section-19" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-19" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 11 · Association, Aggregation & Composition
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 19</span>
+          <span className="text-xs font-mono text-slate-400">Section 19</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           19. Object Relationships
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Understanding object relationships is important when designing large systems.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Four common relationships are:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Association.</li>
             <li>Aggregation.</li>
             <li>Composition.</li>
             <li>Dependency.</li>
           </ol>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>19.1 Association</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Association is a relationship in which two objects know about or interact with each other.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A student enrolls in a course.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student -------- Course`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A student and a course can exist independently.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Course {
@@ -5394,40 +5394,40 @@ class Student {
 }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>19.2 Aggregation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Aggregation is a whole-part relationship in which the contained objects can exist independently of the container.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A department has teachers.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A teacher can still exist even if the department is reorganized or removed from an application model.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Department ◇-------- Teacher`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The hollow diamond in UML represents aggregation.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Teacher {
@@ -5451,43 +5451,43 @@ class Department {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The Teacher is supplied from outside rather than created as an inseparable part of the Department.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>19.3 Composition</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Composition is a stronger whole-part relationship in which the part is modeled as belonging to the lifecycle and ownership of the whole.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             An order contains order-line objects.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             When an order is discarded from this model, its owned order-line components normally do not have an independent lifecycle in the same ownership relationship.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Order ◆-------- OrderItem`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The filled diamond represents composition.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class OrderItem {
@@ -5515,37 +5515,37 @@ class Order {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This simple example demonstrates the ownership model. Java's garbage collector manages memory based on reachability; composition does not mean that the language automatically destroys a part at the exact moment its owner becomes unreachable.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>19.4 Dependency</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Dependency occurs when one class temporarily uses another class to perform an operation.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A ReportGenerator uses a Printer.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`ReportGenerator - - - - > Printer`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Java:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Printer {
@@ -5565,15 +5565,15 @@ class ReportGenerator {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The Printer is used as a method parameter rather than being necessarily stored as permanent state.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>19.5 Relationship comparison</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Relationship</th>
                   <th className="px-4 py-3">Meaning</th>
@@ -5581,68 +5581,68 @@ class ReportGenerator {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Association</td>
-                  <td className="px-4 py-2.5 text-stone-700">Objects interact</td>
-                  <td className="px-4 py-2.5 text-stone-700">Student and Course</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Association</td>
+                  <td className="px-4 py-2.5 text-slate-300">Objects interact</td>
+                  <td className="px-4 py-2.5 text-slate-300">Student and Course</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Aggregation</td>
-                  <td className="px-4 py-2.5 text-stone-700">Whole contains independently existing parts</td>
-                  <td className="px-4 py-2.5 text-stone-700">Department and Teacher</td>
+                  <td className="px-4 py-2.5 text-slate-300">Aggregation</td>
+                  <td className="px-4 py-2.5 text-slate-300">Whole contains independently existing parts</td>
+                  <td className="px-4 py-2.5 text-slate-300">Department and Teacher</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Composition</td>
-                  <td className="px-4 py-2.5 text-stone-700">Whole strongly owns its parts</td>
-                  <td className="px-4 py-2.5 text-stone-700">Order and OrderItem</td>
-                </tr>
-                <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Dependency</td>
-                  <td className="px-4 py-2.5 text-stone-700">One type temporarily uses another</td>
-                  <td className="px-4 py-2.5 text-stone-700">ReportGenerator and Printer</td>
-                </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Inheritance</td>
-                  <td className="px-4 py-2.5 text-stone-700">One type specializes another</td>
-                  <td className="px-4 py-2.5 text-stone-700">Student and Person</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Composition</td>
+                  <td className="px-4 py-2.5 text-slate-300">Whole strongly owns its parts</td>
+                  <td className="px-4 py-2.5 text-slate-300">Order and OrderItem</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Interface realization</td>
-                  <td className="px-4 py-2.5 text-stone-700">Class implements a contract</td>
-                  <td className="px-4 py-2.5 text-stone-700">PaymentProcessor and PaymentMethod</td>
+                  <td className="px-4 py-2.5 text-slate-300">Dependency</td>
+                  <td className="px-4 py-2.5 text-slate-300">One type temporarily uses another</td>
+                  <td className="px-4 py-2.5 text-slate-300">ReportGenerator and Printer</td>
+                </tr>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Inheritance</td>
+                  <td className="px-4 py-2.5 text-slate-300">One type specializes another</td>
+                  <td className="px-4 py-2.5 text-slate-300">Student and Person</td>
+                </tr>
+                <tr className="bg-[#fcfbf9]">
+                  <td className="px-4 py-2.5 text-slate-300">Interface realization</td>
+                  <td className="px-4 py-2.5 text-slate-300">Class implements a contract</td>
+                  <td className="px-4 py-2.5 text-slate-300">PaymentProcessor and PaymentMethod</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 20: 20. UML Class Diagrams */}
-      <section id="section-20" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-20" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 12 · System Modeling & UML
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 20</span>
+          <span className="text-xs font-mono text-slate-400">Section 20</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           20. UML Class Diagrams
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.1 What is UML?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             UML stands for Unified Modeling Language.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It is a standardized modeling language used to visualize and describe software systems.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             UML is useful for:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Software architecture.</li>
             <li>Requirements analysis.</li>
             <li>Class design.</li>
@@ -5650,25 +5650,25 @@ class ReportGenerator {
             <li>System documentation.</li>
             <li>Communication between developers.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             UML is not a programming language. It provides diagrams that describe software structures and behavior.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.2 What is a UML class diagram?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A UML class diagram represents the static structure of a software system.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It displays classes, their attributes, their operations, and the relationships between classes.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A basic class box contains three sections:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`+-------------------------+
@@ -5684,53 +5684,53 @@ class ReportGenerator {
 +-------------------------+`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Top section:</strong> Class name.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Top section:</strong> Class name.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Middle section:</strong> Attributes or fields.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Middle section:</strong> Attributes or fields.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Bottom section:</strong> Methods or operations.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Bottom section:</strong> Methods or operations.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.3 UML visibility notation</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Symbol</th>
                   <th className="px-4 py-3">Java meaning</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">+</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Public</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">+</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Public</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">-</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Private</td>
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">-</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Private</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">#</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Protected</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">#</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Protected</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">~</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Package-private</td>
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">~</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Package-private</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`+--------------------------------+
@@ -5746,16 +5746,16 @@ class ReportGenerator {
 +--------------------------------+`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.4 UML inheritance relationship</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Inheritance is represented using a solid line with a hollow triangular arrowhead pointing toward the parent class.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`             Person
@@ -5764,19 +5764,19 @@ class ReportGenerator {
              Student`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The triangle points to the superclass.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.5 UML interface implementation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Interface realization is represented using a dashed line with a hollow triangular arrowhead pointing toward the interface.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`       <<interface>>
@@ -5788,120 +5788,120 @@ class ReportGenerator {
         Invoice`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.6 UML association</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Association is generally represented by a solid line.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student ---------------- Course`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This indicates that Student and Course are associated.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.7 UML aggregation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Aggregation uses a hollow diamond on the whole side.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Department ◇---------- Teacher`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.8 UML composition</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Composition uses a filled diamond on the owner side.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Order ◆------------- OrderItem`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.9 Multiplicity</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Multiplicity indicates how many objects can participate in a relationship.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Common notation:
           </p>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Notation</th>
                   <th className="px-4 py-3">Meaning</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">1</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Exactly one</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">1</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Exactly one</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">0..1</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Zero or one</td>
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">0..1</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Zero or one</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">0..*</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Zero or many</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">0..*</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Zero or many</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">1..*</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">One or many</td>
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">1..*</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">One or many</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">2..5</code></td>
-                  <td className="px-4 py-2.5 text-stone-700">Between two and five</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">2..5</code></td>
+                  <td className="px-4 py-2.5 text-slate-300">Between two and five</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Example:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student 1 -------- 0..* Enrollment`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This model indicates that a student may have zero or many enrollments, with each enrollment associated with one student.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.10 Complete example UML class diagram</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Consider a university registration system:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`              <<abstract>>
@@ -5924,19 +5924,19 @@ class ReportGenerator {
                           Course`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This design can be expanded with separate payment and notification contracts.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>20.11 Why should developers learn UML?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             UML allows developers to think through system design before implementing code.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It helps identify:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Missing responsibilities.</li>
             <li>Unnecessary relationships.</li>
             <li>Duplicate attributes.</li>
@@ -5945,85 +5945,85 @@ class ReportGenerator {
             <li>Access requirements.</li>
             <li>Dependencies between classes.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Students should practice drawing a UML class diagram before writing the complete mini-project implementation.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 21: 21. Introduction to SOLID Principles */}
-      <section id="section-21" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-21" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 13 · Professional Software Design
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 21</span>
+          <span className="text-xs font-mono text-slate-400">Section 21</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           21. Introduction to SOLID Principles
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>21.1 What is SOLID?</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             SOLID is an acronym for five object-oriented software design principles.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             They are used to guide the design of maintainable, extensible, and loosely coupled software.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The five principles are:
           </p>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Letter</th>
                   <th className="px-4 py-3">Principle</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">S</td>
-                  <td className="px-4 py-2.5 text-stone-700">Single Responsibility Principle</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">S</td>
+                  <td className="px-4 py-2.5 text-slate-300">Single Responsibility Principle</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">O</td>
-                  <td className="px-4 py-2.5 text-stone-700">Open/Closed Principle</td>
+                  <td className="px-4 py-2.5 text-slate-300">O</td>
+                  <td className="px-4 py-2.5 text-slate-300">Open/Closed Principle</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">L</td>
-                  <td className="px-4 py-2.5 text-stone-700">Liskov Substitution Principle</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">L</td>
+                  <td className="px-4 py-2.5 text-slate-300">Liskov Substitution Principle</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">I</td>
-                  <td className="px-4 py-2.5 text-stone-700">Interface Segregation Principle</td>
+                  <td className="px-4 py-2.5 text-slate-300">I</td>
+                  <td className="px-4 py-2.5 text-slate-300">Interface Segregation Principle</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">D</td>
-                  <td className="px-4 py-2.5 text-stone-700">Dependency Inversion Principle</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">D</td>
+                  <td className="px-4 py-2.5 text-slate-300">Dependency Inversion Principle</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These are design guidelines, not rigid syntax rules. They should be applied with judgment to avoid unnecessary complexity.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>21.2 Single Responsibility Principle (SRP)</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A class should have one primary responsibility and one coherent reason to change.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Poor design</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class StudentManager {
@@ -6050,19 +6050,19 @@ class ReportGenerator {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This class performs several unrelated responsibilities.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Changes to registration, billing, email, and reporting all affect the same class.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Improved design</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class StudentRegistration {
@@ -6098,25 +6098,25 @@ class StudentReport {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each component has a clearer responsibility.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>21.3 Open/Closed Principle (OCP)</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Software entities should be open for extension but closed for modification.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This means new behavior should often be introduced through abstractions and new implementations rather than repeatedly modifying existing stable code.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Poor design</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class PaymentProcessor {
@@ -6135,16 +6135,16 @@ class StudentReport {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Every new payment method requires modifying this class.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Improved design</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface PaymentMethod {
@@ -6169,13 +6169,13 @@ class CardPayment implements PaymentMethod {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A processing component can depend on the interface:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class PaymentProcessor {
@@ -6190,31 +6190,31 @@ class CardPayment implements PaymentMethod {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             New payment implementations can be added without rewriting the processor's main logic.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>21.4 Liskov Substitution Principle (LSP)</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Subtypes should be usable wherever their declared parent type is expected without violating the expected behavior of that parent abstraction.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             In simple terms:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A subclass should respect the behavioral contract of its superclass.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Problematic design</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Suppose every Bird is modeled as being able to fly.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Bird {
@@ -6226,13 +6226,13 @@ class CardPayment implements PaymentMethod {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Then:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Penguin extends Bird {
@@ -6245,19 +6245,19 @@ class CardPayment implements PaymentMethod {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This design violates the behavioral expectations of code that relies on every Bird being able to fly.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Improved design</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Separate the ability to fly from the general Bird abstraction.
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`abstract class Bird {
@@ -6292,25 +6292,25 @@ class Penguin extends Bird {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Now flying behavior is only required from objects that actually support it.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>21.5 Interface Segregation Principle (ISP)</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Clients should not be forced to depend on methods they do not use.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Large interfaces should often be divided into smaller, more specific interfaces.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Poor design</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Machine {
@@ -6323,16 +6323,16 @@ class Penguin extends Bird {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A printer-only device would have to implement operations it cannot perform.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Improved design</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Printable {
@@ -6351,31 +6351,31 @@ interface Faxable {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            A printer can implement only <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">Printable</code>.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            A printer can implement only <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">Printable</code>.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A multifunction office device can implement all three.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This produces smaller and more focused contracts.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>21.6 Dependency Inversion Principle (DIP)</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             High-level modules should depend on abstractions rather than directly depending on specific low-level implementations.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This reduces tight coupling.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Poor design</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class EmailSender {
@@ -6397,19 +6397,19 @@ class Notification {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The Notification class is directly coupled to EmailSender.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Replacing it with SMS or another delivery mechanism requires changes.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Improved design</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface MessageSender {
@@ -6449,13 +6449,13 @@ class Notification {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Usage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class NotificationDemo {
@@ -6471,15 +6471,15 @@ class Notification {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The Notification class depends on the MessageSender abstraction rather than a specific implementation.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>21.7 SOLID principles summary</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Principle</th>
                   <th className="px-4 py-3">Main objective</th>
@@ -6487,109 +6487,109 @@ class Notification {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">SRP</td>
-                  <td className="px-4 py-2.5 text-stone-700">One cohesive responsibility</td>
-                  <td className="px-4 py-2.5 text-stone-700">Easier maintenance</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">SRP</td>
+                  <td className="px-4 py-2.5 text-slate-300">One cohesive responsibility</td>
+                  <td className="px-4 py-2.5 text-slate-300">Easier maintenance</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">OCP</td>
-                  <td className="px-4 py-2.5 text-stone-700">Extend without unnecessarily modifying stable code</td>
-                  <td className="px-4 py-2.5 text-stone-700">Easier expansion</td>
+                  <td className="px-4 py-2.5 text-slate-300">OCP</td>
+                  <td className="px-4 py-2.5 text-slate-300">Extend without unnecessarily modifying stable code</td>
+                  <td className="px-4 py-2.5 text-slate-300">Easier expansion</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">LSP</td>
-                  <td className="px-4 py-2.5 text-stone-700">Preserve behavioral substitutability</td>
-                  <td className="px-4 py-2.5 text-stone-700">Reliable inheritance</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">LSP</td>
+                  <td className="px-4 py-2.5 text-slate-300">Preserve behavioral substitutability</td>
+                  <td className="px-4 py-2.5 text-slate-300">Reliable inheritance</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">ISP</td>
-                  <td className="px-4 py-2.5 text-stone-700">Keep interfaces focused</td>
-                  <td className="px-4 py-2.5 text-stone-700">Reduced unnecessary dependencies</td>
+                  <td className="px-4 py-2.5 text-slate-300">ISP</td>
+                  <td className="px-4 py-2.5 text-slate-300">Keep interfaces focused</td>
+                  <td className="px-4 py-2.5 text-slate-300">Reduced unnecessary dependencies</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">DIP</td>
-                  <td className="px-4 py-2.5 text-stone-700">Depend on abstractions</td>
-                  <td className="px-4 py-2.5 text-stone-700">Lower coupling</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">DIP</td>
+                  <td className="px-4 py-2.5 text-slate-300">Depend on abstractions</td>
+                  <td className="px-4 py-2.5 text-slate-300">Lower coupling</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>21.8 How SOLID relates to OOP</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             SOLID principles build on the Java concepts introduced in this module.
           </p>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">OOP concept</th>
                   <th className="px-4 py-3">Related SOLID principles</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Classes</td>
-                  <td className="px-4 py-2.5 text-stone-700">SRP</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Classes</td>
+                  <td className="px-4 py-2.5 text-slate-300">SRP</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Inheritance</td>
-                  <td className="px-4 py-2.5 text-stone-700">LSP</td>
+                  <td className="px-4 py-2.5 text-slate-300">Inheritance</td>
+                  <td className="px-4 py-2.5 text-slate-300">LSP</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Interfaces</td>
-                  <td className="px-4 py-2.5 text-stone-700">ISP and DIP</td>
-                </tr>
-                <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Polymorphism</td>
-                  <td className="px-4 py-2.5 text-stone-700">OCP and DIP</td>
-                </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Encapsulation</td>
-                  <td className="px-4 py-2.5 text-stone-700">SRP and maintainable design</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Interfaces</td>
+                  <td className="px-4 py-2.5 text-slate-300">ISP and DIP</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Abstraction</td>
-                  <td className="px-4 py-2.5 text-stone-700">DIP and OCP</td>
+                  <td className="px-4 py-2.5 text-slate-300">Polymorphism</td>
+                  <td className="px-4 py-2.5 text-slate-300">OCP and DIP</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Composition</td>
-                  <td className="px-4 py-2.5 text-stone-700">DIP and loose coupling</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Encapsulation</td>
+                  <td className="px-4 py-2.5 text-slate-300">SRP and maintainable design</td>
+                </tr>
+                <tr className="bg-[#fcfbf9]">
+                  <td className="px-4 py-2.5 text-slate-300">Abstraction</td>
+                  <td className="px-4 py-2.5 text-slate-300">DIP and OCP</td>
+                </tr>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Composition</td>
+                  <td className="px-4 py-2.5 text-slate-300">DIP and loose coupling</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Students should understand the principle behind each guideline rather than memorizing only its full form.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 22: 22. Practical OOP Example — Banking Management System */}
-      <section id="section-22" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-22" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 14 · Full Worked Architecture
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 22</span>
+          <span className="text-xs font-mono text-slate-400">Section 22</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           22. Practical OOP Example — Banking Management System
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This section brings together classes, constructors, encapsulation, inheritance, overriding, and polymorphism.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Project requirements</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create a banking application that supports:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Account holder information.</li>
             <li>Savings account.</li>
             <li>Current account.</li>
@@ -6598,13 +6598,13 @@ class Notification {
             <li>Balance inquiry.</li>
             <li>Account-specific withdrawal behavior.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Step 1 — Create the parent class</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`abstract class BankAccount {
@@ -6662,22 +6662,22 @@ class Notification {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The class:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Encapsulates identity information.</li>
             <li>Shares common deposit logic.</li>
             <li>Declares withdrawal as abstract.</li>
             <li>Provides a common balance retrieval operation.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Step 2 — Create the savings account</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class SavingsAccount extends BankAccount {
@@ -6708,13 +6708,13 @@ class Notification {
 }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Step 3 — Create the current account</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class CurrentAccount extends BankAccount {
@@ -6748,13 +6748,13 @@ class Notification {
 }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Step 4 — Demonstrate polymorphism</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public class BankingApplication {
@@ -6784,13 +6784,13 @@ class Notification {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Possible output:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Savings withdrawal successful
@@ -6799,10 +6799,10 @@ Current withdrawal successful
 -5000.0`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This illustrates:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Abstract classes.</li>
             <li>Constructor chaining.</li>
             <li>Inheritance.</li>
@@ -6810,93 +6810,93 @@ Current withdrawal successful
             <li>Method overriding.</li>
             <li>Runtime polymorphism.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Note: This is an educational demonstration, not production banking software. Real systems require transaction integrity, security, persistence, monetary precision, auditability, and concurrency control.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 23: 23. Practical Laboratory Exercises (10 Labs) */}
-      <section id="section-23" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-23" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 15 · 10 Hands-on Laboratories
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 23</span>
+          <span className="text-xs font-mono text-slate-400">Section 23</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           23. Practical Laboratory Exercises (10 Labs)
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Students should complete these exercises independently.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 1 — Employee class</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Understand classes, objects, fields, and methods.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Understand classes, objects, fields, and methods.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Requirements:
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create an Employee class containing:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Employee ID.</li>
             <li>Name.</li>
             <li>Department.</li>
             <li>Salary.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Implement methods to:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Display employee details.</li>
             <li>Update salary.</li>
             <li>Calculate annual salary.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create at least three Employee objects with different values.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 2 — Constructor implementation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Practice object initialization.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Practice object initialization.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create a Product class with:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Product ID.</li>
             <li>Product name.</li>
             <li>Price.</li>
             <li>Quantity.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Implement:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>No-argument constructor.</li>
             <li>Constructor with product name.</li>
             <li>Constructor with all fields.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Demonstrate constructor overloading and chaining.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 3 — Encapsulated bank account</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Practice data hiding and validation.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Practice data hiding and validation.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Requirements:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Make balance private.</li>
             <li>Provide deposit and withdrawal methods.</li>
             <li>Prevent invalid deposits.</li>
@@ -6904,19 +6904,19 @@ Current withdrawal successful
             <li>Provide a balance getter.</li>
             <li>Test normal and boundary values.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 4 — Inheritance hierarchy</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Understand class relationships.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Understand class relationships.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Person
@@ -6928,25 +6928,25 @@ Current withdrawal successful
  +-- Administrator`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Use common fields in Person.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Introduce appropriate specialized fields and methods in each subclass.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 5 — Method overriding and polymorphism</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Understand dynamic dispatch.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Understand dynamic dispatch.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create a Shape hierarchy:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Shape
@@ -6958,69 +6958,69 @@ Current withdrawal successful
  +-- Triangle`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Implement a method:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`double calculateArea();`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Call it using references of the common Shape type.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 6 — Abstract class and interfaces</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Understand abstraction.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Understand abstraction.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>An abstract Employee class.</li>
             <li>A Payable interface.</li>
             <li>FullTimeEmployee.</li>
             <li>ContractEmployee.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Implement the salary calculation according to each employment type.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 7 — Multiple interface implementation</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Understand interfaces and capabilities.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Understand interfaces and capabilities.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create an OfficeMachine class implementing:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Printable.</li>
             <li>Scannable.</li>
             <li>Copyable.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each interface should define its own operation.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 8 — Composition</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Understand HAS-A relationships.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Understand HAS-A relationships.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Develop:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Car
@@ -7032,22 +7032,22 @@ Current withdrawal successful
  +-- NavigationSystem`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create component objects and inject them into a Car object.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 9 — Packages</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Understand application organization.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Understand application organization.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create packages:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`com.university.students
@@ -7056,70 +7056,70 @@ com.university.courses
 com.university.application`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Place related classes in appropriate packages.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Import and use those classes from the application package.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Lab 10 — UML design</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Objective:</strong> Translate application requirements into object-oriented design.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Objective:</strong> Translate application requirements into object-oriented design.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create a UML class diagram for a library management system.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Include:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Book.</li>
             <li>Member.</li>
             <li>Librarian.</li>
             <li>Loan.</li>
             <li>Library.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Identify association, aggregation, composition, and inheritance where appropriate.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 24: 24. Independent Programming Assignments (8 Assignments) */}
-      <section id="section-24" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-24" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 16 · 8 Independent Projects
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 24</span>
+          <span className="text-xs font-mono text-slate-400">Section 24</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           24. Independent Programming Assignments (8 Assignments)
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             These assignments assess independent design and implementation skills.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Assignment 1 — Student management system</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create a Student class containing:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Student ID.</li>
             <li>Student name.</li>
             <li>Email.</li>
             <li>Course.</li>
             <li>Marks.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Requirements:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Use private fields.</li>
             <li>Implement constructors.</li>
             <li>Create suitable getters and setters.</li>
@@ -7127,16 +7127,16 @@ com.university.application`}</code>
             <li>Determine the result.</li>
             <li>Create several Student objects.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Assignment 2 — Vehicle hierarchy</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Vehicle
@@ -7148,81 +7148,81 @@ com.university.application`}</code>
  +-- Truck`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The parent class should contain:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Brand.</li>
             <li>Model.</li>
             <li>Registration number.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Each subclass should provide specialized behavior.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Override suitable methods and demonstrate polymorphism.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Assignment 3 — Shape calculation engine</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create an abstract Shape class.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Implement:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Circle.</li>
             <li>Rectangle.</li>
             <li>Triangle.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Requirements:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Use abstract methods.</li>
             <li>Override area calculations.</li>
             <li>Store objects using Shape references.</li>
             <li>Display the area of each object.</li>
             <li>Validate dimensions.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Assignment 4 — Payment processing system</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create a PaymentMethod interface.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Implement:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>CardPayment.</li>
             <li>UPIPayment.</li>
             <li>BankTransferPayment.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create a PaymentProcessor class that accepts a PaymentMethod reference.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Demonstrate that the processor works with different payment implementations without changing its core logic.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Assignment 5 — Library management system</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Create the following classes:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Library.</li>
             <li>Book.</li>
             <li>Member.</li>
             <li>Librarian.</li>
             <li>Loan.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Requirements:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Support book registration.</li>
             <li>Support book borrowing.</li>
             <li>Support book return.</li>
@@ -7230,23 +7230,23 @@ com.university.application`}</code>
             <li>Prevent invalid borrowing.</li>
             <li>Model appropriate relationships.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Assignment 6 — University course registration</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Build a system containing:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Person.</li>
             <li>Student.</li>
             <li>Instructor.</li>
             <li>Course.</li>
             <li>Enrollment.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Requirements:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Use inheritance for Person, Student, and Instructor.</li>
             <li>Use encapsulation.</li>
             <li>Model Student-Course enrollment.</li>
@@ -7254,39 +7254,39 @@ com.university.application`}</code>
             <li>Draw a UML diagram.</li>
             <li>Keep unrelated responsibilities separate.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Assignment 7 — SOLID refactoring challenge</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Given a large class that performs registration, payment, messaging, and reporting, redesign it using the five SOLID principles.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Explain:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>What was wrong with the original design.</li>
             <li>Which responsibilities were separated.</li>
             <li>Which abstractions were introduced.</li>
             <li>How the new design reduces coupling.</li>
             <li>How additional features can be added.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Assignment 8 — UML-based application design</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Choose one:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Hospital management system.</li>
             <li>Banking management system.</li>
             <li>E-commerce platform.</li>
             <li>University management system.</li>
             <li>Online learning platform.</li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Prepare:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Requirements.</li>
             <li>Main classes.</li>
             <li>Attributes.</li>
@@ -7296,389 +7296,389 @@ com.university.application`}</code>
             <li>UML class diagram.</li>
             <li>Java implementation.</li>
           </ul>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 25: 25. Assessment and Review Questions */}
-      <section id="section-25" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-25" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 17 · 20 MCQs & Theory Review
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 25</span>
+          <span className="text-xs font-mono text-slate-400">Section 25</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           25. Assessment and Review Questions
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Part A — Multiple-choice questions</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">1. What is the primary purpose of a class?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">1. What is the primary purpose of a class?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Store only numbers
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. Serve as a blueprint for objects
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Replace all methods
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Execute operating-system instructions
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">2. What is an object?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">2. What is an object?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. A runtime instance of a class
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. A Java keyword
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. A compiler
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. A package
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> A
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> A
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">3. Which OOP principle protects internal object state?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">3. Which OOP principle protects internal object state?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Inheritance
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. Encapsulation
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Polymorphism
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Recursion
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">4. Which keyword is used for class inheritance?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">4. Which keyword is used for class inheritance?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. implements
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. extends
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. inherits
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. super
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">5. Which keyword refers to the current object?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">5. Which keyword refers to the current object?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. super
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. this
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. static
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. final
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">6. Which keyword is used to invoke a superclass constructor?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">6. Which keyword is used to invoke a superclass constructor?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. this
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. super
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. parent
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. base
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">7. Which statement about constructors is correct?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">7. Which statement about constructors is correct?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Constructors must return int
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. Constructors have the same name as their class
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Constructors can be overridden
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Constructors are inherited by subclasses
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">8. Which feature allows multiple constructors with different parameter lists?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">8. Which feature allows multiple constructors with different parameter lists?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Method overriding
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. Constructor overloading
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Encapsulation
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Abstraction
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">9. Which annotation identifies an intended method override?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">9. Which annotation identifies an intended method override?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. @Static
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. @Final
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. @Override
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. @Method
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> C
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> C
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">10. Runtime polymorphism is commonly achieved through:</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">10. Runtime polymorphism is commonly achieved through:</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Method overriding
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. Variable declaration
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Constructor overloading
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Package imports
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> A
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> A
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">11. Which class cannot be instantiated directly?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">11. Which class cannot be instantiated directly?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Public class
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. Abstract class
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Final object
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Static class
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">12. Which keyword declares that a class implements an interface?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">12. Which keyword declares that a class implements an interface?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. extends
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. implements
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. interface
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. super
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">13. Can one Java class extend two classes?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">13. Can one Java class extend two classes?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Yes
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. No
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Only with final
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Only inside a package
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">14. Can one Java class implement multiple interfaces?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">14. Can one Java class implement multiple interfaces?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Yes
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. No
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Only one
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Only if abstract
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> A
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> A
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">15. What is a static variable?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">15. What is a static variable?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. A variable shared at class level
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. An automatically constant variable
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. A variable belonging to every object separately
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. A method parameter
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> A
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> A
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">16. Which keyword prevents a class from being extended?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">16. Which keyword prevents a class from being extended?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. static
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. protected
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. final
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. abstract
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> C
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> C
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">17. Which access modifier provides the most restrictive direct member access?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">17. Which access modifier provides the most restrictive direct member access?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. public
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. protected
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. package-private
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. private
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> D
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> D
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">18. What does composition represent?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">18. What does composition represent?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. IS-A
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. HAS-A
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Overrides
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Overloads
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">19. Which UML symbol is used for composition?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">19. Which UML symbol is used for composition?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Hollow diamond
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. Filled diamond
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Hollow triangle
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Dashed arrow
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">20. What does the Open/Closed Principle encourage?</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">20. What does the Open/Closed Principle encourage?</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A. Every class must be final
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             B. Software should be open for extension and closed for modification
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             C. Classes should never use interfaces
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             D. Every method should be private
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Correct answer:</strong> B
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Correct answer:</strong> B
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Part B — Short-answer questions</span>
           </h3>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Define object-oriented programming.</li>
             <li>Differentiate between procedural and object-oriented programming.</li>
             <li>Explain the four pillars of OOP.</li>
@@ -7691,8 +7691,8 @@ com.university.application`}</code>
             <li>Differentiate between a default constructor and a no-argument constructor.</li>
             <li>What is constructor overloading?</li>
             <li>Explain constructor chaining.</li>
-            <li>What is the purpose of <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this</code>?</li>
-            <li>What is the purpose of <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">super</code>?</li>
+            <li>What is the purpose of <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this</code>?</li>
+            <li>What is the purpose of <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">super</code>?</li>
             <li>Explain constructor execution order.</li>
             <li>Define encapsulation.</li>
             <li>Why should class fields often be private?</li>
@@ -7701,7 +7701,7 @@ com.university.application`}</code>
             <li>Explain single, multilevel, and hierarchical inheritance.</li>
             <li>Why does Java not support multiple class inheritance?</li>
             <li>What is method overriding?</li>
-            <li>Explain the purpose of <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">@Override</code>.</li>
+            <li>Explain the purpose of <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">@Override</code>.</li>
             <li>Differentiate between method hiding and method overriding.</li>
             <li>Define runtime polymorphism.</li>
             <li>Explain dynamic method dispatch.</li>
@@ -7727,16 +7727,16 @@ com.university.application`}</code>
             <li>Explain the Interface Segregation Principle.</li>
             <li>Explain the Dependency Inversion Principle.</li>
           </ol>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Part C — Predict the output</span>
           </h3>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Question 1</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -7760,25 +7760,25 @@ public class Test {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Answer:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Alex`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Question 2</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Parent {
@@ -7809,25 +7809,25 @@ public class Test {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Answer:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Child`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Question 3</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Example {
@@ -7855,25 +7855,25 @@ public class Test {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Answer:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`3`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Question 4</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Parent {
@@ -7901,26 +7901,26 @@ public class Test {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Answer:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Parent
 Child`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Question 5</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Example {
@@ -7949,25 +7949,25 @@ public class Test {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Answer:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`50`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Question 6</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class A {
@@ -8004,26 +8004,26 @@ public class Test {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Answer:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`A
 B`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Question 7</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Demo {
@@ -8040,25 +8040,25 @@ public class Test {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Answer:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`100`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Question 8</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`final int[] numbers = {10, 20};
@@ -8068,31 +8068,31 @@ numbers[0] = 100;
 System.out.println(numbers[0]);`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Answer:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`100`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The final reference cannot be reassigned, but the array object remains mutable.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Part D — Find the error</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Question 1</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Question 1</strong>
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -8111,16 +8111,16 @@ public class Test {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Task: Explain why the assignment is invalid and implement an appropriate setter.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Question 2</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Question 2</strong>
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Parent {
@@ -8141,16 +8141,16 @@ class Child extends Parent {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Task: Explain why this is not valid overriding and correct the implementation.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Question 3</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Question 3</strong>
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Parent {
@@ -8166,16 +8166,16 @@ class Child extends Parent {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Task: Explain why the child constructor fails and correct it.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Question 4</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Question 4</strong>
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`abstract class Shape {
@@ -8187,16 +8187,16 @@ class Circle extends Shape {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Task: Explain why Circle must either implement the method or be declared abstract.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Question 5</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Question 5</strong>
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class A {
@@ -8223,91 +8223,91 @@ public class Test {
 }`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Task: Determine whether the problem is the superclass reference or the method call. Explain the correction if any.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 26: 26. Mini Project — University Course Registration & Management System */}
-      <section id="section-26" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-26" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Part 18 · Capstone Mini Project
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 26</span>
+          <span className="text-xs font-mono text-slate-400">Section 26</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           26. Mini Project — University Course Registration & Management System
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Project Overview</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Develop a Java application that models a university's students, instructors, courses, and enrollments using object-oriented programming.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             This project is designed to demonstrate how different classes work together to create a structured application.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             It introduces object modeling, access control, inheritance, polymorphism, interfaces, composition, and SOLID-oriented design.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Functional Requirements</span>
           </h3>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Student management</span>
           </h4>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Register a student.</li>
             <li>Store student identification.</li>
             <li>Store contact information.</li>
             <li>Display student details.</li>
             <li>Update permitted student information.</li>
           </ul>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Instructor management</span>
           </h4>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Register instructors.</li>
             <li>Store instructor details.</li>
             <li>Assign instructors to courses.</li>
           </ul>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Course management</span>
           </h4>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Create courses.</li>
             <li>Store course information.</li>
             <li>Assign instructors.</li>
             <li>Track enrollment information.</li>
           </ul>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Enrollment management</span>
           </h4>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Enroll students in courses.</li>
             <li>Prevent duplicate enrollment.</li>
             <li>Track enrollment status.</li>
             <li>Display student course records.</li>
           </ul>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Notification management</span>
           </h4>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Define a notification interface.</li>
             <li>Provide console-based notification implementation.</li>
             <li>Allow alternative notification implementations.</li>
           </ul>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Suggested class architecture</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`                 Person
@@ -8334,16 +8334,16 @@ public class Test {
     ConsoleNotification`}</code>
             </pre>
           </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             A more detailed UML diagram should distinguish the associations from inheritance and define the multiplicities for Student, Course, Instructor, and Enrollment.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Suggested package structure</span>
           </h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`university-system/
@@ -8374,19 +8374,19 @@ public class Test {
 +-- out/`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Implementation — Core classes</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The following code is a compact foundation. Each public class should be saved in its corresponding file inside the stated package.
           </p>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Person.java</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.people;
@@ -8443,13 +8443,13 @@ public abstract class Person {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Student.java</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.people;
@@ -8494,13 +8494,13 @@ public class Student extends Person {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Instructor.java</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.people;
@@ -8534,13 +8534,13 @@ public class Instructor extends Person {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Course.java</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.courses;
@@ -8590,13 +8590,13 @@ public class Course {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Enrollment.java</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.courses;
@@ -8637,13 +8637,13 @@ public class Enrollment {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>NotificationService.java</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.notifications;
@@ -8657,13 +8657,13 @@ public interface NotificationService {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>ConsoleNotification.java</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.notifications;
@@ -8687,13 +8687,13 @@ public class ConsoleNotification
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Main.java</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package university.app;
@@ -8747,13 +8747,13 @@ public class Main {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Sample output</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">TEXT</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Alex enrolled in Java Programming
@@ -8762,68 +8762,68 @@ Notification to alex@example.com:
 Your enrollment is confirmed`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Concepts demonstrated</span>
           </h3>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Concept</th>
                   <th className="px-4 py-3">Implementation</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Abstract class</td>
-                  <td className="px-4 py-2.5 text-stone-700">Person</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Abstract class</td>
+                  <td className="px-4 py-2.5 text-slate-300">Person</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Inheritance</td>
-                  <td className="px-4 py-2.5 text-stone-700">Student and Instructor</td>
+                  <td className="px-4 py-2.5 text-slate-300">Inheritance</td>
+                  <td className="px-4 py-2.5 text-slate-300">Student and Instructor</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Constructor chaining</td>
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">super()</code></td>
-                </tr>
-                <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Encapsulation</td>
-                  <td className="px-4 py-2.5 text-stone-700">Private fields</td>
-                </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Method overriding</td>
-                  <td className="px-4 py-2.5 text-stone-700"><code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">getRole()</code></td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Constructor chaining</td>
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">super()</code></td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Composition and association modeling</td>
-                  <td className="px-4 py-2.5 text-stone-700">Enrollment and Course relationships</td>
+                  <td className="px-4 py-2.5 text-slate-300">Encapsulation</td>
+                  <td className="px-4 py-2.5 text-slate-300">Private fields</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Interface</td>
-                  <td className="px-4 py-2.5 text-stone-700">NotificationService</td>
-                </tr>
-                <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Polymorphism</td>
-                  <td className="px-4 py-2.5 text-stone-700">NotificationService reference</td>
-                </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Packages</td>
-                  <td className="px-4 py-2.5 text-stone-700">university.people, courses, notifications, app</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Method overriding</td>
+                  <td className="px-4 py-2.5 text-slate-300"><code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">getRole()</code></td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Object relationships</td>
-                  <td className="px-4 py-2.5 text-stone-700">Student, Course, Instructor, Enrollment</td>
+                  <td className="px-4 py-2.5 text-slate-300">Composition and association modeling</td>
+                  <td className="px-4 py-2.5 text-slate-300">Enrollment and Course relationships</td>
+                </tr>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Interface</td>
+                  <td className="px-4 py-2.5 text-slate-300">NotificationService</td>
+                </tr>
+                <tr className="bg-[#fcfbf9]">
+                  <td className="px-4 py-2.5 text-slate-300">Polymorphism</td>
+                  <td className="px-4 py-2.5 text-slate-300">NotificationService reference</td>
+                </tr>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Packages</td>
+                  <td className="px-4 py-2.5 text-slate-300">university.people, courses, notifications, app</td>
+                </tr>
+                <tr className="bg-[#fcfbf9]">
+                  <td className="px-4 py-2.5 text-slate-300">Object relationships</td>
+                  <td className="px-4 py-2.5 text-slate-300">Student, Course, Instructor, Enrollment</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Project extension tasks</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             After completing the basic application:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Add a registration service.</li>
             <li>Prevent duplicate student enrollment.</li>
             <li>Introduce course capacity.</li>
@@ -8837,177 +8837,177 @@ Your enrollment is confirmed`}</code>
             <li>Redraw the UML diagram after design improvements.</li>
             <li>Evaluate the design against all five SOLID principles.</li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Important:</strong> The code is a teaching foundation. A production-ready application would also need persistent storage, identity management, stronger validation, concurrency handling, and proper service-layer boundaries.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Important:</strong> The code is a teaching foundation. A production-ready application would also need persistent storage, identity management, stronger validation, concurrency handling, and proper service-layer boundaries.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 27: 27. Recommended Learning Resources */}
-      <section id="section-27" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-27" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             References · Curated Resources
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 27</span>
+          <span className="text-xs font-mono text-slate-400">Section 27</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           27. Recommended Learning Resources
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Students should use official documentation and software engineering references.
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><strong className="font-semibold text-stone-900">Dev.java — Object-Oriented Programming</strong></li>
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><strong className="font-semibold text-white">Dev.java — Object-Oriented Programming</strong></li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <a href="https://dev.java/learn/language/oop/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/language/oop/</a>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <a href="https://dev.java/learn/language/oop/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/language/oop/</a>
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><strong className="font-semibold text-stone-900">Dev.java — Classes and Objects</strong></li>
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><strong className="font-semibold text-white">Dev.java — Classes and Objects</strong></li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <a href="https://dev.java/learn/classes-objects/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/classes-objects/</a>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <a href="https://dev.java/learn/classes-objects/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/classes-objects/</a>
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><strong className="font-semibold text-stone-900">Dev.java — Inheritance</strong></li>
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><strong className="font-semibold text-white">Dev.java — Inheritance</strong></li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <a href="https://dev.java/learn/inheritance/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/inheritance/</a>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <a href="https://dev.java/learn/inheritance/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/inheritance/</a>
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><strong className="font-semibold text-stone-900">Dev.java — Interfaces</strong></li>
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><strong className="font-semibold text-white">Dev.java — Interfaces</strong></li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <a href="https://dev.java/learn/interfaces/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/interfaces/</a>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <a href="https://dev.java/learn/interfaces/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/interfaces/</a>
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><strong className="font-semibold text-stone-900">Dev.java — Packages</strong></li>
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><strong className="font-semibold text-white">Dev.java — Packages</strong></li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <a href="https://dev.java/learn/packages/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/packages/</a>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <a href="https://dev.java/learn/packages/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 font-medium underline inline-flex items-center gap-0.5">https://dev.java/learn/packages/</a>
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><strong className="font-semibold text-stone-900">Java Language Specification</strong></li>
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><strong className="font-semibold text-white">Java Language Specification</strong></li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <a href="https://docs.oracle.com/javase/specs/jls/se17/html/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-medium underline inline-flex items-center gap-0.5">https://docs.oracle.com/javase/specs/jls/se17/html/</a>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <a href="https://docs.oracle.com/javase/specs/jls/se17/html/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 font-medium underline inline-flex items-center gap-0.5">https://docs.oracle.com/javase/specs/jls/se17/html/</a>
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><strong className="font-semibold text-stone-900">Java API Documentation</strong></li>
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><strong className="font-semibold text-white">Java API Documentation</strong></li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <a href="https://docs.oracle.com/en/java/javase/17/docs/api/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-medium underline inline-flex items-center gap-0.5">https://docs.oracle.com/en/java/javase/17/docs/api/</a>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <a href="https://docs.oracle.com/en/java/javase/17/docs/api/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 font-medium underline inline-flex items-center gap-0.5">https://docs.oracle.com/en/java/javase/17/docs/api/</a>
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
-            <li><strong className="font-semibold text-stone-900">SOLID Principles — University of Padua Software Engineering Material</strong></li>
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
+            <li><strong className="font-semibold text-white">SOLID Principles — University of Padua Software Engineering Material</strong></li>
           </ol>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <a href="https://www.math.unipd.it/~rcardin/swea/2021/SOLID%20Principles%20of%20Object-Oriented%20Design_4x4.pdf" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-medium underline inline-flex items-center gap-0.5">https://www.math.unipd.it/~rcardin/swea/2021/SOLID%20Principles%20of%20Object-Oriented%20Design_4x4.pdf</a>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <a href="https://www.math.unipd.it/~rcardin/swea/2021/SOLID%20Principles%20of%20Object-Oriented%20Design_4x4.pdf" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 font-medium underline inline-flex items-center gap-0.5">https://www.math.unipd.it/~rcardin/swea/2021/SOLID%20Principles%20of%20Object-Oriented%20Design_4x4.pdf</a>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Students should prioritize designing small class structures and implementing them rather than merely memorizing OOP definitions.
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 28: 28. Module Revision Sheet */}
-      <section id="section-28" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-28" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Review · Module Revision Sheet
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 28</span>
+          <span className="text-xs font-mono text-slate-400">Section 28</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           28. Module Revision Sheet
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Important definitions</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Object-Oriented Programming:</strong> A programming paradigm that organizes software around objects containing state and behavior.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Object-Oriented Programming:</strong> A programming paradigm that organizes software around objects containing state and behavior.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Class:</strong> A user-defined reference type that defines the structure and behavior of its instances.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Class:</strong> A user-defined reference type that defines the structure and behavior of its instances.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Object:</strong> A runtime instance of a class.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Object:</strong> A runtime instance of a class.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Constructor:</strong> A special declaration used to initialize a new instance.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Constructor:</strong> A special declaration used to initialize a new instance.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Constructor overloading:</strong> Defining multiple constructors with different parameter lists.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Constructor overloading:</strong> Defining multiple constructors with different parameter lists.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">this:</strong> A reference to the current object instance.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">this:</strong> A reference to the current object instance.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">super:</strong> A keyword used to access superclass members and invoke superclass constructors.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">super:</strong> A keyword used to access superclass members and invoke superclass constructors.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Encapsulation:</strong> Combining state and related behavior while controlling access to internal implementation.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Encapsulation:</strong> Combining state and related behavior while controlling access to internal implementation.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Inheritance:</strong> A mechanism that allows a subclass to derive from a superclass.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Inheritance:</strong> A mechanism that allows a subclass to derive from a superclass.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Method overriding:</strong> Providing a specialized implementation of an inherited instance method.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Method overriding:</strong> Providing a specialized implementation of an inherited instance method.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Polymorphism:</strong> Using a common type or contract with different possible implementations.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Polymorphism:</strong> Using a common type or contract with different possible implementations.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Abstraction:</strong> Exposing essential functionality while hiding unnecessary implementation details.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Abstraction:</strong> Exposing essential functionality while hiding unnecessary implementation details.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Abstract class:</strong> A class that cannot be instantiated directly and may contain abstract and concrete members.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Abstract class:</strong> A class that cannot be instantiated directly and may contain abstract and concrete members.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Interface:</strong> A reference type that defines a contract and may contain abstract, default, static, and private methods.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Interface:</strong> A reference type that defines a contract and may contain abstract, default, static, and private methods.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Static member:</strong> A member associated with a class rather than an individual instance.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Static member:</strong> A member associated with a class rather than an individual instance.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Final:</strong> A modifier that restricts reassignment, overriding, or inheritance depending on its use.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Final:</strong> A modifier that restricts reassignment, overriding, or inheritance depending on its use.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Access modifier:</strong> A modifier that controls the visibility of classes and members.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Access modifier:</strong> A modifier that controls the visibility of classes and members.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Package:</strong> A namespace used to organize related Java types.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Package:</strong> A namespace used to organize related Java types.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Composition:</strong> A HAS-A relationship in which an object owns or contains other objects.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Composition:</strong> A HAS-A relationship in which an object owns or contains other objects.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Association:</strong> A relationship between objects that interact with one another.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Association:</strong> A relationship between objects that interact with one another.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">Aggregation:</strong> A weaker whole-part relationship in which components can exist independently.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">Aggregation:</strong> A weaker whole-part relationship in which components can exist independently.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">UML:</strong> Unified Modeling Language, used to visualize and document software designs.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">UML:</strong> Unified Modeling Language, used to visualize and document software designs.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">SOLID:</strong> Five foundational principles for designing maintainable object-oriented software.
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">SOLID:</strong> Five foundational principles for designing maintainable object-oriented software.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Essential Java syntax</span>
           </h3>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Class declaration</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student {
@@ -9021,25 +9021,25 @@ Your enrollment is confirmed`}</code>
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Object creation</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student student = new Student();`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Constructor</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student(String name) {
@@ -9048,13 +9048,13 @@ Your enrollment is confirmed`}</code>
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Constructor chaining</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`Student() {
@@ -9063,26 +9063,26 @@ Your enrollment is confirmed`}</code>
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Inheritance</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Student extends Person {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Method overriding</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`@Override
@@ -9092,13 +9092,13 @@ void display() {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Encapsulation</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`private String name;
@@ -9109,13 +9109,13 @@ public String getName() {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Abstract class</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`abstract class Shape {
@@ -9124,13 +9124,13 @@ public String getName() {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Interface</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`interface Printable {
@@ -9139,13 +9139,13 @@ public String getName() {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Interface implementation</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`class Document implements Printable {
@@ -9157,443 +9157,443 @@ public String getName() {
 }`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Static member</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`static int count = 0;`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Final constant</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`public static final int MAX_USERS = 100;`}</code>
             </pre>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Package</span>
           </h4>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed border border-neutral-800 my-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3 font-mono">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3 font-mono">
               <span className="uppercase text-orange-400 font-bold">JAVA</span>
-              <span className="text-stone-500">Java Standard Edition (Java 17+)</span>
+              <span className="text-slate-400">Java Standard Edition (Java 17+)</span>
             </div>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`package com.application.students;`}</code>
             </pre>
           </div>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 29: 29. Module Completion Criteria */}
-      <section id="section-29" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-29" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Milestone · Completion Checklist
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 29</span>
+          <span className="text-xs font-mono text-slate-400">Section 29</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           29. Module Completion Criteria
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Students should complete the following checklist before progressing.
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>OOP fundamentals</span>
           </h3>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Explain object-oriented programming.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Differentiate procedural programming and OOP.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand the four OOP principles.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Design Java classes.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Create multiple objects.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand object state and behavior.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Explain object references and null references.</span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Constructors and keywords</span>
           </h3>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Implement constructors.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand implicit default constructors.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Implement parameterized constructors.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Apply constructor overloading.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand constructor chaining.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
-            <span>Use <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">this</code> correctly.</span>
+            <span>Use <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">this</code> correctly.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
-            <span>Use <code className="px-1.5 py-0.5 rounded bg-stone-100 border border-stone-200 text-orange-700 font-mono text-xs">super</code> correctly.</span>
+            <span>Use <code className="px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800 text-orange-300 font-mono text-xs">super</code> correctly.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Explain constructor execution order.</span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Encapsulation and inheritance</span>
           </h3>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Apply private fields and public methods.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Implement getters and setters where appropriate.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Enforce object invariants.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand single inheritance.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand multilevel inheritance.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand hierarchical inheritance.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Explain why Java does not support multiple class inheritance.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Implement method overriding.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand runtime polymorphism.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Distinguish overriding and overloading.</span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Abstraction and interfaces</span>
           </h3>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Create abstract classes.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Implement abstract methods.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Implement interfaces.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand default and static interface methods.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand private interface methods.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Implement multiple interfaces.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Resolve default method conflicts.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Compare abstract classes and interfaces.</span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Java language organization</span>
           </h3>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand static members.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Apply the final keyword.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Use access modifiers correctly.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Create Java packages.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Import classes from other packages.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Compile and execute package-based applications.</span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Design and architecture</span>
           </h3>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand composition and inheritance.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Model association, aggregation, and composition.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand dependency relationships.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Draw UML class diagrams.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Understand UML visibility and multiplicity.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Explain and apply the five SOLID principles.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Design a modular application.</span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Practical assessment</span>
           </h3>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Complete all ten laboratory exercises.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Attempt the eight programming assignments.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Complete the assessment questions.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Build the University Course Registration System.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Explain the role of every class.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Draw the project's UML class diagram.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Identify where encapsulation, inheritance, and polymorphism are used.</span>
           </div>
-          <div className="flex items-start gap-2.5 my-2 text-stone-700 text-sm sm:text-base">
-            <span className="w-4 h-4 mt-0.5 rounded border border-stone-300 flex items-center justify-center bg-stone-50 text-transparent">
+          <div className="flex items-start gap-2.5 my-2 text-slate-300 text-sm sm:text-base">
+            <span className="w-4 h-4 mt-0.5 rounded border border-slate-700 flex items-center justify-center bg-slate-950 text-transparent">
               ✓
             </span>
             <span>Evaluate the application against SOLID principles.</span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Final Expected Capability</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             By the end of Module 4, students should be able to move from basic procedural Java programs toward designing object-oriented applications.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             They should understand how to model application entities as classes, create objects with valid initial state, protect data through encapsulation, reuse appropriate behavior through inheritance, support different implementations using polymorphism, and establish abstractions through interfaces and abstract classes.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             They should also be able to organize source code using packages, describe object relationships through UML, and recognize design problems using SOLID principles.
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">The essential learning outcome is the ability to design a small, modular Java application before writing its implementation.</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">The essential learning outcome is the ability to design a small, modular Java application before writing its implementation.</strong>
           </p>
-          <hr className="border-[#e7e3da] my-6" />
+          <hr className="border-slate-800 my-6" />
         </div>
       </section>
 
       {/* SECTION 30: 30. Phase 1 — Java Foundations Milestone & Transition to DSA */}
-      <section id="section-30" className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+      <section id="section-30" className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+          <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
             Milestone · Phase 1 Capstone
           </span>
-          <span className="text-xs font-mono text-stone-500">Section 30</span>
+          <span className="text-xs font-mono text-slate-400">Section 30</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           30. Phase 1 — Java Foundations Milestone & Transition to DSA
         </h2>
-        <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             With Modules 1–4 completed, students will have covered the fundamental Java programming foundation.
           </p>
-          <div className="overflow-x-auto my-4 rounded-xl border border-[#e7e3da] shadow-2xs">
+          <div className="overflow-x-auto my-4 rounded-xl border border-slate-800 shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+              <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                 <tr>
                   <th className="px-4 py-3">Module</th>
                   <th className="px-4 py-3">Subject</th>
@@ -9601,36 +9601,36 @@ public String getName() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#e7e3da]">
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Module 1</td>
-                  <td className="px-4 py-2.5 text-stone-700">Introduction to Java</td>
-                  <td className="px-4 py-2.5 text-stone-700">Understand programming and write basic Java programs</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Module 1</td>
+                  <td className="px-4 py-2.5 text-slate-300">Introduction to Java</td>
+                  <td className="px-4 py-2.5 text-slate-300">Understand programming and write basic Java programs</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Module 2</td>
-                  <td className="px-4 py-2.5 text-stone-700">Control Flow, Methods &amp; Problem-Solving</td>
-                  <td className="px-4 py-2.5 text-stone-700">Develop logic, loops, methods, and recursion</td>
+                  <td className="px-4 py-2.5 text-slate-300">Module 2</td>
+                  <td className="px-4 py-2.5 text-slate-300">Control Flow, Methods &amp; Problem-Solving</td>
+                  <td className="px-4 py-2.5 text-slate-300">Develop logic, loops, methods, and recursion</td>
                 </tr>
-                <tr className="bg-white">
-                  <td className="px-4 py-2.5 text-stone-700">Module 3</td>
-                  <td className="px-4 py-2.5 text-stone-700">Arrays, Strings &amp; Mathematical Programming</td>
-                  <td className="px-4 py-2.5 text-stone-700">Process collections, text, numbers, and matrices</td>
+                <tr className="bg-slate-900/80">
+                  <td className="px-4 py-2.5 text-slate-300">Module 3</td>
+                  <td className="px-4 py-2.5 text-slate-300">Arrays, Strings &amp; Mathematical Programming</td>
+                  <td className="px-4 py-2.5 text-slate-300">Process collections, text, numbers, and matrices</td>
                 </tr>
                 <tr className="bg-[#fcfbf9]">
-                  <td className="px-4 py-2.5 text-stone-700">Module 4</td>
-                  <td className="px-4 py-2.5 text-stone-700">Object-Oriented Programming</td>
-                  <td className="px-4 py-2.5 text-stone-700">Design classes, objects, and modular applications</td>
+                  <td className="px-4 py-2.5 text-slate-300">Module 4</td>
+                  <td className="px-4 py-2.5 text-slate-300">Object-Oriented Programming</td>
+                  <td className="px-4 py-2.5 text-slate-300">Design classes, objects, and modular applications</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-white mt-5 mb-2 flex items-center gap-2">
             <span>Phase 1 exit-level capabilities</span>
           </h4>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Students should now be able to:
           </p>
-          <ol className="list-decimal pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ol className="list-decimal pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Write, compile, execute, and debug Java programs.</li>
             <li>Analyze a problem and develop an algorithm.</li>
             <li>Use conditions and loops to control execution.</li>
@@ -9647,16 +9647,16 @@ public String getName() {
             <li>Apply the introductory SOLID principles.</li>
             <li>Build small modular Java applications independently.</li>
           </ol>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-white mt-6 pt-3 border-t border-slate-800/60 flex items-center gap-2">
             <span>Next Phase — Data Structures &amp; Algorithms</span>
           </h3>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
-            <strong className="font-semibold text-stone-900">The natural next step is to transition from Java Programming Foundations into Data Structures and Algorithms.</strong>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
+            <strong className="font-semibold text-white">The natural next step is to transition from Java Programming Foundations into Data Structures and Algorithms.</strong>
           </p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             Students should now be prepared to study:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-stone-700 text-sm sm:text-base my-3 leading-relaxed">
+          <ul className="list-disc pl-5 space-y-2 text-slate-300 text-sm sm:text-base my-3 leading-relaxed">
             <li>Algorithm analysis and asymptotic complexity.</li>
             <li>Arrays and advanced array techniques.</li>
             <li>Searching and sorting algorithms.</li>
@@ -9670,7 +9670,7 @@ public String getName() {
             <li>Greedy algorithms.</li>
             <li>Dynamic programming.</li>
           </ul>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base my-2">
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base my-2">
             The important distinction is that Phase 1 teaches students how to write and organize Java programs, while the DSA phase teaches them how to select and implement efficient computational solutions to increasingly complex problems.
           </p>
         </div>

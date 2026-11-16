@@ -583,7 +583,7 @@ export default function JavaComplexity() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-orange-500 selection:text-white pb-24">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-10 left-1/3 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[140px]" />
@@ -593,28 +593,28 @@ export default function JavaComplexity() {
       {/* Main Content Area */}
       <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10">
         {/* Module Header & Breadcrumb */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-6 mb-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50/90 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-orange-700 backdrop-blur-sm mb-2">
-              <Coffee className="w-3.5 h-3.5 text-orange-600" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30/80 bg-orange-500/15/90 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-orange-300 backdrop-blur-sm mb-2">
+              <Coffee className="w-3.5 h-3.5 text-orange-400" />
               <span>Java Programming Master Course · Module 7</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-stone-900 tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
               Algorithm Analysis &amp; Big-O Complexity
             </h1>
-            <p className="mt-1.5 text-xs sm:text-sm text-stone-600 max-w-3xl leading-relaxed">
+            <p className="mt-1.5 text-xs sm:text-sm text-slate-400 max-w-3xl leading-relaxed">
               Master asymptotic analysis (Big-O, Big-Omega, Big-Theta), loop invariant correctness proofs, best/average/worst-case behavior, nested loop arithmetic, recurrence relations, Master Theorem, and amortized data-structure scaling.
             </p>
           </div>
 
           {/* Mode Switcher Pills */}
-          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs shrink-0 self-start md:self-auto">
+          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs shrink-0 self-start md:self-auto">
             <button
               onClick={() => setActiveTab("curriculum")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 activeTab === "curriculum"
                   ? "bg-orange-600 text-white shadow-xs"
-                  : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+                  : "text-slate-400 hover:text-white hover:bg-slate-950"
               }`}
             >
               <BookOpen className="w-4 h-4" />
@@ -625,7 +625,7 @@ export default function JavaComplexity() {
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 activeTab === "workbenches"
                   ? "bg-orange-600 text-white shadow-xs"
-                  : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+                  : "text-slate-400 hover:text-white hover:bg-slate-950"
               }`}
             >
               <Sparkles className="w-4 h-4" />
@@ -650,7 +650,7 @@ export default function JavaComplexity() {
         ) : (
           <div className="mt-8 space-y-8">
             {/* WORKBENCH SUB-TABS */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-[#e7e3da] text-xs font-semibold [scrollbar-width:none]">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800 text-xs font-semibold [scrollbar-width:none]">
               {[
                 { id: "asymptotic-studio", label: "1. Asymptotic Growth Studio", icon: LineChart },
                 { id: "loop-analyzer", label: "2. Loop Complexity Analyzer", icon: Layers },
@@ -671,10 +671,10 @@ export default function JavaComplexity() {
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-stone-900 text-white shadow-xs"
-                        : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
+                        : "bg-slate-900/80 text-slate-400 hover:bg-slate-900/80 hover:text-white border border-slate-800"
                     }`}
                   >
-                    <Icon className={`w-3.5 h-3.5 ${isActive ? "text-orange-400" : "text-stone-500"}`} />
+                    <Icon className={`w-3.5 h-3.5 ${isActive ? "text-orange-400" : "text-slate-400"}`} />
                     <span>{tab.label}</span>
                   </button>
                 );
@@ -684,20 +684,20 @@ export default function JavaComplexity() {
             {/* 1. ASYMPTOTIC GROWTH STUDIO */}
             {activeWorkbench === "asymptotic-studio" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                        <LineChart className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-black text-white flex items-center gap-2">
+                        <LineChart className="w-5 h-5 text-orange-400" />
                         <span>Asymptotic Growth Curves &amp; Comparative Scaler</span>
                       </h3>
-                      <p className="text-xs text-stone-600 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         Observe how operations escalate as input size n increases from small to enterprise scale.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-mono text-stone-500 font-bold">Input Size n:</span>
+                      <span className="text-xs font-mono text-slate-400 font-bold">Input Size n:</span>
                       <input
                         type="range"
                         min="1"
@@ -706,7 +706,7 @@ export default function JavaComplexity() {
                         onChange={(e) => setNVal(Number(e.target.value))}
                         className="w-32 accent-orange-600 cursor-pointer"
                       />
-                      <span className="w-10 px-2 py-1 rounded bg-orange-50 border border-orange-200 text-orange-700 font-mono font-bold text-center text-xs">
+                      <span className="w-10 px-2 py-1 rounded bg-orange-500/15 border border-orange-500/30 text-orange-300 font-mono font-bold text-center text-xs">
                         {nVal}
                       </span>
                     </div>
@@ -716,10 +716,10 @@ export default function JavaComplexity() {
                   <div className="flex flex-wrap gap-2 mb-6">
                     {[
                       { key: "c1", label: "O(1) Constant", color: "text-emerald-700 bg-emerald-50 border-emerald-300" },
-                      { key: "logn", label: "O(log n) Logarithmic", color: "text-blue-700 bg-blue-50 border-blue-300" },
+                      { key: "logn", label: "O(log n) Logarithmic", color: "text-sky-400 bg-sky-950/40 border-sky-500/30" },
                       { key: "n", label: "O(n) Linear", color: "text-amber-700 bg-amber-50 border-amber-300" },
                       { key: "nlogn", label: "O(n log n) Linearithmic", color: "text-orange-400 bg-orange-500 border-orange-500" },
-                      { key: "n2", label: "O(n²) Quadratic", color: "text-orange-700 bg-orange-50 border-orange-300" },
+                      { key: "n2", label: "O(n²) Quadratic", color: "text-orange-300 bg-orange-500/15 border-orange-500/40" },
                       { key: "n3", label: "O(n³) Cubic", color: "text-pink-700 bg-pink-50 border-pink-300" },
                       { key: "twoN", label: "O(2ⁿ) Exponential", color: "text-red-700 bg-red-50 border-red-300" },
                     ].map((item) => (
@@ -729,7 +729,7 @@ export default function JavaComplexity() {
                         className={`text-xs px-3 py-1.5 rounded-xl border font-mono font-bold transition cursor-pointer ${
                           visibleCurves[item.key]
                             ? item.color
-                            : "bg-stone-50 border-stone-200 text-stone-400 line-through"
+                            : "bg-slate-950 border-slate-800 text-slate-500 line-through"
                         }`}
                       >
                         {item.label}
@@ -739,40 +739,40 @@ export default function JavaComplexity() {
 
                   {/* Operation Count Cards Grid */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono font-semibold">O(1) Constant</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono font-semibold">O(1) Constant</div>
                       <div className="text-xl font-mono font-black text-emerald-600 mt-1">1 op</div>
-                      <div className="text-[10px] text-stone-400 mt-0.5">&lt; 1 ns</div>
+                      <div className="text-[10px] text-slate-500 mt-0.5">&lt; 1 ns</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono font-semibold">O(log n)</div>
-                      <div className="text-xl font-mono font-black text-blue-600 mt-1">{asymptoticData.logn} ops</div>
-                      <div className="text-[10px] text-stone-400 mt-0.5">~3 ns</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono font-semibold">O(log n)</div>
+                      <div className="text-xl font-mono font-black text-sky-400 mt-1">{asymptoticData.logn} ops</div>
+                      <div className="text-[10px] text-slate-500 mt-0.5">~3 ns</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono font-semibold">O(n) Linear</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono font-semibold">O(n) Linear</div>
                       <div className="text-xl font-mono font-black text-amber-600 mt-1">{asymptoticData.nVal} ops</div>
-                      <div className="text-[10px] text-stone-400 mt-0.5">~30 ns</div>
+                      <div className="text-[10px] text-slate-500 mt-0.5">~30 ns</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono font-semibold">O(n log n)</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono font-semibold">O(n log n)</div>
                       <div className="text-xl font-mono font-black text-orange-400 mt-1">{asymptoticData.nlogn} ops</div>
-                      <div className="text-[10px] text-stone-400 mt-0.5">~150 ns</div>
+                      <div className="text-[10px] text-slate-500 mt-0.5">~150 ns</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono font-semibold">O(n²) Quadratic</div>
-                      <div className="text-xl font-mono font-black text-orange-600 mt-1">{asymptoticData.n2.toLocaleString()} ops</div>
-                      <div className="text-[10px] text-stone-400 mt-0.5">~1 µs</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono font-semibold">O(n²) Quadratic</div>
+                      <div className="text-xl font-mono font-black text-orange-400 mt-1">{asymptoticData.n2.toLocaleString()} ops</div>
+                      <div className="text-[10px] text-slate-500 mt-0.5">~1 µs</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono font-semibold">O(n³) Cubic</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono font-semibold">O(n³) Cubic</div>
                       <div className="text-xl font-mono font-black text-pink-600 mt-1">{asymptoticData.n3.toLocaleString()} ops</div>
-                      <div className="text-[10px] text-stone-400 mt-0.5">~30 µs</div>
+                      <div className="text-[10px] text-slate-500 mt-0.5">~30 µs</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center col-span-2">
-                      <div className="text-[11px] text-stone-500 font-mono font-semibold">O(2ⁿ) Exponential</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center col-span-2">
+                      <div className="text-[11px] text-slate-400 font-mono font-semibold">O(2ⁿ) Exponential</div>
                       <div className="text-xl font-mono font-black text-red-600 mt-1 truncate">{asymptoticData.twoN} ops</div>
-                      <div className="text-[10px] text-stone-400 mt-0.5">
+                      <div className="text-[10px] text-slate-500 mt-0.5">
                         {nVal > 30 ? "Exceeds age of the universe!" : "Infeasible for large n"}
                       </div>
                     </div>
@@ -780,7 +780,7 @@ export default function JavaComplexity() {
 
                   {/* Visual Relative Height Bar Chart */}
                   <div className="p-4 rounded-xl bg-neutral-900 text-white font-mono text-xs">
-                    <div className="text-stone-400 mb-3 text-[11px] uppercase tracking-wider font-bold">
+                    <div className="text-slate-500 mb-3 text-[11px] uppercase tracking-wider font-bold">
                       Normalized Execution Bar (Relative Scale for n = {nVal})
                     </div>
                     <div className="space-y-3">
@@ -799,7 +799,7 @@ export default function JavaComplexity() {
                           <span>{asymptoticData.logn}</span>
                         </div>
                         <div className="w-full bg-neutral-800 rounded-full h-2">
-                          <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${Math.min(100, (asymptoticData.logn / asymptoticData.n2) * 100 + 4)}%` }}></div>
+                          <div className="bg-sky-500 h-2 rounded-full" style={{ width: `${Math.min(100, (asymptoticData.logn / asymptoticData.n2) * 100 + 4)}%` }}></div>
                         </div>
                       </div>
                       <div>
@@ -838,13 +838,13 @@ export default function JavaComplexity() {
             {/* 2. LOOP COMPLEXITY ANALYZER */}
             {activeWorkbench === "loop-analyzer" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-[#e7e3da] pb-4 mb-6">
-                    <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                      <Layers className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800 pb-4 mb-6">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <Layers className="w-5 h-5 text-orange-400" />
                       <span>Loop Complexity Analyzer &amp; Step Counter</span>
                     </h3>
-                    <p className="text-xs text-stone-600 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Select classic algorithmic loop structures and watch the exact mathematical arithmetic series evaluate.
                     </p>
                   </div>
@@ -852,30 +852,30 @@ export default function JavaComplexity() {
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
                     {/* Pattern Selector */}
                     <div className="md:col-span-5 space-y-2">
-                      <label className="text-xs font-bold text-stone-700 block mb-1">Select Loop Structure:</label>
+                      <label className="text-xs font-bold text-slate-300 block mb-1">Select Loop Structure:</label>
                       {loopPatterns.map((pat) => (
                         <button
                           key={pat.id}
                           onClick={() => setLoopPattern(pat.id)}
                           className={`w-full text-left p-3 rounded-xl border text-xs transition cursor-pointer ${
                             loopPattern === pat.id
-                              ? "bg-orange-50 border-orange-400 text-orange-950 font-bold shadow-xs"
-                              : "bg-white border-stone-200 text-stone-700 hover:bg-stone-50"
+                              ? "bg-orange-500/15 border-orange-400 text-orange-950 font-bold shadow-xs"
+                              : "bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-950"
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="truncate">{pat.name}</span>
-                            <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white border border-stone-200 text-orange-700 font-bold shrink-0 ml-1">
+                            <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-900/80 border border-slate-800 text-orange-300 font-bold shrink-0 ml-1">
                               {pat.complexity}
                             </span>
                           </div>
                         </button>
                       ))}
 
-                      <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 mt-4 space-y-3">
+                      <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 mt-4 space-y-3">
                         <div className="flex items-center justify-between text-xs">
-                          <span className="font-bold text-stone-700">Set n:</span>
-                          <span className="font-mono font-bold text-orange-700 px-2 py-0.5 bg-orange-100 rounded">
+                          <span className="font-bold text-slate-300">Set n:</span>
+                          <span className="font-mono font-bold text-orange-300 px-2 py-0.5 bg-orange-500/15 rounded">
                             n = {loopN}
                           </span>
                         </div>
@@ -893,7 +893,7 @@ export default function JavaComplexity() {
                     {/* Code & Formula Display */}
                     <div className="md:col-span-7 space-y-4">
                       <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs border border-neutral-800">
-                        <div className="flex items-center justify-between text-[11px] text-stone-400 border-b border-neutral-800 pb-2 mb-3">
+                        <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-neutral-800 pb-2 mb-3">
                           <span className="text-orange-400 font-bold">JAVA SOURCE SNIPPET</span>
                           <span>Input: n = {loopN}</span>
                         </div>
@@ -903,10 +903,10 @@ export default function JavaComplexity() {
                       </div>
 
                       <div className="grid grid-cols-2 gap-3">
-                        <div className="p-4 rounded-xl bg-orange-50/80 border border-orange-200">
-                          <div className="text-[11px] text-orange-800 font-mono font-bold uppercase">Complexity Class</div>
-                          <div className="text-2xl font-mono font-black text-orange-700 mt-1">{currentPattern.complexity}</div>
-                          <div className="text-xs text-stone-600 mt-1 font-mono">{currentPattern.formula}</div>
+                        <div className="p-4 rounded-xl bg-orange-500/15/80 border border-orange-500/30">
+                          <div className="text-[11px] text-orange-300 font-mono font-bold uppercase">Complexity Class</div>
+                          <div className="text-2xl font-mono font-black text-orange-300 mt-1">{currentPattern.complexity}</div>
+                          <div className="text-xs text-slate-400 mt-1 font-mono">{currentPattern.formula}</div>
                         </div>
 
                         <div className="p-4 rounded-xl bg-emerald-50/80 border border-emerald-200">
@@ -914,12 +914,12 @@ export default function JavaComplexity() {
                           <div className="text-2xl font-mono font-black text-emerald-700 mt-1">
                             {calculatedOps.toLocaleString()}
                           </div>
-                          <div className="text-xs text-stone-600 mt-1">Total inner operations</div>
+                          <div className="text-xs text-slate-400 mt-1">Total inner operations</div>
                         </div>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-700 leading-relaxed">
-                        <strong className="text-stone-900 font-bold block mb-1">Analytical Derivation:</strong>
+                      <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+                        <strong className="text-white font-bold block mb-1">Analytical Derivation:</strong>
                         {currentPattern.desc}
                       </div>
                     </div>
@@ -931,21 +931,21 @@ export default function JavaComplexity() {
             {/* 3. MASTER THEOREM SOLVER */}
             {activeWorkbench === "master-theorem" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-[#e7e3da] pb-4 mb-6">
-                    <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                      <Calculator className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800 pb-4 mb-6">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <Calculator className="w-5 h-5 text-orange-400" />
                       <span>Master Theorem Recurrence Solver Studio</span>
                     </h3>
-                    <p className="text-xs text-stone-600 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Solve divide-and-conquer recurrences of the form:{" "}
-                      <code className="text-orange-700 font-mono font-bold">T(n) = a T(n / b) + f(n)</code>
+                      <code className="text-orange-300 font-mono font-bold">T(n) = a T(n / b) + f(n)</code>
                     </p>
                   </div>
 
                   {/* Presets */}
                   <div className="mb-6">
-                    <div className="text-xs font-bold text-stone-700 mb-2">Algorithm Presets:</div>
+                    <div className="text-xs font-bold text-slate-300 mb-2">Algorithm Presets:</div>
                     <div className="flex flex-wrap gap-2">
                       {masterTheoremPresets.map((p) => (
                         <button
@@ -955,7 +955,7 @@ export default function JavaComplexity() {
                             setRecurrenceB(p.b);
                             setRecurrenceF(p.f);
                           }}
-                          className="px-3 py-1.5 rounded-xl border border-stone-200 bg-stone-50 hover:bg-orange-50 hover:border-orange-300 text-xs font-semibold text-stone-700 transition cursor-pointer"
+                          className="px-3 py-1.5 rounded-xl border border-slate-800 bg-slate-950 hover:bg-orange-500/15 hover:border-orange-500/40 text-xs font-semibold text-slate-300 transition cursor-pointer"
                         >
                           {p.name} ({p.a}T(n/{p.b}) + {p.f})
                         </button>
@@ -965,8 +965,8 @@ export default function JavaComplexity() {
 
                   {/* Input Controls */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-200">
-                      <label className="text-xs font-bold text-stone-700 block mb-1">
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                      <label className="text-xs font-bold text-slate-300 block mb-1">
                         Subproblems Count (a &ge; 1):
                       </label>
                       <input
@@ -975,13 +975,13 @@ export default function JavaComplexity() {
                         max="64"
                         value={recurrenceA}
                         onChange={(e) => setRecurrenceA(Math.max(1, Number(e.target.value)))}
-                        className="w-full text-sm font-mono font-bold px-3 py-2 rounded-xl bg-white border border-stone-300 focus:outline-none focus:border-orange-500"
+                        className="w-full text-sm font-mono font-bold px-3 py-2 rounded-xl bg-slate-900/80 border border-slate-700 focus:outline-none focus:border-orange-500"
                       />
-                      <span className="text-[11px] text-stone-500 mt-1 block">Number of recursive branches spawned</span>
+                      <span className="text-[11px] text-slate-400 mt-1 block">Number of recursive branches spawned</span>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-200">
-                      <label className="text-xs font-bold text-stone-700 block mb-1">
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                      <label className="text-xs font-bold text-slate-300 block mb-1">
                         Division Factor (b &gt; 1):
                       </label>
                       <input
@@ -990,26 +990,26 @@ export default function JavaComplexity() {
                         max="16"
                         value={recurrenceB}
                         onChange={(e) => setRecurrenceB(Math.max(2, Number(e.target.value)))}
-                        className="w-full text-sm font-mono font-bold px-3 py-2 rounded-xl bg-white border border-stone-300 focus:outline-none focus:border-orange-500"
+                        className="w-full text-sm font-mono font-bold px-3 py-2 rounded-xl bg-slate-900/80 border border-slate-700 focus:outline-none focus:border-orange-500"
                       />
-                      <span className="text-[11px] text-stone-500 mt-1 block">Input reduction factor at each level</span>
+                      <span className="text-[11px] text-slate-400 mt-1 block">Input reduction factor at each level</span>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-200">
-                      <label className="text-xs font-bold text-stone-700 block mb-1">
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                      <label className="text-xs font-bold text-slate-300 block mb-1">
                         Outside Work f(n):
                       </label>
                       <select
                         value={recurrenceF}
                         onChange={(e) => setRecurrenceF(e.target.value)}
-                        className="w-full text-sm font-mono font-bold px-3 py-2 rounded-xl bg-white border border-stone-300 focus:outline-none focus:border-orange-500"
+                        className="w-full text-sm font-mono font-bold px-3 py-2 rounded-xl bg-slate-900/80 border border-slate-700 focus:outline-none focus:border-orange-500"
                       >
                         <option value="1">1 (Constant Θ(1))</option>
                         <option value="n">n (Linear Θ(n))</option>
                         <option value="n^2">n^2 (Quadratic Θ(n²))</option>
                         <option value="n^3">n^3 (Cubic Θ(n³))</option>
                       </select>
-                      <span className="text-[11px] text-stone-500 mt-1 block">Non-recursive merge/split work</span>
+                      <span className="text-[11px] text-slate-400 mt-1 block">Non-recursive merge/split work</span>
                     </div>
                   </div>
 
@@ -1020,19 +1020,19 @@ export default function JavaComplexity() {
                         <span className="text-xs text-orange-400 font-bold uppercase tracking-wider">
                           {masterTheoremResult.appliedCase}
                         </span>
-                        <span className="text-xs text-stone-400">
+                        <span className="text-xs text-slate-500">
                           Critical Exponent: log_{recurrenceB}({recurrenceA}) = {masterTheoremResult.logbaRounded}
                         </span>
                       </div>
 
                       <div className="flex items-center gap-4">
-                        <div className="text-xs text-stone-400">Tight Bound:</div>
+                        <div className="text-xs text-slate-500">Tight Bound:</div>
                         <div className="text-2xl sm:text-3xl font-black text-emerald-400 tracking-tight">
                           T(n) = {masterTheoremResult.finalBound}
                         </div>
                       </div>
 
-                      <p className="text-xs text-stone-300 font-sans leading-relaxed border-t border-stone-700/80 pt-3">
+                      <p className="text-xs text-slate-400 font-sans leading-relaxed border-t border-stone-700/80 pt-3">
                         <strong className="text-white">Mathematical Explanation:</strong> {masterTheoremResult.rationale}
                       </p>
                     </div>
@@ -1048,14 +1048,14 @@ export default function JavaComplexity() {
             {/* 4. AMORTIZED ANALYSIS STUDIO */}
             {activeWorkbench === "amortized-studio" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                        <Database className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-black text-white flex items-center gap-2">
+                        <Database className="w-5 h-5 text-orange-400" />
                         <span>Dynamic Array Resizing &amp; Amortized O(1) Proof</span>
                       </h3>
-                      <p className="text-xs text-stone-600 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         Simulate Java ArrayList geometric doubling. Even with occasional O(n) array copies, average cost per append is O(1).
                       </p>
                     </div>
@@ -1075,7 +1075,7 @@ export default function JavaComplexity() {
                       </button>
                       <button
                         onClick={resetDynamicArray}
-                        className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-50 text-stone-600 transition cursor-pointer"
+                        className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400 transition cursor-pointer"
                         title="Reset Array"
                       >
                         <RefreshCw className="w-4 h-4" />
@@ -1085,20 +1085,20 @@ export default function JavaComplexity() {
 
                   {/* Summary Metric Stats */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono">Current Size (n)</div>
-                      <div className="text-xl font-mono font-black text-stone-900 mt-0.5">{arrayElements.length}</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono">Current Size (n)</div>
+                      <div className="text-xl font-mono font-black text-white mt-0.5">{arrayElements.length}</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono">Allocated Capacity (C)</div>
-                      <div className="text-xl font-mono font-black text-orange-600 mt-0.5">{arrayCapacity}</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono">Allocated Capacity (C)</div>
+                      <div className="text-xl font-mono font-black text-orange-400 mt-0.5">{arrayCapacity}</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono">Total Elements Copied</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono">Total Elements Copied</div>
                       <div className="text-xl font-mono font-black text-orange-400 mt-0.5">{totalCopies}</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono">Amortized Avg Cost</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono">Amortized Avg Cost</div>
                       <div className="text-xl font-mono font-black text-emerald-600 mt-0.5">
                         {arrayElements.length > 0 ? (totalCost / arrayElements.length).toFixed(2) : "1.00"}
                       </div>
@@ -1107,12 +1107,12 @@ export default function JavaComplexity() {
 
                   {/* Visual Buffer Slot Representation */}
                   <div className="mb-6">
-                    <div className="flex items-center justify-between text-xs font-bold text-stone-700 mb-2">
+                    <div className="flex items-center justify-between text-xs font-bold text-slate-300 mb-2">
                       <span>Memory Buffer Slot Allocation ({arrayElements.length} / {arrayCapacity} slots filled):</span>
-                      <span className="font-mono text-stone-400 font-normal">Geometric Doubling Factor = 2x</span>
+                      <span className="font-mono text-slate-500 font-normal">Geometric Doubling Factor = 2x</span>
                     </div>
 
-                    <div className="flex flex-wrap gap-1.5 p-3 rounded-xl bg-stone-100 border border-stone-200 min-h-[50px] items-center">
+                    <div className="flex flex-wrap gap-1.5 p-3 rounded-xl bg-slate-950 border border-slate-800 min-h-[50px] items-center">
                       {Array.from({ length: arrayCapacity }).map((_, idx) => {
                         const hasElem = idx < arrayElements.length;
                         return (
@@ -1121,7 +1121,7 @@ export default function JavaComplexity() {
                             className={`w-7 h-7 rounded-lg flex items-center justify-center font-mono text-[11px] font-bold transition-all ${
                               hasElem
                                 ? "bg-orange-600 text-white shadow-xs"
-                                : "bg-white border border-dashed border-stone-300 text-stone-300"
+                                : "bg-slate-900/80 border border-dashed border-slate-700 text-slate-400"
                             }`}
                           >
                             {hasElem ? arrayElements[idx] : ""}
@@ -1132,19 +1132,19 @@ export default function JavaComplexity() {
                   </div>
 
                   {/* Step Execution Log */}
-                  <div className="rounded-xl border border-stone-200 overflow-hidden text-xs">
-                    <div className="bg-stone-50 px-4 py-2.5 border-b border-stone-200 font-bold text-stone-800 flex justify-between items-center">
+                  <div className="rounded-xl border border-slate-800 overflow-hidden text-xs">
+                    <div className="bg-slate-950 px-4 py-2.5 border-b border-slate-800 font-bold text-slate-200 flex justify-between items-center">
                       <span>Recent Appends Execution Log</span>
-                      <span className="text-[11px] text-stone-500 font-normal">Last {amortizedLog.length} steps</span>
+                      <span className="text-[11px] text-slate-400 font-normal">Last {amortizedLog.length} steps</span>
                     </div>
-                    <div className="max-h-48 overflow-y-auto divide-y divide-stone-100 [scrollbar-width:thin]">
+                    <div className="max-h-48 overflow-y-auto divide-y divide-slate-800/60 [scrollbar-width:thin]">
                       {amortizedLog.length === 0 ? (
-                        <div className="p-4 text-center text-stone-400 italic">No appends performed yet. Click '+ Append 1' to start!</div>
+                        <div className="p-4 text-center text-slate-500 italic">No appends performed yet. Click '+ Append 1' to start!</div>
                       ) : (
                         amortizedLog.map((log) => (
-                          <div key={log.id} className="p-3 flex items-center justify-between hover:bg-stone-50">
+                          <div key={log.id} className="p-3 flex items-center justify-between hover:bg-slate-950">
                             <div className="flex items-center gap-2">
-                              <span className="font-mono font-bold text-stone-800">Append #{log.val}</span>
+                              <span className="font-mono font-bold text-slate-200">Append #{log.val}</span>
                               {log.resized && (
                                 <span className="px-2 py-0.5 rounded-full bg-orange-500 text-orange-400 text-[10px] font-bold font-mono">
                                   Resized: {log.oldCap} &rarr; {log.newCap}
@@ -1152,7 +1152,7 @@ export default function JavaComplexity() {
                               )}
                             </div>
                             <div className="flex items-center gap-4 font-mono text-xs">
-                              <span className={log.cost > 1 ? "text-orange-400 font-bold" : "text-stone-600"}>
+                              <span className={log.cost > 1 ? "text-orange-400 font-bold" : "text-slate-400"}>
                                 Work Cost: {log.cost}
                               </span>
                               <span className="text-emerald-700 font-bold">
@@ -1171,23 +1171,23 @@ export default function JavaComplexity() {
             {/* 5. TIME-SPACE TRADE-OFF SANDBOX */}
             {activeWorkbench === "tradeoff-sandbox" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-[#e7e3da] pb-4 mb-6">
-                    <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                      <Split className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800 pb-4 mb-6">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <Split className="w-5 h-5 text-orange-400" />
                       <span>Time-Space Trade-Off: Duplicate Detection Benchmark</span>
                     </h3>
-                    <p className="text-xs text-stone-600 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Compare Approach A (Nested Loops: O(n²) time, O(1) space) versus Approach B (HashSet: O(n) time, O(n) space).
                     </p>
                   </div>
 
                   {/* Controls */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2">
-                      <div className="flex justify-between text-xs font-bold text-stone-700">
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                      <div className="flex justify-between text-xs font-bold text-slate-300">
                         <span>Array Size (n):</span>
-                        <span className="font-mono text-orange-700">{tradeoffN} elements</span>
+                        <span className="font-mono text-orange-300">{tradeoffN} elements</span>
                       </div>
                       <input
                         type="range"
@@ -1200,8 +1200,8 @@ export default function JavaComplexity() {
                       />
                     </div>
 
-                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                      <span className="text-xs font-bold text-stone-700 block mb-1">Duplicate Placement:</span>
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                      <span className="text-xs font-bold text-slate-300 block mb-1">Duplicate Placement:</span>
                       <div className="grid grid-cols-2 gap-2">
                         {[
                           { id: "none", label: "No Duplicate (Worst)" },
@@ -1215,7 +1215,7 @@ export default function JavaComplexity() {
                             className={`px-2.5 py-1.5 rounded-lg text-xs font-medium border transition cursor-pointer ${
                               duplicateMode === m.id
                                 ? "bg-stone-900 text-white border-stone-900 font-bold"
-                                : "bg-white text-stone-700 border-stone-300 hover:bg-stone-100"
+                                : "bg-slate-900/80 text-slate-300 border-slate-700 hover:bg-slate-950"
                             }`}
                           >
                             {m.label}
@@ -1228,55 +1228,55 @@ export default function JavaComplexity() {
                   {/* Comparative Cards */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Approach A: Nested Loops */}
-                    <div className="p-5 rounded-2xl border border-stone-200 bg-stone-50/50 space-y-4">
+                    <div className="p-5 rounded-2xl border border-slate-800 bg-slate-950/50 space-y-4">
                       <div className="flex items-center justify-between">
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold font-mono bg-stone-200 text-stone-800">
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold font-mono bg-slate-800 text-slate-200">
                           APPROACH A: NESTED LOOPS
                         </span>
                         <span className="text-xs font-mono font-bold text-red-600">O(n²) Time</span>
                       </div>
 
                       <div className="space-y-2 text-xs">
-                        <div className="flex justify-between py-1 border-b border-stone-200">
-                          <span className="text-stone-500">Comparisons Required:</span>
-                          <span className="font-mono font-black text-stone-900">{tradeoffStats.slow.comparisons}</span>
+                        <div className="flex justify-between py-1 border-b border-slate-800">
+                          <span className="text-slate-400">Comparisons Required:</span>
+                          <span className="font-mono font-black text-white">{tradeoffStats.slow.comparisons}</span>
                         </div>
-                        <div className="flex justify-between py-1 border-b border-stone-200">
-                          <span className="text-stone-500">Auxiliary Memory Space:</span>
+                        <div className="flex justify-between py-1 border-b border-slate-800">
+                          <span className="text-slate-400">Auxiliary Memory Space:</span>
                           <span className="font-mono font-black text-emerald-600">{tradeoffStats.slow.auxSpace}</span>
                         </div>
                         <div className="flex justify-between py-1">
-                          <span className="text-stone-500">Memory Allocation Cost:</span>
+                          <span className="text-slate-400">Memory Allocation Cost:</span>
                           <span className="font-mono text-emerald-700 font-bold">Zero Heap Overhead</span>
                         </div>
                       </div>
 
-                      <p className="text-xs text-stone-600 leading-relaxed bg-white p-3 rounded-xl border border-stone-200">
+                      <p className="text-xs text-slate-400 leading-relaxed bg-slate-900/80 p-3 rounded-xl border border-slate-800">
                         {tradeoffStats.slow.desc} Ideal when RAM is strictly constrained, but unscalable on large arrays.
                       </p>
                     </div>
 
                     {/* Approach B: HashSet */}
-                    <div className="p-5 rounded-2xl border border-orange-200 bg-orange-50/40 space-y-4">
+                    <div className="p-5 rounded-2xl border border-orange-500/30 bg-orange-500/15/40 space-y-4">
                       <div className="flex items-center justify-between">
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold font-mono bg-orange-100 text-orange-800">
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold font-mono bg-orange-500/15 text-orange-300">
                           APPROACH B: HASHSET
                         </span>
                         <span className="text-xs font-mono font-bold text-emerald-700">O(n) Time</span>
                       </div>
 
                       <div className="space-y-2 text-xs">
-                        <div className="flex justify-between py-1 border-b border-orange-200/60">
-                          <span className="text-stone-500">Operations Performed:</span>
+                        <div className="flex justify-between py-1 border-b border-orange-500/30/60">
+                          <span className="text-slate-400">Operations Performed:</span>
                           <span className="font-mono font-black text-emerald-700">{tradeoffStats.fast.operations}</span>
                         </div>
-                        <div className="flex justify-between py-1 border-b border-orange-200/60">
-                          <span className="text-stone-500">Auxiliary Memory Space:</span>
-                          <span className="font-mono font-black text-orange-700">{tradeoffStats.fast.auxSpace}</span>
+                        <div className="flex justify-between py-1 border-b border-orange-500/30/60">
+                          <span className="text-slate-400">Auxiliary Memory Space:</span>
+                          <span className="font-mono font-black text-orange-300">{tradeoffStats.fast.auxSpace}</span>
                         </div>
                         <div className="flex justify-between py-1">
-                          <span className="text-stone-500">Speedup Factor:</span>
-                          <span className="font-mono text-orange-700 font-bold">
+                          <span className="text-slate-400">Speedup Factor:</span>
+                          <span className="font-mono text-orange-300 font-bold">
                             {tradeoffStats.slow.comparisons > 0 && tradeoffStats.fast.operations > 0
                               ? `~${Math.round(
                                   parseInt(tradeoffStats.slow.comparisons.replace(/,/g, "")) /
@@ -1287,7 +1287,7 @@ export default function JavaComplexity() {
                         </div>
                       </div>
 
-                      <p className="text-xs text-stone-600 leading-relaxed bg-white p-3 rounded-xl border border-orange-200/80">
+                      <p className="text-xs text-slate-400 leading-relaxed bg-slate-900/80 p-3 rounded-xl border border-orange-500/30/80">
                         {tradeoffStats.fast.desc} Standard industry trade-off: spending modest heap memory avoids quadratic CPU churn.
                       </p>
                     </div>
@@ -1299,13 +1299,13 @@ export default function JavaComplexity() {
             {/* 6. BIG-O BATTLE ARENA */}
             {activeWorkbench === "sorting-arena" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-[#e7e3da] pb-4 mb-6">
-                    <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                      <ArrowDownUp className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800 pb-4 mb-6">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <ArrowDownUp className="w-5 h-5 text-orange-400" />
                       <span>Sorting &amp; Searching Big-O Battle Arena</span>
                     </h3>
-                    <p className="text-xs text-stone-600 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Direct theoretical comparison across best, average, and worst cases with auxiliary memory bounds.
                     </p>
                   </div>
@@ -1314,14 +1314,14 @@ export default function JavaComplexity() {
                   <div className="p-5 rounded-2xl bg-stone-900 text-white mb-6 space-y-4 shadow-sm font-mono">
                     <div className="flex items-center justify-between text-xs text-orange-400 font-bold">
                       <span>SEARCH SHOWDOWN: n = 1,000,000 (1 Million Sorted Elements)</span>
-                      <span className="text-stone-400">Worst Case Comparison</span>
+                      <span className="text-slate-500">Worst Case Comparison</span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                       <div className="p-4 rounded-xl bg-stone-800/80 border border-stone-700 space-y-2">
-                        <div className="text-xs text-stone-400">Linear Search O(n):</div>
+                        <div className="text-xs text-slate-500">Linear Search O(n):</div>
                         <div className="text-2xl font-black text-red-400">1,000,000 checks</div>
-                        <div className="text-[11px] text-stone-400 font-sans">
+                        <div className="text-[11px] text-slate-500 font-sans">
                           Must inspect every element sequentially until the match or end is reached.
                         </div>
                       </div>
@@ -1329,7 +1329,7 @@ export default function JavaComplexity() {
                       <div className="p-4 rounded-xl bg-stone-800/80 border border-orange-500/50 space-y-2">
                         <div className="text-xs text-orange-400">Binary Search O(log n):</div>
                         <div className="text-2xl font-black text-emerald-400">At Most {binarySteps} checks</div>
-                        <div className="text-[11px] text-stone-400 font-sans">
+                        <div className="text-[11px] text-slate-500 font-sans">
                           Halves remaining interval each step. 2²⁰ &gt; 1,000,000, so 20 steps guarantee resolution!
                         </div>
                       </div>
@@ -1337,9 +1337,9 @@ export default function JavaComplexity() {
                   </div>
 
                   {/* Sorting Algorithms Comparison Table */}
-                  <div className="overflow-x-auto rounded-xl border border-[#e7e3da]">
+                  <div className="overflow-x-auto rounded-xl border border-slate-800">
                     <table className="w-full text-left text-xs">
-                      <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+                      <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                         <tr>
                           <th className="px-4 py-3">Algorithm</th>
                           <th className="px-4 py-3">Best Case</th>
@@ -1351,15 +1351,15 @@ export default function JavaComplexity() {
                       </thead>
                       <tbody className="divide-y divide-[#e7e3da] font-mono">
                         {sortingAlgorithms.map((alg, idx) => (
-                          <tr key={alg.name} className={idx % 2 === 0 ? "bg-white" : "bg-[#fcfbf9]"}>
-                            <td className="px-4 py-2.5 font-bold text-stone-900 font-sans">{alg.name}</td>
+                          <tr key={alg.name} className={idx % 2 === 0 ? "bg-slate-900/80" : "bg-[#fcfbf9]"}>
+                            <td className="px-4 py-2.5 font-bold text-white font-sans">{alg.name}</td>
                             <td className="px-4 py-2.5 text-emerald-700 font-bold">{alg.best}</td>
-                            <td className="px-4 py-2.5 text-stone-700">{alg.avg}</td>
-                            <td className={`px-4 py-2.5 font-bold ${alg.worst.includes("²") ? "text-orange-700" : "text-stone-800"}`}>
+                            <td className="px-4 py-2.5 text-slate-300">{alg.avg}</td>
+                            <td className={`px-4 py-2.5 font-bold ${alg.worst.includes("²") ? "text-orange-300" : "text-slate-200"}`}>
                               {alg.worst}
                             </td>
-                            <td className="px-4 py-2.5 text-stone-600">{alg.space}</td>
-                            <td className="px-4 py-2.5 text-stone-600 font-sans">{alg.stable}</td>
+                            <td className="px-4 py-2.5 text-slate-400">{alg.space}</td>
+                            <td className="px-4 py-2.5 text-slate-400 font-sans">{alg.stable}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -1372,13 +1372,13 @@ export default function JavaComplexity() {
             {/* 7. LOOP INVARIANT PROOF STUDIO */}
             {activeWorkbench === "invariant-studio" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-[#e7e3da] pb-4 mb-6">
-                    <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                      <ShieldCheck className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800 pb-4 mb-6">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <ShieldCheck className="w-5 h-5 text-orange-400" />
                       <span>Loop Invariant &amp; Correctness Proof Studio</span>
                     </h3>
-                    <p className="text-xs text-stone-600 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Step through the 3 essential phases of a formal algorithm correctness proof for <code>findMaximum()</code>.
                     </p>
                   </div>
@@ -1392,7 +1392,7 @@ export default function JavaComplexity() {
                         className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
                           invariantStep === idx
                             ? "bg-orange-600 text-white shadow-xs"
-                            : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                            : "bg-slate-950 text-slate-400 hover:bg-slate-800"
                         }`}
                       >
                         {step.badge}
@@ -1401,15 +1401,15 @@ export default function JavaComplexity() {
                   </div>
 
                   {/* Active Step Card */}
-                  <div className="p-6 rounded-2xl bg-stone-50 border border-stone-200 space-y-4">
-                    <div className="flex items-center justify-between border-b border-stone-200 pb-3">
-                      <h4 className="text-base font-bold text-stone-900">{invariantProofSteps[invariantStep].title}</h4>
-                      <span className="text-[11px] font-mono text-orange-700 font-bold px-2 py-0.5 rounded bg-orange-100">
+                  <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                      <h4 className="text-base font-bold text-white">{invariantProofSteps[invariantStep].title}</h4>
+                      <span className="text-[11px] font-mono text-orange-300 font-bold px-2 py-0.5 rounded bg-orange-500/15">
                         Step {invariantStep + 1} of {invariantProofSteps.length}
                       </span>
                     </div>
 
-                    <p className="text-sm text-stone-700 leading-relaxed">
+                    <p className="text-sm text-slate-300 leading-relaxed">
                       {invariantProofSteps[invariantStep].content}
                     </p>
 
@@ -1423,7 +1423,7 @@ export default function JavaComplexity() {
                       <button
                         disabled={invariantStep === 0}
                         onClick={() => setInvariantStep((p) => p - 1)}
-                        className="px-3 py-1.5 rounded-xl border border-stone-200 text-xs font-semibold disabled:opacity-40"
+                        className="px-3 py-1.5 rounded-xl border border-slate-800 text-xs font-semibold disabled:opacity-40"
                       >
                         &larr; Previous Step
                       </button>
@@ -1443,26 +1443,26 @@ export default function JavaComplexity() {
             {/* 8. KNOWLEDGE ASSESSMENT QUIZ */}
             {activeWorkbench === "quiz-section" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                        <HelpCircle className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-black text-white flex items-center gap-2">
+                        <HelpCircle className="w-5 h-5 text-orange-400" />
                         <span>Module 7 Knowledge Assessment Quiz</span>
                       </h3>
-                      <p className="text-xs text-stone-600 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         10 Comprehensive MCQs testing algorithm analysis, asymptotic bounds, and recurrences.
                       </p>
                     </div>
 
                     {submittedQuiz && (
                       <div className="flex items-center gap-3">
-                        <span className="text-xs font-bold text-stone-700">Your Score:</span>
+                        <span className="text-xs font-bold text-slate-300">Your Score:</span>
                         <span
                           className={`text-sm font-mono font-black px-3 py-1 rounded-xl border ${
                             quizScore >= 8
                               ? "bg-emerald-50 text-emerald-700 border-emerald-300"
-                              : "bg-orange-50 text-orange-700 border-orange-300"
+                              : "bg-orange-500/15 text-orange-300 border-orange-500/40"
                           }`}
                         >
                           {quizScore} / {quizQuestions.length} ({Math.round((quizScore / quizQuestions.length) * 100)}%)
@@ -1476,22 +1476,22 @@ export default function JavaComplexity() {
                       const userChoice = selectedAnswers[q.id];
                       const isCorrect = userChoice === q.correct;
                       return (
-                        <div key={q.id} className="p-4 rounded-xl border border-stone-200 bg-stone-50/50 space-y-3">
-                          <h4 className="text-sm font-bold text-stone-900">{q.question}</h4>
+                        <div key={q.id} className="p-4 rounded-xl border border-slate-800 bg-slate-950/50 space-y-3">
+                          <h4 className="text-sm font-bold text-white">{q.question}</h4>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {q.options.map((opt, oIndex) => {
                               const isSelected = userChoice === oIndex;
-                              let btnClass = "bg-white border-stone-200 text-stone-700 hover:border-orange-300";
+                              let btnClass = "bg-slate-900/80 border-slate-800 text-slate-300 hover:border-orange-500/40";
                               if (submittedQuiz) {
                                 if (oIndex === q.correct) {
                                   btnClass = "bg-emerald-50 border-emerald-400 text-emerald-900 font-bold";
                                 } else if (isSelected && !isCorrect) {
                                   btnClass = "bg-red-50 border-red-400 text-red-900";
                                 } else {
-                                  btnClass = "bg-white border-stone-200 text-stone-400 opacity-60";
+                                  btnClass = "bg-slate-900/80 border-slate-800 text-slate-500 opacity-60";
                                 }
                               } else if (isSelected) {
-                                btnClass = "bg-orange-50 border-orange-500 text-orange-950 font-bold shadow-2xs";
+                                btnClass = "bg-orange-500/15 border-orange-500 text-orange-950 font-bold shadow-2xs";
                               }
 
                               return (
@@ -1511,8 +1511,8 @@ export default function JavaComplexity() {
                           </div>
 
                           {submittedQuiz && (
-                            <div className="text-xs p-2.5 rounded-lg bg-white border border-stone-200 text-stone-600 leading-relaxed">
-                              <strong className="text-stone-900">Explanation:</strong> {q.explanation}
+                            <div className="text-xs p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-400 leading-relaxed">
+                              <strong className="text-white">Explanation:</strong> {q.explanation}
                             </div>
                           )}
                         </div>
@@ -1520,14 +1520,14 @@ export default function JavaComplexity() {
                     })}
                   </div>
 
-                  <div className="mt-8 pt-4 border-t border-[#e7e3da] flex justify-end gap-3">
+                  <div className="mt-8 pt-4 border-t border-slate-800 flex justify-end gap-3">
                     {submittedQuiz ? (
                       <button
                         onClick={() => {
                           setSubmittedQuiz(false);
                           setSelectedAnswers({});
                         }}
-                        className="px-4 py-2 rounded-xl border border-stone-200 text-xs font-bold text-stone-700 hover:bg-stone-50 transition"
+                        className="px-4 py-2 rounded-xl border border-slate-800 text-xs font-bold text-slate-300 hover:bg-slate-950 transition"
                       >
                         Reset &amp; Retake Quiz
                       </button>
@@ -1548,20 +1548,20 @@ export default function JavaComplexity() {
             {/* 9. LABS & ASSIGNMENTS TRACKER */}
             {activeWorkbench === "labs-tracker" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                        <CheckSquare className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-black text-white flex items-center gap-2">
+                        <CheckSquare className="w-5 h-5 text-orange-400" />
                         <span>Interactive Laboratories &amp; Assignments Tracker</span>
                       </h3>
-                      <p className="text-xs text-stone-600 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         Track your completion of all 4 practical laboratories and 4 comprehensive engineering assignments.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold text-stone-700">Completed:</span>
+                      <span className="text-xs font-bold text-slate-300">Completed:</span>
                       <span className="text-xs font-mono font-black px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200">
                         {Object.values(completedLabs).filter(Boolean).length} / {labItems.length}
                       </span>
@@ -1578,18 +1578,18 @@ export default function JavaComplexity() {
                           className={`p-4 rounded-xl border cursor-pointer transition-all ${
                             isDone
                               ? "bg-emerald-50/50 border-emerald-300"
-                              : "bg-white border-stone-200 hover:border-stone-300"
+                              : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                           }`}
                         >
                           <div className="flex items-start gap-3">
                             <button
                               type="button"
-                              className="mt-0.5 text-stone-400 hover:text-stone-600 focus:outline-none"
+                              className="mt-0.5 text-slate-500 hover:text-slate-400 focus:outline-none"
                             >
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-600" />
                               ) : (
-                                <Square className="w-4 h-4 text-stone-400" />
+                                <Square className="w-4 h-4 text-slate-500" />
                               )}
                             </button>
                             <div className="space-y-1">
@@ -1597,7 +1597,7 @@ export default function JavaComplexity() {
                                 <span
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     lab.type === "Lab"
-                                      ? "bg-orange-100 text-orange-800"
+                                      ? "bg-orange-500/15 text-orange-300"
                                       : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
@@ -1605,13 +1605,13 @@ export default function JavaComplexity() {
                                 </span>
                                 <h4
                                   className={`text-xs font-bold ${
-                                    isDone ? "text-stone-500 line-through" : "text-stone-900"
+                                    isDone ? "text-slate-400 line-through" : "text-white"
                                   }`}
                                 >
                                   {lab.title}
                                 </h4>
                               </div>
-                              <p className="text-xs text-stone-600 leading-relaxed">{lab.goal}</p>
+                              <p className="text-xs text-slate-400 leading-relaxed">{lab.goal}</p>
                             </div>
                           </div>
                         </div>

@@ -600,7 +600,7 @@ export default function JavaSearchingSorting() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-orange-500 selection:text-white pb-24">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-10 left-1/3 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[140px]" />
@@ -610,28 +610,28 @@ export default function JavaSearchingSorting() {
       {/* Main Content Area */}
       <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10">
         {/* Module Header & Breadcrumb */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-6 mb-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50/90 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-orange-700 backdrop-blur-sm mb-2">
-              <Coffee className="w-3.5 h-3.5 text-orange-600" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30/80 bg-orange-500/15/90 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-orange-300 backdrop-blur-sm mb-2">
+              <Coffee className="w-3.5 h-3.5 text-orange-400" />
               <span>Java Programming Master Course · Module 8</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-stone-900 tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
               Searching &amp; Sorting Algorithms
             </h1>
-            <p className="mt-1.5 text-xs sm:text-sm text-stone-600 max-w-3xl leading-relaxed">
+            <p className="mt-1.5 text-xs sm:text-sm text-slate-400 max-w-3xl leading-relaxed">
               Master linear search, binary search, bounds, rotated arrays, binary search on answer, elementary sorting (bubble, selection, insertion), efficient divide-and-conquer (merge, quick, heap), non-comparison sorting (counting, radix, bucket), stability, and Java standard library APIs.
             </p>
           </div>
 
           {/* Mode Switcher Pills */}
-          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs shrink-0 self-start md:self-auto">
+          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xs shrink-0 self-start md:self-auto">
             <button
               onClick={() => setActiveTab("curriculum")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 activeTab === "curriculum"
                   ? "bg-orange-600 text-white shadow-xs"
-                  : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+                  : "text-slate-400 hover:text-white hover:bg-slate-950"
               }`}
             >
               <BookOpen className="w-4 h-4" />
@@ -642,7 +642,7 @@ export default function JavaSearchingSorting() {
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 activeTab === "workbenches"
                   ? "bg-orange-600 text-white shadow-xs"
-                  : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+                  : "text-slate-400 hover:text-white hover:bg-slate-950"
               }`}
             >
               <Sparkles className="w-4 h-4" />
@@ -667,7 +667,7 @@ export default function JavaSearchingSorting() {
         ) : (
           <div className="mt-8 space-y-8">
             {/* WORKBENCH SUB-TABS */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-[#e7e3da] text-xs font-semibold [scrollbar-width:none]">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800 text-xs font-semibold [scrollbar-width:none]">
               {[
                 { id: "sorting-visualizer", label: "1. Sorting Visualizer", icon: ArrowDownUp },
                 { id: "binary-explorer", label: "2. Binary Search & Bounds", icon: Binary },
@@ -687,10 +687,10 @@ export default function JavaSearchingSorting() {
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-stone-900 text-white shadow-xs"
-                        : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
+                        : "bg-slate-900/80 text-slate-400 hover:bg-slate-900/80 hover:text-white border border-slate-800"
                     }`}
                   >
-                    <Icon className={`w-3.5 h-3.5 ${isActive ? "text-orange-400" : "text-stone-500"}`} />
+                    <Icon className={`w-3.5 h-3.5 ${isActive ? "text-orange-400" : "text-slate-400"}`} />
                     <span>{tab.label}</span>
                   </button>
                 );
@@ -700,14 +700,14 @@ export default function JavaSearchingSorting() {
             {/* 1. SORTING VISUALIZER */}
             {activeWorkbench === "sorting-visualizer" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                        <ArrowDownUp className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-black text-white flex items-center gap-2">
+                        <ArrowDownUp className="w-5 h-5 text-orange-400" />
                         <span>Interactive Sorting Algorithm Visualizer</span>
                       </h3>
-                      <p className="text-xs text-stone-600 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         Watch element-by-element comparisons, swaps, shifts, and partitioning in real time.
                       </p>
                     </div>
@@ -719,7 +719,7 @@ export default function JavaSearchingSorting() {
                           stopSorting();
                           setSortAlgo(e.target.value);
                         }}
-                        className="text-xs font-bold px-3 py-2 rounded-xl bg-stone-50 border border-stone-300 focus:outline-none focus:border-orange-500"
+                        className="text-xs font-bold px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 focus:outline-none focus:border-orange-500"
                       >
                         <option value="bubble">Bubble Sort (O(n²))</option>
                         <option value="selection">Selection Sort (O(n²))</option>
@@ -746,7 +746,7 @@ export default function JavaSearchingSorting() {
 
                       <button
                         onClick={() => generateArray("random")}
-                        className="p-2 rounded-xl border border-stone-200 hover:bg-stone-50 text-stone-600 transition"
+                        className="p-2 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400 transition"
                         title="Generate Random"
                       >
                         <RefreshCw className="w-4 h-4" />
@@ -755,30 +755,30 @@ export default function JavaSearchingSorting() {
                   </div>
 
                   {/* Array Presets & Sliders */}
-                  <div className="flex flex-wrap items-center justify-between gap-4 mb-6 p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs">
+                  <div className="flex flex-wrap items-center justify-between gap-4 mb-6 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs">
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-stone-700">Presets:</span>
+                      <span className="font-bold text-slate-300">Presets:</span>
                       <button
                         onClick={() => generateArray("random")}
-                        className="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 font-semibold"
+                        className="px-2.5 py-1 rounded-lg bg-slate-900/80 border border-slate-800 hover:bg-slate-950 font-semibold"
                       >
                         Random
                       </button>
                       <button
                         onClick={() => generateArray("nearly-sorted")}
-                        className="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 font-semibold"
+                        className="px-2.5 py-1 rounded-lg bg-slate-900/80 border border-slate-800 hover:bg-slate-950 font-semibold"
                       >
                         Nearly Sorted
                       </button>
                       <button
                         onClick={() => generateArray("reverse")}
-                        className="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 font-semibold"
+                        className="px-2.5 py-1 rounded-lg bg-slate-900/80 border border-slate-800 hover:bg-slate-950 font-semibold"
                       >
                         Reverse Sorted
                       </button>
                       <button
                         onClick={() => generateArray("duplicates")}
-                        className="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 font-semibold"
+                        className="px-2.5 py-1 rounded-lg bg-slate-900/80 border border-slate-800 hover:bg-slate-950 font-semibold"
                       >
                         Duplicates
                       </button>
@@ -786,7 +786,7 @@ export default function JavaSearchingSorting() {
 
                     <div className="flex items-center gap-4">
                       <div className="flex items-center gap-2">
-                        <span className="text-stone-500">Speed:</span>
+                        <span className="text-slate-400">Speed:</span>
                         <input
                           type="range"
                           min="20"
@@ -797,7 +797,7 @@ export default function JavaSearchingSorting() {
                         />
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-stone-500">Size:</span>
+                        <span className="text-slate-400">Size:</span>
                         <input
                           type="range"
                           min="6"
@@ -806,7 +806,7 @@ export default function JavaSearchingSorting() {
                           onChange={(e) => setArraySize(Number(e.target.value))}
                           className="w-16 accent-orange-600 cursor-pointer"
                         />
-                        <span className="font-mono font-bold text-stone-700">{arraySize}</span>
+                        <span className="font-mono font-bold text-slate-300">{arraySize}</span>
                       </div>
                     </div>
                   </div>
@@ -825,12 +825,12 @@ export default function JavaSearchingSorting() {
 
                       return (
                         <div key={idx} className="flex flex-col items-center flex-1 max-w-[36px]">
-                          <span className="text-[10px] font-mono text-stone-400 mb-1">{val}</span>
+                          <span className="text-[10px] font-mono text-slate-500 mb-1">{val}</span>
                           <div
                             className={`w-full rounded-t-md transition-all duration-100 ${barColor}`}
                             style={{ height: `${val * 2}px` }}
                           />
-                          <span className="text-[9px] font-mono text-stone-500 mt-1">{idx}</span>
+                          <span className="text-[9px] font-mono text-slate-400 mt-1">{idx}</span>
                         </div>
                       );
                     })}
@@ -838,19 +838,19 @@ export default function JavaSearchingSorting() {
 
                   {/* Live Stats HUD */}
                   <div className="grid grid-cols-3 gap-3">
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono">Comparisons</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono">Comparisons</div>
                       <div className="text-xl font-mono font-black text-amber-600 mt-0.5">
                         {sortStats.comparisons}
                       </div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono">Swaps / Shifts</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono">Swaps / Shifts</div>
                       <div className="text-xl font-mono font-black text-red-600 mt-0.5">{sortStats.swaps}</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
-                      <div className="text-[11px] text-stone-500 font-mono">Status</div>
-                      <div className="text-sm font-mono font-bold text-stone-800 mt-1">{sortStats.phase}</div>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                      <div className="text-[11px] text-slate-400 font-mono">Status</div>
+                      <div className="text-sm font-mono font-bold text-slate-200 mt-1">{sortStats.phase}</div>
                     </div>
                   </div>
                 </div>
@@ -860,25 +860,25 @@ export default function JavaSearchingSorting() {
             {/* 2. BINARY SEARCH & BOUNDS EXPLORER */}
             {activeWorkbench === "binary-explorer" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                        <Binary className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-black text-white flex items-center gap-2">
+                        <Binary className="w-5 h-5 text-orange-400" />
                         <span>Binary Search &amp; Boundary Explorer</span>
                       </h3>
-                      <p className="text-xs text-stone-600 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         Explore exact lookup, lower bound (first &ge; target), upper bound (first &gt; target), and frequency counts.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold text-stone-700">Target Value:</span>
+                      <span className="text-xs font-bold text-slate-300">Target Value:</span>
                       <input
                         type="number"
                         value={bsTarget}
                         onChange={(e) => setBsTarget(Number(e.target.value))}
-                        className="w-20 px-3 py-1.5 rounded-xl border border-stone-300 font-mono font-bold text-xs focus:outline-none focus:border-orange-500"
+                        className="w-20 px-3 py-1.5 rounded-xl border border-slate-700 font-mono font-bold text-xs focus:outline-none focus:border-orange-500"
                       />
                     </div>
                   </div>
@@ -897,7 +897,7 @@ export default function JavaSearchingSorting() {
                         className={`text-xs px-3.5 py-1.5 rounded-xl border font-semibold transition cursor-pointer ${
                           bsMode === m.id
                             ? "bg-stone-900 text-white border-stone-900 font-bold shadow-xs"
-                            : "bg-white border-stone-200 text-stone-700 hover:bg-stone-50"
+                            : "bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-950"
                         }`}
                       >
                         {m.label}
@@ -907,7 +907,7 @@ export default function JavaSearchingSorting() {
 
                   {/* Visual Array Grid */}
                   <div className="mb-6">
-                    <div className="text-xs font-bold text-stone-700 mb-2">Sorted Array (10 Elements):</div>
+                    <div className="text-xs font-bold text-slate-300 mb-2">Sorted Array (10 Elements):</div>
                     <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
                       {bsArray.map((val, idx) => {
                         let isHighlighted = false;
@@ -932,12 +932,12 @@ export default function JavaSearchingSorting() {
                             key={idx}
                             className={`p-3 rounded-xl border text-center transition-all ${
                               isHighlighted
-                                ? "bg-orange-50 border-orange-500 shadow-xs"
-                                : "bg-white border-stone-200"
+                                ? "bg-orange-500/15 border-orange-500 shadow-xs"
+                                : "bg-slate-900/80 border-slate-800"
                             }`}
                           >
-                            <span className="text-[10px] font-mono text-stone-400 block">[{idx}]</span>
-                            <span className="text-lg font-mono font-black text-stone-900 block mt-0.5">{val}</span>
+                            <span className="text-[10px] font-mono text-slate-500 block">[{idx}]</span>
+                            <span className="text-lg font-mono font-black text-white block mt-0.5">{val}</span>
                             {badgeLabel && (
                               <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 bg-orange-600 text-white rounded-full mt-1 inline-block">
                                 {badgeLabel}
@@ -950,29 +950,29 @@ export default function JavaSearchingSorting() {
                   </div>
 
                   {/* Results Summary Card */}
-                  <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2 text-xs">
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       <div>
-                        <span className="text-stone-500 block">Lower Bound Index:</span>
-                        <span className="font-mono font-black text-sm text-stone-900">
+                        <span className="text-slate-400 block">Lower Bound Index:</span>
+                        <span className="font-mono font-black text-sm text-white">
                           {computedBounds.lower} {computedBounds.lower === bsArray.length && "(Array Length)"}
                         </span>
                       </div>
                       <div>
-                        <span className="text-stone-500 block">Upper Bound Index:</span>
-                        <span className="font-mono font-black text-sm text-stone-900">
+                        <span className="text-slate-400 block">Upper Bound Index:</span>
+                        <span className="font-mono font-black text-sm text-white">
                           {computedBounds.upper} {computedBounds.upper === bsArray.length && "(Array Length)"}
                         </span>
                       </div>
                       <div>
-                        <span className="text-stone-500 block">Occurrences Count:</span>
+                        <span className="text-slate-400 block">Occurrences Count:</span>
                         <span className="font-mono font-black text-sm text-emerald-700">
                           {computedBounds.count} copies
                         </span>
                       </div>
                       <div>
-                        <span className="text-stone-500 block">Exact Match Index:</span>
-                        <span className="font-mono font-black text-sm text-orange-700">
+                        <span className="text-slate-400 block">Exact Match Index:</span>
+                        <span className="font-mono font-black text-sm text-orange-300">
                           {computedBounds.exactIdx !== -1 ? computedBounds.exactIdx : "Not Found (-1)"}
                         </span>
                       </div>
@@ -985,23 +985,23 @@ export default function JavaSearchingSorting() {
             {/* 3. ROTATED SORTED ARRAY SEARCH */}
             {activeWorkbench === "rotated-search" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-[#e7e3da] pb-4 mb-6">
-                    <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                      <RotateCcw className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800 pb-4 mb-6">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <RotateCcw className="w-5 h-5 text-orange-400" />
                       <span>Search in Rotated Sorted Array Studio</span>
                     </h3>
-                    <p className="text-xs text-stone-600 mt-1">
-                      Identify which half is sorted (<code className="text-orange-700 font-mono">numbers[low] &lt;= numbers[mid]</code>) to achieve O(log n) lookup.
+                    <p className="text-xs text-slate-400 mt-1">
+                      Identify which half is sorted (<code className="text-orange-300 font-mono">numbers[low] &lt;= numbers[mid]</code>) to achieve O(log n) lookup.
                     </p>
                   </div>
 
                   {/* Controls */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200">
-                      <div className="flex justify-between text-xs font-bold text-stone-700 mb-1">
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                      <div className="flex justify-between text-xs font-bold text-slate-300 mb-1">
                         <span>Rotation Pivot Shift:</span>
-                        <span className="font-mono text-orange-700">{rotationPivot} slots</span>
+                        <span className="font-mono text-orange-300">{rotationPivot} slots</span>
                       </div>
                       <input
                         type="range"
@@ -1013,24 +1013,24 @@ export default function JavaSearchingSorting() {
                       />
                     </div>
 
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200">
-                      <label className="text-xs font-bold text-stone-700 block mb-1">Target to Find:</label>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                      <label className="text-xs font-bold text-slate-300 block mb-1">Target to Find:</label>
                       <input
                         type="number"
                         value={rotatedTarget}
                         onChange={(e) => setRotatedTarget(Number(e.target.value))}
-                        className="w-full text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-white border border-stone-300 focus:outline-none focus:border-orange-500"
+                        className="w-full text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-700 focus:outline-none focus:border-orange-500"
                       />
                     </div>
 
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 flex items-center justify-between">
-                      <span className="text-xs font-bold text-stone-700">Include Duplicates:</span>
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-300">Include Duplicates:</span>
                       <button
                         onClick={() => setRotatedHasDuplicates((p) => !p)}
                         className={`text-xs px-3 py-1 rounded-lg border font-bold transition cursor-pointer ${
                           rotatedHasDuplicates
                             ? "bg-orange-500 text-orange-400 border-orange-500"
-                            : "bg-white text-stone-600 border-stone-300"
+                            : "bg-slate-900/80 text-slate-400 border-slate-700"
                         }`}
                       >
                         {rotatedHasDuplicates ? "Duplicates Active" : "Distinct Values"}
@@ -1047,11 +1047,11 @@ export default function JavaSearchingSorting() {
                           <div
                             key={idx}
                             className={`p-3 rounded-xl border text-center flex-1 min-w-[50px] ${
-                              isMatch ? "bg-emerald-50 border-emerald-500 shadow-xs" : "bg-white border-stone-200"
+                              isMatch ? "bg-emerald-50 border-emerald-500 shadow-xs" : "bg-slate-900/80 border-slate-800"
                             }`}
                           >
-                            <span className="text-[10px] font-mono text-stone-400">[{idx}]</span>
-                            <span className="text-lg font-mono font-black text-stone-900 block mt-0.5">{val}</span>
+                            <span className="text-[10px] font-mono text-slate-500">[{idx}]</span>
+                            <span className="text-lg font-mono font-black text-white block mt-0.5">{val}</span>
                             {isMatch && (
                               <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 bg-emerald-600 text-white rounded-full mt-1 inline-block">
                                 Match
@@ -1064,8 +1064,8 @@ export default function JavaSearchingSorting() {
                   </div>
 
                   {/* Resolution Report */}
-                  <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-700 leading-relaxed">
-                    <strong className="text-stone-900 font-bold block mb-1">Search Decision Matrix:</strong>
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+                    <strong className="text-white font-bold block mb-1">Search Decision Matrix:</strong>
                     {rotatedSearchResult.success ? (
                       <span className="text-emerald-700 font-bold">
                         Target {rotatedTarget} successfully located at index {rotatedSearchResult.foundIndex} in{" "}
@@ -1084,23 +1084,23 @@ export default function JavaSearchingSorting() {
             {/* 4. BINARY SEARCH ON ANSWER (PARAMETRIC SEARCH) */}
             {activeWorkbench === "parametric-search" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-[#e7e3da] pb-4 mb-6">
-                    <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                      <Ship className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800 pb-4 mb-6">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <Ship className="w-5 h-5 text-orange-400" />
                       <span>Binary Search on Answer: Capacity to Ship Packages</span>
                     </h3>
-                    <p className="text-xs text-stone-600 mt-1">
-                      Problem: Ship packages in order within <code className="text-orange-700 font-mono">D = {shipDaysLimit}</code> days. Find minimum viable ship capacity.
+                    <p className="text-xs text-slate-400 mt-1">
+                      Problem: Ship packages in order within <code className="text-orange-300 font-mono">D = {shipDaysLimit}</code> days. Find minimum viable ship capacity.
                     </p>
                   </div>
 
                   {/* Controls */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                      <div className="flex justify-between text-xs font-bold text-stone-700">
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                      <div className="flex justify-between text-xs font-bold text-slate-300">
                         <span>Max Shipping Days Limit (D):</span>
-                        <span className="font-mono text-orange-700">{shipDaysLimit} Days</span>
+                        <span className="font-mono text-orange-300">{shipDaysLimit} Days</span>
                       </div>
                       <input
                         type="range"
@@ -1112,10 +1112,10 @@ export default function JavaSearchingSorting() {
                       />
                     </div>
 
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                      <div className="flex justify-between text-xs font-bold text-stone-700">
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                      <div className="flex justify-between text-xs font-bold text-slate-300">
                         <span>Test Ship Capacity:</span>
-                        <span className="font-mono text-orange-700">{candidateCap} tons/day</span>
+                        <span className="font-mono text-orange-300">{candidateCap} tons/day</span>
                       </div>
                       <input
                         type="range"
@@ -1130,7 +1130,7 @@ export default function JavaSearchingSorting() {
 
                   {/* Daily Load Distribution Preview */}
                   <div className="mb-6">
-                    <div className="flex items-center justify-between text-xs font-bold text-stone-700 mb-2">
+                    <div className="flex items-center justify-between text-xs font-bold text-slate-300 mb-2">
                       <span>Packages Loaded per Day (Capacity: {candidateCap}):</span>
                       <span className={`font-mono font-bold ${shipSimulation.isValid ? "text-emerald-700" : "text-red-600"}`}>
                         Requires {shipSimulation.daysNeeded} Days (Limit: {shipDaysLimit})
@@ -1141,14 +1141,14 @@ export default function JavaSearchingSorting() {
                       {shipSimulation.dayBags.map((bag, dIdx) => {
                         const totalDayWeight = bag.reduce((a, b) => a + b, 0);
                         return (
-                          <div key={dIdx} className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs">
-                            <div className="flex justify-between text-[11px] font-bold text-stone-600 mb-1.5 border-b border-stone-200 pb-1">
+                          <div key={dIdx} className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs">
+                            <div className="flex justify-between text-[11px] font-bold text-slate-400 mb-1.5 border-b border-slate-800 pb-1">
                               <span>Day {dIdx + 1}</span>
                               <span className="font-mono">{totalDayWeight} / {candidateCap}</span>
                             </div>
                             <div className="flex flex-wrap gap-1">
                               {bag.map((w, wIdx) => (
-                                <span key={wIdx} className="px-1.5 py-0.5 rounded bg-orange-100 text-orange-800 font-mono font-bold text-[10px]">
+                                <span key={wIdx} className="px-1.5 py-0.5 rounded bg-orange-500/15 text-orange-300 font-mono font-bold text-[10px]">
                                   {w}
                                 </span>
                               ))}
@@ -1184,13 +1184,13 @@ export default function JavaSearchingSorting() {
             {/* 5. NON-COMPARISON SORTING STUDIO */}
             {activeWorkbench === "non-comparison" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="border-b border-[#e7e3da] pb-4 mb-6">
-                    <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                      <HashIcon className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="border-b border-slate-800 pb-4 mb-6">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <HashIcon className="w-5 h-5 text-orange-400" />
                       <span>Non-Comparison Sorting Studio: Counting Sort Pipeline</span>
                     </h3>
-                    <p className="text-xs text-stone-600 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Explore linear-time sorting for small integer ranges without element-to-element comparisons.
                     </p>
                   </div>
@@ -1198,25 +1198,25 @@ export default function JavaSearchingSorting() {
                   <div className="space-y-6">
                     {/* Input Array */}
                     <div>
-                      <span className="text-xs font-bold text-stone-700 block mb-1.5">Input Array with Negatives:</span>
+                      <span className="text-xs font-bold text-slate-300 block mb-1.5">Input Array with Negatives:</span>
                       <div className="flex flex-wrap gap-2">
                         {countingSample.map((v, i) => (
-                          <div key={i} className="px-3 py-1.5 rounded-lg bg-stone-100 font-mono font-bold text-xs text-stone-800">
+                          <div key={i} className="px-3 py-1.5 rounded-lg bg-slate-950 font-mono font-bold text-xs text-slate-200">
                             {v}
                           </div>
                         ))}
                       </div>
-                      <span className="text-[11px] text-stone-500 mt-1 block">
+                      <span className="text-[11px] text-slate-400 mt-1 block">
                         Min: {countingDerivation.min}, Max: {countingDerivation.max}, Range (k): {countingDerivation.range}
                       </span>
                     </div>
 
                     {/* Frequency Tally Table */}
                     <div>
-                      <span className="text-xs font-bold text-stone-700 block mb-1.5">1. Frequency Array count[val - min]:</span>
-                      <div className="overflow-x-auto rounded-xl border border-[#e7e3da]">
+                      <span className="text-xs font-bold text-slate-300 block mb-1.5">1. Frequency Array count[val - min]:</span>
+                      <div className="overflow-x-auto rounded-xl border border-slate-800">
                         <table className="w-full text-left text-xs font-mono">
-                          <thead className="bg-stone-50 text-stone-700 border-b border-[#e7e3da]">
+                          <thead className="bg-slate-950 text-slate-300 border-b border-slate-800">
                             <tr>
                               <th className="px-3 py-2">Offset Key</th>
                               {countingDerivation.count.map((_, i) => (
@@ -1226,15 +1226,15 @@ export default function JavaSearchingSorting() {
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="px-3 py-2 font-bold text-stone-900">Original Val</td>
+                              <td className="px-3 py-2 font-bold text-white">Original Val</td>
                               {countingDerivation.count.map((_, i) => (
-                                <td key={i} className="px-3 py-2 text-center font-bold text-orange-700">
+                                <td key={i} className="px-3 py-2 text-center font-bold text-orange-300">
                                   {i + countingDerivation.min}
                                 </td>
                               ))}
                             </tr>
-                            <tr className="bg-stone-50/50">
-                              <td className="px-3 py-2 font-bold text-stone-900">Count</td>
+                            <tr className="bg-slate-950/50">
+                              <td className="px-3 py-2 font-bold text-white">Count</td>
                               {countingDerivation.count.map((c, i) => (
                                 <td key={i} className="px-3 py-2 text-center font-bold text-emerald-700">
                                   {c}
@@ -1248,7 +1248,7 @@ export default function JavaSearchingSorting() {
 
                     {/* Sorted Output */}
                     <div>
-                      <span className="text-xs font-bold text-stone-700 block mb-1.5">2. Reconstructed Sorted Output (O(n + k)):</span>
+                      <span className="text-xs font-bold text-slate-300 block mb-1.5">2. Reconstructed Sorted Output (O(n + k)):</span>
                       <div className="flex flex-wrap gap-2">
                         {countingDerivation.output.map((v, i) => (
                           <div key={i} className="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-300 font-mono font-bold text-xs text-emerald-900">
@@ -1265,14 +1265,14 @@ export default function JavaSearchingSorting() {
             {/* 6. STABILITY & MULTI-KEY SANDBOX */}
             {activeWorkbench === "stability-sandbox" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                        <Scale className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-black text-white flex items-center gap-2">
+                        <Scale className="w-5 h-5 text-orange-400" />
                         <span>Sorting Stability &amp; Key-Tie Invariant Studio</span>
                       </h3>
-                      <p className="text-xs text-stone-600 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         Notice how Alice and Charlie both have 85 marks. Stable sorting preserves their original arrival order!
                       </p>
                     </div>
@@ -1289,22 +1289,22 @@ export default function JavaSearchingSorting() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Original Order */}
-                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-3">
-                      <span className="text-xs font-bold text-stone-700 block">Original Records (Input Sequence):</span>
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+                      <span className="text-xs font-bold text-slate-300 block">Original Records (Input Sequence):</span>
                       <div className="space-y-2">
                         {initialStudents.map((s) => (
-                          <div key={s.id} className="flex items-center justify-between p-2.5 rounded-lg bg-white border border-stone-200 text-xs">
-                            <span className="font-bold text-stone-800">{s.name}</span>
-                            <span className="font-mono text-orange-700 font-bold">{s.marks} Marks</span>
-                            <span className="text-[10px] text-stone-400 font-mono">Pos #{s.originalIdx}</span>
+                          <div key={s.id} className="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs">
+                            <span className="font-bold text-slate-200">{s.name}</span>
+                            <span className="font-mono text-orange-300 font-bold">{s.marks} Marks</span>
+                            <span className="text-[10px] text-slate-500 font-mono">Pos #{s.originalIdx}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* Sorted Order */}
-                    <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-3">
-                      <span className="text-xs font-bold text-stone-700 block">Sorted Output by Marks:</span>
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+                      <span className="text-xs font-bold text-slate-300 block">Sorted Output by Marks:</span>
                       <div className="space-y-2">
                         {sortedStudents.map((s, idx) => {
                           const isTie = s.marks === 85;
@@ -1312,14 +1312,14 @@ export default function JavaSearchingSorting() {
                             <div
                               key={s.id}
                               className={`flex items-center justify-between p-2.5 rounded-lg border text-xs ${
-                                isTie ? "bg-orange-50 border-orange-300" : "bg-white border-stone-200"
+                                isTie ? "bg-orange-500/15 border-orange-500/40" : "bg-slate-900/80 border-slate-800"
                               }`}
                             >
-                              <span className="font-bold text-stone-800">
+                              <span className="font-bold text-slate-200">
                                 {idx + 1}. {s.name}
                               </span>
-                              <span className="font-mono text-orange-700 font-bold">{s.marks} Marks</span>
-                              <span className="text-[10px] text-stone-500 font-mono">Orig Pos: #{s.originalIdx}</span>
+                              <span className="font-mono text-orange-300 font-bold">{s.marks} Marks</span>
+                              <span className="text-[10px] text-slate-400 font-mono">Orig Pos: #{s.originalIdx}</span>
                             </div>
                           );
                         })}
@@ -1333,26 +1333,26 @@ export default function JavaSearchingSorting() {
             {/* 7. KNOWLEDGE ASSESSMENT QUIZ */}
             {activeWorkbench === "quiz-section" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                        <HelpCircle className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-black text-white flex items-center gap-2">
+                        <HelpCircle className="w-5 h-5 text-orange-400" />
                         <span>Module 8 Knowledge Assessment Quiz</span>
                       </h3>
-                      <p className="text-xs text-stone-600 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         15 Comprehensive MCQs testing searching, sorting algorithms, bounds, and stability.
                       </p>
                     </div>
 
                     {submittedQuiz && (
                       <div className="flex items-center gap-3">
-                        <span className="text-xs font-bold text-stone-700">Your Score:</span>
+                        <span className="text-xs font-bold text-slate-300">Your Score:</span>
                         <span
                           className={`text-sm font-mono font-black px-3 py-1 rounded-xl border ${
                             quizScore >= 12
                               ? "bg-emerald-50 text-emerald-700 border-emerald-300"
-                              : "bg-orange-50 text-orange-700 border-orange-300"
+                              : "bg-orange-500/15 text-orange-300 border-orange-500/40"
                           }`}
                         >
                           {quizScore} / {quizQuestions.length} ({Math.round((quizScore / quizQuestions.length) * 100)}%)
@@ -1366,22 +1366,22 @@ export default function JavaSearchingSorting() {
                       const userChoice = selectedAnswers[q.id];
                       const isCorrect = userChoice === q.correct;
                       return (
-                        <div key={q.id} className="p-4 rounded-xl border border-stone-200 bg-stone-50/50 space-y-3">
-                          <h4 className="text-sm font-bold text-stone-900">{q.question}</h4>
+                        <div key={q.id} className="p-4 rounded-xl border border-slate-800 bg-slate-950/50 space-y-3">
+                          <h4 className="text-sm font-bold text-white">{q.question}</h4>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {q.options.map((opt, oIndex) => {
                               const isSelected = userChoice === oIndex;
-                              let btnClass = "bg-white border-stone-200 text-stone-700 hover:border-orange-300";
+                              let btnClass = "bg-slate-900/80 border-slate-800 text-slate-300 hover:border-orange-500/40";
                               if (submittedQuiz) {
                                 if (oIndex === q.correct) {
                                   btnClass = "bg-emerald-50 border-emerald-400 text-emerald-900 font-bold";
                                 } else if (isSelected && !isCorrect) {
                                   btnClass = "bg-red-50 border-red-400 text-red-900";
                                 } else {
-                                  btnClass = "bg-white border-stone-200 text-stone-400 opacity-60";
+                                  btnClass = "bg-slate-900/80 border-slate-800 text-slate-500 opacity-60";
                                 }
                               } else if (isSelected) {
-                                btnClass = "bg-orange-50 border-orange-500 text-orange-950 font-bold shadow-2xs";
+                                btnClass = "bg-orange-500/15 border-orange-500 text-orange-950 font-bold shadow-2xs";
                               }
 
                               return (
@@ -1401,8 +1401,8 @@ export default function JavaSearchingSorting() {
                           </div>
 
                           {submittedQuiz && (
-                            <div className="text-xs p-2.5 rounded-lg bg-white border border-stone-200 text-stone-600 leading-relaxed">
-                              <strong className="text-stone-900">Explanation:</strong> {q.explanation}
+                            <div className="text-xs p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-400 leading-relaxed">
+                              <strong className="text-white">Explanation:</strong> {q.explanation}
                             </div>
                           )}
                         </div>
@@ -1410,14 +1410,14 @@ export default function JavaSearchingSorting() {
                     })}
                   </div>
 
-                  <div className="mt-8 pt-4 border-t border-[#e7e3da] flex justify-end gap-3">
+                  <div className="mt-8 pt-4 border-t border-slate-800 flex justify-end gap-3">
                     {submittedQuiz ? (
                       <button
                         onClick={() => {
                           setSubmittedQuiz(false);
                           setSelectedAnswers({});
                         }}
-                        className="px-4 py-2 rounded-xl border border-stone-200 text-xs font-bold text-stone-700 hover:bg-stone-50 transition"
+                        className="px-4 py-2 rounded-xl border border-slate-800 text-xs font-bold text-slate-300 hover:bg-slate-950 transition"
                       >
                         Reset &amp; Retake Quiz
                       </button>
@@ -1438,20 +1438,20 @@ export default function JavaSearchingSorting() {
             {/* 8. LABS & ASSIGNMENTS TRACKER */}
             {activeWorkbench === "labs-tracker" && (
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4 mb-6">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-black text-stone-900 flex items-center gap-2">
-                        <CheckSquare className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-lg font-black text-white flex items-center gap-2">
+                        <CheckSquare className="w-5 h-5 text-orange-400" />
                         <span>Interactive Laboratories &amp; Assignments Tracker</span>
                       </h3>
-                      <p className="text-xs text-stone-600 mt-1">
+                      <p className="text-xs text-slate-400 mt-1">
                         Track completion of all 5 practical laboratory exercises and 6 algorithmic assignments.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold text-stone-700">Completed:</span>
+                      <span className="text-xs font-bold text-slate-300">Completed:</span>
                       <span className="text-xs font-mono font-black px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200">
                         {Object.values(completedLabs).filter(Boolean).length} / {labItems.length}
                       </span>
@@ -1468,18 +1468,18 @@ export default function JavaSearchingSorting() {
                           className={`p-4 rounded-xl border cursor-pointer transition-all ${
                             isDone
                               ? "bg-emerald-50/50 border-emerald-300"
-                              : "bg-white border-stone-200 hover:border-stone-300"
+                              : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                           }`}
                         >
                           <div className="flex items-start gap-3">
                             <button
                               type="button"
-                              className="mt-0.5 text-stone-400 hover:text-stone-600 focus:outline-none"
+                              className="mt-0.5 text-slate-500 hover:text-slate-400 focus:outline-none"
                             >
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-600" />
                               ) : (
-                                <Square className="w-4 h-4 text-stone-400" />
+                                <Square className="w-4 h-4 text-slate-500" />
                               )}
                             </button>
                             <div className="space-y-1">
@@ -1487,7 +1487,7 @@ export default function JavaSearchingSorting() {
                                 <span
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     lab.type === "Lab"
-                                      ? "bg-orange-100 text-orange-800"
+                                      ? "bg-orange-500/15 text-orange-300"
                                       : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
@@ -1495,13 +1495,13 @@ export default function JavaSearchingSorting() {
                                 </span>
                                 <h4
                                   className={`text-xs font-bold ${
-                                    isDone ? "text-stone-500 line-through" : "text-stone-900"
+                                    isDone ? "text-slate-400 line-through" : "text-white"
                                   }`}
                                 >
                                   {lab.title}
                                 </h4>
                               </div>
-                              <p className="text-xs text-stone-600 leading-relaxed">{lab.goal}</p>
+                              <p className="text-xs text-slate-400 leading-relaxed">{lab.goal}</p>
                             </div>
                           </div>
                         </div>

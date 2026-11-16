@@ -814,14 +814,14 @@ export default function JavaLinkedLists() {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500/20 selection:text-orange-900 flex flex-col justify-between">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Top Header */}
-      <header className="sticky top-0 z-50 bg-[#faf8f5]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 transition-all duration-200">
+      <header className="sticky top-0 z-50 bg-[#faf8f5]/90 backdrop-blur-md border-b border-slate-800 px-4 sm:px-8 py-3 transition-all duration-200">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <button
               onClick={() => goBack()}
-              className="p-2 -ml-2 rounded-xl text-stone-500 hover:text-stone-900 hover:bg-stone-200/50 transition-colors flex items-center gap-1.5 text-xs font-semibold"
+              className="p-2 -ml-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/50 transition-colors flex items-center gap-1.5 text-xs font-semibold"
               title="Return to Track"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -829,11 +829,11 @@ export default function JavaLinkedLists() {
             </button>
             <div className="h-4 w-px bg-stone-300 hidden sm:block" />
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 rounded-md bg-orange-100 border border-orange-200 text-orange-800 text-[11px] font-bold tracking-wider uppercase font-mono">
+              <span className="px-2.5 py-1 rounded-md bg-orange-500/15 border border-orange-500/30 text-orange-300 text-[11px] font-bold tracking-wider uppercase font-mono">
                 Module 9
               </span>
-              <h1 className="text-sm sm:text-base font-bold text-stone-900 tracking-tight flex items-center gap-1.5">
-                <LinkIcon className="w-4 h-4 text-orange-600 hidden xs:inline" />
+              <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-1.5">
+                <LinkIcon className="w-4 h-4 text-orange-400 hidden xs:inline" />
                 Linked Lists
               </h1>
             </div>
@@ -841,27 +841,27 @@ export default function JavaLinkedLists() {
 
           {/* View Mode Toggle Button */}
           <div className="flex items-center gap-2">
-            <div className="bg-stone-200/70 p-1 rounded-xl flex items-center border border-stone-300/60 shadow-2xs">
+            <div className="bg-slate-900/90 p-1 rounded-xl flex items-center border border-slate-700/60 shadow-2xs">
               <button
                 onClick={() => setViewMode("interactive")}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   viewMode === "interactive"
-                    ? "bg-white text-stone-900 shadow-xs"
-                    : "text-stone-600 hover:text-stone-900"
+                    ? "bg-slate-900/80 text-white shadow-xs"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
-                <Sparkles className="w-3.5 h-3.5 text-orange-600" />
+                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
                 <span>Interactive Studio</span>
               </button>
               <button
                 onClick={() => setViewMode("reader")}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   viewMode === "reader"
-                    ? "bg-white text-stone-900 shadow-xs"
-                    : "text-stone-600 hover:text-stone-900"
+                    ? "bg-slate-900/80 text-white shadow-xs"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
-                <BookOpen className="w-3.5 h-3.5 text-stone-600" />
+                <BookOpen className="w-3.5 h-3.5 text-slate-400" />
                 <span>Textbook Reader</span>
               </button>
             </div>
@@ -882,19 +882,19 @@ export default function JavaLinkedLists() {
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2">
               Module 9: Linked Lists
             </h2>
-            <p className="text-stone-300 text-xs sm:text-sm leading-relaxed mb-4">
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
               Master the foundational pointer-linked data structure: singly, doubly, and circular topologies,
               constant-time insertion and deletion mechanics, iterative & recursive reversals, slow/fast pointer pacing,
               Floyd's cycle detection, two-pointer list intersections, and cache locality trade-offs.
             </p>
-            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-stone-300">
-              <span className="flex items-center gap-1 bg-white/10 px-2.5 py-1 rounded-md">
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-400">
+              <span className="flex items-center gap-1 bg-slate-900/80/10 px-2.5 py-1 rounded-md">
                 <Workflow className="w-3.5 h-3.5 text-orange-400" /> 3 Topologies (Singly, Doubly, Circular)
               </span>
-              <span className="flex items-center gap-1 bg-white/10 px-2.5 py-1 rounded-md">
+              <span className="flex items-center gap-1 bg-slate-900/80/10 px-2.5 py-1 rounded-md">
                 <Repeat className="w-3.5 h-3.5 text-emerald-400" /> Floyd's Cycle Detection
               </span>
-              <span className="flex items-center gap-1 bg-white/10 px-2.5 py-1 rounded-md">
+              <span className="flex items-center gap-1 bg-slate-900/80/10 px-2.5 py-1 rounded-md">
                 <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" /> 15 MCQs & 12 Labs/Assignments
               </span>
             </div>
@@ -915,21 +915,21 @@ export default function JavaLinkedLists() {
         {/* ======================================================== */}
         {viewMode === "reader" ? (
           <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-white rounded-xl border border-[#e7e3da] shadow-2xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-slate-900/80 rounded-xl border border-slate-800 shadow-2xs">
               <div className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-orange-600" />
-                <span className="text-xs font-bold text-stone-900 uppercase tracking-wider font-mono">
+                <BookOpen className="w-4 h-4 text-orange-400" />
+                <span className="text-xs font-bold text-white uppercase tracking-wider font-mono">
                   Full Curriculum Reader ({JavaLinkedListsSections.length} Sections)
                 </span>
               </div>
               <div className="relative w-full sm:w-72">
-                <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Filter sections..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-[#faf8f5] border border-stone-200 rounded-lg focus:outline-none focus:border-orange-500 transition-colors"
+                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-[#faf8f5] border border-slate-800 rounded-lg focus:outline-none focus:border-orange-500 transition-colors"
                 />
               </div>
             </div>
@@ -939,23 +939,23 @@ export default function JavaLinkedLists() {
                 <article
                   key={sec.id}
                   id={sec.anchor}
-                  className="p-6 sm:p-8 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs scroll-mt-20 transition-all hover:border-orange-200"
+                  className="p-6 sm:p-8 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs scroll-mt-20 transition-all hover:border-orange-500/30"
                 >
-                  <div className="mb-4 flex items-center justify-between border-b border-stone-100 pb-3">
-                    <span className="text-xs font-mono uppercase tracking-wider text-orange-600 font-bold">
+                  <div className="mb-4 flex items-center justify-between border-b border-slate-800/60 pb-3">
+                    <span className="text-xs font-mono uppercase tracking-wider text-orange-400 font-bold">
                       {sec.category}
                     </span>
                     <a
                       href={`#${sec.anchor}`}
-                      className="text-stone-400 hover:text-stone-700 text-xs font-mono"
+                      className="text-slate-500 hover:text-slate-300 text-xs font-mono"
                     >
                       #{sec.anchor}
                     </a>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-stone-900 mb-6 tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 tracking-tight">
                     {sec.title}
                   </h3>
-                  <div className="prose prose-stone max-w-none text-stone-700 leading-relaxed text-sm sm:text-base">
+                  <div className="prose prose-stone max-w-none text-slate-300 leading-relaxed text-sm sm:text-base">
                     {sec.content}
                   </div>
                 </article>
@@ -989,7 +989,7 @@ export default function JavaLinkedLists() {
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-orange-600 text-white shadow-xs"
-                        : "bg-white text-stone-600 hover:text-stone-900 border border-[#e7e3da] hover:bg-stone-50"
+                        : "bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800 hover:bg-slate-950"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />
@@ -1002,30 +1002,30 @@ export default function JavaLinkedLists() {
             {/* TAB 1: LINKED LIST VISUALIZER (Singly, Doubly, Circular) */}
             {activeTab === "visualizer" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Interactive Topology Studio
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         Live Linked List Operations Visualizer
                       </h3>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-slate-400">
                         Perform real-time prepending, appending, indexed insertion, deletion, and linear searching.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <div className="flex rounded-xl bg-stone-100 p-1 border border-stone-200">
+                      <div className="flex rounded-xl bg-slate-950 p-1 border border-slate-800">
                         {["singly", "doubly", "circular"].map((t) => (
                           <button
                             key={t}
                             onClick={() => resetList(t)}
                             className={`px-3 py-1 text-xs font-semibold rounded-lg capitalize transition-all ${
                               listType === t
-                                ? "bg-white text-orange-700 shadow-xs"
-                                : "text-stone-600 hover:text-stone-900"
+                                ? "bg-slate-900/80 text-orange-300 shadow-xs"
+                                : "text-slate-400 hover:text-white"
                             }`}
                           >
                             {t} List
@@ -1034,7 +1034,7 @@ export default function JavaLinkedLists() {
                       </div>
                       <button
                         onClick={() => resetList()}
-                        className="p-2 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600 transition-colors"
+                        className="p-2 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400 transition-colors"
                         title="Reset List"
                       >
                         <RotateCcw className="w-4 h-4" />
@@ -1043,9 +1043,9 @@ export default function JavaLinkedLists() {
                   </div>
 
                   {/* Interactive Nodes Canvas */}
-                  <div className="p-6 bg-[#faf8f5] rounded-xl border border-dashed border-stone-300 min-h-[160px] flex items-center justify-center overflow-x-auto [scrollbar-width:thin]">
+                  <div className="p-6 bg-[#faf8f5] rounded-xl border border-dashed border-slate-700 min-h-[160px] flex items-center justify-center overflow-x-auto [scrollbar-width:thin]">
                     {nodes.length === 0 ? (
-                      <div className="text-center py-6 text-stone-400 font-mono text-xs">
+                      <div className="text-center py-6 text-slate-500 font-mono text-xs">
                         [ Empty List: head = null, tail = null, size = 0 ]
                       </div>
                     ) : (
@@ -1055,7 +1055,7 @@ export default function JavaLinkedLists() {
                           <span className="px-2 py-0.5 rounded bg-orange-600 text-white font-mono text-[10px] font-bold shadow-2xs">
                             HEAD
                           </span>
-                          <span className="text-orange-600 text-xs">↓</span>
+                          <span className="text-orange-400 text-xs">↓</span>
                         </div>
 
                         {nodes.map((val, idx) => {
@@ -1073,29 +1073,29 @@ export default function JavaLinkedLists() {
                                 <div
                                   className={`relative flex items-stretch border-2 rounded-xl overflow-hidden shadow-xs transition-all ${
                                     isHighlighted
-                                      ? "border-orange-500 bg-orange-50 ring-4 ring-orange-500/20"
-                                      : "border-stone-700 bg-white"
+                                      ? "border-orange-500 bg-orange-500/15 ring-4 ring-orange-500/20"
+                                      : "border-stone-700 bg-slate-900/80"
                                   }`}
                                 >
                                   {listType === "doubly" && (
-                                    <div className="px-2 py-2.5 bg-stone-100 border-r border-stone-300 text-[10px] font-mono text-stone-500 flex items-center justify-center">
+                                    <div className="px-2 py-2.5 bg-slate-950 border-r border-slate-700 text-[10px] font-mono text-slate-400 flex items-center justify-center">
                                       prev
                                     </div>
                                   )}
                                   <div className="px-4 py-2.5 flex flex-col items-center justify-center min-w-[54px]">
-                                    <span className="text-xs font-mono text-stone-400 text-[10px]">
+                                    <span className="text-xs font-mono text-slate-500 text-[10px]">
                                       idx {idx}
                                     </span>
-                                    <span className="text-sm font-bold text-stone-900 font-mono">
+                                    <span className="text-sm font-bold text-white font-mono">
                                       {val}
                                     </span>
                                   </div>
-                                  <div className="px-2.5 py-2.5 bg-stone-100 border-l border-stone-300 text-[10px] font-mono text-stone-500 flex items-center justify-center">
+                                  <div className="px-2.5 py-2.5 bg-slate-950 border-l border-slate-700 text-[10px] font-mono text-slate-400 flex items-center justify-center">
                                     next
                                   </div>
                                 </div>
-                                <div className="mt-1 flex items-center gap-1 text-[10px] font-mono text-stone-400">
-                                  {isHead && <span className="text-orange-600 font-bold">head</span>}
+                                <div className="mt-1 flex items-center gap-1 text-[10px] font-mono text-slate-500">
+                                  {isHead && <span className="text-orange-400 font-bold">head</span>}
                                   {isHead && isTail && <span>·</span>}
                                   {isTail && <span className="text-orange-400 font-bold">tail</span>}
                                 </div>
@@ -1103,19 +1103,19 @@ export default function JavaLinkedLists() {
 
                               {/* Pointer Arrow */}
                               {idx < nodes.length - 1 ? (
-                                <div className="flex flex-col items-center justify-center px-1 text-stone-500 font-mono text-xs">
+                                <div className="flex flex-col items-center justify-center px-1 text-slate-400 font-mono text-xs">
                                   {listType === "doubly" ? (
-                                    <span className="text-stone-600 font-bold tracking-tighter">⇄</span>
+                                    <span className="text-slate-400 font-bold tracking-tighter">⇄</span>
                                   ) : (
-                                    <span className="text-stone-600 font-bold">→</span>
+                                    <span className="text-slate-400 font-bold">→</span>
                                   )}
                                 </div>
                               ) : listType === "circular" ? (
-                                <div className="flex items-center px-2 py-1 rounded bg-orange-100/70 border border-orange-200 text-orange-800 text-[10px] font-mono font-bold">
+                                <div className="flex items-center px-2 py-1 rounded bg-orange-500/15/70 border border-orange-500/30 text-orange-300 text-[10px] font-mono font-bold">
                                   ↺ loopback to HEAD
                                 </div>
                               ) : (
-                                <div className="flex items-center px-2 py-1 rounded bg-stone-200 text-stone-600 text-[10px] font-mono">
+                                <div className="flex items-center px-2 py-1 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">
                                   null
                                 </div>
                               )}
@@ -1136,9 +1136,9 @@ export default function JavaLinkedLists() {
                   {/* Operation Controls */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
                     {/* Panel 1: Insertion */}
-                    <div className="p-4 rounded-xl border border-stone-200 bg-[#faf8f5] space-y-3">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-stone-900">
-                        <LinkIcon className="w-3.5 h-3.5 text-orange-600" />
+                    <div className="p-4 rounded-xl border border-slate-800 bg-[#faf8f5] space-y-3">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-white">
+                        <LinkIcon className="w-3.5 h-3.5 text-orange-400" />
                         <span>Insert Operations</span>
                       </div>
                       <div className="flex items-center gap-2">
@@ -1147,29 +1147,29 @@ export default function JavaLinkedLists() {
                           value={insertVal}
                           onChange={(e) => setInsertVal(e.target.value)}
                           placeholder="Value"
-                          className="w-20 px-2 py-1 text-xs bg-white border border-stone-300 rounded font-mono"
+                          className="w-20 px-2 py-1 text-xs bg-slate-900/80 border border-slate-700 rounded font-mono"
                         />
                         <button
                           onClick={handleAddFirst}
-                          className="flex-1 px-2.5 py-1 text-xs font-semibold bg-white border border-stone-300 hover:bg-orange-50 hover:border-orange-300 rounded transition-colors text-stone-800"
+                          className="flex-1 px-2.5 py-1 text-xs font-semibold bg-slate-900/80 border border-slate-700 hover:bg-orange-500/15 hover:border-orange-500/40 rounded transition-colors text-slate-200"
                         >
                           addFirst O(1)
                         </button>
                         <button
                           onClick={handleAddLast}
-                          className="flex-1 px-2.5 py-1 text-xs font-semibold bg-white border border-stone-300 hover:bg-orange-50 hover:border-orange-300 rounded transition-colors text-stone-800"
+                          className="flex-1 px-2.5 py-1 text-xs font-semibold bg-slate-900/80 border border-slate-700 hover:bg-orange-500/15 hover:border-orange-500/40 rounded transition-colors text-slate-200"
                         >
                           addLast
                         </button>
                       </div>
                       <div className="flex items-center gap-2 pt-1">
-                        <span className="text-xs text-stone-500 font-mono">Index:</span>
+                        <span className="text-xs text-slate-400 font-mono">Index:</span>
                         <input
                           type="number"
                           value={insertIdx}
                           onChange={(e) => setInsertIdx(e.target.value)}
                           placeholder="Idx"
-                          className="w-16 px-2 py-1 text-xs bg-white border border-stone-300 rounded font-mono"
+                          className="w-16 px-2 py-1 text-xs bg-slate-900/80 border border-slate-700 rounded font-mono"
                         />
                         <button
                           onClick={handleInsertAt}
@@ -1181,33 +1181,33 @@ export default function JavaLinkedLists() {
                     </div>
 
                     {/* Panel 2: Deletion */}
-                    <div className="p-4 rounded-xl border border-stone-200 bg-[#faf8f5] space-y-3">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-stone-900">
+                    <div className="p-4 rounded-xl border border-slate-800 bg-[#faf8f5] space-y-3">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                         <Unlink className="w-3.5 h-3.5 text-red-600" />
                         <span>Delete Operations</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <button
                           onClick={handleRemoveFirst}
-                          className="flex-1 px-2.5 py-1 text-xs font-semibold bg-white border border-stone-300 hover:bg-red-50 hover:border-red-300 hover:text-red-700 rounded transition-colors text-stone-800"
+                          className="flex-1 px-2.5 py-1 text-xs font-semibold bg-slate-900/80 border border-slate-700 hover:bg-red-50 hover:border-red-300 hover:text-red-700 rounded transition-colors text-slate-200"
                         >
                           removeFirst O(1)
                         </button>
                         <button
                           onClick={handleRemoveLast}
-                          className="flex-1 px-2.5 py-1 text-xs font-semibold bg-white border border-stone-300 hover:bg-red-50 hover:border-red-300 hover:text-red-700 rounded transition-colors text-stone-800"
+                          className="flex-1 px-2.5 py-1 text-xs font-semibold bg-slate-900/80 border border-slate-700 hover:bg-red-50 hover:border-red-300 hover:text-red-700 rounded transition-colors text-slate-200"
                         >
                           removeLast
                         </button>
                       </div>
                       <div className="flex items-center gap-2 pt-1">
-                        <span className="text-xs text-stone-500 font-mono">Index:</span>
+                        <span className="text-xs text-slate-400 font-mono">Index:</span>
                         <input
                           type="number"
                           value={deleteIdx}
                           onChange={(e) => setDeleteIdx(e.target.value)}
                           placeholder="Idx"
-                          className="w-16 px-2 py-1 text-xs bg-white border border-stone-300 rounded font-mono"
+                          className="w-16 px-2 py-1 text-xs bg-slate-900/80 border border-slate-700 rounded font-mono"
                         />
                         <button
                           onClick={handleRemoveAt}
@@ -1219,8 +1219,8 @@ export default function JavaLinkedLists() {
                     </div>
 
                     {/* Panel 3: Traversal & Search */}
-                    <div className="p-4 rounded-xl border border-stone-200 bg-[#faf8f5] space-y-3">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-stone-900">
+                    <div className="p-4 rounded-xl border border-slate-800 bg-[#faf8f5] space-y-3">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                         <Search className="w-3.5 h-3.5 text-[#f97316]" />
                         <span>Search & Traversal</span>
                       </div>
@@ -1230,7 +1230,7 @@ export default function JavaLinkedLists() {
                           value={searchTarget}
                           onChange={(e) => setSearchTarget(e.target.value)}
                           placeholder="Target"
-                          className="w-24 px-2 py-1 text-xs bg-white border border-stone-300 rounded font-mono"
+                          className="w-24 px-2 py-1 text-xs bg-slate-900/80 border border-slate-700 rounded font-mono"
                         />
                         <button
                           onClick={handleSearch}
@@ -1239,7 +1239,7 @@ export default function JavaLinkedLists() {
                           Linear Search O(n)
                         </button>
                       </div>
-                      <div className="text-[11px] text-stone-500 flex items-center justify-between pt-2 border-t border-stone-200 font-mono">
+                      <div className="text-[11px] text-slate-400 flex items-center justify-between pt-2 border-t border-slate-800 font-mono">
                         <span>List Size: {nodes.length}</span>
                         <span>Empty: {nodes.length === 0 ? "true" : "false"}</span>
                       </div>
@@ -1252,16 +1252,16 @@ export default function JavaLinkedLists() {
             {/* TAB 2: STEP-BY-STEP REVERSAL STUDIO */}
             {activeTab === "reversal" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Algorithm Workbench 2
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         Iterative Reversal Studio (prev, curr, next Pointer Mechanics)
                       </h3>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-slate-400">
                         Watch how three references reverse links one-by-one in O(n) time and O(1) auxiliary space without allocating new nodes.
                       </p>
                     </div>
@@ -1283,7 +1283,7 @@ export default function JavaLinkedLists() {
                           setRevPlaying(false);
                           setRevStep(0);
                         }}
-                        className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
+                        className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
                         title="Reset Reversal"
                       >
                         <RotateCcw className="w-4 h-4" />
@@ -1296,7 +1296,7 @@ export default function JavaLinkedLists() {
                     const currentStepData = revStepsData[revStep];
                     return (
                       <div className="space-y-4">
-                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 overflow-x-auto min-h-[170px] flex flex-col justify-center">
+                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 overflow-x-auto min-h-[170px] flex flex-col justify-center">
                           <div className="flex items-center justify-center gap-4 py-4 min-w-[500px]">
                             {revOriginal.map((val, idx) => {
                               const isCurr = currentStepData.curr === idx;
@@ -1328,15 +1328,15 @@ export default function JavaLinkedLists() {
                                   <div
                                     className={`relative px-4 py-3 rounded-xl border-2 font-mono flex flex-col items-center justify-center min-w-[60px] shadow-xs transition-all ${
                                       isCurr
-                                        ? "border-orange-500 bg-orange-50 ring-4 ring-orange-500/20"
+                                        ? "border-orange-500 bg-orange-500/15 ring-4 ring-orange-500/20"
                                         : isPrev
                                         ? "border-amber-500 bg-amber-50/50"
-                                        : "border-stone-400 bg-white"
+                                        : "border-stone-400 bg-slate-900/80"
                                     }`}
                                   >
-                                    <span className="text-[10px] text-stone-400">Node {idx}</span>
-                                    <span className="text-base font-bold text-stone-900">{val}</span>
-                                    <div className="mt-1 text-[9px] text-stone-500 font-mono">
+                                    <span className="text-[10px] text-slate-500">Node {idx}</span>
+                                    <span className="text-base font-bold text-white">{val}</span>
+                                    <div className="mt-1 text-[9px] text-slate-400 font-mono">
                                       → {currentStepData.links[idx] !== null ? `Node ${revOriginal[currentStepData.links[idx]]}` : "null"}
                                     </div>
                                   </div>
@@ -1347,14 +1347,14 @@ export default function JavaLinkedLists() {
                         </div>
 
                         {/* Step Description Card */}
-                        <div className="p-4 rounded-xl bg-orange-50/70 border border-orange-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                        <div className="p-4 rounded-xl bg-orange-500/15/70 border border-orange-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                           <div>
-                            <span className="font-mono font-bold text-orange-800 uppercase text-[11px] block">
+                            <span className="font-mono font-bold text-orange-300 uppercase text-[11px] block">
                               Step {revStep} of {revStepsData.length - 1}
                             </span>
-                            <p className="text-stone-800 font-medium mt-0.5">{currentStepData.desc}</p>
+                            <p className="text-slate-200 font-medium mt-0.5">{currentStepData.desc}</p>
                           </div>
-                          <div className="px-3 py-1.5 bg-white rounded-lg border border-orange-200 font-mono text-orange-700 text-xs shrink-0">
+                          <div className="px-3 py-1.5 bg-slate-900/80 rounded-lg border border-orange-500/30 font-mono text-orange-300 text-xs shrink-0">
                             {currentStepData.pseudo}
                           </div>
                         </div>
@@ -1364,11 +1364,11 @@ export default function JavaLinkedLists() {
                           <button
                             disabled={revStep === 0}
                             onClick={() => setRevStep((s) => Math.max(0, s - 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-stone-300 hover:bg-stone-100 disabled:opacity-40 disabled:cursor-not-allowed"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 hover:bg-slate-950 disabled:opacity-40 disabled:cursor-not-allowed"
                           >
                             ← Previous Step
                           </button>
-                          <div className="flex items-center gap-1 font-mono text-xs text-stone-500">
+                          <div className="flex items-center gap-1 font-mono text-xs text-slate-400">
                             <span>Step: {revStep} / {revStepsData.length - 1}</span>
                           </div>
                           <button
@@ -1389,29 +1389,29 @@ export default function JavaLinkedLists() {
             {/* TAB 3: SLOW & FAST POINTERS (Find Middle Node) */}
             {activeTab === "twoPointers" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Algorithm Workbench 3
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         Slow & Fast Pointer Technique (Tortoise & Hare Middle)
                       </h3>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-slate-400">
                         Slow advances 1 step while Fast advances 2 steps. When Fast reaches the end, Slow is at the middle.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <div className="flex rounded-xl bg-stone-100 p-1 border border-stone-200">
+                      <div className="flex rounded-xl bg-slate-950 p-1 border border-slate-800">
                         <button
                           onClick={() => {
                             setMidListMode("odd");
                             setMidStep(0);
                           }}
                           className={`px-3 py-1 text-xs font-semibold rounded-lg transition-all ${
-                            midListMode === "odd" ? "bg-white text-orange-700 shadow-xs" : "text-stone-600"
+                            midListMode === "odd" ? "bg-slate-900/80 text-orange-300 shadow-xs" : "text-slate-400"
                           }`}
                         >
                           Odd List (5 nodes)
@@ -1422,21 +1422,21 @@ export default function JavaLinkedLists() {
                             setMidStep(0);
                           }}
                           className={`px-3 py-1 text-xs font-semibold rounded-lg transition-all ${
-                            midListMode === "even" ? "bg-white text-orange-700 shadow-xs" : "text-stone-600"
+                            midListMode === "even" ? "bg-slate-900/80 text-orange-300 shadow-xs" : "text-slate-400"
                           }`}
                         >
                           Even List (6 nodes)
                         </button>
                       </div>
 
-                      <div className="flex rounded-xl bg-stone-100 p-1 border border-stone-200">
+                      <div className="flex rounded-xl bg-slate-950 p-1 border border-slate-800">
                         <button
                           onClick={() => {
                             setMidPointerVariant("second");
                             setMidStep(0);
                           }}
                           className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-all ${
-                            midPointerVariant === "second" ? "bg-white text-stone-900 shadow-xs" : "text-stone-600"
+                            midPointerVariant === "second" ? "bg-slate-900/80 text-white shadow-xs" : "text-slate-400"
                           }`}
                         >
                           2nd Middle (Default)
@@ -1447,7 +1447,7 @@ export default function JavaLinkedLists() {
                             setMidStep(0);
                           }}
                           className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-all ${
-                            midPointerVariant === "first" ? "bg-white text-stone-900 shadow-xs" : "text-stone-600"
+                            midPointerVariant === "first" ? "bg-slate-900/80 text-white shadow-xs" : "text-slate-400"
                           }`}
                         >
                           1st Middle
@@ -1461,7 +1461,7 @@ export default function JavaLinkedLists() {
                     const currentMid = midHistory[Math.min(midStep, midHistory.length - 1)];
                     return (
                       <div className="space-y-4">
-                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 flex items-center justify-center overflow-x-auto min-h-[170px]">
+                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 flex items-center justify-center overflow-x-auto min-h-[170px]">
                           <div className="flex items-center gap-3">
                             {midList.map((val, idx) => {
                               const isSlow = currentMid.slow === idx;
@@ -1491,16 +1491,16 @@ export default function JavaLinkedLists() {
                                           ? "border-emerald-500 bg-emerald-50 ring-4 ring-emerald-500/20"
                                           : isFast
                                           ? "border-orange-500 bg-orange-500 ring-4 ring-orange-500/30"
-                                          : "border-stone-400 bg-white"
+                                          : "border-stone-400 bg-slate-900/80"
                                       }`}
                                     >
-                                      <span className="text-[10px] text-stone-400">idx {idx}</span>
-                                      <span className="text-base font-bold text-stone-900">{val}</span>
+                                      <span className="text-[10px] text-slate-500">idx {idx}</span>
+                                      <span className="text-base font-bold text-white">{val}</span>
                                     </div>
                                   </div>
 
                                   {idx < midList.length - 1 && (
-                                    <span className="text-stone-400 font-bold">→</span>
+                                    <span className="text-slate-500 font-bold">→</span>
                                   )}
                                 </React.Fragment>
                               );
@@ -1509,7 +1509,7 @@ export default function JavaLinkedLists() {
                         </div>
 
                         {/* Status commentary */}
-                        <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 text-xs text-stone-800 flex items-center justify-between gap-3">
+                        <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 text-xs text-slate-200 flex items-center justify-between gap-3">
                           <p className="font-medium">{currentMid.desc}</p>
                           <span className="font-mono text-emerald-800 font-bold shrink-0">
                             Iteration {midStep} / {midHistory.length - 1}
@@ -1521,13 +1521,13 @@ export default function JavaLinkedLists() {
                           <button
                             disabled={midStep === 0}
                             onClick={() => setMidStep((s) => Math.max(0, s - 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-stone-300 hover:bg-stone-100 disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 hover:bg-slate-950 disabled:opacity-40"
                           >
                             ← Step Back
                           </button>
                           <button
                             onClick={() => setMidStep(0)}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-stone-600 hover:bg-stone-100"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:bg-slate-950"
                           >
                             Reset
                           </button>
@@ -1549,29 +1549,29 @@ export default function JavaLinkedLists() {
             {/* TAB 4: FLOYD'S CYCLE DETECTION & CYCLE START STUDIO */}
             {activeTab === "cycleDetection" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Algorithm Workbench 4
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         Floyd's Cycle Detection & Cycle Start Studio
                       </h3>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-slate-400">
                         Phase 1 discovers if a cycle exists via pointer collision. Phase 2 proves and finds the exact start node μ = kλ - d.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-stone-500">Loop back to:</span>
+                      <span className="text-xs font-mono text-slate-400">Loop back to:</span>
                       <select
                         value={cycleTargetIdx}
                         onChange={(e) => {
                           setCycleTargetIdx(parseInt(e.target.value, 10));
                           setFloydStep(0);
                         }}
-                        className="px-2.5 py-1 text-xs bg-stone-100 border border-stone-300 rounded font-mono"
+                        className="px-2.5 py-1 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
                       >
                         <option value={-1}>No Loop (Acyclic)</option>
                         <option value={0}>Node 10 (Head)</option>
@@ -1580,7 +1580,7 @@ export default function JavaLinkedLists() {
                       </select>
                       <button
                         onClick={() => setFloydStep(0)}
-                        className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
+                        className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
                         title="Reset"
                       >
                         <RotateCcw className="w-4 h-4" />
@@ -1593,7 +1593,7 @@ export default function JavaLinkedLists() {
                     const stepData = floydSim[Math.min(floydStep, floydSim.length - 1)];
                     return (
                       <div className="space-y-4">
-                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 overflow-x-auto min-h-[170px] flex flex-col justify-center">
+                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 overflow-x-auto min-h-[170px] flex flex-col justify-center">
                           <div className="flex items-center justify-center gap-3">
                             {cycleList.map((val, idx) => {
                               const isSlow = stepData.phase === 1 && stepData.slow === idx;
@@ -1634,11 +1634,11 @@ export default function JavaLinkedLists() {
                                           ? "border-red-600 bg-red-50 ring-4 ring-red-500/20"
                                           : isCycleEntry
                                           ? "border-amber-500 bg-amber-50/50"
-                                          : "border-stone-400 bg-white"
+                                          : "border-stone-400 bg-slate-900/80"
                                       }`}
                                     >
-                                      <span className="text-[10px] text-stone-400">Node {idx}</span>
-                                      <span className="text-sm font-bold text-stone-900">{val}</span>
+                                      <span className="text-[10px] text-slate-500">Node {idx}</span>
+                                      <span className="text-sm font-bold text-white">{val}</span>
                                       {isCycleEntry && (
                                         <span className="text-[9px] text-amber-700 font-bold uppercase">
                                           [entry]
@@ -1648,13 +1648,13 @@ export default function JavaLinkedLists() {
                                   </div>
 
                                   {idx < cycleList.length - 1 ? (
-                                    <span className="text-stone-400 font-bold">→</span>
+                                    <span className="text-slate-500 font-bold">→</span>
                                   ) : cycleTargetIdx !== -1 ? (
                                     <div className="px-2 py-1 rounded bg-amber-100 border border-amber-300 text-amber-900 font-mono text-[10px] font-bold">
                                       ↺ links to Node {cycleList[cycleTargetIdx]}
                                     </div>
                                   ) : (
-                                    <span className="text-stone-400 text-xs font-mono">null</span>
+                                    <span className="text-slate-500 text-xs font-mono">null</span>
                                   )}
                                 </React.Fragment>
                               );
@@ -1663,7 +1663,7 @@ export default function JavaLinkedLists() {
                         </div>
 
                         {/* Step commentary */}
-                        <div className="p-4 rounded-xl bg-orange-500/15 border border-orange-500 text-xs text-stone-800 flex items-center justify-between gap-3">
+                        <div className="p-4 rounded-xl bg-orange-500/15 border border-orange-500 text-xs text-slate-200 flex items-center justify-between gap-3">
                           <p className="font-medium">{stepData.desc}</p>
                           <span className="font-mono text-orange-400 font-bold shrink-0">
                             Phase {stepData.phase} · Step {floydStep} / {floydSim.length - 1}
@@ -1675,11 +1675,11 @@ export default function JavaLinkedLists() {
                           <button
                             disabled={floydStep === 0}
                             onClick={() => setFloydStep((s) => Math.max(0, s - 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-stone-300 hover:bg-stone-100 disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 hover:bg-slate-950 disabled:opacity-40"
                           >
                             ← Back
                           </button>
-                          <div className="text-xs text-stone-500 font-mono">
+                          <div className="text-xs text-slate-400 font-mono">
                             Target Loop: {cycleTargetIdx === -1 ? "None" : `Node ${cycleList[cycleTargetIdx]}`}
                           </div>
                           <button
@@ -1700,23 +1700,23 @@ export default function JavaLinkedLists() {
             {/* TAB 5: MERGE TWO SORTED LISTS STUDIO */}
             {activeTab === "merge" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Algorithm Workbench 5
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         Merge Two Sorted Lists (Dummy Head & Relinking)
                       </h3>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-slate-400">
                         Compare front elements in O(m + n) time and relink references in O(1) auxiliary space without copying nodes.
                       </p>
                     </div>
 
                     <button
                       onClick={() => setMergeStep(0)}
-                      className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
+                      className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
                       title="Reset"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -1729,18 +1729,18 @@ export default function JavaLinkedLists() {
                       <div className="space-y-4">
                         {/* Source lists with active pointer indicators */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="p-4 rounded-xl bg-[#faf8f5] border border-stone-200 space-y-2">
-                            <span className="text-xs font-mono font-bold text-stone-500">List 1: [1, 3, 5, 7]</span>
+                          <div className="p-4 rounded-xl bg-[#faf8f5] border border-slate-800 space-y-2">
+                            <span className="text-xs font-mono font-bold text-slate-400">List 1: [1, 3, 5, 7]</span>
                             <div className="flex items-center gap-2">
                               {mergeL1.map((val, idx) => (
                                 <div
                                   key={idx}
                                   className={`px-3 py-2 rounded-lg border font-mono text-xs font-bold transition-all ${
                                     stepData.p1 === idx
-                                      ? "bg-orange-50 border-orange-500 text-orange-700 ring-2 ring-orange-500/20"
+                                      ? "bg-orange-500/15 border-orange-500 text-orange-300 ring-2 ring-orange-500/20"
                                       : idx < stepData.p1
-                                      ? "bg-stone-200 text-stone-400 border-stone-300"
-                                      : "bg-white text-stone-900 border-stone-300"
+                                      ? "bg-slate-800 text-slate-500 border-slate-700"
+                                      : "bg-slate-900/80 text-white border-slate-700"
                                   }`}
                                 >
                                   {val}
@@ -1749,8 +1749,8 @@ export default function JavaLinkedLists() {
                             </div>
                           </div>
 
-                          <div className="p-4 rounded-xl bg-[#faf8f5] border border-stone-200 space-y-2">
-                            <span className="text-xs font-mono font-bold text-stone-500">List 2: [2, 4, 6, 8]</span>
+                          <div className="p-4 rounded-xl bg-[#faf8f5] border border-slate-800 space-y-2">
+                            <span className="text-xs font-mono font-bold text-slate-400">List 2: [2, 4, 6, 8]</span>
                             <div className="flex items-center gap-2">
                               {mergeL2.map((val, idx) => (
                                 <div
@@ -1759,8 +1759,8 @@ export default function JavaLinkedLists() {
                                     stepData.p2 === idx
                                       ? "bg-amber-50 border-amber-500 text-amber-700 ring-2 ring-amber-500/20"
                                       : idx < stepData.p2
-                                      ? "bg-stone-200 text-stone-400 border-stone-300"
-                                      : "bg-white text-stone-900 border-stone-300"
+                                      ? "bg-slate-800 text-slate-500 border-slate-700"
+                                      : "bg-slate-900/80 text-white border-slate-700"
                                   }`}
                                 >
                                   {val}
@@ -1772,29 +1772,29 @@ export default function JavaLinkedLists() {
 
                         {/* Merged output chain */}
                         <div className="p-4 rounded-xl bg-stone-900 text-white space-y-2">
-                          <div className="flex items-center justify-between text-xs font-mono text-stone-400">
+                          <div className="flex items-center justify-between text-xs font-mono text-slate-500">
                             <span>Merged List (dummy.next):</span>
                             <span>{stepData.merged.length} / 8 nodes linked</span>
                           </div>
                           <div className="flex items-center gap-2 overflow-x-auto py-2">
-                            <span className="px-2 py-1 bg-stone-800 rounded text-stone-400 text-xs font-mono">dummy</span>
-                            <span className="text-stone-500">→</span>
+                            <span className="px-2 py-1 bg-stone-800 rounded text-slate-500 text-xs font-mono">dummy</span>
+                            <span className="text-slate-400">→</span>
                             {stepData.merged.map((val, idx) => (
                               <React.Fragment key={idx}>
                                 <div className="px-3 py-1.5 rounded-lg bg-orange-600 text-white font-mono text-xs font-bold shadow-xs">
                                   {val}
                                 </div>
-                                {idx < stepData.merged.length - 1 && <span className="text-stone-500">→</span>}
+                                {idx < stepData.merged.length - 1 && <span className="text-slate-400">→</span>}
                               </React.Fragment>
                             ))}
-                            {stepData.merged.length < 8 && <span className="text-stone-500 text-xs font-mono">...</span>}
+                            {stepData.merged.length < 8 && <span className="text-slate-400 text-xs font-mono">...</span>}
                           </div>
                         </div>
 
                         {/* Step commentary */}
-                        <div className="p-4 rounded-xl bg-orange-50 border border-orange-200 text-xs text-stone-800 flex items-center justify-between">
+                        <div className="p-4 rounded-xl bg-orange-500/15 border border-orange-500/30 text-xs text-slate-200 flex items-center justify-between">
                           <p className="font-medium">{stepData.desc}</p>
-                          <span className="font-mono text-orange-800 font-bold shrink-0">
+                          <span className="font-mono text-orange-300 font-bold shrink-0">
                             Step {mergeStep} / {mergeHistory.length - 1}
                           </span>
                         </div>
@@ -1804,7 +1804,7 @@ export default function JavaLinkedLists() {
                           <button
                             disabled={mergeStep === 0}
                             onClick={() => setMergeStep((s) => Math.max(0, s - 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-stone-300 hover:bg-stone-100 disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 hover:bg-slate-950 disabled:opacity-40"
                           >
                             ← Back
                           </button>
@@ -1826,23 +1826,23 @@ export default function JavaLinkedLists() {
             {/* TAB 6: TWO-POINTER INTERSECTION STUDIO */}
             {activeTab === "intersection" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Algorithm Workbench 6
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         Two-Pointer Intersection Studio (Equalization of Paths)
                       </h3>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-slate-400">
                         When pointerA hits null, it jumps to headB; when pointerB hits null, it jumps to headA. Both traverse a + b - c nodes!
                       </p>
                     </div>
 
                     <button
                       onClick={() => setInterStep(0)}
-                      className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
+                      className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
                       title="Reset"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -1853,11 +1853,11 @@ export default function JavaLinkedLists() {
                     const stepData = interHistory[Math.min(interStep, interHistory.length - 1)];
                     return (
                       <div className="space-y-4">
-                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 space-y-4">
-                          <div className="text-xs font-mono text-stone-500">
+                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 space-y-4">
+                          <div className="text-xs font-mono text-slate-400">
                             Topology Diagram:
                           </div>
-                          <div className="font-mono text-xs text-stone-800 leading-relaxed bg-white p-4 rounded-xl border border-stone-200 overflow-x-auto">
+                          <div className="font-mono text-xs text-slate-200 leading-relaxed bg-slate-900/80 p-4 rounded-xl border border-slate-800 overflow-x-auto">
                             <pre>{`List A: [10] -> [20] ---\\
                           -> [30] -> [40] -> [50] -> null
 List B:         [5] ---/
@@ -1865,14 +1865,14 @@ List B:         [5] ---/
                           </div>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div className="p-3 bg-white rounded-xl border border-stone-200 flex items-center justify-between">
-                              <span className="text-xs font-mono text-stone-500">Pointer A Position:</span>
-                              <span className="px-2.5 py-1 bg-orange-100 border border-orange-300 rounded font-mono text-orange-800 text-xs font-bold">
+                            <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center justify-between">
+                              <span className="text-xs font-mono text-slate-400">Pointer A Position:</span>
+                              <span className="px-2.5 py-1 bg-orange-500/15 border border-orange-500/40 rounded font-mono text-orange-300 text-xs font-bold">
                                 {stepData.nodeA.label} ({stepData.nodeA.val})
                               </span>
                             </div>
-                            <div className="p-3 bg-white rounded-xl border border-stone-200 flex items-center justify-between">
-                              <span className="text-xs font-mono text-stone-500">Pointer B Position:</span>
+                            <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center justify-between">
+                              <span className="text-xs font-mono text-slate-400">Pointer B Position:</span>
                               <span className="px-2.5 py-1 bg-amber-100 border border-amber-300 rounded font-mono text-amber-800 text-xs font-bold">
                                 {stepData.nodeB.label} ({stepData.nodeB.val})
                               </span>
@@ -1885,7 +1885,7 @@ List B:         [5] ---/
                           className={`p-4 rounded-xl border text-xs flex items-center justify-between ${
                             stepData.match
                               ? "bg-emerald-50 border-emerald-300 text-emerald-900"
-                              : "bg-orange-50 border-orange-200 text-stone-800"
+                              : "bg-orange-500/15 border-orange-500/30 text-slate-200"
                           }`}
                         >
                           <p className="font-medium">{stepData.desc}</p>
@@ -1899,7 +1899,7 @@ List B:         [5] ---/
                           <button
                             disabled={interStep === 0}
                             onClick={() => setInterStep((s) => Math.max(0, s - 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-stone-300 hover:bg-stone-100 disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 hover:bg-slate-950 disabled:opacity-40"
                           >
                             ← Back
                           </button>
@@ -1921,39 +1921,39 @@ List B:         [5] ---/
             {/* TAB 7: ARRAY VS LINKED LIST CACHE BENCHMARK STUDIO */}
             {activeTab === "benchmark" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="border-b border-stone-100 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="border-b border-slate-800/60 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                       Systems Architecture Comparison
                     </span>
-                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                    <h3 className="text-lg font-bold text-white tracking-tight">
                       Memory Layout & Hardware Cache Locality Benchmark
                     </h3>
-                    <p className="text-xs text-stone-500">
+                    <p className="text-xs text-slate-400">
                       Why array traversal outperforms linked lists by 5x-10x in production despite identical O(n) algorithmic complexity.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Array Layout */}
-                    <div className="p-5 rounded-xl border border-stone-200 bg-[#faf8f5] space-y-4">
+                    <div className="p-5 rounded-xl border border-slate-800 bg-[#faf8f5] space-y-4">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-stone-900 font-mono">Array (Contiguous Memory Buffer)</span>
+                        <span className="text-xs font-bold text-white font-mono">Array (Contiguous Memory Buffer)</span>
                         <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-mono font-bold">
                           HIGH CACHE HIT RATE
                         </span>
                       </div>
-                      <div className="p-3 bg-white rounded-lg border border-stone-200 font-mono text-xs">
+                      <div className="p-3 bg-slate-900/80 rounded-lg border border-slate-800 font-mono text-xs">
                         <div className="grid grid-cols-5 gap-1 text-center">
                           {[10, 20, 30, 40, 50].map((v, i) => (
                             <div key={i} className="p-2 bg-emerald-50 border border-emerald-200 rounded">
-                              <div className="text-[9px] text-stone-400">0x{1000 + i * 4}</div>
+                              <div className="text-[9px] text-slate-500">0x{1000 + i * 4}</div>
                               <div className="font-bold text-emerald-900">{v}</div>
                             </div>
                           ))}
                         </div>
                       </div>
-                      <ul className="text-xs text-stone-600 space-y-1.5 list-disc list-inside">
+                      <ul className="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
                         <li><strong>Single 64-byte Cache Line:</strong> Loads multiple adjacent primitive elements in one memory fetch.</li>
                         <li><strong>Hardware Prefetcher:</strong> Modern CPU L1/L2 prefetchers detect linear stride and preload next blocks into cache before access.</li>
                         <li><strong>Memory Overhead:</strong> Zero reference overhead per element for primitives.</li>
@@ -1961,14 +1961,14 @@ List B:         [5] ---/
                     </div>
 
                     {/* Linked List Layout */}
-                    <div className="p-5 rounded-xl border border-stone-200 bg-[#faf8f5] space-y-4">
+                    <div className="p-5 rounded-xl border border-slate-800 bg-[#faf8f5] space-y-4">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-stone-900 font-mono">Linked List (Heap-Allocated Objects)</span>
+                        <span className="text-xs font-bold text-white font-mono">Linked List (Heap-Allocated Objects)</span>
                         <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-mono font-bold">
                           FREQUENT CACHE MISSES
                         </span>
                       </div>
-                      <div className="p-3 bg-white rounded-lg border border-stone-200 font-mono text-xs">
+                      <div className="p-3 bg-slate-900/80 rounded-lg border border-slate-800 font-mono text-xs">
                         <div className="flex items-center justify-between gap-1 text-center overflow-x-auto py-1">
                           {[
                             { v: 10, addr: "0x4A10" },
@@ -1977,14 +1977,14 @@ List B:         [5] ---/
                             { v: 40, addr: "0x9E70" }
                           ].map((item, i) => (
                             <div key={i} className="p-1.5 bg-amber-50 border border-amber-200 rounded min-w-[50px]">
-                              <div className="text-[8px] text-stone-400">{item.addr}</div>
+                              <div className="text-[8px] text-slate-500">{item.addr}</div>
                               <div className="font-bold text-amber-900">{item.v}</div>
-                              <div className="text-[8px] text-stone-400">next→</div>
+                              <div className="text-[8px] text-slate-500">next→</div>
                             </div>
                           ))}
                         </div>
                       </div>
-                      <ul className="text-xs text-stone-600 space-y-1.5 list-disc list-inside">
+                      <ul className="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
                         <li><strong>Heap Fragmentation:</strong> Node objects are allocated unpredictably across JVM heap generations.</li>
                         <li><strong>Pointer Chasing:</strong> Each link dereference (`curr.next`) triggers a memory stall (~200 CPU cycles on L3 miss).</li>
                         <li><strong>Object Overhead:</strong> Each Node object adds 16-byte object header + 8-byte reference pointer + padding.</li>
@@ -1993,9 +1993,9 @@ List B:         [5] ---/
                   </div>
 
                   {/* Operational Comparison Matrix */}
-                  <div className="overflow-x-auto rounded-xl border border-stone-200 shadow-2xs">
+                  <div className="overflow-x-auto rounded-xl border border-slate-800 shadow-2xs">
                     <table className="w-full text-left text-xs">
-                      <thead className="bg-[#faf8f5] text-stone-900 border-b border-stone-200 font-semibold font-mono">
+                      <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold font-mono">
                         <tr>
                           <th className="px-4 py-2.5">Operation</th>
                           <th className="px-4 py-2.5">Array / ArrayList</th>
@@ -2003,27 +2003,27 @@ List B:         [5] ---/
                           <th className="px-4 py-2.5">Doubly Linked List</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-stone-200 font-mono">
+                      <tbody className="divide-y divide-slate-800 font-mono">
                         <tr>
-                          <td className="px-4 py-2 text-stone-800 font-sans font-semibold">Indexed Access (get i)</td>
+                          <td className="px-4 py-2 text-slate-200 font-sans font-semibold">Indexed Access (get i)</td>
                           <td className="px-4 py-2 text-emerald-700 font-bold">O(1)</td>
                           <td className="px-4 py-2 text-amber-700">O(n)</td>
                           <td className="px-4 py-2 text-amber-700">O(n)</td>
                         </tr>
                         <tr>
-                          <td className="px-4 py-2 text-stone-800 font-sans font-semibold">Insert / Delete at Head</td>
+                          <td className="px-4 py-2 text-slate-200 font-sans font-semibold">Insert / Delete at Head</td>
                           <td className="px-4 py-2 text-red-700">O(n) [shifting]</td>
                           <td className="px-4 py-2 text-emerald-700 font-bold">O(1)</td>
                           <td className="px-4 py-2 text-emerald-700 font-bold">O(1)</td>
                         </tr>
                         <tr>
-                          <td className="px-4 py-2 text-stone-800 font-sans font-semibold">Insert / Delete at Tail</td>
+                          <td className="px-4 py-2 text-slate-200 font-sans font-semibold">Insert / Delete at Tail</td>
                           <td className="px-4 py-2 text-emerald-700 font-bold">O(1) amortized</td>
-                          <td className="px-4 py-2 text-stone-700">Insert O(1), Delete O(n)</td>
+                          <td className="px-4 py-2 text-slate-300">Insert O(1), Delete O(n)</td>
                           <td className="px-4 py-2 text-emerald-700 font-bold">O(1)</td>
                         </tr>
                         <tr>
-                          <td className="px-4 py-2 text-stone-800 font-sans font-semibold">Delete Known Node Reference</td>
+                          <td className="px-4 py-2 text-slate-200 font-sans font-semibold">Delete Known Node Reference</td>
                           <td className="px-4 py-2 text-red-700">O(n) [shifting]</td>
                           <td className="px-4 py-2 text-amber-700">O(n) [must find prev]</td>
                           <td className="px-4 py-2 text-emerald-700 font-bold">O(1) [prev is available]</td>
@@ -2038,23 +2038,23 @@ List B:         [5] ---/
             {/* TAB 8: KNOWLEDGE QUIZ */}
             {activeTab === "quiz" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Module Evaluation
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         Knowledge Assessment (15 Multiple-Choice Questions)
                       </h3>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-slate-400">
                         Test your conceptual and practical mastery of linked lists, references, invariants, and algorithms.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
                       {quizSubmitted && (
-                        <div className="px-3 py-1 rounded-xl bg-orange-100 border border-orange-300 text-orange-800 font-mono text-xs font-bold">
+                        <div className="px-3 py-1 rounded-xl bg-orange-500/15 border border-orange-500/40 text-orange-300 font-mono text-xs font-bold">
                           Score: {quizScore} / {quizQuestions.length} ({Math.round((quizScore / quizQuestions.length) * 100)}%)
                         </div>
                       )}
@@ -2063,7 +2063,7 @@ List B:         [5] ---/
                           setSelectedAnswers({});
                           setQuizSubmitted(false);
                         }}
-                        className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
+                        className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
                         title="Reset Quiz"
                       >
                         <RotateCcw className="w-4 h-4" />
@@ -2085,22 +2085,22 @@ List B:         [5] ---/
                               ? isCorrect
                                 ? "bg-emerald-50/50 border-emerald-200"
                                 : "bg-red-50/50 border-red-200"
-                              : "bg-[#faf8f5] border-stone-200"
+                              : "bg-[#faf8f5] border-slate-800"
                           }`}
                         >
                           <div className="flex items-start gap-3">
-                            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-stone-200 text-stone-700 shrink-0 mt-0.5">
+                            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300 shrink-0 mt-0.5">
                               Q{q.id}
                             </span>
                             <div className="space-y-3 flex-1">
-                              <h4 className="text-sm font-bold text-stone-900">{q.q}</h4>
+                              <h4 className="text-sm font-bold text-white">{q.q}</h4>
 
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                 {q.options.map((opt, oIdx) => {
                                   const isSelected = selected === oIdx;
                                   const isThisCorrect = q.correct === oIdx;
 
-                                  let btnClass = "border-stone-200 bg-white text-stone-800 hover:bg-stone-100";
+                                  let btnClass = "border-slate-800 bg-slate-900/80 text-slate-200 hover:bg-slate-950";
                                   if (quizSubmitted) {
                                     if (isThisCorrect) {
                                       btnClass = "border-emerald-500 bg-emerald-100 text-emerald-900 font-semibold";
@@ -2108,7 +2108,7 @@ List B:         [5] ---/
                                       btnClass = "border-red-500 bg-red-100 text-red-900";
                                     }
                                   } else if (isSelected) {
-                                    btnClass = "border-orange-500 bg-orange-50 text-orange-900 font-semibold ring-2 ring-orange-500/20";
+                                    btnClass = "border-orange-500 bg-orange-500/15 text-orange-900 font-semibold ring-2 ring-orange-500/20";
                                   }
 
                                   return (
@@ -2131,8 +2131,8 @@ List B:         [5] ---/
                               </div>
 
                               {quizSubmitted && (
-                                <div className="p-2.5 rounded-lg bg-white border border-stone-200 text-xs text-stone-600 leading-relaxed font-sans">
-                                  <strong className="text-stone-900">Explanation: </strong>
+                                <div className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs text-slate-400 leading-relaxed font-sans">
+                                  <strong className="text-white">Explanation: </strong>
                                   {q.exp}
                                 </div>
                               )}
@@ -2152,14 +2152,14 @@ List B:         [5] ---/
                       Submit Answers ({Object.keys(selectedAnswers).length} / {quizQuestions.length} Answered)
                     </button>
                   ) : (
-                    <div className="flex items-center justify-between p-4 bg-orange-50 rounded-xl border border-orange-200 text-xs font-mono">
+                    <div className="flex items-center justify-between p-4 bg-orange-500/15 rounded-xl border border-orange-500/30 text-xs font-mono">
                       <span>Quiz completed! Review individual answers above.</span>
                       <button
                         onClick={() => {
                           setSelectedAnswers({});
                           setQuizSubmitted(false);
                         }}
-                        className="px-3 py-1 bg-white border border-orange-300 text-orange-800 rounded font-bold hover:bg-orange-100"
+                        className="px-3 py-1 bg-slate-900/80 border border-orange-500/40 text-orange-300 rounded font-bold hover:bg-orange-500/15"
                       >
                         Retake Quiz
                       </button>
@@ -2172,22 +2172,22 @@ List B:         [5] ---/
             {/* TAB 9: LABS & ASSIGNMENTS TRACKER */}
             {activeTab === "labs" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Practical Implementation Tracker
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         5 Laboratories & 7 Coding Assignments
                       </h3>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-slate-400">
                         Track your coding progress across all lab requirements and interview problem assignments.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-stone-600 font-bold">
+                      <span className="text-xs font-mono text-slate-400 font-bold">
                         Progress: {Object.values(completedLabs).filter(Boolean).length} / {labsAndAssignments.length}
                       </span>
                     </div>
@@ -2200,7 +2200,7 @@ List B:         [5] ---/
                         <div
                           key={item.id}
                           className={`p-4 rounded-xl border transition-all ${
-                            isDone ? "bg-emerald-50/50 border-emerald-200" : "bg-[#faf8f5] border-stone-200"
+                            isDone ? "bg-emerald-50/50 border-emerald-200" : "bg-[#faf8f5] border-slate-800"
                           }`}
                         >
                           <div className="flex items-start gap-3">
@@ -2208,12 +2208,12 @@ List B:         [5] ---/
                               onClick={() =>
                                 setCompletedLabs({ ...completedLabs, [item.id]: !isDone })
                               }
-                              className="mt-0.5 text-stone-400 hover:text-stone-700 transition-colors"
+                              className="mt-0.5 text-slate-500 hover:text-slate-300 transition-colors"
                             >
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-600" />
                               ) : (
-                                <Square className="w-4 h-4 text-stone-400" />
+                                <Square className="w-4 h-4 text-slate-500" />
                               )}
                             </button>
                             <div className="space-y-1">
@@ -2221,7 +2221,7 @@ List B:         [5] ---/
                                 <span
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     item.type === "Lab"
-                                      ? "bg-orange-100 text-orange-800"
+                                      ? "bg-orange-500/15 text-orange-300"
                                       : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
@@ -2229,13 +2229,13 @@ List B:         [5] ---/
                                 </span>
                                 <h4
                                   className={`text-xs font-bold ${
-                                    isDone ? "text-stone-500 line-through" : "text-stone-900"
+                                    isDone ? "text-slate-400 line-through" : "text-white"
                                   }`}
                                 >
                                   {item.title}
                                 </h4>
                               </div>
-                              <p className="text-xs text-stone-600 leading-relaxed">{item.goal}</p>
+                              <p className="text-xs text-slate-400 leading-relaxed">{item.goal}</p>
                             </div>
                           </div>
                         </div>

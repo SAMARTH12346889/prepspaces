@@ -553,7 +553,7 @@ Percentage: 86.6%
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Top Universal Navigation Bar */}
       <ModuleNav
         courseTitle="Java Programming Master Course"
@@ -565,32 +565,32 @@ Percentage: 86.6%
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Breadcrumb & Mode Switcher */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-stone-500 font-medium">
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-medium">
             <span
               onClick={() => navigate("/learning")}
-              className="cursor-pointer hover:text-stone-900 transition-colors"
+              className="cursor-pointer hover:text-white transition-colors"
             >
               Curriculum
             </span>
             <span>/</span>
             <span
               onClick={() => navigate("/courses/java")}
-              className="cursor-pointer hover:text-stone-900 transition-colors"
+              className="cursor-pointer hover:text-white transition-colors"
             >
               Java Programming
             </span>
             <span>/</span>
-            <span className="text-orange-600 font-semibold">Module 1 — Foundations</span>
+            <span className="text-orange-400 font-semibold">Module 1 — Foundations</span>
           </div>
 
           {/* Mode Pill Switcher */}
-          <div className="flex items-center bg-stone-200/70 p-1 rounded-2xl self-start md:self-auto border border-stone-300/60 shadow-inner">
+          <div className="flex items-center bg-slate-900/90 p-1 rounded-2xl self-start md:self-auto border border-slate-700/60 shadow-inner">
             <button
               onClick={() => setActiveTab("curriculum")}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                 activeTab === "curriculum"
-                  ? "bg-white text-stone-900 shadow-sm"
-                  : "text-stone-600 hover:text-stone-900"
+                  ? "bg-slate-900/80 text-white shadow-sm"
+                  : "text-slate-400 hover:text-white"
               }`}
             >
               Specification &amp; Blueprints
@@ -599,8 +599,8 @@ Percentage: 86.6%
               onClick={() => setActiveTab("workbench")}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "workbench"
-                  ? "bg-white text-orange-600 shadow-sm"
-                  : "text-stone-600 hover:text-stone-900"
+                  ? "bg-slate-900/80 text-orange-400 shadow-sm"
+                  : "text-slate-400 hover:text-white"
               }`}
             >
               <Sparkles size={14} className="text-orange-500" />
@@ -619,10 +619,10 @@ Percentage: 86.6%
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Introduction to Programming with Java
             </h1>
-            <p className="text-stone-300 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
               Master computational thinking, algorithms, JDK/JRE/JVM architecture, byte-level compilation pipelines, the 8 primitive data types, type promotions, operators, Scanner console I/O, and systematic debugging principles.
             </p>
-            <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-stone-300">
+            <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-slate-400">
               <div className="flex items-center gap-1.5 bg-stone-800/80 px-3 py-1.5 rounded-lg border border-stone-700/60">
                 <Cpu size={14} className="text-orange-400" /> JVM Execution Engine
               </div>
@@ -644,15 +644,15 @@ Percentage: 86.6%
             <JavaIntroSections />
 
             {/* Bottom Module Completion & Next Steps Card */}
-            <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="space-y-2">
-                <span className="text-xs font-mono text-orange-600 font-bold uppercase tracking-wider">
+                <span className="text-xs font-mono text-orange-400 font-bold uppercase tracking-wider">
                   Ready to test your knowledge?
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-stone-900">
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
                   Switch to the Interactive Workbenches
                 </h3>
-                <p className="text-sm text-stone-600 max-w-xl">
+                <p className="text-sm text-slate-400 max-w-xl">
                   Inspect the live JVM execution simulator, test widening vs narrowing conversions, solve the 10-question assessment, and view code outputs in real time.
                 </p>
               </div>
@@ -676,13 +676,13 @@ Percentage: 86.6%
         {activeTab === "workbench" && (
           <div className="space-y-8">
             {/* Workbench Navigation Sub-Tabs */}
-            <div className="flex overflow-x-auto pb-2 scrollbar-none gap-2 border-b border-stone-300">
+            <div className="flex overflow-x-auto pb-2 scrollbar-none gap-2 border-b border-slate-700">
               <button
                 onClick={() => setActiveWorkbenchTab("jvm-simulator")}
                 className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 cursor-pointer ${
                   activeWorkbenchTab === "jvm-simulator"
                     ? "bg-orange-600 text-white shadow-sm"
-                    : "bg-white text-stone-700 hover:bg-stone-100 border border-stone-200"
+                    : "bg-slate-900/80 text-slate-300 hover:bg-slate-950 border border-slate-800"
                 }`}
               >
                 <Cpu size={14} />
@@ -693,7 +693,7 @@ Percentage: 86.6%
                 className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 cursor-pointer ${
                   activeWorkbenchTab === "type-casting"
                     ? "bg-orange-600 text-white shadow-sm"
-                    : "bg-white text-stone-700 hover:bg-stone-100 border border-stone-200"
+                    : "bg-slate-900/80 text-slate-300 hover:bg-slate-950 border border-slate-800"
                 }`}
               >
                 <Binary size={14} />
@@ -704,7 +704,7 @@ Percentage: 86.6%
                 className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 cursor-pointer ${
                   activeWorkbenchTab === "operators"
                     ? "bg-orange-600 text-white shadow-sm"
-                    : "bg-white text-stone-700 hover:bg-stone-100 border border-stone-200"
+                    : "bg-slate-900/80 text-slate-300 hover:bg-slate-950 border border-slate-800"
                 }`}
               >
                 <Code2 size={14} />
@@ -715,7 +715,7 @@ Percentage: 86.6%
                 className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 cursor-pointer ${
                   activeWorkbenchTab === "code-runner"
                     ? "bg-orange-600 text-white shadow-sm"
-                    : "bg-white text-stone-700 hover:bg-stone-100 border border-stone-200"
+                    : "bg-slate-900/80 text-slate-300 hover:bg-slate-950 border border-slate-800"
                 }`}
               >
                 <Terminal size={14} />
@@ -726,7 +726,7 @@ Percentage: 86.6%
                 className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 cursor-pointer ${
                   activeWorkbenchTab === "quiz"
                     ? "bg-orange-600 text-white shadow-sm"
-                    : "bg-white text-stone-700 hover:bg-stone-100 border border-stone-200"
+                    : "bg-slate-900/80 text-slate-300 hover:bg-slate-950 border border-slate-800"
                 }`}
               >
                 <HelpCircle size={14} />
@@ -737,7 +737,7 @@ Percentage: 86.6%
                 className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-2 cursor-pointer ${
                   activeWorkbenchTab === "labs"
                     ? "bg-orange-600 text-white shadow-sm"
-                    : "bg-white text-stone-700 hover:bg-stone-100 border border-stone-200"
+                    : "bg-slate-900/80 text-slate-300 hover:bg-slate-950 border border-slate-800"
                 }`}
               >
                 <Award size={14} />
@@ -747,18 +747,18 @@ Percentage: 86.6%
 
             {/* TAB 1: JVM EXECUTION SIMULATOR */}
             {activeWorkbenchTab === "jvm-simulator" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+                    <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
                       Interactive Architecture Simulator
                     </span>
-                    <span className="text-xs font-mono text-stone-500">Stage {jvmStep + 1} of 6</span>
+                    <span className="text-xs font-mono text-slate-400">Stage {jvmStep + 1} of 6</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-stone-900 mt-2">
+                  <h3 className="text-2xl font-bold text-white mt-2">
                     JVM Compilation &amp; Execution Pipeline
                   </h3>
-                  <p className="text-stone-600 text-sm mt-1">
+                  <p className="text-slate-400 text-sm mt-1">
                     Trace step-by-step how human Java source code transforms through javac, class loading, bytecode verification, JIT compilation, and native execution.
                   </p>
                 </div>
@@ -771,10 +771,10 @@ Percentage: 86.6%
                       onClick={() => setJvmStep(idx)}
                       className={`p-2.5 rounded-xl text-left border transition-all cursor-pointer ${
                         jvmStep === idx
-                          ? "bg-orange-50 border-orange-500 ring-2 ring-orange-500/20 shadow-xs"
+                          ? "bg-orange-500/15 border-orange-500 ring-2 ring-orange-500/20 shadow-xs"
                           : idx < jvmStep
-                          ? "bg-stone-50 border-stone-300 text-stone-700"
-                          : "bg-stone-50/50 border-stone-200 text-stone-400"
+                          ? "bg-slate-950 border-slate-700 text-slate-300"
+                          : "bg-slate-950/50 border-slate-800 text-slate-500"
                       }`}
                     >
                       <div className="text-[10px] font-mono font-bold uppercase truncate">
@@ -788,22 +788,22 @@ Percentage: 86.6%
                 </div>
 
                 {/* Active Stage Card */}
-                <div className="p-6 rounded-2xl bg-[#faf8f5] border border-[#e7e3da] space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#e7e3da] pb-3">
+                <div className="p-6 rounded-2xl bg-[#faf8f5] border border-slate-800 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
                     <div>
-                      <span className="text-xs font-mono text-orange-600 font-bold uppercase">
+                      <span className="text-xs font-mono text-orange-400 font-bold uppercase">
                         {jvmStages[jvmStep].badge}
                       </span>
-                      <h4 className="text-lg font-bold text-stone-900">
+                      <h4 className="text-lg font-bold text-white">
                         {jvmStages[jvmStep].title}
                       </h4>
                     </div>
-                    <div className="text-xs font-mono px-3 py-1 rounded bg-stone-200 text-stone-800 self-start sm:self-auto">
+                    <div className="text-xs font-mono px-3 py-1 rounded bg-slate-800 text-slate-200 self-start sm:self-auto">
                       {jvmStages[jvmStep].file}
                     </div>
                   </div>
 
-                  <p className="text-stone-700 text-sm leading-relaxed">
+                  <p className="text-slate-300 text-sm leading-relaxed">
                     {jvmStages[jvmStep].description}
                   </p>
 
@@ -814,13 +814,13 @@ Percentage: 86.6%
                     </pre>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs text-stone-500 pt-2">
+                  <div className="flex items-center justify-between text-xs text-slate-400 pt-2">
                     <span className="font-mono">Status: {jvmStages[jvmStep].state}</span>
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => setJvmStep((prev) => Math.max(0, prev - 1))}
                         disabled={jvmStep === 0}
-                        className="px-3 py-1.5 rounded-lg border border-stone-300 bg-white text-stone-700 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                        className="px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-900/80 text-slate-300 hover:bg-slate-950 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
                       >
                         &larr; Previous Stage
                       </button>
@@ -839,29 +839,29 @@ Percentage: 86.6%
 
             {/* TAB 2: TYPE CASTING & NUMERIC PROMOTION */}
             {activeWorkbenchTab === "type-casting" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+                    <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
                       Type System Workbench
                     </span>
-                    <span className="text-xs font-mono text-stone-500">Widening vs Narrowing</span>
+                    <span className="text-xs font-mono text-slate-400">Widening vs Narrowing</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-stone-900 mt-2">
+                  <h3 className="text-2xl font-bold text-white mt-2">
                     Primitive Type Conversion &amp; Bit Truncation
                   </h3>
-                  <p className="text-stone-600 text-sm mt-1">
+                  <p className="text-slate-400 text-sm mt-1">
                     Explore automatic widening and explicit narrowing conversions. See why converting 130 to byte results in -126 due to two&apos;s complement low-order bit retention.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-xs font-mono text-stone-600 mb-1">Source Type (From):</label>
+                    <label className="block text-xs font-mono text-slate-400 mb-1">Source Type (From):</label>
                     <select
                       value={selectedTypeFrom}
                       onChange={(e) => setSelectedTypeFrom(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm font-mono bg-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                      className="w-full px-3 py-2 rounded-xl border border-slate-700 text-sm font-mono bg-slate-900/80 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                     >
                       <option value="byte">byte (8-bit signed)</option>
                       <option value="short">short (16-bit signed)</option>
@@ -872,11 +872,11 @@ Percentage: 86.6%
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-mono text-stone-600 mb-1">Target Type (To):</label>
+                    <label className="block text-xs font-mono text-slate-400 mb-1">Target Type (To):</label>
                     <select
                       value={selectedTypeTo}
                       onChange={(e) => setSelectedTypeTo(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm font-mono bg-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                      className="w-full px-3 py-2 rounded-xl border border-slate-700 text-sm font-mono bg-slate-900/80 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                     >
                       <option value="byte">byte (8-bit signed)</option>
                       <option value="short">short (16-bit signed)</option>
@@ -887,12 +887,12 @@ Percentage: 86.6%
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-mono text-stone-600 mb-1">Literal Value to Convert:</label>
+                    <label className="block text-xs font-mono text-slate-400 mb-1">Literal Value to Convert:</label>
                     <input
                       type="number"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm font-mono bg-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                      className="w-full px-3 py-2 rounded-xl border border-slate-700 text-sm font-mono bg-slate-900/80 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                       placeholder="e.g. 130 or 99.99"
                     />
                   </div>
@@ -900,13 +900,13 @@ Percentage: 86.6%
 
                 {/* Conversion Result Card */}
                 {typeConversionResult.isValid && (
-                  <div className="p-6 rounded-2xl bg-[#faf8f5] border border-[#e7e3da] space-y-4">
+                  <div className="p-6 rounded-2xl bg-[#faf8f5] border border-slate-800 space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider font-mono ${
                             typeConversionResult.isSame
-                              ? "bg-stone-100 text-stone-700"
+                              ? "bg-slate-950 text-slate-300"
                               : typeConversionResult.isWidening
                               ? "bg-green-100 text-green-800"
                               : "bg-amber-100 text-amber-800"
@@ -919,8 +919,8 @@ Percentage: 86.6%
                             : "Narrowing Conversion (Explicit Cast Required)"}
                         </span>
                       </div>
-                      <span className="text-xs font-mono text-stone-500">
-                        Result: <strong className="text-orange-700 font-bold">{typeConversionResult.computedVal}</strong>
+                      <span className="text-xs font-mono text-slate-400">
+                        Result: <strong className="text-orange-300 font-bold">{typeConversionResult.computedVal}</strong>
                       </span>
                     </div>
 
@@ -943,27 +943,27 @@ Percentage: 86.6%
 
             {/* TAB 3: OPERATORS & PRECEDENCE */}
             {activeWorkbenchTab === "operators" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+                    <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
                       Evaluation Engine
                     </span>
-                    <span className="text-xs font-mono text-stone-500">Operators &amp; Precedence</span>
+                    <span className="text-xs font-mono text-slate-400">Operators &amp; Precedence</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-stone-900 mt-2">
+                  <h3 className="text-2xl font-bold text-white mt-2">
                     Arithmetic, Increment, and Short-Circuit Logic
                   </h3>
-                  <p className="text-stone-600 text-sm mt-1">
+                  <p className="text-slate-400 text-sm mt-1">
                     Visualize integer division truncation, pre-increment vs post-increment state evaluation, and boolean short-circuit protections.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Division test */}
-                  <div className="p-5 rounded-2xl bg-[#faf8f5] border border-[#e7e3da] space-y-3">
-                    <h4 className="font-bold text-stone-900 text-sm flex items-center gap-2">
-                      <Binary size={15} className="text-orange-600" />
+                  <div className="p-5 rounded-2xl bg-[#faf8f5] border border-slate-800 space-y-3">
+                    <h4 className="font-bold text-white text-sm flex items-center gap-2">
+                      <Binary size={15} className="text-orange-400" />
                       Integer Division Truncation
                     </h4>
                     <div className="flex items-center gap-2 text-xs font-mono">
@@ -972,28 +972,28 @@ Percentage: 86.6%
                         type="number"
                         value={operatorA}
                         onChange={(e) => setOperatorA(parseInt(e.target.value) || 0)}
-                        className="w-16 px-2 py-1 rounded border border-stone-300"
+                        className="w-16 px-2 py-1 rounded border border-slate-700"
                       />
                       <span>b =</span>
                       <input
                         type="number"
                         value={operatorB}
                         onChange={(e) => setOperatorB(parseInt(e.target.value) || 1)}
-                        className="w-16 px-2 py-1 rounded border border-stone-300"
+                        className="w-16 px-2 py-1 rounded border border-slate-700"
                       />
                     </div>
                     <div className="p-3 bg-neutral-900 text-neutral-100 rounded-xl font-mono text-xs space-y-1">
                       <div>// Integer division: (a / b)</div>
                       <div className="text-orange-400 font-bold">{operatorA} / {operatorB} = {operatorB !== 0 ? Math.trunc(operatorA / operatorB) : "ArithmeticException: / by zero"}</div>
-                      <div className="pt-2 border-t border-neutral-800 text-stone-400">// Floating-point division: ((double)a / b)</div>
+                      <div className="pt-2 border-t border-neutral-800 text-slate-500">// Floating-point division: ((double)a / b)</div>
                       <div className="text-green-400 font-bold">{(operatorA * 1.0) / (operatorB || 1)}</div>
                     </div>
                   </div>
 
                   {/* Pre vs Post Increment */}
-                  <div className="p-5 rounded-2xl bg-[#faf8f5] border border-[#e7e3da] space-y-3">
-                    <h4 className="font-bold text-stone-900 text-sm flex items-center gap-2">
-                      <Activity size={15} className="text-orange-600" />
+                  <div className="p-5 rounded-2xl bg-[#faf8f5] border border-slate-800 space-y-3">
+                    <h4 className="font-bold text-white text-sm flex items-center gap-2">
+                      <Activity size={15} className="text-orange-400" />
                       Pre-Increment (++a) vs Post-Increment (a++)
                     </h4>
                     <div className="flex items-center gap-2 text-xs font-mono">
@@ -1002,14 +1002,14 @@ Percentage: 86.6%
                         type="number"
                         value={prePostA}
                         onChange={(e) => setPrePostA(parseInt(e.target.value) || 0)}
-                        className="w-16 px-2 py-1 rounded border border-stone-300"
+                        className="w-16 px-2 py-1 rounded border border-slate-700"
                       />
                     </div>
                     <div className="p-3 bg-neutral-900 text-neutral-100 rounded-xl font-mono text-xs space-y-1">
                       <div>Post-increment: result = a++</div>
-                      <div className="text-stone-300">result = <span className="text-orange-400 font-bold">{prePostA}</span>, then a becomes <span className="text-green-400 font-bold">{prePostA + 1}</span></div>
+                      <div className="text-slate-400">result = <span className="text-orange-400 font-bold">{prePostA}</span>, then a becomes <span className="text-green-400 font-bold">{prePostA + 1}</span></div>
                       <div className="pt-2 border-t border-neutral-800">Pre-increment: result = ++a</div>
-                      <div className="text-stone-300">a becomes <span className="text-green-400 font-bold">{prePostA + 1}</span>, and result = <span className="text-orange-400 font-bold">{prePostA + 1}</span></div>
+                      <div className="text-slate-400">a becomes <span className="text-green-400 font-bold">{prePostA + 1}</span>, and result = <span className="text-orange-400 font-bold">{prePostA + 1}</span></div>
                     </div>
                   </div>
                 </div>
@@ -1018,18 +1018,18 @@ Percentage: 86.6%
 
             {/* TAB 4: WORKED CODE RUNNER */}
             {activeWorkbenchTab === "code-runner" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+                    <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
                       Java Standard Programs
                     </span>
-                    <span className="text-xs font-mono text-stone-500">8 Programs + Capstone</span>
+                    <span className="text-xs font-mono text-slate-400">8 Programs + Capstone</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-stone-900 mt-2">
+                  <h3 className="text-2xl font-bold text-white mt-2">
                     Worked Code Library &amp; Execution Outputs
                   </h3>
-                  <p className="text-stone-600 text-sm mt-1">
+                  <p className="text-slate-400 text-sm mt-1">
                     Select any standard program from Module 1 to inspect source structure, copy runnable code, and verify compiler/runtime outputs.
                   </p>
                 </div>
@@ -1043,7 +1043,7 @@ Percentage: 86.6%
                       className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all whitespace-nowrap cursor-pointer ${
                         selectedProgramIdx === idx
                           ? "bg-stone-900 text-white font-bold"
-                          : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                          : "bg-slate-950 text-slate-300 hover:bg-slate-800"
                       }`}
                     >
                       {prog.title.split(": ")[1]}
@@ -1055,16 +1055,16 @@ Percentage: 86.6%
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className="text-lg font-bold text-stone-900">
+                      <h4 className="text-lg font-bold text-white">
                         {samplePrograms[selectedProgramIdx].title}
                       </h4>
-                      <p className="text-stone-600 text-xs mt-0.5">
+                      <p className="text-slate-400 text-xs mt-0.5">
                         {samplePrograms[selectedProgramIdx].description}
                       </p>
                     </div>
                     <button
                       onClick={() => handleCopyCode(samplePrograms[selectedProgramIdx].code)}
-                      className="px-3 py-1.5 rounded-lg border border-stone-300 text-stone-700 hover:bg-stone-50 text-xs flex items-center gap-1 cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 hover:bg-slate-950 text-xs flex items-center gap-1 cursor-pointer"
                     >
                       {copiedCode ? <Check size={14} className="text-green-600" /> : <Copy size={14} />}
                       {copiedCode ? "Copied!" : "Copy Code"}
@@ -1080,8 +1080,8 @@ Percentage: 86.6%
 
                   {/* Output Terminal */}
                   <div className="rounded-xl bg-stone-950 text-stone-200 border border-stone-800 overflow-hidden font-mono text-xs">
-                    <div className="bg-stone-900 px-4 py-2 border-b border-stone-800 flex items-center justify-between text-stone-400 text-[11px]">
-                      <span className="flex items-center gap-1.5 font-semibold text-stone-300">
+                    <div className="bg-stone-900 px-4 py-2 border-b border-stone-800 flex items-center justify-between text-slate-500 text-[11px]">
+                      <span className="flex items-center gap-1.5 font-semibold text-slate-400">
                         <Terminal size={12} className="text-orange-400" />
                         Simulated Standard Output
                       </span>
@@ -1092,8 +1092,8 @@ Percentage: 86.6%
                     </div>
                   </div>
 
-                  <div className="text-xs text-stone-500 font-mono">
-                    <strong className="text-stone-700">Engineering Note:</strong> {samplePrograms[selectedProgramIdx].notes}
+                  <div className="text-xs text-slate-400 font-mono">
+                    <strong className="text-slate-300">Engineering Note:</strong> {samplePrograms[selectedProgramIdx].notes}
                   </div>
                 </div>
               </div>
@@ -1101,23 +1101,23 @@ Percentage: 86.6%
 
             {/* TAB 5: ASSESSMENT QUIZ */}
             {activeWorkbenchTab === "quiz" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+                      <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
                         Official Assessment
                       </span>
-                      <span className="text-xs font-mono text-stone-500">10 Questions</span>
+                      <span className="text-xs font-mono text-slate-400">10 Questions</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-stone-900 mt-2">
+                    <h3 className="text-2xl font-bold text-white mt-2">
                       Module 1 Knowledge Check
                     </h3>
                   </div>
 
                   {submittedQuiz && (
-                    <div className="px-4 py-2 rounded-xl bg-orange-50 border border-orange-200 text-orange-900 text-sm font-bold flex items-center gap-2">
-                      <Award size={18} className="text-orange-600" />
+                    <div className="px-4 py-2 rounded-xl bg-orange-500/15 border border-orange-500/30 text-orange-900 text-sm font-bold flex items-center gap-2">
+                      <Award size={18} className="text-orange-400" />
                       Score: {score} / 10 ({score >= 7 ? "PASSED" : "REVIEW RECOMMENDED"})
                     </div>
                   )}
@@ -1137,16 +1137,16 @@ Percentage: 86.6%
                             ? isCorrect
                               ? "bg-green-50/50 border-green-200"
                               : "bg-red-50/50 border-red-200"
-                            : "bg-[#faf8f5] border-[#e7e3da]"
+                            : "bg-[#faf8f5] border-slate-800"
                         }`}
                       >
-                        <h4 className="font-bold text-stone-900 text-sm sm:text-base mb-3">
+                        <h4 className="font-bold text-white text-sm sm:text-base mb-3">
                           {q.question}
                         </h4>
 
                         <div className="space-y-2">
                           {q.options.map((opt, optIdx) => {
-                            let optStyle = "bg-white border-stone-200 text-stone-800 hover:border-orange-300";
+                            let optStyle = "bg-slate-900/80 border-slate-800 text-slate-200 hover:border-orange-500/40";
 
                             if (submittedQuiz) {
                               if (optIdx === q.correctIndex) {
@@ -1154,10 +1154,10 @@ Percentage: 86.6%
                               } else if (selected === optIdx) {
                                 optStyle = "bg-red-100 border-red-400 text-red-900";
                               } else {
-                                optStyle = "bg-white border-stone-200 text-stone-400";
+                                optStyle = "bg-slate-900/80 border-slate-800 text-slate-500";
                               }
                             } else if (selected === optIdx) {
-                              optStyle = "bg-orange-50 border-orange-500 text-orange-950 font-semibold ring-1 ring-orange-500";
+                              optStyle = "bg-orange-500/15 border-orange-500 text-orange-950 font-semibold ring-1 ring-orange-500";
                             }
 
                             return (
@@ -1177,8 +1177,8 @@ Percentage: 86.6%
                         </div>
 
                         {submittedQuiz && (
-                          <div className="mt-3 pt-3 border-t border-stone-200 text-xs text-stone-600">
-                            <strong className="text-stone-800">Explanation:</strong> {q.explanation}
+                          <div className="mt-3 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                            <strong className="text-slate-200">Explanation:</strong> {q.explanation}
                           </div>
                         )}
                       </div>
@@ -1186,13 +1186,13 @@ Percentage: 86.6%
                   })}
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-stone-200">
+                <div className="flex items-center justify-between pt-4 border-t border-slate-800">
                   <button
                     onClick={() => {
                       setSelectedAnswers({});
                       setSubmittedQuiz(false);
                     }}
-                    className="px-4 py-2 rounded-xl border border-stone-300 text-stone-700 text-xs font-semibold hover:bg-stone-50 cursor-pointer"
+                    className="px-4 py-2 rounded-xl border border-slate-700 text-slate-300 text-xs font-semibold hover:bg-slate-950 cursor-pointer"
                   >
                     Reset Quiz
                   </button>
@@ -1210,18 +1210,18 @@ Percentage: 86.6%
 
             {/* TAB 6: LAB & ASSIGNMENT TRACKER */}
             {activeWorkbenchTab === "labs" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-sm space-y-6">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
+                    <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono">
                       Practical Roadmap
                     </span>
-                    <span className="text-xs font-mono text-stone-500">5 Labs + 6 Assignments</span>
+                    <span className="text-xs font-mono text-slate-400">5 Labs + 6 Assignments</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-stone-900 mt-2">
+                  <h3 className="text-2xl font-bold text-white mt-2">
                     Laboratory Exercises &amp; Independent Projects
                   </h3>
-                  <p className="text-stone-600 text-sm mt-1">
+                  <p className="text-slate-400 text-sm mt-1">
                     Track your progress completing the practical tasks in your local IDE (IntelliJ, Eclipse, or VS Code).
                   </p>
                 </div>
@@ -1236,21 +1236,21 @@ Percentage: 86.6%
                         className={`p-4 rounded-xl border transition-all cursor-pointer flex items-start gap-3 ${
                           isDone
                             ? "bg-green-50/50 border-green-300 shadow-2xs"
-                            : "bg-[#faf8f5] border-[#e7e3da] hover:border-orange-300"
+                            : "bg-[#faf8f5] border-slate-800 hover:border-orange-500/40"
                         }`}
                       >
                         <div className="mt-0.5">
                           {isDone ? (
                             <CheckSquare size={18} className="text-green-600" />
                           ) : (
-                            <Square size={18} className="text-stone-400" />
+                            <Square size={18} className="text-slate-500" />
                           )}
                         </div>
                         <div className="space-y-1">
-                          <h4 className={`text-sm font-bold ${isDone ? "text-green-900 line-through" : "text-stone-900"}`}>
+                          <h4 className={`text-sm font-bold ${isDone ? "text-green-900 line-through" : "text-white"}`}>
                             {lab.title}
                           </h4>
-                          <p className="text-xs text-stone-600 leading-relaxed">
+                          <p className="text-xs text-slate-400 leading-relaxed">
                             {lab.desc}
                           </p>
                         </div>

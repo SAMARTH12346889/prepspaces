@@ -540,66 +540,66 @@ export default function JavaControlFlow() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-orange-200 selection:text-orange-900">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Top Navigation */}
       <ModuleNav track="java" currentModuleId="control-flow" />
 
       {/* Main Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Header Card */}
-        <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-xs space-y-4">
+        <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xs space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <button
                 onClick={goBack}
-                className="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 transition-colors inline-flex items-center gap-1.5 text-xs font-semibold"
+                className="p-2 rounded-xl bg-slate-950 hover:bg-slate-800 text-slate-300 transition-colors inline-flex items-center gap-1.5 text-xs font-semibold"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back</span>
               </button>
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
-                  <Coffee className="w-3.5 h-3.5 text-orange-600" />
+                <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
+                  <Coffee className="w-3.5 h-3.5 text-orange-400" />
                   Java Master Course · Module 2
                 </span>
-                <span className="text-xs font-mono text-stone-500 hidden sm:inline">
+                <span className="text-xs font-mono text-slate-400 hidden sm:inline">
                   30 In-Depth Sections · 15 MCQs · 7 Labs
                 </span>
               </div>
             </div>
 
             {/* Mode Switcher */}
-            <div className="inline-flex p-1 bg-stone-100 rounded-xl border border-stone-200">
+            <div className="inline-flex p-1 bg-slate-950 rounded-xl border border-slate-800">
               <button
                 onClick={() => setActiveTab("curriculum")}
                 className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                   activeTab === "curriculum"
-                    ? "bg-white text-stone-900 shadow-xs"
-                    : "text-stone-600 hover:text-stone-900"
+                    ? "bg-slate-900/80 text-white shadow-xs"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
-                <BookOpen className="w-4 h-4 text-orange-600" />
+                <BookOpen className="w-4 h-4 text-orange-400" />
                 <span>Specification & Blueprints</span>
               </button>
               <button
                 onClick={() => setActiveTab("workbench")}
                 className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                   activeTab === "workbench"
-                    ? "bg-white text-stone-900 shadow-xs"
-                    : "text-stone-600 hover:text-stone-900"
+                    ? "bg-slate-900/80 text-white shadow-xs"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
-                <Sparkles className="w-4 h-4 text-orange-600" />
+                <Sparkles className="w-4 h-4 text-orange-400" />
                 <span>Interactive Workbenches (7)</span>
               </button>
             </div>
           </div>
 
           <div className="space-y-2">
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Control Flow, Methods & Problem-Solving Fundamentals
             </h1>
-            <p className="text-stone-600 text-sm sm:text-base max-w-4xl leading-relaxed">
+            <p className="text-slate-400 text-sm sm:text-base max-w-4xl leading-relaxed">
               Transition from linear instruction execution to dynamic decision making, repetition structures, modular method design, stack-frame recursion, nested loop patterns, and fundamental mathematical algorithms in modern Java.
             </p>
           </div>
@@ -617,9 +617,9 @@ export default function JavaControlFlow() {
 
             {/* Sticky Table of Contents (1 col) */}
             <div className="hidden lg:block lg:col-span-1">
-              <div className="sticky top-24 bg-white rounded-2xl border border-[#e7e3da] p-5 shadow-xs space-y-4 max-h-[85vh] overflow-y-auto dark-scrollbar">
-                <div className="flex items-center gap-2 pb-3 border-b border-stone-100 font-bold text-stone-900 text-sm">
-                  <ListOrdered className="w-4 h-4 text-orange-600" />
+              <div className="sticky top-24 bg-slate-900/80 rounded-2xl border border-slate-800 p-5 shadow-xs space-y-4 max-h-[85vh] overflow-y-auto dark-scrollbar">
+                <div className="flex items-center gap-2 pb-3 border-b border-slate-800/60 font-bold text-white text-sm">
+                  <ListOrdered className="w-4 h-4 text-orange-400" />
                   <span>Module Index (30 Parts)</span>
                 </div>
                 <nav className="space-y-1 text-xs">
@@ -660,13 +660,13 @@ export default function JavaControlFlow() {
                       key={item.id}
                       href={`#${item.id}`}
                       title={item.label}
-                      className="block px-2.5 py-1.5 rounded-lg text-stone-600 hover:text-orange-700 hover:bg-orange-50/60 transition-colors break-words whitespace-normal leading-snug"
+                      className="block px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-orange-300 hover:bg-orange-500/15/60 transition-colors break-words whitespace-normal leading-snug"
                     >
                       {item.label}
                     </a>
                   ))}
                 </nav>
-                <div className="pt-3 border-t border-stone-100">
+                <div className="pt-3 border-t border-slate-800/60">
                   <button
                     onClick={() => setActiveTab("workbench")}
                     className="w-full py-2 px-3 rounded-xl bg-orange-600 text-white text-xs font-semibold hover:bg-orange-700 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
@@ -686,7 +686,7 @@ export default function JavaControlFlow() {
         {activeTab === "workbench" && (
           <div className="space-y-6">
             {/* Sub-tab navigation */}
-            <div className="flex flex-wrap gap-2 p-1.5 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs">
+            <div className="flex flex-wrap gap-2 p-1.5 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs">
               {[
                 { id: "control-flow", label: "Decision & Switch", icon: Split },
                 { id: "loop-tracer", label: "Loop Dry Run Tracer", icon: Repeat },
@@ -705,7 +705,7 @@ export default function JavaControlFlow() {
                     className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                       isActive
                         ? "bg-orange-600 text-white shadow-xs"
-                        : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+                        : "text-slate-400 hover:text-white hover:bg-slate-950"
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -719,18 +719,18 @@ export default function JavaControlFlow() {
             {activeWorkbenchTab === "control-flow" && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Panel A: If-Else-If Ladder Evaluator */}
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <div className="flex items-center gap-2 pb-3 border-b border-stone-100">
-                    <Split className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <div className="flex items-center gap-2 pb-3 border-b border-slate-800/60">
+                    <Split className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">If-Else-If Ladder Simulator</h3>
-                      <p className="text-xs text-stone-500">Live evaluation of student grades based on boundary scores</p>
+                      <h3 className="font-bold text-white text-base">If-Else-If Ladder Simulator</h3>
+                      <p className="text-xs text-slate-400">Live evaluation of student grades based on boundary scores</p>
                     </div>
                   </div>
 
                   <div className="space-y-3">
-                    <label className="block text-xs font-semibold text-stone-700">
-                      Enter Score (0 – 100): <span className="text-orange-600 font-mono text-sm">{testScore}</span>
+                    <label className="block text-xs font-semibold text-slate-300">
+                      Enter Score (0 – 100): <span className="text-orange-400 font-mono text-sm">{testScore}</span>
                     </label>
                     <input
                       type="range"
@@ -740,7 +740,7 @@ export default function JavaControlFlow() {
                       onChange={(e) => setTestScore(Number(e.target.value))}
                       className="w-full accent-orange-600"
                     />
-                    <div className="flex justify-between text-[11px] text-stone-400 font-mono">
+                    <div className="flex justify-between text-[11px] text-slate-500 font-mono">
                       <span>0 (F)</span>
                       <span>60 (D)</span>
                       <span>70 (C)</span>
@@ -750,20 +750,20 @@ export default function JavaControlFlow() {
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2">
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold text-stone-600">Assigned Grade:</span>
-                      <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 font-bold font-mono text-sm">
+                      <span className="text-xs font-semibold text-slate-400">Assigned Grade:</span>
+                      <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 font-bold font-mono text-sm">
                         Grade {scoreEvaluation.grade}
                       </span>
                     </div>
-                    <div className="text-xs text-stone-600">
+                    <div className="text-xs text-slate-400">
                       <span className="font-medium">Active Branch:</span>{" "}
-                      <code className="text-orange-700 font-mono px-1 py-0.5 bg-stone-100 rounded">
+                      <code className="text-orange-300 font-mono px-1 py-0.5 bg-slate-950 rounded">
                         {scoreEvaluation.branch}
                       </code>
                     </div>
-                    <div className="text-xs text-stone-500 italic">
+                    <div className="text-xs text-slate-400 italic">
                       {scoreEvaluation.description}
                     </div>
                   </div>
@@ -784,25 +784,25 @@ export default function JavaControlFlow() {
                 </div>
 
                 {/* Panel B: Modern Switch Expressions vs Statements */}
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-stone-100">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-800/60">
                     <div className="flex items-center gap-2">
-                      <Zap className="w-5 h-5 text-orange-600" />
+                      <Zap className="w-5 h-5 text-orange-400" />
                       <div>
-                        <h3 className="font-bold text-stone-900 text-base">Modern Switch Expression (Java 14+)</h3>
-                        <p className="text-xs text-stone-500">Arrow syntax (-&gt;) eliminates accidental fall-through</p>
+                        <h3 className="font-bold text-white text-base">Modern Switch Expression (Java 14+)</h3>
+                        <p className="text-xs text-slate-400">Arrow syntax (-&gt;) eliminates accidental fall-through</p>
                       </div>
                     </div>
-                    <div className="inline-flex p-0.5 bg-stone-100 rounded-lg text-xs font-semibold">
+                    <div className="inline-flex p-0.5 bg-slate-950 rounded-lg text-xs font-semibold">
                       <button
                         onClick={() => setSwitchMode("expression")}
-                        className={`px-2 py-1 rounded ${switchMode === "expression" ? "bg-white text-stone-900 shadow-xs" : "text-stone-500"}`}
+                        className={`px-2 py-1 rounded ${switchMode === "expression" ? "bg-slate-900/80 text-white shadow-xs" : "text-slate-400"}`}
                       >
                         Expression
                       </button>
                       <button
                         onClick={() => setSwitchMode("statement")}
-                        className={`px-2 py-1 rounded ${switchMode === "statement" ? "bg-white text-stone-900 shadow-xs" : "text-stone-500"}`}
+                        className={`px-2 py-1 rounded ${switchMode === "statement" ? "bg-slate-900/80 text-white shadow-xs" : "text-slate-400"}`}
                       >
                         Traditional
                       </button>
@@ -810,7 +810,7 @@ export default function JavaControlFlow() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs font-semibold text-stone-700">Select Day of Week (1 = Mon, 7 = Sun):</label>
+                    <label className="block text-xs font-semibold text-slate-300">Select Day of Week (1 = Mon, 7 = Sun):</label>
                     <div className="grid grid-cols-7 gap-1">
                       {[1, 2, 3, 4, 5, 6, 7].map((num) => (
                         <button
@@ -819,7 +819,7 @@ export default function JavaControlFlow() {
                           className={`py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
                             dayNumber === num
                               ? "bg-orange-600 text-white shadow-xs"
-                              : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                              : "bg-slate-950 text-slate-300 hover:bg-slate-800"
                           }`}
                         >
                           {num}
@@ -828,14 +828,14 @@ export default function JavaControlFlow() {
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-orange-50/70 border border-orange-200/80 space-y-1">
+                  <div className="p-4 rounded-xl bg-orange-500/15/70 border border-orange-500/30/80 space-y-1">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-stone-900 text-sm">{switchEvaluation.name}</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-white text-orange-800 font-semibold text-xs border border-orange-200">
+                      <span className="font-bold text-white text-sm">{switchEvaluation.name}</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-900/80 text-orange-300 font-semibold text-xs border border-orange-500/30">
                         {switchEvaluation.type}
                       </span>
                     </div>
-                    <p className="text-xs text-stone-600 font-mono">Routine: {switchEvaluation.energy}</p>
+                    <p className="text-xs text-slate-400 font-mono">Routine: {switchEvaluation.energy}</p>
                   </div>
 
                   <div className="p-3 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
@@ -863,25 +863,25 @@ switch (day) {
 
             {/* 2. LOOP DRY RUN TRACER */}
             {activeWorkbenchTab === "loop-tracer" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-stone-100">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800/60">
                   <div className="flex items-center gap-2">
-                    <Repeat className="w-5 h-5 text-orange-600" />
+                    <Repeat className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Interactive Loop Dry Run & State Inspector</h3>
-                      <p className="text-xs text-stone-500">Step through loop cycles, observe counter updates, accumulator sum, and jump controls</p>
+                      <h3 className="font-bold text-white text-base">Interactive Loop Dry Run & State Inspector</h3>
+                      <p className="text-xs text-slate-400">Step through loop cycles, observe counter updates, accumulator sum, and jump controls</p>
                     </div>
                   </div>
 
-                  <div className="inline-flex p-1 bg-stone-100 rounded-xl">
+                  <div className="inline-flex p-1 bg-slate-950 rounded-xl">
                     {["for", "while", "do-while"].map((type) => (
                       <button
                         key={type}
                         onClick={() => setLoopType(type)}
                         className={`px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider font-mono transition-all ${
                           loopType === type
-                            ? "bg-white text-stone-900 shadow-xs"
-                            : "text-stone-600 hover:text-stone-900"
+                            ? "bg-slate-900/80 text-white shadow-xs"
+                            : "text-slate-400 hover:text-white"
                         }`}
                       >
                         {type}
@@ -892,9 +892,9 @@ switch (day) {
 
                 {/* Controls */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">
-                      Max Iterations (N): <span className="font-mono text-orange-600">{loopLimit}</span>
+                  <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                    <label className="block text-xs font-semibold text-slate-300 mb-1">
+                      Max Iterations (N): <span className="font-mono text-orange-400">{loopLimit}</span>
                     </label>
                     <input
                       type="range"
@@ -906,9 +906,9 @@ switch (day) {
                     />
                   </div>
 
-                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">
-                      Simulate Break at i: <span className="font-mono text-orange-600">{useBreakAt || "None"}</span>
+                  <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                    <label className="block text-xs font-semibold text-slate-300 mb-1">
+                      Simulate Break at i: <span className="font-mono text-orange-400">{useBreakAt || "None"}</span>
                     </label>
                     <input
                       type="range"
@@ -920,9 +920,9 @@ switch (day) {
                     />
                   </div>
 
-                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">
-                      Simulate Continue at i: <span className="font-mono text-orange-600">{useContinueAt || "None"}</span>
+                  <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                    <label className="block text-xs font-semibold text-slate-300 mb-1">
+                      Simulate Continue at i: <span className="font-mono text-orange-400">{useContinueAt || "None"}</span>
                     </label>
                     <input
                       type="range"
@@ -936,9 +936,9 @@ switch (day) {
                 </div>
 
                 {/* Dry Run Table */}
-                <div className="overflow-x-auto rounded-xl border border-[#e7e3da] shadow-2xs">
+                <div className="overflow-x-auto rounded-xl border border-slate-800 shadow-2xs">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
+                    <thead className="bg-[#faf8f5] text-white border-b border-slate-800 font-semibold">
                       <tr>
                         <th className="px-4 py-2.5">Step</th>
                         <th className="px-4 py-2.5">Counter (i)</th>
@@ -957,12 +957,12 @@ switch (day) {
                               : row.skipped
                               ? "bg-amber-50/70 text-amber-900"
                               : row.finished
-                              ? "bg-stone-100/70 text-stone-500 italic"
-                              : "bg-white"
+                              ? "bg-slate-950/70 text-slate-400 italic"
+                              : "bg-slate-900/80"
                           }`}
                         >
                           <td className="px-4 py-2.5 font-mono">{row.step}</td>
-                          <td className="px-4 py-2.5 font-mono font-bold text-orange-700">{row.i}</td>
+                          <td className="px-4 py-2.5 font-mono font-bold text-orange-300">{row.i}</td>
                           <td className="px-4 py-2.5 font-mono">{row.condition}</td>
                           <td className="px-4 py-2.5">{row.action}</td>
                           <td className="px-4 py-2.5 font-mono font-bold">{row.sum}</td>
@@ -972,9 +972,9 @@ switch (day) {
                   </table>
                 </div>
 
-                <div className="flex items-center justify-between p-3 rounded-xl bg-orange-50 border border-orange-200">
-                  <span className="text-xs font-semibold text-stone-700">Accumulated Total (sum):</span>
-                  <span className="text-base font-extrabold font-mono text-orange-800">{loopTrace.finalSum}</span>
+                <div className="flex items-center justify-between p-3 rounded-xl bg-orange-500/15 border border-orange-500/30">
+                  <span className="text-xs font-semibold text-slate-300">Accumulated Total (sum):</span>
+                  <span className="text-base font-extrabold font-mono text-orange-300">{loopTrace.finalSum}</span>
                 </div>
               </div>
             )}
@@ -982,25 +982,25 @@ switch (day) {
             {/* 3. RECURSION CALL STACK VISUALIZER */}
             {activeWorkbenchTab === "recursion-stack" && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-stone-100">
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-800/60">
                     <div className="flex items-center gap-2">
-                      <Layers className="w-5 h-5 text-orange-600" />
+                      <Layers className="w-5 h-5 text-orange-400" />
                       <div>
-                        <h3 className="font-bold text-stone-900 text-base">Call Stack Visualizer</h3>
-                        <p className="text-xs text-stone-500">Observe stack frame allocation and unwinding</p>
+                        <h3 className="font-bold text-white text-base">Call Stack Visualizer</h3>
+                        <p className="text-xs text-slate-400">Observe stack frame allocation and unwinding</p>
                       </div>
                     </div>
-                    <div className="inline-flex p-0.5 bg-stone-100 rounded-lg text-xs font-semibold">
+                    <div className="inline-flex p-0.5 bg-slate-950 rounded-lg text-xs font-semibold">
                       <button
                         onClick={() => setRecursionMode("factorial")}
-                        className={`px-2.5 py-1 rounded ${recursionMode === "factorial" ? "bg-white text-stone-900 shadow-xs" : "text-stone-500"}`}
+                        className={`px-2.5 py-1 rounded ${recursionMode === "factorial" ? "bg-slate-900/80 text-white shadow-xs" : "text-slate-400"}`}
                       >
                         Factorial
                       </button>
                       <button
                         onClick={() => setRecursionMode("fibonacci")}
-                        className={`px-2.5 py-1 rounded ${recursionMode === "fibonacci" ? "bg-white text-stone-900 shadow-xs" : "text-stone-500"}`}
+                        className={`px-2.5 py-1 rounded ${recursionMode === "fibonacci" ? "bg-slate-900/80 text-white shadow-xs" : "text-slate-400"}`}
                       >
                         Fibonacci
                       </button>
@@ -1008,8 +1008,8 @@ switch (day) {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs font-semibold text-stone-700">
-                      Input Value (N): <span className="font-mono text-orange-600">{recursionInput}</span>
+                    <label className="block text-xs font-semibold text-slate-300">
+                      Input Value (N): <span className="font-mono text-orange-400">{recursionInput}</span>
                     </label>
                     <input
                       type="range"
@@ -1023,7 +1023,7 @@ switch (day) {
 
                   {/* Active Stack Frames */}
                   <div className="space-y-2">
-                    <div className="text-xs font-bold uppercase tracking-wider text-stone-500 font-mono">
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">
                       Call Stack (Top of Stack = Active Execution)
                     </div>
                     <div className="space-y-2">
@@ -1033,21 +1033,21 @@ switch (day) {
                           className={`p-3 rounded-xl border text-xs flex items-center justify-between transition-all ${
                             frame.state === "BASE CASE"
                               ? "bg-emerald-50 border-emerald-300 text-emerald-950 font-semibold"
-                              : "bg-stone-50 border-stone-200 text-stone-800"
+                              : "bg-slate-950 border-slate-800 text-slate-200"
                           }`}
                         >
                           <div className="space-y-0.5">
-                            <div className="font-mono font-bold text-orange-700 flex items-center gap-1.5">
+                            <div className="font-mono font-bold text-orange-300 flex items-center gap-1.5">
                               <span>Frame #{frame.depth}:</span>
                               <code>{frame.call}</code>
                             </div>
-                            <div className="text-[11px] text-stone-500">{frame.condition}</div>
+                            <div className="text-[11px] text-slate-400">{frame.condition}</div>
                           </div>
                           <span
                             className={`px-2 py-0.5 rounded text-[10px] font-bold font-mono ${
                               frame.state === "BASE CASE"
                                 ? "bg-emerald-200 text-emerald-800"
-                                : "bg-stone-200 text-stone-700"
+                                : "bg-slate-800 text-slate-300"
                             }`}
                           >
                             {frame.state}
@@ -1058,7 +1058,7 @@ switch (day) {
                   </div>
 
                   <div className="p-4 rounded-xl bg-stone-900 text-white flex items-center justify-between">
-                    <span className="text-xs font-medium text-stone-400">Final Resolved Value:</span>
+                    <span className="text-xs font-medium text-slate-500">Final Resolved Value:</span>
                     <span className="text-xl font-bold font-mono text-orange-400">
                       {recursionFrames.finalResult}
                     </span>
@@ -1066,8 +1066,8 @@ switch (day) {
                 </div>
 
                 {/* Java Implementation & Explanations */}
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <h4 className="font-bold text-stone-900 text-sm">Java Implementation Architecture</h4>
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <h4 className="font-bold text-white text-sm">Java Implementation Architecture</h4>
                   <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
                     <pre>{recursionMode === "factorial" ? `// Recursive Factorial
 public static long factorial(int n) {
@@ -1103,17 +1103,17 @@ public static int fibonacci(int n) {
             {/* 4. PATTERN GENERATOR */}
             {activeWorkbenchTab === "pattern-generator" && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <div className="flex items-center gap-2 pb-3 border-b border-stone-100">
-                    <Compass className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <div className="flex items-center gap-2 pb-3 border-b border-slate-800/60">
+                    <Compass className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Nested Loop Pattern Laboratory</h3>
-                      <p className="text-xs text-stone-500">Configure rows and pattern geometries generated via 2D nested loops</p>
+                      <h3 className="font-bold text-white text-base">Nested Loop Pattern Laboratory</h3>
+                      <p className="text-xs text-slate-400">Configure rows and pattern geometries generated via 2D nested loops</p>
                     </div>
                   </div>
 
                   <div className="space-y-3">
-                    <label className="block text-xs font-semibold text-stone-700">Select Pattern Template:</label>
+                    <label className="block text-xs font-semibold text-slate-300">Select Pattern Template:</label>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       {[
                         { id: "square", name: "Solid Square" },
@@ -1130,7 +1130,7 @@ public static int fibonacci(int n) {
                           className={`p-2 rounded-xl text-xs font-semibold text-left transition-all ${
                             patternType === p.id
                               ? "bg-orange-600 text-white shadow-xs"
-                              : "bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200"
+                              : "bg-slate-950 hover:bg-slate-950 text-slate-300 border border-slate-800"
                           }`}
                         >
                           {p.name}
@@ -1139,8 +1139,8 @@ public static int fibonacci(int n) {
                     </div>
 
                     <div className="pt-2">
-                      <label className="block text-xs font-semibold text-stone-700 mb-1">
-                        Row Count (N): <span className="font-mono text-orange-600">{patternRows}</span>
+                      <label className="block text-xs font-semibold text-slate-300 mb-1">
+                        Row Count (N): <span className="font-mono text-orange-400">{patternRows}</span>
                       </label>
                       <input
                         type="range"
@@ -1155,7 +1155,7 @@ public static int fibonacci(int n) {
 
                   {/* Terminal Canvas */}
                   <div className="p-4 rounded-xl bg-neutral-900 text-amber-400 font-mono text-sm overflow-x-auto border border-neutral-800 shadow-inner">
-                    <div className="text-[11px] text-stone-500 pb-2 border-b border-neutral-800 mb-2 font-mono flex justify-between">
+                    <div className="text-[11px] text-slate-400 pb-2 border-b border-neutral-800 mb-2 font-mono flex justify-between">
                       <span>CONSOLE OUTPUT</span>
                       <span>{patternRows} ROWS</span>
                     </div>
@@ -1164,8 +1164,8 @@ public static int fibonacci(int n) {
                 </div>
 
                 {/* Java Source Generation */}
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <h4 className="font-bold text-stone-900 text-sm">Corresponding Java Nested-Loop Architecture</h4>
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <h4 className="font-bold text-white text-sm">Corresponding Java Nested-Loop Architecture</h4>
                   <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
                     <pre>{`// Outer loop controls rows
 for (int i = 1; i <= ${patternRows}; i++) {
@@ -1177,8 +1177,8 @@ for (int i = 1; i <= ${patternRows}; i++) {
     System.out.println();
 }`}</pre>
                   </div>
-                  <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-700 space-y-2 leading-relaxed">
-                    <div className="font-bold text-stone-900">Algorithmic Pattern Rules:</div>
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-2 leading-relaxed">
+                    <div className="font-bold text-white">Algorithmic Pattern Rules:</div>
                     <ul className="list-disc pl-5 space-y-1">
                       <li><strong>Outer Loop:</strong> Always runs <code>rows</code> times, dictating the line break index.</li>
                       <li><strong>Inner Loop(s):</strong> Dictates horizontal characters. When spaces precede stars (e.g. Pyramid/Diamond), use two consecutive inner loops.</li>
@@ -1191,13 +1191,13 @@ for (int i = 1; i <= ${patternRows}; i++) {
 
             {/* 5. MATHEMATICAL ALGORITHMS TOOLKIT */}
             {activeWorkbenchTab === "math-toolkit" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-stone-100">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800/60">
                   <div className="flex items-center gap-2">
-                    <Calculator className="w-5 h-5 text-orange-600" />
+                    <Calculator className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Mathematical Algorithm Test-Bench</h3>
-                      <p className="text-xs text-stone-500">Live execution of core algorithms from Section 21: Primes, Palindromes, GCD/LCM, and Armstrong</p>
+                      <h3 className="font-bold text-white text-base">Mathematical Algorithm Test-Bench</h3>
+                      <p className="text-xs text-slate-400">Live execution of core algorithms from Section 21: Primes, Palindromes, GCD/LCM, and Armstrong</p>
                     </div>
                   </div>
 
@@ -1214,7 +1214,7 @@ for (int i = 1; i <= ${patternRows}; i++) {
                         className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                           mathAlgo === m.id
                             ? "bg-orange-600 text-white shadow-xs"
-                            : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                            : "bg-slate-950 text-slate-300 hover:bg-slate-800"
                         }`}
                       >
                         {m.label}
@@ -1225,38 +1225,38 @@ for (int i = 1; i <= ${patternRows}; i++) {
 
                 {/* Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 space-y-1">
-                    <label className="block text-xs font-semibold text-stone-700">Enter Number 1 (A):</label>
+                  <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-1">
+                    <label className="block text-xs font-semibold text-slate-300">Enter Number 1 (A):</label>
                     <input
                       type="number"
                       value={mathNum1}
                       onChange={(e) => setMathNum1(e.target.value)}
-                      className="w-full px-3 py-2 rounded-lg border border-stone-300 font-mono text-sm bg-white"
+                      className="w-full px-3 py-2 rounded-lg border border-slate-700 font-mono text-sm bg-slate-900/80"
                     />
                   </div>
                   {mathAlgo === "gcd" && (
-                    <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 space-y-1">
-                      <label className="block text-xs font-semibold text-stone-700">Enter Number 2 (B):</label>
+                    <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-1">
+                      <label className="block text-xs font-semibold text-slate-300">Enter Number 2 (B):</label>
                       <input
                         type="number"
                         value={mathNum2}
                         onChange={(e) => setMathNum2(e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-stone-300 font-mono text-sm bg-white"
+                        className="w-full px-3 py-2 rounded-lg border border-slate-700 font-mono text-sm bg-slate-900/80"
                       />
                     </div>
                   )}
                 </div>
 
                 {/* Result Card */}
-                <div className="p-4 rounded-xl bg-orange-50/70 border border-orange-200/80 space-y-2">
+                <div className="p-4 rounded-xl bg-orange-500/15/70 border border-orange-500/30/80 space-y-2">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-orange-600" />
-                    <span className="font-bold text-stone-900 text-sm">{mathResult.explanation}</span>
+                    <CheckCircle2 className="w-5 h-5 text-orange-400" />
+                    <span className="font-bold text-white text-sm">{mathResult.explanation}</span>
                   </div>
                   {mathResult.steps && mathResult.steps.length > 0 && (
-                    <div className="pt-2 border-t border-orange-200/60">
-                      <div className="text-[11px] font-bold text-stone-600 uppercase font-mono mb-1">Execution Steps:</div>
-                      <div className="max-h-40 overflow-y-auto space-y-1 font-mono text-xs text-stone-700 [scrollbar-width:thin]">
+                    <div className="pt-2 border-t border-orange-500/30/60">
+                      <div className="text-[11px] font-bold text-slate-400 uppercase font-mono mb-1">Execution Steps:</div>
+                      <div className="max-h-40 overflow-y-auto space-y-1 font-mono text-xs text-slate-300 [scrollbar-width:thin]">
                         {mathResult.steps.map((st, i) => (
                           <div key={i} className="flex items-center gap-2">
                             <span className="text-orange-500 font-bold">&gt;</span>
@@ -1272,18 +1272,18 @@ for (int i = 1; i <= ${patternRows}; i++) {
 
             {/* 6. ASSESSMENT QUIZ (15 MCQs) */}
             {activeWorkbenchTab === "quiz" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-xs space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-stone-100">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800/60">
                   <div className="flex items-center gap-2">
-                    <HelpCircle className="w-5 h-5 text-orange-600" />
+                    <HelpCircle className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Module 2 Assessment (15 MCQs)</h3>
-                      <p className="text-xs text-stone-500">Official textbook review questions from Section 25 Part A</p>
+                      <h3 className="font-bold text-white text-base">Module 2 Assessment (15 MCQs)</h3>
+                      <p className="text-xs text-slate-400">Official textbook review questions from Section 25 Part A</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="text-xs font-mono font-bold text-stone-600">
-                      Score: <span className="text-orange-600 text-sm">{scoreCount}</span> / {quizQuestions.length}
+                    <div className="text-xs font-mono font-bold text-slate-400">
+                      Score: <span className="text-orange-400 text-sm">{scoreCount}</span> / {quizQuestions.length}
                     </div>
                     <button
                       onClick={() => setShowResults(!showResults)}
@@ -1309,17 +1309,17 @@ for (int i = 1; i <= ${patternRows}; i++) {
                               ? "bg-emerald-50/50 border-emerald-300"
                               : "bg-rose-50/50 border-rose-300"
                             : isAnswered
-                            ? "bg-stone-50 border-stone-200"
-                            : "bg-white border-[#e7e3da]"
+                            ? "bg-slate-950 border-slate-800"
+                            : "bg-slate-900/80 border-slate-800"
                         }`}
                       >
-                        <h4 className="font-bold text-stone-900 text-sm mb-3">{q.question}</h4>
+                        <h4 className="font-bold text-white text-sm mb-3">{q.question}</h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
                           {q.options.map((opt, oIdx) => {
                             const isThisSelected = selected === oIdx;
                             const isThisCorrect = q.correctIndex === oIdx;
 
-                            let btnStyle = "bg-white border-stone-200 text-stone-700 hover:bg-stone-50";
+                            let btnStyle = "bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-950";
                             if (showResults) {
                               if (isThisCorrect) {
                                 btnStyle = "bg-emerald-100 border-emerald-400 text-emerald-950 font-bold";
@@ -1343,8 +1343,8 @@ for (int i = 1; i <= ${patternRows}; i++) {
                           })}
                         </div>
                         {showResults && (
-                          <div className="pt-2 border-t border-stone-200/60 text-xs text-stone-600">
-                            <span className="font-bold text-stone-900">Explanation:</span> {q.explanation}
+                          <div className="pt-2 border-t border-slate-800/60 text-xs text-slate-400">
+                            <span className="font-bold text-white">Explanation:</span> {q.explanation}
                           </div>
                         )}
                       </div>
@@ -1356,17 +1356,17 @@ for (int i = 1; i <= ${patternRows}; i++) {
 
             {/* 7. LABS & ASSIGNMENTS TRACKER */}
             {activeWorkbenchTab === "labs" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-xs space-y-6">
-                <div className="flex items-center justify-between pb-4 border-b border-stone-100">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
+                <div className="flex items-center justify-between pb-4 border-b border-slate-800/60">
                   <div className="flex items-center gap-2">
-                    <CheckSquare className="w-5 h-5 text-orange-600" />
+                    <CheckSquare className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Practical Labs & Assignments Checklist</h3>
-                      <p className="text-xs text-stone-500">Track implementation of all 7 laboratory exercises and 7 independent challenges</p>
+                      <h3 className="font-bold text-white text-base">Practical Labs & Assignments Checklist</h3>
+                      <p className="text-xs text-slate-400">Track implementation of all 7 laboratory exercises and 7 independent challenges</p>
                     </div>
                   </div>
-                  <div className="text-xs font-mono font-bold text-stone-600">
-                    Completed: <span className="text-orange-600">{Object.values(completedLabs).filter(Boolean).length}</span> / {labList.length}
+                  <div className="text-xs font-mono font-bold text-slate-400">
+                    Completed: <span className="text-orange-400">{Object.values(completedLabs).filter(Boolean).length}</span> / {labList.length}
                   </div>
                 </div>
 
@@ -1380,18 +1380,18 @@ for (int i = 1; i <= ${patternRows}; i++) {
                         className={`p-4 rounded-xl border cursor-pointer transition-all ${
                           isDone
                             ? "bg-emerald-50/50 border-emerald-300"
-                            : "bg-white border-stone-200 hover:border-stone-300"
+                            : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                         }`}
                       >
                         <div className="flex items-start gap-3">
                           <button
                             type="button"
-                            className="mt-0.5 text-stone-400 hover:text-stone-600 focus:outline-none"
+                            className="mt-0.5 text-slate-500 hover:text-slate-400 focus:outline-none"
                           >
                             {isDone ? (
                               <CheckSquare className="w-4 h-4 text-emerald-600" />
                             ) : (
-                              <Square className="w-4 h-4 text-stone-400" />
+                              <Square className="w-4 h-4 text-slate-500" />
                             )}
                           </button>
                           <div className="space-y-1">
@@ -1399,17 +1399,17 @@ for (int i = 1; i <= ${patternRows}; i++) {
                               <span
                                 className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                   lab.type === "Lab"
-                                    ? "bg-orange-100 text-orange-800"
-                                    : "bg-stone-100 text-stone-700"
+                                    ? "bg-orange-500/15 text-orange-300"
+                                    : "bg-slate-950 text-slate-300"
                                 }`}
                               >
                                 {lab.type}
                               </span>
-                              <h4 className={`text-xs font-bold ${isDone ? "text-stone-500 line-through" : "text-stone-900"}`}>
+                              <h4 className={`text-xs font-bold ${isDone ? "text-slate-400 line-through" : "text-white"}`}>
                                 {lab.title}
                               </h4>
                             </div>
-                            <p className="text-xs text-stone-600 leading-relaxed">{lab.goal}</p>
+                            <p className="text-xs text-slate-400 leading-relaxed">{lab.goal}</p>
                           </div>
                         </div>
                       </div>

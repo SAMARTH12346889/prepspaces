@@ -549,7 +549,7 @@ export default function JavaTrees() {
   }, [searchFilter]);
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Top sticky module navigation bar */}
       <ModuleNav
         track="java"
@@ -574,7 +574,7 @@ export default function JavaTrees() {
               <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
                 Trees & Binary Search Trees (BST)
               </h1>
-              <p className="text-stone-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
                 Master hierarchical data structures, binary tree properties (depth, height, level, full, complete, perfect), recursive traversals (Preorder, Inorder, Postorder, BFS Level-Order), BST operations (Search, Insertion, 3-case Deletion via Inorder Successor), tree diameter, height balancing, Lowest Common Ancestor (LCA), strict range validation, and tree serialization.
               </p>
             </div>
@@ -587,7 +587,7 @@ export default function JavaTrees() {
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                     viewMode === "interactive"
                       ? "bg-orange-500 text-white shadow-md shadow-orange-500/30"
-                      : "text-stone-400 hover:text-white"
+                      : "text-slate-500 hover:text-white"
                   }`}
                 >
                   <Cpu className="w-4 h-4" />
@@ -598,7 +598,7 @@ export default function JavaTrees() {
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                     viewMode === "reader"
                       ? "bg-orange-500 text-white shadow-md shadow-orange-500/30"
-                      : "text-stone-400 hover:text-white"
+                      : "text-slate-500 hover:text-white"
                   }`}
                 >
                   <BookOpen className="w-4 h-4" />
@@ -606,7 +606,7 @@ export default function JavaTrees() {
                 </button>
               </div>
 
-              <div className="text-[11px] font-mono text-stone-400 flex items-center gap-1.5">
+              <div className="text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Java 17+ SE & DSA Spec</span>
               </div>
@@ -620,7 +620,7 @@ export default function JavaTrees() {
         {viewMode === "interactive" && (
           <div className="space-y-6">
             {/* Workbench Subnav Tabs */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-[#e7e3da] [scrollbar-width:none]">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-slate-800 [scrollbar-width:none]">
               {[
                 { id: "bstStudio", label: "BST Studio", icon: GitBranch },
                 { id: "traversals", label: "Traversals (DFS & BFS)", icon: ListOrdered },
@@ -640,7 +640,7 @@ export default function JavaTrees() {
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-orange-600 text-white shadow-sm"
-                        : "bg-white hover:bg-stone-100 text-stone-600 border border-[#e7e3da]"
+                        : "bg-slate-900/80 hover:bg-slate-950 text-slate-400 border border-slate-800"
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -653,15 +653,15 @@ export default function JavaTrees() {
             {/* TAB 1: BST STUDIO */}
             {activeTab === "bstStudio" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="border-b border-stone-100 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="border-b border-slate-800/60 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                       Binary Search Tree Engine
                     </span>
-                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                    <h3 className="text-lg font-bold text-white tracking-tight">
                       Interactive BST Studio (Insert, Search, Delete with Inorder Successor)
                     </h3>
-                    <p className="text-xs text-stone-500">
+                    <p className="text-xs text-slate-400">
                       Maintain the strict invariant: `Left &lt; Root &lt; Right`. Test leaf deletion, single-child splice, and 2-child successor swaps.
                     </p>
                   </div>
@@ -669,13 +669,13 @@ export default function JavaTrees() {
                   {/* Controls */}
                   <div className="flex flex-wrap items-center gap-4">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-stone-500">Insert:</span>
+                      <span className="text-xs font-mono text-slate-400">Insert:</span>
                       <input
                         type="number"
                         value={bstInputVal}
                         onChange={(e) => setBstInputVal(e.target.value)}
                         placeholder="Value"
-                        className="w-20 px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded-lg font-mono focus:outline-none focus:border-orange-500"
+                        className="w-20 px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded-lg font-mono focus:outline-none focus:border-orange-500"
                       />
                       <button
                         onClick={handleBstInsert}
@@ -688,13 +688,13 @@ export default function JavaTrees() {
                     <div className="h-4 w-px bg-stone-300 mx-1"></div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-stone-500">Search:</span>
+                      <span className="text-xs font-mono text-slate-400">Search:</span>
                       <input
                         type="number"
                         value={bstSearchVal}
                         onChange={(e) => setBstSearchVal(e.target.value)}
                         placeholder="Target"
-                        className="w-20 px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded-lg font-mono focus:outline-none focus:border-orange-500"
+                        className="w-20 px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded-lg font-mono focus:outline-none focus:border-orange-500"
                       />
                       <button
                         onClick={handleBstSearch}
@@ -708,14 +708,14 @@ export default function JavaTrees() {
 
                     {/* Presets */}
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-stone-500">Presets:</span>
+                      <span className="text-xs font-mono text-slate-400">Presets:</span>
                       <button
                         onClick={() => {
                           setBstKeys([50, 30, 70, 20, 40, 60, 80]);
                           setBstHighlightNodes([]);
                           setBstFeedback({ type: "info", msg: "Loaded Balanced BST preset." });
                         }}
-                        className="px-2.5 py-1 bg-stone-100 hover:bg-stone-200 text-[11px] rounded text-stone-700 font-mono"
+                        className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-[11px] rounded text-slate-300 font-mono"
                       >
                         Balanced
                       </button>
@@ -725,15 +725,15 @@ export default function JavaTrees() {
                           setBstHighlightNodes([]);
                           setBstFeedback({ type: "warn", msg: "Loaded Skewed BST preset (O(n) search)." });
                         }}
-                        className="px-2.5 py-1 bg-stone-100 hover:bg-stone-200 text-[11px] rounded text-stone-700 font-mono"
+                        className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-[11px] rounded text-slate-300 font-mono"
                       >
                         Skewed
                       </button>
                     </div>
 
-                    <div className="ml-auto flex items-center gap-4 text-xs font-mono text-stone-500">
-                      <span>Min: <strong className="text-stone-900">{bstMin ?? "null"}</strong></span>
-                      <span>Max: <strong className="text-stone-900">{bstMax ?? "null"}</strong></span>
+                    <div className="ml-auto flex items-center gap-4 text-xs font-mono text-slate-400">
+                      <span>Min: <strong className="text-white">{bstMin ?? "null"}</strong></span>
+                      <span>Max: <strong className="text-white">{bstMax ?? "null"}</strong></span>
                     </div>
                   </div>
 
@@ -743,7 +743,7 @@ export default function JavaTrees() {
                         ? "bg-emerald-50 text-emerald-800 border border-emerald-200"
                         : bstFeedback.type === "warn"
                         ? "bg-amber-50 text-amber-800 border border-amber-200"
-                        : "bg-blue-50 text-blue-800 border border-blue-200"
+                        : "bg-orange-500/15 text-orange-300 border border-orange-500/30"
                     }`}>
                       {bstFeedback.type === "success" ? <CheckCircle className="w-4 h-4 text-emerald-600" /> : <AlertTriangle className="w-4 h-4 text-amber-600" />}
                       <span>{bstFeedback.msg}</span>
@@ -751,9 +751,9 @@ export default function JavaTrees() {
                   )}
 
                   {/* BST Visual representation */}
-                  <div className="p-6 bg-stone-50 rounded-2xl border border-stone-200 space-y-4">
-                    <div className="flex items-center justify-between text-xs font-mono text-stone-500">
-                      <span>Node Count: <strong className="text-stone-900">{bstKeys.length}</strong></span>
+                  <div className="p-6 bg-slate-950 rounded-2xl border border-slate-800 space-y-4">
+                    <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+                      <span>Node Count: <strong className="text-white">{bstKeys.length}</strong></span>
                       <span>Click any node badge to trigger <strong>deleteBST(node)</strong>:</span>
                     </div>
 
@@ -767,12 +767,12 @@ export default function JavaTrees() {
                             className={`p-3 rounded-2xl border text-center cursor-pointer transition-all min-w-[70px] ${
                               isHighlighted
                                 ? "bg-orange-500 text-white border-orange-600 shadow-md ring-2 ring-orange-300 scale-105"
-                                : "bg-white text-stone-800 border-stone-300 hover:border-red-400 hover:shadow-xs"
+                                : "bg-slate-900/80 text-slate-200 border-slate-700 hover:border-red-400 hover:shadow-xs"
                             }`}
                             title={`Click to delete ${k}`}
                           >
                             <div className="text-base font-bold font-mono">{k}</div>
-                            <div className={`text-[10px] mt-0.5 ${isHighlighted ? "text-orange-100" : "text-stone-400"}`}>
+                            <div className={`text-[10px] mt-0.5 ${isHighlighted ? "text-orange-100" : "text-slate-500"}`}>
                               delete ✕
                             </div>
                           </div>
@@ -787,19 +787,19 @@ export default function JavaTrees() {
             {/* TAB 2: TRAVERSALS (DFS & BFS) */}
             {activeTab === "traversals" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Traversal Step-by-Step Simulator
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         Recursive DFS (Preorder, Inorder, Postorder) & BFS Level-Order
                       </h3>
                     </div>
 
                     {/* Traversal selector */}
-                    <div className="flex items-center gap-1 bg-stone-100 p-1 rounded-xl">
+                    <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl">
                       {[
                         { id: "inorder", label: "Inorder (Sorted)" },
                         { id: "preorder", label: "Preorder" },
@@ -814,7 +814,7 @@ export default function JavaTrees() {
                             setIsAutoPlaying(false);
                           }}
                           className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                            traversalType === t.id ? "bg-white text-stone-900 shadow-2xs" : "text-stone-500 hover:text-stone-900"
+                            traversalType === t.id ? "bg-slate-900/80 text-white shadow-2xs" : "text-slate-400 hover:text-white"
                           }`}
                         >
                           {t.label}
@@ -835,7 +835,7 @@ export default function JavaTrees() {
                     <button
                       onClick={() => setTraversalStep(s => Math.min(s + 1, currentSequence.length - 1))}
                       disabled={traversalStep >= currentSequence.length - 1}
-                      className="px-3 py-1.5 bg-stone-100 hover:bg-stone-200 disabled:opacity-40 text-stone-700 rounded-lg text-xs font-semibold"
+                      className="px-3 py-1.5 bg-slate-950 hover:bg-slate-800 disabled:opacity-40 text-slate-300 rounded-lg text-xs font-semibold"
                     >
                       Next Step →
                     </button>
@@ -844,26 +844,26 @@ export default function JavaTrees() {
                         setTraversalStep(0);
                         setIsAutoPlaying(false);
                       }}
-                      className="px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-lg text-xs font-semibold"
+                      className="px-3 py-1.5 bg-slate-950 hover:bg-slate-800 text-slate-300 rounded-lg text-xs font-semibold"
                     >
                       Reset
                     </button>
 
-                    <div className="ml-auto text-xs font-mono text-stone-500">
-                      Step: <strong className="text-stone-900">{traversalStep + 1}</strong> / {currentSequence.length}
+                    <div className="ml-auto text-xs font-mono text-slate-400">
+                      Step: <strong className="text-white">{traversalStep + 1}</strong> / {currentSequence.length}
                     </div>
                   </div>
 
                   {/* Traversal Output Tape */}
                   <div className="space-y-2">
-                    <div className="flex items-center justify-between text-xs font-mono text-stone-500">
-                      <span className="font-bold text-stone-700">Visited Order Sequence:</span>
+                    <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+                      <span className="font-bold text-slate-300">Visited Order Sequence:</span>
                       {traversalType === "inorder" && (
                         <span className="text-emerald-600 font-bold">✓ Ascending Sorted Property</span>
                       )}
                     </div>
 
-                    <div className="flex items-center gap-2 overflow-x-auto p-4 bg-stone-50 rounded-2xl border border-stone-200">
+                    <div className="flex items-center gap-2 overflow-x-auto p-4 bg-slate-950 rounded-2xl border border-slate-800">
                       {currentSequence.map((val, idx) => {
                         const isVisited = idx <= traversalStep;
                         const isCurrent = idx === traversalStep;
@@ -874,8 +874,8 @@ export default function JavaTrees() {
                               isCurrent
                                 ? "bg-orange-500 text-white border-orange-600 scale-105 shadow-md ring-2 ring-orange-300"
                                 : isVisited
-                                ? "bg-white text-stone-900 border-stone-300 shadow-2xs"
-                                : "bg-stone-100 text-stone-400 border-stone-200 opacity-60"
+                                ? "bg-slate-900/80 text-white border-slate-700 shadow-2xs"
+                                : "bg-slate-950 text-slate-500 border-slate-800 opacity-60"
                             }`}
                           >
                             <div className="text-[10px] font-mono opacity-60">#{idx + 1}</div>
@@ -892,41 +892,41 @@ export default function JavaTrees() {
             {/* TAB 3: TREE METRICS, HEIGHT & DIAMETER */}
             {activeTab === "metrics" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="border-b border-stone-100 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="border-b border-slate-800/60 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                       Mathematical Invariants & Dimensions
                     </span>
-                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                    <h3 className="text-lg font-bold text-white tracking-tight">
                       Tree Metrics: Height, Depth, Diameter & Balance Checker
                     </h3>
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200 text-center space-y-1">
-                      <div className="text-[10px] font-mono text-stone-400 uppercase tracking-widest font-bold">Height (Edges)</div>
-                      <div className="text-2xl font-extrabold text-orange-700 font-mono">{treeMetrics.height}</div>
-                      <div className="text-[11px] text-stone-500">Root downward path</div>
+                    <div className="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-center space-y-1">
+                      <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold">Height (Edges)</div>
+                      <div className="text-2xl font-extrabold text-orange-300 font-mono">{treeMetrics.height}</div>
+                      <div className="text-[11px] text-slate-400">Root downward path</div>
                     </div>
 
-                    <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200 text-center space-y-1">
-                      <div className="text-[10px] font-mono text-stone-400 uppercase tracking-widest font-bold">Diameter (Edges)</div>
-                      <div className="text-2xl font-extrabold text-orange-700 font-mono">{treeMetrics.diameter}</div>
-                      <div className="text-[11px] text-stone-500">Longest path between any 2 nodes</div>
+                    <div className="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-center space-y-1">
+                      <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold">Diameter (Edges)</div>
+                      <div className="text-2xl font-extrabold text-orange-300 font-mono">{treeMetrics.diameter}</div>
+                      <div className="text-[11px] text-slate-400">Longest path between any 2 nodes</div>
                     </div>
 
-                    <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200 text-center space-y-1">
-                      <div className="text-[10px] font-mono text-stone-400 uppercase tracking-widest font-bold">Total Edges (n - 1)</div>
-                      <div className="text-2xl font-extrabold text-stone-900 font-mono">{treeMetrics.edges}</div>
-                      <div className="text-[11px] text-stone-500">{treeMetrics.nodes} nodes</div>
+                    <div className="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-center space-y-1">
+                      <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold">Total Edges (n - 1)</div>
+                      <div className="text-2xl font-extrabold text-white font-mono">{treeMetrics.edges}</div>
+                      <div className="text-[11px] text-slate-400">{treeMetrics.nodes} nodes</div>
                     </div>
 
-                    <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200 text-center space-y-1">
-                      <div className="text-[10px] font-mono text-stone-400 uppercase tracking-widest font-bold">AVL Height Balanced?</div>
+                    <div className="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-center space-y-1">
+                      <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold">AVL Height Balanced?</div>
                       <div className={`text-xl font-extrabold font-mono ${treeMetrics.isBalanced ? "text-emerald-700" : "text-red-700"}`}>
                         {treeMetrics.isBalanced ? "✓ Balanced" : "✕ Skewed"}
                       </div>
-                      <div className="text-[11px] text-stone-500">|lh - rh| &le; 1 at all nodes</div>
+                      <div className="text-[11px] text-slate-400">|lh - rh| &le; 1 at all nodes</div>
                     </div>
                   </div>
                 </div>
@@ -936,50 +936,50 @@ export default function JavaTrees() {
             {/* TAB 4: LOWEST COMMON ANCESTOR (LCA) */}
             {activeTab === "lca" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="border-b border-stone-100 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="border-b border-slate-800/60 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                       Hierarchical Queries
                     </span>
-                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                    <h3 className="text-lg font-bold text-white tracking-tight">
                       Lowest Common Ancestor (LCA) in BST
                     </h3>
-                    <p className="text-xs text-stone-500">
+                    <p className="text-xs text-slate-400">
                       In a BST, if `p` and `q` are both smaller than `root`, move left. If both are greater, move right. The first node where they split is their LCA!
                     </p>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-4">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-stone-500">Node p:</span>
+                      <span className="text-xs font-mono text-slate-400">Node p:</span>
                       <select
                         value={lcaP}
                         onChange={(e) => setLcaP(parseInt(e.target.value, 10))}
-                        className="px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono"
+                        className="px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
                       >
                         {bstKeys.map(k => <option key={k} value={k}>{k}</option>)}
                       </select>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-stone-500">Node q:</span>
+                      <span className="text-xs font-mono text-slate-400">Node q:</span>
                       <select
                         value={lcaQ}
                         onChange={(e) => setLcaQ(parseInt(e.target.value, 10))}
-                        className="px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono"
+                        className="px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
                       >
                         {bstKeys.map(k => <option key={k} value={k}>{k}</option>)}
                       </select>
                     </div>
 
-                    <div className="ml-auto p-3 bg-orange-50 rounded-xl border border-orange-200 flex items-center gap-2">
-                      <span className="text-xs text-orange-800 font-bold">Lowest Common Ancestor:</span>
-                      <strong className="text-base font-mono text-orange-700">{lcaResult?.lcaNode ?? "null"}</strong>
+                    <div className="ml-auto p-3 bg-orange-500/15 rounded-xl border border-orange-500/30 flex items-center gap-2">
+                      <span className="text-xs text-orange-300 font-bold">Lowest Common Ancestor:</span>
+                      <strong className="text-base font-mono text-orange-300">{lcaResult?.lcaNode ?? "null"}</strong>
                     </div>
                   </div>
 
                   {lcaResult && (
-                    <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 font-mono text-xs text-stone-700">
+                    <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 font-mono text-xs text-slate-300">
                       <strong>BST LCA Path:</strong> {lcaResult.path.join(" → ")} (Time: O(h))
                     </div>
                   )}
@@ -990,15 +990,15 @@ export default function JavaTrees() {
             {/* TAB 5: BST VALIDATION & RANGE INVARIANT */}
             {activeTab === "validation" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="border-b border-stone-100 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="border-b border-slate-800/60 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                       LeetCode 98 · Invariant Traps
                     </span>
-                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                    <h3 className="text-lg font-bold text-white tracking-tight">
                       Validate Binary Search Tree: Range Invariant Engine
                     </h3>
-                    <p className="text-xs text-stone-500">
+                    <p className="text-xs text-slate-400">
                       Learn why checking immediate children `left &lt; root &lt; right` fails, and how passing `(min, max)` range bounds guarantees global validity.
                     </p>
                   </div>
@@ -1015,7 +1015,7 @@ export default function JavaTrees() {
                         className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                           validateScenario === btn.id
                             ? "bg-orange-600 text-white shadow-2xs"
-                            : "bg-stone-100 hover:bg-stone-200 text-stone-700"
+                            : "bg-slate-950 hover:bg-slate-800 text-slate-300"
                         }`}
                       >
                         {btn.label}
@@ -1028,14 +1028,14 @@ export default function JavaTrees() {
                   } space-y-3`}>
                     <div className="flex items-center gap-2">
                       {validationAnalysis.isValid ? <CheckCircle className="w-5 h-5 text-emerald-700" /> : <AlertTriangle className="w-5 h-5 text-red-700" />}
-                      <h4 className="text-sm font-bold text-stone-900">{validationAnalysis.title}</h4>
+                      <h4 className="text-sm font-bold text-white">{validationAnalysis.title}</h4>
                     </div>
-                    <p className="text-xs text-stone-700 leading-relaxed">{validationAnalysis.treeDesc}</p>
+                    <p className="text-xs text-slate-300 leading-relaxed">{validationAnalysis.treeDesc}</p>
 
-                    <div className="p-4 bg-white rounded-xl border border-stone-200 font-mono text-xs space-y-1">
-                      <span className="text-stone-500 font-bold block mb-1">Recursive Range Bound Check:</span>
+                    <div className="p-4 bg-slate-900/80 rounded-xl border border-slate-800 font-mono text-xs space-y-1">
+                      <span className="text-slate-400 font-bold block mb-1">Recursive Range Bound Check:</span>
                       {validationAnalysis.trace.map((step, idx) => (
-                        <div key={idx} className={step.includes("REJECTED") ? "text-red-700 font-bold" : "text-stone-700"}>
+                        <div key={idx} className={step.includes("REJECTED") ? "text-red-700 font-bold" : "text-slate-300"}>
                           &gt; {step}
                         </div>
                       ))}
@@ -1048,41 +1048,41 @@ export default function JavaTrees() {
             {/* TAB 6: SERIALIZE & DESERIALIZE */}
             {activeTab === "codec" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="border-b border-stone-100 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="border-b border-slate-800/60 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                       LeetCode 297 · Codec Architecture
                     </span>
-                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                    <h3 className="text-lg font-bold text-white tracking-tight">
                       Tree Serialization & Deserialization Engine
                     </h3>
-                    <p className="text-xs text-stone-500">
+                    <p className="text-xs text-slate-400">
                       Convert tree structures into preorder string tokens with `#` null markers, ensuring exact structure reconstruction with 2n + 1 total tokens.
                     </p>
                   </div>
 
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-stone-500">Serialized Preorder String:</span>
+                      <span className="text-xs font-mono text-slate-400">Serialized Preorder String:</span>
                       <input
                         type="text"
                         value={serializedOutput}
                         onChange={(e) => setSerializedOutput(e.target.value)}
-                        className="px-3 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded-lg font-mono flex-1"
+                        className="px-3 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded-lg font-mono flex-1"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                      <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 text-center">
-                        <div className="text-[10px] font-mono text-stone-400">Total Nodes (n)</div>
-                        <div className="text-xl font-bold font-mono text-stone-900">{deserializedStats.nodeCount}</div>
+                      <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center">
+                        <div className="text-[10px] font-mono text-slate-500">Total Nodes (n)</div>
+                        <div className="text-xl font-bold font-mono text-white">{deserializedStats.nodeCount}</div>
                       </div>
-                      <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 text-center">
-                        <div className="text-[10px] font-mono text-stone-400">Null Markers (# = n + 1)</div>
-                        <div className="text-xl font-bold font-mono text-orange-700">{deserializedStats.nullCount}</div>
+                      <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center">
+                        <div className="text-[10px] font-mono text-slate-500">Null Markers (# = n + 1)</div>
+                        <div className="text-xl font-bold font-mono text-orange-300">{deserializedStats.nullCount}</div>
                       </div>
-                      <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 text-center">
-                        <div className="text-[10px] font-mono text-stone-400">Formula Check (2n + 1)</div>
+                      <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center">
+                        <div className="text-[10px] font-mono text-slate-500">Formula Check (2n + 1)</div>
                         <div className={`text-xl font-bold font-mono ${deserializedStats.isFormulaMatch ? "text-emerald-700" : "text-amber-700"}`}>
                           {deserializedStats.tokens.length} tokens
                         </div>
@@ -1096,18 +1096,18 @@ export default function JavaTrees() {
             {/* TAB 7: 15-MCQ QUIZ */}
             {activeTab === "quiz" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="flex items-center justify-between border-b border-stone-100 pb-4">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="flex items-center justify-between border-b border-slate-800/60 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         Formal Assessment
                       </span>
-                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         Module 12 Knowledge Check (15 MCQs)
                       </h3>
                     </div>
                     {quizSubmitted && (
-                      <div className="px-4 py-1.5 bg-orange-50 border border-orange-200 rounded-xl text-xs font-mono font-bold text-orange-800">
+                      <div className="px-4 py-1.5 bg-orange-500/15 border border-orange-500/30 rounded-xl text-xs font-mono font-bold text-orange-300">
                         Score: {quizScore} / {quizData.length} ({Math.round((quizScore / quizData.length) * 100)}%)
                       </div>
                     )}
@@ -1117,18 +1117,18 @@ export default function JavaTrees() {
                     {quizData.map((q, qIdx) => {
                       const selected = quizAnswers[q.id];
                       return (
-                        <div key={q.id} className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-3">
+                        <div key={q.id} className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
                           <div className="flex items-start gap-2.5">
-                            <span className="px-2 py-0.5 bg-stone-200 text-stone-700 rounded font-mono text-xs font-bold">
+                            <span className="px-2 py-0.5 bg-slate-800 text-slate-300 rounded font-mono text-xs font-bold">
                               Q{qIdx + 1}
                             </span>
-                            <span className="text-sm font-semibold text-stone-900">{q.question}</span>
+                            <span className="text-sm font-semibold text-white">{q.question}</span>
                           </div>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-8">
                             {q.options.map((opt, optIdx) => {
                               const isPicked = selected === optIdx;
-                              let btnClass = "bg-white text-stone-700 border-stone-200 hover:bg-stone-100";
+                              let btnClass = "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950";
                               if (quizSubmitted) {
                                 if (optIdx === q.correct) btnClass = "bg-emerald-100 text-emerald-800 border-emerald-300 font-bold";
                                 else if (isPicked) btnClass = "bg-red-100 text-red-800 border-red-300";
@@ -1149,8 +1149,8 @@ export default function JavaTrees() {
                           </div>
 
                           {quizSubmitted && (
-                            <div className="pl-8 pt-1 text-xs text-stone-600">
-                              <strong className="text-stone-900">Explanation: </strong>
+                            <div className="pl-8 pt-1 text-xs text-slate-400">
+                              <strong className="text-white">Explanation: </strong>
                               {q.explanation}
                             </div>
                           )}
@@ -1159,13 +1159,13 @@ export default function JavaTrees() {
                     })}
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-stone-100">
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-800/60">
                     <button
                       onClick={() => {
                         setQuizAnswers({});
                         setQuizSubmitted(false);
                       }}
-                      className="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-xs font-semibold"
+                      className="px-4 py-2 bg-slate-950 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold"
                     >
                       Reset Quiz
                     </button>
@@ -1183,19 +1183,19 @@ export default function JavaTrees() {
             {/* TAB 8: 45 LABS & 24 LEETCODE TRACK */}
             {activeTab === "labs" && (
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
-                  <div className="border-b border-stone-100 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
+                  <div className="border-b border-slate-800/60 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                       Hands-on Practice
                     </span>
-                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
+                    <h3 className="text-lg font-bold text-white tracking-tight">
                       45 Practical Coding Assignments & 24 LeetCode Practice Tracks
                     </h3>
                   </div>
 
                   {/* LeetCode Track */}
                   <div className="space-y-4">
-                    <h4 className="text-xs font-bold text-stone-700 uppercase tracking-wider font-mono">
+                    <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">
                       Curated LeetCode Tree Progression (24 Problems)
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -1230,11 +1230,11 @@ export default function JavaTrees() {
                           href={p.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3 bg-stone-50 hover:bg-orange-50/50 rounded-xl border border-stone-200 hover:border-orange-300 transition-all flex items-center justify-between"
+                          className="p-3 bg-slate-950 hover:bg-orange-500/15/50 rounded-xl border border-slate-800 hover:border-orange-500/40 transition-all flex items-center justify-between"
                         >
                           <div>
-                            <div className="text-xs font-bold text-stone-900">{p.num}. {p.name}</div>
-                            <div className="text-[10px] text-stone-500 font-mono">{p.concept}</div>
+                            <div className="text-xs font-bold text-white">{p.num}. {p.name}</div>
+                            <div className="text-[10px] text-slate-400 font-mono">{p.concept}</div>
                           </div>
                           <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                             p.diff === "Easy" ? "bg-emerald-100 text-emerald-800" : p.diff === "Medium" ? "bg-amber-100 text-amber-800" : "bg-red-100 text-red-800"
@@ -1247,15 +1247,15 @@ export default function JavaTrees() {
                   </div>
 
                   {/* 45 Assignments Checklist */}
-                  <div className="space-y-4 pt-4 border-t border-stone-100">
-                    <h4 className="text-xs font-bold text-stone-700 uppercase tracking-wider font-mono">
+                  <div className="space-y-4 pt-4 border-t border-slate-800/60">
+                    <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">
                       Module Assignments Checklist (45 Problems)
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       {/* Beginner */}
-                      <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
-                        <span className="text-xs font-bold text-stone-800 font-mono">Assignment 1 — Beginner (1-15)</span>
-                        <div className="space-y-1.5 text-xs text-stone-700">
+                      <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
+                        <span className="text-xs font-bold text-slate-200 font-mono">Assignment 1 — Beginner (1-15)</span>
+                        <div className="space-y-1.5 text-xs text-slate-300">
                           {[
                             "1. Create binary tree manually",
                             "2. Count total number of nodes",
@@ -1278,18 +1278,18 @@ export default function JavaTrees() {
                                 type="checkbox"
                                 checked={!!completedLabs[`b_${i}`]}
                                 onChange={(e) => setCompletedLabs(c => ({ ...c, [`b_${i}`]: e.target.checked }))}
-                                className="rounded text-orange-600 focus:ring-orange-500"
+                                className="rounded text-orange-400 focus:ring-orange-500"
                               />
-                              <span className={completedLabs[`b_${i}`] ? "line-through text-stone-400" : ""}>{t}</span>
+                              <span className={completedLabs[`b_${i}`] ? "line-through text-slate-500" : ""}>{t}</span>
                             </label>
                           ))}
                         </div>
                       </div>
 
                       {/* Intermediate */}
-                      <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
-                        <span className="text-xs font-bold text-stone-800 font-mono">Assignment 2 — Intermediate (16-30)</span>
-                        <div className="space-y-1.5 text-xs text-stone-700">
+                      <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
+                        <span className="text-xs font-bold text-slate-200 font-mono">Assignment 2 — Intermediate (16-30)</span>
+                        <div className="space-y-1.5 text-xs text-slate-300">
                           {[
                             "16. Search element in BST",
                             "17. Insert element into BST",
@@ -1312,18 +1312,18 @@ export default function JavaTrees() {
                                 type="checkbox"
                                 checked={!!completedLabs[`i_${i}`]}
                                 onChange={(e) => setCompletedLabs(c => ({ ...c, [`i_${i}`]: e.target.checked }))}
-                                className="rounded text-orange-600 focus:ring-orange-500"
+                                className="rounded text-orange-400 focus:ring-orange-500"
                               />
-                              <span className={completedLabs[`i_${i}`] ? "line-through text-stone-400" : ""}>{t}</span>
+                              <span className={completedLabs[`i_${i}`] ? "line-through text-slate-500" : ""}>{t}</span>
                             </label>
                           ))}
                         </div>
                       </div>
 
                       {/* Advanced */}
-                      <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
-                        <span className="text-xs font-bold text-stone-800 font-mono">Assignment 3 — Advanced (31-45)</span>
-                        <div className="space-y-1.5 text-xs text-stone-700">
+                      <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
+                        <span className="text-xs font-bold text-slate-200 font-mono">Assignment 3 — Advanced (31-45)</span>
+                        <div className="space-y-1.5 text-xs text-slate-300">
                           {[
                             "31. Diameter of binary tree",
                             "32. Check height balanced tree",
@@ -1346,9 +1346,9 @@ export default function JavaTrees() {
                                 type="checkbox"
                                 checked={!!completedLabs[`a_${i}`]}
                                 onChange={(e) => setCompletedLabs(c => ({ ...c, [`a_${i}`]: e.target.checked }))}
-                                className="rounded text-orange-600 focus:ring-orange-500"
+                                className="rounded text-orange-400 focus:ring-orange-500"
                               />
-                              <span className={completedLabs[`a_${i}`] ? "line-through text-stone-400" : ""}>{t}</span>
+                              <span className={completedLabs[`a_${i}`] ? "line-through text-slate-500" : ""}>{t}</span>
                             </label>
                           ))}
                         </div>
@@ -1368,20 +1368,20 @@ export default function JavaTrees() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar TOC */}
             <div className="lg:col-span-1 space-y-4">
-              <div className="sticky top-20 bg-white p-4 rounded-2xl border border-[#e7e3da] shadow-2xs space-y-3">
-                <div className="flex items-center justify-between border-b border-stone-100 pb-2">
-                  <span className="text-xs font-bold font-mono uppercase text-stone-500">Curriculum TOC</span>
-                  <span className="text-[11px] font-mono text-orange-600">{JavaTreesSections.length} Chapters</span>
+              <div className="sticky top-20 bg-slate-900/80 p-4 rounded-2xl border border-slate-800 shadow-2xs space-y-3">
+                <div className="flex items-center justify-between border-b border-slate-800/60 pb-2">
+                  <span className="text-xs font-bold font-mono uppercase text-slate-400">Curriculum TOC</span>
+                  <span className="text-[11px] font-mono text-orange-400">{JavaTreesSections.length} Chapters</span>
                 </div>
 
                 <div className="relative">
-                  <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-stone-400" />
+                  <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-slate-500" />
                   <input
                     type="text"
                     value={searchFilter}
                     onChange={(e) => setSearchFilter(e.target.value)}
                     placeholder="Filter sections..."
-                    className="w-full pl-8 pr-3 py-1.5 text-xs bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:border-orange-500"
+                    className="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-950 border border-slate-800 rounded-lg focus:outline-none focus:border-orange-500"
                   />
                 </div>
 
@@ -1393,8 +1393,8 @@ export default function JavaTrees() {
                       title={sec.title}
                       className={`w-full text-left p-2 rounded-lg text-xs transition-all flex items-start justify-between ${
                         activeSection === parseInt(sec.number, 10)
-                          ? "bg-orange-50 text-orange-800 font-bold border border-orange-200"
-                          : "text-stone-600 hover:bg-stone-50"
+                          ? "bg-orange-500/15 text-orange-300 font-bold border border-orange-500/30"
+                          : "text-slate-400 hover:bg-slate-950"
                       }`}
                     >
                       <span className="break-words whitespace-normal leading-snug flex-1 pr-2">{sec.title}</span>
@@ -1411,16 +1411,16 @@ export default function JavaTrees() {
                 <div
                   key={sec.id}
                   id={`section-${idx}`}
-                  className="p-6 sm:p-8 bg-white rounded-3xl border border-[#e7e3da] shadow-2xs space-y-4 scroll-mt-20"
+                  className="p-6 sm:p-8 bg-slate-900/80 rounded-3xl border border-slate-800 shadow-2xs space-y-4 scroll-mt-20"
                 >
-                  <div className="border-b border-stone-100 pb-3 flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
+                  <div className="border-b border-slate-800/60 pb-3 flex items-center justify-between">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
                       {sec.category}
                     </span>
-                    <span className="text-xs font-mono text-stone-400">Chapter {sec.number} / 31</span>
+                    <span className="text-xs font-mono text-slate-500">Chapter {sec.number} / 31</span>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight">
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
                     {sec.title}
                   </h2>
 

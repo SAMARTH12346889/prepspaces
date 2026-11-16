@@ -580,66 +580,66 @@ export default function JavaArraysStrings() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-orange-200 selection:text-orange-900">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Top Navigation */}
       <ModuleNav track="java" currentModuleId="arrays-strings" />
 
       {/* Main Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Header Card */}
-        <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-xs space-y-4">
+        <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xs space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <button
                 onClick={goBack}
-                className="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 transition-colors inline-flex items-center gap-1.5 text-xs font-semibold"
+                className="p-2 rounded-xl bg-slate-950 hover:bg-slate-800 text-slate-300 transition-colors inline-flex items-center gap-1.5 text-xs font-semibold"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back</span>
               </button>
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
-                  <Coffee className="w-3.5 h-3.5 text-orange-600" />
+                <span className="px-3 py-1 rounded-full bg-orange-500/15 text-orange-300 text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
+                  <Coffee className="w-3.5 h-3.5 text-orange-400" />
                   Java Master Course · Module 3
                 </span>
-                <span className="text-xs font-mono text-stone-500 hidden sm:inline">
+                <span className="text-xs font-mono text-slate-400 hidden sm:inline">
                   33 In-Depth Sections · 20 MCQs · 8 Labs · 10 Assignments
                 </span>
               </div>
             </div>
 
             {/* Mode Switcher */}
-            <div className="inline-flex p-1 bg-stone-100 rounded-xl border border-stone-200">
+            <div className="inline-flex p-1 bg-slate-950 rounded-xl border border-slate-800">
               <button
                 onClick={() => setActiveTab("curriculum")}
                 className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                   activeTab === "curriculum"
-                    ? "bg-white text-stone-900 shadow-xs"
-                    : "text-stone-600 hover:text-stone-900"
+                    ? "bg-slate-900/80 text-white shadow-xs"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
-                <BookOpen className="w-4 h-4 text-orange-600" />
+                <BookOpen className="w-4 h-4 text-orange-400" />
                 <span>Specification & Blueprints</span>
               </button>
               <button
                 onClick={() => setActiveTab("workbench")}
                 className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                   activeTab === "workbench"
-                    ? "bg-white text-stone-900 shadow-xs"
-                    : "text-stone-600 hover:text-stone-900"
+                    ? "bg-slate-900/80 text-white shadow-xs"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
-                <Sparkles className="w-4 h-4 text-orange-600" />
+                <Sparkles className="w-4 h-4 text-orange-400" />
                 <span>Interactive Workbenches (7)</span>
               </button>
             </div>
           </div>
 
           <div className="space-y-2">
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Arrays, Strings & Mathematical Programming
             </h1>
-            <p className="text-stone-600 text-sm sm:text-base max-w-4xl leading-relaxed">
+            <p className="text-slate-400 text-sm sm:text-base max-w-4xl leading-relaxed">
               Master sequential collections, memory reference semantics, multidimensional matrices, String immutability, the JVM String Constant Pool, mutable StringBuilder mechanics, prime number sieves, Euclidean number theory, and foundational DSA algorithms.
             </p>
           </div>
@@ -657,9 +657,9 @@ export default function JavaArraysStrings() {
 
             {/* Sticky Table of Contents (1 col) */}
             <div className="hidden lg:block lg:col-span-1">
-              <div className="sticky top-24 bg-white rounded-2xl border border-[#e7e3da] p-5 shadow-xs space-y-4 max-h-[85vh] overflow-y-auto dark-scrollbar">
-                <div className="flex items-center gap-2 pb-3 border-b border-stone-100 font-bold text-stone-900 text-sm">
-                  <ListOrdered className="w-4 h-4 text-orange-600" />
+              <div className="sticky top-24 bg-slate-900/80 rounded-2xl border border-slate-800 p-5 shadow-xs space-y-4 max-h-[85vh] overflow-y-auto dark-scrollbar">
+                <div className="flex items-center gap-2 pb-3 border-b border-slate-800/60 font-bold text-white text-sm">
+                  <ListOrdered className="w-4 h-4 text-orange-400" />
                   <span>Module Index (33 Parts)</span>
                 </div>
                 <nav className="space-y-1 text-xs">
@@ -703,13 +703,13 @@ export default function JavaArraysStrings() {
                       key={item.id}
                       href={`#${item.id}`}
                       title={item.label}
-                      className="block px-2.5 py-1.5 rounded-lg text-stone-600 hover:text-orange-700 hover:bg-orange-50/60 transition-colors break-words whitespace-normal leading-snug"
+                      className="block px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-orange-300 hover:bg-orange-500/15/60 transition-colors break-words whitespace-normal leading-snug"
                     >
                       {item.label}
                     </a>
                   ))}
                 </nav>
-                <div className="pt-3 border-t border-stone-100">
+                <div className="pt-3 border-t border-slate-800/60">
                   <button
                     onClick={() => setActiveTab("workbench")}
                     className="w-full py-2 px-3 rounded-xl bg-orange-600 text-white text-xs font-semibold hover:bg-orange-700 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
@@ -729,7 +729,7 @@ export default function JavaArraysStrings() {
         {activeTab === "workbench" && (
           <div className="space-y-6">
             {/* Sub-tab navigation */}
-            <div className="flex flex-wrap gap-2 p-1.5 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs">
+            <div className="flex flex-wrap gap-2 p-1.5 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs">
               {[
                 { id: "array-workbench", label: "Array & References", icon: Grid },
                 { id: "search-lab", label: "Search: Linear vs Binary", icon: Search },
@@ -748,7 +748,7 @@ export default function JavaArraysStrings() {
                     className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                       isActive
                         ? "bg-orange-600 text-white shadow-xs"
-                        : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+                        : "text-slate-400 hover:text-white hover:bg-slate-950"
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -761,28 +761,28 @@ export default function JavaArraysStrings() {
             {/* 1. ARRAY MANIPULATION & REFERENCE VISUALIZER */}
             {activeWorkbenchTab === "array-workbench" && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <div className="flex items-center gap-2 pb-3 border-b border-stone-100">
-                    <Grid className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <div className="flex items-center gap-2 pb-3 border-b border-slate-800/60">
+                    <Grid className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Interactive Array Elements & Shifting</h3>
-                      <p className="text-xs text-stone-500">Inspect zero-based indexing, insert by shifting right, delete by shifting left</p>
+                      <h3 className="font-bold text-white text-base">Interactive Array Elements & Shifting</h3>
+                      <p className="text-xs text-slate-400">Inspect zero-based indexing, insert by shifting right, delete by shifting left</p>
                     </div>
                   </div>
 
                   {/* Visual Array Blocks */}
                   <div className="space-y-2">
-                    <div className="text-xs font-semibold text-stone-600">
-                      Active Array (<code className="font-mono text-orange-700">length = {arrayElements.length}</code>):
+                    <div className="text-xs font-semibold text-slate-400">
+                      Active Array (<code className="font-mono text-orange-300">length = {arrayElements.length}</code>):
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {arrayElements.map((val, idx) => (
                         <div
                           key={idx}
-                          className="flex flex-col items-center bg-stone-50 border border-stone-200 rounded-xl p-2.5 min-w-[56px] relative group"
+                          className="flex flex-col items-center bg-slate-950 border border-slate-800 rounded-xl p-2.5 min-w-[56px] relative group"
                         >
-                          <span className="text-[10px] font-mono text-stone-400 font-bold mb-1">[{idx}]</span>
-                          <span className="text-sm font-mono font-bold text-stone-900">{val}</span>
+                          <span className="text-[10px] font-mono text-slate-500 font-bold mb-1">[{idx}]</span>
+                          <span className="text-sm font-mono font-bold text-white">{val}</span>
                           <button
                             onClick={() => handleDelete(idx)}
                             className="mt-2 text-[10px] text-rose-500 hover:text-rose-700 font-semibold uppercase tracking-wider"
@@ -797,23 +797,23 @@ export default function JavaArraysStrings() {
                   {/* Controls */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2">
                     <div>
-                      <label className="text-[11px] font-semibold text-stone-600 block mb-1">Value to Insert:</label>
+                      <label className="text-[11px] font-semibold text-slate-400 block mb-1">Value to Insert:</label>
                       <input
                         type="number"
                         value={insertVal}
                         onChange={(e) => setInsertVal(e.target.value)}
-                        className="w-full px-2.5 py-1.5 rounded-lg border border-stone-300 font-mono text-xs bg-white"
+                        className="w-full px-2.5 py-1.5 rounded-lg border border-slate-700 font-mono text-xs bg-slate-900/80"
                       />
                     </div>
                     <div>
-                      <label className="text-[11px] font-semibold text-stone-600 block mb-1">At Index:</label>
+                      <label className="text-[11px] font-semibold text-slate-400 block mb-1">At Index:</label>
                       <input
                         type="number"
                         min="0"
                         max={arrayElements.length}
                         value={insertIndex}
                         onChange={(e) => setInsertIndex(e.target.value)}
-                        className="w-full px-2.5 py-1.5 rounded-lg border border-stone-300 font-mono text-xs bg-white"
+                        className="w-full px-2.5 py-1.5 rounded-lg border border-slate-700 font-mono text-xs bg-slate-900/80"
                       />
                     </div>
                     <div className="flex items-end">
@@ -828,12 +828,12 @@ export default function JavaArraysStrings() {
                 </div>
 
                 {/* Reference Semantics Panel */}
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <div className="flex items-center gap-2 pb-3 border-b border-stone-100">
-                    <Workflow className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <div className="flex items-center gap-2 pb-3 border-b border-slate-800/60">
+                    <Workflow className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Reference Aliasing vs Independent Copying</h3>
-                      <p className="text-xs text-stone-500">Understand heap memory references and method argument mutation</p>
+                      <h3 className="font-bold text-white text-base">Reference Aliasing vs Independent Copying</h3>
+                      <p className="text-xs text-slate-400">Understand heap memory references and method argument mutation</p>
                     </div>
                   </div>
 
@@ -845,7 +845,7 @@ export default function JavaArraysStrings() {
                         setCopiedArrayVal(arrayElements);
                       }}
                       className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                        aliasedRef ? "bg-orange-600 text-white shadow-xs" : "bg-stone-100 text-stone-700"
+                        aliasedRef ? "bg-orange-600 text-white shadow-xs" : "bg-slate-950 text-slate-300"
                       }`}
                     >
                       int[] b = a; (Aliased)
@@ -857,27 +857,27 @@ export default function JavaArraysStrings() {
                         setCopiedArrayVal([...arrayElements]);
                       }}
                       className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                        cloneRef ? "bg-orange-600 text-white shadow-xs" : "bg-stone-100 text-stone-700"
+                        cloneRef ? "bg-orange-600 text-white shadow-xs" : "bg-slate-950 text-slate-300"
                       }`}
                     >
                       int[] b = a.clone(); (Independent Copy)
                     </button>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-xs space-y-2">
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs space-y-2">
                     <div className="flex justify-between font-mono">
-                      <span>Variable a: <strong className="text-orange-700">[{arrayElements.join(", ")}]</strong></span>
-                      <span className="text-stone-400">@HeapRef_0x1A</span>
+                      <span>Variable a: <strong className="text-orange-300">[{arrayElements.join(", ")}]</strong></span>
+                      <span className="text-slate-500">@HeapRef_0x1A</span>
                     </div>
                     <div className="flex justify-between font-mono">
                       <span>Variable b: <strong className="text-emerald-700">[{copiedArrayVal.join(", ")}]</strong></span>
-                      <span className="text-stone-400">{aliasedRef ? "@HeapRef_0x1A (SHARED!)" : "@HeapRef_0x9B (NEW)"}</span>
+                      <span className="text-slate-500">{aliasedRef ? "@HeapRef_0x1A (SHARED!)" : "@HeapRef_0x9B (NEW)"}</span>
                     </div>
-                    <div className="pt-2 border-t border-stone-200 flex items-center justify-between">
+                    <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
                       <span>Test Action:</span>
                       <button
                         onClick={() => handleUpdateFirst(999)}
-                        className="px-2.5 py-1 rounded bg-stone-200 hover:bg-stone-300 font-mono text-[11px] font-bold text-stone-800"
+                        className="px-2.5 py-1 rounded bg-slate-800 hover:bg-stone-300 font-mono text-[11px] font-bold text-slate-200"
                       >
                         Execute: a[0] = 999;
                       </button>
@@ -906,30 +906,30 @@ System.out.println(a[0]); // Still prints 10`}</pre>
 
             {/* 2. SEARCH LAB */}
             {activeWorkbenchTab === "search-lab" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-stone-100">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800/60">
                   <div className="flex items-center gap-2">
-                    <Search className="w-5 h-5 text-orange-600" />
+                    <Search className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Search Algorithm Laboratory</h3>
-                      <p className="text-xs text-stone-500">Direct side-by-side performance comparison: Linear Search vs Binary Search</p>
+                      <h3 className="font-bold text-white text-base">Search Algorithm Laboratory</h3>
+                      <p className="text-xs text-slate-400">Direct side-by-side performance comparison: Linear Search vs Binary Search</p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <label className="text-xs font-semibold text-stone-700">Target Value:</label>
+                    <label className="text-xs font-semibold text-slate-300">Target Value:</label>
                     <input
                       type="number"
                       value={searchTarget}
                       onChange={(e) => setSearchTarget(Number(e.target.value))}
-                      className="w-24 px-2.5 py-1.5 rounded-lg border border-stone-300 font-mono text-xs bg-white"
+                      className="w-24 px-2.5 py-1.5 rounded-lg border border-slate-700 font-mono text-xs bg-slate-900/80"
                     />
                   </div>
                 </div>
 
                 {/* Visual Sorted Array */}
                 <div className="space-y-1">
-                  <div className="text-xs font-semibold text-stone-600">Sorted Dataset (Length = 10):</div>
+                  <div className="text-xs font-semibold text-slate-400">Sorted Dataset (Length = 10):</div>
                   <div className="flex flex-wrap gap-1.5 font-mono text-xs">
                     {searchDataset.map((val, idx) => (
                       <span
@@ -937,7 +937,7 @@ System.out.println(a[0]); // Still prints 10`}</pre>
                         className={`px-3 py-1.5 rounded-lg border font-bold ${
                           val === Number(searchTarget)
                             ? "bg-orange-600 text-white border-orange-700 shadow-xs"
-                            : "bg-stone-50 text-stone-700 border-stone-200"
+                            : "bg-slate-950 text-slate-300 border-slate-800"
                         }`}
                       >
                         [{idx}]: {val}
@@ -949,17 +949,17 @@ System.out.println(a[0]); // Still prints 10`}</pre>
                 {/* Comparison Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Linear Search */}
-                  <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-3">
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
                     <div className="flex items-center justify-between">
-                      <h4 className="font-bold text-stone-900 text-sm">Linear Search (Sequential)</h4>
-                      <span className="px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-stone-200 text-stone-800">
+                      <h4 className="font-bold text-white text-sm">Linear Search (Sequential)</h4>
+                      <span className="px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-slate-800 text-slate-200">
                         O(n) Worst-case
                       </span>
                     </div>
-                    <div className="text-xs text-stone-600 font-mono">
-                      Comparisons executed: <strong className="text-orange-700">{searchAnalysis.linearComparisons}</strong>
+                    <div className="text-xs text-slate-400 font-mono">
+                      Comparisons executed: <strong className="text-orange-300">{searchAnalysis.linearComparisons}</strong>
                     </div>
-                    <div className="text-xs text-stone-700">
+                    <div className="text-xs text-slate-300">
                       Result:{" "}
                       {searchAnalysis.linearFoundIdx !== -1 ? (
                         <span className="text-emerald-700 font-bold">Found at index {searchAnalysis.linearFoundIdx}</span>
@@ -976,17 +976,17 @@ return -1;`}</pre>
                   </div>
 
                   {/* Binary Search */}
-                  <div className="p-4 rounded-xl bg-orange-50/70 border border-orange-200 space-y-3">
+                  <div className="p-4 rounded-xl bg-orange-500/15/70 border border-orange-500/30 space-y-3">
                     <div className="flex items-center justify-between">
-                      <h4 className="font-bold text-stone-900 text-sm">Binary Search (Divide & Conquer)</h4>
+                      <h4 className="font-bold text-white text-sm">Binary Search (Divide & Conquer)</h4>
                       <span className="px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-orange-200 text-orange-900">
                         O(log n)
                       </span>
                     </div>
-                    <div className="text-xs text-stone-600 font-mono">
-                      Comparisons executed: <strong className="text-orange-700">{searchAnalysis.binaryComparisons}</strong>
+                    <div className="text-xs text-slate-400 font-mono">
+                      Comparisons executed: <strong className="text-orange-300">{searchAnalysis.binaryComparisons}</strong>
                     </div>
-                    <div className="text-xs text-stone-700">
+                    <div className="text-xs text-slate-300">
                       Result:{" "}
                       {searchAnalysis.binaryFoundIdx !== -1 ? (
                         <span className="text-emerald-700 font-bold">Found at index {searchAnalysis.binaryFoundIdx}</span>
@@ -996,7 +996,7 @@ return -1;`}</pre>
                     </div>
                     <div className="max-h-32 overflow-y-auto space-y-1 text-[11px] font-mono [scrollbar-width:thin]">
                       {searchAnalysis.binarySteps.map((st) => (
-                        <div key={st.step} className="p-1 rounded bg-white/80 border border-orange-200">
+                        <div key={st.step} className="p-1 rounded bg-slate-900/80 border border-orange-500/30">
                           Step {st.step}: mid={st.mid} (val={st.midVal}) &rarr; {st.action}
                         </div>
                       ))}
@@ -1008,13 +1008,13 @@ return -1;`}</pre>
 
             {/* 3. 2D MATRIX STUDIO */}
             {activeWorkbenchTab === "matrix-studio" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-stone-100">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800/60">
                   <div className="flex items-center gap-2">
-                    <Maximize2 className="w-5 h-5 text-orange-600" />
+                    <Maximize2 className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">2D Matrix Operations Studio</h3>
-                      <p className="text-xs text-stone-500">Live linear algebra: matrix addition, transposition, multiplication, and diagonal sums</p>
+                      <h3 className="font-bold text-white text-base">2D Matrix Operations Studio</h3>
+                      <p className="text-xs text-slate-400">Live linear algebra: matrix addition, transposition, multiplication, and diagonal sums</p>
                     </div>
                   </div>
 
@@ -1029,7 +1029,7 @@ return -1;`}</pre>
                         key={op.id}
                         onClick={() => setMatrixOp(op.id)}
                         className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                          matrixOp === op.id ? "bg-orange-600 text-white shadow-xs" : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                          matrixOp === op.id ? "bg-orange-600 text-white shadow-xs" : "bg-slate-950 text-slate-300 hover:bg-slate-800"
                         }`}
                       >
                         {op.label}
@@ -1040,12 +1040,12 @@ return -1;`}</pre>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                   {/* Matrix A */}
-                  <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
-                    <div className="text-xs font-bold text-stone-800">Matrix A (3 × 3)</div>
+                  <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
+                    <div className="text-xs font-bold text-slate-200">Matrix A (3 × 3)</div>
                     <div className="grid grid-cols-3 gap-1 font-mono text-center text-xs">
                       {matrixA.map((row, r) =>
                         row.map((val, c) => (
-                          <div key={`${r}-${c}`} className="p-2 bg-white rounded border border-stone-200 font-bold">
+                          <div key={`${r}-${c}`} className="p-2 bg-slate-900/80 rounded border border-slate-800 font-bold">
                             {val}
                           </div>
                         ))
@@ -1054,18 +1054,18 @@ return -1;`}</pre>
                   </div>
 
                   {/* Operation Symbol */}
-                  <div className="text-center font-extrabold text-2xl text-stone-400">
+                  <div className="text-center font-extrabold text-2xl text-slate-500">
                     {matrixOp === "add" ? "+" : matrixOp === "multiply" ? "×" : matrixOp === "transpose" ? "⇄" : "Σ"}
                   </div>
 
                   {/* Matrix B or Result */}
-                  <div className="p-4 bg-orange-50/70 rounded-xl border border-orange-200 space-y-2">
-                    <div className="text-xs font-bold text-stone-900">{matrixResult.label}</div>
+                  <div className="p-4 bg-orange-500/15/70 rounded-xl border border-orange-500/30 space-y-2">
+                    <div className="text-xs font-bold text-white">{matrixResult.label}</div>
                     {matrixResult.type === "matrix" && (
                       <div className="grid grid-cols-3 gap-1 font-mono text-center text-xs">
                         {matrixResult.data.map((row, r) =>
                           row.map((val, c) => (
-                            <div key={`${r}-${c}`} className="p-2 bg-white rounded border border-orange-200 font-bold text-orange-800">
+                            <div key={`${r}-${c}`} className="p-2 bg-slate-900/80 rounded border border-orange-500/30 font-bold text-orange-300">
                               {val}
                             </div>
                           ))
@@ -1073,9 +1073,9 @@ return -1;`}</pre>
                       </div>
                     )}
                     {matrixResult.type === "diagonals" && (
-                      <div className="p-3 bg-white rounded border border-orange-200 space-y-2 text-xs font-mono">
-                        <div>Main Diagonal Sum: <strong className="text-orange-700">{matrixResult.mainSum}</strong></div>
-                        <div>Secondary Diagonal Sum: <strong className="text-orange-700">{matrixResult.secSum}</strong></div>
+                      <div className="p-3 bg-slate-900/80 rounded border border-orange-500/30 space-y-2 text-xs font-mono">
+                        <div>Main Diagonal Sum: <strong className="text-orange-300">{matrixResult.mainSum}</strong></div>
+                        <div>Secondary Diagonal Sum: <strong className="text-orange-300">{matrixResult.secSum}</strong></div>
                       </div>
                     )}
                   </div>
@@ -1086,29 +1086,29 @@ return -1;`}</pre>
             {/* 4. STRING & MEMORY POOL LAB */}
             {activeWorkbenchTab === "string-pool" && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <div className="flex items-center gap-2 pb-3 border-b border-stone-100">
-                    <Type className="w-5 h-5 text-orange-600" />
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <div className="flex items-center gap-2 pb-3 border-b border-slate-800/60">
+                    <Type className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">JVM String Constant Pool Simulator</h3>
-                      <p className="text-xs text-stone-500">Visualizing reference comparison (==) versus content equality (.equals())</p>
+                      <h3 className="font-bold text-white text-base">JVM String Constant Pool Simulator</h3>
+                      <p className="text-xs text-slate-400">Visualizing reference comparison (==) versus content equality (.equals())</p>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2 font-mono text-xs">
-                    <div className="p-2 bg-white rounded border border-stone-200">
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 font-mono text-xs">
+                    <div className="p-2 bg-slate-900/80 rounded border border-slate-800">
                       <strong>String a = "Java";</strong> &rarr; {stringPoolAnalysis.literalA}
                     </div>
-                    <div className="p-2 bg-white rounded border border-stone-200">
+                    <div className="p-2 bg-slate-900/80 rounded border border-slate-800">
                       <strong>String b = "Java";</strong> &rarr; {stringPoolAnalysis.literalB}
                     </div>
-                    <div className="p-2 bg-white rounded border border-stone-200">
+                    <div className="p-2 bg-slate-900/80 rounded border border-slate-800">
                       <strong>String c = new String("Java");</strong> &rarr; {stringPoolAnalysis.heapObj}
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-orange-50 border border-orange-200 space-y-1 font-mono text-xs">
-                    <div className="font-bold text-stone-900 pb-1 border-b border-orange-200">Evaluation Truth Table:</div>
+                  <div className="p-4 rounded-xl bg-orange-500/15 border border-orange-500/30 space-y-1 font-mono text-xs">
+                    <div className="font-bold text-white pb-1 border-b border-orange-500/30">Evaluation Truth Table:</div>
                     <div className="text-emerald-800">{stringPoolAnalysis.eqReference1}</div>
                     <div className="text-rose-700">{stringPoolAnalysis.eqReference2}</div>
                     <div className="text-emerald-800">{stringPoolAnalysis.eqContent}</div>
@@ -1116,8 +1116,8 @@ return -1;`}</pre>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-4">
-                  <h4 className="font-bold text-stone-900 text-sm">StringBuilder vs String Concatenation</h4>
+                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-4">
+                  <h4 className="font-bold text-white text-sm">StringBuilder vs String Concatenation</h4>
                   <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
                     <pre>{`// ANTIPATTERN: O(n²) string copy overhead in loops
 String s = "";
@@ -1132,8 +1132,8 @@ for (int i = 0; i < 1000; i++) {
 }
 String result = sb.toString();`}</pre>
                   </div>
-                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-700 space-y-1">
-                    <span className="font-bold text-stone-900">Synchronization Note:</span>
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-1">
+                    <span className="font-bold text-white">Synchronization Note:</span>
                     <p className="leading-relaxed">
                       Use <code>StringBuilder</code> for high performance in thread-confined local operations. Use <code>StringBuffer</code> only when concurrent threads mutate the same shared character sequence.
                     </p>
@@ -1144,13 +1144,13 @@ String result = sb.toString();`}</pre>
 
             {/* 5. DSA FOUNDATIONS & MATH TOOLKIT */}
             {activeWorkbenchTab === "dsa-math" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-xs space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-stone-100">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-xs space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800/60">
                   <div className="flex items-center gap-2">
-                    <Calculator className="w-5 h-5 text-orange-600" />
+                    <Calculator className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">DSA Foundations & Number Theory Studio</h3>
-                      <p className="text-xs text-stone-500">Interactive Sieve of Eratosthenes, Euclidean GCD/LCM, Modular Power, and Prefix Sums</p>
+                      <h3 className="font-bold text-white text-base">DSA Foundations & Number Theory Studio</h3>
+                      <p className="text-xs text-slate-400">Interactive Sieve of Eratosthenes, Euclidean GCD/LCM, Modular Power, and Prefix Sums</p>
                     </div>
                   </div>
 
@@ -1165,7 +1165,7 @@ String result = sb.toString();`}</pre>
                         key={tool.id}
                         onClick={() => setDsaTool(tool.id)}
                         className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                          dsaTool === tool.id ? "bg-orange-600 text-white shadow-xs" : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                          dsaTool === tool.id ? "bg-orange-600 text-white shadow-xs" : "bg-slate-950 text-slate-300 hover:bg-slate-800"
                         }`}
                       >
                         {tool.label}
@@ -1178,7 +1178,7 @@ String result = sb.toString();`}</pre>
                 {dsaTool === "sieve" && (
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <label className="text-xs font-semibold text-stone-700">Upper Limit N (2 to 50):</label>
+                      <label className="text-xs font-semibold text-slate-300">Upper Limit N (2 to 50):</label>
                       <input
                         type="range"
                         min="10"
@@ -1187,7 +1187,7 @@ String result = sb.toString();`}</pre>
                         onChange={(e) => setSieveLimit(Number(e.target.value))}
                         className="accent-orange-600"
                       />
-                      <span className="font-mono text-xs font-bold text-orange-700">{sieveLimit}</span>
+                      <span className="font-mono text-xs font-bold text-orange-300">{sieveLimit}</span>
                     </div>
 
                     <div className="flex flex-wrap gap-1.5 font-mono text-xs">
@@ -1199,7 +1199,7 @@ String result = sb.toString();`}</pre>
                             className={`w-9 h-9 flex items-center justify-center rounded-lg border font-bold ${
                               isPrime
                                 ? "bg-emerald-100 text-emerald-950 border-emerald-300 shadow-2xs"
-                                : "bg-stone-100 text-stone-400 border-stone-200 line-through"
+                                : "bg-slate-950 text-slate-500 border-slate-800 line-through"
                             }`}
                           >
                             {num}
@@ -1207,7 +1207,7 @@ String result = sb.toString();`}</pre>
                         );
                       })}
                     </div>
-                    <div className="text-xs text-stone-600 font-mono">
+                    <div className="text-xs text-slate-400 font-mono">
                       Primes up to {sievePrimes.lim}: <strong className="text-emerald-800">{sievePrimes.primes.join(", ")}</strong>
                     </div>
                   </div>
@@ -1218,29 +1218,29 @@ String result = sb.toString();`}</pre>
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="text-xs font-semibold text-stone-700 block mb-1">Number A:</label>
+                        <label className="text-xs font-semibold text-slate-300 block mb-1">Number A:</label>
                         <input
                           type="number"
                           value={mathA}
                           onChange={(e) => setMathA(e.target.value)}
-                          className="w-full px-3 py-2 rounded-lg border border-stone-300 font-mono text-sm bg-white"
+                          className="w-full px-3 py-2 rounded-lg border border-slate-700 font-mono text-sm bg-slate-900/80"
                         />
                       </div>
                       <div>
-                        <label className="text-xs font-semibold text-stone-700 block mb-1">Number B:</label>
+                        <label className="text-xs font-semibold text-slate-300 block mb-1">Number B:</label>
                         <input
                           type="number"
                           value={mathB}
                           onChange={(e) => setMathB(e.target.value)}
-                          className="w-full px-3 py-2 rounded-lg border border-stone-300 font-mono text-sm bg-white"
+                          className="w-full px-3 py-2 rounded-lg border border-slate-700 font-mono text-sm bg-slate-900/80"
                         />
                       </div>
                     </div>
-                    <div className="p-4 bg-orange-50 border border-orange-200 rounded-xl space-y-2 text-xs font-mono">
-                      <div className="text-stone-900 font-bold text-sm">
-                        GCD({mathA}, {mathB}) = <span className="text-orange-700">{euclidResult.gcd}</span> | LCM({mathA}, {mathB}) = <span className="text-orange-700">{euclidResult.lcm}</span>
+                    <div className="p-4 bg-orange-500/15 border border-orange-500/30 rounded-xl space-y-2 text-xs font-mono">
+                      <div className="text-white font-bold text-sm">
+                        GCD({mathA}, {mathB}) = <span className="text-orange-300">{euclidResult.gcd}</span> | LCM({mathA}, {mathB}) = <span className="text-orange-300">{euclidResult.lcm}</span>
                       </div>
-                      <div className="space-y-1 text-stone-600">
+                      <div className="space-y-1 text-slate-400">
                         {euclidResult.steps.map((st, i) => (
                           <div key={i}>&gt; {st}</div>
                         ))}
@@ -1254,30 +1254,30 @@ String result = sb.toString();`}</pre>
                   <div className="space-y-4">
                     <div className="grid grid-cols-3 gap-3">
                       <div>
-                        <label className="text-xs font-semibold text-stone-700 block mb-1">Base:</label>
+                        <label className="text-xs font-semibold text-slate-300 block mb-1">Base:</label>
                         <input
                           type="number"
                           value={baseExp}
                           onChange={(e) => setBaseExp(e.target.value)}
-                          className="w-full px-2.5 py-1.5 rounded-lg border border-stone-300 font-mono text-xs bg-white"
+                          className="w-full px-2.5 py-1.5 rounded-lg border border-slate-700 font-mono text-xs bg-slate-900/80"
                         />
                       </div>
                       <div>
-                        <label className="text-xs font-semibold text-stone-700 block mb-1">Exponent:</label>
+                        <label className="text-xs font-semibold text-slate-300 block mb-1">Exponent:</label>
                         <input
                           type="number"
                           value={powerExp}
                           onChange={(e) => setPowerExp(e.target.value)}
-                          className="w-full px-2.5 py-1.5 rounded-lg border border-stone-300 font-mono text-xs bg-white"
+                          className="w-full px-2.5 py-1.5 rounded-lg border border-slate-700 font-mono text-xs bg-slate-900/80"
                         />
                       </div>
                       <div>
-                        <label className="text-xs font-semibold text-stone-700 block mb-1">Modulus (M):</label>
+                        <label className="text-xs font-semibold text-slate-300 block mb-1">Modulus (M):</label>
                         <input
                           type="number"
                           value={modVal}
                           onChange={(e) => setModVal(e.target.value)}
-                          className="w-full px-2.5 py-1.5 rounded-lg border border-stone-300 font-mono text-xs bg-white"
+                          className="w-full px-2.5 py-1.5 rounded-lg border border-slate-700 font-mono text-xs bg-slate-900/80"
                         />
                       </div>
                     </div>
@@ -1285,7 +1285,7 @@ String result = sb.toString();`}</pre>
                       <div>
                         Result: ({baseExp}^{powerExp}) % {modVal} = <strong className="text-orange-400 text-sm">{modPowerResult.result}</strong>
                       </div>
-                      <div className="text-[11px] text-stone-400 space-y-1">
+                      <div className="text-[11px] text-slate-500 space-y-1">
                         {modPowerResult.steps.map((st, i) => (
                           <div key={i}>{st}</div>
                         ))}
@@ -1297,36 +1297,36 @@ String result = sb.toString();`}</pre>
                 {/* Prefix Sum Queries */}
                 {dsaTool === "prefix-sum" && (
                   <div className="space-y-4">
-                    <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 text-xs font-mono space-y-1">
-                      <div>Raw Array: <span className="font-bold text-stone-800">[{prefixRaw.join(", ")}]</span></div>
-                      <div>Prefix Sum: <span className="font-bold text-orange-700">[{prefixArray.join(", ")}]</span></div>
+                    <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs font-mono space-y-1">
+                      <div>Raw Array: <span className="font-bold text-slate-200">[{prefixRaw.join(", ")}]</span></div>
+                      <div>Prefix Sum: <span className="font-bold text-orange-300">[{prefixArray.join(", ")}]</span></div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="text-xs font-semibold text-stone-700 block mb-1">Query Left Index (L):</label>
+                        <label className="text-xs font-semibold text-slate-300 block mb-1">Query Left Index (L):</label>
                         <input
                           type="number"
                           min="0"
                           max={prefixRaw.length - 1}
                           value={queryL}
                           onChange={(e) => setQueryL(e.target.value)}
-                          className="w-full px-2.5 py-1.5 rounded-lg border border-stone-300 font-mono text-xs bg-white"
+                          className="w-full px-2.5 py-1.5 rounded-lg border border-slate-700 font-mono text-xs bg-slate-900/80"
                         />
                       </div>
                       <div>
-                        <label className="text-xs font-semibold text-stone-700 block mb-1">Query Right Index (R):</label>
+                        <label className="text-xs font-semibold text-slate-300 block mb-1">Query Right Index (R):</label>
                         <input
                           type="number"
                           min="0"
                           max={prefixRaw.length - 1}
                           value={queryR}
                           onChange={(e) => setQueryR(e.target.value)}
-                          className="w-full px-2.5 py-1.5 rounded-lg border border-stone-300 font-mono text-xs bg-white"
+                          className="w-full px-2.5 py-1.5 rounded-lg border border-slate-700 font-mono text-xs bg-slate-900/80"
                         />
                       </div>
                     </div>
-                    <div className="p-4 bg-orange-50 rounded-xl border border-orange-200 text-xs font-mono">
-                      Sum of elements from index {rangeSumResult.l} to {rangeSumResult.r} = <strong className="text-orange-800 text-base">{rangeSumResult.sum}</strong> (Computed in O(1) via <code>prefix[{rangeSumResult.r}] - prefix[{rangeSumResult.l - 1}]</code>)
+                    <div className="p-4 bg-orange-500/15 rounded-xl border border-orange-500/30 text-xs font-mono">
+                      Sum of elements from index {rangeSumResult.l} to {rangeSumResult.r} = <strong className="text-orange-300 text-base">{rangeSumResult.sum}</strong> (Computed in O(1) via <code>prefix[{rangeSumResult.r}] - prefix[{rangeSumResult.l - 1}]</code>)
                     </div>
                   </div>
                 )}
@@ -1335,18 +1335,18 @@ String result = sb.toString();`}</pre>
 
             {/* 6. ASSESSMENT QUIZ (20 MCQs) */}
             {activeWorkbenchTab === "quiz" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-xs space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-stone-100">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800/60">
                   <div className="flex items-center gap-2">
-                    <HelpCircle className="w-5 h-5 text-orange-600" />
+                    <HelpCircle className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Module 3 Comprehensive Assessment (20 MCQs)</h3>
-                      <p className="text-xs text-stone-500">Official textbook review questions from Section 27 Part A</p>
+                      <h3 className="font-bold text-white text-base">Module 3 Comprehensive Assessment (20 MCQs)</h3>
+                      <p className="text-xs text-slate-400">Official textbook review questions from Section 27 Part A</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="text-xs font-mono font-bold text-stone-600">
-                      Score: <span className="text-orange-600 text-sm">{scoreCount}</span> / {quizQuestions.length}
+                    <div className="text-xs font-mono font-bold text-slate-400">
+                      Score: <span className="text-orange-400 text-sm">{scoreCount}</span> / {quizQuestions.length}
                     </div>
                     <button
                       onClick={() => setShowResults(!showResults)}
@@ -1372,17 +1372,17 @@ String result = sb.toString();`}</pre>
                               ? "bg-emerald-50/50 border-emerald-300"
                               : "bg-rose-50/50 border-rose-300"
                             : isAnswered
-                            ? "bg-stone-50 border-stone-200"
-                            : "bg-white border-[#e7e3da]"
+                            ? "bg-slate-950 border-slate-800"
+                            : "bg-slate-900/80 border-slate-800"
                         }`}
                       >
-                        <h4 className="font-bold text-stone-900 text-sm mb-3">{q.question}</h4>
+                        <h4 className="font-bold text-white text-sm mb-3">{q.question}</h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
                           {q.options.map((opt, oIdx) => {
                             const isThisSelected = selected === oIdx;
                             const isThisCorrect = q.correctIndex === oIdx;
 
-                            let btnStyle = "bg-white border-stone-200 text-stone-700 hover:bg-stone-50";
+                            let btnStyle = "bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-950";
                             if (showResults) {
                               if (isThisCorrect) {
                                 btnStyle = "bg-emerald-100 border-emerald-400 text-emerald-950 font-bold";
@@ -1406,8 +1406,8 @@ String result = sb.toString();`}</pre>
                           })}
                         </div>
                         {showResults && (
-                          <div className="pt-2 border-t border-stone-200/60 text-xs text-stone-600">
-                            <span className="font-bold text-stone-900">Explanation:</span> {q.explanation}
+                          <div className="pt-2 border-t border-slate-800/60 text-xs text-slate-400">
+                            <span className="font-bold text-white">Explanation:</span> {q.explanation}
                           </div>
                         )}
                       </div>
@@ -1419,17 +1419,17 @@ String result = sb.toString();`}</pre>
 
             {/* 7. LABS & ASSIGNMENTS TRACKER */}
             {activeWorkbenchTab === "labs" && (
-              <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 sm:p-8 shadow-xs space-y-6">
-                <div className="flex items-center justify-between pb-4 border-b border-stone-100">
+              <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
+                <div className="flex items-center justify-between pb-4 border-b border-slate-800/60">
                   <div className="flex items-center gap-2">
-                    <CheckSquare className="w-5 h-5 text-orange-600" />
+                    <CheckSquare className="w-5 h-5 text-orange-400" />
                     <div>
-                      <h3 className="font-bold text-stone-900 text-base">Practical Labs & Assignments Checklist</h3>
-                      <p className="text-xs text-stone-500">Track completion of all 8 laboratory exercises and 10 independent challenges</p>
+                      <h3 className="font-bold text-white text-base">Practical Labs & Assignments Checklist</h3>
+                      <p className="text-xs text-slate-400">Track completion of all 8 laboratory exercises and 10 independent challenges</p>
                     </div>
                   </div>
-                  <div className="text-xs font-mono font-bold text-stone-600">
-                    Completed: <span className="text-orange-600">{Object.values(completedLabs).filter(Boolean).length}</span> / {labList.length}
+                  <div className="text-xs font-mono font-bold text-slate-400">
+                    Completed: <span className="text-orange-400">{Object.values(completedLabs).filter(Boolean).length}</span> / {labList.length}
                   </div>
                 </div>
 
@@ -1443,18 +1443,18 @@ String result = sb.toString();`}</pre>
                         className={`p-4 rounded-xl border cursor-pointer transition-all ${
                           isDone
                             ? "bg-emerald-50/50 border-emerald-300"
-                            : "bg-white border-stone-200 hover:border-stone-300"
+                            : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
                         }`}
                       >
                         <div className="flex items-start gap-3">
                           <button
                             type="button"
-                            className="mt-0.5 text-stone-400 hover:text-stone-600 focus:outline-none"
+                            className="mt-0.5 text-slate-500 hover:text-slate-400 focus:outline-none"
                           >
                             {isDone ? (
                               <CheckSquare className="w-4 h-4 text-emerald-600" />
                             ) : (
-                              <Square className="w-4 h-4 text-stone-400" />
+                              <Square className="w-4 h-4 text-slate-500" />
                             )}
                           </button>
                           <div className="space-y-1">
@@ -1462,17 +1462,17 @@ String result = sb.toString();`}</pre>
                               <span
                                 className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                   lab.type === "Lab"
-                                    ? "bg-orange-100 text-orange-800"
-                                    : "bg-stone-100 text-stone-700"
+                                    ? "bg-orange-500/15 text-orange-300"
+                                    : "bg-slate-950 text-slate-300"
                                 }`}
                               >
                                 {lab.type}
                               </span>
-                              <h4 className={`text-xs font-bold ${isDone ? "text-stone-500 line-through" : "text-stone-900"}`}>
+                              <h4 className={`text-xs font-bold ${isDone ? "text-slate-400 line-through" : "text-white"}`}>
                                 {lab.title}
                               </h4>
                             </div>
-                            <p className="text-xs text-stone-600 leading-relaxed">{lab.goal}</p>
+                            <p className="text-xs text-slate-400 leading-relaxed">{lab.goal}</p>
                           </div>
                         </div>
                       </div>

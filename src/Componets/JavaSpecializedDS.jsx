@@ -791,7 +791,7 @@ export default function JavaSpecializedDS() {
               onClick={() => setActiveTab("workbench")}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                 activeTab === "workbench"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
                   : "text-slate-400 hover:text-slate-200"
               }`}
             >
@@ -802,7 +802,7 @@ export default function JavaSpecializedDS() {
               onClick={() => setActiveTab("reader")}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                 activeTab === "reader"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
                   : "text-slate-400 hover:text-slate-200"
               }`}
             >
@@ -813,7 +813,7 @@ export default function JavaSpecializedDS() {
               onClick={() => setActiveTab("quiz")}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                 activeTab === "quiz"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
                   : "text-slate-400 hover:text-slate-200"
               }`}
             >
@@ -824,7 +824,7 @@ export default function JavaSpecializedDS() {
               onClick={() => setActiveTab("labs")}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                 activeTab === "labs"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
                   : "text-slate-400 hover:text-slate-200"
               }`}
             >
@@ -914,7 +914,7 @@ export default function JavaSpecializedDS() {
                         />
                         <button
                           onClick={handleTrieInsert}
-                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
+                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
                         >
                           Insert
                         </button>
@@ -946,7 +946,7 @@ export default function JavaSpecializedDS() {
                         </button>
                         <button
                           onClick={handleTrieAutocomplete}
-                          className="px-2 py-1.5 rounded-lg bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-medium"
+                          className="px-2 py-1.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white text-xs font-medium"
                         >
                           autocomplete(p)
                         </button>
@@ -1088,7 +1088,7 @@ export default function JavaSpecializedDS() {
                         />
                         <button
                           onClick={handleWildcardSearch}
-                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
+                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
                         >
                           DFS Search
                         </button>
@@ -1237,7 +1237,7 @@ export default function JavaSpecializedDS() {
 
                       <button
                         onClick={handleDsuUnion}
-                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
+                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
                       >
                         Execute union(u, v)
                       </button>
@@ -1368,7 +1368,7 @@ export default function JavaSpecializedDS() {
                       <button
                         onClick={handleCycleStepForward}
                         disabled={cycleStep >= cycleEdges.length}
-                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-600 text-white text-xs font-semibold transition-all"
+                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 disabled:bg-slate-800 disabled:text-slate-600 text-white text-xs font-semibold transition-all"
                       >
                         {cycleStep >= cycleEdges.length ? "All Edges Processed" : `Process Next Edge: [${cycleEdges[cycleStep][0]}, ${cycleEdges[cycleStep][1]}]`}
                       </button>
@@ -1491,7 +1491,7 @@ export default function JavaSpecializedDS() {
 
                       <button
                         onClick={handleSegQuery}
-                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
+                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
                       >
                         Query Range [{segQueryL}, {segQueryR}]
                       </button>
@@ -1642,7 +1642,7 @@ export default function JavaSpecializedDS() {
                         />
                         <button
                           onClick={handleBitQuery}
-                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
+                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
                         >
                           Query Sum(1..i)
                         </button>
@@ -1749,7 +1749,7 @@ export default function JavaSpecializedDS() {
 
                       <button
                         onClick={handleSparseQuery}
-                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
+                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
                       >
                         Compute O(1) Minimum
                       </button>
@@ -1845,7 +1845,7 @@ export default function JavaSpecializedDS() {
                         onClick={() => setDecisionProblem(key)}
                         className={`px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                           decisionProblem === key
-                            ? "bg-emerald-600 text-white font-bold shadow-lg shadow-emerald-600/30 scale-105"
+                            ? "bg-orange-500 text-white font-bold shadow-lg shadow-orange-500/25 scale-105"
                             : "bg-slate-950 hover:bg-slate-850 text-slate-300 border border-slate-800"
                         }`}
                       >
@@ -1936,7 +1936,7 @@ export default function JavaSpecializedDS() {
                         title={sec.title}
                         className={`w-full text-left p-2.5 rounded-xl text-xs transition-all flex items-start gap-2.5 ${
                           isActive
-                            ? "bg-emerald-600 text-white font-medium shadow-md shadow-emerald-600/20"
+                            ? "bg-orange-500 text-white font-medium shadow-md shadow-orange-500/20"
                             : isDone
                             ? "bg-slate-950/70 text-slate-300 hover:bg-slate-850"
                             : "bg-slate-950 text-slate-400 hover:bg-slate-850 hover:text-slate-200"
@@ -2031,7 +2031,7 @@ export default function JavaSpecializedDS() {
                       <button
                         disabled={currentSec.id >= JAVA_SPECIALIZED_DS_SECTIONS.length - 1}
                         onClick={() => setActiveSectionId(Math.min(JAVA_SPECIALIZED_DS_SECTIONS.length - 1, currentSec.id + 1))}
-                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40 text-xs text-white font-semibold flex items-center gap-2"
+                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-orange-600 disabled:opacity-40 text-xs text-white font-semibold flex items-center gap-2"
                       >
                         Next Section <ArrowRight className="w-4 h-4" />
                       </button>
@@ -2073,7 +2073,7 @@ export default function JavaSpecializedDS() {
                   <button
                     onClick={() => setShowQuizResults(true)}
                     disabled={Object.keys(userAnswers).length === 0}
-                    className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-600 text-xs font-bold text-white transition-all shadow-lg shadow-emerald-600/30"
+                    className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-orange-600 disabled:bg-slate-800 disabled:text-slate-600 text-xs font-bold text-white transition-all shadow-lg shadow-orange-500/25"
                   >
                     Submit Assessment ({Object.keys(userAnswers).length}/15 Answered)
                   </button>
@@ -2144,7 +2144,7 @@ export default function JavaSpecializedDS() {
                                 btnStyle = "bg-slate-950/50 border-slate-850 text-slate-500";
                               }
                             } else if (isThisOption) {
-                              btnStyle = "bg-emerald-600/30 border-emerald-500 text-emerald-200 font-semibold";
+                              btnStyle = "bg-orange-500/20 border-orange-500 text-orange-200 font-semibold";
                             }
 
                             return (
@@ -2202,7 +2202,7 @@ export default function JavaSpecializedDS() {
                     onClick={() => setLabTierFilter(tier)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                       labTierFilter === tier
-                        ? "bg-emerald-600 text-white font-bold"
+                        ? "bg-orange-500 text-white font-bold"
                         : "bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800"
                     }`}
                   >
