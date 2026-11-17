@@ -130,5 +130,25 @@
       </nav>
     </noscript>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener('vite:preloadError', function(e) {
+        e.preventDefault();
+        var k = 'chunk_reload_' + Math.floor(Date.now() / 60000);
+        if (!sessionStorage.getItem(k)) {
+          sessionStorage.setItem(k, '1');
+          window.location.reload();
+        }
+      });
+      window.addEventListener('error', function(e) {
+        var m = (e && e.message) ? e.message.toLowerCase() : '';
+        if (m.includes('failed to fetch dynamically imported module') || m.includes('loading chunk')) {
+          var k = 'chunk_reload_' + Math.floor(Date.now() / 60000);
+          if (!sessionStorage.getItem(k)) {
+            sessionStorage.setItem(k, '1');
+            window.location.reload();
+          }
+        }
+      });
+    </script>
   </body>
 </html>
