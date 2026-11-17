@@ -117,6 +117,18 @@ const routeMeta = {
     keywords: "Pandas Course, Learn Pandas, Series vs DataFrame, Data Cleaning, Missing Value Imputation, Pandas GroupBy, Relational Merge, Pivot Tables, Large Dataset Processing, IQR Outliers, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/pandas`,
   },
+  "/learning/machine-learning/eda": {
+    title: "Module 4: Exploratory Data Analysis & Visualization | PrepSpaces",
+    description: "Master exploratory data analysis for machine learning: 9-step EDA methodology, univariate distribution shapes, skewness, bivariate scatter regressions, Pearson vs Spearman correlation matrices, FacetGrids, Matplotlib & Seaborn, IQR vs Z-score outlier detection, and leakage prevention.",
+    keywords: "Exploratory Data Analysis Course, EDA Machine Learning, Seaborn, Matplotlib, Pearson Correlation, Spearman Rank, Skewness, Kurtosis, IQR Outliers, Z-Score Outlier, LOWESS Regression, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/eda`,
+  },
+  "/courses/machine-learning/eda": {
+    title: "Module 4: Exploratory Data Analysis & Visualization | PrepSpaces",
+    description: "Master exploratory data analysis for machine learning: 9-step EDA methodology, univariate distribution shapes, skewness, bivariate scatter regressions, Pearson vs Spearman correlation matrices, FacetGrids, Matplotlib & Seaborn, IQR vs Z-score outlier detection, and leakage prevention.",
+    keywords: "Exploratory Data Analysis Course, EDA Machine Learning, Seaborn, Matplotlib, Pearson Correlation, Spearman Rank, Skewness, Kurtosis, IQR Outliers, Z-Score Outlier, LOWESS Regression, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/eda`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

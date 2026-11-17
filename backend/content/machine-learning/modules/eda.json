@@ -1,0 +1,130 @@
+{
+  "id": "eda",
+  "courseId": "machine-learning",
+  "index": 4,
+  "name": "4. Exploratory Data Analysis & Visualization",
+  "route": "/learning/machine-learning/eda",
+  "componentName": "MachineLearningEda",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of Exploratory Data Analysis?",
+      "options": [
+        "Train a neural network",
+        "Understand distributions, patterns and relationships in data",
+        "Deploy a machine learning model",
+        "Automatically remove all outliers"
+      ],
+      "correctIndex": 1,
+      "explanation": "EDA uses statistical summaries and graphical representations to understand data structure, test hypotheses, spot anomalies, and check modeling assumptions."
+    },
+    {
+      "id": 2,
+      "question": "Which chart is most appropriate for examining the distribution of a numerical variable?",
+      "options": [
+        "Pie chart",
+        "Histogram",
+        "Heatmap",
+        "Line chart"
+      ],
+      "correctIndex": 1,
+      "explanation": "A histogram groups continuous numerical values into intervals (bins) and displays the count or density, exposing distribution shape and spread."
+    },
+    {
+      "id": 3,
+      "question": "Which analysis investigates one variable at a time?",
+      "options": [
+        "Bivariate analysis",
+        "Multivariate analysis",
+        "Univariate analysis",
+        "Correlation analysis"
+      ],
+      "correctIndex": 2,
+      "explanation": "Univariate analysis evaluates single features in isolation, examining central tendency, dispersion, and frequencies without modeling pairwise interactions."
+    },
+    {
+      "id": 4,
+      "question": "What does positive skewness usually indicate?",
+      "options": [
+        "A longer left tail",
+        "A longer right tail",
+        "A perfectly symmetric distribution",
+        "No variation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Positive (right) skewness has an elongated right tail where a small number of extreme high values pulls the arithmetic mean above the median."
+    },
+    {
+      "id": 5,
+      "question": "Which plot is commonly used to investigate relationships between two numerical variables?",
+      "options": [
+        "Scatter plot",
+        "Pie chart",
+        "Count plot",
+        "Stacked bar chart"
+      ],
+      "correctIndex": 0,
+      "explanation": "A scatter plot plots individual observations on Cartesian (X, Y) coordinates, revealing linear trends, non-linear curves, or clustering."
+    },
+    {
+      "id": 6,
+      "question": "What is the range of Pearson's correlation coefficient?",
+      "options": [
+        "0 to 100",
+        "-10 to +10",
+        "-1 to +1",
+        "0 to infinity"
+      ],
+      "correctIndex": 2,
+      "explanation": "Pearson's correlation coefficient r measures linear association and is bounded strictly between -1.0 (perfect negative) and +1.0 (perfect positive)."
+    },
+    {
+      "id": 7,
+      "question": "Which correlation method is rank-based and suitable for investigating monotonic relationships?",
+      "options": [
+        "Pearson",
+        "Spearman",
+        "Covariance only",
+        "Min-Max"
+      ],
+      "correctIndex": 1,
+      "explanation": "Spearman rank correlation calculates correlation on ranked values, making it robust against non-linear scaling and heavy-tailed outliers."
+    },
+    {
+      "id": 8,
+      "question": "What does a heatmap commonly represent in feature analysis?",
+      "options": [
+        "Only the dataset size",
+        "A visual representation of numerical values such as correlations",
+        "Only missing-value records",
+        "The model's training duration"
+      ],
+      "correctIndex": 1,
+      "explanation": "Heatmaps map matrix values (such as pairwise correlations or cross-tabulations) to a color gradient, enabling fast visual detection of collinear features."
+    },
+    {
+      "id": 9,
+      "question": "What is the standard IQR upper outlier boundary?",
+      "options": [
+        "Q3 + 1.5 × IQR",
+        "Q1 - 1.5 × IQR",
+        "Mean + 1 standard deviation",
+        "Median × 2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Under Tukey's box plot rule, the upper fence boundary is Q3 + 1.5 * IQR. Points beyond this threshold are flagged as potential outliers."
+    },
+    {
+      "id": 10,
+      "question": "Why should correlation not automatically be interpreted as causation?",
+      "options": [
+        "Correlation always equals zero",
+        "A third variable or other mechanism may explain the association",
+        "Correlation only works with text",
+        "It always indicates measurement error"
+      ],
+      "correctIndex": 1,
+      "explanation": "Confounding variables, reverse causality, selection bias, or coincidental time trends can produce high correlation without one variable causing the other."
+    }
+  ]
+}

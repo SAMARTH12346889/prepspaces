@@ -31,5 +31,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "eda",
+    "courseId": "machine-learning",
+    "index": 4,
+    "name": "4. Exploratory Data Analysis & Visualization",
+    "route": "/learning/machine-learning/eda",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
