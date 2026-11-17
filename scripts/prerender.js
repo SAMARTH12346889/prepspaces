@@ -144,6 +144,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
 
   const isBlockchain = route.includes("blockchain");
   const isDataEngineering = route.includes("data-engineering");
+  const isMachineLearning = route.includes("machine-learning") || route.includes("/ml");
   const courseJsonLdObj = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -193,6 +194,20 @@ for (const [route, meta] of Object.entries(routeMeta)) {
       "Data warehouses, data lakes, and modern lakehouses (Delta Lake, Apache Iceberg)",
       "Data quality dimensions: accuracy, completeness, consistency, validity, uniqueness, timeliness",
       "Hands-on data pipeline implementation in Python and Pandas"
+    ];
+  }
+
+  if (isMachineLearning) {
+    courseJsonLdObj.courseCode = "ML-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Machine learning development environment and repeatable workflows",
+      "Local Jupyter, Google Colab, and project directory structure",
+      "Dataset formats: CSV, JSON, and Apache Parquet",
+      "Scikit-learn architecture: Estimators, Transformers, Predictors, and Pipelines",
+      "NumPy ndarray architecture, memory buffers, and strides",
+      "Vectorization, broadcasting mechanics, and matrix multiplication",
+      "Linear algebra with np.linalg and ML loss/activation formulas",
+      "Reproducible experimentation, random seed control, and model serialization"
     ];
   }
 
@@ -283,6 +298,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   const isGenAiCourse = route === "/courses/generative-ai" || route === "/learning/ai/generative-ai";
   const isDataEngineeringCourse = route === "/courses/data-engineering" || route === "/learning/data-engineering";
   const isBlockchainCourse = route === "/courses/blockchain" || route === "/learning/blockchain";
+  const isMachineLearningCourse = route === "/courses/machine-learning" || route === "/learning/machine-learning";
   let semanticContent = "";
 
   if (isDataEngineeringCourse) {
@@ -423,6 +439,42 @@ for (const [route, meta] of Object.entries(routeMeta)) {
 
             <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
               <a href="/learning/blockchain/intro" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Start Learning Blockchain &rarr;</a>
+              <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">All Curriculum Tracks &rarr;</a>
+              <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">PrepSpaces Home</a>
+            </nav>
+          </main>
+        </div>
+      </div>`;
+  } else if (isMachineLearningCourse) {
+    semanticContent = `<div id="root">
+        <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+          <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
+            <a href="/" style="color: #ea580c; text-decoration: none; font-weight: 600;">Home</a> &rarr; 
+            <a href="/learning" style="color: #ea580c; text-decoration: none; font-weight: 600;">Curriculum</a> &rarr; 
+            <span style="color: #1c1917; font-weight: 600;">Machine Learning Master Course</span>
+          </nav>
+          <header style="margin-bottom: 2rem;">
+            <span style="display: inline-block; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #c2410c; background-color: #ffedd5; border: 1px solid #fed7aa; border-radius: 9999px; margin-bottom: 1rem;">Machine Learning &bull; Practical Setup &amp; Worked Examples</span>
+            <h1 style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: #18181b;">Machine Learning Master Course | Environment, NumPy &amp; Pipelines</h1>
+            <p style="font-size: 1.125rem; line-height: 1.6; color: #44403c; max-width: 56rem;">${meta.description}</p>
+          </header>
+          <main>
+            <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.5rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+              <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: #18181b;">Course Modules &amp; Hands-on Learning</h2>
+              <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><strong><a href="/learning/machine-learning/intro" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 1: Machine Learning Environment &amp; Workflow</a></strong> &mdash; Python virtual environments, local Jupyter vs Google Colab, project directory architecture, dataset formats (CSV, JSON, Apache Parquet), Scikit-learn estimators/transformers/predictors, and experiment reproducibility.</li>
+                <li><strong><a href="/learning/machine-learning/numpy" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 2: Numerical Computing with NumPy</a></strong> &mdash; ndarray architecture, memory buffers, strides, advanced slicing and views vs copies, broadcasting rules, vectorization vs loops, matrix multiplication with @, linear algebra (np.linalg), and ML math implementations.</li>
+              </ul>
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Related Systems Engineering Masterclasses</h3>
+              <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><a href="/courses/artificial-intelligence" style="color: #ea580c; text-decoration: none; font-weight: 600;">AI Engineering Masterclass (24 Modules)</a> &mdash; Deep learning, LLMs, transformers, and autonomous agents.</li>
+                <li><a href="/courses/data-engineering" style="color: #ea580c; text-decoration: none; font-weight: 600;">Data Engineering Masterclass (23 Modules)</a> &mdash; Data pipelines, lakehouses, Delta Lake, and Apache Iceberg.</li>
+                <li><a href="/learning/system-design" style="color: #ea580c; text-decoration: none; font-weight: 600;">System Design Masterclass (24 Modules)</a> &mdash; Scalable distributed systems, caching, and database sharding.</li>
+              </ul>
+            </article>
+            <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="/learning/machine-learning/intro" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Start Module 1 &rarr;</a>
+              <a href="/learning/machine-learning/numpy" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #ea580c; border-radius: 0.75rem; text-decoration: none;">Start Module 2 (NumPy) &rarr;</a>
               <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">All Curriculum Tracks &rarr;</a>
               <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">PrepSpaces Home</a>
             </nav>

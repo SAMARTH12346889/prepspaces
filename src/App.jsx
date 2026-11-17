@@ -184,6 +184,7 @@ const BlockchainHyperledgerFabric = React.lazy(() => import("./Componets/Blockch
 const BlockchainSolanaRust = React.lazy(() => import("./Componets/BlockchainSolanaRust"));
 const BlockchainFinalCapstone = React.lazy(() => import("./Componets/BlockchainFinalCapstone"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
+const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1744,6 +1745,12 @@ function App() {
             <Route path="/learning/machine-learning/intro" element={<MachineLearningIntro />} />
             <Route path="/learning/machine-learning/module-1" element={<MachineLearningIntro />} />
             <Route path="/learning/machine-learning/environment-workflow" element={<MachineLearningIntro />} />
+            <Route path="/learning/machine-learning/numpy" element={<MachineLearningNumpy />} />
+            <Route path="/learning/machine-learning/module-2" element={<MachineLearningNumpy />} />
+            <Route path="/learning/machine-learning/numerical-computing" element={<MachineLearningNumpy />} />
+            <Route path="/learning/ml/numpy" element={<MachineLearningNumpy />} />
+            <Route path="/learning/ml/module-2" element={<MachineLearningNumpy />} />
+            <Route path="/courses/machine-learning/numpy" element={<MachineLearningNumpy />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

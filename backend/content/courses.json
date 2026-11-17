@@ -188,11 +188,12 @@
     "route": "/learning/machine-learning",
     "tag": "Machine Learning & Data Science",
     "modulesCount": "Comprehensive Modules",
-    "totalModules": 1,
+    "totalModules": 2,
     "color": "from-stone-900 via-orange-950 to-orange-600",
     "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
     "highlights": [
       "ML Development Environment & Workflow",
+      "Numerical Computing with NumPy & Matrix Algebra",
       "Local Jupyter, Google Colab & Project Architecture",
       "Dataset Formats: CSV, JSON & Apache Parquet",
       "Scikit-learn Architecture: Estimators, Transformers & Pipelines",

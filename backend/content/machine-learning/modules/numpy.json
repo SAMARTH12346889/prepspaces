@@ -1,0 +1,130 @@
+{
+  "id": "numpy",
+  "courseId": "machine-learning",
+  "index": 2,
+  "name": "2. Numerical Computing with NumPy",
+  "route": "/learning/machine-learning/numpy",
+  "componentName": "MachineLearningNumpy",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary architectural difference between a Python list and a NumPy ndarray?",
+      "options": [
+        "Python lists are written in C, while NumPy is written in pure Python",
+        "NumPy stores homogeneous data in a contiguous memory block with direct pointer arithmetic, whereas Python lists store pointers to heap-allocated objects",
+        "Python lists only support numbers, while ndarrays only support strings",
+        "NumPy ndarrays cannot be sliced"
+      ],
+      "correctIndex": 1,
+      "explanation": "NumPy ndarrays allocate contiguous blocks of memory containing typed data (e.g., float64, int32), enabling CPU cache locality, SIMD vectorization, and eliminating Python object overhead."
+    },
+    {
+      "id": 2,
+      "question": "What do array 'strides' represent in NumPy ndarray internals?",
+      "options": [
+        "The number of CPU cycles required to compute a dot product",
+        "The number of bytes to step in memory to advance by one element along each dimension",
+        "The maximum size an array can reach before triggering garbage collection",
+        "The number of random seeds initialized during shuffling"
+      ],
+      "correctIndex": 1,
+      "explanation": "Strides are a tuple of byte offsets indicating how many bytes in memory must be skipped to move to the next item along each axis. For example, a float64 (8 bytes) array of shape (3, 4) has strides (32, 8)."
+    },
+    {
+      "id": 3,
+      "question": "Under what condition are two dimensions compatible according to NumPy broadcasting rules?",
+      "options": [
+        "They are equal, or one of them is 1",
+        "Their sum is an even number",
+        "Both dimensions must be greater than 10",
+        "Both arrays must have identical total element counts (size)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Broadcasting compares dimensions element-wise from right to left (trailing axes first). Two dimensions are compatible if they are equal, or if one of them is 1."
+    },
+    {
+      "id": 4,
+      "question": "What is the key difference between basic slicing (arr[1:3]) and boolean/fancy indexing (arr[arr > 0]) in NumPy?",
+      "options": [
+        "Basic slicing returns an in-memory view with zero-copy, whereas fancy/boolean indexing creates a brand new memory copy",
+        "Basic slicing creates a copy, whereas fancy indexing returns a view",
+        "Basic slicing only works on 1D arrays",
+        "Boolean indexing alters the underlying data buffer permanently"
+      ],
+      "correctIndex": 0,
+      "explanation": "Basic slicing creates a view into the existing memory buffer by adjusting shape and strides with zero memory copy. Fancy indexing with lists or boolean masks copies data into a newly allocated buffer."
+    },
+    {
+      "id": 5,
+      "question": "In Python 3.5+, which operator is used for clean matrix multiplication instead of np.dot() or np.matmul()?",
+      "options": [
+        "*",
+        "@",
+        "^",
+        "&"
+      ],
+      "correctIndex": 1,
+      "explanation": "The @ operator is Python's dedicated infix operator for matrix multiplication (e.g., X @ w), while * performs element-wise Hadamard multiplication."
+    },
+    {
+      "id": 6,
+      "question": "Why should np.random.default_rng() be preferred over legacy np.random.seed()?",
+      "options": [
+        "default_rng uses PCG64, provides superior statistical randomness, thread-safety, and avoids polluting global random state",
+        "np.random.seed() only produces integers",
+        "default_rng is 100x slower for benchmark testing",
+        "np.random.seed() is deprecated in all versions of Python"
+      ],
+      "correctIndex": 0,
+      "explanation": "NumPy's modern Generator API (np.random.default_rng) uses the PCG64 bit generator, provides isolated local state without side effects on global modules, and has better statistical properties."
+    },
+    {
+      "id": 7,
+      "question": "When computing a loss reduction across a feature matrix of shape (N, D), what does axis=0 specify?",
+      "options": [
+        "Reduction across columns (along rows, collapsing dimension 0 to produce a 1D vector of length D)",
+        "Reduction across all elements to produce a scalar",
+        "Reduction along dimension 1 (collapsing columns to produce a vector of length N)",
+        "Transposing the matrix before reduction"
+      ],
+      "correctIndex": 0,
+      "explanation": "axis=0 collapses rows, computing the statistic (e.g. mean or sum) down each column to output an array of shape (D,). axis=1 collapses columns across each row."
+    },
+    {
+      "id": 8,
+      "question": "How do you solve a linear least-squares regression system (X^T X w = X^T y) in NumPy without unstable explicit matrix inversion?",
+      "options": [
+        "np.linalg.inv(X.T @ X) @ X.T @ y",
+        "np.linalg.lstsq(X, y, rcond=None)[0]",
+        "np.divide(X, y)",
+        "np.corrcoef(X, y)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Explicit inversion using np.linalg.inv is numerically unstable and prone to singular matrix errors. np.linalg.lstsq uses SVD (Singular Value Decomposition) for numerically stable least squares solutions."
+    },
+    {
+      "id": 9,
+      "question": "What is the NumPy formula for the standard Softmax activation function applied to 2D logits with numerical stability?",
+      "options": [
+        "np.exp(z) / np.sum(np.exp(z))",
+        "exp_z = np.exp(z - np.max(z, axis=-1, keepdims=True)); exp_z / np.sum(exp_z, axis=-1, keepdims=True)",
+        "1.0 / (1.0 + np.exp(-z))",
+        "np.maximum(0, z)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subtracting np.max(z) prevents numerical overflow (producing inf / inf = nan) by ensuring the maximum exponent value is zero (exp(0) = 1)."
+    },
+    {
+      "id": 10,
+      "question": "What occurs when you assign values to a sliced array: sub_arr = arr[0:2, :]; sub_arr[:] = 0?",
+      "options": [
+        "Only sub_arr is modified; arr remains untouched",
+        "The original array arr is also modified because sub_arr shares the same memory buffer (view)",
+        "Python raises a ReadOnlyError",
+        "The shape of arr is reduced"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because basic slicing creates a view that references the original buffer, modifying sub_arr directly mutates the values inside arr. Use .copy() to decouple them."
+    }
+  ]
+}

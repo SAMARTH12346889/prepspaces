@@ -93,6 +93,18 @@ const routeMeta = {
     keywords: "Machine Learning Environment, Scikit-learn Architecture, Estimators, Transformers, Predictors, Pipelines, Parquet vs CSV, Joblib, Reproducibility, PrepSpaces",
     canonical: `${BASE_URL}/learning/machine-learning/intro`,
   },
+  "/learning/machine-learning/numpy": {
+    title: "Module 2: Numerical Computing with NumPy | PrepSpaces",
+    description: "Master NumPy for machine learning: ndarray memory representation, strides, advanced slicing, broadcasting mechanics, vectorization, matrix algebra, linear algebra, and ML math formulas.",
+    keywords: "NumPy Course, NumPy for Machine Learning, ndarray architecture, NumPy Strides, Broadcasting rules, Vectorization vs Loops, Matrix Multiplication @, np.linalg, Machine Learning Mathematics, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/numpy`,
+  },
+  "/courses/machine-learning/numpy": {
+    title: "Module 2: Numerical Computing with NumPy | PrepSpaces",
+    description: "Master NumPy for machine learning: ndarray memory representation, strides, advanced slicing, broadcasting mechanics, vectorization, matrix algebra, linear algebra, and ML math formulas.",
+    keywords: "NumPy Course, NumPy for Machine Learning, ndarray architecture, NumPy Strides, Broadcasting rules, Vectorization vs Loops, Matrix Multiplication @, np.linalg, Machine Learning Mathematics, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/numpy`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

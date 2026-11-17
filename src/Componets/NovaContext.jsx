@@ -5,11 +5,17 @@ const storageKey = "project-x-nova-session";
 
 export function NovaProvider({ children }) {
   const [conversationId] = useState(() => {
-    const saved = localStorage.getItem(storageKey);
-    if (saved) return saved;
-    const id = crypto.randomUUID();
-    localStorage.setItem(storageKey, id);
-    return id;
+    try {
+      const saved = localStorage.getItem(storageKey);
+      if (saved) return saved;
+      const id = typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+        ? crypto.randomUUID()
+        : `session_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+      localStorage.setItem(storageKey, id);
+      return id;
+    } catch {
+      return `session_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+    }
   });
   const [messages, setMessages] = useState(() => {
     try {
