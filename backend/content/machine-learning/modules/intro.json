@@ -1,0 +1,130 @@
+{
+  "id": "environment-workflow",
+  "courseId": "machine-learning",
+  "index": 1,
+  "name": "1. Machine Learning Environment & Workflow",
+  "route": "/learning/machine-learning",
+  "componentName": "MachineLearningIntro",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of a Python virtual environment in ML projects?",
+      "options": [
+        "To speed up GPU computations",
+        "To isolate project dependencies and prevent package version conflicts",
+        "To compile Python into C code",
+        "To automatically clean raw datasets"
+      ],
+      "correctIndex": 1,
+      "explanation": "Virtual environments provide isolated spaces for each project so that conflicting library versions between projects do not break each other."
+    },
+    {
+      "id": 2,
+      "question": "Which file format uses column-oriented storage designed for efficient analytical queries and compression?",
+      "options": [
+        "CSV",
+        "JSON",
+        "Apache Parquet",
+        "XML"
+      ],
+      "correctIndex": 2,
+      "explanation": "Apache Parquet stores values column by column, enabling projection pruning (reading only needed columns) and high compression efficiency."
+    },
+    {
+      "id": 3,
+      "question": "In Scikit-learn, what is the role of an Estimator?",
+      "options": [
+        "It visualizes scatter plots",
+        "It learns information or parameters from data via the fit() method",
+        "It manages database migrations",
+        "It formats CSV into JSON"
+      ],
+      "correctIndex": 1,
+      "explanation": "An estimator is any object that learns parameters or patterns from data using the fit() method."
+    },
+    {
+      "id": 4,
+      "question": "What is the key difference between a Transformer and a Predictor in Scikit-learn?",
+      "options": [
+        "A transformer has transform() to modify data, while a predictor has predict() to generate model inferences",
+        "Transformers only work on deep neural networks",
+        "Predictors cannot learn from data",
+        "There is no difference"
+      ],
+      "correctIndex": 0,
+      "explanation": "Transformers implement transform() (e.g. StandardScaler, OneHotEncoder) to produce modified features, while predictors implement predict() (e.g. LinearRegression, RandomForest) to generate predictions."
+    },
+    {
+      "id": 5,
+      "question": "Why is a Scikit-learn Pipeline considered a best practice?",
+      "options": [
+        "It replaces the Python interpreter",
+        "It chains preprocessing transformers and a final estimator to prevent data leakage and guarantee consistent inference transformations",
+        "It bypasses train/test splitting",
+        "It automatically deploys models to Kubernetes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pipelines bundle preprocessing and modeling into a single object, ensuring identical transformations during training, cross-validation, and prediction while mitigating data leakage."
+    },
+    {
+      "id": 6,
+      "question": "What happens when you fit a scaler on the entire dataset before train_test_split?",
+      "options": [
+        "Faster convergence with no side effects",
+        "Data leakage occurs because test set distribution statistics influence training preprocessing",
+        "Scikit-learn raises a syntax error",
+        "The model automatically achieves 100% test accuracy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Data leakage occurs when information from outside the training dataset (such as test set mean/std) leaks into training preprocessing."
+    },
+    {
+      "id": 7,
+      "question": "Why should reusable functions be moved from Jupyter Notebooks into a src/ directory?",
+      "options": [
+        "Notebooks cannot be executed on Linux",
+        "Notebooks are great for exploration, but Python modules in src/ enable modularity, unit testing, version control, and production reuse",
+        "Notebooks cannot import NumPy",
+        "Notebooks expire after 24 hours"
+      ],
+      "correctIndex": 1,
+      "explanation": "Moving reusable logic to Python modules prevents code duplication across multiple notebooks and makes code testable and maintainable."
+    },
+    {
+      "id": 8,
+      "question": "Why is setting a random_state or random seed alone not always sufficient for identical results across different systems?",
+      "options": [
+        "Random seeds do not work in Python",
+        "Differences in library versions, OS architectures, GPU non-determinism, and dataset changes can still cause variations",
+        "Seeds only work with linear models",
+        "Scikit-learn ignores random seeds"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reproducibility requires recording not only the random seed, but also exact package versions, OS/hardware configurations, and dataset versions."
+    },
+    {
+      "id": 9,
+      "question": "Which regression metric squares errors, thereby penalizing large outliers more severely than MAE?",
+      "options": [
+        "Accuracy",
+        "Mean Squared Error (MSE)",
+        "Recall",
+        "F1-Score"
+      ],
+      "correctIndex": 1,
+      "explanation": "MSE squares individual error terms (y_i - y_hat_i)^2, which gives disproportionately heavier penalty to large prediction errors."
+    },
+    {
+      "id": 10,
+      "question": "What is the recommended tool for serializing and saving Scikit-learn trained models to disk?",
+      "options": [
+        "Joblib",
+        "Matplotlib",
+        "Pandas read_csv",
+        "Git commit"
+      ],
+      "correctIndex": 0,
+      "explanation": "Joblib is optimized for serializing Python objects containing large numerical arrays and Scikit-learn estimators efficiently."
+    }
+  ]
+}

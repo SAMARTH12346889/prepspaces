@@ -74,7 +74,26 @@ const routeMeta = {
     description: "Master Generative AI, Large Language Models, transformers, prompt engineering, embeddings, RAG, fine-tuning, and AI application development with PrepSpaces.",
     keywords: "Generative AI course, GenAI course, Generative AI online learning, Large Language Models course, LLM course, Prompt engineering course, RAG course, Learn Generative AI",
     canonical: `${BASE_URL}/courses/generative-ai`,
-  },  "/courses/data-engineering": {
+  },
+  "/courses/machine-learning": {
+    title: "Machine Learning Master Course | Environment, Scikit-learn & Pipelines – PrepSpaces",
+    description: "Master machine learning from environment configuration, data preparation, and exploratory data analysis to Scikit-learn pipelines, model training, evaluation, and reproducible production workflows.",
+    keywords: "Machine Learning Course, Learn Machine Learning, Scikit-learn, ML Environment, Jupyter Notebook, Google Colab, Parquet, ML Pipelines, Random Seeds, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning`,
+  },
+  "/learning/machine-learning": {
+    title: "Machine Learning Master Course | Environment, Scikit-learn & Pipelines – PrepSpaces",
+    description: "Master machine learning from environment configuration, data preparation, and exploratory data analysis to Scikit-learn pipelines, model training, evaluation, and reproducible production workflows.",
+    keywords: "Machine Learning Course, Learn Machine Learning, Scikit-learn, ML Environment, Jupyter Notebook, Google Colab, Parquet, ML Pipelines, Random Seeds, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning`,
+  },
+  "/learning/machine-learning/intro": {
+    title: "Module 1: Machine Learning Environment & Workflow | PrepSpaces",
+    description: "Configure a reliable ML development environment: Python virtual environments, local Jupyter vs Google Colab, project structure, dataset formats (CSV, JSON, Parquet), Scikit-learn architecture, and reproducibility.",
+    keywords: "Machine Learning Environment, Scikit-learn Architecture, Estimators, Transformers, Predictors, Pipelines, Parquet vs CSV, Joblib, Reproducibility, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/intro`,
+  },
+  "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",
     keywords: "Data Engineering Course, Learn Data Engineering, Data Pipeline, ETL, ELT, OLTP vs OLAP, Stream Processing, Apache Spark, Apache Kafka, Data Lakehouse, Apache Iceberg, Delta Lake, Snowflake, PrepSpaces",

@@ -183,6 +183,7 @@ const BlockchainDAOsGovernance = React.lazy(() => import("./Componets/Blockchain
 const BlockchainHyperledgerFabric = React.lazy(() => import("./Componets/BlockchainHyperledgerFabric"));
 const BlockchainSolanaRust = React.lazy(() => import("./Componets/BlockchainSolanaRust"));
 const BlockchainFinalCapstone = React.lazy(() => import("./Componets/BlockchainFinalCapstone"));
+const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1737,6 +1738,17 @@ function App() {
             <Route path="/learning/data-engineering/pyspark" element={<DataEngineeringSpark />} />
             <Route path="/learning/data-engineering/module-11" element={<DataEngineeringSpark />} />
             <Route path="/learn/data-engineering/spark-processing" element={<DataEngineeringSpark />} />
+
+            {/* MACHINE LEARNING ROUTES */}
+            <Route path="/learning/machine-learning" element={<MachineLearningIntro />} />
+            <Route path="/learning/machine-learning/intro" element={<MachineLearningIntro />} />
+            <Route path="/learning/machine-learning/module-1" element={<MachineLearningIntro />} />
+            <Route path="/learning/machine-learning/environment-workflow" element={<MachineLearningIntro />} />
+            <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
+            <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
+            <Route path="/learning/ml" element={<MachineLearningIntro />} />
+            <Route path="/learning/ml/module-1" element={<MachineLearningIntro />} />
+            <Route path="/courses/ml" element={<MachineLearningIntro />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

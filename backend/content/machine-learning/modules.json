@@ -1,0 +1,13 @@
+[
+  {
+    "id": "environment-workflow",
+    "courseId": "machine-learning",
+    "index": 1,
+    "name": "1. Machine Learning Environment & Workflow",
+    "route": "/learning/machine-learning",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  }
+]

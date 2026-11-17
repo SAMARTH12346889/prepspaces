@@ -227,6 +227,26 @@ const learningTracks = [
       "Data Quality, Reliability & SLAs",
     ],
   },
+  {
+    id: "machine-learning",
+    title: "Machine Learning Master Course",
+    tagline: "Practical Setup, Workflows, Scikit-learn & Production Systems",
+    description:
+      "Master machine learning from environment configuration, data preparation, and exploratory data analysis to Scikit-learn pipelines, model training, evaluation, and reproducible production workflows.",
+    icon: Sparkles,
+    route: "/learning/machine-learning",
+    tag: "Machine Learning & Data Science",
+    modulesCount: "Comprehensive Modules",
+    color: "from-stone-900 via-orange-950 to-orange-600",
+    badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
+    highlights: [
+      "ML Development Environment & Workflow",
+      "Local Jupyter, Google Colab & Project Architecture",
+      "Dataset Formats: CSV, JSON & Apache Parquet",
+      "Scikit-learn Architecture: Estimators, Transformers & Pipelines",
+      "Reproducible Experiments, Random Seeds & Model Serialization",
+    ],
+  },
 ];
 
 export default function Learning() {

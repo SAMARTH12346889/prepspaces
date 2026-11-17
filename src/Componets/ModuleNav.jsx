@@ -247,6 +247,10 @@ export const BLOCKCHAIN_MODULES = [
   { id: "final-capstone", name: "24. Final Blockchain Capstone Project", route: "/learning/blockchain/final-capstone" },
 ];
 
+export const MACHINE_LEARNING_MODULES = [
+  { id: "environment-workflow", name: "1. ML Environment & Workflow", route: "/learning/machine-learning" },
+];
+
 export default function ModuleNav({
   track: propTrack,
   trackId,
@@ -276,9 +280,11 @@ export default function ModuleNav({
       if (rawTrack === "devops") return "devops";
       if (rawTrack === "blockchain") return "blockchain";
       if (rawTrack === "data-engineering") return "data-engineering";
+      if (rawTrack === "machine-learning" || rawTrack === "ml") return "machine-learning";
       return rawTrack;
     }
     const path = (location?.pathname || "").toLowerCase();
+    if (path.includes("/learning/machine-learning") || path.includes("/learning/ml") || path.includes("/courses/machine-learning")) return "machine-learning";
     if (path.includes("/learning/data-engineering") || path.includes("/learn/data-engineering") || path.includes("/courses/data-engineering")) return "data-engineering";
     if (path.includes("/learning/ai") || path.includes("/learn/ai")) return "ai";
     if (path.includes("/learning/os") || path.includes("/learn/os")) return "os";
@@ -302,6 +308,8 @@ export default function ModuleNav({
     "ai-engineering": "ai-engineering",
     blockchain: "blockchain",
     "data-engineering": "data-engineering",
+    "machine-learning": "machine-learning",
+    ml: "machine-learning",
   };
   const resolvedCourseId = courseIdMap[track] || track;
 
@@ -324,6 +332,9 @@ export default function ModuleNav({
         return BLOCKCHAIN_MODULES;
       case "data-engineering":
         return DATA_ENGINEERING_MODULES;
+      case "machine-learning":
+      case "ml":
+        return MACHINE_LEARNING_MODULES;
       default:
         return CLOUD_MODULES;
     }
