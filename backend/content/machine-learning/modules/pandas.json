@@ -1,0 +1,130 @@
+{
+  "id": "pandas",
+  "courseId": "machine-learning",
+  "index": 3,
+  "name": "3. Data Analysis & Manipulation with Pandas",
+  "route": "/learning/machine-learning/pandas",
+  "componentName": "MachineLearningPandas",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which Pandas structure is one-dimensional and contains labeled values?",
+      "options": [
+        "DataFrame",
+        "Series",
+        "Index only",
+        "ndarray"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Series is a one-dimensional labeled array in Pandas capable of holding any data type along with an index."
+    },
+    {
+      "id": 2,
+      "question": "Which method selects rows using integer positions?",
+      "options": [
+        "loc[]",
+        "query()",
+        "iloc[]",
+        "merge()"
+      ],
+      "correctIndex": 2,
+      "explanation": ".iloc[] is purely integer position-based (from 0 to length-1 of the axis), whereas .loc[] uses labels."
+    },
+    {
+      "id": 3,
+      "question": "Which method identifies missing values?",
+      "options": [
+        "duplicated()",
+        "isna()",
+        "describe()",
+        "sort_values()"
+      ],
+      "correctIndex": 1,
+      "explanation": "isna() (and its equivalent isnull()) detects missing values across DataFrames and Series, returning boolean masks."
+    },
+    {
+      "id": 4,
+      "question": "Which aggregation is generally more resistant to extreme values (outliers)?",
+      "options": [
+        "Mean",
+        "Sum",
+        "Median",
+        "Maximum"
+      ],
+      "correctIndex": 2,
+      "explanation": "The median is the 50th percentile and is robust against skewed values and extreme outliers, unlike the arithmetic mean."
+    },
+    {
+      "id": 5,
+      "question": "Which join keeps every row from the left DataFrame?",
+      "options": [
+        "Inner",
+        "Left",
+        "Right",
+        "Outer"
+      ],
+      "correctIndex": 1,
+      "explanation": "A left join (how='left') preserves all records from the left DataFrame and populates missing right-side matches with NaN."
+    },
+    {
+      "id": 6,
+      "question": "Which method combines DataFrames using matching key columns?",
+      "options": [
+        "concat()",
+        "pivot()",
+        "merge()",
+        "apply()"
+      ],
+      "correctIndex": 2,
+      "explanation": "pd.merge() combines DataFrames based on common key columns (similar to SQL relational joins)."
+    },
+    {
+      "id": 7,
+      "question": "Which method is suitable for aggregation across rows and columns?",
+      "options": [
+        "pivot_table()",
+        "astype()",
+        "iloc[]",
+        "drop_duplicates()"
+      ],
+      "correctIndex": 0,
+      "explanation": "pd.pivot_table() creates multidimensional spreadsheet-style pivot summaries aggregating intersecting row and column categories."
+    },
+    {
+      "id": 8,
+      "question": "What is the main benefit of reading CSV data with chunksize?",
+      "options": [
+        "Automatically removes missing values",
+        "Avoids loading the complete dataset into memory at once",
+        "Automatically trains a model",
+        "Converts all text into numbers"
+      ],
+      "correctIndex": 1,
+      "explanation": "chunksize allows processing large datasets batch by batch, preventing Out-Of-Memory (OOM) failures when files exceed physical RAM."
+    },
+    {
+      "id": 9,
+      "question": "Which operation creates binary columns from categorical features?",
+      "options": [
+        "dropna()",
+        "groupby()",
+        "get_dummies()",
+        "duplicated()"
+      ],
+      "correctIndex": 2,
+      "explanation": "pd.get_dummies() converts categorical features into dummy/indicator variables (one-hot encoding) with 0 and 1 values."
+    },
+    {
+      "id": 10,
+      "question": "Why should imputation statistics be learned using training data only?",
+      "options": [
+        "To increase the number of features",
+        "To prevent information leakage",
+        "To remove all outliers",
+        "To sort the dataset"
+      ],
+      "correctIndex": 1,
+      "explanation": "Computing statistics on the entire dataset prior to splitting leaks target and test-set distributions into the model training pipeline."
+    }
+  ]
+}

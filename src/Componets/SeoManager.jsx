@@ -105,6 +105,18 @@ const routeMeta = {
     keywords: "NumPy Course, NumPy for Machine Learning, ndarray architecture, NumPy Strides, Broadcasting rules, Vectorization vs Loops, Matrix Multiplication @, np.linalg, Machine Learning Mathematics, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/numpy`,
   },
+  "/learning/machine-learning/pandas": {
+    title: "Module 3: Data Analysis & Manipulation with Pandas | PrepSpaces",
+    description: "Master Pandas for machine learning: Series & DataFrame architectures, indexing (loc/iloc/query), missing-value imputation, deduplication, GroupBy aggregations, relational joins, pivot tables, chunk streaming, and IQR outlier detection.",
+    keywords: "Pandas Course, Learn Pandas, Series vs DataFrame, Data Cleaning, Missing Value Imputation, Pandas GroupBy, Relational Merge, Pivot Tables, Large Dataset Processing, IQR Outliers, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/pandas`,
+  },
+  "/courses/machine-learning/pandas": {
+    title: "Module 3: Data Analysis & Manipulation with Pandas | PrepSpaces",
+    description: "Master Pandas for machine learning: Series & DataFrame architectures, indexing (loc/iloc/query), missing-value imputation, deduplication, GroupBy aggregations, relational joins, pivot tables, chunk streaming, and IQR outlier detection.",
+    keywords: "Pandas Course, Learn Pandas, Series vs DataFrame, Data Cleaning, Missing Value Imputation, Pandas GroupBy, Relational Merge, Pivot Tables, Large Dataset Processing, IQR Outliers, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/pandas`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

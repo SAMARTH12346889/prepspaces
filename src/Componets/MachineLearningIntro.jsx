@@ -697,6 +697,25 @@ print("Model serialized to models/house_price_model.joblib successfully.")`}
             )}
           </div>
         )}
+
+        {/* Bottom Nav: Next Module */}
+        <div className="bg-white rounded-3xl border border-[#e7e3da] p-6 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+          <button
+            onClick={() => navigate("/learning")}
+            className="flex items-center gap-2 text-stone-600 hover:text-stone-900 font-bold text-xs sm:text-sm cursor-pointer"
+          >
+            <ArrowLeft size={16} />
+            <span>Curriculum Hub</span>
+          </button>
+
+          <button
+            onClick={() => navigate("/learning/machine-learning/numpy")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+          >
+            <span>Next: Module 2 &mdash; Numerical Computing with NumPy</span>
+            <ArrowRight size={16} />
+          </button>
+        </div>
       </main>
     </div>
   );

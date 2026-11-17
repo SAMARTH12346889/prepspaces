@@ -250,6 +250,7 @@ export const BLOCKCHAIN_MODULES = [
 export const MACHINE_LEARNING_MODULES = [
   { id: "environment-workflow", name: "1. ML Environment & Workflow", route: "/learning/machine-learning" },
   { id: "numpy", name: "2. Numerical Computing with NumPy", route: "/learning/machine-learning/numpy" },
+  { id: "pandas", name: "3. Data Analysis & Manipulation with Pandas", route: "/learning/machine-learning/pandas" },
 ];
 
 export default function ModuleNav({
