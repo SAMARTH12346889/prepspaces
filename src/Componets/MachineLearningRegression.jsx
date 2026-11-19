@@ -739,10 +739,10 @@ joblib.dump(model, "housing_price_model.pkl")`;
           </button>
 
           <button
-            onClick={() => navigate("/learning/machine-learning")}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-black text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+            onClick={() => navigate("/learning/machine-learning/advanced-regression")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
           >
-            <span>Return to Machine Learning Overview</span>
+            <span>Next: Module 6 &mdash; Advanced Regression &amp; Regularization</span>
             <ArrowRight size={16} />
           </button>
         </div>

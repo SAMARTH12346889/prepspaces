@@ -187,8 +187,8 @@
     "icon": "Sparkles",
     "route": "/learning/machine-learning",
     "tag": "Machine Learning & Data Science",
-    "modulesCount": "5 Comprehensive Modules",
-    "totalModules": 5,
+    "modulesCount": "6 Comprehensive Modules",
+    "totalModules": 6,
     "color": "from-stone-900 via-orange-950 to-orange-600",
     "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
     "highlights": [
@@ -197,6 +197,7 @@
       "Data Analysis & Manipulation with Pandas",
       "Exploratory Data Analysis & Statistical Visualization",
       "Ordinary Least Squares (OLS) & Multiple Regression",
+      "Advanced Regularization: Ridge, Lasso & Elastic Net",
       "Local Jupyter, Google Colab & Project Architecture",
       "Dataset Formats: CSV, JSON & Apache Parquet",
       "Scikit-learn Architecture: Estimators, Transformers & Pipelines",

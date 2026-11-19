@@ -53,5 +53,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "advanced-regression",
+    "courseId": "machine-learning",
+    "index": 6,
+    "name": "6. Advanced Regression & Regularization",
+    "route": "/learning/machine-learning/advanced-regression",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

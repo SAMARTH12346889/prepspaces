@@ -141,6 +141,18 @@ const routeMeta = {
     keywords: "Regression Analysis Course, Linear Regression Machine Learning, Ordinary Least Squares, OLS Normal Equation, Residual Diagnostics, Homoscedasticity, Multicollinearity VIF, Scikit-learn LinearRegression, Statsmodels OLS, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/regression`,
   },
+  "/learning/machine-learning/advanced-regression": {
+    title: "Module 6: Advanced Regression & Regularization | PrepSpaces",
+    description: "Master advanced regression techniques: polynomial feature modeling, SciPy nonlinear regression, Ridge L2 regularization, Lasso L1 feature selection, Elastic Net, VIF multicollinearity diagnostics, K-fold cross-validation, and the bias-variance tradeoff.",
+    keywords: "Advanced Regression Course, Regularization Machine Learning, Ridge Regression L2, Lasso Regression L1, Elastic Net, PolynomialFeatures, Bias-Variance Tradeoff, VIF Multicollinearity, Recursive Feature Elimination RFE, GridSearchCV, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/advanced-regression`,
+  },
+  "/courses/machine-learning/advanced-regression": {
+    title: "Module 6: Advanced Regression & Regularization | PrepSpaces",
+    description: "Master advanced regression techniques: polynomial feature modeling, SciPy nonlinear regression, Ridge L2 regularization, Lasso L1 feature selection, Elastic Net, VIF multicollinearity diagnostics, K-fold cross-validation, and the bias-variance tradeoff.",
+    keywords: "Advanced Regression Course, Regularization Machine Learning, Ridge Regression L2, Lasso Regression L1, Elastic Net, PolynomialFeatures, Bias-Variance Tradeoff, VIF Multicollinearity, Recursive Feature Elimination RFE, GridSearchCV, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/advanced-regression`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

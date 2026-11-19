@@ -1,0 +1,130 @@
+{
+  "id": "advanced-regression",
+  "courseId": "machine-learning",
+  "index": 6,
+  "name": "6. Advanced Regression & Regularization",
+  "route": "/learning/machine-learning/advanced-regression",
+  "componentName": "MachineLearningAdvancedRegression",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the main purpose of polynomial regression?",
+      "options": [
+        "Convert regression into classification",
+        "Represent curved relationships using transformed features",
+        "Remove all numerical features",
+        "Automatically normalize every feature"
+      ],
+      "correctIndex": 1,
+      "explanation": "Polynomial regression introduces powers and interaction terms of independent variables, allowing linear algorithms to model curved non-linear patterns."
+    },
+    {
+      "id": 2,
+      "question": "Why is polynomial regression still considered linear in its parameters?",
+      "options": [
+        "It has no coefficients",
+        "It is linear in its coefficients even though features contain powers",
+        "It only works with straight lines",
+        "It uses only categorical variables"
+      ],
+      "correctIndex": 1,
+      "explanation": "Even though features are raised to non-linear powers (e.g. x²), the hypothesis function remains a linear combination of the unknown parameters β."
+    },
+    {
+      "id": 3,
+      "question": "Which penalty does Ridge regression use?",
+      "options": [
+        "L1",
+        "L2",
+        "No penalty",
+        "Classification loss"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ridge regression penalizes the sum of squared coefficient magnitudes (L2 norm: α Σ β_j²), shrinking weights smoothly toward zero."
+    },
+    {
+      "id": 4,
+      "question": "Which method can shrink coefficients exactly to zero?",
+      "options": [
+        "Ordinary Linear Regression",
+        "Ridge only",
+        "Lasso",
+        "StandardScaler"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lasso uses an L1 penalty (α Σ |β_j|) whose diamond geometry frequently forces corner solutions on axes, driving non-essential coefficients to exact zero."
+    },
+    {
+      "id": 5,
+      "question": "What does Elastic Net combine?",
+      "options": [
+        "MAE and RMSE",
+        "L1 and L2 penalties",
+        "Training and test datasets",
+        "Pandas and NumPy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Elastic Net incorporates both L1 (Lasso) and L2 (Ridge) penalties, providing sparse feature selection while stably grouping correlated predictors."
+    },
+    {
+      "id": 6,
+      "question": "Why should features generally be scaled before Ridge and Lasso?",
+      "options": [
+        "To make all coefficients equal",
+        "To ensure feature units do not unfairly determine coefficient penalties",
+        "To remove missing rows automatically",
+        "To increase the dataset size"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regularization penalizes weight magnitudes regardless of feature units; without standardization, features with larger measurement scales are unfairly penalized."
+    },
+    {
+      "id": 7,
+      "question": "What does multicollinearity describe?",
+      "options": [
+        "Highly correlated or linearly dependent explanatory features",
+        "Missing target values",
+        "A categorical target",
+        "An unusually large residual"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multicollinearity occurs when two or more independent features contain redundant linear information, inflating coefficient standard errors and destabilizing estimates."
+    },
+    {
+      "id": 8,
+      "question": "Which technique repeatedly removes less important features based on a fitted estimator?",
+      "options": [
+        "RFE",
+        "KDE",
+        "Pandas GroupBy",
+        "Min-Max Encoding"
+      ],
+      "correctIndex": 0,
+      "explanation": "Recursive Feature Elimination (RFE) iteratively fits an estimator, ranks feature importances or coefficients, and prunes the weakest predictors."
+    },
+    {
+      "id": 9,
+      "question": "What is a common symptom of overfitting?",
+      "options": [
+        "High training error and high validation error only",
+        "Low training error but substantially higher validation error",
+        "No model coefficients",
+        "All features becoming constant"
+      ],
+      "correctIndex": 1,
+      "explanation": "An overfitted model memorizes random noise in the training sample, yielding near-zero training error but high error on validation or test observations."
+    },
+    {
+      "id": 10,
+      "question": "Why is cross-validation useful for regularization tuning?",
+      "options": [
+        "It automatically removes every outlier",
+        "It estimates model performance across multiple training-validation splits",
+        "It guarantees zero prediction error",
+        "It replaces feature engineering"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cross-validation rotates data through K independent validation folds, providing an unbiased estimate of generalization error without leaking test data."
+    }
+  ]
+}
