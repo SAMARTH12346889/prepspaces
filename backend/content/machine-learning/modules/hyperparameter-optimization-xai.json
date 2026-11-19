@@ -1,0 +1,130 @@
+{
+  "id": "hyperparameter-optimization-xai",
+  "courseId": "machine-learning",
+  "index": 22,
+  "name": "22. Hyperparameter Optimization & Explainable ML",
+  "route": "/learning/machine-learning/hyperparameter-optimization-xai",
+  "componentName": "MachineLearningHyperparameterXAI",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the fundamental difference between model parameters and hyperparameters?",
+      "options": [
+        "Parameters are chosen by the data scientist before training, while hyperparameters are learned during backpropagation",
+        "Parameters are learned internally from data during training (e.g., linear regression weights, tree split rules), whereas hyperparameters are configuration choices specified beforehand to control the learning algorithm (e.g., learning rate, max depth)",
+        "Parameters only exist in neural networks, whereas hyperparameters only exist in tree algorithms",
+        "There is no mathematical difference; both are tuned via cross-validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Model parameters (such as regression weights w and intercept b, or support vectors) are estimated automatically from the training data by minimizing a loss function. Hyperparameters (such as max_depth, n_estimators, C, and learning rate) are external knobs set by the engineer to govern the training process."
+    },
+    {
+      "id": 2,
+      "question": "Why is Randomized Search often more sample-efficient than Grid Search in high-dimensional hyperparameter spaces?",
+      "options": [
+        "Grid Search always converges to a suboptimal local minimum",
+        "Randomized Search tests distinct values across every hyperparameter dimension on every single trial, preventing wasted evaluations along uninfluential parameter axes",
+        "Randomized Search only works on continuous learning rates",
+        "Grid Search requires GPU acceleration while Randomized Search runs on CPUs"
+      ],
+      "correctIndex": 1,
+      "explanation": "As shown by Bergstra & Bengio (2012), most machine learning models are heavily sensitive to only a small subset of hyperparameters. While Grid Search wastes trials repeatedly evaluating identical values of important parameters across irrelevant parameter combinations, Randomized Search explores unique values along all dimensions in every trial."
+    },
+    {
+      "id": 3,
+      "question": "How does Bayesian Optimization (e.g. Optuna's TPE or Gaussian Processes) select the next hyperparameter trial?",
+      "options": [
+        "It randomly flips a coin between previously evaluated configurations",
+        "It builds a probabilistic surrogate model of the objective function and maximizes an acquisition function (such as Expected Improvement) to balance exploration and exploitation",
+        "It computes the analytical gradient with respect to categorical parameters",
+        "It evaluates every point on a pre-defined Cartesian grid"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bayesian optimization uses prior evaluation results to build a surrogate model (e.g. Tree-structured Parzen Estimator or Gaussian Process) estimating f(θ) and its uncertainty. It then uses an acquisition function (EI, UCB, or PI) to pick the next candidate that maximizes potential improvement."
+    },
+    {
+      "id": 4,
+      "question": "What is the core tournament mechanism behind Successive Halving in hyperparameter search?",
+      "options": [
+        "Training half of the dataset on 100% of the hyperparameters",
+        "Evaluating many configurations on a small initial resource budget (e.g. few epochs or samples), then progressively pruning the bottom fraction and allocating exponentially more resources to top survivors",
+        "Halving the learning rate whenever validation error increases",
+        "Dropping half of the input features after each cross-validation fold"
+      ],
+      "correctIndex": 1,
+      "explanation": "Successive Halving acts like a tournament: it starts with N candidates evaluated with a small budget (e.g., 1 unit of data or iterations), keeps the top 1/factor candidates, and multiplies their resource budget by factor, repeating until the best candidate is trained to completion."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary goal of model probability calibration (e.g., Platt Scaling or Isotonic Regression)?",
+      "options": [
+        "Increasing the classification accuracy on the training set to 100%",
+        "Aligning predicted confidence probabilities P(Y=1|X) so they match the actual empirical frequency of observed positive outcomes",
+        "Converting continuous regression targets into categorical buckets",
+        "Ensuring the model weights sum to zero"
+      ],
+      "correctIndex": 1,
+      "explanation": "Calibration ensures that when a model outputs a probability of 0.80, approximately 80% of those predictions are truly positive. Many models (e.g., SVMs, Naive Bayes, Boosted Trees) output distorted confidence scores that must be calibrated via Platt scaling (sigmoid) or isotonic regression."
+    },
+    {
+      "id": 6,
+      "question": "Why should the binary classification decision threshold not always be fixed at 0.5?",
+      "options": [
+        "Because 0.5 is mathematically undefined in logistic regression",
+        "Because class distributions are often imbalanced and the business costs of false positives versus false negatives are asymmetric",
+        "Because Scikit-learn models crash when threshold is set to 0.5",
+        "Because decision thresholds only apply to multiclass problems"
+      ],
+      "correctIndex": 1,
+      "explanation": "In real-world applications (like fraud detection or disease screening), a False Negative (missing fraud or a fatal disease) is vastly more costly than a False Positive (false alarm). Shifting the threshold to minimize expected business loss C_FP*FP + C_FN*FN yields far better outcomes than an arbitrary 0.5 cutoff."
+    },
+    {
+      "id": 7,
+      "question": "What is the key difference between global interpretability and local interpretability?",
+      "options": [
+        "Global interpretability works offline, while local interpretability works online",
+        "Global interpretability explains the model's overall behavior across the entire dataset, whereas local interpretability explains the specific prediction generated for an individual observation",
+        "Global interpretability only applies to linear models",
+        "Local interpretability evaluates cross-validation scores"
+      ],
+      "correctIndex": 1,
+      "explanation": "Global interpretability provides macro-level insights (e.g., which features are overall most important across all applicants), whereas local interpretability provides micro-level attribution (e.g., exactly which factors caused John Doe's loan application to be rejected)."
+    },
+    {
+      "id": 8,
+      "question": "What is a major limitation of Permutation Feature Importance when features are strongly correlated?",
+      "options": [
+        "Permutation importance cannot run on test datasets",
+        "Correlated features can split importance or create unrealistic synthetic feature combinations, underestimating individual feature necessity",
+        "Permutation importance only works with decision trees",
+        "It always outputs negative values"
+      ],
+      "correctIndex": 1,
+      "explanation": "When two features are collinear (e.g., house square footage and number of rooms), shuffling one feature leaves the other intact to provide the same predictive signal to the model, artificially dampening the measured importance of both. Shuffling can also create physically implausible instances."
+    },
+    {
+      "id": 9,
+      "question": "What does a Partial Dependence Plot (PDP) visualize?",
+      "options": [
+        "The training loss over epochs",
+        "The marginal effect of one or two features on the predicted target outcome, averaging out the effects of all other features in the dataset",
+        "The correlation matrix between input features",
+        "The individual prediction waterfall for an outlier sample"
+      ],
+      "correctIndex": 1,
+      "explanation": "PDP displays the expected marginal response E_{X_-j}[f(X_j, X_-j)] as feature X_j varies across its range, illustrating whether the model's relationship with the feature is linear, monotonic, or nonlinear."
+    },
+    {
+      "id": 10,
+      "question": "How does SHAP (SHapley Additive exPlanations) attribute prediction contributions to features?",
+      "options": [
+        "By computing Pearson correlation coefficients with the target label",
+        "By calculating each feature's average marginal contribution across all possible feature coalitions using cooperative game theory (Shapley values)",
+        "By setting all non-zero weights in the model to one",
+        "By training a single decision tree on the test residuals"
+      ],
+      "correctIndex": 1,
+      "explanation": "SHAP is rooted in cooperative game theory: it treats features as players in a coalition game and computes their Shapley values phi_i by averaging their marginal contributions [f(S U {i}) - f(S)] across all possible subsets S. It satisfies desirable mathematical axioms: efficiency, symmetry, dummy player, and additivity."
+    }
+  ]
+}

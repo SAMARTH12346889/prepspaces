@@ -229,5 +229,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "hyperparameter-optimization-xai",
+    "courseId": "machine-learning",
+    "index": 22,
+    "name": "22. Hyperparameter Optimization & Explainable ML",
+    "route": "/learning/machine-learning/hyperparameter-optimization-xai",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

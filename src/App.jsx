@@ -204,6 +204,7 @@ const MachineLearningRecommendationSystems = React.lazy(() => import("./Componet
 const MachineLearningTimeSeries = React.lazy(() => import("./Componets/MachineLearningTimeSeries"));
 const MachineLearningProbabilisticML = React.lazy(() => import("./Componets/MachineLearningProbabilisticML"));
 const MachineLearningStatisticalLearning = React.lazy(() => import("./Componets/MachineLearningStatisticalLearning"));
+const MachineLearningHyperparameterXAI = React.lazy(() => import("./Componets/MachineLearningHyperparameterXAI"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1907,6 +1908,17 @@ function App() {
             <Route path="/learning/ml/module-21" element={<MachineLearningStatisticalLearning />} />
             <Route path="/courses/machine-learning/advanced-statistical-learning" element={<MachineLearningStatisticalLearning />} />
             <Route path="/courses/machine-learning/statistical-learning" element={<MachineLearningStatisticalLearning />} />
+            <Route path="/learning/machine-learning/hyperparameter-optimization-xai" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/learning/machine-learning/hyperparameter-optimization" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/learning/machine-learning/explainable-ai" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/learning/machine-learning/xai" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/learning/machine-learning/model-calibration" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/learning/machine-learning/module-22" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/learning/ml/hyperparameter-optimization-xai" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/learning/ml/explainable-ai" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/learning/ml/module-22" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/courses/machine-learning/hyperparameter-optimization-xai" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/courses/machine-learning/explainable-ai" element={<MachineLearningHyperparameterXAI />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

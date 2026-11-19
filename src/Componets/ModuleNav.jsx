@@ -269,6 +269,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "time-series-forecasting", name: "19. Time Series Analysis & Forecasting", route: "/learning/machine-learning/time-series-forecasting" },
   { id: "probabilistic-machine-learning", name: "20. Probabilistic Machine Learning & Bayesian Methods", route: "/learning/machine-learning/probabilistic-machine-learning" },
   { id: "advanced-statistical-learning", name: "21. Advanced Statistical Learning & ML Research", route: "/learning/machine-learning/advanced-statistical-learning" },
+  { id: "hyperparameter-optimization-xai", name: "22. Hyperparameter Optimization & Explainable ML", route: "/learning/machine-learning/hyperparameter-optimization-xai" },
 ];
 
 export default function ModuleNav({
