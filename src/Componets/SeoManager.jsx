@@ -273,6 +273,18 @@ const routeMeta = {
     keywords: "Dimensionality Reduction, Feature Extraction, Curse of Dimensionality, Distance Concentration, Principal Component Analysis, PCA, Covariance Matrix, Eigenvalues, Eigenvectors, Explained Variance Ratio, Scree Plot, SVD, Singular Value Decomposition, Kernel PCA, RBF Kernel, Linear Discriminant Analysis, LDA, Fisher Criterion, Between-Class Scatter, Within-Class Scatter, Independent Component Analysis, ICA, FastICA, Cocktail Party Problem, t-SNE, Kullback-Leibler Divergence, Perplexity, UMAP, Uniform Manifold Approximation and Projection, High-Dimensional Visualization, Data Leakage Prevention, Scikit-learn, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/dimensionality-reduction`,
   },
+  "/learning/machine-learning/anomaly-detection": {
+    title: "Module 17: Anomaly Detection & Imbalanced Learning | PrepSpaces",
+    description: "Master anomaly detection and imbalanced learning: statistical screening with Z-score, Tukey IQR fences, Median Absolute Deviation (MAD), Isolation Forest, Local Outlier Factor (LOF), One-Class SVM, sampling strategies (Random Undersampling, Random Oversampling, SMOTE), cost-sensitive class weighting, probability threshold optimization (F1, Precision-Recall curves, cost-sensitive tradeoffs), and production financial fraud detection pipelines.",
+    keywords: "Anomaly Detection, Imbalanced Learning, Outlier vs Anomaly, Point Anomaly, Contextual Anomaly, Collective Anomaly, Z-Score, Interquartile Range, IQR, Median Absolute Deviation, MAD, Modified Z-Score, Isolation Forest, Local Outlier Factor, LOF, One-Class SVM, Random Undersampling, Random Oversampling, SMOTE, Synthetic Minority Oversampling, Class Weights, Threshold Optimization, Precision-Recall AUC, Average Precision, ROC-AUC, Fraud Detection, Imbalanced-Learn, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/anomaly-detection`,
+  },
+  "/courses/machine-learning/anomaly-detection": {
+    title: "Module 17: Anomaly Detection & Imbalanced Learning | PrepSpaces",
+    description: "Master anomaly detection and imbalanced learning: statistical screening with Z-score, Tukey IQR fences, Median Absolute Deviation (MAD), Isolation Forest, Local Outlier Factor (LOF), One-Class SVM, sampling strategies (Random Undersampling, Random Oversampling, SMOTE), cost-sensitive class weighting, probability threshold optimization (F1, Precision-Recall curves, cost-sensitive tradeoffs), and production financial fraud detection pipelines.",
+    keywords: "Anomaly Detection, Imbalanced Learning, Outlier vs Anomaly, Point Anomaly, Contextual Anomaly, Collective Anomaly, Z-Score, Interquartile Range, IQR, Median Absolute Deviation, MAD, Modified Z-Score, Isolation Forest, Local Outlier Factor, LOF, One-Class SVM, Random Undersampling, Random Oversampling, SMOTE, Synthetic Minority Oversampling, Class Weights, Threshold Optimization, Precision-Recall AUC, Average Precision, ROC-AUC, Fraud Detection, Imbalanced-Learn, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/anomaly-detection`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

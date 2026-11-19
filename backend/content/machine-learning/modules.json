@@ -174,5 +174,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "anomaly-detection",
+    "courseId": "machine-learning",
+    "index": 17,
+    "name": "17. Anomaly Detection & Imbalanced Learning",
+    "route": "/learning/machine-learning/anomaly-detection",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

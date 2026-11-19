@@ -264,6 +264,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "ml-pipelines", name: "14. ML Pipelines & Workflow Automation", route: "/learning/machine-learning/ml-pipelines" },
   { id: "unsupervised-clustering", name: "15. Unsupervised Learning & Clustering", route: "/learning/machine-learning/unsupervised-clustering" },
   { id: "dimensionality-reduction", name: "16. Dimensionality Reduction & Feature Extraction", route: "/learning/machine-learning/dimensionality-reduction" },
+  { id: "anomaly-detection", name: "17. Anomaly Detection & Imbalanced Learning", route: "/learning/machine-learning/anomaly-detection" },
 ];
 
 export default function ModuleNav({

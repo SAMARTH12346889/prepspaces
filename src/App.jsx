@@ -199,6 +199,7 @@ const MachineLearningFeatureEngineering = React.lazy(() => import("./Componets/M
 const MachineLearningPipelines = React.lazy(() => import("./Componets/MachineLearningPipelines"));
 const MachineLearningClustering = React.lazy(() => import("./Componets/MachineLearningClustering"));
 const MachineLearningDimensionalityReduction = React.lazy(() => import("./Componets/MachineLearningDimensionalityReduction"));
+const MachineLearningAnomalyDetection = React.lazy(() => import("./Componets/MachineLearningAnomalyDetection"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1854,6 +1855,14 @@ function App() {
             <Route path="/learning/ml/module-16" element={<MachineLearningDimensionalityReduction />} />
             <Route path="/courses/machine-learning/dimensionality-reduction" element={<MachineLearningDimensionalityReduction />} />
             <Route path="/courses/machine-learning/pca" element={<MachineLearningDimensionalityReduction />} />
+            <Route path="/learning/machine-learning/anomaly-detection" element={<MachineLearningAnomalyDetection />} />
+            <Route path="/learning/machine-learning/imbalanced-learning" element={<MachineLearningAnomalyDetection />} />
+            <Route path="/learning/machine-learning/module-17" element={<MachineLearningAnomalyDetection />} />
+            <Route path="/learning/ml/anomaly-detection" element={<MachineLearningAnomalyDetection />} />
+            <Route path="/learning/ml/imbalanced-learning" element={<MachineLearningAnomalyDetection />} />
+            <Route path="/learning/ml/module-17" element={<MachineLearningAnomalyDetection />} />
+            <Route path="/courses/machine-learning/anomaly-detection" element={<MachineLearningAnomalyDetection />} />
+            <Route path="/courses/machine-learning/imbalanced-learning" element={<MachineLearningAnomalyDetection />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

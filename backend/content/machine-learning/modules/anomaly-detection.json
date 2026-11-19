@@ -1,0 +1,130 @@
+{
+  "id": "anomaly-detection",
+  "courseId": "machine-learning",
+  "index": 17,
+  "name": "17. Anomaly Detection & Imbalanced Learning",
+  "route": "/learning/machine-learning/anomaly-detection",
+  "componentName": "MachineLearningAnomalyDetection",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary difference between a statistical outlier and a domain anomaly in machine learning?",
+      "options": [
+        "Outliers only occur in categorical columns, whereas anomalies occur in numerical columns",
+        "An outlier is purely a mathematical/distributional deviation from central tendency, while an anomaly is an unexpected pattern relative to specific behavioral or operational context",
+        "Anomalies can only be detected using neural networks, whereas outliers require boxplots",
+        "Outliers are always malicious attacks, whereas anomalies are sensor glitches"
+      ],
+      "correctIndex": 1,
+      "explanation": "A numerical value (e.g. $1,500 purchase) may fall well within normal global distribution percentiles (not a statistical outlier), but if it occurs at 3:00 AM from a foreign IP following three failed logins, it represents a critical contextual anomaly."
+    },
+    {
+      "id": 2,
+      "question": "Why is the Median Absolute Deviation (MAD) and Modified Z-score preferred over the traditional standard deviation Z-score for outlier screening?",
+      "options": [
+        "Because MAD computes faster on GPUs",
+        "Because the sample mean and standard deviation are non-robust and heavily distorted by the very outliers they are intended to detect",
+        "Because standard Z-scores can only be computed when N > 1,000,000",
+        "Because MAD guarantees that the data becomes normally distributed"
+      ],
+      "correctIndex": 1,
+      "explanation": "A single massive outlier inflates both the mean and the standard deviation, shrinking the calculated Z-score of all points (including the outlier itself, known as the masking effect). The median and MAD are robust statistics with a 50% breakdown point."
+    },
+    {
+      "id": 3,
+      "question": "How does the Isolation Forest algorithm isolate anomalous observations with fewer recursive partitioning splits?",
+      "options": [
+        "By training gradient boosted regression trees to predict density",
+        "Because anomalies are rare and situated in sparse, peripheral regions of feature space, random axis-aligned splits isolate them near the tree root (short average path length)",
+        "By calculating the inverse covariance Mahalanobis distance at every node",
+        "By computing convex hulls around majority class clusters"
+      ],
+      "correctIndex": 1,
+      "explanation": "In an ensemble of Isolation Trees (iTrees), normal dense cluster points require many random splits to isolate into individual leaf nodes. Anomalies reside in low-density outer regions and are partitioned in very few splits, yielding an average path length h(x) significantly shorter than c(n)."
+    },
+    {
+      "id": 4,
+      "question": "What does a Local Outlier Factor (LOF) score substantially greater than 1 indicate about an observation?",
+      "options": [
+        "The observation has much higher local density than its neighboring points (dense cluster core)",
+        "The observation's local reachability density is significantly lower than that of its k nearest neighbors, indicating it is an isolated local outlier",
+        "The observation's features have zero variance",
+        "The observation has been correctly classified by a random forest"
+      ],
+      "correctIndex": 1,
+      "explanation": "LOF compares the local reachability density (LRD) of point p with the average LRD of its k nearest neighbors. If LOF(p) >> 1, point p lives in a sparser neighborhood than its neighbors, identifying it as a local density anomaly."
+    },
+    {
+      "id": 5,
+      "question": "Why is accuracy a fundamentally misleading metric for evaluating fraud detection models on datasets with a 99.9% to 0.1% class imbalance?",
+      "options": [
+        "Because Scikit-learn accuracy_score truncates floating point values below 1%",
+        "A naive dummy classifier predicting 'Normal' for 100% of transactions achieves 99.9% accuracy while detecting zero fraud, failing the business objective entirely",
+        "Because accuracy is only defined for multi-class classification problems",
+        "Because accuracy cannot be calculated when using cross-validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "In severe imbalance (e.g. 1 fraud in 1,000 transactions), a trivial zero-rule model achieves 99.9% accuracy with a 0% recall on fraud. Metrics like Precision, Recall, F1-Score, and Precision-Recall AUC (PR-AUC / Average Precision) must be used instead."
+    },
+    {
+      "id": 6,
+      "question": "How does SMOTE (Synthetic Minority Over-sampling Technique) generate new minority training examples?",
+      "options": [
+        "By duplicating existing minority rows with random Gaussian noise added to all columns",
+        "By selecting a minority sample x_i, finding its k nearest minority neighbors x_j, and interpolating along the connecting line segment: x_new = x_i + lambda * (x_j - x_i) where lambda in [0, 1]",
+        "By training a Generative Adversarial Network (GAN) on the majority class",
+        "By downsampling the majority class until counts match"
+      ],
+      "correctIndex": 1,
+      "explanation": "SMOTE operates in feature space by taking vector differences between neighboring minority instances: x_new = x_i + lambda * (x_j - x_i). This synthesizes realistic points along the minority manifold rather than merely replicating identical duplicates."
+    },
+    {
+      "id": 7,
+      "question": "What catastrophic data leakage error occurs if SMOTE or random resampling is executed prior to train/test splitting?",
+      "options": [
+        "Memory allocation crashes because the dataset becomes too large",
+        "Synthetic samples derived from future test set observations leak into the training partition, producing artificially inflated validation scores that fail in production",
+        "Feature scaling becomes mathematically undefined",
+        "The minority class label is inverted"
+      ],
+      "correctIndex": 1,
+      "explanation": "If resampling is performed on the whole dataset before splitting, synthetic points created by interpolating between test-set rows and train-set rows enter the training set. This leaks the test manifold into training, causing severe overfitting and invalid test metrics."
+    },
+    {
+      "id": 8,
+      "question": "How does cost-sensitive learning via class weighting (e.g. class_weight='balanced') handle imbalanced datasets without altering dataset size?",
+      "options": [
+        "By dropping rows with small gradient values",
+        "By scaling the loss function penalty inversely proportional to class frequencies: w_c = N / (K * N_c), heavily penalizing misclassifications of the rare minority class during gradient updates",
+        "By fitting separate models for each class and averaging their predictions",
+        "By transforming target labels into continuous probabilities"
+      ],
+      "correctIndex": 1,
+      "explanation": "Balanced class weighting keeps the original dataset intact but scales the objective loss for class c by w_c = N / (K * N_c). If fraud represents 1% of data, errors on fraud instances receive 100x higher penalty than errors on normal transactions."
+    },
+    {
+      "id": 9,
+      "question": "Why is the default classification probability threshold of 0.5 often suboptimal for fraud detection systems?",
+      "options": [
+        "Because probabilities output by Scikit-learn models are always integers",
+        "Because missing a fraudulent transaction (False Negative) typically carries much higher financial cost and risk than investigating a false alarm (False Positive), justifying a lower threshold (e.g. 0.15 or 0.25) to increase recall",
+        "Because threshold 0.5 is mathematically prohibited on imbalanced data",
+        "Because ROC-AUC requires thresholds between 0.8 and 1.0"
+      ],
+      "correctIndex": 1,
+      "explanation": "The default 0.5 threshold assumes symmetric error costs. In fraud detection, missing a $5,000 fraud is far worse than manually verifying a legitimate customer (costing $2). Lowering the threshold boosts Recall at the acceptable expense of some Precision."
+    },
+    {
+      "id": 10,
+      "question": "Why is Precision-Recall AUC (PR-AUC / Average Precision) preferred over ROC-AUC for evaluating anomaly and fraud detection models on massive imbalanced datasets?",
+      "options": [
+        "Because PR-AUC requires fewer CPU cycles to calculate",
+        "ROC-AUC's False Positive Rate denominator contains the massive majority class (FP + TN), causing large surges in false alarms to look negligible; PR-AUC explicitly measures Precision against Recall without being masked by TN",
+        "Because ROC-AUC cannot be plotted in Python",
+        "Because PR-AUC is supervised while ROC-AUC is unsupervised"
+      ],
+      "correctIndex": 1,
+      "explanation": "In a dataset with 1,000,000 normal transactions and 100 fraud cases, 5,000 false alarms produces an FPR of only 5,000 / 1,000,000 = 0.5% (yielding an apparently pristine ROC-AUC of 0.98). However, the precision is only 80 / (80 + 5,000) = 1.5%, which PR-AUC accurately exposes."
+    }
+  ]
+}
