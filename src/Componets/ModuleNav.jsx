@@ -255,6 +255,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "regression", name: "5. Regression Analysis & Linear Models", route: "/learning/machine-learning/regression" },
   { id: "advanced-regression", name: "6. Advanced Regression & Regularization", route: "/learning/machine-learning/advanced-regression" },
   { id: "classification", name: "7. Classification & Logistic Regression", route: "/learning/machine-learning/classification" },
+  { id: "decision-trees", name: "8. Decision Trees & Rule-Based Learning", route: "/learning/machine-learning/decision-trees" },
 ];
 
 export default function ModuleNav({

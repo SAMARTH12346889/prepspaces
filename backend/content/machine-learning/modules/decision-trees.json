@@ -1,0 +1,130 @@
+{
+  "id": "decision-trees",
+  "courseId": "machine-learning",
+  "index": 8,
+  "name": "8. Decision Trees & Rule-Based Learning",
+  "route": "/learning/machine-learning/decision-trees",
+  "componentName": "MachineLearningDecisionTrees",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of recursive partitioning?",
+      "options": [
+        "Scale all numerical features",
+        "Repeatedly divide a dataset using feature-based conditions",
+        "Convert regression into classification",
+        "Remove every missing value"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recursive partitioning repeatedly evaluates and selects candidate feature conditions to divide training observations into increasingly homogeneous child subsets."
+    },
+    {
+      "id": 2,
+      "question": "Which node represents the starting point of a decision tree?",
+      "options": [
+        "Leaf node",
+        "Root node",
+        "Terminal branch",
+        "Prediction node"
+      ],
+      "correctIndex": 1,
+      "explanation": "The root node is the topmost node containing the entire training dataset before any recursive splits are applied."
+    },
+    {
+      "id": 3,
+      "question": "What does entropy measure in a classification tree?",
+      "options": [
+        "Tree depth",
+        "Class uncertainty or impurity",
+        "Number of input features",
+        "Regression error only"
+      ],
+      "correctIndex": 1,
+      "explanation": "Entropy measures the Shannon information uncertainty or impurity of categorical class labels in a node: H(S) = -Σ p_i log₂(p_i)."
+    },
+    {
+      "id": 4,
+      "question": "What is the entropy of a completely pure classification node?",
+      "options": [
+        "1",
+        "0.5",
+        "0",
+        "Infinity"
+      ],
+      "correctIndex": 2,
+      "explanation": "When all observations in a node belong to a single class, there is zero uncertainty, yielding an entropy of exactly 0.0 bits."
+    },
+    {
+      "id": 5,
+      "question": "What does information gain measure?",
+      "options": [
+        "Increase in tree depth",
+        "Reduction in entropy after splitting",
+        "Number of observations removed",
+        "Total prediction accuracy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Information gain is the difference between the parent node's entropy and the weighted average entropy of its resulting child nodes: IG = H(parent) - H(children)."
+    },
+    {
+      "id": 6,
+      "question": "What is the maximum Gini impurity for a two-class node?",
+      "options": [
+        "0.25",
+        "0.5",
+        "1",
+        "2"
+      ],
+      "correctIndex": 1,
+      "explanation": "For a balanced binary distribution where p₁ = p₀ = 0.5, Gini impurity reaches its theoretical maximum: 1 - (0.5² + 0.5²) = 1 - 0.5 = 0.5."
+    },
+    {
+      "id": 7,
+      "question": "Which tree is designed to predict a numerical target?",
+      "options": [
+        "Classification tree",
+        "Regression tree",
+        "Binary classifier",
+        "One-vs-Rest classifier"
+      ],
+      "correctIndex": 1,
+      "explanation": "A regression tree predicts continuous numerical targets by partitioning the feature space into regions where each leaf outputs the mean or median target value."
+    },
+    {
+      "id": 8,
+      "question": "Which parameter restricts the maximum depth of a Scikit-learn decision tree?",
+      "options": [
+        "alpha",
+        "max_depth",
+        "n_features",
+        "threshold"
+      ],
+      "correctIndex": 1,
+      "explanation": "The max_depth parameter restricts how many split levels the tree can grow from the root node to its deepest terminal leaf."
+    },
+    {
+      "id": 9,
+      "question": "What is the difference between pre-pruning and post-pruning?",
+      "options": [
+        "Both only increase tree depth",
+        "Pre-pruning restricts growth, while post-pruning removes branches after initial growth",
+        "Pre-pruning removes data rows",
+        "Post-pruning changes classification into regression"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pre-pruning stops splitting early during training using rules like max_depth and min_samples_leaf; post-pruning grows a full tree first and trims unnecessary branches via cost-complexity pruning (ccp_alpha)."
+    },
+    {
+      "id": 10,
+      "question": "Which Scikit-learn parameter controls cost-complexity pruning?",
+      "options": [
+        "max_features",
+        "min_samples_split",
+        "ccp_alpha",
+        "random_state"
+      ],
+      "correctIndex": 2,
+      "explanation": "The ccp_alpha parameter controls minimal cost-complexity pruning by penalizing tree size with a regularized cost R_α(T) = R(T) + α|T̃|."
+    }
+  ]
+}

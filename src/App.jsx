@@ -190,6 +190,7 @@ const MachineLearningEda = React.lazy(() => import("./Componets/MachineLearningE
 const MachineLearningRegression = React.lazy(() => import("./Componets/MachineLearningRegression"));
 const MachineLearningAdvancedRegression = React.lazy(() => import("./Componets/MachineLearningAdvancedRegression"));
 const MachineLearningClassification = React.lazy(() => import("./Componets/MachineLearningClassification"));
+const MachineLearningDecisionTrees = React.lazy(() => import("./Componets/MachineLearningDecisionTrees"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1786,6 +1787,12 @@ function App() {
             <Route path="/learning/ml/classification" element={<MachineLearningClassification />} />
             <Route path="/learning/ml/module-7" element={<MachineLearningClassification />} />
             <Route path="/courses/machine-learning/classification" element={<MachineLearningClassification />} />
+            <Route path="/learning/machine-learning/decision-trees" element={<MachineLearningDecisionTrees />} />
+            <Route path="/learning/machine-learning/trees" element={<MachineLearningDecisionTrees />} />
+            <Route path="/learning/machine-learning/module-8" element={<MachineLearningDecisionTrees />} />
+            <Route path="/learning/ml/decision-trees" element={<MachineLearningDecisionTrees />} />
+            <Route path="/learning/ml/module-8" element={<MachineLearningDecisionTrees />} />
+            <Route path="/courses/machine-learning/decision-trees" element={<MachineLearningDecisionTrees />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

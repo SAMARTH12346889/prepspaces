@@ -75,5 +75,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "decision-trees",
+    "courseId": "machine-learning",
+    "index": 8,
+    "name": "8. Decision Trees & Rule-Based Learning",
+    "route": "/learning/machine-learning/decision-trees",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

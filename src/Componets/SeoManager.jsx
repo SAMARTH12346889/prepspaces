@@ -165,6 +165,18 @@ const routeMeta = {
     keywords: "Classification Machine Learning, Logistic Regression, Sigmoid Function, Log-Loss, Cross-Entropy, Softmax Regression, One-vs-Rest OvR, One-vs-One OvO, Decision Boundaries, Classification Thresholds, Precision Recall F1, ROC-AUC, SMOTE Imbalanced Classification, Scikit-learn LogisticRegression, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/classification`,
   },
+  "/learning/machine-learning/decision-trees": {
+    title: "Module 8: Decision Trees & Rule-Based Learning | PrepSpaces",
+    description: "Master decision trees and rule-based supervised learning: recursive partitioning, Shannon entropy, information gain, Gini impurity, classification vs regression trees, tree depth and complexity, pre-pruning, cost-complexity post-pruning ccp_alpha, tree visualization, and Scikit-learn pipelines.",
+    keywords: "Decision Trees Machine Learning, Recursive Partitioning, Entropy, Information Gain, Gini Impurity, Classification Trees, Regression Trees, Tree Depth, Pre-Pruning, Post-Pruning, Cost-Complexity Pruning ccp_alpha, DecisionTreeClassifier, DecisionTreeRegressor, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/decision-trees`,
+  },
+  "/courses/machine-learning/decision-trees": {
+    title: "Module 8: Decision Trees & Rule-Based Learning | PrepSpaces",
+    description: "Master decision trees and rule-based supervised learning: recursive partitioning, Shannon entropy, information gain, Gini impurity, classification vs regression trees, tree depth and complexity, pre-pruning, cost-complexity post-pruning ccp_alpha, tree visualization, and Scikit-learn pipelines.",
+    keywords: "Decision Trees Machine Learning, Recursive Partitioning, Entropy, Information Gain, Gini Impurity, Classification Trees, Regression Trees, Tree Depth, Pre-Pruning, Post-Pruning, Cost-Complexity Pruning ccp_alpha, DecisionTreeClassifier, DecisionTreeRegressor, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/decision-trees`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",
