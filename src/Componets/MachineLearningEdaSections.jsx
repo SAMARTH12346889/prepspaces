@@ -341,8 +341,8 @@ export default function MachineLearningEdaSections() {
           <div className="bg-stone-50 p-4 rounded-xl border border-stone-200 font-mono">
             <h4 className="font-bold text-stone-900 mb-2">Pearson vs Spearman Correlation</h4>
             <div className="bg-white p-3 rounded-lg border border-stone-200 space-y-2 mb-2 text-stone-800">
-              <div><strong>Pearson \(r\):</strong> Measures linear relationship (\(\operatorname{Cov}(X,Y) / (\sigma_X \sigma_Y)\))</div>
-              <div><strong>Spearman \(\rho\):</strong> Measures monotonic relationship using ranked observations</div>
+              <div><strong>Pearson r:</strong> Measures linear relationship: Cov(X, Y) / (σ_X &middot; σ_Y)</div>
+              <div><strong>Spearman &rho;:</strong> Measures monotonic relationship using ranked observations</div>
             </div>
             <p className="text-stone-600 font-sans text-[11px]">
               Use Spearman when relationships are non-linear or distributions contain influential outliers.
