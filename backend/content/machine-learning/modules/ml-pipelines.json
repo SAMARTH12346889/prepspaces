@@ -1,0 +1,130 @@
+{
+  "id": "ml-pipelines",
+  "courseId": "machine-learning",
+  "index": 14,
+  "name": "14. ML Pipelines & Workflow Automation",
+  "route": "/learning/machine-learning/ml-pipelines",
+  "componentName": "MachineLearningPipelines",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary architectural advantage of using Scikit-learn's Pipeline over executing preprocessing and model training as discrete separate scripts?",
+      "options": [
+        "It automatically compiles Python bytecode into C++ for 100x GPU speedup",
+        "It encapsulates the entire sequence of transformers and final estimator into a single composite object, enforcing identical learned transformations at inference and preventing data leakage during cross-validation",
+        "It eliminates the need to specify random_state across models",
+        "It converts all tabular datasets into neural networks automatically"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Pipeline combines transformers and estimators into a unified object. During cross-validation, transformers are fitted strictly on training folds; during inference, the exact learned parameters (means, scales, imputation statistics) are applied to new data without manual intervention."
+    },
+    {
+      "id": 2,
+      "question": "How does Scikit-learn's double underscore notation (e.g., 'classifier__C' or 'preprocessor__numeric__scaler') function inside a nested Pipeline?",
+      "options": [
+        "It denotes private Python variables that cannot be modified outside the class",
+        "It traverses nested step hierarchies, allowing GridSearchCV to address parameters of nested transformers and estimators inside complex multi-branch pipelines",
+        "It creates duplicate copies of the dataset in memory",
+        "It forces the estimator to use L2 regularization exclusively"
+      ],
+      "correctIndex": 1,
+      "explanation": "The double underscore '__' syntax enables parameter routing through nested estimators (e.g. step_name__param_name). This enables grid search and set_params() to tune hyperparameters deep within ColumnTransformers and sub-pipelines."
+    },
+    {
+      "id": 3,
+      "question": "What is the critical functional difference between Pipeline and ColumnTransformer in Scikit-learn?",
+      "options": [
+        "Pipeline applies operations sequentially in series (output of step N becomes input to N+1); ColumnTransformer applies transformations in parallel to separate column subsets and concatenates their outputs",
+        "Pipeline is only for regression; ColumnTransformer is only for classification",
+        "Pipeline runs on CPU; ColumnTransformer runs on GPU",
+        "ColumnTransformer cannot be nested inside a Pipeline"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pipeline is a sequential workflow where each step transforms the data sequentially. ColumnTransformer is a parallel column-routing construct that splits data by column slices (e.g. numeric vs categorical), applies specialized sub-pipelines to each slice, and joins the results."
+    },
+    {
+      "id": 4,
+      "question": "When creating a Custom Transformer by inheriting from BaseEstimator and TransformerMixin, why should data-dependent calculations NEVER be executed in __init__()?",
+      "options": [
+        "Because Python will throw a RecursionError",
+        "To adhere to Scikit-learn's estimator API conventions: __init__() must only store explicit hyperparameter arguments without modifying them, while all state and dataset learning must occur inside fit()",
+        "Because __init__() is only executed when dumping to Joblib",
+        "Because TransformerMixin overrides the __init__() signature"
+      ],
+      "correctIndex": 1,
+      "explanation": "In Scikit-learn, cloning (via clone()) inspects constructor parameters without positional args. Storing data-dependent state in __init__() breaks estimator cloning, grid search, and cross-validation. All statistical learning must be deferred strictly to fit()."
+    },
+    {
+      "id": 5,
+      "question": "What does setting remainder='passthrough' in ColumnTransformer accomplish?",
+      "options": [
+        "It drops all columns that contain missing values",
+        "It automatically standardizes all remaining columns to zero mean",
+        "It preserves any columns not explicitly specified in the transformers list, passing them through untransformed into the final concatenated output",
+        "It skips fitting the classifier during training"
+      ],
+      "correctIndex": 2,
+      "explanation": "By default, remainder='drop' discards all columns not listed in any transformer tuple. Setting remainder='passthrough' retains unselected columns in their raw state and concatenates them with the transformed outputs."
+    },
+    {
+      "id": 6,
+      "question": "Why is performing cross_val_score() on a pre-scaled dataset (X_scaled = StandardScaler().fit_transform(X)) considered catastrophic data leakage?",
+      "options": [
+        "Because StandardScaler doubles memory usage",
+        "Because the scaler computed the global mean and variance across ALL observations (including the validation folds), allowing information about validation distributions to leak into model training",
+        "Because cross_val_score requires unscaled integers",
+        "Because it triggers a floating-point overflow in NumPy"
+      ],
+      "correctIndex": 1,
+      "explanation": "If scaling occurs before cross-validation splitting, the mean and variance of test/validation folds directly influence the standardized values of training folds. Encapsulating StandardScaler inside a Pipeline guarantees the scaler is re-fitted on training splits only."
+    },
+    {
+      "id": 7,
+      "question": "Why should machine learning practitioners serialize the entire fitted Pipeline object rather than saving the final estimator alone?",
+      "options": [
+        "Because standalone estimators take up 10x more disk space",
+        "Because saving only the estimator discards the fitted preprocessing state (imputation medians, scaling factors, one-hot category dictionaries), causing deployment failures on raw incoming data",
+        "Because Joblib cannot serialize standalone models",
+        "Because Python packages require .pipeline extensions"
+      ],
+      "correctIndex": 1,
+      "explanation": "A trained estimator expects preprocessed numerical arrays. If you save only the estimator, you lose the fitted imputer and encoder parameters, requiring error-prone manual recreation during production inference."
+    },
+    {
+      "id": 8,
+      "question": "What critical security risk exists when deserializing machine learning models using Python's pickle or Joblib?",
+      "options": [
+        "They leak the user's IP address to the internet",
+        "The pickle protocol can execute arbitrary Python bytecode and shell commands upon deserialization, making loading untrusted model files an arbitrary code execution vulnerability",
+        "They permanently corrupt the Python virtual environment",
+        "They disable SSL verification in HTTP requests"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pickle serialization is inherently insecure because pickled streams can construct arbitrary callable objects, leading to arbitrary code execution. Models from unverified third parties should be inspected or loaded via secure alternatives like skops or ONNX."
+    },
+    {
+      "id": 9,
+      "question": "How does the memory parameter in Scikit-learn's Pipeline improve execution speed during GridSearchCV?",
+      "options": [
+        "It allocates extra GPU VRAM to the classification algorithm",
+        "It caches the transformed outputs of intermediate preprocessing steps on disk (via joblib.Memory), avoiding repeated re-computation of identical transformers when tuning downstream model hyperparameters",
+        "It compresses the training dataset using gzip",
+        "It prevents Python garbage collection during cross-validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "When testing 50 different classifier hyperparameters (e.g. C or max_depth) while keeping preprocessing fixed, setting memory=Memory('cache') caches the output of intermediate transformers on disk so they are computed once per fold rather than 50 times."
+    },
+    {
+      "id": 10,
+      "question": "What is the primary operational purpose of tracking Data Drift, Concept Drift, and Schema Drift in deployed pipeline systems?",
+      "options": [
+        "To satisfy legal tax audits for cloud compute usage",
+        "To detect when real-world input distributions, target relationships, or incoming feature schemas diverge from the training baseline, signalling when automated retraining or pipeline fixes are required",
+        "To ensure all network packets arrive in chronological order",
+        "To convert offline batch models into real-time streaming engines"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trained pipelines assume production data follows training distributions. Monitoring data drift (covariate shift), concept drift (P(Y|X) shift), and schema drift (unexpected columns/nulls) ensures teams catch decaying accuracy and trigger timely model retraining."
+    }
+  ]
+}

@@ -237,6 +237,18 @@ const routeMeta = {
     keywords: "Feature Engineering, Data Preprocessing, One-Hot Encoding, Target Encoding, Ordinal Encoding, StandardScaler, MinMaxScaler, RobustScaler, Normalizer, Missing Value Imputation, SimpleImputer, KNNImputer, IterativeImputer, Outlier Detection, IQR, Winsorization, Binning, Feature Interactions, Polynomial Features, Cyclical Date Encoding, Feature Selection, VarianceThreshold, Mutual Information, RFE, RFECV, SelectFromModel, ColumnTransformer, Pipeline, Data Leakage, Scikit-learn, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/feature-engineering`,
   },
+  "/learning/machine-learning/ml-pipelines": {
+    title: "Module 14: ML Pipelines & Workflow Automation | PrepSpaces",
+    description: "Master production machine learning pipelines and workflow automation: Scikit-learn Pipeline architecture, ColumnTransformer for heterogeneous data, Custom Transformers with BaseEstimator and TransformerMixin, FunctionTransformer, pipeline cross-validation, hyperparameter tuning with GridSearchCV and RandomizedSearchCV via double underscore syntax, preventing preprocessing leakage, model persistence (Joblib, Pickle, skops, ONNX), and automated end-to-end retraining scripts.",
+    keywords: "Machine Learning Pipelines, Pipeline, ColumnTransformer, Custom Transformers, BaseEstimator, TransformerMixin, FunctionTransformer, Pipeline Cross-Validation, GridSearchCV, RandomizedSearchCV, Double Underscore Notation, Preprocessing Leakage, Model Persistence, Joblib, skops, ONNX, ML Workflow Automation, Customer Churn Pipeline, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/ml-pipelines`,
+  },
+  "/courses/machine-learning/ml-pipelines": {
+    title: "Module 14: ML Pipelines & Workflow Automation | PrepSpaces",
+    description: "Master production machine learning pipelines and workflow automation: Scikit-learn Pipeline architecture, ColumnTransformer for heterogeneous data, Custom Transformers with BaseEstimator and TransformerMixin, FunctionTransformer, pipeline cross-validation, hyperparameter tuning with GridSearchCV and RandomizedSearchCV via double underscore syntax, preventing preprocessing leakage, model persistence (Joblib, Pickle, skops, ONNX), and automated end-to-end retraining scripts.",
+    keywords: "Machine Learning Pipelines, Pipeline, ColumnTransformer, Custom Transformers, BaseEstimator, TransformerMixin, FunctionTransformer, Pipeline Cross-Validation, GridSearchCV, RandomizedSearchCV, Double Underscore Notation, Preprocessing Leakage, Model Persistence, Joblib, skops, ONNX, ML Workflow Automation, Customer Churn Pipeline, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/ml-pipelines`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

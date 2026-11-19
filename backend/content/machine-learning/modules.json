@@ -141,5 +141,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "ml-pipelines",
+    "courseId": "machine-learning",
+    "index": 14,
+    "name": "14. ML Pipelines & Workflow Automation",
+    "route": "/learning/machine-learning/ml-pipelines",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

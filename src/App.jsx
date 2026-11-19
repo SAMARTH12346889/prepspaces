@@ -196,6 +196,7 @@ const MachineLearningSVM = React.lazy(() => import("./Componets/MachineLearningS
 const MachineLearningKNNNaiveBayes = React.lazy(() => import("./Componets/MachineLearningKNNNaiveBayes"));
 const MachineLearningModelEvaluation = React.lazy(() => import("./Componets/MachineLearningModelEvaluation"));
 const MachineLearningFeatureEngineering = React.lazy(() => import("./Componets/MachineLearningFeatureEngineering"));
+const MachineLearningPipelines = React.lazy(() => import("./Componets/MachineLearningPipelines"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1829,6 +1830,12 @@ function App() {
             <Route path="/learning/ml/feature-engineering" element={<MachineLearningFeatureEngineering />} />
             <Route path="/learning/ml/module-13" element={<MachineLearningFeatureEngineering />} />
             <Route path="/courses/machine-learning/feature-engineering" element={<MachineLearningFeatureEngineering />} />
+            <Route path="/learning/machine-learning/ml-pipelines" element={<MachineLearningPipelines />} />
+            <Route path="/learning/machine-learning/pipelines" element={<MachineLearningPipelines />} />
+            <Route path="/learning/machine-learning/module-14" element={<MachineLearningPipelines />} />
+            <Route path="/learning/ml/ml-pipelines" element={<MachineLearningPipelines />} />
+            <Route path="/learning/ml/module-14" element={<MachineLearningPipelines />} />
+            <Route path="/courses/machine-learning/ml-pipelines" element={<MachineLearningPipelines />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />
