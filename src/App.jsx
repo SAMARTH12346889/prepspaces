@@ -189,6 +189,7 @@ const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearni
 const MachineLearningEda = React.lazy(() => import("./Componets/MachineLearningEda"));
 const MachineLearningRegression = React.lazy(() => import("./Componets/MachineLearningRegression"));
 const MachineLearningAdvancedRegression = React.lazy(() => import("./Componets/MachineLearningAdvancedRegression"));
+const MachineLearningClassification = React.lazy(() => import("./Componets/MachineLearningClassification"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1779,6 +1780,12 @@ function App() {
             <Route path="/learning/ml/advanced-regression" element={<MachineLearningAdvancedRegression />} />
             <Route path="/learning/ml/module-6" element={<MachineLearningAdvancedRegression />} />
             <Route path="/courses/machine-learning/advanced-regression" element={<MachineLearningAdvancedRegression />} />
+            <Route path="/learning/machine-learning/classification" element={<MachineLearningClassification />} />
+            <Route path="/learning/machine-learning/logistic-regression" element={<MachineLearningClassification />} />
+            <Route path="/learning/machine-learning/module-7" element={<MachineLearningClassification />} />
+            <Route path="/learning/ml/classification" element={<MachineLearningClassification />} />
+            <Route path="/learning/ml/module-7" element={<MachineLearningClassification />} />
+            <Route path="/courses/machine-learning/classification" element={<MachineLearningClassification />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

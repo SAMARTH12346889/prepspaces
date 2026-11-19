@@ -153,6 +153,18 @@ const routeMeta = {
     keywords: "Advanced Regression Course, Regularization Machine Learning, Ridge Regression L2, Lasso Regression L1, Elastic Net, PolynomialFeatures, Bias-Variance Tradeoff, VIF Multicollinearity, Recursive Feature Elimination RFE, GridSearchCV, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/advanced-regression`,
   },
+  "/learning/machine-learning/classification": {
+    title: "Module 7: Classification & Logistic Regression | PrepSpaces",
+    description: "Master classification and logistic regression in machine learning: binary and multiclass classification, sigmoid function, log-odds logit, decision boundaries, log-loss cross-entropy, softmax, One-vs-Rest, One-vs-One, decision thresholds, precision-recall tradeoffs, ROC-AUC, imbalanced data, and Scikit-learn pipelines.",
+    keywords: "Classification Machine Learning, Logistic Regression, Sigmoid Function, Log-Loss, Cross-Entropy, Softmax Regression, One-vs-Rest OvR, One-vs-One OvO, Decision Boundaries, Classification Thresholds, Precision Recall F1, ROC-AUC, SMOTE Imbalanced Classification, Scikit-learn LogisticRegression, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/classification`,
+  },
+  "/courses/machine-learning/classification": {
+    title: "Module 7: Classification & Logistic Regression | PrepSpaces",
+    description: "Master classification and logistic regression in machine learning: binary and multiclass classification, sigmoid function, log-odds logit, decision boundaries, log-loss cross-entropy, softmax, One-vs-Rest, One-vs-One, decision thresholds, precision-recall tradeoffs, ROC-AUC, imbalanced data, and Scikit-learn pipelines.",
+    keywords: "Classification Machine Learning, Logistic Regression, Sigmoid Function, Log-Loss, Cross-Entropy, Softmax Regression, One-vs-Rest OvR, One-vs-One OvO, Decision Boundaries, Classification Thresholds, Precision Recall F1, ROC-AUC, SMOTE Imbalanced Classification, Scikit-learn LogisticRegression, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/classification`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

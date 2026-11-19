@@ -1,0 +1,130 @@
+{
+  "id": "classification",
+  "courseId": "machine-learning",
+  "index": 7,
+  "name": "7. Classification & Logistic Regression",
+  "route": "/learning/machine-learning/classification",
+  "componentName": "MachineLearningClassification",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of classification?",
+      "options": [
+        "Predict continuous numerical values",
+        "Predict discrete class labels",
+        "Reduce the number of features",
+        "Calculate numerical averages"
+      ],
+      "correctIndex": 1,
+      "explanation": "Classification is a supervised machine learning task where a model learns from labeled observations to predict categorical or discrete class labels."
+    },
+    {
+      "id": 2,
+      "question": "Which function converts a binary logistic regression score into a probability?",
+      "options": [
+        "Softmax",
+        "ReLU",
+        "Sigmoid",
+        "Mean"
+      ],
+      "correctIndex": 2,
+      "explanation": "The sigmoid function σ(z) = 1 / (1 + e^(-z)) maps any real-valued number from -∞ to +∞ to a valid probability in the range (0, 1)."
+    },
+    {
+      "id": 3,
+      "question": "What does logistic regression model linearly?",
+      "options": [
+        "Raw class probabilities directly",
+        "Log-odds of the positive class",
+        "The number of classes",
+        "The confusion matrix"
+      ],
+      "correctIndex": 1,
+      "explanation": "Logistic regression models a linear relationship between input features and the log-odds (logit): log(p / (1 - p)) = β₀ + βᵀX."
+    },
+    {
+      "id": 4,
+      "question": "What does the default binary threshold of 0.5 mean?",
+      "options": [
+        "Predict positive when probability is at least 0.5",
+        "Every prediction is 50% accurate",
+        "Always predict the majority class",
+        "Remove observations below 0.5"
+      ],
+      "correctIndex": 0,
+      "explanation": "Under the standard 0.5 decision threshold, any observation with predicted positive probability p >= 0.5 is assigned to class 1, otherwise class 0."
+    },
+    {
+      "id": 5,
+      "question": "Which loss function evaluates classification probability predictions?",
+      "options": [
+        "RMSE only",
+        "R-squared",
+        "Log-loss",
+        "MAE only"
+      ],
+      "correctIndex": 2,
+      "explanation": "Log-loss (cross-entropy) evaluates the quality of predicted probabilities by computing the negative log-likelihood of the true classes, heavily penalizing confident wrong predictions."
+    },
+    {
+      "id": 6,
+      "question": "What does softmax do?",
+      "options": [
+        "Removes all input features",
+        "Converts multiple class scores into probabilities that sum to one",
+        "Calculates regression residuals",
+        "Balances the training dataset"
+      ],
+      "correctIndex": 1,
+      "explanation": "The softmax function exponentiates logits across K classes and divides by their sum, generating a normalized multiclass probability distribution summing to 1."
+    },
+    {
+      "id": 7,
+      "question": "How many classifiers are required for One-vs-Rest with five classes?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "25"
+      ],
+      "correctIndex": 0,
+      "explanation": "One-vs-Rest (OvR) trains one binary classifier per class against all other remaining classes combined, requiring exactly K = 5 binary models."
+    },
+    {
+      "id": 8,
+      "question": "How many pairwise classifiers are required for One-vs-One with four classes?",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "12"
+      ],
+      "correctIndex": 1,
+      "explanation": "One-vs-One (OvO) trains a separate classifier for every pairwise combination of classes: K(K - 1) / 2 = 4(3) / 2 = 6 classifiers."
+    },
+    {
+      "id": 9,
+      "question": "Why can accuracy be misleading in imbalanced classification?",
+      "options": [
+        "Accuracy cannot be calculated",
+        "A model may predict only the majority class and still achieve high accuracy",
+        "Accuracy always equals recall",
+        "Accuracy only works for multiclass problems"
+      ],
+      "correctIndex": 1,
+      "explanation": "In an imbalanced dataset (e.g. 99% non-fraud, 1% fraud), a trivial model predicting 100% non-fraud achieves 99% accuracy while detecting 0% of fraudulent transactions."
+    },
+    {
+      "id": 10,
+      "question": "Where should SMOTE be applied in a standard train-test workflow?",
+      "options": [
+        "Before splitting the complete dataset",
+        "Only on the untouched test set",
+        "Within training data or training folds",
+        "On validation and test data together"
+      ],
+      "correctIndex": 2,
+      "explanation": "Applying resampling before splitting creates data leakage from validation/test sets into training. Resampling or SMOTE must strictly happen inside training data or cross-validation folds."
+    }
+  ]
+}

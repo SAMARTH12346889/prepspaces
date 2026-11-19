@@ -254,6 +254,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "eda", name: "4. Exploratory Data Analysis & Visualization", route: "/learning/machine-learning/eda" },
   { id: "regression", name: "5. Regression Analysis & Linear Models", route: "/learning/machine-learning/regression" },
   { id: "advanced-regression", name: "6. Advanced Regression & Regularization", route: "/learning/machine-learning/advanced-regression" },
+  { id: "classification", name: "7. Classification & Logistic Regression", route: "/learning/machine-learning/classification" },
 ];
 
 export default function ModuleNav({
