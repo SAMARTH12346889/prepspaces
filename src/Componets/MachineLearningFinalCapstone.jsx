@@ -462,7 +462,12 @@ export default function MachineLearningFinalCapstone() {
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col antialiased selection:bg-[#f97316] selection:text-white pb-24">
       {/* Track & Course Navigation Header */}
-      <ModuleNav currentTrack="machine-learning" track="machine-learning" />
+      <ModuleNav
+        track="machine-learning"
+        currentTrack="machine-learning"
+        currentModuleId="final-capstone"
+        activeModuleId="final-capstone"
+      />
 
       {/* Main Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 w-full space-y-8 flex-1">
