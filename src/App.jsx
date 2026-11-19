@@ -206,6 +206,7 @@ const MachineLearningProbabilisticML = React.lazy(() => import("./Componets/Mach
 const MachineLearningStatisticalLearning = React.lazy(() => import("./Componets/MachineLearningStatisticalLearning"));
 const MachineLearningHyperparameterXAI = React.lazy(() => import("./Componets/MachineLearningHyperparameterXAI"));
 const MachineLearningRealWorldCaseStudies = React.lazy(() => import("./Componets/MachineLearningRealWorldCaseStudies"));
+const MachineLearningFinalCapstone = React.lazy(() => import("./Componets/MachineLearningFinalCapstone"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1930,6 +1931,18 @@ function App() {
             <Route path="/learning/ml/module-23" element={<MachineLearningRealWorldCaseStudies />} />
             <Route path="/courses/machine-learning/real-world-ml-case-studies" element={<MachineLearningRealWorldCaseStudies />} />
             <Route path="/courses/machine-learning/case-studies" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/learning/machine-learning/final-capstone" element={<MachineLearningFinalCapstone />} />
+            <Route path="/learning/machine-learning/capstone" element={<MachineLearningFinalCapstone />} />
+            <Route path="/learning/machine-learning/interview-mastery" element={<MachineLearningFinalCapstone />} />
+            <Route path="/learning/machine-learning/ml-capstone-interview-mastery" element={<MachineLearningFinalCapstone />} />
+            <Route path="/learning/machine-learning/module-24" element={<MachineLearningFinalCapstone />} />
+            <Route path="/learning/ml/final-capstone" element={<MachineLearningFinalCapstone />} />
+            <Route path="/learning/ml/capstone" element={<MachineLearningFinalCapstone />} />
+            <Route path="/learning/ml/interview-mastery" element={<MachineLearningFinalCapstone />} />
+            <Route path="/learning/ml/module-24" element={<MachineLearningFinalCapstone />} />
+            <Route path="/courses/machine-learning/final-capstone" element={<MachineLearningFinalCapstone />} />
+            <Route path="/courses/machine-learning/capstone" element={<MachineLearningFinalCapstone />} />
+            <Route path="/courses/machine-learning/interview-mastery" element={<MachineLearningFinalCapstone />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

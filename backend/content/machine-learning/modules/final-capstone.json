@@ -1,0 +1,154 @@
+{
+  "id": "final-capstone",
+  "courseId": "machine-learning",
+  "index": 24,
+  "name": "24. Final ML Capstone & Interview Mastery",
+  "route": "/learning/machine-learning/final-capstone",
+  "componentName": "MachineLearningFinalCapstone",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which of the following represents the correct logical sequence of an end-to-end machine learning project lifecycle?",
+      "options": [
+        "Hyperparameter tuning → Model deployment → Exploratory data analysis → Problem definition",
+        "Problem definition → Data collection & EDA → Feature engineering → Model selection & training → Validation & explainability → Pipeline serialization → Deployment readiness",
+        "Algorithm selection → Model serialization → Feature engineering → Problem formulation → Evaluation",
+        "Data collection → API integration → Deep learning → Baseline evaluation → Documentation"
+      ],
+      "correctIndex": 1,
+      "explanation": "An end-to-end ML workflow must start with clear business problem formulation and data discovery before feature engineering, model training, validation, explainability, pipeline encapsulation, and deployment preparation."
+    },
+    {
+      "id": 2,
+      "question": "When formulating a customer churn prediction problem, why is defining a specific prediction timeframe (e.g., 'churn within 30 days') essential?",
+      "options": [
+        "It reduces the size of the dataset by 50%",
+        "Without a bounded time horizon, all customers eventually churn over infinite time, making the target non-stationary and uninformative",
+        "It eliminates the need to perform cross-validation",
+        "Scikit-learn algorithms require time horizons to initialize loss functions"
+      ],
+      "correctIndex": 1,
+      "explanation": "Over an infinite horizon, every customer eventually cancels or leaves. A well-defined prediction horizon (such as churn within 30, 60, or 90 days) defines a stationary, actionable label that operations and retention marketing teams can act on proactively."
+    },
+    {
+      "id": 3,
+      "question": "What is the primary danger of using customer lifetime support calls in churn prediction if some support calls took place after account cancellation was requested?",
+      "options": [
+        "Increased computational latency during inference",
+        "Severe target leakage / lookahead bias that artificially inflates training metrics but causes failure in production",
+        "Violation of logistic regression homoscedasticity assumptions",
+        "Overfitting due to excessive numerical feature columns"
+      ],
+      "correctIndex": 1,
+      "explanation": "Target/lookahead leakage occurs when features contain information that would not be available at the decision timestamp in production. If post-cancellation support calls are included, the model learns unrealistic future clues that vanish when scoring active customers."
+    },
+    {
+      "id": 4,
+      "question": "Why is 'stratify=y' strongly recommended when splitting an imbalanced dataset (e.g., 80% non-churn, 20% churn)?",
+      "options": [
+        "It automatically synthesizes minority class samples using SMOTE",
+        "It ensures that both training and testing sets retain approximately the identical class distribution as the original population",
+        "It standardizes numerical features to zero mean and unit variance",
+        "It enforces chronological ordering of rows"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stratified splitting ensures that each split (train, validation, and test) mirrors the population's exact class proportions. Pure random splitting risks creating unrepresentative splits with skewed positive-to-negative ratios, distorting evaluation metrics."
+    },
+    {
+      "id": 5,
+      "question": "In telecom churn modeling, why is an engineered ratio like 'Support Rate = Total Support Requests / Tenure' often more predictive than raw call count?",
+      "options": [
+        "It eliminates the need for one-hot encoding",
+        "It normalizes customer interaction velocity per unit time, distinguishing a new frustrated customer from a loyal long-term customer with infrequent calls",
+        "It guarantees a Gaussian distribution across all features",
+        "It transforms the problem from supervised to unsupervised clustering"
+      ],
+      "correctIndex": 1,
+      "explanation": "5 support calls from a customer with 1 month tenure indicates critical frustration, whereas 5 calls across 50 months indicates high satisfaction. Feature ratios capture behavioral intensity and velocity per unit of exposure."
+    },
+    {
+      "id": 6,
+      "question": "How should the final held-out test set be treated during hyperparameter optimization (e.g., GridSearch, RandomizedSearch, or Optuna)?",
+      "options": [
+        "Used as the validation fold in 5-fold cross-validation",
+        "Kept completely untouched until the final candidate model is locked, preventing data snooping and optimistic bias",
+        "Refitted after every trial to update tree split thresholds",
+        "Combined with training data to calculate feature importance"
+      ],
+      "correctIndex": 1,
+      "explanation": "The test set must remain quarantined and untouched throughout all experimentation, feature selection, and hyperparameter tuning. Evaluating hyperparameters on the test set causes subtle data snooping, resulting in over-optimistic generalization estimates."
+    },
+    {
+      "id": 7,
+      "question": "In customer churn prediction, why is high Recall often prioritized over high Precision when retention interventions (e.g., a personalized email offer) have very low marginal cost?",
+      "options": [
+        "High recall eliminates all false positives",
+        "Missing a customer who is about to churn (False Negative) loses high customer lifetime value, while sending an offer to a non-churner (False Positive) carries low business cost",
+        "Accuracy cannot be calculated when precision is lower than recall",
+        "Tree-based algorithms only optimize recall during tree splitting"
+      ],
+      "correctIndex": 1,
+      "explanation": "Evaluation metrics must align with business economics: the cost of a False Negative (lost customer lifetime value, e.g. $600/yr) far exceeds the cost of a False Positive (a $5 retention discount coupon sent to a customer who wasn't leaving)."
+    },
+    {
+      "id": 8,
+      "question": "What does a positive SHAP value for a customer's 'ContractType == Month-to-month' feature indicate?",
+      "options": [
+        "Month-to-month contracts definitely cause customers to cancel their subscriptions",
+        "The feature increases this customer's predicted log-odds/probability of churn relative to the baseline dataset expectation",
+        "The feature has zero correlation with the target variable",
+        "The model must be retrained without categorical features"
+      ],
+      "correctIndex": 1,
+      "explanation": "In SHAP (Shapley Additive exPlanations), a positive attribution indicates that the presence or value of that feature shifted the model's prediction higher than the expected baseline value. However, SHAP reflects model associations, not proven causal interventions."
+    },
+    {
+      "id": 9,
+      "question": "Why is wrapping ColumnTransformer and the classifier into a unified Scikit-learn Pipeline superior to transforming data prior to splitting?",
+      "options": [
+        "It prevents data leakage by fitting imputers and scalers strictly on training folds and guarantees identical sequential transformations during inference",
+        "It automatically parallelizes training across multiple cloud GPUs",
+        "It converts gradient boosted trees into linear models",
+        "It bypasses the need for test sets"
+      ],
+      "correctIndex": 0,
+      "explanation": "A unified Pipeline encapsulates all transformation logic (imputation, scaling, encoding) and the estimator. When evaluated inside cross-validation, transformers fit only on training folds and never see validation folds, eliminating data leakage and ensuring seamless deployment."
+    },
+    {
+      "id": 10,
+      "question": "Why is loading untrusted pickle or joblib files from unknown third parties considered a severe cybersecurity vulnerability?",
+      "options": [
+        "Pickle files corrupt GPU memory buffers",
+        "The deserialization process can execute arbitrary malicious Python bytecode embedded within the payload (__reduce__ exploit)",
+        "Joblib files cannot store Scikit-learn models",
+        "Deserialization removes hyperparameter configurations"
+      ],
+      "correctIndex": 1,
+      "explanation": "Python's pickle/joblib serialization format is an executable bytecode format. When unpickled, arbitrary code defined in the object's `__reduce__` method will execute with the privileges of the running Python process. Production models must come only from authenticated, trusted artifact registries."
+    },
+    {
+      "id": 11,
+      "question": "In an ML technical interview, how should you succinctly contrast Bagging (e.g., Random Forest) with Boosting (e.g., XGBoost, LightGBM)?",
+      "options": [
+        "Bagging is for unsupervised learning; Boosting is for supervised regression",
+        "Bagging trains independent parallel models on bootstrap samples to reduce variance; Boosting trains sequential models where each corrects predecessor errors to reduce bias",
+        "Bagging only works on text; Boosting only works on images",
+        "Bagging uses gradient descent; Boosting uses closed-form matrix inversion"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bagging aggregates parallel, low-bias deep trees trained on bootstrap samples to reduce model variance. Boosting fits shallow weak learners sequentially, with each subsequent learner focusing on the pseudo-residuals or misclassified weights of earlier models to systematically reduce bias."
+    },
+    {
+      "id": 12,
+      "question": "If customer demographics and website usage features remain identical over time, but competitor price reductions cause customer churn rates to spike, what form of drift has occurred?",
+      "options": [
+        "Covariate Shift / Data Drift (P(X) changed)",
+        "Concept Drift (P(y|X) changed while P(X) remained constant)",
+        "Prior Probability Shift only",
+        "Label Leakage"
+      ],
+      "correctIndex": 1,
+      "explanation": "Concept drift occurs when the underlying mathematical mapping or relationship between input features and target labels P(y|X) changes over time (here driven by external market competition), even though the input distribution P(X) of customer features has not shifted."
+    }
+  ]
+}

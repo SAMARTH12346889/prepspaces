@@ -271,6 +271,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "advanced-statistical-learning", name: "21. Advanced Statistical Learning & ML Research", route: "/learning/machine-learning/advanced-statistical-learning" },
   { id: "hyperparameter-optimization-xai", name: "22. Hyperparameter Optimization & Explainable ML", route: "/learning/machine-learning/hyperparameter-optimization-xai" },
   { id: "real-world-ml-case-studies", name: "23. Real-World ML Engineering & Case Studies", route: "/learning/machine-learning/real-world-ml-case-studies" },
+  { id: "final-capstone", name: "24. Final ML Capstone & Interview Mastery", route: "/learning/machine-learning/final-capstone" },
 ];
 
 export default function ModuleNav({

@@ -357,6 +357,18 @@ const routeMeta = {
     keywords: "Real-World Machine Learning, ML Engineering, Business Problem Formulation, Data Leakage Prevention, Baseline Development, DummyClassifier, Algorithm Benchmarking, Experiment Tracking, MLflow, ML Reproducibility, Credit Risk Prediction, Probability of Default, Basel Norms, Financial Fraud Detection, Imbalanced Learning, Precision at K, Customer Churn Prediction, Recommendation Systems, Matrix Factorization, NDCG, Sales Forecasting, Walk-Forward Validation, Lag Features, Medical Risk Prediction, Clinical AI, Responsible ML, Model Cards, Datasheets, Scikit-learn, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/real-world-ml-case-studies`,
   },
+  "/learning/machine-learning/final-capstone": {
+    title: "Module 24: Final ML Capstone & Interview Mastery | PrepSpaces",
+    description: "The grand finale capstone of the Machine Learning with Python track. Build a production-grade customer churn prediction system, master Python coding interviews, statistics and probability questions, classical ML algorithm deep-dives, end-to-end case studies, and ML system design fundamentals with interactive 24-skill readiness tracker.",
+    keywords: "Machine Learning Capstone, Customer Churn Prediction, ML Interview Preparation, Python Coding Interview, Statistics and Probability for ML, Classical Machine Learning, ML System Design, Feature Store, Batch Inference, Real-Time Inference, Model Serialization, Joblib, SHAP Explainability, Scikit-learn Pipeline, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/final-capstone`,
+  },
+  "/courses/machine-learning/final-capstone": {
+    title: "Module 24: Final ML Capstone & Interview Mastery | PrepSpaces",
+    description: "The grand finale capstone of the Machine Learning with Python track. Build a production-grade customer churn prediction system, master Python coding interviews, statistics and probability questions, classical ML algorithm deep-dives, end-to-end case studies, and ML system design fundamentals with interactive 24-skill readiness tracker.",
+    keywords: "Machine Learning Capstone, Customer Churn Prediction, ML Interview Preparation, Python Coding Interview, Statistics and Probability for ML, Classical Machine Learning, ML System Design, Feature Store, Batch Inference, Real-Time Inference, Model Serialization, Joblib, SHAP Explainability, Scikit-learn Pipeline, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/final-capstone`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

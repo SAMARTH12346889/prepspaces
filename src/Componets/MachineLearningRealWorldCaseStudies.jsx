@@ -970,11 +970,11 @@ export default function MachineLearningRealWorldCaseStudies() {
           </button>
 
           <button
-            onClick={() => navigate("/learning/machine-learning")}
+            onClick={() => navigate("/learning/machine-learning/final-capstone")}
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs transition-colors"
           >
-            <span>Complete Track: Return to Machine Learning Overview</span>
-            <CheckCircle2 size={16} />
+            <span>Next: Module 24 &mdash; Final ML Capstone &amp; Interview Mastery</span>
+            <ArrowRight size={16} />
           </button>
         </div>
       </main>

@@ -251,5 +251,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "final-capstone",
+    "courseId": "machine-learning",
+    "index": 24,
+    "name": "24. Final ML Capstone & Interview Mastery",
+    "route": "/learning/machine-learning/final-capstone",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
