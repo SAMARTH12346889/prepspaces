@@ -883,10 +883,10 @@ export default function MachineLearningKNNNaiveBayes() {
           </button>
 
           <button
-            onClick={() => navigate("/learning/machine-learning")}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-black text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs transition-colors"
+            onClick={() => navigate("/learning/machine-learning/model-evaluation")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs transition-colors"
           >
-            <span>Return to Machine Learning Overview</span>
+            <span>Next: Module 12 &mdash; Model Evaluation &amp; Cross-Validation</span>
             <ArrowRight size={16} />
           </button>
         </div>

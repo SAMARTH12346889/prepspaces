@@ -119,5 +119,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "model-evaluation",
+    "courseId": "machine-learning",
+    "index": 12,
+    "name": "12. Model Evaluation & Cross-Validation",
+    "route": "/learning/machine-learning/model-evaluation",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

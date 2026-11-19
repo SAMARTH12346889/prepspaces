@@ -259,6 +259,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "ensemble-learning", name: "9. Ensemble Learning & Boosting Algorithms", route: "/learning/machine-learning/ensemble-learning" },
   { id: "svm", name: "10. Support Vector Machines (SVM)", route: "/learning/machine-learning/svm" },
   { id: "knn-naive-bayes", name: "11. KNN & Naive Bayes Algorithms", route: "/learning/machine-learning/knn-naive-bayes" },
+  { id: "model-evaluation", name: "12. Model Evaluation & Cross-Validation", route: "/learning/machine-learning/model-evaluation" },
 ];
 
 export default function ModuleNav({

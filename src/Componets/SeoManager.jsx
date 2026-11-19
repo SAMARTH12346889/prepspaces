@@ -213,6 +213,18 @@ const routeMeta = {
     keywords: "K-Nearest Neighbors, KNN, Instance-Based Learning, Lazy Learning, Naive Bayes, Bayes Theorem, GaussianNB, MultinomialNB, BernoulliNB, Euclidean Distance, Manhattan Distance, Minkowski Distance, Curse of Dimensionality, KD-Tree, Ball Tree, Laplace Smoothing, Maximum A Posteriori MAP, Scikit-learn, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/knn-naive-bayes`,
   },
+  "/learning/machine-learning/model-evaluation": {
+    title: "Module 12: Model Evaluation & Cross-Validation | PrepSpaces",
+    description: "Master model evaluation, generalization diagnostics, and cross-validation: train-validation-test data splitting, preventing data leakage, regression metrics (MAE, MSE, RMSE, R², Adjusted R²), classification metrics (Confusion Matrix, Precision, Recall, F1, ROC-AUC, PR-AUC, Threshold Tuning), K-Fold, Stratified K-Fold, Group K-Fold, TimeSeriesSplit, LOOCV, Bootstrap validation, Nested Cross-Validation, and Learning Curves.",
+    keywords: "Model Evaluation, Cross-Validation, Data Leakage, MAE, MSE, RMSE, R-Squared, Adjusted R-Squared, Confusion Matrix, Precision, Recall, F1-Score, ROC Curve, ROC-AUC, Precision-Recall Curve, Average Precision, Classification Threshold, K-Fold, Stratified K-Fold, Group K-Fold, TimeSeriesSplit, Leave-One-Out LOOCV, Bootstrap Validation, Nested Cross-Validation, Learning Curves, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/model-evaluation`,
+  },
+  "/courses/machine-learning/model-evaluation": {
+    title: "Module 12: Model Evaluation & Cross-Validation | PrepSpaces",
+    description: "Master model evaluation, generalization diagnostics, and cross-validation: train-validation-test data splitting, preventing data leakage, regression metrics (MAE, MSE, RMSE, R², Adjusted R²), classification metrics (Confusion Matrix, Precision, Recall, F1, ROC-AUC, PR-AUC, Threshold Tuning), K-Fold, Stratified K-Fold, Group K-Fold, TimeSeriesSplit, LOOCV, Bootstrap validation, Nested Cross-Validation, and Learning Curves.",
+    keywords: "Model Evaluation, Cross-Validation, Data Leakage, MAE, MSE, RMSE, R-Squared, Adjusted R-Squared, Confusion Matrix, Precision, Recall, F1-Score, ROC Curve, ROC-AUC, Precision-Recall Curve, Average Precision, Classification Threshold, K-Fold, Stratified K-Fold, Group K-Fold, TimeSeriesSplit, Leave-One-Out LOOCV, Bootstrap Validation, Nested Cross-Validation, Learning Curves, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/model-evaluation`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

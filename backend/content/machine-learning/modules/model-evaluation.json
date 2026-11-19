@@ -1,0 +1,130 @@
+{
+  "id": "model-evaluation",
+  "courseId": "machine-learning",
+  "index": 12,
+  "name": "12. Model Evaluation & Cross-Validation",
+  "route": "/learning/machine-learning/model-evaluation",
+  "componentName": "MachineLearningModelEvaluation",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is it strictly necessary to separate the final Test dataset from all hyperparameter tuning and model selection decisions?",
+      "options": [
+        "Because training algorithms crash if the test set is loaded into memory",
+        "To prevent data leakage and selection bias, ensuring an unbiased estimate of generalization performance on unseen real-world data",
+        "Because Scikit-learn models cannot compute predictions on training sets",
+        "To ensure all target features automatically normalize to zero mean"
+      ],
+      "correctIndex": 1,
+      "explanation": "If the test dataset is repeatedly inspected to tune hyperparameters or choose between candidate algorithms, information indirectly leaks into model decisions. The test set must remain untouched until final evaluation to yield an unbiased estimate of generalization."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary danger of applying StandardScaler.fit_transform() across the entire dataset before splitting into train/test sets?",
+      "options": [
+        "It doubles the memory footprint of the dataset",
+        "It causes data leakage because the scaler uses the mean and variance of future test samples, producing overly optimistic test metrics",
+        "It forces all negative target values to zero",
+        "It turns linear models into non-linear kernel models"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fitting preprocessing transformations (scalers, encoders, imputers) on the complete dataset leaks distributional statistics (μ, σ) from the test set into the training phase. Preprocessing parameters must be learned strictly from training folds."
+    },
+    {
+      "id": 3,
+      "question": "Why is Root Mean Squared Error (RMSE) generally preferred over Mean Squared Error (MSE) when reporting regression performance to stakeholders?",
+      "options": [
+        "RMSE is always equal to zero for linear models",
+        "RMSE retains the quadratic penalty for large errors while restoring the original target units (e.g., dollars instead of dollars-squared)",
+        "RMSE eliminates all residual sensitivity to outliers",
+        "RMSE does not require computing differences between actual and predicted values"
+      ],
+      "correctIndex": 1,
+      "explanation": "MSE penalizes large errors quadratically but is expressed in squared units (e.g. ₹² or $²). RMSE takes the square root of MSE, retaining the severe penalty for large errors while bringing the error metric back to the original unit of the target."
+    },
+    {
+      "id": 4,
+      "question": "Why can the coefficient of determination (R²) be negative when evaluated on an independent test dataset?",
+      "options": [
+        "R² can never be negative under any mathematical circumstances",
+        "A negative R² indicates that the trained model's predictions are worse than simply predicting the mean of the actual target values for all samples",
+        "Because the model has zero bias and zero variance",
+        "Because feature scaling was applied inside a Scikit-learn Pipeline"
+      ],
+      "correctIndex": 1,
+      "explanation": "R² = 1 - (SS_res / SS_tot). If the residual sum of squares of the model's predictions exceeds the total sum of squares from predicting the historical mean (ȳ), the ratio exceeds 1, yielding a negative R²."
+    },
+    {
+      "id": 5,
+      "question": "In a medical cancer diagnosis system, what constitutes a False Negative (FN) and what is its operational consequence?",
+      "options": [
+        "A healthy patient is diagnosed with cancer; causes emotional distress and unnecessary biopsy",
+        "A patient who actually has cancer is diagnosed as healthy; causes delayed life-saving treatment",
+        "A patient who has cancer is correctly identified; prompt treatment begins",
+        "A healthy patient is correctly identified as healthy; no further action needed"
+      ],
+      "correctIndex": 1,
+      "explanation": "A False Negative (Type II error) occurs when the true condition is positive (cancer) but the model predicts negative (healthy). In medical screening, False Negatives carry catastrophic consequences, requiring high Recall."
+    },
+    {
+      "id": 6,
+      "question": "Why is Accuracy an unreliable metric for evaluating models on severely imbalanced datasets (e.g., 99.5% legitimate transactions, 0.5% fraud)?",
+      "options": [
+        "Accuracy cannot be computed when the sample count exceeds 1,000",
+        "A trivial dummy model that predicts 'legitimate' for every single sample achieves 99.5% accuracy while detecting zero fraud",
+        "Accuracy requires binary cross-entropy to be zero",
+        "Accuracy is incompatible with Stratified K-Fold"
+      ],
+      "correctIndex": 1,
+      "explanation": "Under severe class imbalance, predicting the majority class for 100% of samples yields a deceptively high accuracy score despite completely failing to identify the minority class of interest."
+    },
+    {
+      "id": 7,
+      "question": "Why is the Precision-Recall (PR) curve often superior to the ROC curve for evaluating rare positive events (fraud, rare disease)?",
+      "options": [
+        "ROC curves cannot be plotted in Scikit-learn",
+        "Because the False Positive Rate (FPR) in ROC has True Negatives (TN) in the denominator, massive TN counts keep FPR deceptively low even if false alarms explode",
+        "PR curves do not require calculating precision",
+        "Because ROC-AUC is only defined for regression models"
+      ],
+      "correctIndex": 1,
+      "explanation": "FPR = FP / (FP + TN). When TN is in the hundreds of thousands, a large number of false alarms (FP) barely registers in FPR. In contrast, Precision = TP / (TP + FP) directly exposes the surge in false alarms relative to true positive detections."
+    },
+    {
+      "id": 8,
+      "question": "How does lowering the classification decision threshold (e.g., from t = 0.50 down to t = 0.20) affect model performance?",
+      "options": [
+        "Decreases True Positives and increases False Negatives",
+        "Increases positive predictions, increasing Recall (capturing more actual positives) while typically decreasing Precision (more false alarms)",
+        "Has zero effect on the confusion matrix",
+        "Guarantees a higher F1 score in every scenario"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lowering the cutoff threshold makes the model more aggressive in predicting the positive class. This captures more true positives (higher Recall) at the expense of admitting more false positives (lower Precision)."
+    },
+    {
+      "id": 9,
+      "question": "When must GroupKFold be utilized instead of standard KFold or StratifiedKFold cross-validation?",
+      "options": [
+        "When the target variable is continuous and requires linear regression",
+        "When multiple non-independent records originate from the same subject/entity (e.g., multiple ECGs from the same patient) to prevent data leakage across folds",
+        "When the dataset has fewer than 10 total samples",
+        "When the number of features exceeds the number of observations"
+      ],
+      "correctIndex": 1,
+      "explanation": "If observations from the same subject (patient, customer, user) appear in both training and validation folds, the model can memorize subject-specific idiosyncrasies rather than learning general disease signatures. GroupKFold keeps entire groups strictly in train or validation."
+    },
+    {
+      "id": 10,
+      "question": "What is the primary architectural purpose of Nested Cross-Validation?",
+      "options": [
+        "To speed up model training by a factor of 10",
+        "To separate hyperparameter tuning (inner cross-validation loop) from unbiased generalization performance estimation (outer cross-validation loop)",
+        "To eliminate the need for feature scaling",
+        "To train an ensemble of deep neural networks"
+      ],
+      "correctIndex": 1,
+      "explanation": "When hyperparameter search is performed using standard cross-validation, the winning validation score has optimistic selection bias. Nested CV uses an inner loop to tune hyperparameters and an outer loop to independently evaluate the entire model selection procedure."
+    }
+  ]
+}
