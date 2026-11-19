@@ -249,83 +249,56 @@ export default function MachineLearningAdvancedRegression() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] flex antialiased font-sans selection:bg-[#f97316] selection:text-white">
-      <ModuleNav currentTrack="machine-learning" currentModuleId="advanced-regression" />
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col antialiased selection:bg-[#f97316] selection:text-white pb-24">
+      {/* Top Module Navigation */}
+      <ModuleNav track="machine-learning" currentModuleId="advanced-regression" />
 
-      <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20 space-y-8">
-        {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-xs font-mono text-stone-500">
-          <button onClick={() => navigate("/learning")} className="hover:text-stone-900 transition-colors cursor-pointer">
-            Tracks
-          </button>
-          <ChevronRight size={12} />
-          <button onClick={() => navigate("/learning/machine-learning")} className="hover:text-stone-900 transition-colors cursor-pointer">
-            Machine Learning
-          </button>
-          <ChevronRight size={12} />
-          <span className="text-stone-900 font-bold">Module 6: Advanced Regression</span>
-        </nav>
-
-        {/* Hero Card */}
-        <div className="rounded-3xl border border-[#e7e3da] bg-gradient-to-br from-stone-900 via-orange-950 to-orange-600 p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
-          <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-200 text-xs font-mono uppercase tracking-wider">
-              <Sparkles size={14} className="text-orange-400" />
-              <span>Supervised Learning &bull; Model Optimization</span>
-            </div>
-
-            <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
-              Advanced Regression &amp; Regularization
-            </h1>
-
-            <p className="text-stone-300 text-sm sm:text-base max-w-2xl leading-relaxed">
-              Master nonlinear feature engineering and complexity control. Build polynomial models, implement Ridge (L2), Lasso (L1), and Elastic Net, resolve multicollinearity with VIF, execute leak-free cross-validation, and balance the bias-variance tradeoff.
-            </p>
-
-            <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono text-orange-200/90">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={14} className="text-orange-400" /> 23 In-depth Sections
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Sliders size={14} className="text-orange-400" /> 4 Interactive Workbenches
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Activity size={14} className="text-orange-400" /> Complete 16-Step Project
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Tab Switcher */}
-        <div className="flex border-b border-[#e7e3da] gap-8 text-sm font-semibold">
-          <button
-            onClick={() => setActiveTab("curriculum")}
-            className={`pb-3 flex items-center gap-2 transition-all cursor-pointer ${
-              activeTab === "curriculum"
-                ? "border-b-2 border-orange-600 text-orange-700 font-bold"
-                : "text-stone-500 hover:text-stone-800"
-            }`}
-          >
-            <BookOpen size={16} />
-            <span>Curriculum Content</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("workbench")}
-            className={`pb-3 flex items-center gap-2 transition-all cursor-pointer ${
-              activeTab === "workbench"
-                ? "border-b-2 border-orange-600 text-orange-700 font-bold"
-                : "text-stone-500 hover:text-stone-800"
-            }`}
-          >
-            <Terminal size={16} />
-            <span>Interactive Workbenches</span>
-            <span className="ml-1.5 px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 text-[10px] font-mono">
-              Live
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 w-full space-y-8">
+        {/* Module Header Badge & Title */}
+        <div className="bg-white rounded-3xl border border-[#e7e3da] p-6 sm:p-10 shadow-xs relative overflow-hidden">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <span className="rounded-full bg-orange-50 border border-orange-200 px-3 py-1 text-[11px] font-mono text-orange-700 font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles size={12} className="text-orange-600" />
+              Machine Learning Track &bull; Module 06
             </span>
-          </button>
+            <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[11px] font-mono text-emerald-700 font-bold">
+              23 COMPLETE SECTIONS &middot; ADVANCED REGULARIZATION
+            </span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#18181b] tracking-tight">
+            Module 6 &mdash; Advanced Regression &amp; Regularization
+          </h1>
+          <p className="mt-3 text-sm sm:text-base md:text-lg leading-relaxed text-stone-600 max-w-4xl">
+            Master nonlinear feature engineering and complexity control. Build polynomial regression models, implement Ridge (L2), Lasso (L1), and Elastic Net, investigate multicollinearity with VIF, execute leak-free cross-validation with GridSearchCV, and balance the bias-variance tradeoff.
+          </p>
+
+          {/* Mode Switcher Tabs */}
+          <div className="mt-8 flex items-center gap-3 border-t border-stone-200 pt-6">
+            <button
+              onClick={() => setActiveTab("curriculum")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
+                activeTab === "curriculum"
+                  ? "bg-stone-900 text-white shadow-xs"
+                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+              }`}
+            >
+              <BookOpen size={16} />
+              <span>Full Curriculum Specification</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab("workbench")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
+                activeTab === "workbench"
+                  ? "bg-[#f97316] text-white shadow-xs"
+                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+              }`}
+            >
+              <Sparkles size={16} />
+              <span>Interactive Workbenches &amp; Assessment</span>
+            </button>
+          </div>
         </div>
 
         {/* TAB 1: CURRICULUM */}
