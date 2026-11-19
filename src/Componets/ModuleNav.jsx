@@ -265,6 +265,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "unsupervised-clustering", name: "15. Unsupervised Learning & Clustering", route: "/learning/machine-learning/unsupervised-clustering" },
   { id: "dimensionality-reduction", name: "16. Dimensionality Reduction & Feature Extraction", route: "/learning/machine-learning/dimensionality-reduction" },
   { id: "anomaly-detection", name: "17. Anomaly Detection & Imbalanced Learning", route: "/learning/machine-learning/anomaly-detection" },
+  { id: "recommendation-systems", name: "18. Recommendation Systems & Personalization", route: "/learning/machine-learning/recommendation-systems" },
 ];
 
 export default function ModuleNav({

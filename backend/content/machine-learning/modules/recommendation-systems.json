@@ -1,0 +1,130 @@
+{
+  "id": "recommendation-systems",
+  "courseId": "machine-learning",
+  "index": 18,
+  "name": "18. Recommendation Systems & Personalization",
+  "route": "/learning/machine-learning/recommendation-systems",
+  "componentName": "MachineLearningRecommendationSystems",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the key difference between explicit and implicit feedback in recommendation systems?",
+      "options": [
+        "Explicit feedback is collected via sensors, whereas implicit feedback is typed manually",
+        "Explicit feedback directly records user sentiment (e.g. 1–5 star ratings, reviews), whereas implicit feedback infers preferences indirectly from behavioral signals (e.g. clicks, watch duration, purchase history)",
+        "Implicit feedback is always 100% accurate, whereas explicit feedback is noisy",
+        "Explicit feedback can only be processed using deep neural networks"
+      ],
+      "correctIndex": 1,
+      "explanation": "Explicit feedback represents deliberate, quantified expressions of user preference (such as numerical ratings or thumbs up/down). Implicit feedback tracks natural interactions (clicks, dwell time, stream completions) which are far more abundant and non-intrusive, but lack explicit negative signals (e.g., did the user not watch a movie because they dislike it, or because they haven't seen it yet?)."
+    },
+    {
+      "id": 2,
+      "question": "Why is Pearson correlation often preferred over raw Cosine similarity in user-based collaborative filtering?",
+      "options": [
+        "Pearson correlation normalizes for user rating biases (strict raters whose average is 2.5 vs generous raters whose average is 4.5) by mean-centering ratings",
+        "Pearson correlation runs in O(1) time complexity while Cosine is O(N^3)",
+        "Cosine similarity cannot handle positive numbers",
+        "Pearson correlation automatically imputes missing values with zero"
+      ],
+      "correctIndex": 0,
+      "explanation": "Different users have distinct rating tendencies: a critical user might award 4 stars only to masterpieces, whereas an enthusiastic user routinely awards 5 stars. Raw cosine similarity treats rating magnitudes literally, whereas Pearson correlation subtracts each user's mean rating, comparing relative preference deviations rather than absolute values."
+    },
+    {
+      "id": 3,
+      "question": "Why is Item-Based Collaborative Filtering generally more scalable and stable in commercial platforms (e.g., Amazon, Netflix) than User-Based Collaborative Filtering?",
+      "options": [
+        "Items never have any missing data",
+        "The number of users typically far exceeds the number of items, and item-to-item similarity patterns change much more slowly than dynamic user taste profiles, allowing precomputation",
+        "Item-based filtering does not require any similarity metrics",
+        "User-based filtering cannot recommend movies"
+      ],
+      "correctIndex": 1,
+      "explanation": "In production systems with hundreds of millions of users and tens of thousands of items, computing user-user similarities is computationally prohibitive (O(N_users^2)). Furthermore, an item's identity and genre characteristics remain stable over time, enabling offline precomputation and caching of item similarity matrices."
+    },
+    {
+      "id": 4,
+      "question": "How does Content-Based Filtering effectively alleviate the new-item cold-start problem?",
+      "options": [
+        "By waiting until at least 1,000 users have rated the item",
+        "By representing the new item using its static metadata and attributes (e.g. genre, director, keywords, text description) and matching it with user profile preference vectors without needing historical user interactions",
+        "By randomly assigning ratings to new items",
+        "By converting the collaborative filtering matrix into a dense tensor"
+      ],
+      "correctIndex": 1,
+      "explanation": "Collaborative filtering fails completely on brand-new items because no interaction records exist (zero ratings). Content-based filtering relies strictly on item attributes and feature representations (e.g., TF-IDF tags, embeddings), allowing immediate recommendations to users whose profile vectors align with those attributes."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary objective of Matrix Factorization (such as Funk SVD) in collaborative filtering?",
+      "options": [
+        "To invert the user-item interaction matrix",
+        "To decompose the large, sparse user-item interaction matrix R into the product of two lower-rank matrices: user latent factor matrix P and item latent factor matrix Q",
+        "To delete all unrated entries and replace them with mean values",
+        "To cluster users using hierarchical dendrograms"
+      ],
+      "correctIndex": 1,
+      "explanation": "Matrix factorization maps both users and items to a joint latent factor space of dimensionality k << min(m, n). The interaction between user u and item i is modeled by the inner product of their latent vectors: r_ui ≈ p_u · q_i^T, capturing hidden semantic dimensions (e.g. action intensity, humor, artistic pacing)."
+    },
+    {
+      "id": 6,
+      "question": "In regularized matrix factorization rating prediction r_hat(u,i) = μ + b_u + b_i + p_u · q_i^T, what purpose do the bias terms b_u and b_i serve?",
+      "options": [
+        "They prevent the gradient descent learning rate from decaying",
+        "They capture systematic baseline tendencies: μ is the global average rating, b_u reflects user leniency/strictness, and b_i reflects item popularity/quality, isolating genuine interaction signals into the latent factors",
+        "They ensure that the prediction is always an integer from 1 to 5",
+        "They replace the need for regularization penalties"
+      ],
+      "correctIndex": 1,
+      "explanation": "Much of the variance in ratings is explained by simple baseline effects: Titanic generally receives higher ratings than low-budget flops (item bias b_i), and critical users systematically rate lower than average (user bias b_u). Factoring out these baseline biases ensures that latent vectors p_u and q_i capture true personal preference affinities rather than trivial offset shifts."
+    },
+    {
+      "id": 7,
+      "question": "Why cannot classical truncated Singular Value Decomposition (SVD) from linear algebra be applied directly to real-world recommendation interaction matrices without modification?",
+      "options": [
+        "Because classical SVD is undefined for sparse matrices where 99%+ of entries are missing; naive imputation (filling with 0 or mean) drastically distorts the data and is computationally infeasible",
+        "Because SVD only works on square symmetric matrices",
+        "Because singular values are always negative in recommender systems",
+        "Because SVD does not support floating-point numbers"
+      ],
+      "correctIndex": 0,
+      "explanation": "Standard mathematical SVD requires a complete, dense matrix. In real-world recommendation datasets where sparsity exceeds 99%, filling missing values with zeros introduces massive noise and misinterprets unobserved items as disliked. Simon Funk's formulation solves this by training latent factors using gradient descent exclusively over observed ratings, with L2 regularization."
+    },
+    {
+      "id": 8,
+      "question": "Why are top-N ranking metrics like NDCG (Normalized Discounted Cumulative Gain) and Precision@K preferred over RMSE for modern recommendation platforms?",
+      "options": [
+        "RMSE is mathematically invalid on numbers greater than 1",
+        "Users only experience the top K items on their screen, and NDCG penalizes errors near the top of the list much more heavily than errors down at position 50, reflecting real user engagement",
+        "Precision@K computes faster because it ignores user IDs",
+        "NDCG is only used for sorting text documents alphabetically"
+      ],
+      "correctIndex": 1,
+      "explanation": "A model can achieve an outstanding (low) RMSE by accurately predicting that a user will rate 10,000 mediocre movies as 2.1 instead of 2.3, yet fail completely at placing the user's top 5 favorite movies at positions 1–5. Top-N metrics and NDCG evaluate the quality and ordering of recommendations where users actually interact."
+    },
+    {
+      "id": 9,
+      "question": "What is popularity bias in recommendation systems, and what is its negative consequence?",
+      "options": [
+        "The system only recommends items that cost more than $100",
+        "Algorithms favor blockbuster/trending items with high interaction volume, starving niche long-tail items and trapping users in repetitive feedback loops with low diversity",
+        "Users get logged out if they click on popular videos",
+        "The server CPU runs out of memory when processing popular items"
+      ],
+      "correctIndex": 1,
+      "explanation": "Standard collaborative filtering algorithms optimize for aggregate interaction volume, which disproportionately reinforces viral or blockbuster items. This leads to a rich-get-richer cycle that ignores personalized long-tail catalog discovery and degrades user satisfaction over time."
+    },
+    {
+      "id": 10,
+      "question": "In modern production recommendation architectures (e.g., YouTube, Netflix, TikTok), why is a two-stage pipeline consisting of Candidate Generation (Retrieval) followed by Ranking utilized?",
+      "options": [
+        "Because one model is written in Python and the other in Java",
+        "To balance scalability and precision: candidate generation filters millions of items down to hundreds in milliseconds using lightweight models/vector search, allowing heavy multi-feature deep ranking models to score only the top candidates within strict latency budgets",
+        "Because candidate generation only works on weekends",
+        "To allow users to manually vote on candidate items before they are displayed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Evaluating complex ranking models with hundreds of real-time features and cross-attentions across a catalog of 100 million videos in under 50ms is computationally impossible. The retrieval stage rapidly narrows the space from millions to hundreds using Approximate Nearest Neighbors (ANN) vector indices, whereupon the ranking model performs granular scoring."
+    }
+  ]
+}

@@ -285,6 +285,18 @@ const routeMeta = {
     keywords: "Anomaly Detection, Imbalanced Learning, Outlier vs Anomaly, Point Anomaly, Contextual Anomaly, Collective Anomaly, Z-Score, Interquartile Range, IQR, Median Absolute Deviation, MAD, Modified Z-Score, Isolation Forest, Local Outlier Factor, LOF, One-Class SVM, Random Undersampling, Random Oversampling, SMOTE, Synthetic Minority Oversampling, Class Weights, Threshold Optimization, Precision-Recall AUC, Average Precision, ROC-AUC, Fraud Detection, Imbalanced-Learn, Scikit-learn, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/anomaly-detection`,
   },
+  "/learning/machine-learning/recommendation-systems": {
+    title: "Module 18: Recommendation Systems & Personalization | PrepSpaces",
+    description: "Master recommendation systems and personalization: user-item interaction matrices, explicit vs implicit feedback, sparsity, content-based filtering with TF-IDF, user-based and item-based collaborative filtering, cosine similarity, Pearson correlation, Jaccard distance, regularized matrix factorization, SVD, bias terms, cold-start solutions, hybrid recommender architectures, Precision@K, Recall@K, NDCG, popularity bias, and end-to-end Python movie recommendation pipelines.",
+    keywords: "Recommendation Systems, Personalization, Collaborative Filtering, Content-Based Filtering, User-Item Matrix, Explicit Feedback, Implicit Feedback, Matrix Factorization, Singular Value Decomposition, SVD, Latent Factors, Cosine Similarity, Pearson Correlation, Jaccard Similarity, Cold Start Problem, Hybrid Recommendation Systems, Precision@K, Recall@K, NDCG, Normalized Discounted Cumulative Gain, Popularity Bias, Filter Bubble, Movie Recommendation System, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/recommendation-systems`,
+  },
+  "/courses/machine-learning/recommendation-systems": {
+    title: "Module 18: Recommendation Systems & Personalization | PrepSpaces",
+    description: "Master recommendation systems and personalization: user-item interaction matrices, explicit vs implicit feedback, sparsity, content-based filtering with TF-IDF, user-based and item-based collaborative filtering, cosine similarity, Pearson correlation, Jaccard distance, regularized matrix factorization, SVD, bias terms, cold-start solutions, hybrid recommender architectures, Precision@K, Recall@K, NDCG, popularity bias, and end-to-end Python movie recommendation pipelines.",
+    keywords: "Recommendation Systems, Personalization, Collaborative Filtering, Content-Based Filtering, User-Item Matrix, Explicit Feedback, Implicit Feedback, Matrix Factorization, Singular Value Decomposition, SVD, Latent Factors, Cosine Similarity, Pearson Correlation, Jaccard Similarity, Cold Start Problem, Hybrid Recommendation Systems, Precision@K, Recall@K, NDCG, Normalized Discounted Cumulative Gain, Popularity Bias, Filter Bubble, Movie Recommendation System, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/recommendation-systems`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

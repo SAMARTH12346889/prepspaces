@@ -185,5 +185,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "recommendation-systems",
+    "courseId": "machine-learning",
+    "index": 18,
+    "name": "18. Recommendation Systems & Personalization",
+    "route": "/learning/machine-learning/recommendation-systems",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
