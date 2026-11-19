@@ -317,7 +317,7 @@ export default function ModuleNav({
     if (path.includes("/learning/devops") || path.includes("/learn/devops")) return "devops";
     if (path.includes("/learning/blockchain") || path.includes("/learn/blockchain")) return "blockchain";
     if (path.includes("/learning/cloud") || path.includes("/learn/cloud")) return "cloud";
-    return rawTrack || "cloud";
+    return rawTrack || "machine-learning";
   }, [rawTrack, location?.pathname]);
 
   const courseIdMap = {
@@ -358,8 +358,10 @@ export default function ModuleNav({
       case "machine-learning":
       case "ml":
         return MACHINE_LEARNING_MODULES;
-      default:
+      case "cloud":
         return CLOUD_MODULES;
+      default:
+        return MACHINE_LEARNING_MODULES;
     }
   }, []);
 
@@ -386,7 +388,7 @@ export default function ModuleNav({
       const routePath = (m.route || "").toLowerCase().replace(/\/+$/, "");
       return routePath === currentPath || currentPath.endsWith("/" + m.id);
     });
-    return found ? found.id : (modules[0]?.id || "foundations");
+    return found ? found.id : (modules[0]?.id || "intro");
   }, [explicitModuleId, location?.pathname, modules]);
 
   const [accessState, setAccessState] = useState(() => getCachedCourseAccess(resolvedCourseId));
@@ -506,7 +508,18 @@ export default function ModuleNav({
   }, [currentModuleId, resolvedCourseId, modules, isAuthenticated, completedModuleIds]);
 
   const defaultFallback =
-    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : track === "blockchain" ? "intro" : track === "ai" || track === "ai-engineering" ? "foundations" : "cloud")
+    currentModuleId === (
+      track === "devops" ? "linux" :
+      track === "system-design" ? "intro" :
+      track === "os" ? "intro" :
+      track === "networks" ? "intro" :
+      track === "cybersecurity" ? "intro" :
+      track === "blockchain" ? "intro" :
+      track === "ai" || track === "ai-engineering" ? "foundations" :
+      track === "data-engineering" ? "intro" :
+      track === "machine-learning" || track === "ml" ? "environment-workflow" :
+      "intro"
+    )
       ? "/learning"
       : track === "devops"
       ? "/learning/devops/linux"
@@ -522,7 +535,11 @@ export default function ModuleNav({
       ? "/learning/blockchain"
       : track === "ai" || track === "ai-engineering"
       ? "/learning/ai"
-      : "/learning/cloud";
+      : track === "data-engineering"
+      ? "/learning/data-engineering"
+      : track === "machine-learning" || track === "ml"
+      ? "/learning/machine-learning"
+      : "/learning";
 
   const { goBack } = useSafeBack(defaultFallback);
 
@@ -676,7 +693,13 @@ export default function ModuleNav({
             <Logo
               size="xs"
               suffix={
-                track === "devops"
+                track === "machine-learning" || track === "ml"
+                  ? "Machine Learning"
+                  : track === "data-engineering"
+                  ? "Data Engineering"
+                  : track === "ai" || track === "ai-engineering"
+                  ? "AI Engineering"
+                  : track === "devops"
                   ? "DevOps"
                   : track === "system-design"
                   ? "System Design"
@@ -686,13 +709,9 @@ export default function ModuleNav({
                   ? "Computer Networks"
                   : track === "cybersecurity"
                   ? "Cybersecurity"
-                  : track === "ai" || track === "ai-engineering"
-                  ? "AI Engineering"
                   : track === "blockchain"
                   ? "Blockchain"
-                  : track === "data-engineering"
-                  ? "Data Engineering"
-                  : "Cloud"
+                  : ""
               }
             />
           )}
