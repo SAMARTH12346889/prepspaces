@@ -1,0 +1,154 @@
+{
+  "id": "real-world-ml-case-studies",
+  "courseId": "machine-learning",
+  "index": 23,
+  "name": "23. Real-World ML Engineering & Case Studies",
+  "route": "/learning/machine-learning/real-world-ml-case-studies",
+  "componentName": "MachineLearningRealWorldCaseStudies",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What should be the first step in a real-world machine learning project?",
+      "options": [
+        "Select XGBoost",
+        "Deploy an API",
+        "Understand and formulate the business problem",
+        "Tune hyperparameters"
+      ],
+      "correctIndex": 2,
+      "explanation": "Before touching code or choosing an algorithm, an ML engineer must translate the business goal into a well-defined prediction task (target, unit of prediction, decision timestamp, horizon, and success criteria). Selecting algorithms prematurely often leads to solving the wrong problem."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary purpose of a baseline model in ML engineering?",
+      "options": [
+        "Replace data validation",
+        "Provide a reference for measuring improvement",
+        "Guarantee maximum accuracy",
+        "Avoid comparing algorithms"
+      ],
+      "correctIndex": 1,
+      "explanation": "A simple baseline (e.g., majority class, mean predictor, moving average, or simple logistic regression) establishes a reference benchmark. Without it, you cannot determine whether a complex deep neural network or ensemble delivers genuine incremental business value."
+    },
+    {
+      "id": 3,
+      "question": "What is data leakage in real-world ML systems?",
+      "options": [
+        "Removing missing values",
+        "Using information unavailable at prediction time or contaminating evaluation",
+        "Converting categorical features",
+        "Collecting additional observations"
+      ],
+      "correctIndex": 1,
+      "explanation": "Data leakage occurs when target or future information that would not legitimately be available at the moment a prediction is required enters training, or when test data contaminates preprocessing pipelines. This inflates offline test metrics while causing catastrophic failure in production."
+    },
+    {
+      "id": 4,
+      "question": "Why can raw accuracy be extremely misleading in fraud detection?",
+      "options": [
+        "Fraud models cannot use probabilities",
+        "Fraud data may be highly imbalanced",
+        "Accuracy measures regression error",
+        "Fraud detection does not use labels"
+      ],
+      "correctIndex": 1,
+      "explanation": "In fraud detection, 99.5% of transactions are legitimate and only 0.5% are fraudulent. A naive model that predicts every single transaction as legitimate achieves 99.5% accuracy while catching zero fraudulent transactions. Metrics like Precision, Recall, PR-AUC, and Precision@K are essential."
+    },
+    {
+      "id": 5,
+      "question": "Which metric measures how many actual positive cases a classifier successfully identifies?",
+      "options": [
+        "Precision",
+        "Recall",
+        "R-squared",
+        "MAE"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recall (or Sensitivity) = TP / (TP + FN). It measures the proportion of actual positive events (e.g. fraudulent transactions, loan defaults, or disease cases) that the model successfully detects."
+    },
+    {
+      "id": 6,
+      "question": "Which evaluation strategy is required for forecasting future sales?",
+      "options": [
+        "Random splitting regardless of time",
+        "Chronological or walk-forward validation",
+        "Training on the final test period",
+        "Using future sales as lag features"
+      ],
+      "correctIndex": 1,
+      "explanation": "Time-dependent data violates the exchangeability assumption of random cross-validation. Random splitting leaks future trends and seasonal patterns into training. Chronological or walk-forward validation trains on past intervals and evaluates strictly on subsequent future windows."
+    },
+    {
+      "id": 7,
+      "question": "What is a standard ranking metric used to evaluate recommendation systems?",
+      "options": [
+        "NDCG@K",
+        "Mean Squared Error only",
+        "Specificity only",
+        "Forecast bias"
+      ],
+      "correctIndex": 0,
+      "explanation": "Normalized Discounted Cumulative Gain (NDCG@K) evaluates recommendation quality by rewarding systems that place highly relevant items at the top of the ranked recommendation list (discounting items appearing lower on the list)."
+    },
+    {
+      "id": 8,
+      "question": "What is the main purpose of model interpretation (XAI)?",
+      "options": [
+        "Prove that features cause outcomes",
+        "Understand how predictions are influenced by model inputs",
+        "Guarantee fairness",
+        "Eliminate the need for validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Model interpretation investigates which features drive predictions, verifies whether the model relies on sensible patterns rather than spurious correlations, and explains individual high-stakes decisions. It describes model behavior, but does not prove real-world causality."
+    },
+    {
+      "id": 9,
+      "question": "Why is probability calibration especially critical in credit-risk modeling?",
+      "options": [
+        "It makes every prediction correct",
+        "It checks whether predicted risks align with observed outcome frequencies",
+        "It removes the need for training data",
+        "It measures only training speed"
+      ],
+      "correctIndex": 1,
+      "explanation": "In banking, financial risk calculations depend on exact probability estimates: Expected Loss = PD * LGD * EAD. If an uncalibrated model outputs an 80% default probability when the true delinquency rate is 40%, the bank's pricing and capital reserves will be severely distorted."
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of a Responsible ML assessment?",
+      "options": [
+        "Only improve accuracy",
+        "Evaluate risks involving fairness, privacy, transparency and appropriate use",
+        "Remove all human involvement",
+        "Guarantee that the model never fails"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Responsible ML assessment evaluates whether the model treats demographic groups fairly, respects data privacy and security regulations, maintains operational transparency, provides human oversight, and clearly defines appropriate versus excluded operational scopes."
+    },
+    {
+      "id": 11,
+      "question": "What essential information belongs in a reproducible experiment tracking record?",
+      "options": [
+        "Only the final accuracy",
+        "Dataset version, model configuration, metrics and code version",
+        "Only a model screenshot",
+        "Only the number of training samples"
+      ],
+      "correctIndex": 1,
+      "explanation": "A comprehensive experiment record (e.g. in MLflow or W&B) logs the exact dataset version and split, feature transformations, model architecture, hyperparameters, random seeds, software dependencies, and full evaluation metrics to enable exact replication."
+    },
+    {
+      "id": 12,
+      "question": "Where should full production deployment, serving APIs, MLOps, and real-time monitoring infrastructure be studied in this curriculum?",
+      "options": [
+        "Repeat them in every case study",
+        "AI Engineering M18–M20",
+        "Remove them from the curriculum",
+        "Only in the statistics module"
+      ],
+      "correctIndex": 1,
+      "explanation": "Module 23 focuses on ML problem formulation, data quality, modeling, and evaluation. Production model serving APIs (FastAPI/Docker), MLOps pipelines, scalability, and production drift monitoring are systematically covered in AI Engineering Modules 18–20 without duplicate content."
+    }
+  ]
+}

@@ -205,6 +205,7 @@ const MachineLearningTimeSeries = React.lazy(() => import("./Componets/MachineLe
 const MachineLearningProbabilisticML = React.lazy(() => import("./Componets/MachineLearningProbabilisticML"));
 const MachineLearningStatisticalLearning = React.lazy(() => import("./Componets/MachineLearningStatisticalLearning"));
 const MachineLearningHyperparameterXAI = React.lazy(() => import("./Componets/MachineLearningHyperparameterXAI"));
+const MachineLearningRealWorldCaseStudies = React.lazy(() => import("./Componets/MachineLearningRealWorldCaseStudies"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1919,6 +1920,16 @@ function App() {
             <Route path="/learning/ml/module-22" element={<MachineLearningHyperparameterXAI />} />
             <Route path="/courses/machine-learning/hyperparameter-optimization-xai" element={<MachineLearningHyperparameterXAI />} />
             <Route path="/courses/machine-learning/explainable-ai" element={<MachineLearningHyperparameterXAI />} />
+            <Route path="/learning/machine-learning/real-world-ml-case-studies" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/learning/machine-learning/ml-engineering" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/learning/machine-learning/case-studies" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/learning/machine-learning/module-23" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/learning/ml/real-world-ml-case-studies" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/learning/ml/ml-engineering" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/learning/ml/case-studies" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/learning/ml/module-23" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/courses/machine-learning/real-world-ml-case-studies" element={<MachineLearningRealWorldCaseStudies />} />
+            <Route path="/courses/machine-learning/case-studies" element={<MachineLearningRealWorldCaseStudies />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

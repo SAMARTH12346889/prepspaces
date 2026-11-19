@@ -240,5 +240,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "real-world-ml-case-studies",
+    "courseId": "machine-learning",
+    "index": 23,
+    "name": "23. Real-World ML Engineering & Case Studies",
+    "route": "/learning/machine-learning/real-world-ml-case-studies",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
