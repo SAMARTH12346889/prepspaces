@@ -86,5 +86,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "ensemble-learning",
+    "courseId": "machine-learning",
+    "index": 9,
+    "name": "9. Ensemble Learning & Boosting Algorithms",
+    "route": "/learning/machine-learning/ensemble-learning",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

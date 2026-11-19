@@ -177,6 +177,18 @@ const routeMeta = {
     keywords: "Decision Trees Machine Learning, Recursive Partitioning, Entropy, Information Gain, Gini Impurity, Classification Trees, Regression Trees, Tree Depth, Pre-Pruning, Post-Pruning, Cost-Complexity Pruning ccp_alpha, DecisionTreeClassifier, DecisionTreeRegressor, Scikit-learn, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/decision-trees`,
   },
+  "/learning/machine-learning/ensemble-learning": {
+    title: "Module 9: Ensemble Learning & Boosting Algorithms | PrepSpaces",
+    description: "Master ensemble learning and boosting algorithms: Bagging, Random Forest, Extra Trees, AdaBoost, Gradient Boosting, XGBoost, LightGBM, CatBoost, Voting Classifiers, and Stacking with out-of-fold cross-validation.",
+    keywords: "Ensemble Learning, Bagging Classifier, Random Forest, Extra Trees, AdaBoost, Gradient Boosting, XGBoost, LightGBM, CatBoost, Voting Classifier, Stacking Classifier, Out-of-Bag OOB, Permutation Importance, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/ensemble-learning`,
+  },
+  "/courses/machine-learning/ensemble-learning": {
+    title: "Module 9: Ensemble Learning & Boosting Algorithms | PrepSpaces",
+    description: "Master ensemble learning and boosting algorithms: Bagging, Random Forest, Extra Trees, AdaBoost, Gradient Boosting, XGBoost, LightGBM, CatBoost, Voting Classifiers, and Stacking with out-of-fold cross-validation.",
+    keywords: "Ensemble Learning, Bagging Classifier, Random Forest, Extra Trees, AdaBoost, Gradient Boosting, XGBoost, LightGBM, CatBoost, Voting Classifier, Stacking Classifier, Out-of-Bag OOB, Permutation Importance, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/ensemble-learning`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

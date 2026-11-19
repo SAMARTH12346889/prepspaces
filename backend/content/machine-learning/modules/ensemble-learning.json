@@ -1,0 +1,130 @@
+{
+  "id": "ensemble-learning",
+  "courseId": "machine-learning",
+  "index": 9,
+  "name": "9. Ensemble Learning & Boosting Algorithms",
+  "route": "/learning/machine-learning/ensemble-learning",
+  "componentName": "MachineLearningEnsemble",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the fundamental objective of ensemble learning?",
+      "options": [
+        "Reduce data size",
+        "Combine multiple base learners to reduce variance, bias, or prediction instability",
+        "Convert classification problems into linear regressions",
+        "Automatically eliminate all missing values"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ensemble learning aggregates multiple models (weak learners) to build a superior predictor that balances the bias-variance tradeoff and stabilizes predictions."
+    },
+    {
+      "id": 2,
+      "question": "What is the approximate proportion of unique observations captured in a standard bootstrap sample?",
+      "options": [
+        "50.0%",
+        "63.2%",
+        "85.5%",
+        "99.0%"
+      ],
+      "correctIndex": 1,
+      "explanation": "Due to sampling with replacement from N items, the probability of an item being excluded is (1 - 1/N)^N ≈ e^(-1) ≈ 36.8%, meaning ~63.2% of samples appear at least once."
+    },
+    {
+      "id": 3,
+      "question": "How does Random Forest reduce correlation between individual decision trees?",
+      "options": [
+        "Normalizing feature scales",
+        "Evaluating a random subset of features at each split alongside bootstrap sampling",
+        "Training trees sequentially on residuals",
+        "Removing leaves with high depth"
+      ],
+      "correctIndex": 1,
+      "explanation": "Random Forest injects two layers of randomness: bootstrap sampling across rows and random feature subsampling (e.g. sqrt(p)) at each split node to decorrelate trees."
+    },
+    {
+      "id": 4,
+      "question": "What distinguishes Extra Trees from Random Forest?",
+      "options": [
+        "Extra Trees uses neural networks",
+        "Extra Trees draws random split thresholds for candidate features instead of finding optimal cutpoints",
+        "Extra Trees only trains single stumps",
+        "Extra Trees does not support classification"
+      ],
+      "correctIndex": 1,
+      "explanation": "Extremely Randomized Trees (Extra Trees) introduces additional randomness by picking random candidate split thresholds, often speeding up training and reducing variance."
+    },
+    {
+      "id": 5,
+      "question": "How does AdaBoost adapt during training?",
+      "options": [
+        "Adjusts learning rate randomly",
+        "Increases sample weights for instances incorrectly predicted by earlier learners",
+        "Replaces trees with linear models",
+        "Discards 50% of the features"
+      ],
+      "correctIndex": 1,
+      "explanation": "AdaBoost adaptively raises weights of misclassified instances so that subsequent weak learners (often decision stumps) focus their capacity on difficult observations."
+    },
+    {
+      "id": 6,
+      "question": "What do subsequent trees in Gradient Boosting fit?",
+      "options": [
+        "The raw input features",
+        "The negative gradients or residuals of the loss function from the existing ensemble",
+        "Random noise",
+        "Predictions from a logistic regression"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gradient Boosting builds an additive model in stages where each new weak learner fits the pseudo-residuals (negative gradient of the loss) of the current ensemble."
+    },
+    {
+      "id": 7,
+      "question": "What regularization does XGBoost incorporate into its tree optimization objective?",
+      "options": [
+        "Dropout only",
+        "Both L1 (alpha) and L2 (lambda) penalties on leaf weights alongside a penalty gamma on leaf counts",
+        "Only early stopping",
+        "None"
+      ],
+      "correctIndex": 1,
+      "explanation": "XGBoost's regularized objective Ω(f) = γT + (1/2)λ Σ w_j² + α Σ |w_j| explicitly penalizes the number of leaves and shrinks leaf weights to prevent overfitting."
+    },
+    {
+      "id": 8,
+      "question": "How does LightGBM achieve exceptional training efficiency on massive tabular datasets?",
+      "options": [
+        "Training a single deep tree",
+        "Histogram-based feature binning, leaf-wise tree growth, GOSS, and EFB",
+        "Ignoring numerical columns",
+        "Restricting trees to depth 2"
+      ],
+      "correctIndex": 1,
+      "explanation": "LightGBM bins continuous values into discrete histograms, expands trees leaf-wise by best loss delta, and uses Gradient-based One-Side Sampling and Exclusive Feature Bundling."
+    },
+    {
+      "id": 9,
+      "question": "What is CatBoost's primary architectural innovation?",
+      "options": [
+        "Replaces trees with SVMs",
+        "Native categorical feature handling using ordered target statistics and ordered boosting to prevent leakage",
+        "Removing all non-numeric features",
+        "Soft voting only"
+      ],
+      "correctIndex": 1,
+      "explanation": "CatBoost natively transforms high-cardinality categorical features using ordered target encoding on permutations, preventing target leakage and prediction shift."
+    },
+    {
+      "id": 10,
+      "question": "Why are Out-of-Fold (OOF) predictions essential when training a Stacking meta-learner?",
+      "options": [
+        "They prevent GPU memory overflows",
+        "They prevent data leakage by ensuring meta-features are generated from held-out validation folds",
+        "They make models run faster",
+        "They guarantee zero loss"
+      ],
+      "correctIndex": 1,
+      "explanation": "In stacking, in-sample predictions are overly optimistic. OOF cross-validation ensures the meta-learner is trained on realistic, out-of-sample predictions, avoiding catastrophic data leakage."
+    }
+  ]
+}
