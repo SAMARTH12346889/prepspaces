@@ -49,6 +49,7 @@ import {
   Code2,
   Play,
   RotateCcw,
+  FileText,
 } from "lucide-react";
 import ModuleNav from "./ModuleNav";
 import MachineLearningFinalCapstoneSections from "./MachineLearningFinalCapstoneSections";
