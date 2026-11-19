@@ -21,6 +21,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -32,6 +33,62 @@ body {
   -webkit-tap-highlight-color: transparent;
   touch-action: pan-x pan-y;
   min-height: 100vh;
+}
+
+/* ========================================================================= */
+/* UNIVERSAL MOBILE TOUCH OPTIMIZATION & ZERO-DELAY TAP REGISTRATION        */
+/* ========================================================================= */
+
+/* 1. Eliminate 300ms tap delay & gesture-cancel on all interactive elements */
+button,
+a,
+input,
+select,
+textarea,
+label,
+summary,
+[role="button"],
+[role="tab"],
+[role="link"],
+[role="checkbox"],
+[role="switch"],
+.cursor-pointer {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. Touchscreens (Phones & Tablets):
+      - Replace destructive active scale transforms with instant opacity feedback
+        (Prevents thumb micro-drift from landing outside shrunken bounding box and cancelling click)
+      - Prevent hover transforms from trapping the 1st tap on mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  button:active,
+  a:active,
+  [role="button"]:active,
+  .cursor-pointer:active,
+  .active\:scale-95:active,
+  .active\:scale-98:active,
+  .active\:scale-90:active,
+  .active\:scale-\[0\.98\]:active,
+  .active\:scale-\[0\.95\]:active {
+    transform: none !important;
+    opacity: 0.72 !important;
+    transition: opacity 0.05s ease !important;
+  }
+
+  /* Prevent first tap on cards/links from triggering hover transform instead of navigation */
+  .hover\:-translate-y-1\.5:hover,
+  .hover\:-translate-y-1:hover,
+  .hover\:-translate-y-0\.5:hover,
+  .hover\:-translate-y-2:hover,
+  .hover\:scale-105:hover,
+  .hover\:scale-102:hover,
+  .hover\:scale-101:hover,
+  .group:hover .group-hover\:scale-105,
+  .group:hover .group-hover\:translate-x-1,
+  .group:hover .group-hover\:translate-x-0\.5 {
+    transform: none !important;
+  }
 }
 
 /* Dynamic Viewport Unit Support: Eliminates iOS Safari address bar jump */

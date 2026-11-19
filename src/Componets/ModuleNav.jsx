@@ -607,7 +607,7 @@ export default function ModuleNav({
           <button
             type="button"
             onClick={() => goBack(defaultFallback)}
-            className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3.5 py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer shrink-0"
+            className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3.5 py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md cursor-pointer shrink-0 touch-manipulation select-none"
             title="Go back to previous page"
             aria-label="Go back"
           >
@@ -620,7 +620,7 @@ export default function ModuleNav({
           <button
             type="button"
             onClick={() => navigate("/learning")}
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-2 py-1.5 text-xs font-semibold text-stone-500 hover:text-[#f97316] transition cursor-pointer shrink-0"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-2 py-1.5 text-xs font-semibold text-stone-500 hover:text-[#f97316] transition cursor-pointer shrink-0 touch-manipulation"
             title="Jump to Curriculum Overview"
           >
             <span>Curriculum Overview</span>
@@ -721,11 +721,12 @@ export default function ModuleNav({
       {/* Module Tabs Bar with Locks & Completed Badges */}
       <div className="relative flex items-center w-full min-w-0 gap-1">
         <button
+          type="button"
           onClick={() => scroll("left")}
           aria-label="Scroll modules left"
-          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300 transition mr-1 sm:mr-1.5 shadow-2xs active:scale-95 cursor-pointer"
+          className="flex shrink-0 h-8 w-8 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300 transition mr-1 sm:mr-1.5 shadow-2xs cursor-pointer touch-manipulation select-none"
         >
-          <ChevronLeft size={15} />
+          <ChevronLeft size={16} />
         </button>
 
         <div
@@ -740,10 +741,11 @@ export default function ModuleNav({
             return (
               <button
                 key={mod.id}
+                type="button"
                 data-active={isActive ? "true" : undefined}
                 onClick={() => navigate(mod.route)}
                 title={mod.name}
-                className={`shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer min-h-[34px] sm:min-h-[38px] inline-flex items-center gap-1.5 ${
+                className={`shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer min-h-[34px] sm:min-h-[38px] inline-flex items-center gap-1.5 touch-manipulation select-none ${
                   isActive
                     ? "bg-[#f97316] text-white shadow-sm shadow-orange-500/25"
                     : "text-stone-600 hover:bg-stone-100/80 hover:text-stone-900"
@@ -768,11 +770,12 @@ export default function ModuleNav({
         </div>
 
         <button
+          type="button"
           onClick={() => scroll("right")}
           aria-label="Scroll modules right"
-          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300 transition ml-1 sm:ml-1.5 shadow-2xs active:scale-95 cursor-pointer"
+          className="flex shrink-0 h-8 w-8 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300 transition ml-1 sm:ml-1.5 shadow-2xs cursor-pointer touch-manipulation select-none"
         >
-          <ChevronRight size={15} />
+          <ChevronRight size={16} />
         </button>
       </div>
 

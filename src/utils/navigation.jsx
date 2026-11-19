@@ -217,6 +217,15 @@ export function NavigationProvider({ children }) {
 
     const handleTouchStart = (e) => {
       if (!e.touches || e.touches.length !== 1) return;
+      // Guard: never treat touches starting on interactive elements as an edge swipe gesture
+      if (
+        e.target &&
+        typeof e.target.closest === "function" &&
+        e.target.closest("button, a, input, select, textarea, [role='button'], [data-interactive]")
+      ) {
+        isEdgeSwipe = false;
+        return;
+      }
       const touch = e.touches[0];
       touchStartX = touch.clientX;
       touchStartY = touch.clientY;
