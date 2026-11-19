@@ -108,5 +108,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "knn-naive-bayes",
+    "courseId": "machine-learning",
+    "index": 11,
+    "name": "11. KNN & Naive Bayes Algorithms",
+    "route": "/learning/machine-learning/knn-naive-bayes",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

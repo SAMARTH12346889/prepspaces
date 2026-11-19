@@ -258,6 +258,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "decision-trees", name: "8. Decision Trees & Rule-Based Learning", route: "/learning/machine-learning/decision-trees" },
   { id: "ensemble-learning", name: "9. Ensemble Learning & Boosting Algorithms", route: "/learning/machine-learning/ensemble-learning" },
   { id: "svm", name: "10. Support Vector Machines (SVM)", route: "/learning/machine-learning/svm" },
+  { id: "knn-naive-bayes", name: "11. KNN & Naive Bayes Algorithms", route: "/learning/machine-learning/knn-naive-bayes" },
 ];
 
 export default function ModuleNav({

@@ -1,0 +1,130 @@
+{
+  "id": "knn-naive-bayes",
+  "courseId": "machine-learning",
+  "index": 11,
+  "name": "11. KNN & Naive Bayes Algorithms",
+  "route": "/learning/machine-learning/knn-naive-bayes",
+  "componentName": "MachineLearningKNNNaiveBayes",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is K-Nearest Neighbors (KNN) classified as an 'Instance-Based' or 'Lazy Learning' algorithm?",
+      "options": [
+        "It trains an explicit parametric linear model with gradient descent",
+        "It stores training observations and defers nearly all computational effort until query/prediction time",
+        "It builds shallow decision trees that prune automatically",
+        "It computes posterior probabilities without needing training data"
+      ],
+      "correctIndex": 1,
+      "explanation": "KNN is a non-parametric lazy learner: it does not learn a fixed set of mathematical model parameters during training. Instead, it memorizes the training dataset and performs distance calculations dynamically whenever a new query sample needs prediction."
+    },
+    {
+      "id": 2,
+      "question": "In the generalized Minkowski distance metric formula d(x, z) = (Σ |x_i - z_i|^p)^(1/p), what do p=1 and p=2 correspond to?",
+      "options": [
+        "p=1 is Chebyshev distance; p=2 is Cosine similarity",
+        "p=1 is Manhattan (City Block / L1) distance; p=2 is Euclidean (L2) straight-line distance",
+        "p=1 is Euclidean distance; p=2 is Hamming distance",
+        "p=1 is Mahalanobis distance; p=2 is Jaccard distance"
+      ],
+      "correctIndex": 1,
+      "explanation": "When p=1, Minkowski distance simplifies to Manhattan distance (sum of absolute coordinate differences). When p=2, it corresponds to Euclidean straight-line distance (square root of sum of squared differences)."
+    },
+    {
+      "id": 3,
+      "question": "What is the expected consequence of selecting an extremely small K (e.g., K = 1) in KNN classification?",
+      "options": [
+        "High bias and underfitting, creating an excessively smooth boundary",
+        "High variance and overfitting, making the decision boundary highly sensitive to noisy training points",
+        "Automatic conversion of KNN into a Naive Bayes classifier",
+        "Elimination of all distance computation requirements"
+      ],
+      "correctIndex": 1,
+      "explanation": "When K=1, the prediction depends entirely on the single nearest neighbor. Any noise, mislabeled outlier, or artifact in the training set will carve out isolated prediction islands, producing high variance and severe overfitting."
+    },
+    {
+      "id": 4,
+      "question": "How does distance-weighted voting (weights='distance') modify the KNN voting mechanism compared to uniform voting?",
+      "options": [
+        "It restricts voting to only the farthest neighbor",
+        "It assigns each neighbor a voting weight inversely proportional to its distance (w_i = 1 / d_i), giving closer neighbors greater influence",
+        "It normalizes feature values to zero mean before training",
+        "It replaces class labels with continuous Gaussian probabilities"
+      ],
+      "correctIndex": 1,
+      "explanation": "Under distance weighting, each neighbor's vote is scaled by w_i = 1 / d_i (or 1 / d_i^2). Closer neighbors exert substantially higher voting leverage than distant border neighbors, which helps resolve ambiguous boundaries."
+    },
+    {
+      "id": 5,
+      "question": "What primary phenomenon characterizes the 'Curse of Dimensionality' in distance-based algorithms like KNN?",
+      "options": [
+        "Training time drops to zero as features increase",
+        "Distances between observations concentrate and become nearly uniform, rendering nearest vs. farthest neighbors indistinguishable",
+        "All features automatically convert into Gaussian distributions",
+        "The model is mathematically guaranteed to achieve 100% test accuracy"
+      ],
+      "correctIndex": 1,
+      "explanation": "In high-dimensional spaces, volume grows exponentially and data becomes exceptionally sparse. As dimensionality D increases, the ratio (d_max - d_min) / d_min approaches zero, meaning all points become roughly equidistant from the query point."
+    },
+    {
+      "id": 6,
+      "question": "When is a KD-Tree search structure generally preferred over a Brute-Force search in KNN?",
+      "options": [
+        "When feature dimensionality is very high (D > 50) and sample count is tiny",
+        "When feature dimensionality is low to moderate (D < 20) and sample count N is large, allowing O(log N) lookup",
+        "When the target variable is continuous and requires SVR",
+        "When training exclusively on text TF-IDF matrices"
+      ],
+      "correctIndex": 1,
+      "explanation": "KD-Trees hierarchically partition coordinate axes to achieve O(log N) nearest neighbor search. However, in high dimensions (D > 20), KD-Trees suffer from the curse of dimensionality and degenerate to O(N), where Brute Force is often faster."
+    },
+    {
+      "id": 7,
+      "question": "What is the core 'Naive' assumption made by Naive Bayes classifiers?",
+      "options": [
+        "All classes have identical prior probabilities P(C_k) = 1 / K",
+        "All input features are conditionally independent of each other given the target class label",
+        "The decision boundary is strictly linear in the original input space",
+        "Features must follow a uniform distribution"
+      ],
+      "correctIndex": 1,
+      "explanation": "Naive Bayes assumes conditional independence: P(x_1, x_2, ..., x_n | C) = ∏ P(x_i | C). While this assumption is almost never strictly true in practice, Naive Bayes often performs remarkably well for classification."
+    },
+    {
+      "id": 8,
+      "question": "Why do Naive Bayes implementations compute the sum of log-probabilities rather than the product of probabilities?",
+      "options": [
+        "To satisfy the triangle inequality of distance metrics",
+        "To prevent numerical floating-point underflow caused by multiplying dozens or hundreds of small probabilities",
+        "To convert the classifier into a neural network",
+        "Because logarithms eliminate the need for training labels"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiplying hundreds of probabilities between 0 and 1 leads to severe floating-point underflow (values smaller than 1e-300 rounded to 0.0). Taking logs converts multiplication into addition: log P(C) + Σ log P(x_i | C), ensuring numerical stability."
+    },
+    {
+      "id": 9,
+      "question": "Which Naive Bayes variant is specifically formulated for binary word-presence features (whether a word appears or not)?",
+      "options": [
+        "GaussianNB",
+        "MultinomialNB",
+        "BernoulliNB",
+        "ComplementNB"
+      ],
+      "correctIndex": 2,
+      "explanation": "BernoulliNB explicitly models binary {0, 1} indicator features. It penalizes non-occurrence as well as rewarding occurrence: P(X | C) = ∏ p_i^x_i · (1 - p_i)^(1 - x_i). MultinomialNB models integer count vectors, and GaussianNB models continuous distributions."
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of Laplace smoothing (additive smoothing with α = 1) in Multinomial and Bernoulli Naive Bayes?",
+      "options": [
+        "To reduce model variance by pruning decision rules",
+        "To prevent unseen vocabulary words in test documents from having a zero likelihood P(x_i | C) = 0 that zeroes out the entire posterior",
+        "To normalize features so their standard deviation equals one",
+        "To force equal class priors across all categories"
+      ],
+      "correctIndex": 1,
+      "explanation": "If a word never appears with class C in training data, raw maximum likelihood gives P(word | C) = 0. Because Naive Bayes multiplies feature likelihoods, a single zero wipes out the entire class probability. Laplace smoothing adds α to counts so P(x_i | C) > 0."
+    }
+  ]
+}

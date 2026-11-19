@@ -201,6 +201,18 @@ const routeMeta = {
     keywords: "Support Vector Machines, SVM, SVC, SVR, Maximum Margin Classifier, Support Vectors, Hyperplane, Soft-Margin SVM, Slack Variables, Hinge Loss, Regularization C, Kernel Trick, RBF Kernel, Radial Basis Function, Polynomial Kernel, LinearSVC, LIBSVM, LIBLINEAR, Epsilon Insensitive Loss, Sequential Minimal Optimization SMO, Scikit-learn, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/svm`,
   },
+  "/learning/machine-learning/knn-naive-bayes": {
+    title: "Module 11: KNN & Naive Bayes Algorithms | PrepSpaces",
+    description: "Master instance-based and probabilistic machine learning: K-Nearest Neighbors (KNN classification & regression), distance metrics (Euclidean, Manhattan, Minkowski), optimal K selection, curse of dimensionality, KD-Tree & Ball Tree indexing, Bayes' Theorem, GaussianNB, MultinomialNB, BernoulliNB, and Laplace smoothing.",
+    keywords: "K-Nearest Neighbors, KNN, Instance-Based Learning, Lazy Learning, Naive Bayes, Bayes Theorem, GaussianNB, MultinomialNB, BernoulliNB, Euclidean Distance, Manhattan Distance, Minkowski Distance, Curse of Dimensionality, KD-Tree, Ball Tree, Laplace Smoothing, Maximum A Posteriori MAP, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/knn-naive-bayes`,
+  },
+  "/courses/machine-learning/knn-naive-bayes": {
+    title: "Module 11: KNN & Naive Bayes Algorithms | PrepSpaces",
+    description: "Master instance-based and probabilistic machine learning: K-Nearest Neighbors (KNN classification & regression), distance metrics (Euclidean, Manhattan, Minkowski), optimal K selection, curse of dimensionality, KD-Tree & Ball Tree indexing, Bayes' Theorem, GaussianNB, MultinomialNB, BernoulliNB, and Laplace smoothing.",
+    keywords: "K-Nearest Neighbors, KNN, Instance-Based Learning, Lazy Learning, Naive Bayes, Bayes Theorem, GaussianNB, MultinomialNB, BernoulliNB, Euclidean Distance, Manhattan Distance, Minkowski Distance, Curse of Dimensionality, KD-Tree, Ball Tree, Laplace Smoothing, Maximum A Posteriori MAP, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/knn-naive-bayes`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

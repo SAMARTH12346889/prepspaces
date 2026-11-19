@@ -976,10 +976,10 @@ export default function MachineLearningSVM() {
           </button>
 
           <button
-            onClick={() => navigate("/learning/machine-learning")}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-black text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs transition-colors"
+            onClick={() => navigate("/learning/machine-learning/knn-naive-bayes")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs transition-colors"
           >
-            <span>Return to Machine Learning Overview</span>
+            <span>Next: Module 11 &mdash; KNN &amp; Naive Bayes</span>
             <ArrowRight size={16} />
           </button>
         </div>
