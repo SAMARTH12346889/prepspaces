@@ -1,0 +1,130 @@
+{
+  "id": "dimensionality-reduction",
+  "courseId": "machine-learning",
+  "index": 16,
+  "name": "16. Dimensionality Reduction & Feature Extraction",
+  "route": "/learning/machine-learning/dimensionality-reduction",
+  "componentName": "MachineLearningDimensionalityReduction",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary phenomenon known as 'distance concentration' in the context of the Curse of Dimensionality?",
+      "options": [
+        "Data points compress towards the center origin coordinate as dimensions increase",
+        "The relative difference between the Euclidean distance to the nearest neighbor and the farthest neighbor approaches zero as the number of dimensions increases, making nearest-neighbor searches indistinct",
+        "Distances between clusters grow exponentially while within-cluster distances shrink to zero",
+        "Numerical underflow occurs in floating-point operations beyond 100 features"
+      ],
+      "correctIndex": 1,
+      "explanation": "In high-dimensional spaces, under common distributional assumptions, the ratio (dist_max - dist_min) / dist_min approaches 0 as dimensionality d -> infinity. Every point becomes roughly equidistant from every other point, severely degrading distance-based algorithms like KNN and K-Means."
+    },
+    {
+      "id": 2,
+      "question": "What is the fundamental difference between Feature Selection and Feature Extraction?",
+      "options": [
+        "Feature selection is supervised while feature extraction is always unsupervised",
+        "Feature selection retains a subset of existing original columns without alteration, while feature extraction projects or combines original features into a new coordinate space",
+        "Feature selection creates principal components while feature extraction uses variance thresholds",
+        "Feature extraction is only applicable to image datasets, whereas feature selection is for tabular data"
+      ],
+      "correctIndex": 1,
+      "explanation": "Feature selection (e.g. SelectKBest, RFE, Lasso) chooses existing variables and discards redundant ones, preserving original interpretability. Feature extraction (e.g. PCA, Kernel PCA, ICA, LDA) builds linear or nonlinear combinations of the original variables to create new synthetic dimensions."
+    },
+    {
+      "id": 3,
+      "question": "Why is feature standardization (centering and scaling to unit variance) critical prior to computing Principal Component Analysis (PCA)?",
+      "options": [
+        "Without standardization, the covariance matrix cannot be inverted",
+        "PCA identifies directions of maximum absolute variance; variables measured on large numerical scales would dominate principal components regardless of their actual informative content",
+        "Standardization guarantees that the target label is linearly separable",
+        "NumPy eigenvalue solvers only converge when input values lie in the range [-1, 1]"
+      ],
+      "correctIndex": 1,
+      "explanation": "PCA maximizes variance along projection axes. If one feature is measured in dollars ($50,000) and another in age (30 years), the variance of the dollar feature is orders of magnitude larger, causing PC1 to align almost exclusively with dollars simply due to measurement unit arbitrary scaling."
+    },
+    {
+      "id": 4,
+      "question": "What do the eigenvalues and eigenvectors of the sample covariance matrix represent in PCA?",
+      "options": [
+        "Eigenvalues represent the cluster centers, while eigenvectors represent the decision boundaries",
+        "Eigenvectors define the orthogonal directions (principal axes) in feature space, while each corresponding eigenvalue quantifies the variance captured along that direction",
+        "Eigenvalues represent the prediction probabilities, and eigenvectors represent the residual errors",
+        "Eigenvectors are the coefficients of the polynomial regression equation"
+      ],
+      "correctIndex": 1,
+      "explanation": "For covariance matrix C, solving Cv = lambda v yields eigenvectors v, which represent the directions of orthogonal principal components, and eigenvalues lambda, which equal the data variance along each principal axis."
+    },
+    {
+      "id": 5,
+      "question": "How is the Explained Variance Ratio (EVR) for the k-th principal component calculated?",
+      "options": [
+        "EVR_k = lambda_k / sum_{j=1}^p lambda_j, dividing the eigenvalue of component k by the sum of all eigenvalues",
+        "EVR_k = 1 - (lambda_k / N), where N is the number of rows",
+        "EVR_k = trace(C) * lambda_k",
+        "EVR_k = log(lambda_k) / sum(log(lambda_j))"
+      ],
+      "correctIndex": 0,
+      "explanation": "The sum of all eigenvalues equals the total variance (the trace of the covariance matrix). The explained variance ratio for component k is its eigenvalue lambda_k divided by the sum of all p eigenvalues."
+    },
+    {
+      "id": 6,
+      "question": "When and why should Kernel PCA be preferred over standard linear PCA?",
+      "options": [
+        "When the dataset has fewer than 10 observations",
+        "When the underlying data manifold contains complex nonlinear structures (such as concentric circles or spirals) that cannot be linearly separated in the original feature space",
+        "When the number of features exceeds 1,000,000",
+        "When we need a supervised dimensionality reduction method that uses class labels"
+      ],
+      "correctIndex": 1,
+      "explanation": "Standard PCA projects data onto orthogonal hyperplanes (linear subspaces). If the data lies on a nonlinear manifold (e.g. concentric circles), linear projection collapses points onto each other. Kernel PCA uses the kernel trick (e.g. RBF kernel) to map data implicitly into a higher-dimensional space where linear PCA can uncover the nonlinear structure."
+    },
+    {
+      "id": 7,
+      "question": "What is the theoretical maximum number of discriminant components that Linear Discriminant Analysis (LDA) can produce for a classification dataset with C classes and p features (where p > C)?",
+      "options": [
+        "p components (equal to the number of input features)",
+        "C - 1 components",
+        "C * (C - 1) / 2 components",
+        "Always exactly 2 components"
+      ],
+      "correctIndex": 1,
+      "explanation": "The between-class scatter matrix S_B is constructed from the C class mean vectors relative to the overall mean. The rank of S_B is at most C - 1 because the C class means sum to zero when centered. Therefore, LDA can produce at most min(p, C - 1) components."
+    },
+    {
+      "id": 8,
+      "question": "What core statistical assumption distinguishes Independent Component Analysis (ICA) from Principal Component Analysis (PCA)?",
+      "options": [
+        "PCA assumes all sources are binary, while ICA assumes sources are Poisson-distributed",
+        "PCA only enforces mutual uncorrelatedness (Cov(Z_i, Z_j) = 0) and orthogonal axes, while ICA seeks statistical independence (P(s1, s2) = P(s1)P(s2)) and non-Gaussian source distributions",
+        "ICA requires supervised target labels to unmix signals",
+        "PCA requires non-linear activations whereas ICA is purely linear"
+      ],
+      "correctIndex": 1,
+      "explanation": "Uncorrelatedness only ensures zero linear correlation, whereas statistical independence implies all higher-order cross-cumulants vanish. ICA relies on the Central Limit Theorem and non-Gaussianity maximization (kurtosis, negentropy) to separate mixed signals into independent components."
+    },
+    {
+      "id": 9,
+      "question": "Why does t-SNE use a heavy-tailed Student's t-distribution (with 1 degree of freedom) in the low-dimensional map instead of a Gaussian distribution?",
+      "options": [
+        "To speed up gradient descent calculations",
+        "To solve the 'crowding problem' by allowing moderately distant points in high dimensions to be placed far apart in the 2D map without accumulating infinite repulsive forces",
+        "Because Gaussian distributions cannot be sampled on 64-bit architectures",
+        "To guarantee that the Kullback-Leibler divergence is strictly negative"
+      ],
+      "correctIndex": 1,
+      "explanation": "In 2D, the volume of space available at distance r scales as r, whereas in high dimensions it scales as r^d. Mapping many distant points into 2D creates the crowding problem. The heavy tails of the Cauchy / Student-t distribution allow moderate high-dimensional distances to map to larger 2D separations without over-penalizing the objective."
+    },
+    {
+      "id": 10,
+      "question": "What critical data leakage trap must be avoided when using PCA in a supervised machine learning predictive pipeline?",
+      "options": [
+        "Computing PCA before removing duplicate target label strings",
+        "Fitting StandardScaler and PCA on the entire dataset before executing the train/test split, which allows test distribution statistics to leak into model training",
+        "Using n_components greater than 2",
+        "Using Scikit-learn's make_pipeline utility"
+      ],
+      "correctIndex": 1,
+      "explanation": "If StandardScaler and PCA are fit on the full dataset, the mean, variance, and principal axes encode information from the test set observations. This causes data leakage, overly optimistic evaluation metrics, and degraded production generalization. Scalers and PCA transformers must strictly be fit ONLY on the training split."
+    }
+  ]
+}

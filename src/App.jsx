@@ -198,6 +198,7 @@ const MachineLearningModelEvaluation = React.lazy(() => import("./Componets/Mach
 const MachineLearningFeatureEngineering = React.lazy(() => import("./Componets/MachineLearningFeatureEngineering"));
 const MachineLearningPipelines = React.lazy(() => import("./Componets/MachineLearningPipelines"));
 const MachineLearningClustering = React.lazy(() => import("./Componets/MachineLearningClustering"));
+const MachineLearningDimensionalityReduction = React.lazy(() => import("./Componets/MachineLearningDimensionalityReduction"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1845,6 +1846,14 @@ function App() {
             <Route path="/learning/ml/module-15" element={<MachineLearningClustering />} />
             <Route path="/courses/machine-learning/unsupervised-clustering" element={<MachineLearningClustering />} />
             <Route path="/courses/machine-learning/clustering" element={<MachineLearningClustering />} />
+            <Route path="/learning/machine-learning/dimensionality-reduction" element={<MachineLearningDimensionalityReduction />} />
+            <Route path="/learning/machine-learning/pca" element={<MachineLearningDimensionalityReduction />} />
+            <Route path="/learning/machine-learning/module-16" element={<MachineLearningDimensionalityReduction />} />
+            <Route path="/learning/ml/dimensionality-reduction" element={<MachineLearningDimensionalityReduction />} />
+            <Route path="/learning/ml/pca" element={<MachineLearningDimensionalityReduction />} />
+            <Route path="/learning/ml/module-16" element={<MachineLearningDimensionalityReduction />} />
+            <Route path="/courses/machine-learning/dimensionality-reduction" element={<MachineLearningDimensionalityReduction />} />
+            <Route path="/courses/machine-learning/pca" element={<MachineLearningDimensionalityReduction />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

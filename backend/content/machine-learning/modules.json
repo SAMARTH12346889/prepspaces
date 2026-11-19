@@ -163,5 +163,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "dimensionality-reduction",
+    "courseId": "machine-learning",
+    "index": 16,
+    "name": "16. Dimensionality Reduction & Feature Extraction",
+    "route": "/learning/machine-learning/dimensionality-reduction",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
