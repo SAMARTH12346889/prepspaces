@@ -949,11 +949,11 @@ export default function MachineLearningPipelines() {
           </button>
 
           <button
-            onClick={() => navigate("/learning/machine-learning")}
+            onClick={() => navigate("/learning/machine-learning/unsupervised-clustering")}
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs transition-colors"
           >
-            <span>Complete Track: Return to Machine Learning Overview</span>
-            <CheckCircle2 size={16} />
+            <span>Next: Module 15 &mdash; Unsupervised Learning &amp; Clustering</span>
+            <ArrowRight size={16} />
           </button>
         </div>
       </main>

@@ -249,6 +249,18 @@ const routeMeta = {
     keywords: "Machine Learning Pipelines, Pipeline, ColumnTransformer, Custom Transformers, BaseEstimator, TransformerMixin, FunctionTransformer, Pipeline Cross-Validation, GridSearchCV, RandomizedSearchCV, Double Underscore Notation, Preprocessing Leakage, Model Persistence, Joblib, skops, ONNX, ML Workflow Automation, Customer Churn Pipeline, Scikit-learn, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/ml-pipelines`,
   },
+  "/learning/machine-learning/unsupervised-clustering": {
+    title: "Module 15: Unsupervised Learning & Clustering | PrepSpaces",
+    description: "Master unsupervised clustering and customer segmentation: K-Means, K-Means++ initialization, Elbow Method, Silhouette Score, Agglomerative Hierarchical Clustering, Linkage criteria (Single, Complete, Average, Ward), Dendrograms with SciPy, DBSCAN (eps, min_samples, core/border/noise points), OPTICS reachability plots, Mean Shift mode seeking, Gaussian Mixture Models (GMM) with Expectation-Maximization (EM), covariance types, AIC/BIC model selection, Spectral Clustering with graph Laplacians, and enterprise RFM customer segmentation.",
+    keywords: "Unsupervised Learning, Clustering, K-Means, KMeans++, Within-Cluster Sum of Squares, Inertia, Elbow Method, Silhouette Analysis, Hierarchical Clustering, Agglomerative Clustering, Dendrogram, Ward Linkage, Complete Linkage, DBSCAN, Core Points, Noise Points, OPTICS, Reachability Plot, Mean Shift, Gaussian Mixture Models, GMM, Expectation-Maximization, EM Algorithm, Soft Clustering, AIC, BIC, Spectral Clustering, Graph Laplacian, Customer Segmentation, RFM Analysis, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/unsupervised-clustering`,
+  },
+  "/courses/machine-learning/unsupervised-clustering": {
+    title: "Module 15: Unsupervised Learning & Clustering | PrepSpaces",
+    description: "Master unsupervised clustering and customer segmentation: K-Means, K-Means++ initialization, Elbow Method, Silhouette Score, Agglomerative Hierarchical Clustering, Linkage criteria (Single, Complete, Average, Ward), Dendrograms with SciPy, DBSCAN (eps, min_samples, core/border/noise points), OPTICS reachability plots, Mean Shift mode seeking, Gaussian Mixture Models (GMM) with Expectation-Maximization (EM), covariance types, AIC/BIC model selection, Spectral Clustering with graph Laplacians, and enterprise RFM customer segmentation.",
+    keywords: "Unsupervised Learning, Clustering, K-Means, KMeans++, Within-Cluster Sum of Squares, Inertia, Elbow Method, Silhouette Analysis, Hierarchical Clustering, Agglomerative Clustering, Dendrogram, Ward Linkage, Complete Linkage, DBSCAN, Core Points, Noise Points, OPTICS, Reachability Plot, Mean Shift, Gaussian Mixture Models, GMM, Expectation-Maximization, EM Algorithm, Soft Clustering, AIC, BIC, Spectral Clustering, Graph Laplacian, Customer Segmentation, RFM Analysis, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/unsupervised-clustering`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

@@ -1,0 +1,130 @@
+{
+  "id": "unsupervised-clustering",
+  "courseId": "machine-learning",
+  "index": 15,
+  "name": "15. Unsupervised Learning & Clustering",
+  "route": "/learning/machine-learning/unsupervised-clustering",
+  "componentName": "MachineLearningClustering",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary mathematical objective of the standard K-Means clustering algorithm?",
+      "options": [
+        "To maximize the Margin between separating support vectors",
+        "To minimize the Within-Cluster Sum of Squares (WCSS), also known as Inertia, between observations and their assigned cluster centroids",
+        "To maximize the cross-entropy loss between predicted and actual class labels",
+        "To find orthogonal eigenvectors that maximize total variance"
+      ],
+      "correctIndex": 1,
+      "explanation": "K-Means seeks to minimize the Within-Cluster Sum of Squares (Inertia): J = sum_j sum_{x in C_j} ||x - mu_j||^2. It iteratively assigns observations to the nearest centroid and recomputes centroids until convergence."
+    },
+    {
+      "id": 2,
+      "question": "Why does K-Means++ initialization provide substantially superior convergence guarantees compared to standard random centroid initialization?",
+      "options": [
+        "It initializes centroids using gradient descent on GPUs",
+        "It samples the first centroid uniformly at random and then selects subsequent centroids with probability proportional to the squared distance D(x)^2 from the nearest existing centroid, ensuring well-dispersed starting points",
+        "It runs DBSCAN first to find the cluster density peaks",
+        "It automatically identifies the optimal number of clusters K without an elbow plot"
+      ],
+      "correctIndex": 1,
+      "explanation": "K-Means++ selects initial centers with probability P(x) = D(x)^2 / sum(D(x')^2). Points far from already chosen centers are much more likely to be selected, avoiding clustered initial centers and reducing poor local minima."
+    },
+    {
+      "id": 3,
+      "question": "Why is minimizing Inertia alone insufficient for determining the optimal number of clusters K in K-Means?",
+      "options": [
+        "Because Inertia is only defined for 1-dimensional datasets",
+        "Because Inertia monotonically decreases as K increases, reaching exactly 0 when K equals the number of samples N (each point is its own centroid)",
+        "Because Inertia can only be computed when true target labels are known",
+        "Because Scikit-learn does not expose an inertia_ attribute"
+      ],
+      "correctIndex": 1,
+      "explanation": "Adding more centroids always reduces within-cluster distances. When K=N, Inertia=0. Therefore, practitioners use the Elbow Method (point of diminishing returns) and Silhouette Score to balance compactness with model simplicity."
+    },
+    {
+      "id": 4,
+      "question": "In Silhouette Analysis, what does an individual observation score of s(i) = -0.3 indicate?",
+      "options": [
+        "The observation is located at the exact center of its assigned cluster",
+        "The observation is, on average, closer to points in a neighboring cluster than to points in its own assigned cluster, indicating likely misclustering",
+        "The observation has zero Euclidean distance to all other points",
+        "The dataset has zero variance along the first principal component"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Silhouette coefficient is s(i) = (b(i) - a(i)) / max(a(i), b(i)). When a(i) > b(i), s(i) becomes negative, meaning the sample is on average closer to a neighboring cluster than to members of its own cluster."
+    },
+    {
+      "id": 5,
+      "question": "What is the key operational distinction between Single Linkage and Complete Linkage in Agglomerative Hierarchical Clustering?",
+      "options": [
+        "Single linkage uses Manhattan distance; Complete linkage uses Cosine similarity",
+        "Single linkage measures the minimum pairwise distance between clusters (prone to chaining); Complete linkage measures the maximum pairwise distance (producing compact, spherical clusters)",
+        "Single linkage is top-down; Complete linkage is bottom-up",
+        "Single linkage requires Gaussian distributions"
+      ],
+      "correctIndex": 1,
+      "explanation": "Single Linkage defines cluster distance as D(A, B) = min d(a, b), which can link disparate clusters via thin chains of nearby points. Complete Linkage defines distance as D(A, B) = max d(a, b), enforcing compact cluster diameters."
+    },
+    {
+      "id": 6,
+      "question": "How does DBSCAN define a 'Core Point' in a dataset?",
+      "options": [
+        "A point that has the highest silhouette coefficient in the dataset",
+        "A point whose epsilon (eps) neighborhood contains at least min_samples observations (including itself)",
+        "A point located at the geometric center of all observations",
+        "A point that has zero distance to an existing centroid"
+      ],
+      "correctIndex": 1,
+      "explanation": "In DBSCAN, a point is a core point if |N_eps(x)| >= min_samples. Core points form dense cluster interiors from which density-reachable border points are expanded. Isolated points become noise (-1)."
+    },
+    {
+      "id": 7,
+      "question": "Why is DBSCAN fundamentally superior to K-Means when clustering datasets with complex non-convex geometries (e.g. concentric circles or interleaving moons)?",
+      "options": [
+        "DBSCAN uses linear regression lines to bisect the data",
+        "DBSCAN discovers clusters based on contiguous high-density connectivity rather than distance to spherical centroids, allowing it to trace arbitrary non-linear shapes while filtering noise",
+        "DBSCAN projects data onto 100 dimensions automatically",
+        "DBSCAN guarantees equal cluster sizes"
+      ],
+      "correctIndex": 1,
+      "explanation": "K-Means relies on Voronoi cells around centroids, forcing convex/spherical cluster partitions. DBSCAN connects points via continuous density paths, effortlessly tracing moons, rings, and arbitrary non-linear shapes."
+    },
+    {
+      "id": 8,
+      "question": "What is the core advantage of Gaussian Mixture Models (GMM) with Expectation-Maximization over K-Means?",
+      "options": [
+        "GMM requires zero hyperparameter choices",
+        "GMM provides soft (probabilistic) cluster assignments and accommodates non-spherical ellipsoidal cluster shapes through component covariance matrices (full, tied, diag, spherical)",
+        "GMM runs 10x faster than K-Means on large datasets",
+        "GMM completely eliminates the need for feature scaling"
+      ],
+      "correctIndex": 1,
+      "explanation": "While K-Means performs hard assignment to spherical clusters, GMM calculates posterior responsibilities gamma_ik = P(z_i = k | x_i) (soft clustering) and fits parameterized covariance matrices to represent elliptical, oriented distributions."
+    },
+    {
+      "id": 9,
+      "question": "How do AIC (Akaike Information Criterion) and BIC (Bayesian Information Criterion) assist in selecting the number of components K in a Gaussian Mixture Model?",
+      "options": [
+        "They measure the training speed in milliseconds",
+        "They balance model goodness-of-fit (log-likelihood) against model parameter complexity (degrees of freedom), penalizing over-parameterized models so the minimum value identifies the optimal K",
+        "They enforce that all Gaussian components have identical variance",
+        "They calculate the Adjusted Rand Index against test labels"
+      ],
+      "correctIndex": 1,
+      "explanation": "AIC = 2p - 2ln(L) and BIC = p*ln(N) - 2ln(L). As components increase, likelihood improves but parameter count p grows. The minimum of the AIC/BIC curve identifies the model that best explains the data with minimal over-parameterization."
+    },
+    {
+      "id": 10,
+      "question": "What is the RFM framework commonly used in enterprise customer segmentation clustering projects?",
+      "options": [
+        "Random Forest Modeling (Recalculate, Fit, Measure)",
+        "Recency (how recently did the customer purchase), Frequency (how often do they purchase), and Monetary Value (total spend)",
+        "Residual Feature Minimization",
+        "Robust Feature Matching"
+      ],
+      "correctIndex": 1,
+      "explanation": "RFM (Recency, Frequency, Monetary Value) is the premier behavioral framework for customer segmentation. Engineering RFM features followed by scaling and clustering (e.g. K-Means or GMM) discovers actionable segments like VIPs, at-risk churners, and budget shoppers."
+    }
+  ]
+}

@@ -197,6 +197,7 @@ const MachineLearningKNNNaiveBayes = React.lazy(() => import("./Componets/Machin
 const MachineLearningModelEvaluation = React.lazy(() => import("./Componets/MachineLearningModelEvaluation"));
 const MachineLearningFeatureEngineering = React.lazy(() => import("./Componets/MachineLearningFeatureEngineering"));
 const MachineLearningPipelines = React.lazy(() => import("./Componets/MachineLearningPipelines"));
+const MachineLearningClustering = React.lazy(() => import("./Componets/MachineLearningClustering"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1836,6 +1837,14 @@ function App() {
             <Route path="/learning/ml/ml-pipelines" element={<MachineLearningPipelines />} />
             <Route path="/learning/ml/module-14" element={<MachineLearningPipelines />} />
             <Route path="/courses/machine-learning/ml-pipelines" element={<MachineLearningPipelines />} />
+            <Route path="/learning/machine-learning/unsupervised-clustering" element={<MachineLearningClustering />} />
+            <Route path="/learning/machine-learning/clustering" element={<MachineLearningClustering />} />
+            <Route path="/learning/machine-learning/module-15" element={<MachineLearningClustering />} />
+            <Route path="/learning/ml/unsupervised-clustering" element={<MachineLearningClustering />} />
+            <Route path="/learning/ml/clustering" element={<MachineLearningClustering />} />
+            <Route path="/learning/ml/module-15" element={<MachineLearningClustering />} />
+            <Route path="/courses/machine-learning/unsupervised-clustering" element={<MachineLearningClustering />} />
+            <Route path="/courses/machine-learning/clustering" element={<MachineLearningClustering />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

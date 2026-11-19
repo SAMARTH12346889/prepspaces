@@ -262,6 +262,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "model-evaluation", name: "12. Model Evaluation & Cross-Validation", route: "/learning/machine-learning/model-evaluation" },
   { id: "feature-engineering", name: "13. Feature Engineering & Preprocessing", route: "/learning/machine-learning/feature-engineering" },
   { id: "ml-pipelines", name: "14. ML Pipelines & Workflow Automation", route: "/learning/machine-learning/ml-pipelines" },
+  { id: "unsupervised-clustering", name: "15. Unsupervised Learning & Clustering", route: "/learning/machine-learning/unsupervised-clustering" },
 ];
 
 export default function ModuleNav({

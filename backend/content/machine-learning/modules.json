@@ -152,5 +152,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "unsupervised-clustering",
+    "courseId": "machine-learning",
+    "index": 15,
+    "name": "15. Unsupervised Learning & Clustering",
+    "route": "/learning/machine-learning/unsupervised-clustering",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
