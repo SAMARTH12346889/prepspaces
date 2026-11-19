@@ -268,6 +268,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "recommendation-systems", name: "18. Recommendation Systems & Personalization", route: "/learning/machine-learning/recommendation-systems" },
   { id: "time-series-forecasting", name: "19. Time Series Analysis & Forecasting", route: "/learning/machine-learning/time-series-forecasting" },
   { id: "probabilistic-machine-learning", name: "20. Probabilistic Machine Learning & Bayesian Methods", route: "/learning/machine-learning/probabilistic-machine-learning" },
+  { id: "advanced-statistical-learning", name: "21. Advanced Statistical Learning & ML Research", route: "/learning/machine-learning/advanced-statistical-learning" },
 ];
 
 export default function ModuleNav({

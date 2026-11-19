@@ -218,5 +218,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "advanced-statistical-learning",
+    "courseId": "machine-learning",
+    "index": 21,
+    "name": "21. Advanced Statistical Learning & ML Research",
+    "route": "/learning/machine-learning/advanced-statistical-learning",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

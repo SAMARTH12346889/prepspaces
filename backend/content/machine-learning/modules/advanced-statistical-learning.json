@@ -1,0 +1,130 @@
+{
+  "id": "advanced-statistical-learning",
+  "courseId": "machine-learning",
+  "index": 21,
+  "name": "21. Advanced Statistical Learning & ML Research",
+  "route": "/learning/machine-learning/advanced-statistical-learning",
+  "componentName": "MachineLearningStatisticalLearning",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary objective of Empirical Risk Minimization (ERM)?",
+      "options": [
+        "Maximize model complexity",
+        "Minimize average training loss",
+        "Maximize the number of features",
+        "Eliminate all training errors"
+      ],
+      "correctIndex": 1,
+      "explanation": "Empirical Risk Minimization (ERM) replaces the intractable population expected risk R(h) = E[L(h(X), Y)] with the sample average loss on the observed training set: R_emp(h) = (1/N) * sum(L(h(x_i), y_i)). Its core computational objective is to minimize this average training loss."
+    },
+    {
+      "id": 2,
+      "question": "What does generalization error describe in statistical learning theory?",
+      "options": [
+        "Training time",
+        "Difference between population risk and empirical risk",
+        "Number of model parameters",
+        "Number of training examples"
+      ],
+      "correctIndex": 1,
+      "explanation": "Generalization error (or the generalization gap) measures the gap between the true risk over the entire data distribution R(h) and the empirical risk measured on the training set R_emp(h): GenError = |R(h) - R_emp(h)|. A large gap indicates overfitting."
+    },
+    {
+      "id": 3,
+      "question": "What does high variance usually indicate in a machine learning model?",
+      "options": [
+        "The model is too simple",
+        "The model is insensitive to data",
+        "The model is sensitive to changes in training data",
+        "The model has no parameters"
+      ],
+      "correctIndex": 2,
+      "explanation": "High variance means the learned hypothesis changes drastically when trained on different subsets of the data distribution. The model fits random noise in the training set rather than the underlying pattern, exhibiting low training error but high test error."
+    },
+    {
+      "id": 4,
+      "question": "What does PAC stand for in machine learning theory?",
+      "options": [
+        "Predictive Algorithm Classification",
+        "Probably Approximately Correct",
+        "Parameter Adjustment Calculation",
+        "Probabilistic Accuracy Control"
+      ],
+      "correctIndex": 1,
+      "explanation": "PAC stands for 'Probably Approximately Correct', introduced by Leslie Valiant in 1984. It formally defines learnability: with high probability (1 - delta, 'Probably'), the generalization error of the chosen hypothesis is bounded by epsilon ('Approximately Correct')."
+    },
+    {
+      "id": 5,
+      "question": "What does the Vapnik-Chervonenkis (VC) dimension measure?",
+      "options": [
+        "Training speed",
+        "Model memory usage",
+        "Expressive capacity of a hypothesis class",
+        "Number of output classes"
+      ],
+      "correctIndex": 2,
+      "explanation": "The VC dimension measures the expressive capacity or complexity of a hypothesis class H. It is defined as the maximum cardinality of a set of points that can be shattered (assigned all 2^N possible binary labelings) by hypotheses in H."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary purpose of regularization in statistical learning?",
+      "options": [
+        "Increase training-set size",
+        "Control model complexity",
+        "Delete the target variable",
+        "Increase prediction noise"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regularization introduces a complexity penalty (such as L1 Lasso or L2 Ridge norm) into the optimization objective: min R_emp(h) + lambda * Omega(h). This prevents the hypothesis space from overfitting by shrinking weights or inducing sparsity."
+    },
+    {
+      "id": 7,
+      "question": "What is self-training in semi-supervised learning?",
+      "options": [
+        "Training without any model",
+        "Using high-confidence model predictions as additional training labels",
+        "Only using human-labeled data",
+        "Removing all unlabeled examples"
+      ],
+      "correctIndex": 1,
+      "explanation": "Self-training is an iterative semi-supervised learning wrapper: a model is first trained on the labeled subset L; it predicts labels for the unlabeled pool U; predictions exceeding a confidence threshold tau are converted into pseudo-labels and added to the training set for subsequent retraining."
+    },
+    {
+      "id": 8,
+      "question": "What distinguishes active learning from passive machine learning?",
+      "options": [
+        "It selects informative examples for labeling",
+        "It always labels every observation",
+        "It never uses an annotator",
+        "It only works for regression"
+      ],
+      "correctIndex": 0,
+      "explanation": "In active learning, the algorithm actively queries an oracle (e.g. human expert) to label the most informative or uncertain instances from an unlabeled pool, dramatically reducing the total labeling budget needed to reach high accuracy compared to passive random labeling."
+    },
+    {
+      "id": 9,
+      "question": "What is the primary purpose of an ablation study in ML research?",
+      "options": [
+        "Increase dataset size",
+        "Remove or modify components to measure their contribution",
+        "Change every hyperparameter simultaneously",
+        "Hide model errors"
+      ],
+      "correctIndex": 1,
+      "explanation": "An ablation study systematically isolates, removes, or replaces individual model components (e.g., attention heads, data augmentations, loss terms, regularization) to quantify the exact marginal contribution of each element to overall performance."
+    },
+    {
+      "id": 10,
+      "question": "What constitutes reproducible machine learning research?",
+      "options": [
+        "Reporting only the highest accuracy",
+        "Repeating the same experiment without documentation",
+        "Providing enough information to repeat and verify an experiment",
+        "Using only one random seed"
+      ],
+      "correctIndex": 2,
+      "explanation": "Reproducible research provides open access to the dataset, preprocessing code, model architecture, fixed random seeds, training environment specifications (hardware and library versions), and hyperparameter configs so that independent researchers can replicate the exact findings."
+    }
+  ]
+}
