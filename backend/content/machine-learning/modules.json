@@ -130,5 +130,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "feature-engineering",
+    "courseId": "machine-learning",
+    "index": 13,
+    "name": "13. Feature Engineering & Data Preprocessing",
+    "route": "/learning/machine-learning/feature-engineering",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

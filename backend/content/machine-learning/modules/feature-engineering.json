@@ -1,0 +1,130 @@
+{
+  "id": "feature-engineering",
+  "courseId": "machine-learning",
+  "index": 13,
+  "name": "13. Feature Engineering & Data Preprocessing",
+  "route": "/learning/machine-learning/feature-engineering",
+  "componentName": "MachineLearningFeatureEngineering",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the key functional distinction between Data Preprocessing and Feature Engineering?",
+      "options": [
+        "Feature engineering converts data to integers, while preprocessing converts data to floats",
+        "Data preprocessing focuses on data cleaning, scaling, and formatting for algorithmic compatibility; feature engineering creates new, domain-informative representations to boost predictive power",
+        "Data preprocessing is only applied to neural networks, while feature engineering is strictly for linear regression",
+        "There is no difference; the terms are entirely synonymous in machine learning"
+      ],
+      "correctIndex": 1,
+      "explanation": "Data preprocessing addresses data hygiene (imputation, scaling, categorical encoding) so algorithms can ingest the data. Feature engineering leverages domain knowledge to construct novel variables (ratios, date parts, interactions) that better expose the underlying pattern to the model."
+    },
+    {
+      "id": 2,
+      "question": "Why is np.log1p(x) preferred over np.log(x) when applying a logarithmic transformation to right-skewed positive features?",
+      "options": [
+        "np.log1p(x) automatically normalizes features to zero mean and unit variance",
+        "np.log1p(x) computes log(1 + x), which safely handles zero-valued observations without causing undefined negative infinity (-inf) errors",
+        "np.log1p(x) converts continuous variables into discrete ordinal integers",
+        "np.log1p(x) eliminates the need for cross-validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because log(0) is undefined (-infinity), raw log fails on datasets with zero counts or zero incomes. np.log1p(x) calculates log(1 + x), yielding log(1) = 0 for zeros while retaining numerical stability for small positive values."
+    },
+    {
+      "id": 3,
+      "question": "What is the 'Dummy Variable Trap' in One-Hot Encoding, and how is it addressed in unregularized linear models?",
+      "options": [
+        "It refers to high memory usage; solved by deleting all categorical columns",
+        "It is perfect multicollinearity caused by the sum of all k binary dummy columns equaling 1 (the intercept); solved by dropping one category (drop='first')",
+        "It happens when categories contain spelling mistakes; solved by fuzzy string matching",
+        "It forces tree-based models to overfit; solved by increasing tree depth"
+      ],
+      "correctIndex": 1,
+      "explanation": "When all k indicator columns are included alongside an intercept term in ordinary least squares (OLS), the columns sum to 1, causing the feature matrix to have linearly dependent columns (singular matrix). Dropping one reference category removes this collinearity."
+    },
+    {
+      "id": 4,
+      "question": "How does smoothing in Target Encoding prevent catastrophic data leakage and overfitting for rare categories?",
+      "options": [
+        "It drops categories with fewer than 100 observations from the training dataset",
+        "It blends the category's local target mean with the global target mean using a weight parameter m, pulling small-sample categories toward the dataset prior",
+        "It converts continuous targets into binary 0/1 categories",
+        "It applies min-max scaling to the predicted class probabilities"
+      ],
+      "correctIndex": 1,
+      "explanation": "Smoothed Target Encoding computes TE = (n * y_cat + m * y_global) / (n + m). For categories with tiny sample sizes (e.g. n=1), this pulls the encoding close to the overall global mean (y_global) rather than assigning the single observation's exact target value."
+    },
+    {
+      "id": 5,
+      "question": "Why does RobustScaler provide superior scaling behavior compared to StandardScaler when datasets contain extreme outliers?",
+      "options": [
+        "RobustScaler clips all feature values between -1 and +1",
+        "RobustScaler uses the median and Interquartile Range (IQR = Q3 - Q1), which are non-parametric order statistics resistant to extreme levering by outliers",
+        "RobustScaler converts all skewed distributions into exact Gaussian distributions",
+        "RobustScaler eliminates missing values automatically"
+      ],
+      "correctIndex": 1,
+      "explanation": "StandardScaler depends on the sample mean (μ) and standard deviation (σ), both of which are severely distorted by extreme outliers. RobustScaler centers by the median and scales by the IQR, preserving the integrity of the bulk distribution."
+    },
+    {
+      "id": 6,
+      "question": "What is the critical architectural distinction between MinMaxScaler and Normalizer in Scikit-learn?",
+      "options": [
+        "MinMaxScaler scales columns across samples using training min/max; Normalizer rescales individual rows (samples) independently to unit vector norm (e.g. L2)",
+        "MinMaxScaler is for text; Normalizer is for tabular data",
+        "MinMaxScaler operates on test sets only; Normalizer operates on training sets only",
+        "Normalizer guarantees all output values are strictly positive integers"
+      ],
+      "correctIndex": 0,
+      "explanation": "MinMaxScaler is a column-wise transformer that computes min and max across all training rows to map features into [0, 1]. Normalizer is row-wise: it rescales each observation vector to have unit norm (e.g., Euclidean length = 1) without learning column-wise parameters."
+    },
+    {
+      "id": 7,
+      "question": "When imputing missing numerical values, why should SimpleImputer(add_indicator=True) frequently be employed?",
+      "options": [
+        "Because it halves the memory consumption of the DataFrame",
+        "Because missingness itself is often informative (e.g., missing income indicates high net worth or privacy sensitivity), allowing the model to leverage this signal",
+        "Because Scikit-learn models crash if an indicator column is not present",
+        "Because it automatically proves the missing data mechanism is MCAR"
+      ],
+      "correctIndex": 1,
+      "explanation": "When data is Missing at Random (MAR) or Missing Not at Random (MNAR), the fact that a field was omitted conveys predictive information. Missingness indicator columns preserve this signal for downstream estimators."
+    },
+    {
+      "id": 8,
+      "question": "Why are cyclical features (such as hour of day 0..23 or month 1..12) transformed into paired sine and cosine coordinates?",
+      "options": [
+        "To satisfy the linear regression assumption of homoscedasticity",
+        "To preserve geometric proximity so that hour 23:00 and 00:00 (or December and January) are adjacent in Euclidean space rather than maximally distant",
+        "To convert discrete integers into categorical strings",
+        "To reduce feature dimensionality from 2 features to 1 feature"
+      ],
+      "correctIndex": 1,
+      "explanation": "On a linear scale, December (12) and January (1) are 11 units apart. Encoding circular time via sin(2πt/T) and cos(2πt/T) maps time points onto a unit circle, ensuring that 23:00 is smoothly continuous with 00:00."
+    },
+    {
+      "id": 9,
+      "question": "How do Filter, Wrapper, and Embedded feature selection methods compare in mechanism and computational cost?",
+      "options": [
+        "Filter methods train neural networks; Wrapper methods use decision trees; Embedded methods use logistic regression",
+        "Filter methods use univariate statistical tests (fast, model-free); Wrapper methods evaluate feature subsets by iteratively training a model (slow, captures interactions); Embedded methods select features during model training (e.g., L1 Lasso, tree importance)",
+        "Filter methods are the slowest because they evaluate every possible 2^p subset",
+        "Wrapper methods are model-agnostic and do not require fitting any algorithms"
+      ],
+      "correctIndex": 1,
+      "explanation": "Filter methods (ANOVA, mutual information) evaluate features independently of models; Wrapper methods (RFE, forward selection) wrap an estimator to test combinations; Embedded methods (L1 penalty, Gini importance) integrate selection directly into objective optimization."
+    },
+    {
+      "id": 10,
+      "question": "Why is it mandatory to encapsulate ColumnTransformer and estimators inside a Scikit-learn Pipeline when evaluating with Cross-Validation?",
+      "options": [
+        "Because Python throws a syntax error if fit() is called on a ColumnTransformer",
+        "To prevent data leakage by ensuring that all scalers, encoders, imputers, and selectors are fitted strictly on each training fold and only transformed on the validation fold",
+        "To enforce that all features are transformed into NumPy arrays with float32 precision",
+        "To allow linear models to run on GPU hardware"
+      ],
+      "correctIndex": 1,
+      "explanation": "If transformations are fit on the full dataset before cross-validation, validation statistics (mean, variance, target distribution) leak into training. A Pipeline ensures that transformers are fitted purely within training splits during each CV iteration."
+    }
+  ]
+}

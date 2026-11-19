@@ -260,6 +260,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "svm", name: "10. Support Vector Machines (SVM)", route: "/learning/machine-learning/svm" },
   { id: "knn-naive-bayes", name: "11. KNN & Naive Bayes Algorithms", route: "/learning/machine-learning/knn-naive-bayes" },
   { id: "model-evaluation", name: "12. Model Evaluation & Cross-Validation", route: "/learning/machine-learning/model-evaluation" },
+  { id: "feature-engineering", name: "13. Feature Engineering & Preprocessing", route: "/learning/machine-learning/feature-engineering" },
 ];
 
 export default function ModuleNav({

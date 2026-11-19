@@ -1242,11 +1242,11 @@ export default function MachineLearningModelEvaluation() {
           </button>
 
           <button
-            onClick={() => navigate("/learning/machine-learning")}
+            onClick={() => navigate("/learning/machine-learning/feature-engineering")}
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs transition-colors"
           >
-            <span>Complete Track: Return to Machine Learning Overview</span>
-            <CheckCircle2 size={16} />
+            <span>Next: Module 13 &mdash; Feature Engineering &amp; Preprocessing</span>
+            <ArrowRight size={16} />
           </button>
         </div>
       </main>

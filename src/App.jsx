@@ -195,6 +195,7 @@ const MachineLearningEnsemble = React.lazy(() => import("./Componets/MachineLear
 const MachineLearningSVM = React.lazy(() => import("./Componets/MachineLearningSVM"));
 const MachineLearningKNNNaiveBayes = React.lazy(() => import("./Componets/MachineLearningKNNNaiveBayes"));
 const MachineLearningModelEvaluation = React.lazy(() => import("./Componets/MachineLearningModelEvaluation"));
+const MachineLearningFeatureEngineering = React.lazy(() => import("./Componets/MachineLearningFeatureEngineering"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1822,6 +1823,12 @@ function App() {
             <Route path="/learning/ml/model-evaluation" element={<MachineLearningModelEvaluation />} />
             <Route path="/learning/ml/module-12" element={<MachineLearningModelEvaluation />} />
             <Route path="/courses/machine-learning/model-evaluation" element={<MachineLearningModelEvaluation />} />
+            <Route path="/learning/machine-learning/feature-engineering" element={<MachineLearningFeatureEngineering />} />
+            <Route path="/learning/machine-learning/preprocessing" element={<MachineLearningFeatureEngineering />} />
+            <Route path="/learning/machine-learning/module-13" element={<MachineLearningFeatureEngineering />} />
+            <Route path="/learning/ml/feature-engineering" element={<MachineLearningFeatureEngineering />} />
+            <Route path="/learning/ml/module-13" element={<MachineLearningFeatureEngineering />} />
+            <Route path="/courses/machine-learning/feature-engineering" element={<MachineLearningFeatureEngineering />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

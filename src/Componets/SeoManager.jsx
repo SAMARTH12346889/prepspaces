@@ -225,6 +225,18 @@ const routeMeta = {
     keywords: "Model Evaluation, Cross-Validation, Data Leakage, MAE, MSE, RMSE, R-Squared, Adjusted R-Squared, Confusion Matrix, Precision, Recall, F1-Score, ROC Curve, ROC-AUC, Precision-Recall Curve, Average Precision, Classification Threshold, K-Fold, Stratified K-Fold, Group K-Fold, TimeSeriesSplit, Leave-One-Out LOOCV, Bootstrap Validation, Nested Cross-Validation, Learning Curves, Scikit-learn, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/model-evaluation`,
   },
+  "/learning/machine-learning/feature-engineering": {
+    title: "Module 13: Feature Engineering & Data Preprocessing | PrepSpaces",
+    description: "Master feature engineering, transformations, and data preprocessing: log and power transforms (Box-Cox, Yeo-Johnson), categorical encoding (One-Hot, Ordinal, Target Encoding with smoothing), feature scaling (StandardScaler, MinMaxScaler, RobustScaler, Normalizer), missing value imputation (SimpleImputer, KNNImputer, IterativeImputer), outlier treatment (IQR, Z-score, Winsorization), binning, interaction terms, cyclical date encoding, feature selection (Filter, Wrapper, Embedded, RFE), and leakage-safe ColumnTransformer pipelines.",
+    keywords: "Feature Engineering, Data Preprocessing, One-Hot Encoding, Target Encoding, Ordinal Encoding, StandardScaler, MinMaxScaler, RobustScaler, Normalizer, Missing Value Imputation, SimpleImputer, KNNImputer, IterativeImputer, Outlier Detection, IQR, Winsorization, Binning, Feature Interactions, Polynomial Features, Cyclical Date Encoding, Feature Selection, VarianceThreshold, Mutual Information, RFE, RFECV, SelectFromModel, ColumnTransformer, Pipeline, Data Leakage, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/feature-engineering`,
+  },
+  "/courses/machine-learning/feature-engineering": {
+    title: "Module 13: Feature Engineering & Data Preprocessing | PrepSpaces",
+    description: "Master feature engineering, transformations, and data preprocessing: log and power transforms (Box-Cox, Yeo-Johnson), categorical encoding (One-Hot, Ordinal, Target Encoding with smoothing), feature scaling (StandardScaler, MinMaxScaler, RobustScaler, Normalizer), missing value imputation (SimpleImputer, KNNImputer, IterativeImputer), outlier treatment (IQR, Z-score, Winsorization), binning, interaction terms, cyclical date encoding, feature selection (Filter, Wrapper, Embedded, RFE), and leakage-safe ColumnTransformer pipelines.",
+    keywords: "Feature Engineering, Data Preprocessing, One-Hot Encoding, Target Encoding, Ordinal Encoding, StandardScaler, MinMaxScaler, RobustScaler, Normalizer, Missing Value Imputation, SimpleImputer, KNNImputer, IterativeImputer, Outlier Detection, IQR, Winsorization, Binning, Feature Interactions, Polynomial Features, Cyclical Date Encoding, Feature Selection, VarianceThreshold, Mutual Information, RFE, RFECV, SelectFromModel, ColumnTransformer, Pipeline, Data Leakage, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/feature-engineering`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",
