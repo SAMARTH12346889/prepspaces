@@ -18,7 +18,7 @@ const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => getStoredToken());
   const [user, setUser] = useState(() => getStoredUser());
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => !getStoredUser() && !!getStoredToken());
   const [gsiLoaded, setGsiLoaded] = useState(false);
 
   // Validate active session on initial load

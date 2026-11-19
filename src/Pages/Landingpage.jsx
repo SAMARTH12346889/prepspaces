@@ -150,13 +150,13 @@ export default function Landingpage() {
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-black/40 z-40 md:hidden touch-manipulation"
         />
       )}
 
       {/* ================= LEFT SIDEBAR ================= */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col border-r border-[#e7e3da] bg-white/80 backdrop-blur-2xl p-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] transition-transform duration-300 md:sticky md:top-0 md:h-screen md:max-h-screen md:translate-x-0 overflow-y-auto ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col border-r border-[#e7e3da] bg-white/95 p-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] transition-transform duration-200 md:sticky md:top-0 md:h-screen md:max-h-screen md:translate-x-0 overflow-y-auto ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -172,7 +172,7 @@ export default function Landingpage() {
             </div>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="rounded-lg p-1 text-stone-400 hover:text-stone-900 md:hidden cursor-pointer"
+              className="rounded-lg p-1 text-stone-400 hover:text-stone-900 md:hidden cursor-pointer touch-manipulation select-none"
               aria-label="Close sidebar"
             >
               <X size={20} />
@@ -192,7 +192,7 @@ export default function Landingpage() {
                 setSidebarOpen(false);
                 navigate("/");
               }}
-              className="flex w-full items-center gap-3 rounded-2xl bg-[#f97316] px-4 py-3 text-sm font-bold text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)] transition-all hover:bg-[#ea580c] cursor-pointer"
+              className="flex w-full items-center gap-3 rounded-2xl bg-[#f97316] px-4 py-3 text-sm font-bold text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)] transition-all hover:bg-[#ea580c] cursor-pointer touch-manipulation select-none"
             >
               <Home size={18} className="text-white" />
               <span>Overview</span>
@@ -203,7 +203,7 @@ export default function Landingpage() {
               <Link
                 to="/dashboard"
                 onClick={() => setSidebarOpen(false)}
-                className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer"
+                className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer touch-manipulation select-none"
               >
                 <Sliders size={18} className="text-stone-400" />
                 <span>Dashboard</span>
@@ -213,7 +213,7 @@ export default function Landingpage() {
             <Link
               to="/learning"
               onClick={() => setSidebarOpen(false)}
-              className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer"
+              className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer touch-manipulation select-none"
             >
               <BookOpen size={18} className="text-stone-400" />
               <span>Study</span>
@@ -223,7 +223,7 @@ export default function Landingpage() {
             <Link
               to="/interview"
               onClick={() => setSidebarOpen(false)}
-              className="flex w-full items-center justify-between rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer group"
+              className="flex w-full items-center justify-between rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer group touch-manipulation select-none"
             >
               <div className="flex items-center gap-3">
                 <Mic size={18} className="text-stone-400 group-hover:text-stone-600 transition-colors" />
@@ -240,11 +240,11 @@ export default function Landingpage() {
       {/* ================= MAIN CONTENT AREA ================= */}
       <div className="flex-1 flex flex-col min-w-0 z-10 overflow-x-hidden">
         {/* Top Header */}
-        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-3.5 sm:px-6 py-2.5 sm:py-4 pt-[max(0.6rem,env(safe-area-inset-top))] backdrop-blur-xl md:px-10">
+        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-3.5 sm:px-6 py-2.5 sm:py-4 pt-[max(0.6rem,env(safe-area-inset-top))] md:px-10">
           <div className="flex items-center gap-2.5 sm:gap-4">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="rounded-xl border border-[#e7e3da] bg-white/80 p-2 text-stone-600 hover:bg-stone-200/50 md:hidden shadow-2xs cursor-pointer"
+              className="rounded-xl border border-[#e7e3da] bg-white/80 p-2 text-stone-600 hover:bg-stone-200/50 md:hidden shadow-2xs cursor-pointer touch-manipulation select-none"
               aria-label="Open sidebar"
             >
               <Menu size={20} />
@@ -381,7 +381,7 @@ export default function Landingpage() {
                       <Link
                         key={track.id}
                         to={track.route}
-                        className="group flex items-center justify-between gap-3 rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs min-w-0"
+                        className="group flex items-center justify-between gap-3 rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs min-w-0 touch-manipulation select-none"
                       >
                         <div className="flex items-center gap-3 min-w-0 flex-1">
                           <div className={`flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${track.color} text-white shadow-xs`}>
@@ -444,7 +444,7 @@ export default function Landingpage() {
                     <Link
                       key={idx}
                       to={topic.route}
-                      className="group flex items-center justify-between gap-3 rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs min-w-0"
+                      className="group flex items-center justify-between gap-3 rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs min-w-0 touch-manipulation select-none"
                     >
                       <div className="flex items-center gap-3 min-w-0 flex-1">
                         <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-[#ea580c]">

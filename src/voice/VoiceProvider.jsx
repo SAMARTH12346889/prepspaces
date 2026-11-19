@@ -35,7 +35,7 @@ export function VoiceProvider({ children, apiUrl = "", userId = "default_user" }
 
   const engineRef = useRef(null);
 
-  if (!engineRef.current) {
+  if (!engineRef.current && SHOW_NOVA_AI) {
     engineRef.current = new VoiceEngine({
       apiUrl,
       userId,

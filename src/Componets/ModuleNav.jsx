@@ -435,6 +435,9 @@ export default function ModuleNav({
   }, [resolvedCourseId, loadAccess]);
 
   useEffect(() => {
+    // Only fetch remote modules if synchronous fallback was empty
+    if (modules && modules.length > 0) return;
+
     let isMounted = true;
     const cached = getSynchronousCachedCourseModules(resolvedCourseId);
     if (cached && cached.length > 0) {
@@ -449,23 +452,21 @@ export default function ModuleNav({
     return () => {
       isMounted = false;
     };
-  }, [resolvedCourseId]);
+  }, [resolvedCourseId, modules]);
 
   useEffect(() => {
     if (scrollRef.current) {
       const activeBtn = scrollRef.current.querySelector("[data-active='true']");
       if (activeBtn) {
-        const timer = setTimeout(() => {
-          activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-        }, 60);
-        return () => clearTimeout(timer);
+        const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+        activeBtn.scrollIntoView({ behavior: isTouch ? "auto" : "smooth", block: "nearest", inline: "center" });
       }
     }
   }, [currentModuleId, modules]);
 
   // Automatic engagement completion:
   // When an authenticated student (or guest on free modules) visits an unlocked module,
-  // automatically record completion as they explore lessons/content so the next module opens.
+  // quietly record completion after 3 seconds of study so the next module opens.
   useEffect(() => {
     if (!currentModuleId || !resolvedCourseId) return;
 
@@ -487,24 +488,8 @@ export default function ModuleNav({
       autoCompleteModule(resolvedCourseId, currentModuleId);
     };
 
-    // 1. Timer: after 2.5 seconds on the page
-    const timer = setTimeout(triggerComplete, 2500);
-
-    // 2. Interaction: scroll or click anywhere on the page
-    const onInteraction = () => {
-      triggerComplete();
-      window.removeEventListener("scroll", onInteraction);
-      window.removeEventListener("click", onInteraction);
-    };
-
-    window.addEventListener("scroll", onInteraction, { passive: true });
-    window.addEventListener("click", onInteraction, { passive: true });
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("scroll", onInteraction);
-      window.removeEventListener("click", onInteraction);
-    };
+    const timer = setTimeout(triggerComplete, 3000);
+    return () => clearTimeout(timer);
   }, [currentModuleId, resolvedCourseId, modules, isAuthenticated, completedModuleIds]);
 
   const defaultFallback =

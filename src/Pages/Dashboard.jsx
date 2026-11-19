@@ -155,13 +155,13 @@ export default function Dashboard() {
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-black/40 z-40 md:hidden touch-manipulation"
         />
       )}
 
       {/* ================= LEFT SIDEBAR ================= */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col justify-between border-r border-[#e7e3da] bg-white/90 backdrop-blur-2xl p-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] transition-transform duration-300 md:sticky md:top-0 md:h-screen md:max-h-screen md:translate-x-0 overflow-y-auto ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col justify-between border-r border-[#e7e3da] bg-white/95 p-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] transition-transform duration-200 md:sticky md:top-0 md:h-screen md:max-h-screen md:translate-x-0 overflow-y-auto ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

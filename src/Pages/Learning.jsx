@@ -306,7 +306,7 @@ export default function Learning() {
           <button
             type="button"
             onClick={() => goBack("/")}
-            className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/80 px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer shrink-0"
+            className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/80 px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer shrink-0 touch-manipulation select-none"
             aria-label="Back to Home"
           >
             <ArrowLeft size={16} />
@@ -318,7 +318,7 @@ export default function Learning() {
               <div className="flex items-center gap-2">
                 <Link
                   to="/dashboard"
-                  className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer"
+                  className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs cursor-pointer touch-manipulation select-none"
                   title="Go to Dashboard"
                 >
                   {user?.picture ? (
@@ -342,7 +342,7 @@ export default function Learning() {
                 }}
                   title="Log Out"
                   aria-label="Log Out"
-                  className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
+                  className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer touch-manipulation select-none"
                 >
                   <LogOut size={14} />
                   <span className="hidden sm:inline">Log Out</span>
@@ -351,7 +351,7 @@ export default function Learning() {
             ) : (
               <Link
                 to="/login"
-                className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
+                className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs cursor-pointer touch-manipulation select-none"
               >
                 <User size={14} className="text-[#f97316]" />
                 <span>Sign In</span>
@@ -406,7 +406,7 @@ export default function Learning() {
               <Link
                 key={card.id}
                 to={card.route}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/90 p-4 sm:p-7 md:p-8 backdrop-blur-xl shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-300 hover:shadow-[0_20px_45px_rgba(249,115,22,0.12)] cursor-pointer text-inherit no-underline"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/90 p-4 sm:p-7 md:p-8 shadow-xs transition-all duration-200 hover:-translate-y-1.5 hover:border-orange-300 hover:shadow-[0_20px_45px_rgba(249,115,22,0.12)] cursor-pointer text-inherit no-underline touch-manipulation"
               >
                 <div className="flex flex-col flex-1">
                   {/* Card Header with Icon, Tag and Duration */}

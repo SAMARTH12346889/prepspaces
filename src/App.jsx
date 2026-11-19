@@ -1,17 +1,17 @@
 import ModuleLoadingSkeleton from "./Componets/ModuleLoadingSkeleton";
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 
-import Landingpage from "./Pages/Landingpage";
-import Dashboard from "./Pages/Dashboard";
-import Login from "./Pages/Login";
-import Register from "./Pages/Register";
-import PrivacyPolicy from "./Pages/PrivacyPolicy";
-import TermsOfService from "./Pages/TermsOfService";
+const Landingpage = React.lazy(() => import("./Pages/Landingpage"));
+const Dashboard = React.lazy(() => import("./Pages/Dashboard"));
+const Login = React.lazy(() => import("./Pages/Login"));
+const Register = React.lazy(() => import("./Pages/Register"));
+const PrivacyPolicy = React.lazy(() => import("./Pages/PrivacyPolicy"));
+const TermsOfService = React.lazy(() => import("./Pages/TermsOfService"));
 import { AuthProvider } from "./context/AuthContext";
-import Learning from "./Pages/Learning";
-import InterviewRoom from "./Pages/InterviewRoom";
-import NotFound from "./Pages/NotFound";
+const Learning = React.lazy(() => import("./Pages/Learning"));
+const InterviewRoom = React.lazy(() => import("./Pages/InterviewRoom"));
+const NotFound = React.lazy(() => import("./Pages/NotFound"));
 const OSIntro = React.lazy(() => import("./Componets/OSIntro"));
 const OSArchitecture = React.lazy(() => import("./Componets/OSArchitecture"));
 const OSSystemsProgramming = React.lazy(() => import("./Componets/OSSystemsProgramming"));
@@ -230,7 +230,7 @@ const DataEngineeringSecurity = React.lazy(() => import("./Componets/DataEnginee
 const DataEngineeringReliability = React.lazy(() => import("./Componets/DataEngineeringReliability"));
 const DataEngineeringDataProducts = React.lazy(() => import("./Componets/DataEngineeringDataProducts"));
 const DataEngineeringSystemDesign = React.lazy(() => import("./Componets/DataEngineeringSystemDesign"));
-import VoiceAssistant from "./Componets/VoiceAssistant";
+const VoiceAssistant = React.lazy(() => import("./Componets/VoiceAssistant"));
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
 import { NavigationProvider } from "./utils/navigation";
@@ -240,10 +240,21 @@ import SeoManager from "./Componets/SeoManager";
 import ProtectedRoute from "./Componets/ProtectedRoute";
 import PublicOnlyRoute from "./Componets/PublicOnlyRoute";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <AppErrorBoundary>
       <BrowserRouter>
+        <ScrollToTop />
         <SeoManager />
         <AuthProvider>
         <NavigationProvider>
