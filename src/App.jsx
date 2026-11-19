@@ -202,6 +202,7 @@ const MachineLearningDimensionalityReduction = React.lazy(() => import("./Compon
 const MachineLearningAnomalyDetection = React.lazy(() => import("./Componets/MachineLearningAnomalyDetection"));
 const MachineLearningRecommendationSystems = React.lazy(() => import("./Componets/MachineLearningRecommendationSystems"));
 const MachineLearningTimeSeries = React.lazy(() => import("./Componets/MachineLearningTimeSeries"));
+const MachineLearningProbabilisticML = React.lazy(() => import("./Componets/MachineLearningProbabilisticML"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1884,6 +1885,17 @@ function App() {
             <Route path="/learning/ml/module-19" element={<MachineLearningTimeSeries />} />
             <Route path="/courses/machine-learning/time-series-forecasting" element={<MachineLearningTimeSeries />} />
             <Route path="/courses/machine-learning/time-series" element={<MachineLearningTimeSeries />} />
+            <Route path="/learning/machine-learning/probabilistic-machine-learning" element={<MachineLearningProbabilisticML />} />
+            <Route path="/learning/machine-learning/bayesian-methods" element={<MachineLearningProbabilisticML />} />
+            <Route path="/learning/machine-learning/probabilistic-ml" element={<MachineLearningProbabilisticML />} />
+            <Route path="/learning/machine-learning/bayesian-ml" element={<MachineLearningProbabilisticML />} />
+            <Route path="/learning/machine-learning/module-20" element={<MachineLearningProbabilisticML />} />
+            <Route path="/learning/ml/probabilistic-machine-learning" element={<MachineLearningProbabilisticML />} />
+            <Route path="/learning/ml/bayesian-methods" element={<MachineLearningProbabilisticML />} />
+            <Route path="/learning/ml/probabilistic-ml" element={<MachineLearningProbabilisticML />} />
+            <Route path="/learning/ml/module-20" element={<MachineLearningProbabilisticML />} />
+            <Route path="/courses/machine-learning/probabilistic-machine-learning" element={<MachineLearningProbabilisticML />} />
+            <Route path="/courses/machine-learning/bayesian-methods" element={<MachineLearningProbabilisticML />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />
