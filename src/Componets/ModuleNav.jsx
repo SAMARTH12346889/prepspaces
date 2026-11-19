@@ -257,6 +257,7 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "classification", name: "7. Classification & Logistic Regression", route: "/learning/machine-learning/classification" },
   { id: "decision-trees", name: "8. Decision Trees & Rule-Based Learning", route: "/learning/machine-learning/decision-trees" },
   { id: "ensemble-learning", name: "9. Ensemble Learning & Boosting Algorithms", route: "/learning/machine-learning/ensemble-learning" },
+  { id: "svm", name: "10. Support Vector Machines (SVM)", route: "/learning/machine-learning/svm" },
 ];
 
 export default function ModuleNav({

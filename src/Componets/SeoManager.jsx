@@ -189,6 +189,18 @@ const routeMeta = {
     keywords: "Ensemble Learning, Bagging Classifier, Random Forest, Extra Trees, AdaBoost, Gradient Boosting, XGBoost, LightGBM, CatBoost, Voting Classifier, Stacking Classifier, Out-of-Bag OOB, Permutation Importance, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/ensemble-learning`,
   },
+  "/learning/machine-learning/svm": {
+    title: "Module 10: Support Vector Machines (SVM) | PrepSpaces",
+    description: "Master Support Vector Machines (SVM) for classification and regression: Maximum-Margin Classifiers, Support Vectors, Hyperplanes, Hard vs Soft-Margin, Slack Variables, Hinge Loss, C Parameter, Kernel Trick (Linear, Poly, RBF, Sigmoid), SVR with Epsilon Tube, SMO Optimization, and Scikit-learn pipelines.",
+    keywords: "Support Vector Machines, SVM, SVC, SVR, Maximum Margin Classifier, Support Vectors, Hyperplane, Soft-Margin SVM, Slack Variables, Hinge Loss, Regularization C, Kernel Trick, RBF Kernel, Radial Basis Function, Polynomial Kernel, LinearSVC, LIBSVM, LIBLINEAR, Epsilon Insensitive Loss, Sequential Minimal Optimization SMO, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/svm`,
+  },
+  "/courses/machine-learning/svm": {
+    title: "Module 10: Support Vector Machines (SVM) | PrepSpaces",
+    description: "Master Support Vector Machines (SVM) for classification and regression: Maximum-Margin Classifiers, Support Vectors, Hyperplanes, Hard vs Soft-Margin, Slack Variables, Hinge Loss, C Parameter, Kernel Trick (Linear, Poly, RBF, Sigmoid), SVR with Epsilon Tube, SMO Optimization, and Scikit-learn pipelines.",
+    keywords: "Support Vector Machines, SVM, SVC, SVR, Maximum Margin Classifier, Support Vectors, Hyperplane, Soft-Margin SVM, Slack Variables, Hinge Loss, Regularization C, Kernel Trick, RBF Kernel, Radial Basis Function, Polynomial Kernel, LinearSVC, LIBSVM, LIBLINEAR, Epsilon Insensitive Loss, Sequential Minimal Optimization SMO, Scikit-learn, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/svm`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

@@ -192,6 +192,7 @@ const MachineLearningAdvancedRegression = React.lazy(() => import("./Componets/M
 const MachineLearningClassification = React.lazy(() => import("./Componets/MachineLearningClassification"));
 const MachineLearningDecisionTrees = React.lazy(() => import("./Componets/MachineLearningDecisionTrees"));
 const MachineLearningEnsemble = React.lazy(() => import("./Componets/MachineLearningEnsemble"));
+const MachineLearningSVM = React.lazy(() => import("./Componets/MachineLearningSVM"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1800,6 +1801,12 @@ function App() {
             <Route path="/learning/ml/ensemble-learning" element={<MachineLearningEnsemble />} />
             <Route path="/learning/ml/module-9" element={<MachineLearningEnsemble />} />
             <Route path="/courses/machine-learning/ensemble-learning" element={<MachineLearningEnsemble />} />
+            <Route path="/learning/machine-learning/svm" element={<MachineLearningSVM />} />
+            <Route path="/learning/machine-learning/support-vector-machines" element={<MachineLearningSVM />} />
+            <Route path="/learning/machine-learning/module-10" element={<MachineLearningSVM />} />
+            <Route path="/learning/ml/svm" element={<MachineLearningSVM />} />
+            <Route path="/learning/ml/module-10" element={<MachineLearningSVM />} />
+            <Route path="/courses/machine-learning/svm" element={<MachineLearningSVM />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />
