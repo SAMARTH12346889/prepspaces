@@ -201,6 +201,7 @@ const MachineLearningClustering = React.lazy(() => import("./Componets/MachineLe
 const MachineLearningDimensionalityReduction = React.lazy(() => import("./Componets/MachineLearningDimensionalityReduction"));
 const MachineLearningAnomalyDetection = React.lazy(() => import("./Componets/MachineLearningAnomalyDetection"));
 const MachineLearningRecommendationSystems = React.lazy(() => import("./Componets/MachineLearningRecommendationSystems"));
+const MachineLearningTimeSeries = React.lazy(() => import("./Componets/MachineLearningTimeSeries"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1873,6 +1874,16 @@ function App() {
             <Route path="/learning/ml/module-18" element={<MachineLearningRecommendationSystems />} />
             <Route path="/courses/machine-learning/recommendation-systems" element={<MachineLearningRecommendationSystems />} />
             <Route path="/courses/machine-learning/recommenders" element={<MachineLearningRecommendationSystems />} />
+            <Route path="/learning/machine-learning/time-series-forecasting" element={<MachineLearningTimeSeries />} />
+            <Route path="/learning/machine-learning/time-series" element={<MachineLearningTimeSeries />} />
+            <Route path="/learning/machine-learning/forecasting" element={<MachineLearningTimeSeries />} />
+            <Route path="/learning/machine-learning/module-19" element={<MachineLearningTimeSeries />} />
+            <Route path="/learning/ml/time-series-forecasting" element={<MachineLearningTimeSeries />} />
+            <Route path="/learning/ml/time-series" element={<MachineLearningTimeSeries />} />
+            <Route path="/learning/ml/forecasting" element={<MachineLearningTimeSeries />} />
+            <Route path="/learning/ml/module-19" element={<MachineLearningTimeSeries />} />
+            <Route path="/courses/machine-learning/time-series-forecasting" element={<MachineLearningTimeSeries />} />
+            <Route path="/courses/machine-learning/time-series" element={<MachineLearningTimeSeries />} />
             <Route path="/courses/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learn/machine-learning" element={<MachineLearningIntro />} />
             <Route path="/learning/ml" element={<MachineLearningIntro />} />

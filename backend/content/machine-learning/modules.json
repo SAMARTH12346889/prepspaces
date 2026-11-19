@@ -196,5 +196,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "time-series-forecasting",
+    "courseId": "machine-learning",
+    "index": 19,
+    "name": "19. Time Series Analysis & Forecasting",
+    "route": "/learning/machine-learning/time-series-forecasting",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

@@ -1,0 +1,130 @@
+{
+  "id": "time-series-forecasting",
+  "courseId": "machine-learning",
+  "index": 19,
+  "name": "19. Time Series Analysis & Forecasting",
+  "route": "/learning/machine-learning/time-series-forecasting",
+  "componentName": "MachineLearningTimeSeries",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is random train-test splitting fundamentally invalid for evaluating time series forecasting models?",
+      "options": [
+        "Because random splitting causes memory overflow in pandas",
+        "Because random shuffling introduces temporal data leakage, allowing the model to train on future observations to predict past observations",
+        "Because time series datasets cannot be divided into subsets",
+        "Because random split only works with classification labels, not continuous values"
+      ],
+      "correctIndex": 1,
+      "explanation": "Time series data exhibits chronological dependency. Random shuffling creates future-to-past data leakage where the algorithm learns from observations that would not exist at inference time. Chronological splitting or walk-forward validation must be used so models are evaluated strictly on future periods."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary difference between additive and multiplicative time series decomposition models?",
+      "options": [
+        "Additive models only work on monthly data, whereas multiplicative models work on daily data",
+        "In an additive model (Y = T + S + R), the magnitude of seasonal variations remains constant over time; in a multiplicative model (Y = T × S × R), seasonal swings grow or shrink proportionally with the overall trend level",
+        "Multiplicative models do not include residuals",
+        "Additive models require taking the exponential of the series first"
+      ],
+      "correctIndex": 1,
+      "explanation": "If holiday demand peaks are consistently +5,000 units regardless of baseline growth, an additive model (Y_t = T_t + S_t + R_t) is appropriate. If holiday peaks scale proportionally (e.g. always +50% above trend, growing from +5,000 to +25,000 as the company expands), a multiplicative model (Y_t = T_t × S_t × R_t) is required."
+    },
+    {
+      "id": 3,
+      "question": "What conditions define a weakly stationary time series?",
+      "options": [
+        "The series contains no missing values and has zero outliers",
+        "The mean and variance remain approximately constant over time, and the autocovariance between two periods depends solely on the lag length rather than absolute calendar time",
+        "All observations follow a deterministic upward linear slope",
+        "The dataset has a seasonal period equal to 1"
+      ],
+      "correctIndex": 1,
+      "explanation": "Weak (covariance) stationarity requires three properties: constant mean over time, constant variance (homoscedasticity), and an autocovariance function Cov(Y_t, Y_{t-k}) that depends only on the separation lag k, not on the time index t. Statistical models like ARMA require stationarity to produce stable parameters."
+    },
+    {
+      "id": 4,
+      "question": "How are the Augmented Dickey-Fuller (ADF) test results interpreted when assessing stationarity?",
+      "options": [
+        "A p-value greater than 0.50 confirms stationarity",
+        "A p-value below 0.05 rejects the null hypothesis of a unit root, providing statistical evidence that the series is stationary",
+        "The test statistic must equal exactly zero for stationarity",
+        "A negative test statistic always indicates strong yearly seasonality"
+      ],
+      "correctIndex": 1,
+      "explanation": "The null hypothesis (H0) of the ADF test is that the series possesses a unit root (is non-stationary). A small p-value (typically < 0.05) allows rejection of H0 in favor of the alternative hypothesis (H1) that the series is stationary."
+    },
+    {
+      "id": 5,
+      "question": "In ARIMA diagnostic analysis, what theoretical cutoff pattern in ACF and PACF plots identifies a stationary AutoRegressive AR(p) process?",
+      "options": [
+        "ACF cuts off sharply after lag p, while PACF decays gradually",
+        "PACF cuts off sharply after lag p, while ACF decays gradually or exponentially toward zero",
+        "Both ACF and PACF cut off at lag 1",
+        "Neither plot shows any significant spikes at any lag"
+      ],
+      "correctIndex": 1,
+      "explanation": "For a pure AR(p) process, the partial autocorrelation function (PACF) isolates the direct lag correlation, cutting off sharply to zero after lag p. The autocorrelation function (ACF) includes compounding indirect correlations and decays geometrically or sinusoidally."
+    },
+    {
+      "id": 6,
+      "question": "In Holt-Winters Exponential Smoothing, how does it extend Simple Exponential Smoothing (SES) and Holt's Linear Trend method?",
+      "options": [
+        "By replacing gradient descent with tree partitioning",
+        "By simultaneously modeling three components: smoothed level (alpha), trend slope (beta), and recurring seasonal cycles (gamma)",
+        "By automatically differencing non-stationary data 3 times",
+        "By requiring only a single observation to generate forecasts"
+      ],
+      "correctIndex": 1,
+      "explanation": "Simple Exponential Smoothing models only level (alpha). Holt's method adds a trend component (beta) for trending series. Holt-Winters incorporates a third seasonal equation (gamma) with a specified seasonal period m (e.g., m=7 for daily weekly patterns, m=12 for monthly annual patterns)."
+    },
+    {
+      "id": 7,
+      "question": "What is the meaning of the parameters in a SARIMA(p, d, q)(P, D, Q, m) model?",
+      "options": [
+        "p,d,q are hyperparameter seeds; P,D,Q are neural network layer counts; m is batch size",
+        "(p, d, q) represent non-seasonal AR order, differencing order, and MA order; (P, D, Q) represent seasonal AR, seasonal differencing, and seasonal MA orders; and m is the seasonal period length",
+        "m represents the number of minutes between measurements, while the other 6 letters are loss functions",
+        "p and P are polynomial degrees, while d and D are decimal precisions"
+      ],
+      "correctIndex": 1,
+      "explanation": "SARIMA models both local consecutive dependencies (p non-seasonal AR lags, d non-seasonal differences, q non-seasonal MA lags) and seasonal cycle dependencies (P seasonal AR lags separated by m periods, D seasonal differences Y_t - Y_{t-m}, and Q seasonal MA lags)."
+    },
+    {
+      "id": 8,
+      "question": "When engineering lag and rolling features for machine learning models (e.g. LightGBM, XGBoost), why must rolling windows be shifted by at least 1 step (e.g. shift(1).rolling(7).mean())?",
+      "options": [
+        "To make the code run faster on GPU architectures",
+        "To prevent target leakage; an unshifted rolling window on sales at timestamp t would include the target value y_t inside its own summary calculation",
+        "Because scikit-learn rejects rolling calculations with 0 shift",
+        "To convert the target into a classification label"
+      ],
+      "correctIndex": 1,
+      "explanation": "If predicting sales at time t, the actual value y_t is unknown at inference time. An unshifted rolling mean calculated at index t uses y_t, causing direct target leakage. Shifting by 1 (or by the forecasting horizon) ensures only genuinely known historical observations are used."
+    },
+    {
+      "id": 9,
+      "question": "What is the primary difference between recursive multi-step forecasting and direct multi-step forecasting when using gradient boosting?",
+      "options": [
+        "Recursive forecasting requires deep learning, while direct forecasting uses linear regression",
+        "Recursive forecasting uses a single one-step model and feeds its own previous predictions forward as future lag inputs (accumulating error), whereas direct forecasting trains a distinct independent model for each horizon step h",
+        "Direct forecasting only predicts one day into the future",
+        "Recursive forecasting cannot handle calendar features"
+      ],
+      "correctIndex": 1,
+      "explanation": "In recursive multi-step forecasting, a single model trained on lag 1 predicts t+1, then that predicted value is fed into lag 1 to predict t+2; errors compound over long horizons. In direct forecasting, separate models f_1, f_2, ..., f_H are trained independently for each horizon step, avoiding error cascades at the cost of training H models."
+    },
+    {
+      "id": 10,
+      "question": "Why is Weighted Absolute Percentage Error (WAPE) frequently preferred over Mean Absolute Percentage Error (MAPE) in commercial retail demand forecasting?",
+      "options": [
+        "Because WAPE computes in O(1) time complexity",
+        "Because MAPE becomes undefined (division by zero) when sales are 0, and distorts overall error on low-volume items, whereas WAPE divides total absolute error by total actual demand",
+        "Because WAPE is measured in degrees Celsius",
+        "Because MAPE is an unsupervised metric"
+      ],
+      "correctIndex": 1,
+      "explanation": "MAPE computes |(y - y_hat)/y| for every individual record. In retail catalogs with intermittent or zero sales days, y=0 creates a fatal division by zero, and a 1-unit error on an item selling 1 unit yields a 100% error. WAPE (sum|y - y_hat| / sum(y)) aggregates errors across volume, preventing division by zero and weighting high-impact sales appropriately."
+    }
+  ]
+}
