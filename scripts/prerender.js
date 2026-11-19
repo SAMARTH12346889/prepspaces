@@ -145,6 +145,14 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   const isBlockchain = route.includes("blockchain");
   const isDataEngineering = route.includes("data-engineering");
   const isMachineLearning = route.includes("machine-learning") || route.includes("/ml");
+  const isOperatingSystems = route.includes("/os") || route.includes("operating-systems");
+  const isComputerNetworks = route.includes("network") || route.includes("networks");
+  const isCybersecurity = route.includes("cybersecurity");
+  const isSystemDesign = route.includes("system-design");
+  const isDevOps = route.includes("devops");
+  const isCloud = route.includes("/cloud");
+  const isAiEngineering = route.includes("/ai") || route.includes("ai-engineering");
+  const isJava = route.includes("/java");
   const courseJsonLdObj = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -200,14 +208,147 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   if (isMachineLearning) {
     courseJsonLdObj.courseCode = "ML-ENG-101";
     courseJsonLdObj.teaches = [
-      "Machine learning development environment and repeatable workflows",
-      "Local Jupyter, Google Colab, and project directory structure",
-      "Dataset formats: CSV, JSON, and Apache Parquet",
-      "Scikit-learn architecture: Estimators, Transformers, Predictors, and Pipelines",
-      "NumPy ndarray architecture, memory buffers, and strides",
-      "Vectorization, broadcasting mechanics, and matrix multiplication",
-      "Linear algebra with np.linalg and ML loss/activation formulas",
-      "Reproducible experimentation, random seed control, and model serialization"
+      "Python machine learning development environment, Jupyter, Google Colab, and reproducible random seeds",
+      "NumPy ndarray architecture, memory buffer layouts, strides, vectorization, and matrix linear algebra",
+      "Pandas DataFrames, data ingestion, missing value imputation, categorical encoding, and feature scaling",
+      "Exploratory Data Analysis (EDA), distribution testing, correlation analysis, and outlier detection",
+      "Ordinary Least Squares (OLS) Linear Regression, Normal Equation, and Gradient Descent optimization",
+      "Regularization techniques: Ridge (L2 penalty), Lasso (L1 sparsity), and ElasticNet",
+      "Logistic Regression, Sigmoid activation, log-loss cost function, and ROC-AUC classification evaluation",
+      "Decision Trees (CART/ID3), Gini impurity, Shannon entropy, splitting criteria, and tree pruning",
+      "Ensemble learning: Bootstrap Aggregating (Bagging), Random Forests, AdaBoost, Gradient Boosting, XGBoost, and LightGBM",
+      "Support Vector Machines (SVM), hyperplanes, margin maximization, slack variables, and Kernel Trick (RBF)",
+      "K-Nearest Neighbors (KNN), distance metrics, KD-Trees, Ball Trees, and Naive Bayes classifiers",
+      "Cross-validation strategies (K-Fold, Stratified, TimeSeriesSplit), Precision, Recall, and F1-score",
+      "Feature engineering: Polynomial features, interaction terms, target encoding, and mutual information selection",
+      "Scikit-learn architecture: Estimators, Transformers, Predictors, ColumnTransformer, and production Pipelines",
+      "Unsupervised learning: K-Means clustering, inertia, silhouette analysis, and DBSCAN density clustering",
+      "Dimensionality reduction: Principal Component Analysis (PCA), Singular Value Decomposition (SVD), and t-SNE",
+      "Anomaly detection: Isolation Forest, Local Outlier Factor (LOF), and class imbalance mitigation (SMOTE)",
+      "Recommender systems: Collaborative filtering, matrix factorization (SVD), cosine similarity, and content filtering",
+      "Time series analysis: Trend and seasonality decomposition, stationarity, ADF test, ACF/PACF, and ARIMA/SARIMA",
+      "Probabilistic machine learning: Maximum Likelihood Estimation (MLE), MAP, and Gaussian Mixture Models (GMM)",
+      "Statistical learning theory: Bias-variance tradeoff, VC dimension, structural risk minimization, and generalization bounds",
+      "Hyperparameter optimization: Bayesian optimization with Optuna, and explainable AI with SHAP & PDP",
+      "Production ML engineering: Experiment tracking, data drift, concept drift, and low-latency inference serving",
+      "End-to-end Machine Learning Capstone: Business formulation, customer churn modeling, offline evaluation, and oral defense"
+    ];
+  }
+
+  if (isOperatingSystems) {
+    courseJsonLdObj.courseCode = "OS-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Operating systems architecture, kernel rings, hardware abstraction, and privileged execution",
+      "CPU scheduling algorithms: FCFS, SJF, Round Robin, Multilevel Feedback Queues (MLFQ), and Linux EEVDF",
+      "Process lifecycle, task_struct (PCB), context switching, fork/execvp execution, and signals",
+      "POSIX multithreading (pthreads), race conditions, mutexes, semaphores, and Coffman deadlock conditions",
+      "Virtual memory, hardware MMU address translation, hierarchical page tables, and TLB hit rates",
+      "Demand paging, minor/major page faults, working sets, thrashing, and page replacement algorithms (LRU, Clock)",
+      "Filesystem architecture, inodes, dentries, extents, Virtual File System (VFS), and ext4/XFS internals",
+      "Crash consistency, journaling, fsync semantics, copy-on-write, and disaster recovery validation",
+      "Linux systems programming, POSIX IPC (pipes, Unix domain sockets, shared memory), and strace diagnostics",
+      "Kernel internals with MIT xv6 on RISC-V, system-call dispatch, and operating systems engineering capstones"
+    ];
+  }
+
+  if (isComputerNetworks) {
+    courseJsonLdObj.courseCode = "NET-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Computer networking fundamentals, physical transmission, and Shannon-Nyquist channel capacity",
+      "OSI 7-layer and TCP/IP 4-layer network models, packet encapsulation, and Wireshark dissection",
+      "Data Link layer, Ethernet frames, MAC address learning, 802.1Q VLAN trunking, and STP loop prevention",
+      "IPv4/IPv6 addressing, subnetting math, CIDR notation, VLSM optimization, and NAT/PAT connection tracking",
+      "Router architecture, Longest-Prefix Matching (LPM), RIB/FIB tables, OSPF link-state, and BGP interdomain routing",
+      "Transport layer protocols: TCP 3-way handshake, sliding windows, flow/congestion control, and QUIC/HTTP-3",
+      "Domain Name System (DNS) hierarchy, recursive resolution, wire headers, DoH/DoT encryption, and DNSSEC",
+      "Application layer protocols: HTTP/1.1, HTTP/2 multiplexing, HTTP/3, TLS 1.3 handshake, and WebSockets",
+      "Network security, stateful firewalls (nftables), Suricata IDS/IPS, Zero Trust architecture, and packet capture labs"
+    ];
+  }
+
+  if (isCybersecurity) {
+    courseJsonLdObj.courseCode = "SEC-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Adversarial mindset, CIA triad, defense-in-depth, and NIST Cybersecurity Framework 2.0 (CSF)",
+      "Architectural threat modeling using STRIDE, DREAD, attack trees, and trust boundary mapping",
+      "Ethical hacking lifecycle, Rules of Engagement (RoE), legal scoping, and vulnerability disclosure",
+      "OWASP Top 10 web vulnerabilities: SQL Injection, Cross-Site Scripting (XSS), CSRF, SSRF, and IDOR",
+      "System internals security: Linux/Windows hardening, privilege escalation, ASLR, DEP, and process isolation",
+      "Cryptography applied to security: AES-GCM, RSA, ECC, digital signatures, PKI, and key management",
+      "Network defense, SIEM telemetry, Zeek/Suricata log analysis, incident response (NIST SP 800-61), and SOC triage"
+    ];
+  }
+
+  if (isSystemDesign) {
+    courseJsonLdObj.courseCode = "SD-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Large-scale distributed systems principles, high availability, and architectural trade-off analysis",
+      "Quantitative capacity estimation: QPS/RPS, bandwidth, RAM caching, and disk storage calculations",
+      "Communication protocols: REST, gRPC, WebSockets, HTTP/2, HTTP/3, and message broker streaming",
+      "Database systems: Relational B-Trees, LSM-Trees (NoSQL), horizontal sharding, and consistent hashing",
+      "Distributed caching: Cache-Aside, Write-Through, Write-Behind, and cache stampede invalidation strategies",
+      "Replication models: Single-leader, multi-leader, leaderless quorum consensus (R+W > N), and failover",
+      "Distributed consensus: Paxos and Raft protocols, leader election, log replication, and split-brain mitigation",
+      "Event streaming and messaging: Apache Kafka, RabbitMQ, consumer groups, partitions, and transactional outbox",
+      "Distributed transactions: Two-Phase Commit (2PC), Saga pattern (choreography vs orchestration), and compensation",
+      "Traffic management: L4/L7 load balancing, Token Bucket rate limiting, circuit breakers, and backpressure",
+      "System design case studies: URL shortener, real-time messaging, activity feeds, Uber ride dispatch, and Netflix CDN"
+    ];
+  }
+
+  if (isDevOps) {
+    courseJsonLdObj.courseCode = "DO-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Linux systems administration, shell scripting, systemd, memory management, and network troubleshooting",
+      "Git internals: DAG commits, plumbing commands, trunk-based development, and rebase strategies",
+      "Docker containerization: Multi-stage builds, Linux namespaces/cgroups isolation, and security scanning",
+      "Kubernetes cluster architecture: Pods, Deployments, StatefulSets, Services, Ingress, and Helm charts",
+      "Infrastructure as Code (IaC) with Terraform: State locking, modules, remote backends, and drift detection",
+      "CI/CD pipeline automation: GitHub Actions, automated testing, quality gates, and GitOps deployments",
+      "Zero-downtime deployment strategies: Blue/Green switching, Canary analysis, and automated rollbacks",
+      "Site Reliability Engineering (SRE): Service Level Objectives (SLOs), SLIs, error budgets, and chaos engineering"
+    ];
+  }
+
+  if (isCloud) {
+    courseJsonLdObj.courseCode = "CC-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Public cloud infrastructure architecture across AWS, Microsoft Azure, and Google Cloud Platform (GCP)",
+      "Enterprise VPC networking, CIDR design, transit gateways, NAT gateways, and secure perimeters",
+      "Cloud compute models: Virtual machines (EC2), autoscaling groups, container clusters, and serverless Lambda",
+      "Cloud storage architectures: Object storage (S3), block volumes (EBS), and distributed file systems (EFS)",
+      "Managed cloud database clusters: Aurora, DynamoDB, Cosmos DB, read replicas, and multi-region replication",
+      "Well-Architected Framework: Reliability, security, performance efficiency, cost optimization, and operational excellence",
+      "Cloud security: Least-privilege IAM policies, KMS encryption key management, and automated posture compliance",
+      "Cloud economics and FinOps: Reserved instances, savings plans, rightsizing workloads, and cost allocation"
+    ];
+  }
+
+  if (isAiEngineering) {
+    courseJsonLdObj.courseCode = "AI-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Artificial Intelligence mathematical foundations: Linear algebra, multivariable calculus, and probability",
+      "Python for AI and numerical computation with NumPy vectorization and Pandas data transformation",
+      "Deep learning and neural network architectures: Forward/backward propagation, activation functions, and optimizers",
+      "Transformer architectures: Self-attention mechanism, multi-head attention, encoders, and decoders",
+      "Large Language Models (LLMs): Pre-training, fine-tuning (LoRA, QLoRA), instruction tuning, and prompt engineering",
+      "Retrieval-Augmented Generation (RAG): Dense vector embeddings, vector databases, chunking, and semantic reranking",
+      "Autonomous AI agents: ReAct framework, tool calling, multi-agent coordination, memory buffers, and evaluation"
+    ];
+  }
+
+  if (isJava) {
+    courseJsonLdObj.courseCode = "JAVA-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Java language foundations, JVM/JRE/JDK memory architecture, primitive types, operators, and control flow",
+      "Object-Oriented Programming (OOP): Encapsulation, inheritance, polymorphism, abstraction, and SOLID principles",
+      "Advanced Java: Generics (PECS), Collections Framework, Stream API pipelines, lambdas, and exception handling",
+      "Data structures: Arrays, Strings, Singly/Doubly Linked Lists, Stacks, Queues, Deques, and Hash Tables",
+      "Trees and Heaps: Binary Search Trees (BST), AVL balance rotations, Min/Max Binary Heaps, and PriorityQueues",
+      "Graph algorithms: BFS, DFS, Dijkstra shortest path, Bellman-Ford, Floyd-Warshall, and Prim/Kruskal MST",
+      "Dynamic programming: Memoization, bottom-up tabulation, 1D/2D DP, knapsack, LCS, and interval DP",
+      "Algorithmic problem-solving patterns: Two Pointers, Sliding Window, Monotonic Stack, and Prefix Sums",
+      "JVM internals: Garbage collection generational model, Java Memory Model (JMM), multithreading, and interview mastery"
     ];
   }
 
@@ -624,9 +765,19 @@ for (const [route, meta] of Object.entries(routeMeta)) {
           <main>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
               <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
+                <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/machine-learning" style="color: #ea580c; text-decoration: none;">Machine Learning Master Course</a></h2>
+                <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">24 Modules: Environment setup, NumPy, Pandas, EDA, regression, trees, boosting (XGBoost/LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and capstone.</p>
+                <a href="/courses/machine-learning" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore 24 Modules &rarr;</a>
+              </div>
+              <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
                 <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/data-engineering" style="color: #ea580c; text-decoration: none;">Data Engineering Master Course</a></h2>
-                <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">Data pipelines, OLTP vs OLAP, batch & stream processing, ETL/ELT, data warehouses, data lakes, modern lakehouses (Iceberg/Delta Lake), and data quality.</p>
-                <a href="/courses/data-engineering" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore Curriculum &rarr;</a>
+                <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">24 Modules: Data pipelines, OLTP vs OLAP, batch & stream processing, ETL/ELT, data warehouses, data lakes, modern lakehouses (Iceberg/Delta Lake), and data quality.</p>
+                <a href="/courses/data-engineering" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore 24 Modules &rarr;</a>
+              </div>
+              <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
+                <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/java" style="color: #ea580c; text-decoration: none;">Java Programming & DSA Masterclass</a></h2>
+                <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">24 Modules: Modern Java, OOP, collections, recursion, sorting, linked lists, trees, graphs, dynamic programming, JVM internals, and interview placement mastery.</p>
+                <a href="/courses/java" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore 24 Modules &rarr;</a>
               </div>
               <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
                 <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/blockchain" style="color: #ea580c; text-decoration: none;">Blockchain Development & Web3 Engineering</a></h2>

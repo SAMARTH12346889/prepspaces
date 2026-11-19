@@ -216,7 +216,7 @@ const learningTracks = [
     icon: Database,
     route: "/learning/data-engineering",
     tag: "Data Systems & Infrastructure",
-    modulesCount: "Comprehensive Modules",
+    modulesCount: "24 Comprehensive Modules",
     color: "from-stone-900 via-orange-950 to-orange-600",
     badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
     highlights: [
@@ -230,21 +230,21 @@ const learningTracks = [
   {
     id: "machine-learning",
     title: "Machine Learning Master Course",
-    tagline: "Practical Setup, Workflows, Scikit-learn & Production Systems",
+    tagline: "From Foundations & Scikit-Learn to Production ML & Capstone",
     description:
-      "Master machine learning from environment configuration, data preparation, and exploratory data analysis to Scikit-learn pipelines, model training, evaluation, and reproducible production workflows.",
+      "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",
     icon: Sparkles,
     route: "/learning/machine-learning",
     tag: "Machine Learning & Data Science",
-    modulesCount: "Comprehensive Modules",
+    modulesCount: "24 Comprehensive Modules",
     color: "from-stone-900 via-orange-950 to-orange-600",
     badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
     highlights: [
-      "ML Development Environment & Workflow",
-      "Local Jupyter, Google Colab & Project Architecture",
-      "Dataset Formats: CSV, JSON & Apache Parquet",
-      "Scikit-learn Architecture: Estimators, Transformers & Pipelines",
-      "Reproducible Experiments, Random Seeds & Model Serialization",
+      "NumPy, Pandas & Exploratory Data Analysis",
+      "Regression, Classification & Tree Ensembles",
+      "XGBoost, LightGBM, SVM & Clustering",
+      "Time Series, Optuna & SHAP Explainability",
+      "Production Capstone & Interview Mastery",
     ],
   },
 ];

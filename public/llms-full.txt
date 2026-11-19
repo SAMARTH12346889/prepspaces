@@ -883,6 +883,131 @@
 
 ---
 
+# Track: Machine Learning Master Course (24 Modules)
+> Comprehensive university-level and production-grade Machine Learning curriculum covering environments, NumPy linear algebra, Pandas data manipulation, EDA, regression, regularization, classification, decision trees, tree ensembles (Random Forests, XGBoost, LightGBM), SVMs, KNN, Naive Bayes, cross-validation metrics, feature engineering, Scikit-learn pipelines, clustering, dimensionality reduction (PCA, t-SNE), anomaly detection, recommender systems, time series forecasting, probabilistic ML, statistical learning theory, Optuna hyperparameter optimization, SHAP interpretability, and full end-to-end capstone engineering.
+- Track Hub: https://prepspaces.com/learning/machine-learning
+- Canonical Course URL: https://prepspaces.com/courses/machine-learning
+
+## Module 1: Machine Learning Environment & Production Workflows
+- URL: https://prepspaces.com/learning/machine-learning
+- Concepts: Python virtual environments (venv, conda), Jupyter notebooks, Google Colab, project directory structures, GPU setup (CUDA, PyTorch/TensorFlow backend checks), Scikit-learn design patterns (Estimators, Transformers, Predictors, Pipelines), and reproducible random seed management.
+- Implementation: Standardized ML project scaffold, requirements.txt, configuration management, and initial dataset loading verification.
+
+## Module 2: NumPy & Numerical Computing for Machine Learning
+- URL: https://prepspaces.com/learning/machine-learning/numpy
+- Concepts: NumPy ndarray memory architecture, C vs Fortran order, strides, vectorization, SIMD instructions, broadcasting mechanics, tensor slicing, np.linalg matrix multiplication, eigenvalues, eigenvectors, SVD, and implementing loss functions (MSE, Log-Loss, Hinge) from scratch in pure NumPy.
+- Implementation: Benchmarking vectorization vs Python loops, matrix transformations, and gradient computations.
+
+## Module 3: Pandas & Data Preprocessing
+- URL: https://prepspaces.com/learning/machine-learning/pandas
+- Concepts: Series and DataFrame structures, memory optimization (downcasting dtypes, category types), loading CSV/JSON/Parquet, handling missing data (mean, median, mode, KNNImputer, iterative imputer), categorical feature encoding (One-Hot, Ordinal, Target), and feature normalization (StandardScaler, MinMaxScaler, RobustScaler).
+- Implementation: Production-grade data cleansing and preprocessing pipeline handling messy raw data with edge-case protection.
+
+## Module 4: Exploratory Data Analysis & Statistical Visualization
+- URL: https://prepspaces.com/learning/machine-learning/eda
+- Concepts: Descriptive statistics, parametric vs non-parametric distribution tests (Shapiro-Wilk, Kolmogorov-Smirnov), skewness, kurtosis, correlation metrics (Pearson, Spearman rank, Kendall tau), covariance matrices, pairplots, correlation heatmaps, box plots, IQR/Z-score outlier detection, and automated EDA reporting.
+- Implementation: Systematic EDA notebook answering real-world business hypotheses with distribution plots and hypothesis testing.
+
+## Module 5: Linear Regression & Gradient Descent
+- URL: https://prepspaces.com/learning/machine-learning/linear-regression
+- Concepts: Univariate and multivariate linear regression, Ordinary Least Squares (OLS) closed-form solution (Normal Equation), convexity of MSE cost function, Batch Gradient Descent, Stochastic Gradient Descent (SGD), Mini-batch Gradient Descent, learning rates, momentum, R-squared, Adjusted R-squared, and residual analysis (homoscedasticity, normality).
+- Implementation: Linear regression engine written from scratch with NumPy and verified against Scikit-learn LinearRegression.
+
+## Module 6: Regularization, Ridge, Lasso & ElasticNet
+- URL: https://prepspaces.com/learning/machine-learning/regularization
+- Concepts: Bias-variance tradeoff, multicollinearity, ill-conditioned matrices, L2 Tikhonov regularization (Ridge Regression), L1 Lasso regularization (sparsity, feature selection, subgradient descent), geometric intuition of L1 vs L2 constraint regions, ElasticNet convex combination, and cross-validated alpha tuning (RidgeCV, LassoCV).
+- Implementation: Comparing coefficient shrinkage paths across Ridge, Lasso, and ElasticNet on high-dimensional collinear datasets.
+
+## Module 7: Logistic Regression & Classification
+- URL: https://prepspaces.com/learning/machine-learning/logistic-regression
+- Concepts: Binary and multiclass classification, Sigmoid/Logistic activation function, odds and log-odds (logit), Binary Cross-Entropy loss (Log-Loss), maximum likelihood estimation (MLE), decision threshold tuning, Softmax regression (multinomial), Precision, Recall, F1-Score, ROC curves, AUC-ROC, and PR-AUC.
+- Implementation: Binary credit default classifier with calibrated probability outputs and custom decision threshold optimization.
+
+## Module 8: Decision Trees & Tree Mechanics
+- URL: https://prepspaces.com/learning/machine-learning/decision-trees
+- Concepts: Non-linear decision surfaces, recursive binary splitting, Information Gain, Shannon Entropy, Gini Impurity, Variance Reduction for regression trees, ID3, C4.5, and CART algorithms, tree depth, minimum leaf samples, cost-complexity pruning (ccp_alpha), and decision path extraction.
+- Implementation: Visualizing decision tree boundaries, interpreting feature importance, and pruning trees to prevent overfitting.
+
+## Module 9: Ensemble Learning, Bagging, Random Forests & Boosting
+- URL: https://prepspaces.com/learning/machine-learning/ensembles
+- Concepts: Ensemble theory, Condorcet's jury theorem, variance reduction through bagging, Bootstrap Aggregating, Out-of-Bag (OOB) error estimation, Random Forests, feature subsampling, AdaBoost adaptive sample weighting, Gradient Boosted Decision Trees (GBDT), shrinkage learning rate, and tree boosting with XGBoost and LightGBM.
+- Implementation: End-to-end benchmarking of Single Tree vs Random Forest vs Gradient Boosting vs XGBoost on fraud detection.
+
+## Module 10: Support Vector Machines (SVM) & Kernel Methods
+- URL: https://prepspaces.com/learning/machine-learning/svm
+- Concepts: Maximum margin hyperplanes, functional and geometric margins, support vectors, hard vs soft margin SVM, slack variables, C regularization parameter, Lagrange multipliers, dual problem formulation, KKT conditions, and the Kernel Trick (Linear, Polynomial, Radial Basis Function RBF, Sigmoid).
+- Implementation: Linear and non-linear classification with SVMs, gamma and C grid sweeps, and decision boundary visualization.
+
+## Module 11: K-Nearest Neighbors & Naive Bayes
+- URL: https://prepspaces.com/learning/machine-learning/knn-naive-bayes
+- Concepts: Instance-based non-parametric learning, distance metrics (Euclidean, Manhattan, Minkowski, Cosine), curse of dimensionality, spatial partitioning data structures (KD-Trees, Ball Trees), Bayes' Theorem, conditional independence assumptions, Gaussian Naive Bayes, Multinomial Naive Bayes, and Laplace additive smoothing.
+- Implementation: High-performance spam classification with MultinomialNB and KNN spatial indexing.
+
+## Module 12: Model Evaluation, Validation & Metrics
+- URL: https://prepspaces.com/learning/machine-learning/model-evaluation
+- Concepts: Train/validation/test partitions, data leakage vectors, K-Fold cross-validation, Stratified K-Fold, GroupKFold, TimeSeriesSplit, confusion matrix decomposition, Type I vs Type II errors, Macro/Micro/Weighted F1, Cohen's Kappa, Matthew's Correlation Coefficient (MCC), and learning curve diagnosis.
+- Implementation: Custom evaluation harness generating comprehensive classification and regression diagnostic reports.
+
+## Module 13: Feature Engineering & Selection
+- URL: https://prepspaces.com/learning/machine-learning/feature-engineering
+- Concepts: Feature construction, non-linear interactions, polynomial features, log/Box-Cox/Yeo-Johnson power transforms, cyclical feature encoding (sine/cosine for time/day), target encoding with smoothing, filter methods (ANOVA F-test, Chi-square, Mutual Information), wrapper methods (Recursive Feature Elimination RFE), and embedded methods.
+- Implementation: Automated feature engineering pipeline boosting baseline model performance across tabular benchmarks.
+
+## Module 14: Scikit-learn Pipelines, ColumnTransformer & Custom Transformers
+- URL: https://prepspaces.com/learning/machine-learning/pipelines
+- Concepts: Software engineering best practices for ML, BaseEstimator and TransformerMixin interfaces, fit vs transform vs fit_transform, ColumnTransformer for parallel heterogeneous preprocessing, FeatureUnion, pipeline composition, preventing data leakage during CV, and model serialization (joblib, ONNX).
+- Implementation: Production-ready Scikit-learn pipeline ingesting raw mixed-type data and outputting calibrated predictions.
+
+## Module 15: Unsupervised Learning & Clustering
+- URL: https://prepspaces.com/learning/machine-learning/clustering
+- Concepts: Unsupervised learning taxonomy, K-Means clustering algorithm, Lloyd's optimization, K-Means++ centroid initialization, Elbow method, Silhouette Coefficient, Davies-Bouldin index, Hierarchical Agglomerative Clustering (dendrograms, Ward linkage), and DBSCAN density clustering (epsilon, min_samples, core/border/noise points).
+- Implementation: Customer segmentation clustering with interactive 2D/3D visualizations and cluster profile summaries.
+
+## Module 16: Dimensionality Reduction & PCA
+- URL: https://prepspaces.com/learning/machine-learning/dimensionality-reduction
+- Concepts: Curse of dimensionality, geometric projection, covariance matrix formulation, eigenvalue decomposition, Principal Component Analysis (PCA), Singular Value Decomposition (SVD), explained variance ratio scree plots, Kernel PCA, and non-linear manifold learning (t-SNE, UMAP).
+- Implementation: Reducing 100+ feature space to principal components for downstream model speedup and visualization.
+
+## Module 17: Anomaly Detection & Imbalanced Learning
+- URL: https://prepspaces.com/learning/machine-learning/anomaly-imbalance
+- Concepts: Anomaly detection paradigms, Isolation Forest (isolation depth, anomaly score), Local Outlier Factor (LOF density ratio), One-Class SVM, class imbalance challenges, Random Undersampling, Tomek Links, SMOTE (Synthetic Minority Over-sampling Technique), ADASYN, and cost-sensitive learning.
+- Implementation: High-imbalance transaction fraud detection pipeline using SMOTE and Isolation Forests with PR-AUC optimization.
+
+## Module 18: Recommender Systems
+- URL: https://prepspaces.com/learning/machine-learning/recommenders
+- Concepts: Utility matrices, sparsity challenges, memory-based collaborative filtering (User-User, Item-Item), Cosine vs Pearson similarity, model-based collaborative filtering, Truncated SVD, matrix factorization, content-based recommendation (TF-IDF, item embeddings), hybrid recommenders, and cold-start mitigations.
+- Implementation: Building an e-commerce movie and product recommendation engine with top-N ranking metrics (Precision@K, MAP, NDCG).
+
+## Module 19: Time Series Analysis & Forecasting
+- URL: https://prepspaces.com/learning/machine-learning/time-series
+- Concepts: Temporal data sequencing, trends, seasonality, cyclical patterns, additive vs multiplicative decomposition, stationarity testing (Augmented Dickey-Fuller ADF, KPSS), Autocorrelation Function (ACF), Partial Autocorrelation (PACF), AR(p), MA(q), ARMA, ARIMA(p,d,q), SARIMA, and walk-forward rolling window validation.
+- Implementation: Energy demand and sales forecasting pipeline comparing classical SARIMA with gradient boosted time-series regression.
+
+## Module 20: Probabilistic Machine Learning
+- URL: https://prepspaces.com/learning/machine-learning/probabilistic-ml
+- Concepts: Probability distributions (Gaussian, Bernoulli, Multinomial), joint, conditional, and marginal distributions, Bayes' Theorem, Maximum Likelihood Estimation (MLE), Maximum A Posteriori (MAP), conjugate priors, Gaussian Mixture Models (GMM), and the Expectation-Maximization (EM) algorithm.
+- Implementation: Fitting Gaussian Mixture Models with EM for soft clustering and density estimation from first principles.
+
+## Module 21: Statistical Learning Theory
+- URL: https://prepspaces.com/learning/machine-learning/statistical-learning
+- Concepts: Mathematical foundations of machine learning, Empirical Risk Minimization (ERM), true risk vs empirical risk, Probably Approximately Correct (PAC) learning, sample complexity, Vapnik-Chervonenkis (VC) dimension, Rademacher complexity, generalization error bounds, structural risk minimization, and No Free Lunch theorems.
+- Implementation: Empirical simulation verifying VC dimension bounds and sample complexity curves across model families.
+
+## Module 22: Hyperparameter Optimization & Explainable AI
+- URL: https://prepspaces.com/learning/machine-learning/hpo-xai
+- Concepts: Hyperparameter tuning algorithms: Grid Search, Randomized Search, Bayesian Optimization with Tree-structured Parzen Estimators (TPE) via Optuna, probability calibration (Platt scaling, Isotonic regression), Explainable AI (XAI), Permutation Feature Importance, Partial Dependence Plots (PDP), Individual Conditional Expectation (ICE), and SHAP (SHapley Additive exPlanations based on cooperative game theory).
+- Implementation: Automated Optuna optimization study coupled with complete global and local SHAP model explanation dashboards.
+
+## Module 23: Real-World Machine Learning Engineering & Case Studies
+- URL: https://prepspaces.com/learning/machine-learning/case-studies
+- Concepts: Machine learning system design, business objective translation, baseline model benchmarking, data validation, experiment tracking, pipeline orchestration, concept drift and data drift detection (Kolmogorov-Smirnov test, Population Stability Index PSI), low-latency REST and gRPC model inference serving, and Docker containerization.
+- Implementation: Architecting, validating, and containerizing a real-world enterprise ML service with monitoring telemetry.
+
+## Module 24: Final Machine Learning Capstone & Interview Mastery
+- URL: https://prepspaces.com/learning/machine-learning/capstone
+- Concepts: Full end-to-end Machine Learning capstone project: Customer Churn Prediction & Retention Optimization system. Translating telecom churn business problem into ML objectives, exploratory data analysis, robust ColumnTransformer preprocessing, multi-model benchmarking (Logistic Regression, Random Forest, XGBoost, LightGBM), decision threshold optimization, SHAP interpretability for individual customer retention interventions, FastAPI production scoring service, and technical machine learning interview mastery defense.
+- Implementation: Production-ready capstone repository with data pipelines, trained models, inference API, automated tests, and 10-slide architectural defense presentation.
+
 # Track: Data Engineering Master Course
 > Comprehensive data infrastructure curriculum covering pipeline architecture, OLTP vs OLAP, batch vs stream processing, ETL vs ELT, data warehouses, data lakes, modern lakehouses (Delta Lake, Apache Iceberg), data quality, and end-to-end data systems.
 > Track Overview: https://prepspaces.com/learning/data-engineering

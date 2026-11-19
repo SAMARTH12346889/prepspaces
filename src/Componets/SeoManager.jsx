@@ -76,15 +76,15 @@ const routeMeta = {
     canonical: `${BASE_URL}/courses/generative-ai`,
   },
   "/courses/machine-learning": {
-    title: "Machine Learning Master Course | Environment, Scikit-learn & Pipelines – PrepSpaces",
-    description: "Master machine learning from environment configuration, data preparation, and exploratory data analysis to Scikit-learn pipelines, model training, evaluation, and reproducible production workflows.",
-    keywords: "Machine Learning Course, Learn Machine Learning, Scikit-learn, ML Environment, Jupyter Notebook, Google Colab, Parquet, ML Pipelines, Random Seeds, PrepSpaces",
+    title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
+    description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",
+    keywords: "Machine Learning Course, Learn Machine Learning, Scikit-learn, Python ML, XGBoost, LightGBM, Random Forest, Feature Engineering, Optuna, SHAP, Time Series Forecasting, ML Capstone, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning`,
   },
   "/learning/machine-learning": {
-    title: "Machine Learning Master Course | Environment, Scikit-learn & Pipelines – PrepSpaces",
-    description: "Master machine learning from environment configuration, data preparation, and exploratory data analysis to Scikit-learn pipelines, model training, evaluation, and reproducible production workflows.",
-    keywords: "Machine Learning Course, Learn Machine Learning, Scikit-learn, ML Environment, Jupyter Notebook, Google Colab, Parquet, ML Pipelines, Random Seeds, PrepSpaces",
+    title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
+    description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",
+    keywords: "Machine Learning Course, Learn Machine Learning, Scikit-learn, Python ML, XGBoost, LightGBM, Random Forest, Feature Engineering, Optuna, SHAP, Time Series Forecasting, ML Capstone, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning`,
   },
   "/learning/machine-learning/intro": {
