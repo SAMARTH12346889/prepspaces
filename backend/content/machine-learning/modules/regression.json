@@ -1,0 +1,130 @@
+{
+  "id": "regression",
+  "courseId": "machine-learning",
+  "index": 5,
+  "name": "5. Regression Analysis & Linear Models",
+  "route": "/learning/machine-learning/regression",
+  "componentName": "MachineLearningRegression",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What type of problem does linear regression solve?",
+      "options": [
+        "Image classification",
+        "Numerical prediction",
+        "Clustering",
+        "Dimensionality reduction"
+      ],
+      "correctIndex": 1,
+      "explanation": "Linear regression is a supervised learning method that models the relationship between explanatory variables and a continuous numerical target."
+    },
+    {
+      "id": 2,
+      "question": "How many input features are used in simple linear regression?",
+      "options": [
+        "One",
+        "Two or more",
+        "Zero",
+        "Exactly five"
+      ],
+      "correctIndex": 0,
+      "explanation": "Simple Linear Regression models the straight-line relationship between exactly one independent input feature and one continuous target."
+    },
+    {
+      "id": 3,
+      "question": "What does the slope represent?",
+      "options": [
+        "Number of observations",
+        "Change in predicted target for a one-unit feature increase",
+        "Total prediction error",
+        "Model training time"
+      ],
+      "correctIndex": 1,
+      "explanation": "The slope coefficient measures the estimated change in the predicted target when the input variable increases by one unit, all else held fixed."
+    },
+    {
+      "id": 4,
+      "question": "What is the primary objective of Ordinary Least Squares?",
+      "options": [
+        "Maximize every residual",
+        "Minimize the sum of squared residuals",
+        "Minimize the number of observations",
+        "Maximize the feature count"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ordinary Least Squares (OLS) chooses model coefficients that minimize the Residual Sum of Squares (RSS): sum of (y_i - y_hat_i)^2."
+    },
+    {
+      "id": 5,
+      "question": "How is a residual calculated?",
+      "options": [
+        "Predicted − Mean",
+        "Actual − Predicted",
+        "Actual + Predicted",
+        "Mean − Actual"
+      ],
+      "correctIndex": 1,
+      "explanation": "A residual e_i = y_i - y_hat_i measures the deviation of the true observed target from the value predicted by the fitted model."
+    },
+    {
+      "id": 6,
+      "question": "Which metric penalizes large prediction errors more strongly?",
+      "options": [
+        "MAE",
+        "MSE",
+        "Median",
+        "Correlation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because MSE squares each residual (e_i^2), an error of 10 is penalized 25 times more than an error of 2 (100 vs 4), whereas MAE penalizes errors linearly."
+    },
+    {
+      "id": 7,
+      "question": "What does a negative regression coefficient indicate?",
+      "options": [
+        "The model predicts a decrease as the feature increases, holding other features constant",
+        "The feature must be deleted",
+        "The model is necessarily invalid",
+        "The target is categorical"
+      ],
+      "correctIndex": 0,
+      "explanation": "A negative coefficient reflects an inverse conditional association where each unit increase in that feature is associated with a decrease in the predicted target."
+    },
+    {
+      "id": 8,
+      "question": "What does heteroscedasticity mean?",
+      "options": [
+        "The features are identical",
+        "Residual variance is non-constant",
+        "All residuals equal zero",
+        "The model has no intercept"
+      ],
+      "correctIndex": 1,
+      "explanation": "Heteroscedasticity occurs when the spread or variance of the conditional error terms changes systematically across levels of the explanatory features or fitted values."
+    },
+    {
+      "id": 9,
+      "question": "Which plot is particularly useful for investigating residual patterns?",
+      "options": [
+        "Pie chart",
+        "Residuals vs fitted plot",
+        "Word cloud",
+        "Network graph"
+      ],
+      "correctIndex": 1,
+      "explanation": "Plotting residuals against fitted predictions exposes non-linear curvature, heteroscedastic funnel patterns, and systematic model under/overfitting."
+    },
+    {
+      "id": 10,
+      "question": "Why should a regression model be evaluated on unseen data?",
+      "options": [
+        "To increase training rows",
+        "To estimate performance on observations not used for model fitting",
+        "To force R² to equal one",
+        "To remove all coefficients"
+      ],
+      "correctIndex": 1,
+      "explanation": "Evaluating on a held-out test set provides an unbiased estimate of generalization performance and detects overfitted models that memorize training noise."
+    }
+  ]
+}

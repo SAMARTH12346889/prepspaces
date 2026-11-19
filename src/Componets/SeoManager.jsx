@@ -129,6 +129,18 @@ const routeMeta = {
     keywords: "Exploratory Data Analysis Course, EDA Machine Learning, Seaborn, Matplotlib, Pearson Correlation, Spearman Rank, Skewness, Kurtosis, IQR Outliers, Z-Score Outlier, LOWESS Regression, PrepSpaces",
     canonical: `${BASE_URL}/courses/machine-learning/eda`,
   },
+  "/learning/machine-learning/regression": {
+    title: "Module 5: Regression Analysis & Linear Models | PrepSpaces",
+    description: "Master regression analysis and linear models for machine learning: simple vs multiple linear regression, Ordinary Least Squares (OLS), normal equations, Gauss-Markov assumptions, residual diagnostics, VIF multicollinearity, Scikit-learn pipelines, and Statsmodels inference.",
+    keywords: "Regression Analysis Course, Linear Regression Machine Learning, Ordinary Least Squares, OLS Normal Equation, Residual Diagnostics, Homoscedasticity, Multicollinearity VIF, Scikit-learn LinearRegression, Statsmodels OLS, PrepSpaces",
+    canonical: `${BASE_URL}/learning/machine-learning/regression`,
+  },
+  "/courses/machine-learning/regression": {
+    title: "Module 5: Regression Analysis & Linear Models | PrepSpaces",
+    description: "Master regression analysis and linear models for machine learning: simple vs multiple linear regression, Ordinary Least Squares (OLS), normal equations, Gauss-Markov assumptions, residual diagnostics, VIF multicollinearity, Scikit-learn pipelines, and Statsmodels inference.",
+    keywords: "Regression Analysis Course, Linear Regression Machine Learning, Ordinary Least Squares, OLS Normal Equation, Residual Diagnostics, Homoscedasticity, Multicollinearity VIF, Scikit-learn LinearRegression, Statsmodels OLS, PrepSpaces",
+    canonical: `${BASE_URL}/courses/machine-learning/regression`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

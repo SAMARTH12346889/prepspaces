@@ -740,10 +740,10 @@ plt.show()`;
           </button>
 
           <button
-            onClick={() => navigate("/learning/machine-learning")}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-black text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+            onClick={() => navigate("/learning/machine-learning/regression")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
           >
-            <span>Return to Machine Learning Overview</span>
+            <span>Next: Module 5 &mdash; Regression Analysis &amp; Linear Models</span>
             <ArrowRight size={16} />
           </button>
         </div>

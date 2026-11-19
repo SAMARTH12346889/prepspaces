@@ -42,5 +42,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "regression",
+    "courseId": "machine-learning",
+    "index": 5,
+    "name": "5. Regression Analysis & Linear Models",
+    "route": "/learning/machine-learning/regression",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
