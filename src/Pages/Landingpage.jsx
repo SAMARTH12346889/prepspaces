@@ -219,19 +219,14 @@ export default function Landingpage() {
               <span>Study</span>
             </Link>
 
-            {/* Interviews with Coming Soon badge */}
+            {/* Interviews */}
             <Link
               to="/interview"
               onClick={() => setSidebarOpen(false)}
-              className="flex w-full items-center justify-between rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer group touch-manipulation select-none"
+              className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer group touch-manipulation select-none"
             >
-              <div className="flex items-center gap-3">
-                <Mic size={18} className="text-stone-400 group-hover:text-stone-600 transition-colors" />
-                <span>Interviews</span>
-              </div>
-              <span className="rounded-full bg-orange-100/80 border border-orange-200/80 px-2 py-0.5 text-[10px] font-bold text-[#ea580c]">
-                Coming Soon
-              </span>
+              <Mic size={18} className="text-stone-400 group-hover:text-stone-600 transition-colors" />
+              <span>Interviews</span>
             </Link>
           </nav>
         </div>

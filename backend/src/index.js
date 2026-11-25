@@ -53,4 +53,5 @@ app.onError((err, c) => {
   );
 });
 
+export { InterviewCoordinatorDO } from "./durableObjects/InterviewCoordinatorDO.js";
 export default app;

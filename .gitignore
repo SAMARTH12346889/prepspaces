@@ -11,7 +11,10 @@ node_modules
 dist
 # Environment and local configs
 .env
+.env.*
+.env.production
 .env*.local
+.dev.vars
 *.env
 *.local
 

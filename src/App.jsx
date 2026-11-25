@@ -1978,6 +1978,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/interview/results"
+              element={
+                <ProtectedRoute>
+                  <InterviewRoom />
+                </ProtectedRoute>
+              }
+            />
 
             {/* NOT FOUND ROUTE */}
             <Route path="*" element={<NotFound />} />
