@@ -16,7 +16,10 @@ import {
   getCourseById,
   getModuleById,
   normalizeModuleId,
+  isValidCourseId,
+  isValidModuleId,
 } from "../config/courseInterviewConfig.js";
+import { COURSE_INTERVIEW_BANK } from "../data/courseInterviewBank.js";
 import { evaluateAnswer, buildFinalReport } from "./aiEvaluationService.js";
 
 // In-memory session store when KV is not attached in local tests
@@ -441,56 +444,373 @@ const CURRICULUM_CONCEPTS = {
   ],
 };
 
-/**
- * Dynamically builds a voice-friendly technical question object for a given course and module
- */
-function buildDynamicQuestion({ courseId = "ai-engineering", moduleId = "M01", index = 0, conceptIndex = null, difficulty = "medium" }) {
-  const normMod = normalizeModuleId(moduleId);
-  const modKey = (normMod && normMod !== "all") ? normMod : `M${String((index % 24) + 1).padStart(2, "0")}`;
-  const concepts = CURRICULUM_CONCEPTS[modKey] || CURRICULUM_CONCEPTS["M01"];
-  const cIdx = conceptIndex !== null ? conceptIndex : index;
-  const c = concepts[cIdx % concepts.length] || concepts[0];
-  const repeatCycle = Math.floor(cIdx / concepts.length);
+const SLOT_QUESTION_TYPES = [
+  "conceptual",
+  "fundamentals",
+  "implementation",
+  "problem-solving",
+  "real-world",
+  "architecture",
+  "advanced-reasoning",
+];
 
-  let selectedQuestion = c.question;
-  if (repeatCycle === 1 && c.followUp) {
-    selectedQuestion = c.followUp;
-  } else if (repeatCycle >= 2) {
-    const angles = [
-      `In production systems using ${c.topic}, what are the most common failure modes or bottlenecks you watch for, and how do you debug them?`,
-      `When scaling ${c.topic} under strict latency and cost budgets, which architectural trade-offs do you make first and why?`,
-      `How would you design automated evaluation checks and observability metrics specifically for ${c.topic}?`,
-      `Walk me through an end-to-end edge case where ${c.topic} behaves unexpectedly, and how you would harden it.`,
-      `If a junior engineer implemented ${c.topic} naively, what two structural mistakes would you look for in code review?`,
-    ];
-    selectedQuestion = angles[(repeatCycle - 2) % angles.length];
+const SEMANTIC_STOPWORDS = new Set([
+  "the","and","for","that","this","with","from","into","when","what","how","why","does","are","your",
+  "about","between","which","where","more","than","most","only","such","using","used","explain","describe",
+  "walk","through","difference","primary","main","best","would","should","could","their","they","them",
+  "there","these","those","have","been","being","will","make","system","systems","data","over","under",
+  "both","each","other","production","enterprise"
+]);
+
+export function tokenizeSemantic(text = "") {
+  const words = String(text)
+    .toLowerCase()
+    .replace(/[^a-z0-9+.#-]+/g, " ")
+    .split(/\s+/)
+    .filter((w) => w.length >= 3 && !SEMANTIC_STOPWORDS.has(w));
+  return new Set(words);
+}
+
+export function computeQuestionFingerprint(questionText = "", topic = "") {
+  const norm = [...tokenizeSemantic(`${questionText} ${topic}`)].sort().join("|");
+  let hash = 2166136261;
+  for (let i = 0; i < norm.length; i++) {
+    hash ^= norm.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
   }
+  return `fp_${(hash >>> 0).toString(16).padStart(8, "0")}_${norm.length}`;
+}
 
-  const courseObj = getCourseById(courseId) || PREPSPACES_COURSES[0];
-  const modObj = getModuleById(courseId, modKey);
+export function computeQuestionSimilarity(qA, qB) {
+  const textA = typeof qA === "string" ? qA : qA?.questionText || qA?.question || "";
+  const textB = typeof qB === "string" ? qB : qB?.questionText || qB?.question || "";
+  if (!textA || !textB) return 0;
+  if (textA.trim().toLowerCase() === textB.trim().toLowerCase()) return 1;
 
-  const cleanModuleTitle = modObj?.title || `${modKey}: AI Engineering Track`;
+  const setA = tokenizeSemantic(textA);
+  const setB = tokenizeSemantic(textB);
+  if (setA.size === 0 || setB.size === 0) return 0;
+
+  let inter = 0;
+  for (const w of setA) {
+    if (setB.has(w)) inter++;
+  }
+  const union = setA.size + setB.size - inter;
+  const jaccard = union > 0 ? inter / union : 0;
+  const overlap = inter / Math.min(setA.size, setB.size);
+  return Math.max(jaccard, overlap * 0.85);
+}
+
+export function isSemanticallySimilar(candidate, chosenList = [], threshold = 0.48) {
+  const candText = candidate?.question || candidate?.questionText || "";
+  const candFp = candidate?.fingerprint || computeQuestionFingerprint(candText, candidate?.topic);
+  for (const ch of chosenList) {
+    const chFp = ch?.fingerprint || computeQuestionFingerprint(ch?.questionText || ch?.question, ch?.topic);
+    if (candFp === chFp) return true;
+    if (computeQuestionSimilarity(candText, ch?.questionText || ch?.question) >= threshold) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function cryptoShuffle(arr) {
+  const copy = [...arr];
+  const len = copy.length;
+  if (len <= 1) return copy;
+  const rand = new Uint32Array(len);
+  if (typeof crypto !== "undefined" && typeof crypto.getRandomValues === "function") {
+    crypto.getRandomValues(rand);
+  } else {
+    for (let i = 0; i < len; i++) rand[i] = Math.floor(Math.random() * 0xffffffff);
+  }
+  for (let i = len - 1; i > 0; i--) {
+    const j = rand[i] % (i + 1);
+    const tmp = copy[i];
+    copy[i] = copy[j];
+    copy[j] = tmp;
+  }
+  return copy;
+}
+
+function getModuleQuestionPool(courseId = "ai-engineering", modKey = "M01") {
+  const courseBank = COURSE_INTERVIEW_BANK[courseId] || {};
+  const bankItems = Array.isArray(courseBank[modKey]) ? courseBank[modKey] : [];
+  const legacyItems =
+    courseId === "ai-engineering" && Array.isArray(CURRICULUM_CONCEPTS[modKey])
+      ? CURRICULUM_CONCEPTS[modKey]
+      : [];
+
+  const merged = [];
+  const seenFp = new Set();
+  for (const raw of [...legacyItems, ...bankItems]) {
+    if (!raw?.question) continue;
+    const fp = computeQuestionFingerprint(raw.question, raw.topic);
+    if (seenFp.has(fp)) continue;
+    seenFp.add(fp);
+    merged.push({
+      ...raw,
+      moduleId: modKey,
+      fingerprint: fp,
+      questionType: raw.questionType || "conceptual",
+      context:
+        raw.context ||
+        (Array.isArray(raw.expectedPoints) && raw.expectedPoints.length > 0
+          ? `Expected focus areas: ${raw.expectedPoints.join("; ")}.`
+          : `Expected focus areas: Core concepts and production trade-offs in ${raw.topic || modKey}.`),
+    });
+  }
+  return merged;
+}
+
+function formatQuestionObject({
+  courseObj,
+  modObj,
+  modKey,
+  concept,
+  index,
+  difficulty,
+  slotType,
+  uidSuffix = "",
+}) {
+  const cleanModuleTitle = modObj?.title || `${modKey}: ${courseObj.title}`;
+  const cleanQuestion = concept.question;
+  const fp = concept.fingerprint || computeQuestionFingerprint(cleanQuestion, concept.topic);
+  const randPart =
+    typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+      ? crypto.randomUUID().slice(0, 6)
+      : Math.random().toString(36).slice(2, 8);
 
   return {
-    id: `dyn_${modKey}_${Date.now().toString(36)}_${index + 1}`,
+    id: `dyn_${courseObj.id}_${modKey}_${Date.now().toString(36)}_${index + 1}_${randPart}${uidSuffix}`,
+    fingerprint: fp,
+    courseId: courseObj.id,
+    courseTitle: courseObj.title,
     moduleId: modKey,
     moduleTitle: cleanModuleTitle,
     questionNumber: index + 1,
     questionType: cleanModuleTitle.toUpperCase(),
-    topic: c.topic,
-    subtopic: c.topic,
-    difficulty,
+    questionCategory: concept.questionType || slotType || SLOT_QUESTION_TYPES[index % SLOT_QUESTION_TYPES.length],
+    topic: concept.topic || cleanModuleTitle,
+    subtopic: concept.topic || cleanModuleTitle,
+    difficulty: difficulty || concept.difficulty || (index < 2 ? "easy" : index < 5 ? "medium" : "hard"),
     type: "concept",
-    question: selectedQuestion,
-    questionText: selectedQuestion,
-    context: c.context,
-    expectedPoints: c.expectedPoints,
-    expected_points: c.expectedPoints,
-    keywords: c.keywords,
-    followUp: c.followUp,
+    question: cleanQuestion,
+    questionText: cleanQuestion,
+    context: concept.context,
+    expectedPoints: concept.expectedPoints || [],
+    expected_points: concept.expectedPoints || [],
+    keywords: concept.keywords || [],
+    followUp: concept.followUp || null,
     timeLimitSec: 45,
     active: true,
   };
+}
+
+/**
+ * Selects up to `count` fresh, non-duplicate, semantically varied questions for a course & module,
+ * respecting cross-session candidate history (`recentFingerprints`, `recentModules`).
+ */
+export function selectDiverseQuestions({
+  courseId = "ai-engineering",
+  moduleId = "all",
+  count = 7,
+  recentFingerprints = [],
+  recentModules = [],
+  excludeQuestions = [],
+} = {}) {
+  const courseObj = getCourseById(courseId) || PREPSPACES_COURSES[0];
+  const resolvedCourseId = courseObj.id;
+  const normMod = normalizeModuleId(moduleId, resolvedCourseId);
+  const recentFpSet = new Set(Array.isArray(recentFingerprints) ? recentFingerprints : []);
+  const recentModSet = new Set(Array.isArray(recentModules) ? recentModules : []);
+
+  const allCourseModules = (courseObj.modules || []).filter((m) => m.id !== "all");
+  const chosen = [];
+  const priorAndChosen = [...excludeQuestions];
+
+  const pickBestCandidate = (pool, targetType, preferUnseen = true) => {
+    const unseen = pool.filter((c) => !recentFpSet.has(c.fingerprint));
+    const orderedPools = preferUnseen ? [unseen, pool] : [pool];
+    for (const candidatePool of orderedPools) {
+      // Pass 1: match targetType & not semantically similar
+      const typeMatches = candidatePool.filter(
+        (c) => c.questionType === targetType && !isSemanticallySimilar(c, priorAndChosen)
+      );
+      if (typeMatches.length > 0) return typeMatches[0];
+      // Pass 2: any non-similar candidate
+      const anyNonSimilar = candidatePool.filter((c) => !isSemanticallySimilar(c, priorAndChosen));
+      if (anyNonSimilar.length > 0) return anyNonSimilar[0];
+    }
+    return null;
+  };
+
+  if (!normMod || normMod === "all") {
+    // Prioritize unvisited modules first, shuffled cryptographically for fresh sequence each session
+    const unseenMods = cryptoShuffle(allCourseModules.filter((m) => !recentModSet.has(m.id)));
+    const seenMods = cryptoShuffle(allCourseModules.filter((m) => recentModSet.has(m.id)));
+    const orderedMods = [...unseenMods, ...seenMods];
+
+    for (let i = 0; i < count; i++) {
+      const slotType = SLOT_QUESTION_TYPES[i % SLOT_QUESTION_TYPES.length];
+      const difficulty = i < 2 ? "easy" : i < 5 ? "medium" : "hard";
+      let picked = null;
+      let pickedModObj = null;
+
+      // Try distinct modules first
+      const usedModIds = new Set(chosen.map((q) => q.moduleId));
+      const unusedMods = orderedMods.filter((m) => !usedModIds.has(m.id));
+      const moduleSearchOrder = unusedMods.length > 0 ? [...unusedMods, ...orderedMods] : orderedMods;
+
+      for (const modObj of moduleSearchOrder) {
+        const pool = cryptoShuffle(getModuleQuestionPool(resolvedCourseId, modObj.id));
+        const cand = pickBestCandidate(pool, slotType, true);
+        if (cand) {
+          picked = cand;
+          pickedModObj = modObj;
+          break;
+        }
+      }
+
+      // Extreme exhaustion fallback: clear history preference and draw any non-similar question in course
+      if (!picked) {
+        for (const modObj of orderedMods) {
+          const pool = cryptoShuffle(getModuleQuestionPool(resolvedCourseId, modObj.id));
+          const cand = pool.find((c) => !isSemanticallySimilar(c, priorAndChosen));
+          if (cand) {
+            picked = cand;
+            pickedModObj = modObj;
+            break;
+          }
+        }
+      }
+
+      if (picked && pickedModObj) {
+        const qObj = formatQuestionObject({
+          courseObj,
+          modObj: pickedModObj,
+          modKey: pickedModObj.id,
+          concept: picked,
+          index: i,
+          difficulty,
+          slotType,
+        });
+        chosen.push(qObj);
+        priorAndChosen.push(qObj);
+      }
+    }
+    return chosen;
+  }
+
+  // Specific module selected: prioritize module's own pool across all 7 dimensions
+  const targetModObj = getModuleById(resolvedCourseId, normMod) || allCourseModules[0];
+  const targetModKey = targetModObj?.id || normMod;
+  const modulePool = cryptoShuffle(getModuleQuestionPool(resolvedCourseId, targetModKey));
+
+  // Include unique followUp questions on concepts in this module (distinct stems only, not rewording)
+  const expandedModulePool = [...modulePool];
+  for (const item of modulePool) {
+    if (item.followUp) {
+      const fuFp = computeQuestionFingerprint(item.followUp, item.topic);
+      if (!expandedModulePool.some((x) => x.fingerprint === fuFp)) {
+        expandedModulePool.push({
+          ...item,
+          question: item.followUp,
+          questionType: "advanced-reasoning",
+          difficulty: "hard",
+          fingerprint: fuFp,
+          followUp: null,
+        });
+      }
+    }
+  }
+
+  // Prepare course-adjacent fallback pool ONLY if this specific module has < count unique questions
+  const adjacentCoursePool = [];
+  for (const m of cryptoShuffle(allCourseModules.filter((m) => m.id !== targetModKey))) {
+    for (const c of cryptoShuffle(getModuleQuestionPool(resolvedCourseId, m.id))) {
+      adjacentCoursePool.push({ ...c, sourceModuleTitle: m.title });
+    }
+  }
+
+  for (let i = 0; i < count; i++) {
+    const slotType = SLOT_QUESTION_TYPES[i % SLOT_QUESTION_TYPES.length];
+    const difficulty = i === 0 ? "easy" : i < 4 ? "medium" : "hard";
+
+    let picked = pickBestCandidate(expandedModulePool, slotType, true);
+    if (!picked) {
+      // Draw a distinct, non-similar question from the same course rather than repeating
+      picked = pickBestCandidate(adjacentCoursePool, slotType, true);
+    }
+
+    if (picked) {
+      const qObj = formatQuestionObject({
+        courseObj,
+        modObj: targetModObj,
+        modKey: targetModKey,
+        concept: picked,
+        index: i,
+        difficulty,
+        slotType,
+      });
+      chosen.push(qObj);
+      priorAndChosen.push(qObj);
+    }
+  }
+
+  return chosen;
+}
+
+/**
+ * Dynamically builds a voice-friendly technical question object for a given course and module
+ * (used as single-question fallback without ever defaulting back to M01 across courses)
+ */
+function buildDynamicQuestion({
+  courseId = "ai-engineering",
+  moduleId = "all",
+  index = 0,
+  difficulty = "medium",
+  excludeQuestions = [],
+}) {
+  const picked = selectDiverseQuestions({
+    courseId,
+    moduleId,
+    count: 1,
+    excludeQuestions,
+  });
+  if (picked.length > 0) {
+    const q = picked[0];
+    return {
+      ...q,
+      questionNumber: index + 1,
+      difficulty: difficulty || q.difficulty,
+    };
+  }
+  const courseObj = getCourseById(courseId) || PREPSPACES_COURSES[0];
+  const modObj = getModuleById(courseObj.id, moduleId);
+  return formatQuestionObject({
+    courseObj,
+    modObj,
+    modKey: modObj?.id || "all",
+    concept: {
+      topic: modObj?.title || courseObj.title,
+      question: `Walk me through the most critical architectural principles and production failure modes in ${modObj?.title || courseObj.title}.`,
+      context: `Expected focus areas: Core concepts, practical trade-offs, and production scalability in ${courseObj.title}.`,
+      expectedPoints: [
+        `Explain foundational concepts of ${modObj?.title || courseObj.title}`,
+        "Analyze latency, reliability, or scaling bottlenecks",
+        "Propose concrete production mitigations and trade-offs",
+      ],
+      keywords: extractKeywordsForFallback(courseObj.title, modObj?.title),
+    },
+    index,
+    difficulty,
+    slotType: SLOT_QUESTION_TYPES[index % SLOT_QUESTION_TYPES.length],
+  });
+}
+
+function extractKeywordsForFallback(a = "", b = "") {
+  return [...tokenizeSemantic(`${a} ${b}`)].slice(0, 6);
 }
 
 /**
@@ -568,39 +888,51 @@ export async function createSession({
   user,
   courseId = "ai-engineering",
   moduleId = "all",
-  role = "AI Engineering Mock Interview",
+  role = null,
   env,
 }) {
   const store = await getStore(env);
   const sessionId = `int_${crypto.randomUUID()}`;
-  const normMod = normalizeModuleId(moduleId);
+  const courseObj = getCourseById(courseId) || PREPSPACES_COURSES[0];
+  const resolvedCourseId = isValidCourseId(courseId) ? courseObj.id : PREPSPACES_COURSES[0].id;
+  const normMod = normalizeModuleId(moduleId, resolvedCourseId);
+  const resolvedRole = role || `${courseObj.title} Mock Interview`;
 
-  // Generate 7 dynamic questions for this session
-  const questions = [];
+  // Load recent question history for this candidate + course to prevent cross-session repeats
+  const historyKey = `interview:history:${resolvedCourseId}:${userId || "anonymous"}`;
+  const history = (await store.get(historyKey, "json")) || {
+    recentFingerprints: [],
+    recentModules: [],
+  };
+
+  // Generate 7 fresh, non-duplicate, semantically varied questions tailored to course & module
   const count = 7;
-  const modUsageCounts = {};
-  for (let i = 0; i < count; i++) {
-    const targetMod = (normMod && normMod !== "all") ? normMod : `M${String(((i * 3 + 1) % 24) + 1).padStart(2, "0")}`;
-    const modConceptIdx = modUsageCounts[targetMod] || 0;
-    modUsageCounts[targetMod] = modConceptIdx + 1;
-    questions.push(
-      buildDynamicQuestion({
-        courseId,
-        moduleId: targetMod,
-        index: i,
-        conceptIndex: modConceptIdx,
-        difficulty: i === 0 ? "easy" : i < 4 ? "medium" : "hard",
-      })
-    );
-  }
+  const questions = selectDiverseQuestions({
+    courseId: resolvedCourseId,
+    moduleId: normMod,
+    count,
+    recentFingerprints: history.recentFingerprints || [],
+    recentModules: history.recentModules || [],
+  });
+
+  // Persist asked question fingerprints & visited modules in recent candidate history (rolling 49 questions)
+  const newFingerprints = questions.map((q) => q.fingerprint).filter(Boolean);
+  const newModules = questions.map((q) => q.moduleId).filter((m) => m && m !== "all");
+  const updatedHistory = {
+    recentFingerprints: [...new Set([...newFingerprints, ...(history.recentFingerprints || [])])].slice(0, 49),
+    recentModules: [...new Set([...newModules, ...(history.recentModules || [])])].slice(0, 14),
+    updatedAt: Date.now(),
+  };
+  await store.put(historyKey, updatedHistory, { expirationTtl: 60 * 60 * 24 * 30 });
 
   const session = {
     id: sessionId,
     candidateId: userId,
     candidateName: user?.name || "Candidate",
     candidateEmail: user?.email || "",
-    role,
-    courseId,
+    role: resolvedRole,
+    courseId: resolvedCourseId,
+    courseTitle: courseObj.title,
     moduleId: normMod,
     status: "PENDING",
     createdAt: Date.now(),
@@ -683,7 +1015,12 @@ export async function submitAnswer({
   const sessionQuestions = Array.isArray(session.questions) ? session.questions : [];
   const matchedIdx = questionId ? sessionQuestions.findIndex((q) => q.id === questionId) : -1;
   const currentIdx = matchedIdx >= 0 ? matchedIdx : (session.currentQuestionIndex || 0);
-  const currentQ = sessionQuestions[currentIdx] || buildDynamicQuestion({ index: currentIdx });
+  const currentQ = sessionQuestions[currentIdx] || buildDynamicQuestion({
+    courseId: session.courseId,
+    moduleId: session.moduleId,
+    index: currentIdx,
+    excludeQuestions: sessionQuestions,
+  });
 
   // Idempotency guard: prevent duplicate answer submission for the same questionId
   const targetQId = questionId || currentQ.id;
@@ -782,6 +1119,7 @@ export async function submitAnswer({
       moduleId: session.moduleId,
       index: nextIdx,
       difficulty: nextIdx >= 3 ? "hard" : "medium",
+      excludeQuestions: session.questions || [],
     });
     session.questions[nextIdx] = nextQuestion;
 
@@ -903,14 +1241,5 @@ export async function recordViolation({ sessionId, violationType = "unknown", en
  * Dynamic questions allocation backward compatibility export
  */
 export async function allocateQuestions({ count = 7, courseId = "ai-engineering", moduleId = "all" }) {
-  const questions = [];
-  const normMod = normalizeModuleId(moduleId);
-  const modUsageCounts = {};
-  for (let i = 0; i < count; i++) {
-    const targetMod = (normMod && normMod !== "all") ? normMod : `M${String(((i * 3 + 1) % 24) + 1).padStart(2, "0")}`;
-    const modConceptIdx = modUsageCounts[targetMod] || 0;
-    modUsageCounts[targetMod] = modConceptIdx + 1;
-    questions.push(buildDynamicQuestion({ courseId, moduleId: targetMod, index: i, conceptIndex: modConceptIdx }));
-  }
-  return questions;
+  return selectDiverseQuestions({ courseId, moduleId, count });
 }

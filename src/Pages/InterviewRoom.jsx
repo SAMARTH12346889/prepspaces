@@ -1923,11 +1923,15 @@ function InterviewRoomInner() {
           const res = await fetch(`${API_URL}/api/interviews/${cachedId}`);
           if (res.ok) {
             const data = await res.json();
-            if (data.session && data.session.status !== "COMPLETED") {
+            const isResultsRoute = location.pathname === "/interview/results";
+            const canResume =
+              data.session &&
+              (data.session.status === "ACTIVE" || (isResultsRoute && data.session.status === "COMPLETED"));
+            if (canResume) {
               const sessMod = String(data.session.moduleId || "all").toUpperCase();
               const reqMod = String(activeModuleId || "all").toUpperCase();
               if (sessMod === reqMod && data.session.courseId === activeCourseId) {
-                // Enforce MAX_QUESTIONS limit on cached sessions
+                // Enforce MAX_QUESTIONS limit on cached active/completed sessions
                 data.session.maxQuestions = MAX_QUESTIONS;
                 if (data.session.questions && data.session.questions.length > MAX_QUESTIONS) {
                   data.session.questions = data.session.questions.slice(0, MAX_QUESTIONS);
@@ -1947,15 +1951,36 @@ function InterviewRoomInner() {
       if (!activeSession) {
         const course = getCourseById(activeCourseId);
         const moduleObj = getModuleById(activeCourseId, activeModuleId);
+        let candidateUid = auth?.user?.id || auth?.user?.email || null;
+        if (!candidateUid) {
+          try {
+            candidateUid = localStorage.getItem("prepspaces_candidate_uid");
+            if (!candidateUid) {
+              candidateUid = `cand_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+              localStorage.setItem("prepspaces_candidate_uid", candidateUid);
+            }
+          } catch {
+            candidateUid = `cand_${Date.now().toString(36)}`;
+          }
+        }
+
         // Try creating new Interview Session via backend
         try {
+          const authToken = auth?.token || localStorage.getItem("prepspaces_token") || "";
+          const headers = {
+            "Content-Type": "application/json",
+            "x-guest-session-id": String(candidateUid),
+          };
+          if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
+
           const res = await fetch(`${API_URL}/api/interviews`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers,
             body: JSON.stringify({
               role: activeModuleId === "all" ? `${course.title} Mock` : `${course.title} - ${moduleObj.title}`,
               courseId: activeCourseId,
               moduleId: activeModuleId,
+              candidateId: String(candidateUid),
             }),
           });
           if (res.ok) {
@@ -3161,7 +3186,7 @@ function InterviewRoomInner() {
                       onChange={(e) => {
                         const newCourseId = e.target.value;
                         const targetCourse = getCourseById(newCourseId);
-                        if (!targetCourse || targetCourse.comingSoon) return;
+                        if (!targetCourse) return;
                         setSelectedCourse(newCourseId);
                         setSelectedModule("all");
                         initializeSession(newCourseId, "all");
@@ -3172,10 +3197,9 @@ function InterviewRoomInner() {
                         <option
                           key={course.id}
                           value={course.id}
-                          disabled={course.comingSoon}
-                          className={course.comingSoon ? "text-stone-400 bg-stone-50/80" : "text-stone-900 font-medium"}
+                          className="text-stone-900 font-medium"
                         >
-                          {course.title}{course.comingSoon ? " — 🔒 Coming Soon" : ""}
+                          {course.title}
                         </option>
                       ))}
                     </select>

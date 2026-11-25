@@ -8,6 +8,11 @@ import {
   endSession,
   recordViolation,
 } from "../services/interviewService.js";
+import {
+  isValidCourseId,
+  isValidModuleId,
+  getCourseById,
+} from "../config/courseInterviewConfig.js";
 import { getCoordinatorClient } from "../services/rateLimitAndKeyManager.js";
 
 export const interviewRouter = new Hono();
@@ -68,15 +73,44 @@ interviewRouter.get("/admin/metrics", handleSystemStatus);
 interviewRouter.post("/", async (c) => {
   try {
     const body = await c.req.json().catch(() => ({}));
-    const { courseId = "ai-engineering", moduleId = "all", role, candidateId } = body;
+    const {
+      courseId = "ai-engineering",
+      moduleId = null,
+      topicId = null,
+      role,
+      candidateId,
+    } = body;
+    const requestedModule = moduleId || topicId || "all";
+
+    if (!isValidCourseId(courseId)) {
+      return c.json(
+        {
+          error: "Bad Request",
+          message: `Unsupported interview courseId '${courseId}'.`,
+        },
+        400
+      );
+    }
+
+    if (!isValidModuleId(courseId, requestedModule)) {
+      return c.json(
+        {
+          error: "Bad Request",
+          message: `Unsupported moduleId '${requestedModule}' for course '${courseId}'.`,
+        },
+        400
+      );
+    }
+
+    const courseObj = getCourseById(courseId);
     const userContext = await resolveInterviewUser(c);
 
     const session = await createSession({
       userId: candidateId || userContext.userId,
       user: userContext.user,
-      courseId,
-      moduleId,
-      role: role || "AI Engineering Mock Interview",
+      courseId: courseObj.id,
+      moduleId: requestedModule,
+      role: role || `${courseObj.title} Mock Interview`,
       env: c.env,
     });
 

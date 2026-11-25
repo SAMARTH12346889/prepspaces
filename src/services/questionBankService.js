@@ -518,6 +518,99 @@ export const MODULE_TOPIC_REGISTRY = {
   },
 };
 
+const MULTI_COURSE_FALLBACK_POOL = {
+  "system-design": [
+    { topic: "Capacity Estimation & SLAs", question: "How do you estimate QPS, storage growth, and read-to-write bandwidth before designing a large-scale distributed backend?", context: "Expected focus areas: Peak vs average QPS; Payload sizes; Replication factor storage; Latency percentile budgets.", expectedPoints: ["Separate read and write QPS estimates with peak multipliers", "Calculate storage growth over 5 years including replication", "Define p95/p99 latency budgets per service hop"], keywords: ["qps", "capacity", "latency", "p99", "storage", "bandwidth"] },
+    { topic: "Caching & Thundering Herd", question: "Explain cache-aside versus write-through caching, and how do you prevent a thundering herd cache stampede on hot expired keys?", context: "Expected focus areas: Stale data risk; Single-flight mutexes; Probabilistic early expiration; Jittered TTLs.", expectedPoints: ["Contrast cache-aside lazy loading with synchronous write-through", "Use request coalescing / distributed locks on cache miss", "Add TTL jitter to spread expirations"], keywords: ["cache-aside", "write-through", "thundering herd", "ttl", "redis"] },
+    { topic: "Database Sharding & Consistent Hashing", question: "When horizontal sharding becomes necessary, how does consistent hashing minimize resharding churn and how do you handle hotspot keys?", context: "Expected focus areas: Virtual nodes; Shard key cardinality; Cross-shard scatter-gather queries; Hot key salting.", expectedPoints: ["Limit data movement to 1/N via consistent hash ring and vnodes", "Choose high-cardinality partition keys matching access patterns", "Split celebrity/hot keys with salted prefixes"], keywords: ["sharding", "consistent hashing", "vnodes", "hotkey", "partition"] },
+    { topic: "Distributed Consensus & Quorums", question: "Why can split-brain occur during a network partition, and how do Raft terms and quorum intersection prevent stale leaders from committing writes?", context: "Expected focus areas: CAP theorem; Leader lease vs heartbeat; W + R > N quorum rule; Term fencing.", expectedPoints: ["Explain majority quorum intersection preventing two simultaneous leaders", "Describe monotonic term numbers fencing out old leaders", "Contrast CP consensus with AP eventual consistency"], keywords: ["raft", "quorum", "split-brain", "consensus", "cap"] },
+    { topic: "Message Queues & Backpressure", question: "Compare RabbitMQ work queues with Kafka partitioned logs, and explain how consumer backpressure prevents out-of-memory crashes during traffic spikes.", context: "Expected focus areas: Partition ordering vs routing; Consumer offset retention; Bounded queues; Dead-letter queues.", expectedPoints: ["Contrast Kafka durable replayable log with RabbitMQ transient message broker", "Apply bounded buffers and adaptive consumer poll rates", "Isolate poison pills via Dead-Letter Queues"], keywords: ["kafka", "rabbitmq", "backpressure", "dlq", "partition"] },
+    { topic: "Distributed Transactions & Sagas", question: "Why is Two-Phase Commit avoided across independent microservices, and how do Saga orchestrators handle partial workflow failures?", context: "Expected focus areas: Coordinator blocking locks; Compensating transactions; Idempotent retries; Outbox pattern.", expectedPoints: ["Explain 2PC holding locks across network failures", "Design idempotent compensating actions for rollback steps", "Pair transactional outbox with event publication"], keywords: ["saga", "2pc", "compensating", "outbox", "idempotency"] },
+    { topic: "Multi-Region Active-Active Resilience", question: "How do you architect an active-active multi-region deployment while managing cross-region write latency and conflicting concurrent updates?", context: "Expected focus areas: Geo-DNS routing; Conflict-free replicated data types or regional affinity; RPO vs RTO.", expectedPoints: ["Route users to nearest healthy region via latency-based DNS/Anycast", "Assign user home-region ownership or use CRDTs/LWW carefully", "Verify failover via chaos drills measuring actual RTO/RPO"], keywords: ["multi-region", "active-active", "failover", "rpo", "rto"] },
+  ],
+  "operating-systems": [
+    { topic: "Kernel Mode vs User Mode", question: "Why do CPUs enforce hardware privilege rings separating user space from kernel space, and what happens mechanically during a system call trap?", context: "Expected focus areas: Ring 0 vs Ring 3; Syscall interrupt/SYSCALL instruction; Register & stack switching; Context switch overhead.", expectedPoints: ["Protect hardware registers and page tables from unprivileged code", "Explain trap table vectoring into kernel stack and restoring user context", "Discuss cache/TLB flush implications"], keywords: ["syscall", "privilege ring", "kernel", "trap", "context switch"] },
+    { topic: "CPU Scheduling & CFS", question: "How does Linux's Completely Fair Scheduler balance throughput and interactive responsiveness compared to fixed multi-level feedback queues?", context: "Expected focus areas: Virtual runtime (vruntime); Red-black tree ordering; Nice weights; Starvation prevention.", expectedPoints: ["Track weighted virtual runtime per runnable task", "Pick minimum vruntime task from red-black tree in O(log N)", "Avoid starvation of low-priority or I/O-bound tasks"], keywords: ["cfs", "vruntime", "scheduler", "starvation", "throughput"] },
+    { topic: "Synchronization & Deadlocks", question: "State the four Coffman conditions required for a deadlock, and explain how lock ordering prevents deadlocks in multi-threaded C/Rust code.", context: "Expected focus areas: Mutual exclusion, hold and wait, no preemption, circular wait; Global lock hierarchy; Priority inversion.", expectedPoints: ["List all four Coffman conditions cleanly", "Break circular wait by enforcing deterministic global lock acquisition order", "Contrast mutexes vs spinlocks vs priority inheritance"], keywords: ["deadlock", "coffman", "mutex", "spinlock", "priority inversion"] },
+    { topic: "Virtual Memory, Paging & TLB", question: "Walk through how the MMU translates a 64-bit virtual address into a physical frame using multi-level page tables and the TLB.", context: "Expected focus areas: Page offset invariance; 4-level radix page walk; TLB hit vs miss vs page fault; Copy-on-Write fork.", expectedPoints: ["Show lower page offset bits stay unchanged during translation", "Explain hardware TLB caching recent page translations", "Distinguish TLB miss from OS page fault trap"], keywords: ["virtual memory", "tlb", "page table", "page fault", "mmu"] },
+    { topic: "Filesystems, Inodes & Journaling", question: "How do Unix inodes separate file metadata from directory names, and how does write-ahead journaling protect filesystem consistency on sudden power loss?", context: "Expected focus areas: Hard links vs symlinks; Inode block pointers; Write-ahead journal commit; fsck recovery.", expectedPoints: ["Directory entries map filenames to inode numbers containing permissions/blocks", "Journal logs metadata/data intent before in-place disk writes", "Replay committed journal transactions rapidly after crash"], keywords: ["inode", "journaling", "filesystem", "crash consistency", "vfs"] },
+    { topic: "IPC & Zero-Copy I/O", question: "Compare POSIX pipes, UNIX domain sockets, and shared memory for Inter-Process Communication, and explain how sendfile/mmap enable zero-copy transfer.", context: "Expected focus areas: Kernel buffer copies; Synchronization primitives; mmap page cache sharing; Throughput trade-offs.", expectedPoints: ["Shared memory skips kernel copy overhead via shared physical pages + semaphores", "Pipes/sockets copy through kernel space cleanly with stream framing", "sendfile/DMA avoids user-space buffer roundtrips"], keywords: ["ipc", "shared memory", "mmap", "zero-copy", "pipes"] },
+    { topic: "Containers, Namespaces & cgroups", question: "At the Linux kernel level, how do namespaces and cgroups isolate containers without spinning up a full guest OS hypervisor?", context: "Expected focus areas: PID/net/mnt/user namespaces; cgroup CPU/memory throttling & OOM; OverlayFS copy-on-write layers.", expectedPoints: ["Namespaces virtualize visibility of PIDs, network, and mounts", "cgroups enforce CPU/memory/IO resource quotas", "Shared host kernel makes containers lightweight vs hypervisor VMs"], keywords: ["namespaces", "cgroups", "containers", "overlayfs", "kernel"] },
+  ],
+  "computer-networks": [
+    { topic: "OSI & TCP/IP Encapsulation", question: "Trace packet encapsulation and de-encapsulation across the TCP/IP layers when a browser sends an HTTPS request over Ethernet and Wi-Fi.", context: "Expected focus areas: Application payload -> TCP segment -> IP packet -> Ethernet frame; NAT/MAC rewriting per hop.", expectedPoints: ["Describe headers added at each layer downward and stripped upward", "Explain MAC addresses changing per Layer 2 hop while end-to-end IP remains intact (unless NAT)"], keywords: ["osi", "tcp/ip", "encapsulation", "mac", "packet", "frame"] },
+    { topic: "IPv4 Subnetting & BGP Routing", question: "How does longest prefix match work in router forwarding tables, and how do OSPF intra-domain routing and BGP inter-domain routing differ?", context: "Expected focus areas: CIDR masks; Autonomous Systems (AS); Distance-vector path attributes vs link-state Dijkstra.", expectedPoints: ["Router forwards using the most specific matching CIDR mask", "OSPF optimizes shortest link-state path inside an AS; BGP enforces AS policy across networks"], keywords: ["cidr", "longest prefix match", "bgp", "ospf", "routing"] },
+    { topic: "TCP Flow & Congestion Control", question: "Differentiate TCP flow control (receive window) from congestion control (cwnd, slow start, AIMD), and explain what triggers fast retransmit.", context: "Expected focus areas: rwnd vs cwnd; 3 duplicate ACKs; Cubic/BBR congestion avoidance; Packet loss signals.", expectedPoints: ["Flow control protects slow receivers via advertised window; congestion control protects network links", "Three duplicate ACKs trigger fast retransmit before RTO timer expires"], keywords: ["tcp", "cwnd", "rwnd", "slow start", "congestion", "retransmit"] },
+    { topic: "QUIC & HTTP/3", question: "How does HTTP/3 over QUIC solve TCP head-of-line blocking at the transport layer, and what challenges do UDP middleboxes pose?", context: "Expected focus areas: Independent multiplexed UDP streams; Integrated TLS 1.3 handshake; Connection migration; Firewall UDP throttling.", expectedPoints: ["Packet loss stalls only the affected QUIC stream rather than the whole connection", "Connection IDs survive Wi-Fi-to-cellular IP changes cleanly"], keywords: ["http3", "quic", "head-of-line blocking", "udp", "tls"] },
+    { topic: "DNS & Anycast Edge Routing", question: "Walk through recursive versus iterative DNS resolution, and explain how Anycast BGP lets global CDNs serve low-latency traffic on a single IP.", context: "Expected focus areas: Root/TLD/Authoritative servers; TTL caching; Anycast BGP nearest PoP selection.", expectedPoints: ["Stub resolver asks recursive resolver which walks root -> TLD -> authoritative iteratively", "Anycast announces same IP prefix from global PoPs so BGP routes to closest edge"], keywords: ["dns", "anycast", "cdn", "ttl", "recursive"] },
+    { topic: "Firewalls, NAT & Stateful Inspection", question: "How does a stateful firewall differ from stateless packet filtering, and how does Carrier-Grade NAT preserve IPv4 address pools?", context: "Expected focus areas: 5-tuple connection state table; Port address translation (PAT); Inbound NAT traversal.", expectedPoints: ["Stateful firewalls track established TCP/UDP flows automatically", "PAT multiplexes thousands of private hosts onto shared public IPs using source ports"], keywords: ["firewall", "nat", "stateful", "pat", "5-tuple"] },
+    { topic: "TLS 1.3 & Packet Troubleshooting", question: "How does TLS 1.3 cut handshake round trips to 1-RTT (and 0-RTT), and how do you diagnose a silent TCP SYN drop using tcpdump/Wireshark?", context: "Expected focus areas: Ephemeral ECDHE key share in ClientHello; Forward secrecy; SYN retransmissions vs RST packets.", expectedPoints: ["ClientHello pre-sends Diffie-Hellman key share eliminating extra RTT", "Repeated unanswered SYNs signal firewall silent drop whereas RST indicates closed port"], keywords: ["tls 1.3", "handshake", "wireshark", "tcpdump", "syn", "ecdhe"] },
+  ],
+  "cybersecurity": [
+    { topic: "STRIDE Threat Modeling", question: "Apply the STRIDE framework to a web authentication API—what concrete threats map to Spoofing, Tampering, and Elevation of Privilege?", context: "Expected focus areas: Credential stuffing/JWT forgery; Request integrity/HMAC; Broken access control (IDOR).", expectedPoints: ["Map each STRIDE letter to concrete technical threat vectors", "Propose layered mitigations like MFA, TLS, integrity checks, and server-side RBAC"], keywords: ["stride", "threat modeling", "spoofing", "tampering", "privilege"] },
+    { topic: "OWASP Injection & XSS", question: "Why do parameterized queries defeat SQL injection completely while input blocklists fail, and how does CSP mitigate stored XSS?", context: "Expected focus areas: Code vs data separation in AST; Context-aware output encoding; HttpOnly cookies & script-src nonces.", expectedPoints: ["Prepared statements bind parameters strictly as literal values", "Combine strict contextual HTML encoding with CSP nonces and HttpOnly cookies"], keywords: ["sqli", "parameterized", "xss", "csp", "owasp"] },
+    { topic: "OAuth 2.0, OIDC & JWT Security", question: "Why should browser SPAs use Authorization Code Flow with PKCE instead of Implicit Flow, and what critical checks prevent JWT signature bypass?", context: "Expected focus areas: Code verifier/challenge; Avoiding tokens in URL fragments; Pinning allowed alg header & verifying iss/aud/exp.", expectedPoints: ["PKCE prevents authorization code interception without exposing client secrets", "Enforce explicit algorithm allowlist rejecting alg=none or RS256-to-HS256 confusion"], keywords: ["oauth", "pkce", "oidc", "jwt", "token"] },
+    { topic: "Cryptography, PKI & TLS", question: "Contrast symmetric AES-GCM encryption with asymmetric ECDHE/RSA key exchange, and explain why certificate pinning and revocation matter.", context: "Expected focus areas: Authenticated encryption (AEAD); Perfect forward secrecy; X.509 trust chains; OCSP stapling.", expectedPoints: ["Asymmetric crypto establishes shared ephemeral session key; symmetric AEAD encrypts bulk payload", "Verify CA signatures, SAN hostnames, and revocation status"], keywords: ["aes-gcm", "pkI", "x509", "forward secrecy", "tls"] },
+    { topic: "Broken Access Control & SSRF", question: "How can Server-Side Request Forgery (SSRF) expose internal cloud metadata endpoints (169.254.169.254), and what defenses stop DNS rebinding?", context: "Expected focus areas: IMDSv2 session tokens; Egress IP allowlisting after DNS resolution; Disabling HTTP redirects.", expectedPoints: ["Resolve domain once, block RFC1918/link-local IPs, and fetch using pinned IP", "Enforce IMDSv2 header tokens on cloud compute instances"], keywords: ["ssrf", "idor", "imds", "access control", "dns rebinding"] },
+    { topic: "OS Hardening & Least Privilege", question: "How do Linux capabilities, seccomp-bpf, and read-only root filesystems minimize blast radius if a containerized web service gets compromised?", context: "Expected focus areas: Dropping root UID/CAP_NET_RAW; Blocking unnecessary syscalls; Immutable runtime containers.", expectedPoints: ["Run non-root with dropped capabilities and seccomp syscall allowlists", "Mount rootfs read-only so attackers cannot persist payloads easily"], keywords: ["seccomp", "capabilities", "least privilege", "hardening", "container"] },
+    { topic: "SOC SIEM & Incident Response", question: "Walk through the incident response lifecycle from SIEM anomaly detection to containment, forensic preservation, eradication, and post-mortem.", context: "Expected focus areas: Volatile memory/log preservation; Isolating compromised hosts without alerting attackers prematurely; Root cause remediation.", expectedPoints: ["Preserve forensic snapshots and immutable logs before wiping instances", "Contain lateral movement via credential rotation and network segmentation"], keywords: ["incident response", "siem", "forensics", "containment", "soc"] },
+  ],
+  "devops": [
+    { topic: "Linux Signals & Process Troubleshooting", question: "What is the difference between SIGTERM and SIGKILL in Linux, and how should containerized services handle SIGTERM for zero-downtime deploys?", context: "Expected focus areas: Graceful connection draining; PID 1 zombie reaping; terminationGracePeriodSeconds.", expectedPoints: ["SIGTERM allows apps to close DB pools and drain HTTP requests cleanly", "SIGKILL terminates immediately at kernel level without cleanup hooks"], keywords: ["sigterm", "sigkill", "linux", "pid 1", "graceful shutdown"] },
+    { topic: "Docker Multi-Stage Builds & Layer Caching", question: "How do multi-stage Docker builds shrink production images and improve security posture, and how should Dockerfile instructions be ordered for cache speed?", context: "Expected focus areas: Stripping build toolchains/compilers; Distroless/non-root runtime; Dependency manifest layer before source copy.", expectedPoints: ["Copy package manifests and install dependencies before copying mutable source code", "Emit minimal runtime image without compilers/dev secrets"], keywords: ["docker", "multi-stage", "layer cache", "distroless", "image"] },
+    { topic: "Kubernetes Scheduling & Pod Debugging", question: "A Kubernetes Pod is stuck in Pending vs CrashLoopBackOff—walk through the exact kubectl diagnostics and root causes for each state.", context: "Expected focus areas: Insufficient CPU/memory, taints/tolerations, PVC binding vs missing Secrets, failing liveness probes, OOMKilled (137).", expectedPoints: ["Inspect kubectl describe pod Events for scheduler placement failures", "Check container logs/previous exit codes (137 OOM, missing env/secrets) on CrashLoopBackOff"], keywords: ["kubernetes", "crashloopbackoff", "pending", "oomkilled", "kubectl"] },
+    { topic: "Terraform State & Drift Management", question: "Why does Terraform store infrastructure state remotely with locking (e.g., S3 + DynamoDB), and how do you safely resolve out-of-band console drift?", context: "Expected focus areas: Concurrent apply corruption; Sensitive plaintext secrets in state; terraform plan / import / refresh.", expectedPoints: ["Remote locking prevents simultaneous state corruption across CI runners", "Use terraform plan/import to reconcile manual console drift cleanly"], keywords: ["terraform", "state locking", "iac", "drift", "plan"] },
+    { topic: "CI/CD Blue-Green vs Canary Rollouts", question: "Contrast Blue-Green and Canary deployment strategies in Kubernetes/GitOps across rollback speed, database schema compatibility, and blast radius.", context: "Expected focus areas: Traffic shifting via Ingress/Service Mesh; Expand-and-contract DB migrations; Automated error-rate rollback.", expectedPoints: ["Blue-green swaps full traffic fast at 2x compute; canary validates small % against SLIs first", "Ensure forward/backward-compatible DB migrations across active versions"], keywords: ["canary", "blue-green", "cicd", "gitops", "argocd", "rollback"] },
+    { topic: "SRE SLIs, SLOs & Error Budgets", question: "How do SLIs, SLOs, and Error Budgets align product velocity with production reliability compared to chasing arbitrary 100% uptime?", context: "Expected focus areas: Availability/latency percentiles; Error budget burn alerts; Freezing risky releases when budget is exhausted.", expectedPoints: ["SLI measures user-facing behavior; SLO sets target reliability leaving room for planned innovation", "Exhausted error budgets trigger reliability sprints over feature launches"], keywords: ["sli", "slo", "error budget", "sre", "observability"] },
+    { topic: "DevSecOps Supply Chain Security", question: "How do you harden a CI/CD pipeline against supply-chain attacks covering dependencies, container signing, SBOMs, and short-lived OIDC cloud auth?", context: "Expected focus areas: Eliminating static cloud keys with OIDC; Vulnerability scanning (Trivy/Snyk); Cosign image verification.", expectedPoints: ["Use OIDC federation instead of long-lived CI secrets", "Sign immutable digests and gate on high/critical CVEs and SBOM provenance"], keywords: ["devsecops", "oidc", "sbom", "supply chain", "cosign"] },
+  ],
+  "cloud": [
+    { topic: "Cloud VPCs, Subnets & NAT Gateways", question: "What distinguishes a public cloud subnet from a private subnet, and how do VPC Endpoints eliminate NAT Gateway charges for internal object storage traffic?", context: "Expected focus areas: Route table IGW vs NAT; PrivateLink backbone traffic; Security Groups vs NACLs.", expectedPoints: ["Public subnets route 0.0.0.0/0 to Internet Gateway while private subnets stay unreachable inbound", "Gateway/Interface VPC Endpoints keep S3/API traffic inside cloud private network"], keywords: ["vpc", "subnet", "nat", "vpc endpoint", "privatelink"] },
+    { topic: "Compute Models: VMs vs Containers vs Serverless", question: "When choosing between managed Kubernetes containers and Serverless functions (Lambda/Workers), what workload traits decide the better fit?", context: "Expected focus areas: Cold start latency; Steady vs spiky load cost; Max execution timeout; DB connection pooling.", expectedPoints: ["Serverless excels at spiky short-lived event workloads; containers win on steady load and long connections", "Mitigate serverless DB exhaustion via connection proxies"], keywords: ["serverless", "containers", "cold start", "ec2", "compute"] },
+    { topic: "IAM Least Privilege & Temporary Credentials", question: "Why should cloud workloads assume short-lived IAM Roles via STS/Workload Identity instead of embedding static access keys?", context: "Expected focus areas: Blast radius of leaked keys; Automatic short-lived token rotation; Resource/condition policies.", expectedPoints: ["Instance/pod roles vend short-lived auto-rotated STS tokens without secrets in env files", "Scope IAM permissions strictly by action, resource ARN, and condition tags"], keywords: ["iam", "sts", "least privilege", "role", "security"] },
+    { topic: "Cloud Storage Tiers & Object Consistency", question: "Compare cloud block, shared file, and object storage, and explain how lifecycle policies and Object Lock defend backups against ransomware.", context: "Expected focus areas: Latency/IOPS vs 11-nines durability; Tiering retrieval fees; Immutable WORM retention.", expectedPoints: ["Use block for low-latency DB volumes, EFS for shared POSIX, S3 for durable object storage", "Enable versioning + WORM Object Lock to block backup deletion"], keywords: ["s3", "ebs", "efs", "object lock", "storage"] },
+    { topic: "Managed Cloud Databases & Failover", question: "Differentiate Multi-AZ synchronous standby instances from asynchronous read replicas, and explain how hot partitions bottleneck managed NoSQL.", context: "Expected focus areas: HA zero-RPO failover vs read scaling; Partition key skew; Point-in-time recovery.", expectedPoints: ["Multi-AZ standby protects uptime via synchronous replication; read replicas offload read traffic", "Avoid low-cardinality NoSQL partition keys via write sharding"], keywords: ["multi-az", "read replica", "nosql", "hot partition", "rds"] },
+    { topic: "Cloud FinOps & Cost Optimization", question: "How do Spot/Preemptible instances, Graviton/ARM compute, and Savings Plans combine to cut cloud bills without degrading reliability SLAs?", context: "Expected focus areas: Blending On-Demand baseline + Spot burst; Auto-scaling rightsizing; Detecting zombie volumes/egress.", expectedPoints: ["Commit Reserved/Savings Plans for steady baseline and Spot for fault-tolerant stateless/batch tasks", "Eliminate unattached volumes, cross-AZ traffic waste, and idle NAT charges"], keywords: ["finops", "spot", "savings plans", "cost", "rightsizing"] },
+    { topic: "Multi-Region Disaster Recovery (RTO/RPO)", question: "Compare Backup & Restore, Pilot Light, Warm Standby, and Active-Active cloud DR topologies across RTO, RPO, and steady-state cost.", context: "Expected focus areas: DNS failover propagation; Async replication RPO gap; GameDay failover testing.", expectedPoints: ["Map each DR tier along cost-vs-recovery-speed curve", "Verify actual RTO/RPO periodically via controlled regional failover drills"], keywords: ["disaster recovery", "rto", "rpo", "pilot light", "active-active"] },
+  ],
+  "machine-learning": [
+    { topic: "Bias-Variance Tradeoff & Regularization", question: "Explain the bias-variance tradeoff mathematically and practically, and contrast L1 (Lasso) versus L2 (Ridge) regularization behavior on correlated features.", context: "Expected focus areas: Underfitting vs overfitting; L1 sparse feature zeroing vs L2 weight shrinkage; Cross-validation lambda tuning.", expectedPoints: ["Decompose prediction error into bias squared, variance, and irreducible noise", "L1 diamond geometry produces sparse weights; L2 shrinks correlated coefficients smoothly"], keywords: ["bias-variance", "l1", "l2", "ridge", "lasso", "regularization"] },
+    { topic: "Data Leakage & Cross-Validation", question: "What is target/preprocessing data leakage in tabular ML pipelines, and how do Scikit-learn Pipelines with Stratified K-Fold prevent it?", context: "Expected focus areas: Fitting scalers/imputers only on training folds; Temporal split for time series; GroupKFold for grouped entities.", expectedPoints: ["Never fit normalization, PCA, or target encoders on the combined train+validation set", "Wrap preprocessing inside Pipeline inside CV loop; respect time ordering on temporal data"], keywords: ["data leakage", "cross-validation", "pipeline", "stratified", "time series"] },
+    { topic: "Gradient Boosting (XGBoost/LightGBM) vs Random Forest", question: "Contrast Bagging (Random Forests) with Gradient Boosting (XGBoost/LightGBM), explaining how each targets variance vs bias.", context: "Expected focus areas: Parallel independent trees vs sequential residual fitting; Shrinkage/learning rate; Early stopping.", expectedPoints: ["Random Forests average decorrelated high-variance trees in parallel", "Gradient boosting trains shallow trees sequentially on negative loss gradients"], keywords: ["random forest", "xgboost", "lightgbm", "bagging", "boosting"] },
+    { topic: "Class Imbalance & Evaluation Metrics", question: "Why is Accuracy misleading on a 1% fraud dataset, and how do you choose between ROC-AUC, PR-AUC, F1, and calibrated decision thresholds?", context: "Expected focus areas: True negatives dominating ROC vs Precision-Recall focus on minority class; Cost-sensitive thresholding.", expectedPoints: ["PR-AUC highlights false positive rate in skewed minority classes better than ROC-AUC", "Calibrate probabilities and pick threshold based on business precision/recall cost"], keywords: ["roc-auc", "pr-auc", "imbalanced", "f1", "precision", "recall"] },
+    { topic: "Feature Engineering & Categorical Encoding", question: "Compare one-hot encoding, ordinal encoding, and out-of-fold target encoding for high-cardinality categorical variables in tree vs linear models.", context: "Expected focus areas: Dimensionality explosion; Arbitrary ordering bias; Out-of-fold smoothing against overfitting.", expectedPoints: ["One-hot works for low cardinality linear models but fragments deep tree splits", "Use smoothed out-of-fold target encoding for high cardinality without leaking target"], keywords: ["feature engineering", "encoding", "one-hot", "target encoding", "cardinality"] },
+    { topic: "Dimensionality Reduction & Clustering", question: "Compare PCA with t-SNE/UMAP, and explain why K-Means fails on non-convex clusters or unscaled features.", context: "Expected focus areas: Linear orthogonal variance projection vs non-linear local neighbor embedding; Euclidean distance scaling sensitivity.", expectedPoints: ["PCA preserves global linear variance and allows transforming new test points cleanly", "Standardize feature scales before distance-based K-Means/SVM/kNN"], keywords: ["pca", "kmeans", "clustering", "scaling", "dimensionality"] },
+    { topic: "Explainable AI (SHAP) & Production Drift", question: "How do SHAP values explain individual model predictions reliably, and how do you distinguish covariate drift from concept drift in production?", context: "Expected focus areas: Shapley additive game-theoretic attributions; Input feature distribution shift (PSI/KS) vs P(Y|X) label drift.", expectedPoints: ["SHAP computes consistent fair marginal feature contributions per prediction", "Monitor feature distributions for covariate drift and ground-truth labels for concept drift"], keywords: ["shap", "explainability", "covariate drift", "concept drift", "monitoring"] },
+  ],
+  "data-engineering": [
+    { topic: "OLTP vs OLAP & Columnar Storage", question: "Why do analytical warehouses use columnar formats like Apache Parquet instead of row-oriented OLTP storage, and how does predicate pushdown speed up scans?", context: "Expected focus areas: Column pruning; Dictionary/RLE compression; Min-max row-group statistics; Vectorized execution.", expectedPoints: ["Columnar files read only queried columns and compress homogeneous data tightly", "Parquet row-group min/max metadata skips irrelevant blocks cleanly"], keywords: ["oltp", "olap", "parquet", "columnar", "predicate pushdown"] },
+    { topic: "Dimensional Modeling & Slowly Changing Dimensions", question: "Contrast Star Schema vs Snowflake Schema, and explain how SCD Type 2 preserves historical dimension state in analytical fact joins.", context: "Expected focus areas: Denormalized join speed; Surrogate keys; valid_from / valid_to / is_current columns.", expectedPoints: ["Star schema minimizes analytical join hops at small storage cost", "SCD Type 2 adds new effective-dated rows with surrogate keys for point-in-time accuracy"], keywords: ["star schema", "scd type 2", "dimensional modeling", "surrogate key", "warehouse"] },
+    { topic: "Apache Spark Shuffles & Data Skew", question: "What causes an expensive Shuffle stage in Apache Spark, and how do Broadcast Joins and key salting resolve severe partition skew?", context: "Expected focus areas: Wide vs narrow transformations; Network/disk spill; Straggler tasks; AQE skew join optimization.", expectedPoints: ["Wide transformations (groupBy/join) repartition data across executors over network", "Broadcast small dimension tables or salt skewed keys to balance task durations"], keywords: ["spark", "shuffle", "skew", "broadcast join", "aqe"] },
+    { topic: "CDC Ingestion & Idempotent Backfills", question: "Compare query-based incremental polling against log-based Change Data Capture (Debezium), and explain how to design idempotent backfill pipelines.", context: "Expected focus areas: Capturing hard deletes & minimal source DB load via WAL; Date-partition overwrite / MERGE idempotency.", expectedPoints: ["Log-based CDC tails DB WAL capturing inserts/updates/deletes with low source load", "Make batch backfills partition-isolated with atomic overwrite or MERGE"], keywords: ["cdc", "debezium", "idempotency", "backfill", "wal"] },
+    { topic: "Apache Kafka Partitioning & Delivery Guarantees", question: "How do Kafka partition keys, ISRs, and producer acks=all prevent data loss, and how do consumer groups balance parallelism vs ordering?", context: "Expected focus areas: Append-only partition ordering; min.insync.replicas; Consumer lag & rebalance behavior.", expectedPoints: ["Ordering holds strictly within a single partition key", "acks=all + min.insync.replicas guarantees replicated durability before ACK"], keywords: ["kafka", "partition", "isr", "acks", "consumer group"] },
+    { topic: "Data Lakehouses (Apache Iceberg & Delta Lake)", question: "What limitations of Hive-style data lakes do Apache Iceberg and Delta Lake solve via ACID transactions, snapshot isolation, and hidden partitioning?", context: "Expected focus areas: Atomic metadata manifest commits; Time travel; Compaction & vacuuming small files.", expectedPoints: ["Metadata transaction logs allow atomic concurrent writes and snapshot reads", "Hidden partitioning avoids user query filter pitfalls and enables partition evolution"], keywords: ["iceberg", "delta lake", "lakehouse", "acid", "time travel"] },
+    { topic: "Stream Processing Watermarks & Late Data", question: "Explain event time versus processing time in Apache Flink or Spark Streaming, and how watermarks handle out-of-order late events.", context: "Expected focus areas: Watermark advancement heuristic; Window triggers; Allowed lateness and side-output routing.", expectedPoints: ["Event time reflects real occurrence regardless of network/queue delays", "Watermarks bound lateness wait before emitting windows, routing very late records to side outputs"], keywords: ["event time", "watermark", "flink", "streaming", "late data"] },
+  ],
+  "blockchain": [
+    { topic: "Cryptographic Hashing, Merkle Trees & Signatures", question: "How do Merkle trees allow lightweight clients to verify transaction inclusion without downloading an entire block, and what guarantees does ECDSA/EdDSA provide?", context: "Expected focus areas: O(log N) Merkle proof path; Collision/preimage resistance; Public key signature verification & non-repudiation.", expectedPoints: ["Verify inclusion using only sibling hashes along log2(N) tree branch", "Digital signatures prove private-key authorization without exposing the secret key"], keywords: ["merkle tree", "sha256", "ecdsa", "signature", "inclusion proof"] },
+    { topic: "Proof of Work vs Proof of Stake Finality", question: "Contrast probabilistic finality in Bitcoin Proof of Work with economic finality and validator slashing in Ethereum Proof of Stake.", context: "Expected focus areas: Longest chain / chain reorgs; Casper FFG checkpoints; Slashing equivocating validators; 33%/51% thresholds.", expectedPoints: ["PoW offers probabilistic finality deepening with block confirmations", "PoS finalizes epochs via 2/3 stake attestations and slashes provable double-signing"], keywords: ["pow", "pos", "finality", "slashing", "consensus"] },
+    { topic: "EVM Execution, Gas Metering & Storage", question: "Why does writing to EVM persistent storage cost far more gas than memory or calldata, and how does EIP-1559 structure base fees vs priority tips?", context: "Expected focus areas: Global state Merkle Trie updates across all nodes; Burning base fee; Dynamic congestion pricing.", expectedPoints: ["SSTORE permanently expands global node state disk/trie size vs ephemeral memory", "EIP-1559 burns elastic baseFee targeting 50% block fullness while validators get tips"], keywords: ["evm", "gas", "sstore", "eip-1559", "storage"] },
+    { topic: "Smart Contract Security & Reentrancy", question: "Walk through a classic reentrancy exploit step-by-step, and explain why Checks-Effects-Interactions and ReentrancyGuard stop it cleanly.", context: "Expected focus areas: Malicious fallback calling withdraw before balance decrement; State mutation first; Read-only reentrancy.", expectedPoints: ["Update internal balances before making external ETH/token calls", "Add mutex ReentrancyGuard and beware cross-function/read-only view reentrancy"], keywords: ["reentrancy", "checks-effects-interactions", "solidity", "audit", "security"] },
+    { topic: "ERC Token Standards (ERC-20, 721, 1155)", question: "Why does the ERC-20 approve + transferFrom pattern exist for DeFi protocols, and how do permit signatures (EIP-2612) improve UX and gas?", context: "Expected focus areas: Smart contracts unaware of direct token transfers; Allowance race condition; Off-chain signed approvals.", expectedPoints: ["Spender contracts pull tokens via transferFrom inside atomic protocol execution", "EIP-2612 permit bundles approval signature into a single transaction"], keywords: ["erc-20", "erc-721", "approve", "transferfrom", "eip-2612"] },
+    { topic: "DeFi Mechanics, Oracles & MEV", question: "How do Automated Market Makers (x*y=k) price assets without order books, and why are spot AMM reserves dangerous as on-chain price oracles?", context: "Expected focus areas: Constant product curve & impermanent loss; Flash-loan spot manipulation; TWAP & Chainlink decentralized feeds.", expectedPoints: ["Flash loans can manipulate single-block AMM reserves within one transaction", "Use decentralized oracle networks (Chainlink) or multi-block TWAPs"], keywords: ["amm", "oracle", "chainlink", "flash loan", "mev", "twap"] },
+    { topic: "Layer 2 Scaling: Optimistic vs ZK Rollups", question: "Compare Optimistic Rollups with ZK-Rollups across fraud proofs vs validity proofs, withdrawal finality delays, and calldata/blob (EIP-4844) data availability.", context: "Expected focus areas: 7-day challenge window vs instant cryptographic SNARK/STARK verification; L1 blob data posting.", expectedPoints: ["Optimistic assumes validity unless challenged in dispute window; ZK proves validity mathematically on L1", "Both inherit L1 security by posting compressed transaction data/blobs to L1"], keywords: ["rollup", "optimistic", "zk", "validity proof", "eip-4844", "layer 2"] },
+  ],
+};
+
+function cryptoShuffleLocal(arr) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 /**
  * Returns allocated question IDs from localStorage
  */
@@ -563,10 +656,36 @@ export function generateDynamicQuestion({
   index = 0,
   difficulty = "medium",
 }) {
-  const normMod = normalizeModuleId(moduleId);
+  if (courseId !== "ai-engineering" && MULTI_COURSE_FALLBACK_POOL[courseId]) {
+    const pool = MULTI_COURSE_FALLBACK_POOL[courseId];
+    const concept = pool[index % pool.length] || pool[0];
+    const qId = `DYN-${courseId}-${moduleId || "all"}-${Date.now().toString(36)}-${index + 1}`;
+    return {
+      id: qId,
+      courseId,
+      moduleId: moduleId || "all",
+      moduleTitle: concept.topic,
+      questionNumber: index + 1,
+      questionType: concept.topic.toUpperCase(),
+      topic: concept.topic,
+      subtopic: concept.topic,
+      difficulty,
+      type: "concept",
+      question: concept.question,
+      questionText: concept.question,
+      context: concept.context,
+      expectedPoints: concept.expectedPoints,
+      expected_points: concept.expectedPoints,
+      keywords: concept.keywords,
+      timeLimitSec: 45,
+      active: true,
+    };
+  }
+
+  const normMod = normalizeModuleId(moduleId, courseId);
   const modKey = (normMod && normMod !== "all") ? normMod : `M${String((index % 24) + 1).padStart(2, "0")}`;
   const modData = MODULE_TOPIC_REGISTRY[modKey] || MODULE_TOPIC_REGISTRY["M01"];
-  
+
   const conceptIdx = index % modData.concepts.length;
   const concept = modData.concepts[conceptIdx] || modData.concepts[0];
 
@@ -574,6 +693,7 @@ export function generateDynamicQuestion({
 
   return {
     id: qId,
+    courseId: "ai-engineering",
     moduleId: modKey,
     moduleTitle: modData.title,
     questionNumber: index + 1,
@@ -595,7 +715,7 @@ export function generateDynamicQuestion({
 }
 
 /**
- * Dynamic interview question allocator (100% dynamic, no static JSON files)
+ * Dynamic interview question allocator (multi-course, randomized, deduplicated offline fallback)
  */
 export function allocateInterviewQuestions({
   count = 7,
@@ -603,13 +723,49 @@ export function allocateInterviewQuestions({
   moduleId = "all",
   allowReuse = false,
 } = {}) {
-  const normMod = normalizeModuleId(moduleId);
+  const normMod = normalizeModuleId(moduleId, courseId);
+  const previouslyAllocated = allowReuse ? new Set() : new Set(getAllocatedQuestionIds());
   const questions = [];
 
-  if (!normMod || normMod === "all") {
-    // Comprehensive interview across modules
+  if (courseId !== "ai-engineering" && MULTI_COURSE_FALLBACK_POOL[courseId]) {
+    const pool = MULTI_COURSE_FALLBACK_POOL[courseId];
+    const unseen = cryptoShuffleLocal(pool.filter((c) => !previouslyAllocated.has(c.topic)));
+    const seen = cryptoShuffleLocal(pool.filter((c) => previouslyAllocated.has(c.topic)));
+    const ordered = [...unseen, ...seen];
     for (let i = 0; i < count; i++) {
-      const targetMod = `M${String(((i * 3 + 1) % 24) + 1).padStart(2, "0")}`;
+      const item = ordered[i % ordered.length];
+      questions.push({
+        id: `DYN-${courseId}-${Date.now().toString(36)}-${i + 1}`,
+        courseId,
+        moduleId: normMod || "all",
+        moduleTitle: item.topic,
+        questionNumber: i + 1,
+        questionType: item.topic.toUpperCase(),
+        topic: item.topic,
+        subtopic: item.topic,
+        difficulty: i < 2 ? "easy" : i < 5 ? "medium" : "hard",
+        type: "concept",
+        question: item.question,
+        questionText: item.question,
+        context: item.context,
+        expectedPoints: item.expectedPoints,
+        expected_points: item.expectedPoints,
+        keywords: item.keywords,
+        timeLimitSec: 45,
+        active: true,
+      });
+    }
+    markQuestionsAllocated(questions.map((q) => q.topic));
+    return questions;
+  }
+
+  if (!normMod || normMod === "all") {
+    const allKeys = cryptoShuffleLocal(Object.keys(MODULE_TOPIC_REGISTRY));
+    const unseenKeys = allKeys.filter((k) => !previouslyAllocated.has(k));
+    const seenKeys = allKeys.filter((k) => previouslyAllocated.has(k));
+    const orderedKeys = [...unseenKeys, ...seenKeys];
+    for (let i = 0; i < count; i++) {
+      const targetMod = orderedKeys[i % orderedKeys.length];
       questions.push(generateDynamicQuestion({
         courseId,
         moduleId: targetMod,
@@ -617,21 +773,45 @@ export function allocateInterviewQuestions({
         difficulty: i < 2 ? "easy" : i < 5 ? "medium" : "hard",
       }));
     }
+    markQuestionsAllocated(questions.map((q) => q.moduleId));
   } else {
-    // Specific module interview
     const modData = MODULE_TOPIC_REGISTRY[normMod] || MODULE_TOPIC_REGISTRY["M01"];
-    const conceptCount = modData.concepts.length;
-    for (let i = 0; i < count; i++) {
-      questions.push(generateDynamicQuestion({
-        courseId,
-        moduleId: normMod,
-        index: i,
-        difficulty: i === 0 ? "easy" : i < 4 ? "medium" : "hard",
-      }));
+    const baseConcepts = [...modData.concepts];
+    for (const c of modData.concepts) {
+      if (c.followUp) {
+        baseConcepts.push({
+          ...c,
+          question: c.followUp,
+        });
+      }
     }
+    const shuffled = cryptoShuffleLocal(baseConcepts);
+    for (let i = 0; i < count; i++) {
+      const concept = shuffled[i % shuffled.length];
+      questions.push({
+        id: `DYN-${normMod}-${Date.now().toString(36)}-${i + 1}`,
+        courseId: "ai-engineering",
+        moduleId: normMod,
+        moduleTitle: modData.title,
+        questionNumber: i + 1,
+        questionType: modData.title.toUpperCase(),
+        topic: concept.topic,
+        subtopic: concept.topic,
+        difficulty: i === 0 ? "easy" : i < 4 ? "medium" : "hard",
+        type: "concept",
+        question: concept.question,
+        questionText: concept.question,
+        context: concept.context,
+        expectedPoints: concept.expectedPoints,
+        expected_points: concept.expectedPoints,
+        keywords: concept.keywords,
+        timeLimitSec: 45,
+        active: true,
+      });
+    }
+    markQuestionsAllocated(questions.map((q) => q.id));
   }
 
-  markQuestionsAllocated(questions.map((q) => q.id));
   return questions;
 }
 

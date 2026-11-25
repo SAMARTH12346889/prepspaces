@@ -315,7 +315,8 @@ export async function evaluateAnswer({
 
   // 1. Primary: Groq API (llama-3.3-70b-versatile) with 5-key fallback rotation
   try {
-    const systemPrompt = `You are an expert technical interviewer evaluating a candidate's answer for an AI Engineering role.
+    const trackDomain = question?.courseTitle || question?.moduleTitle || "Software & AI Engineering";
+    const systemPrompt = `You are an expert technical interviewer evaluating a candidate's answer for a ${trackDomain} technical interview.
 Grade the response across 5 criteria from 1 to 10 (1 = poor, 10 = exceptional) and provide brief actionable feedback:
 1. Relevance: Directly answered the question and covered expected focus areas.
 2. Technical Correctness: Accuracy of technical facts, concepts, and reasoning.
