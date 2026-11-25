@@ -198,5 +198,174 @@ export const handleTranscribe = async (c) => {
   }
 };
 
+function decodeBase64ToBytes(base64Str) {
+  const clean = base64Str.replace(/^data:audio\/[\w+-]+;base64,/, "");
+  const bin = atob(clean);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) {
+    bytes[i] = bin.charCodeAt(i);
+  }
+  return bytes;
+}
+
+async function hashTtsKey(text, speaker) {
+  const input = `${speaker}::${text}`;
+  const data = new TextEncoder().encode(input);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  const hex = [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+  return `tts:v1:${hex.slice(0, 32)}`;
+}
+
+async function normalizeAudioBuffer(aiRes) {
+  if (!aiRes) return null;
+  if (typeof Response !== "undefined" && aiRes instanceof Response) {
+    return await aiRes.arrayBuffer();
+  }
+  if (typeof ReadableStream !== "undefined" && aiRes instanceof ReadableStream) {
+    return await new Response(aiRes).arrayBuffer();
+  }
+  if (aiRes instanceof ArrayBuffer) {
+    return aiRes;
+  }
+  if (ArrayBuffer.isView(aiRes)) {
+    return aiRes.buffer.slice(aiRes.byteOffset, aiRes.byteOffset + aiRes.byteLength);
+  }
+  if (typeof aiRes?.audio === "string") {
+    return decodeBase64ToBytes(aiRes.audio).buffer;
+  }
+  return null;
+}
+
+/**
+ * Neural Text-to-Speech Endpoint (KV Cached + Cloudflare Workers AI Deepgram Aura + Groq Orpheus Fallback)
+ * Solves iOS Safari / Android Chrome / In-App WebView Web Speech API muting & autoplay blocks
+ * by delivering reliable audio/mpeg (or wav) streams compatible with unlocked HTMLAudioElement playback.
+ */
+export const handleTextToSpeech = async (c) => {
+  try {
+    let rawText = "";
+    let speaker = "asteria";
+
+    if (c.req.method === "GET") {
+      rawText = c.req.query("text") || "";
+      if (c.req.query("speaker")) speaker = c.req.query("speaker");
+    } else {
+      const body = await c.req.json().catch(() => ({}));
+      rawText = body.text || "";
+      if (body.speaker) speaker = body.speaker;
+    }
+
+    const text = String(rawText).trim().slice(0, 1200);
+    if (!text) {
+      return c.json({ error: "Bad Request", message: "Missing text for speech synthesis." }, 400);
+    }
+
+    const kv = c.env?.PREPSPACES_DB || null;
+    const cacheKey = await hashTtsKey(text, speaker);
+
+    // 1. Check KV cache first (zero Workers AI neurons burned for repeated curriculum questions)
+    if (kv && typeof kv.get === "function") {
+      try {
+        const cachedBuf = await kv.get(cacheKey, "arrayBuffer");
+        if (cachedBuf && cachedBuf.byteLength >= 512) {
+          return new Response(cachedBuf, {
+            status: 200,
+            headers: {
+              "Content-Type": "audio/mpeg",
+              "Cache-Control": "public, max-age=604800",
+              "Accept-Ranges": "bytes",
+              "X-TTS-Cache": "HIT",
+            },
+          });
+        }
+      } catch (_) {}
+    }
+
+    // 2. Generate with Cloudflare Workers AI (Deepgram Aura-2 -> Aura-1)
+    let lastErr = null;
+    if (c.env?.AI) {
+      const attempts = [
+        { model: "@cf/deepgram/aura-2-en", payload: { text, encoding: "mp3", speaker } },
+        { model: "@cf/deepgram/aura-1", payload: { text, encoding: "mp3" } },
+      ];
+
+      for (const attempt of attempts) {
+        try {
+          const aiRes = await c.env.AI.run(attempt.model, attempt.payload);
+          const audioBuf = await normalizeAudioBuffer(aiRes);
+          if (audioBuf && audioBuf.byteLength >= 512) {
+            if (kv && typeof kv.put === "function") {
+              try {
+                await kv.put(cacheKey, audioBuf, { expirationTtl: 60 * 60 * 24 * 30 });
+              } catch (_) {}
+            }
+            return new Response(audioBuf, {
+              status: 200,
+              headers: {
+                "Content-Type": "audio/mpeg",
+                "Cache-Control": "public, max-age=604800",
+                "Accept-Ranges": "bytes",
+                "X-TTS-Cache": "MISS",
+              },
+            });
+          }
+        } catch (err) {
+          lastErr = err;
+          console.warn(`[VoiceRoutes] Workers AI TTS notice (${attempt.model}):`, err?.message || err);
+        }
+      }
+    }
+
+    // 3. Fallback: Groq Orpheus TTS (if enabled on configured keys)
+    try {
+      const groqRes = await fetchGroqWithFallback(
+        "https://api.groq.com/openai/v1/audio/speech",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            model: "canopylabs/orpheus-v1-english",
+            input: text,
+            voice: "tara",
+            response_format: "wav",
+          }),
+        },
+        c.env,
+        "GroqTTS"
+      );
+      if (groqRes && groqRes.ok) {
+        const audioBuf = await groqRes.arrayBuffer();
+        if (audioBuf && audioBuf.byteLength >= 512) {
+          return new Response(audioBuf, {
+            status: 200,
+            headers: {
+              "Content-Type": "audio/wav",
+              "Cache-Control": "public, max-age=604800",
+              "Accept-Ranges": "bytes",
+              "X-TTS-Cache": "GROQ",
+            },
+          });
+        }
+      }
+    } catch (err) {
+      lastErr = lastErr || err;
+    }
+
+    return c.json(
+      {
+        error: "TTS Unavailable",
+        fallback: "browser_speech_synthesis",
+        message: lastErr?.message || "Server TTS temporarily unavailable; using browser speech synthesis.",
+      },
+      503
+    );
+  } catch (error) {
+    console.error("[VoiceRoutes] TTS exception:", error);
+    return c.json({ error: "Internal Server Error", message: error.message }, 500);
+  }
+};
+
 voiceRouter.post("/", handleTranscribe);
 voiceRouter.post("/transcribe", handleTranscribe);
+voiceRouter.post("/tts", handleTextToSpeech);
+voiceRouter.get("/tts", handleTextToSpeech);

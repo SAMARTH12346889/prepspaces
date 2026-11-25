@@ -341,6 +341,12 @@ function InterviewRoomInner() {
   const ttsKeepAliveRef = useRef(null);
   const ttsUnlockAudioCtxRef = useRef(null);
   const ttsUnlockedRef = useRef(false);
+  const ttsAudioElRef = useRef(null);
+  const ttsAudioUnlockedRef = useRef(false);
+  const ttsAudioCacheRef = useRef(new Map());
+  const ttsPendingFetchesRef = useRef(new Map());
+  const ttsAbortControllerRef = useRef(null);
+  const ttsBackendUnavailableRef = useRef(false);
   const voicesRef = useRef([]);
 
   // Mandatory Media state (Camera & Microphone ONLY - Mic starts OFF by default)
@@ -618,6 +624,7 @@ function InterviewRoomInner() {
     if (
       isPlayingQuestionRef.current ||
       turnStateRef.current === "AI_SPEAKING" ||
+      (ttsAudioElRef.current && !ttsAudioElRef.current.paused) ||
       (typeof window !== "undefined" && window.speechSynthesis?.speaking)
     ) {
       return;
@@ -969,6 +976,7 @@ function InterviewRoomInner() {
     if (
       isPlayingQuestionRef.current ||
       turnStateRef.current === "AI_SPEAKING" ||
+      (ttsAudioElRef.current && !ttsAudioElRef.current.paused) ||
       (typeof window !== "undefined" && window.speechSynthesis?.speaking)
     ) {
       return;
@@ -1059,54 +1067,175 @@ function InterviewRoomInner() {
     };
   }, []);
 
+  // Revoke cached neural TTS Blob URLs & tear down persistent Audio element on unmount
+  useEffect(() => {
+    const cacheMap = ttsAudioCacheRef.current;
+    const pendingMap = ttsPendingFetchesRef.current;
+    return () => {
+      try {
+        ttsAbortControllerRef.current?.abort();
+      } catch {}
+      if (ttsAudioElRef.current) {
+        try {
+          ttsAudioElRef.current.pause();
+          ttsAudioElRef.current.onended = null;
+          ttsAudioElRef.current.onerror = null;
+          ttsAudioElRef.current.onplaying = null;
+          ttsAudioElRef.current.removeAttribute("src");
+          ttsAudioElRef.current.load?.();
+        } catch {}
+        ttsAudioElRef.current = null;
+      }
+      for (const blobUrl of cacheMap.values()) {
+        try {
+          URL.revokeObjectURL(blobUrl);
+        } catch {}
+      }
+      cacheMap.clear();
+      pendingMap.clear();
+    };
+  }, []);
+
+  const SILENT_WAV_DATA_URI = "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQIAAAAAAA==";
+
+  const getOrCreateTtsAudioEl = useCallback(() => {
+    if (typeof window === "undefined" || typeof Audio === "undefined") return null;
+    if (!ttsAudioElRef.current) {
+      const el = new Audio();
+      el.preload = "auto";
+      el.playsInline = true;
+      el.setAttribute?.("playsinline", "true");
+      el.setAttribute?.("webkit-playsinline", "true");
+      ttsAudioElRef.current = el;
+    }
+    return ttsAudioElRef.current;
+  }, []);
+
+  const fetchTtsAudioBlobUrl = useCallback(async (text) => {
+    const key = String(text || "").trim();
+    if (!key || typeof window === "undefined" || ttsBackendUnavailableRef.current) return null;
+    if (ttsAudioCacheRef.current.has(key)) {
+      return ttsAudioCacheRef.current.get(key);
+    }
+    if (ttsPendingFetchesRef.current.has(key)) {
+      return ttsPendingFetchesRef.current.get(key);
+    }
+
+    const reqPromise = (async () => {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 12000);
+
+      try {
+        const res = await fetch(`${API_URL}/api/voice/tts`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: key, speaker: "asteria" }),
+          signal: controller.signal,
+        });
+        if (res.status === 502 || res.status === 503) {
+          ttsBackendUnavailableRef.current = true;
+          return null;
+        }
+        if (!res.ok) return null;
+        const ctype = res.headers.get("content-type") || "";
+        if (!ctype.includes("audio")) return null;
+        const buf = await res.arrayBuffer();
+        if (!buf || buf.byteLength < 512) return null;
+        const blobUrl = URL.createObjectURL(new Blob([buf], { type: ctype.split(";")[0] || "audio/mpeg" }));
+        ttsAudioCacheRef.current.set(key, blobUrl);
+        return blobUrl;
+      } catch {
+        return null;
+      } finally {
+        clearTimeout(timeoutId);
+        ttsPendingFetchesRef.current.delete(key);
+      }
+    })();
+
+    ttsPendingFetchesRef.current.set(key, reqPromise);
+    return reqPromise;
+  }, []);
+
+  // Pre-fetch 1 question ahead so Start/Next transitions play instantaneously without wasting AI quota
+  useEffect(() => {
+    const qs = activeSessionRef.current?.questions;
+    if (!Array.isArray(qs) || qs.length === 0 || ttsBackendUnavailableRef.current) return;
+    if (activeTab === "preflight") {
+      if (qs[0]?.questionText) fetchTtsAudioBlobUrl(qs[0].questionText).catch(() => {});
+    } else if (activeTab === "interview") {
+      const idx = session?.currentQuestionIndex || 0;
+      const nextItem = qs[idx + 1];
+      if (nextItem?.questionText) {
+        fetchTtsAudioBlobUrl(nextItem.questionText).catch(() => {});
+      }
+    }
+  }, [activeTab, session?.id, session?.currentQuestionIndex, fetchTtsAudioBlobUrl]);
+
   /**
-   * Synchronously unlocks mobile browser Web Audio + SpeechSynthesis playback
+   * Synchronously unlocks mobile browser HTMLAudioElement + Web Audio + SpeechSynthesis
    * inside a user tap/click handler BEFORE any async await/fetch boundary.
    * Essential for iOS Safari & Android Chrome autoplay policies.
    */
-  const unlockSpeechAndAudio = useCallback(() => {
-    if (typeof window === "undefined") return;
+  const unlockSpeechAndAudio = useCallback(
+    (primeSilentAudio = true) => {
+      if (typeof window === "undefined") return;
 
-    // 1. Unlock Web Audio API output routing (ensures iOS Safari doesn't mute audio after getUserMedia)
-    try {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (AudioCtx) {
-        if (!ttsUnlockAudioCtxRef.current || ttsUnlockAudioCtxRef.current.state === "closed") {
-          ttsUnlockAudioCtxRef.current = new AudioCtx();
-        }
-        const ctx = ttsUnlockAudioCtxRef.current;
-        if (ctx.state === "suspended") {
-          ctx.resume().catch(() => {});
-        }
-        const silentBuf = ctx.createBuffer(1, 1, 22050);
-        const src = ctx.createBufferSource();
-        src.buffer = silentBuf;
-        src.connect(ctx.destination);
-        src.start(0);
-      }
-    } catch {}
-
-    // 2. Prime SpeechSynthesis synchronously inside user gesture if idle
-    if (window.speechSynthesis && !ttsUnlockedRef.current) {
+      // 1. Unlock Web Audio API output routing
       try {
-        voicesRef.current = window.speechSynthesis.getVoices() || [];
-        if (!window.speechSynthesis.speaking && !window.speechSynthesis.pending) {
-          const primer = new SpeechSynthesisUtterance(" ");
-          primer.volume = 0;
-          primer.rate = 10;
-          primer.lang = "en-US";
-          primer.onend = () => {
-            ttsUnlockedRef.current = true;
-          };
-          primer.onerror = () => {};
-          window.speechSynthesis.speak(primer);
-          ttsUnlockedRef.current = true;
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) {
+          if (!ttsUnlockAudioCtxRef.current || ttsUnlockAudioCtxRef.current.state === "closed") {
+            ttsUnlockAudioCtxRef.current = new AudioCtx();
+          }
+          const ctx = ttsUnlockAudioCtxRef.current;
+          if (ctx.state === "suspended") {
+            ctx.resume().catch(() => {});
+          }
+          const silentBuf = ctx.createBuffer(1, 1, 22050);
+          const src = ctx.createBufferSource();
+          src.buffer = silentBuf;
+          src.connect(ctx.destination);
+          src.start(0);
         }
       } catch {}
-    }
-  }, []);
 
-  // Question Audio Playback (Text-To-Speech) with Mobile Autoplay Handling, Overlap Guard & Watchdog
+      // 2. Permanently unlock persistent HTMLAudioElement inside user tap (survives async awaits on iOS/Android)
+      if (primeSilentAudio && !ttsAudioUnlockedRef.current && !isPlayingQuestionRef.current) {
+        try {
+          const el = getOrCreateTtsAudioEl();
+          if (el) {
+            el.volume = 1.0;
+            el.src = SILENT_WAV_DATA_URI;
+            const p = el.play();
+            if (p && typeof p.then === "function") {
+              p.then(() => {
+                ttsAudioUnlockedRef.current = true;
+              }).catch(() => {});
+            } else {
+              ttsAudioUnlockedRef.current = true;
+            }
+          }
+        } catch {}
+      }
+
+      // 3. Warm SpeechSynthesis voice list cleanly without queuing broken silent rate=10 utterances
+      if (window.speechSynthesis) {
+        try {
+          if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+          }
+          const loaded = window.speechSynthesis.getVoices() || [];
+          if (loaded.length > 0) {
+            voicesRef.current = loaded;
+          }
+          ttsUnlockedRef.current = true;
+        } catch {}
+      }
+    },
+    [getOrCreateTtsAudioEl]
+  );
+
+  // Question Audio Playback (Neural HTMLAudio Primary + Web Speech Fallback)
   const clearAllTtsTimers = useCallback(() => {
     if (ttsPendingStartTimeoutRef.current) {
       clearTimeout(ttsPendingStartTimeoutRef.current);
@@ -1130,38 +1259,55 @@ function InterviewRoomInner() {
     }
   }, []);
 
-  const stopQuestionAudio = useCallback((resumeListeningIfActive = true) => {
-    ttsPlaybackIdRef.current += 1;
-    clearAllTtsTimers();
+  const stopQuestionAudio = useCallback(
+    (resumeListeningIfActive = true) => {
+      ttsPlaybackIdRef.current += 1;
+      clearAllTtsTimers();
 
-    if (typeof window !== "undefined" && window.speechSynthesis) {
       try {
-        if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
-          window.speechSynthesis.cancel();
-        }
+        ttsAbortControllerRef.current?.abort();
+        ttsAbortControllerRef.current = null;
       } catch {}
-    }
-    currentUtteranceRef.current = null;
 
-    if (resumeListeningIfActive && micEnabledRef.current && activeTab === "interview" && !isInterviewPaused) {
-      // 600ms room acoustic decay delay before turning on mic
-      echoFadeTimeoutRef.current = setTimeout(() => {
+      if (ttsAudioElRef.current) {
+        try {
+          ttsAudioElRef.current.onended = null;
+          ttsAudioElRef.current.onerror = null;
+          ttsAudioElRef.current.onplaying = null;
+          ttsAudioElRef.current.pause();
+        } catch {}
+      }
+
+      if (typeof window !== "undefined" && window.speechSynthesis) {
+        try {
+          if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+            window.speechSynthesis.cancel();
+          }
+        } catch {}
+      }
+      currentUtteranceRef.current = null;
+
+      if (resumeListeningIfActive && micEnabledRef.current && activeTab === "interview" && !isInterviewPaused) {
+        // 550ms room acoustic decay delay before turning on mic
+        echoFadeTimeoutRef.current = setTimeout(() => {
+          setIsPlayingQuestion(false);
+          isPlayingQuestionRef.current = false;
+          setInterimTranscript("");
+          if (micEnabledRef.current && activeTab === "interview" && !isInterviewPaused) {
+            updateTurnState("USER_LISTENING");
+            startListening();
+          } else {
+            updateTurnState("MUTED");
+          }
+        }, 550);
+      } else {
         setIsPlayingQuestion(false);
         isPlayingQuestionRef.current = false;
-        setInterimTranscript("");
-        if (micEnabledRef.current && activeTab === "interview" && !isInterviewPaused) {
-          updateTurnState("USER_LISTENING");
-          startListening();
-        } else {
-          updateTurnState("MUTED");
-        }
-      }, 600);
-    } else {
-      setIsPlayingQuestion(false);
-      isPlayingQuestionRef.current = false;
-      updateTurnState(micEnabledRef.current ? "USER_LISTENING" : "MUTED");
-    }
-  }, [activeTab, clearAllTtsTimers, isInterviewPaused, startListening, updateTurnState]);
+        updateTurnState(micEnabledRef.current ? "USER_LISTENING" : "MUTED");
+      }
+    },
+    [activeTab, clearAllTtsTimers, isInterviewPaused, startListening, updateTurnState]
+  );
 
   const toggleMic = useCallback(() => {
     setMicEnabled((prev) => {
@@ -1197,43 +1343,58 @@ function InterviewRoomInner() {
   }, [engine, startListening, stopListening, updateTurnState]);
 
   const playQuestionAudio = useCallback(
-    (textToPlay = null) => {
+    async (textToPlay = null) => {
       const isManualTap = textToPlay === null || typeof textToPlay !== "string";
-      const text = typeof textToPlay === "string" ? textToPlay : currentQuestionRef.current?.questionText || currentQuestion?.questionText;
+      const rawText =
+        typeof textToPlay === "string"
+          ? textToPlay
+          : currentQuestionRef.current?.questionText || currentQuestion?.questionText;
+      const text = String(rawText || "").trim();
       if (!text) return;
 
-      if (typeof window === "undefined" || !window.speechSynthesis) {
-        setTtsBlockedNotice("Voice playback is unavailable on this browser. Please read the question text above.");
-        updateTurnState(micEnabledRef.current ? "USER_LISTENING" : "MUTED");
-        return;
-      }
-
-      // On manual tap, always synchronously unlock mobile audio context & speech engine
-      if (isManualTap) {
-        unlockSpeechAndAudio();
-        setTtsBlockedNotice("");
-      }
-
-      // If user clicked the button while audio is actively speaking -> toggle off and resume listening
+      // Toggle off cleanly if user tapped the Stop Audio button while speaking
       if (isPlayingQuestionRef.current && isManualTap) {
         stopQuestionAudio(true);
         return;
       }
 
-      // 1. Invalidate any prior utterance and check whether speechSynthesis needs cancel cooldown
-      const wasActive = Boolean(window.speechSynthesis.speaking || window.speechSynthesis.pending);
+      const cachedAudioUrl = ttsAudioCacheRef.current.get(text) || null;
+      if (isManualTap) {
+        // If cached audio exists, avoid playing SILENT_WAV immediately before real audio (prevents AbortError)
+        unlockSpeechAndAudio(!cachedAudioUrl);
+        setTtsBlockedNotice("");
+      }
+
+      // 1. Invalidate any prior playback & cancel pending audio/speech
+      const wasSpeechActive = Boolean(
+        typeof window !== "undefined" &&
+          (window.speechSynthesis?.speaking || window.speechSynthesis?.pending)
+      );
       ttsPlaybackIdRef.current += 1;
       const playbackId = ttsPlaybackIdRef.current;
       clearAllTtsTimers();
-      currentUtteranceRef.current = null;
+      try {
+        ttsAbortControllerRef.current?.abort();
+      } catch {}
+      ttsAbortControllerRef.current = new AbortController();
+      const abortSignal = ttsAbortControllerRef.current.signal;
 
-      if (wasActive) {
+      if (ttsAudioElRef.current) {
+        try {
+          ttsAudioElRef.current.onended = null;
+          ttsAudioElRef.current.onerror = null;
+          ttsAudioElRef.current.onplaying = null;
+          ttsAudioElRef.current.pause();
+        } catch {}
+      }
+      currentUtteranceRef.current = null;
+      if (wasSpeechActive && typeof window !== "undefined" && window.speechSynthesis) {
         try {
           window.speechSynthesis.cancel();
         } catch {}
       }
 
-      // 2. Strict Turn-Taking: Mute/pause mic and set interview state to AI_SPEAKING before TTS starts
+      // 2. Strict Turn-Taking: Mute/pause mic and set interview state to AI_SPEAKING before audio starts
       updateTurnState("AI_SPEAKING");
       setIsPlayingQuestion(true);
       isPlayingQuestionRef.current = true;
@@ -1247,51 +1408,37 @@ function InterviewRoomInner() {
       stopListening(false);
       setInterimTranscript("");
 
-      const beginSpeak = () => {
+      const finishToListening = (blockedReason = null) => {
         if (playbackId !== ttsPlaybackIdRef.current) return;
+        clearAllTtsTimers();
+        currentUtteranceRef.current = null;
 
-        const utterance = new SpeechSynthesisUtterance(text);
-        currentUtteranceRef.current = utterance; // Retain reference to prevent GC
-        utterance.rate = 1.0;
-        utterance.pitch = 1.0;
-        utterance.volume = 1.0;
-        utterance.lang = "en-US";
-
-        // Pick a reliable English voice (local/native preferred on iOS & Android)
-        try {
-          const availableVoices =
-            voicesRef.current.length > 0 ? voicesRef.current : window.speechSynthesis.getVoices() || [];
-          if (availableVoices.length > 0) {
-            voicesRef.current = availableVoices;
-            const preferred =
-              availableVoices.find(
-                (v) =>
-                  (v.name.includes("Natural") ||
-                    v.name.includes("Google") ||
-                    v.name.includes("Samantha") ||
-                    v.name.includes("Daniel") ||
-                    v.name.includes("Karen")) &&
-                  v.lang.startsWith("en")
-              ) ||
-              availableVoices.find((v) => v.localService && v.lang.startsWith("en")) ||
-              availableVoices.find((v) => v.lang.startsWith("en"));
-            if (preferred) {
-              utterance.voice = preferred;
-            }
+        if (blockedReason) {
+          setTtsBlockedNotice(blockedReason);
+          setIsPlayingQuestion(false);
+          isPlayingQuestionRef.current = false;
+          setInterimTranscript("");
+          if (micEnabledRef.current && activeTab === "interview" && !isInterviewPaused) {
+            updateTurnState("USER_LISTENING");
+            startListening();
+          } else {
+            updateTurnState("MUTED");
           }
-        } catch {}
+          return;
+        }
 
-        let didStart = false;
-        let cleaned = false;
+        // Wait until both HTMLAudio and SpeechSynthesis have stopped, then wait 550ms for room echo decay
+        const pollAudioDone = () => {
+          if (playbackId !== ttsPlaybackIdRef.current) return;
+          const htmlPlaying = Boolean(ttsAudioElRef.current && !ttsAudioElRef.current.paused && !ttsAudioElRef.current.ended);
+          const synthPlaying = Boolean(typeof window !== "undefined" && window.speechSynthesis?.speaking);
+          if (htmlPlaying || synthPlaying) {
+            echoFadeTimeoutRef.current = setTimeout(pollAudioDone, 80);
+            return;
+          }
 
-        const cleanupTTS = (blockedReason = null) => {
-          if (cleaned || playbackId !== ttsPlaybackIdRef.current) return;
-          cleaned = true;
-          clearAllTtsTimers();
-
-          if (blockedReason) {
-            setTtsBlockedNotice(blockedReason);
-            currentUtteranceRef.current = null;
+          echoFadeTimeoutRef.current = setTimeout(() => {
+            if (playbackId !== ttsPlaybackIdRef.current) return;
             setIsPlayingQuestion(false);
             isPlayingQuestionRef.current = false;
             setInterimTranscript("");
@@ -1301,127 +1448,229 @@ function InterviewRoomInner() {
             } else {
               updateTurnState("MUTED");
             }
-            return;
-          }
-
-          // Hardware completion poll + 650ms room acoustic decay delay before opening mic
-          const pollTtsComplete = () => {
-            if (playbackId !== ttsPlaybackIdRef.current) return;
-            if (typeof window !== "undefined" && window.speechSynthesis?.speaking) {
-              echoFadeTimeoutRef.current = setTimeout(pollTtsComplete, 80);
-              return;
-            }
-
-            echoFadeTimeoutRef.current = setTimeout(() => {
-              if (playbackId !== ttsPlaybackIdRef.current) return;
-              currentUtteranceRef.current = null;
-              setIsPlayingQuestion(false);
-              isPlayingQuestionRef.current = false;
-              setInterimTranscript("");
-
-              if (micEnabledRef.current && activeTab === "interview" && !isInterviewPaused) {
-                updateTurnState("USER_LISTENING");
-                startListening();
-              } else {
-                updateTurnState("MUTED");
-              }
-            }, 650);
-          };
-
-          pollTtsComplete();
+          }, 550);
         };
 
-        utterance.onstart = () => {
+        pollAudioDone();
+      };
+
+      const startWebSpeechFallback = () => {
+        if (playbackId !== ttsPlaybackIdRef.current) return;
+        if (typeof window === "undefined" || !window.speechSynthesis) {
+          finishToListening("Voice playback is unavailable on this browser. Please read the question text above.");
+          return;
+        }
+
+        const runSpeech = () => {
           if (playbackId !== ttsPlaybackIdRef.current) return;
-          didStart = true;
-          ttsUnlockedRef.current = true;
-          setTtsBlockedNotice("");
-          if (ttsStartWatchdogRef.current) {
-            clearTimeout(ttsStartWatchdogRef.current);
-            ttsStartWatchdogRef.current = null;
-          }
-          setIsPlayingQuestion(true);
-          isPlayingQuestionRef.current = true;
-          updateTurnState("AI_SPEAKING");
-          if (streamRef.current) {
-            streamRef.current.getAudioTracks().forEach((track) => {
-              track.enabled = false;
-            });
-          }
-          stopListening(false);
-          setInterimTranscript("");
-        };
 
-        utterance.onend = () => {
-          cleanupTTS(null);
-        };
+          const utterance = new SpeechSynthesisUtterance(text);
+          currentUtteranceRef.current = utterance;
+          utterance.rate = 1.0;
+          utterance.pitch = 1.0;
+          utterance.volume = 1.0;
+          utterance.lang = "en-US";
 
-        utterance.onerror = (e) => {
-          const errCode = e?.error || "";
-          if (errCode === "canceled" || errCode === "interrupted") {
-            cleanupTTS(null);
-            return;
-          }
-          console.warn("[TTS] Utterance error:", errCode, e);
-          if (errCode === "not-allowed" || errCode === "audio-busy" || errCode === "synthesis-failed") {
-            cleanupTTS("Audio playback was paused by your browser. Tap 'Listen to Question' above to hear it.");
-          } else {
-            cleanupTTS(null);
-          }
-        };
-
-        // Silent autoplay block detector (critical on iOS Safari & Android Chrome when speak() drops silently)
-        ttsStartWatchdogRef.current = setTimeout(() => {
-          if (playbackId !== ttsPlaybackIdRef.current || didStart) return;
-          const stillActive = Boolean(
-            typeof window !== "undefined" &&
-              (window.speechSynthesis?.speaking || window.speechSynthesis?.pending)
-          );
-          if (!stillActive) {
-            console.warn("[TTS Watchdog] Speech did not start (mobile autoplay gate) - unlocking turn state");
-            cleanupTTS("Tap 'Listen to Question' above to hear the question aloud.");
-          }
-        }, 1400);
-
-        // Chrome Android/Desktop pause recovery keepalive (prevents long utterances stalling if paused)
-        ttsKeepAliveRef.current = setInterval(() => {
-          if (playbackId !== ttsPlaybackIdRef.current) return;
+          // On desktop pick a high-clarity voice; on mobile keep default/local OS voice so remote voices don't go silent
           try {
-            if (window.speechSynthesis?.paused && !isInterviewPaused && !document.hidden) {
-              window.speechSynthesis.resume();
+            const isMobileUa = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || "");
+            const availableVoices =
+              voicesRef.current.length > 0 ? voicesRef.current : window.speechSynthesis.getVoices() || [];
+            if (availableVoices.length > 0) {
+              voicesRef.current = availableVoices;
+              const preferred = isMobileUa
+                ? availableVoices.find((v) => v.default && v.lang.startsWith("en")) ||
+                  availableVoices.find((v) => v.localService && v.lang.startsWith("en"))
+                : availableVoices.find(
+                    (v) =>
+                      (v.name.includes("Natural") ||
+                        v.name.includes("Google") ||
+                        v.name.includes("Samantha") ||
+                        v.name.includes("Daniel") ||
+                        v.name.includes("Karen")) &&
+                      v.lang.startsWith("en")
+                  ) ||
+                  availableVoices.find((v) => v.localService && v.lang.startsWith("en")) ||
+                  availableVoices.find((v) => v.lang.startsWith("en"));
+              if (preferred) {
+                utterance.voice = preferred;
+              }
             }
           } catch {}
-        }, 3500);
 
-        // Overall length safety timeout
-        const wordCount = text.split(/\s+/).filter(Boolean).length;
-        const safetyLimitMs = Math.max(5000, Math.min(24000, wordCount * 320 + 3500));
-        ttsSafetyTimeoutRef.current = setTimeout(() => {
-          console.warn("[TTS Watchdog] Safety limit reached - releasing audio lock");
-          cleanupTTS(null);
-        }, safetyLimitMs);
+          let didStart = false;
+          let cleaned = false;
 
-        try {
-          if (window.speechSynthesis.paused) {
-            window.speechSynthesis.resume();
+          const cleanupSpeech = (blockedReason = null) => {
+            if (cleaned || playbackId !== ttsPlaybackIdRef.current) return;
+            cleaned = true;
+            finishToListening(blockedReason);
+          };
+
+          utterance.onstart = () => {
+            if (playbackId !== ttsPlaybackIdRef.current) return;
+            didStart = true;
+            ttsUnlockedRef.current = true;
+            setTtsBlockedNotice("");
+            if (ttsStartWatchdogRef.current) {
+              clearTimeout(ttsStartWatchdogRef.current);
+              ttsStartWatchdogRef.current = null;
+            }
+            setIsPlayingQuestion(true);
+            isPlayingQuestionRef.current = true;
+            updateTurnState("AI_SPEAKING");
+            if (streamRef.current) {
+              streamRef.current.getAudioTracks().forEach((track) => {
+                track.enabled = false;
+              });
+            }
+            stopListening(false);
+            setInterimTranscript("");
+          };
+
+          utterance.onend = () => cleanupSpeech(null);
+
+          utterance.onerror = (e) => {
+            const errCode = e?.error || "";
+            if (errCode === "canceled" || errCode === "interrupted") {
+              cleanupSpeech(null);
+              return;
+            }
+            console.warn("[TTS] WebSpeech error:", errCode, e);
+            if (errCode === "not-allowed" || errCode === "audio-busy" || errCode === "synthesis-failed") {
+              cleanupSpeech("Tap 'Listen to Question' above to hear the question aloud.");
+            } else {
+              cleanupSpeech(null);
+            }
+          };
+
+          ttsStartWatchdogRef.current = setTimeout(() => {
+            if (playbackId !== ttsPlaybackIdRef.current || didStart) return;
+            const stillActive = Boolean(
+              typeof window !== "undefined" &&
+                (window.speechSynthesis?.speaking || window.speechSynthesis?.pending)
+            );
+            if (!stillActive) {
+              console.warn("[TTS Watchdog] Speech did not start - releasing mic lock");
+              cleanupSpeech("Tap 'Listen to Question' above to hear the question aloud.");
+            }
+          }, 1400);
+
+          ttsKeepAliveRef.current = setInterval(() => {
+            if (playbackId !== ttsPlaybackIdRef.current) return;
+            try {
+              if (window.speechSynthesis?.paused && !isInterviewPaused && !document.hidden) {
+                window.speechSynthesis.resume();
+              }
+            } catch {}
+          }, 3500);
+
+          const wordCount = text.split(/\s+/).filter(Boolean).length;
+          const safetyLimitMs = Math.max(5000, Math.min(26000, wordCount * 350 + 4000));
+          ttsSafetyTimeoutRef.current = setTimeout(() => {
+            console.warn("[TTS Watchdog] Safety limit reached - releasing audio lock");
+            cleanupSpeech(null);
+          }, safetyLimitMs);
+
+          try {
+            if (window.speechSynthesis.paused) {
+              window.speechSynthesis.resume();
+            }
+            window.speechSynthesis.speak(utterance);
+          } catch (err) {
+            console.warn("[TTS] speak() exception:", err);
+            cleanupSpeech("Tap 'Listen to Question' above to hear the question aloud.");
           }
-          window.speechSynthesis.speak(utterance);
-        } catch (err) {
-          console.warn("[TTS] speak() exception:", err);
-          cleanupTTS("Tap 'Listen to Question' above to hear the question aloud.");
+        };
+
+        if (wasSpeechActive) {
+          ttsPendingStartTimeoutRef.current = setTimeout(runSpeech, 80);
+        } else {
+          runSpeech();
         }
       };
 
-      // Android Chrome & iOS Safari drop speak() if called synchronously right after cancel()
-      if (wasActive) {
-        ttsPendingStartTimeoutRef.current = setTimeout(beginSpeak, 80);
-      } else {
-        beginSpeak();
+      // 3. Primary Path: Play neural MP3 via unlocked HTMLAudioElement (skip fetch cleanly if backend TTS unavailable)
+      const audioEl = getOrCreateTtsAudioEl();
+      if (audioEl && (cachedAudioUrl || !ttsBackendUnavailableRef.current)) {
+        const audioUrl =
+          cachedAudioUrl ||
+          (await Promise.race([
+            fetchTtsAudioBlobUrl(text),
+            new Promise((resolve) => {
+              const t = setTimeout(() => resolve(null), 4800);
+              abortSignal?.addEventListener("abort", () => {
+                clearTimeout(t);
+                resolve(null);
+              }, { once: true });
+            }),
+          ]));
+        if (playbackId !== ttsPlaybackIdRef.current) return;
+
+        if (audioUrl) {
+          try {
+            let endedOrHandled = false;
+            audioEl.volume = 1.0;
+            audioEl.playbackRate = 1.0;
+            audioEl.src = audioUrl;
+
+            audioEl.onplaying = () => {
+              if (playbackId !== ttsPlaybackIdRef.current) return;
+              ttsAudioUnlockedRef.current = true;
+              setTtsBlockedNotice("");
+              setIsPlayingQuestion(true);
+              isPlayingQuestionRef.current = true;
+              updateTurnState("AI_SPEAKING");
+              stopListening(false);
+            };
+
+            audioEl.onended = () => {
+              if (endedOrHandled || playbackId !== ttsPlaybackIdRef.current) return;
+              endedOrHandled = true;
+              finishToListening(null);
+            };
+
+            audioEl.onerror = () => {
+              if (endedOrHandled || playbackId !== ttsPlaybackIdRef.current) return;
+              endedOrHandled = true;
+              console.warn("[TTS] HTMLAudio playback failed, falling back to Web Speech");
+              startWebSpeechFallback();
+            };
+
+            const wordCount = text.split(/\s+/).filter(Boolean).length;
+            const safetyLimitMs = Math.max(6000, Math.min(30000, wordCount * 420 + 5000));
+            ttsSafetyTimeoutRef.current = setTimeout(() => {
+              if (!endedOrHandled && playbackId === ttsPlaybackIdRef.current) {
+                endedOrHandled = true;
+                try {
+                  audioEl.pause();
+                } catch {}
+                finishToListening(null);
+              }
+            }, safetyLimitMs);
+
+            await audioEl.play();
+            ttsAudioUnlockedRef.current = true;
+            return;
+          } catch (playErr) {
+            console.warn("[TTS] HTMLAudio play() blocked/failed:", playErr?.name || playErr?.message);
+            if (playErr?.name === "NotAllowedError") {
+              // If user has not interacted yet, Web Speech will also likely need tap; try fallback cleanly
+              startWebSpeechFallback();
+              return;
+            }
+          }
+        }
       }
+
+      // 4. Fallback Path: Web Speech API
+      startWebSpeechFallback();
     },
     [
       currentQuestion?.questionText,
       clearAllTtsTimers,
+      fetchTtsAudioBlobUrl,
+      getOrCreateTtsAudioEl,
       stopQuestionAudio,
       startListening,
       stopListening,
@@ -1519,6 +1768,7 @@ function InterviewRoomInner() {
         !desiredListeningRef.current ||
         isPlayingQuestionRef.current ||
         turnStateRef.current === "AI_SPEAKING" ||
+        (ttsAudioElRef.current && !ttsAudioElRef.current.paused && !ttsAudioElRef.current.ended) ||
         (typeof window !== "undefined" && window.speechSynthesis?.speaking)
       ) {
         return;
@@ -1597,6 +1847,7 @@ function InterviewRoomInner() {
         micEnabledRef.current &&
         !isPlayingQuestionRef.current &&
         turnStateRef.current !== "AI_SPEAKING" &&
+        !(ttsAudioElRef.current && !ttsAudioElRef.current.paused && !ttsAudioElRef.current.ended) &&
         !(typeof window !== "undefined" && window.speechSynthesis?.speaking)
       ) {
         try {
@@ -1610,6 +1861,7 @@ function InterviewRoomInner() {
               !isRecognizingRef.current &&
               !isPlayingQuestionRef.current &&
               turnStateRef.current !== "AI_SPEAKING" &&
+              !(ttsAudioElRef.current && !ttsAudioElRef.current.paused && !ttsAudioElRef.current.ended) &&
               !(typeof window !== "undefined" && window.speechSynthesis?.speaking)
             ) {
               try {
@@ -2487,6 +2739,13 @@ function InterviewRoomInner() {
       });
     }
     stopListening(false);
+
+    // Synchronously start next question audio/speech inside user tap when cached or in Web Speech mode
+    const nextText = String(nextQ.questionText || nextQ.question || "").trim();
+    if (nextText && (ttsAudioCacheRef.current.has(nextText) || ttsBackendUnavailableRef.current)) {
+      lastSpokenQuestionIdRef.current = nextQ.id;
+      playQuestionAudioRef.current?.(nextText);
+    }
   };
 
   const handleRetake = () => {
