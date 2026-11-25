@@ -184,6 +184,51 @@ const CURRICULUM_CONCEPTS = {
       followUp: "How does Grouped Query Attention GQA reduce KV cache memory consumption while preserving model quality compared to Multi-Head Attention?",
     }
   ],
+  M08: [
+    {
+      topic: "Pre-Training Objectives & Alignment Foundations",
+      question: "How do causal language modeling during pre-training, supervised fine-tuning (SFT), and preference alignment (RLHF/DPO) differ in their training objectives and data requirements?",
+      context: "Expected focus areas: Next-token cross-entropy loss; Instruction formatting in SFT; Reward modeling vs direct preference optimization; Alignment tax and catastrophic forgetting.",
+      expectedPoints: [
+        "Explain pre-training using self-supervised next-token prediction across massive uncurated corpora",
+        "Describe SFT optimizing cross-entropy only on curated prompt-response completion tokens",
+        "Contrast RLHF reward model plus PPO against direct preference optimization DPO on chosen/rejected pairs",
+        "Discuss preventing catastrophic forgetting and capability regression during alignment"
+      ],
+      keywords: ["pre-training", "sft", "rlhf", "dpo", "alignment", "cross-entropy", "fine-tuning"],
+      followUp: "Why does Direct Preference Optimization DPO eliminate the separate reward model required in traditional PPO-based RLHF pipelines?",
+    }
+  ],
+  M09: [
+    {
+      topic: "Structured Outputs & Constrained Decoding",
+      question: "Why is prompt engineering alone insufficient for guaranteeing valid JSON outputs from an LLM in production, and how does grammar-constrained decoding solve this?",
+      context: "Expected focus areas: Probabilistic token sampling; Finite-state machine / CFG token masking; Zero-shot vs few-shot reliability; Schema enforcement overhead.",
+      expectedPoints: [
+        "Explain probabilistic next-token sampling occasionally violating prompt formatting instructions",
+        "Describe logit masking / finite-state machine constraints disabling invalid tokens at each decoding step",
+        "Compare prompt-based retries with native JSON Schema constrained decoding",
+        "Discuss latency and reasoning quality trade-offs when enforcing strict output schemas"
+      ],
+      keywords: ["structured output", "json schema", "constrained decoding", "logit masking", "few-shot", "prompt"],
+      followUp: "How does Chain-of-Thought reasoning interact with strict JSON output schemas, and why should reasoning fields precede final classification fields?",
+    }
+  ],
+  M10: [
+    {
+      topic: "Vector Embeddings & Approximate Nearest Neighbor Indexing",
+      question: "How do HNSW and IVF-PQ indexes accelerate vector similarity search compared to brute-force exact search, and what accuracy-versus-memory trade-offs do they introduce?",
+      context: "Expected focus areas: Cosine vs dot product similarity; Hierarchical navigable small-world graphs; Inverted file clustering and product quantization; Recall vs latency.",
+      expectedPoints: [
+        "Explain O(N) exact kNN bottlenecks at millions of high-dimensional vectors",
+        "Describe HNSW multi-layer skip-list graph traversal offering sub-millisecond recall at higher RAM cost",
+        "Explain IVF partitioning and Product Quantization PQ compressing vectors into codebook centroids",
+        "Discuss tuning efSearch or nprobe parameters to balance recall against tail latency"
+      ],
+      keywords: ["embeddings", "hnsw", "ivf", "pq", "ann", "cosine similarity", "vector database", "recall"],
+      followUp: "When would you normalize embedding vectors to unit length so inner product equals cosine similarity, and why does asymmetric query normalization fail?",
+    }
+  ],
   M11: [
     {
       topic: "Chunking Strategies & Hybrid Dense-Sparse Search",
@@ -197,6 +242,21 @@ const CURRICULUM_CONCEPTS = {
       ],
       keywords: ["chunking", "semantic chunking", "bm25", "hybrid search", "dense", "sparse", "reciprocal rank fusion"],
       followUp: "How do you evaluate retrieval precision and context relevance independently from the LLM's final generation quality?",
+    }
+  ],
+  M12: [
+    {
+      topic: "Vision-Language Models & Cross-Modal Alignment",
+      question: "How do modern Vision-Language Models align visual patch embeddings from a vision encoder like ViT or CLIP into a text LLM's token embedding space?",
+      context: "Expected focus areas: Vision patch tokenization; Contrastive pre-training; Projection MLP vs cross-attention adapters; High-resolution tiling token budget.",
+      expectedPoints: [
+        "Explain splitting images into ViT patches projected via an MLP or Q-Former connector",
+        "Contrast contrastive dual-encoder alignment (CLIP) with autoregressive multimodal fusion",
+        "Discuss dynamic resolution tiling increasing visual token count and KV cache cost",
+        "Identify OCR/spatial hallucination failure modes and evaluation strategies"
+      ],
+      keywords: ["multimodal", "vlm", "vit", "clip", "cross-attention", "vision encoder", "projection"],
+      followUp: "Why do dynamic image tiling strategies help multimodal models read dense documents without retraining the base vision encoder?",
     }
   ],
   M13: [
@@ -214,6 +274,21 @@ const CURRICULUM_CONCEPTS = {
       followUp: "How do you protect internal backend systems from prompt injection attacks embedded inside external tool outputs?",
     }
   ],
+  M14: [
+    {
+      topic: "Multi-Agent Orchestration & Failure Isolation",
+      question: "When should you architect a multi-agent workflow instead of a single agent with tools, and how do you prevent infinite delegation loops and cascading context drift?",
+      context: "Expected focus areas: Supervisor vs handoff topologies; Context isolation per worker; Deterministic state machines; Inter-agent protocol validation.",
+      expectedPoints: [
+        "Justify multi-agent separation for isolated contexts, distinct permissions, or parallel subtasks",
+        "Contrast supervisor/router patterns against decentralized peer-to-peer handoffs",
+        "Describe enforcing bounded hop counts, typed message schemas, and shared state checkpoints",
+        "Discuss debugging non-deterministic multi-agent traces and cost amplification"
+      ],
+      keywords: ["multi-agent", "orchestration", "supervisor", "handoff", "state machine", "context drift", "loop"],
+      followUp: "How do you design human-in-the-loop approval gates cleanly inside an asynchronous multi-agent orchestration graph?",
+    }
+  ],
   M15: [
     {
       topic: "Graph RAG & Cross-Encoder Reranking",
@@ -227,6 +302,21 @@ const CURRICULUM_CONCEPTS = {
       ],
       keywords: ["graph rag", "knowledge graph", "reranker", "cross-encoder", "bi-encoder", "multi-hop", "contextual"],
       followUp: "How do you address the Lost in the Middle phenomenon where LLMs ignore relevant information placed in the middle of long prompts?",
+    }
+  ],
+  M16: [
+    {
+      topic: "LLM Evaluation Harnesses & Prompt Injection Defense",
+      question: "How do you design an automated evaluation pipeline for an enterprise RAG assistant, and what layered guardrails mitigate indirect prompt injection?",
+      context: "Expected focus areas: LLM-as-a-judge bias mitigation; Faithfulness vs groundedness metrics; Red teaming; Input/output moderation and least-privilege tool isolation.",
+      expectedPoints: [
+        "Separate retrieval metrics (Recall@K, MRR) from generation metrics (faithfulness, answer relevance)",
+        "Control LLM-as-a-judge biases like position bias, verbosity bias, and rubric drift",
+        "Defend against indirect prompt injection by isolating untrusted retrieved text from system privileges",
+        "Enforce deterministic output validation and least-privilege tool execution confirmation"
+      ],
+      keywords: ["evaluation", "llm-as-a-judge", "faithfulness", "prompt injection", "guardrails", "red teaming", "safety"],
+      followUp: "Why are regex-only jailbreak filters insufficient in production, and how do you calibrate guardrail latency against false positives?",
     }
   ],
   M17: [
@@ -244,6 +334,21 @@ const CURRICULUM_CONCEPTS = {
       followUp: "What is speculative decoding, and under what conditions does it provide a 2x inference speedup without any loss in output quality?",
     }
   ],
+  M18: [
+    {
+      topic: "Streaming AI APIs, Backpressure & Async Queues",
+      question: "How do you architect a scalable AI backend using Server-Sent Events (SSE) versus WebSockets, and how do you handle backpressure, timeouts, and slow token consumers?",
+      context: "Expected focus areas: SSE vs WebSocket trade-offs; Token streaming flush behavior; Redis/worker job queues; Graceful cancellation on client disconnect.",
+      expectedPoints: [
+        "Contrast SSE simplicity over HTTP for unidirectional token streaming with WebSocket bidirectional state",
+        "Explain aborting upstream LLM requests immediately when clients disconnect to prevent wasted compute",
+        "Describe offloading long-running batch or agent workflows to async queues with webhook/polling status",
+        "Discuss rate limiting, idempotency keys, and circuit breakers around upstream provider calls"
+      ],
+      keywords: ["sse", "websocket", "streaming", "backpressure", "async queue", "cancellation", "api"],
+      followUp: "How do you prevent connection pool exhaustion on stateless serverless workers when an upstream LLM stream stalls mid-response?",
+    }
+  ],
   M19: [
     {
       topic: "Model Versioning, Canary Rollouts & Observability",
@@ -259,6 +364,21 @@ const CURRICULUM_CONCEPTS = {
       followUp: "If a canary release causes a 5% latency spike on TTFT but increases answer quality by 10%, how do you make the decision to promote or roll back?",
     }
   ],
+  M20: [
+    {
+      topic: "Weight Quantization & GPU Inference Profiling",
+      question: "Compare AWQ, GPTQ, and FP8 quantization for large language model serving. When does activation outlier sensitivity degrade model accuracy?",
+      context: "Expected focus areas: Weight-only vs weight-and-activation quantization; Memory bandwidth vs compute-bound decode; Outlier preservation; Benchmarking perplexity and task accuracy.",
+      expectedPoints: [
+        "Explain autoregressive decoding being memory-bandwidth bound so INT4/FP8 weight compression boosts tok/s",
+        "Contrast GPTQ Hessian-based layerwise calibration with AWQ scaling salient weights to protect outliers",
+        "Discuss FP8 hardware Tensor Core acceleration on Hopper/Ada GPUs versus INT4 dequantization overhead",
+        "Emphasize validating quantized checkpoints against downstream task benchmarks rather than perplexity alone"
+      ],
+      keywords: ["quantization", "awq", "gptq", "fp8", "memory bandwidth", "outliers", "gpu", "profiling"],
+      followUp: "At high concurrent batch sizes, when does LLM inference shift from memory-bandwidth bound to compute bound, and how does that affect quantization choice?",
+    }
+  ],
   M21: [
     {
       topic: "Parameter-Efficient Fine-Tuning (LoRA & QLoRA)",
@@ -272,6 +392,21 @@ const CURRICULUM_CONCEPTS = {
       ],
       keywords: ["lora", "qlora", "peft", "low-rank", "intrinsic rank", "nf4", "parameters", "fine-tuning"],
       followUp: "How do you choose the LoRA rank r and alpha hyperparameter when fine-tuning a 70B model on medical domain guidelines?",
+    }
+  ],
+  M22: [
+    {
+      topic: "Small Language Models & Tokenizer Efficiency",
+      question: "When training a domain-specific Small Language Model (SLM) under 3 billion parameters from scratch, how do tokenizer vocabulary size, Chinchilla scaling laws, and data curation shape final capability?",
+      context: "Expected focus areas: BPE compression ratio; Embedding parameter budget; Data quality over raw token count; Knowledge distillation from frontier teachers.",
+      expectedPoints: [
+        "Balance BPE vocabulary size against embedding table parameter overhead in compact models",
+        "Explain synthetic textbook-quality curation and deduplication outperforming noisy web crawls",
+        "Apply compute-optimal vs inference-optimal token-to-parameter ratios when over-training SLMs",
+        "Discuss distilling reasoning traces from frontier teacher models into fast edge SLMs"
+      ],
+      keywords: ["slm", "small language model", "tokenizer", "bpe", "chinchilla", "distillation", "curation"],
+      followUp: "How does increasing BPE vocabulary size affect inference speed per word versus total embedding VRAM on mobile devices?",
     }
   ],
   M23: [
@@ -309,11 +444,27 @@ const CURRICULUM_CONCEPTS = {
 /**
  * Dynamically builds a voice-friendly technical question object for a given course and module
  */
-function buildDynamicQuestion({ courseId = "ai-engineering", moduleId = "M01", index = 0, difficulty = "medium" }) {
+function buildDynamicQuestion({ courseId = "ai-engineering", moduleId = "M01", index = 0, conceptIndex = null, difficulty = "medium" }) {
   const normMod = normalizeModuleId(moduleId);
   const modKey = (normMod && normMod !== "all") ? normMod : `M${String((index % 24) + 1).padStart(2, "0")}`;
   const concepts = CURRICULUM_CONCEPTS[modKey] || CURRICULUM_CONCEPTS["M01"];
-  const c = concepts[index % concepts.length] || concepts[0];
+  const cIdx = conceptIndex !== null ? conceptIndex : index;
+  const c = concepts[cIdx % concepts.length] || concepts[0];
+  const repeatCycle = Math.floor(cIdx / concepts.length);
+
+  let selectedQuestion = c.question;
+  if (repeatCycle === 1 && c.followUp) {
+    selectedQuestion = c.followUp;
+  } else if (repeatCycle >= 2) {
+    const angles = [
+      `In production systems using ${c.topic}, what are the most common failure modes or bottlenecks you watch for, and how do you debug them?`,
+      `When scaling ${c.topic} under strict latency and cost budgets, which architectural trade-offs do you make first and why?`,
+      `How would you design automated evaluation checks and observability metrics specifically for ${c.topic}?`,
+      `Walk me through an end-to-end edge case where ${c.topic} behaves unexpectedly, and how you would harden it.`,
+      `If a junior engineer implemented ${c.topic} naively, what two structural mistakes would you look for in code review?`,
+    ];
+    selectedQuestion = angles[(repeatCycle - 2) % angles.length];
+  }
 
   const courseObj = getCourseById(courseId) || PREPSPACES_COURSES[0];
   const modObj = getModuleById(courseId, modKey);
@@ -330,8 +481,8 @@ function buildDynamicQuestion({ courseId = "ai-engineering", moduleId = "M01", i
     subtopic: c.topic,
     difficulty,
     type: "concept",
-    question: c.question,
-    questionText: c.question,
+    question: selectedQuestion,
+    questionText: selectedQuestion,
     context: c.context,
     expectedPoints: c.expectedPoints,
     expected_points: c.expectedPoints,
@@ -427,13 +578,17 @@ export async function createSession({
   // Generate 7 dynamic questions for this session
   const questions = [];
   const count = 7;
+  const modUsageCounts = {};
   for (let i = 0; i < count; i++) {
     const targetMod = (normMod && normMod !== "all") ? normMod : `M${String(((i * 3 + 1) % 24) + 1).padStart(2, "0")}`;
+    const modConceptIdx = modUsageCounts[targetMod] || 0;
+    modUsageCounts[targetMod] = modConceptIdx + 1;
     questions.push(
       buildDynamicQuestion({
         courseId,
         moduleId: targetMod,
         index: i,
+        conceptIndex: modConceptIdx,
         difficulty: i === 0 ? "easy" : i < 4 ? "medium" : "hard",
       })
     );
@@ -525,8 +680,10 @@ export async function submitAnswer({
   const session = await store.get(`interview:session:${sessionId}`, "json");
   if (!session) return null;
 
-  const currentIdx = session.currentQuestionIndex || 0;
-  const currentQ = session.questions[currentIdx] || buildDynamicQuestion({ index: currentIdx });
+  const sessionQuestions = Array.isArray(session.questions) ? session.questions : [];
+  const matchedIdx = questionId ? sessionQuestions.findIndex((q) => q.id === questionId) : -1;
+  const currentIdx = matchedIdx >= 0 ? matchedIdx : (session.currentQuestionIndex || 0);
+  const currentQ = sessionQuestions[currentIdx] || buildDynamicQuestion({ index: currentIdx });
 
   // Idempotency guard: prevent duplicate answer submission for the same questionId
   const targetQId = questionId || currentQ.id;
@@ -619,35 +776,14 @@ export async function submitAnswer({
     const finalReport = buildFinalReport(session.answers, session.role);
     session.report = finalReport;
   } else {
-    // Dynamically build adaptive follow-up or next question
-    const adaptive = buildAdaptiveResponse({
-      question: currentQ,
-      transcript,
-      conversationHistory: session.conversationHistory,
-      index: currentIdx,
+    // Preserve pre-allocated session question so client and server question IDs stay synchronized
+    nextQuestion = session.questions[nextIdx] || buildDynamicQuestion({
+      courseId: session.courseId,
       moduleId: session.moduleId,
+      index: nextIdx,
+      difficulty: nextIdx >= 3 ? "hard" : "medium",
     });
-
-    if (adaptive.type === "FOLLOW_UP" || adaptive.type === "CLARIFICATION") {
-      // Re-use or adapt current topic into deeper question
-      nextQuestion = {
-        ...currentQ,
-        id: `dyn_followup_${Date.now().toString(36)}_${nextIdx + 1}`,
-        questionNumber: nextIdx + 1,
-        question: adaptive.spokenText,
-        questionText: adaptive.spokenText,
-        isAdaptiveFollowUp: true,
-      };
-      session.questions[nextIdx] = nextQuestion;
-    } else {
-      nextQuestion = session.questions[nextIdx] || buildDynamicQuestion({
-        courseId: session.courseId,
-        moduleId: session.moduleId,
-        index: nextIdx,
-        difficulty: nextIdx >= 3 ? "hard" : "medium",
-      });
-      session.questions[nextIdx] = nextQuestion;
-    }
+    session.questions[nextIdx] = nextQuestion;
 
     // Record interviewer's response in conversation history
     session.conversationHistory.push({
@@ -690,31 +826,44 @@ export async function endSession({ sessionId, reason = "USER_ENDED", clientAnswe
   session.endReason = session.endReason || reason;
 
   session.answers = session.answers || [];
-  const existingIds = new Set(session.answers.map((a) => a.questionId));
+  const existingIds = new Set(session.answers.map((a) => a.questionId).filter(Boolean));
+  const existingNumbers = new Set(session.answers.map((a) => a.questionNumber).filter((n) => typeof n === "number"));
 
   // Recover pendingDraft if cooldown/interruption occurred before answer evaluation finished
   if (session.pendingDraft && session.pendingDraft.transcript && !existingIds.has(session.pendingDraft.questionId)) {
     const qObj = (session.questions || []).find((q) => q.id === session.pendingDraft.questionId) || {};
-    session.answers.push({
-      questionId: session.pendingDraft.questionId,
-      questionText: qObj.questionText || qObj.question || "Interview Question",
-      context: qObj.context || "",
-      transcript: session.pendingDraft.transcript,
-      inputMode: session.pendingDraft.inputMode || "voice",
-      submittedAt: session.pendingDraft.savedAt || Date.now(),
-    });
-    existingIds.add(session.pendingDraft.questionId);
+    if (!(typeof qObj.questionNumber === "number" && existingNumbers.has(qObj.questionNumber))) {
+      session.answers.push({
+        questionId: session.pendingDraft.questionId,
+        questionNumber: qObj.questionNumber,
+        questionText: qObj.questionText || qObj.question || "Interview Question",
+        context: qObj.context || "",
+        transcript: session.pendingDraft.transcript,
+        inputMode: session.pendingDraft.inputMode || "voice",
+        submittedAt: session.pendingDraft.savedAt || Date.now(),
+      });
+      existingIds.add(session.pendingDraft.questionId);
+      if (typeof qObj.questionNumber === "number") existingNumbers.add(qObj.questionNumber);
+    }
     delete session.pendingDraft;
   }
 
-  // Merge clientAnswers with session.answers so any draft or client-side evaluated answers are included
+  // Merge clientAnswers with session.answers without duplicating by questionId or questionNumber
   if (Array.isArray(clientAnswers) && clientAnswers.length > 0) {
     for (const ca of clientAnswers) {
-      if (!existingIds.has(ca.questionId)) {
+      const hasId = ca.questionId && existingIds.has(ca.questionId);
+      const hasNum = typeof ca.questionNumber === "number" && existingNumbers.has(ca.questionNumber);
+      if (!hasId && !hasNum) {
         session.answers.push(ca);
-        existingIds.add(ca.questionId);
+        if (ca.questionId) existingIds.add(ca.questionId);
+        if (typeof ca.questionNumber === "number") existingNumbers.add(ca.questionNumber);
       }
     }
+  }
+
+  session.answers.sort((a, b) => (a.questionNumber || 999) - (b.questionNumber || 999));
+  if (session.maxQuestions && session.answers.length > session.maxQuestions) {
+    session.answers = session.answers.slice(0, session.maxQuestions);
   }
 
   // Build holistic final report across all submitted answers and conversation history
@@ -756,9 +905,12 @@ export async function recordViolation({ sessionId, violationType = "unknown", en
 export async function allocateQuestions({ count = 7, courseId = "ai-engineering", moduleId = "all" }) {
   const questions = [];
   const normMod = normalizeModuleId(moduleId);
+  const modUsageCounts = {};
   for (let i = 0; i < count; i++) {
     const targetMod = (normMod && normMod !== "all") ? normMod : `M${String(((i * 3 + 1) % 24) + 1).padStart(2, "0")}`;
-    questions.push(buildDynamicQuestion({ courseId, moduleId: targetMod, index: i }));
+    const modConceptIdx = modUsageCounts[targetMod] || 0;
+    modUsageCounts[targetMod] = modConceptIdx + 1;
+    questions.push(buildDynamicQuestion({ courseId, moduleId: targetMod, index: i, conceptIndex: modConceptIdx }));
   }
   return questions;
 }

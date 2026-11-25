@@ -219,6 +219,28 @@ summary,
   background: #ea580c !important;
 }
 
+/* Hide scrollbars cleanly where custom scroll buttons / swipe are used */
+.no-scrollbar {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Guarantee native select arrows are hidden when custom icon chevrons are used */
+.no-native-select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-image: none !important;
+}
+.no-native-select::-ms-expand {
+  display: none;
+}
+
 /* Prevent iOS Safari auto-zoom on input focus when font-size < 16px */
 @media screen and (max-width: 768px) {
   input,

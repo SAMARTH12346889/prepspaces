@@ -235,19 +235,24 @@ export default function Landingpage() {
       {/* ================= MAIN CONTENT AREA ================= */}
       <div className="flex-1 flex flex-col min-w-0 z-10 overflow-x-hidden">
         {/* Top Header */}
-        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-3.5 sm:px-6 py-2.5 sm:py-4 pt-[max(0.6rem,env(safe-area-inset-top))] md:px-10">
-          <div className="flex items-center gap-2.5 sm:gap-4">
+        <header className="sticky top-0 z-30 flex items-center justify-between gap-2 border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-3 sm:px-6 py-2.5 sm:py-4 pt-[max(0.6rem,env(safe-area-inset-top))] md:px-10">
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="rounded-xl border border-[#e7e3da] bg-white/80 p-2 text-stone-600 hover:bg-stone-200/50 md:hidden shadow-2xs cursor-pointer touch-manipulation select-none"
+              className="rounded-xl border border-[#e7e3da] bg-white/80 p-2 text-stone-600 hover:bg-stone-200/50 md:hidden shadow-2xs cursor-pointer touch-manipulation select-none shrink-0"
               aria-label="Open sidebar"
             >
               <Menu size={20} />
             </button>
-            <div className="md:hidden">
-              <Logo size="xs" onClick={() => navigate("/")} />
+            <div className="md:hidden min-w-0 shrink-0">
+              <div className="min-[380px]:hidden">
+                <Logo size="xs" markOnly onClick={() => navigate("/")} />
+              </div>
+              <div className="hidden min-[380px]:block">
+                <Logo size="xs" onClick={() => navigate("/")} />
+              </div>
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block min-w-0">
               <p className="text-xs font-semibold text-stone-500">
                 {new Date().toLocaleDateString("en-US", {
                   weekday: "long",
@@ -255,22 +260,22 @@ export default function Landingpage() {
                   day: "numeric",
                 })}
               </p>
-              <h1 className="text-lg font-black tracking-tight text-[#18181b] sm:text-2xl md:text-3xl">
+              <h1 className="text-lg font-black tracking-tight text-[#18181b] lg:text-2xl xl:text-3xl truncate">
                 Welcome to PrepSpaces
               </h1>
-              <p className="text-xs text-stone-500 mt-0.5">
+              <p className="text-xs text-stone-500 mt-0.5 truncate">
                 Technical interview preparation, structured engineering tracks, and architecture mastery.
               </p>
             </div>
           </div>
 
           {/* Header Right Action */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {isAuthenticated ? (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <Link
                   to="/dashboard"
-                  className="flex items-center gap-2 rounded-xl border border-stone-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs cursor-pointer"
+                  className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-stone-200 bg-white/90 px-2.5 sm:px-3 py-1.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs cursor-pointer shrink-0"
                 >
                   {user?.picture ? (
                     <img src={user.picture} alt="" className="w-5 h-5 rounded-full object-cover border border-orange-400" referrerPolicy="no-referrer" />
@@ -288,7 +293,7 @@ export default function Landingpage() {
                   }}
                   title="Sign Out"
                   aria-label="Sign Out"
-                  className="flex items-center gap-1 rounded-xl border border-stone-200 bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
+                  className="flex items-center gap-1 rounded-xl border border-stone-200 bg-white/90 px-2 sm:px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95 shrink-0"
                 >
                   <LogOut size={14} />
                   <span className="hidden sm:inline">Sign Out</span>
@@ -297,7 +302,7 @@ export default function Landingpage() {
             ) : (
               <Link
                 to="/login"
-                className="flex items-center gap-1.5 sm:gap-2 rounded-xl bg-white border border-[#e7e3da] hover:border-orange-300 hover:text-orange-600 px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-bold text-stone-700 shadow-xs transition active:scale-95 cursor-pointer shrink-0 whitespace-nowrap"
+                className="flex items-center gap-1.5 sm:gap-2 rounded-xl bg-white border border-[#e7e3da] hover:border-orange-300 hover:text-orange-600 px-2.5 py-1.5 sm:px-4 sm:py-2 text-xs font-bold text-stone-700 shadow-xs transition active:scale-95 cursor-pointer shrink-0 whitespace-nowrap"
               >
                 <User size={14} className="text-[#f97316]" />
                 <span>Sign In</span>
@@ -305,10 +310,10 @@ export default function Landingpage() {
             )}
             <Link
               to="/learning"
-              className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:px-4 sm:py-2.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer active:scale-95 shrink-0 whitespace-nowrap"
+              className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:px-4 sm:py-2.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer active:scale-95 shrink-0 whitespace-nowrap"
             >
               <BookOpen size={15} className="text-[#f97316]" />
-              <span>Browse Tracks</span>
+              <span><span className="hidden min-[430px]:inline">Browse </span>Tracks</span>
             </Link>
           </div>
         </header>

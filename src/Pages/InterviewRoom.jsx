@@ -334,6 +334,14 @@ function InterviewRoomInner() {
   // Audio Playback & Groq Whisper transcription state
   const [isPlayingQuestion, setIsPlayingQuestion] = useState(false);
   const [isWhisperTranscribing, setIsWhisperTranscribing] = useState(false);
+  const [ttsBlockedNotice, setTtsBlockedNotice] = useState("");
+  const ttsPlaybackIdRef = useRef(0);
+  const ttsPendingStartTimeoutRef = useRef(null);
+  const ttsStartWatchdogRef = useRef(null);
+  const ttsKeepAliveRef = useRef(null);
+  const ttsUnlockAudioCtxRef = useRef(null);
+  const ttsUnlockedRef = useRef(false);
+  const voicesRef = useRef([]);
 
   // Mandatory Media state (Camera & Microphone ONLY - Mic starts OFF by default)
   const [cameraEnabled, setCameraEnabled] = useState(true);
@@ -1033,8 +1041,85 @@ function InterviewRoomInner() {
     }
   }, [stopVadLoop]);
 
-  // Question Audio Playback (Text-To-Speech) with GC Protection & Safety Watchdog
-  const stopQuestionAudio = useCallback((resumeListeningIfActive = true) => {
+  // Load available speech synthesis voices across iOS Safari, Android Chrome & Desktop
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    const loadVoices = () => {
+      try {
+        const list = window.speechSynthesis.getVoices();
+        if (list && list.length > 0) {
+          voicesRef.current = list;
+        }
+      } catch {}
+    };
+    loadVoices();
+    window.speechSynthesis.addEventListener?.("voiceschanged", loadVoices);
+    return () => {
+      window.speechSynthesis.removeEventListener?.("voiceschanged", loadVoices);
+    };
+  }, []);
+
+  /**
+   * Synchronously unlocks mobile browser Web Audio + SpeechSynthesis playback
+   * inside a user tap/click handler BEFORE any async await/fetch boundary.
+   * Essential for iOS Safari & Android Chrome autoplay policies.
+   */
+  const unlockSpeechAndAudio = useCallback(() => {
+    if (typeof window === "undefined") return;
+
+    // 1. Unlock Web Audio API output routing (ensures iOS Safari doesn't mute audio after getUserMedia)
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) {
+        if (!ttsUnlockAudioCtxRef.current || ttsUnlockAudioCtxRef.current.state === "closed") {
+          ttsUnlockAudioCtxRef.current = new AudioCtx();
+        }
+        const ctx = ttsUnlockAudioCtxRef.current;
+        if (ctx.state === "suspended") {
+          ctx.resume().catch(() => {});
+        }
+        const silentBuf = ctx.createBuffer(1, 1, 22050);
+        const src = ctx.createBufferSource();
+        src.buffer = silentBuf;
+        src.connect(ctx.destination);
+        src.start(0);
+      }
+    } catch {}
+
+    // 2. Prime SpeechSynthesis synchronously inside user gesture if idle
+    if (window.speechSynthesis && !ttsUnlockedRef.current) {
+      try {
+        voicesRef.current = window.speechSynthesis.getVoices() || [];
+        if (!window.speechSynthesis.speaking && !window.speechSynthesis.pending) {
+          const primer = new SpeechSynthesisUtterance(" ");
+          primer.volume = 0;
+          primer.rate = 10;
+          primer.lang = "en-US";
+          primer.onend = () => {
+            ttsUnlockedRef.current = true;
+          };
+          primer.onerror = () => {};
+          window.speechSynthesis.speak(primer);
+          ttsUnlockedRef.current = true;
+        }
+      } catch {}
+    }
+  }, []);
+
+  // Question Audio Playback (Text-To-Speech) with Mobile Autoplay Handling, Overlap Guard & Watchdog
+  const clearAllTtsTimers = useCallback(() => {
+    if (ttsPendingStartTimeoutRef.current) {
+      clearTimeout(ttsPendingStartTimeoutRef.current);
+      ttsPendingStartTimeoutRef.current = null;
+    }
+    if (ttsStartWatchdogRef.current) {
+      clearTimeout(ttsStartWatchdogRef.current);
+      ttsStartWatchdogRef.current = null;
+    }
+    if (ttsKeepAliveRef.current) {
+      clearInterval(ttsKeepAliveRef.current);
+      ttsKeepAliveRef.current = null;
+    }
     if (ttsSafetyTimeoutRef.current) {
       clearTimeout(ttsSafetyTimeoutRef.current);
       ttsSafetyTimeoutRef.current = null;
@@ -1043,9 +1128,17 @@ function InterviewRoomInner() {
       clearTimeout(echoFadeTimeoutRef.current);
       echoFadeTimeoutRef.current = null;
     }
+  }, []);
+
+  const stopQuestionAudio = useCallback((resumeListeningIfActive = true) => {
+    ttsPlaybackIdRef.current += 1;
+    clearAllTtsTimers();
+
     if (typeof window !== "undefined" && window.speechSynthesis) {
       try {
-        window.speechSynthesis.cancel();
+        if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+          window.speechSynthesis.cancel();
+        }
       } catch {}
     }
     currentUtteranceRef.current = null;
@@ -1068,7 +1161,7 @@ function InterviewRoomInner() {
       isPlayingQuestionRef.current = false;
       updateTurnState(micEnabledRef.current ? "USER_LISTENING" : "MUTED");
     }
-  }, [activeTab, isInterviewPaused, startListening, updateTurnState]);
+  }, [activeTab, clearAllTtsTimers, isInterviewPaused, startListening, updateTurnState]);
 
   const toggleMic = useCallback(() => {
     setMicEnabled((prev) => {
@@ -1105,26 +1198,46 @@ function InterviewRoomInner() {
 
   const playQuestionAudio = useCallback(
     (textToPlay = null) => {
-      const text = typeof textToPlay === "string" ? textToPlay : currentQuestion?.questionText;
+      const isManualTap = textToPlay === null || typeof textToPlay !== "string";
+      const text = typeof textToPlay === "string" ? textToPlay : currentQuestionRef.current?.questionText || currentQuestion?.questionText;
       if (!text) return;
 
-      if (typeof window === "undefined" || !window.speechSynthesis) return;
+      if (typeof window === "undefined" || !window.speechSynthesis) {
+        setTtsBlockedNotice("Voice playback is unavailable on this browser. Please read the question text above.");
+        updateTurnState(micEnabledRef.current ? "USER_LISTENING" : "MUTED");
+        return;
+      }
 
-      // If user clicked the button while it is already speaking -> toggle off and resume listening
-      if (isPlayingQuestionRef.current && (textToPlay === null || typeof textToPlay !== "string")) {
+      // On manual tap, always synchronously unlock mobile audio context & speech engine
+      if (isManualTap) {
+        unlockSpeechAndAudio();
+        setTtsBlockedNotice("");
+      }
+
+      // If user clicked the button while audio is actively speaking -> toggle off and resume listening
+      if (isPlayingQuestionRef.current && isManualTap) {
         stopQuestionAudio(true);
         return;
       }
 
-      // 1. Immediately cancel previous speech queue without auto-resuming listening yet
-      stopQuestionAudio(false);
+      // 1. Invalidate any prior utterance and check whether speechSynthesis needs cancel cooldown
+      const wasActive = Boolean(window.speechSynthesis.speaking || window.speechSynthesis.pending);
+      ttsPlaybackIdRef.current += 1;
+      const playbackId = ttsPlaybackIdRef.current;
+      clearAllTtsTimers();
+      currentUtteranceRef.current = null;
+
+      if (wasActive) {
+        try {
+          window.speechSynthesis.cancel();
+        } catch {}
+      }
 
       // 2. Strict Turn-Taking: Mute/pause mic and set interview state to AI_SPEAKING before TTS starts
       updateTurnState("AI_SPEAKING");
       setIsPlayingQuestion(true);
       isPlayingQuestionRef.current = true;
 
-      // Hard-mute hardware audio tracks immediately so microphone captures absolute silence
       if (streamRef.current) {
         streamRef.current.getAudioTracks().forEach((track) => {
           track.enabled = false;
@@ -1134,138 +1247,238 @@ function InterviewRoomInner() {
       stopListening(false);
       setInterimTranscript("");
 
-      const utterance = new SpeechSynthesisUtterance(text);
-      currentUtteranceRef.current = utterance; // Retain reference to prevent Chromium garbage collection
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      utterance.lang = "en-US";
+      const beginSpeak = () => {
+        if (playbackId !== ttsPlaybackIdRef.current) return;
 
-      // Pick natural sounding voice if available
-      try {
-        const voices = window.speechSynthesis.getVoices();
-        const preferred =
-          voices.find(
-            (v) =>
-              (v.name.includes("Natural") ||
-                v.name.includes("Google") ||
-                v.name.includes("Samantha")) &&
-              v.lang.startsWith("en")
-          ) || voices.find((v) => v.lang.startsWith("en"));
-        if (preferred) {
-          utterance.voice = preferred;
-        }
-      } catch {}
+        const utterance = new SpeechSynthesisUtterance(text);
+        currentUtteranceRef.current = utterance; // Retain reference to prevent GC
+        utterance.rate = 1.0;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+        utterance.lang = "en-US";
 
-      const cleanupTTS = () => {
-        if (ttsSafetyTimeoutRef.current) {
-          clearTimeout(ttsSafetyTimeoutRef.current);
-          ttsSafetyTimeoutRef.current = null;
-        }
-        if (echoFadeTimeoutRef.current) {
-          clearTimeout(echoFadeTimeoutRef.current);
-          echoFadeTimeoutRef.current = null;
-        }
-
-        // True Hardware TTS completion check:
-        // Chromium onend can fire prematurely while the audio hardware is still outputting words.
-        // We poll window.speechSynthesis.speaking, and only when completely quiet, apply the 800ms decay delay.
-        const pollTtsComplete = () => {
-          if (typeof window !== "undefined" && window.speechSynthesis?.speaking) {
-            setTimeout(pollTtsComplete, 80);
-            return;
+        // Pick a reliable English voice (local/native preferred on iOS & Android)
+        try {
+          const availableVoices =
+            voicesRef.current.length > 0 ? voicesRef.current : window.speechSynthesis.getVoices() || [];
+          if (availableVoices.length > 0) {
+            voicesRef.current = availableVoices;
+            const preferred =
+              availableVoices.find(
+                (v) =>
+                  (v.name.includes("Natural") ||
+                    v.name.includes("Google") ||
+                    v.name.includes("Samantha") ||
+                    v.name.includes("Daniel") ||
+                    v.name.includes("Karen")) &&
+                  v.lang.startsWith("en")
+              ) ||
+              availableVoices.find((v) => v.localService && v.lang.startsWith("en")) ||
+              availableVoices.find((v) => v.lang.startsWith("en"));
+            if (preferred) {
+              utterance.voice = preferred;
+            }
           }
+        } catch {}
 
-          // Hardware has finished outputting speech audio.
-          // Wait 800ms room acoustic decay delay before enabling microphone
-          echoFadeTimeoutRef.current = setTimeout(() => {
+        let didStart = false;
+        let cleaned = false;
+
+        const cleanupTTS = (blockedReason = null) => {
+          if (cleaned || playbackId !== ttsPlaybackIdRef.current) return;
+          cleaned = true;
+          clearAllTtsTimers();
+
+          if (blockedReason) {
+            setTtsBlockedNotice(blockedReason);
             currentUtteranceRef.current = null;
             setIsPlayingQuestion(false);
             isPlayingQuestionRef.current = false;
             setInterimTranscript("");
-
             if (micEnabledRef.current && activeTab === "interview" && !isInterviewPaused) {
               updateTurnState("USER_LISTENING");
               startListening();
             } else {
               updateTurnState("MUTED");
             }
-          }, 800);
+            return;
+          }
+
+          // Hardware completion poll + 650ms room acoustic decay delay before opening mic
+          const pollTtsComplete = () => {
+            if (playbackId !== ttsPlaybackIdRef.current) return;
+            if (typeof window !== "undefined" && window.speechSynthesis?.speaking) {
+              echoFadeTimeoutRef.current = setTimeout(pollTtsComplete, 80);
+              return;
+            }
+
+            echoFadeTimeoutRef.current = setTimeout(() => {
+              if (playbackId !== ttsPlaybackIdRef.current) return;
+              currentUtteranceRef.current = null;
+              setIsPlayingQuestion(false);
+              isPlayingQuestionRef.current = false;
+              setInterimTranscript("");
+
+              if (micEnabledRef.current && activeTab === "interview" && !isInterviewPaused) {
+                updateTurnState("USER_LISTENING");
+                startListening();
+              } else {
+                updateTurnState("MUTED");
+              }
+            }, 650);
+          };
+
+          pollTtsComplete();
         };
 
-        pollTtsComplete();
-      };
+        utterance.onstart = () => {
+          if (playbackId !== ttsPlaybackIdRef.current) return;
+          didStart = true;
+          ttsUnlockedRef.current = true;
+          setTtsBlockedNotice("");
+          if (ttsStartWatchdogRef.current) {
+            clearTimeout(ttsStartWatchdogRef.current);
+            ttsStartWatchdogRef.current = null;
+          }
+          setIsPlayingQuestion(true);
+          isPlayingQuestionRef.current = true;
+          updateTurnState("AI_SPEAKING");
+          if (streamRef.current) {
+            streamRef.current.getAudioTracks().forEach((track) => {
+              track.enabled = false;
+            });
+          }
+          stopListening(false);
+          setInterimTranscript("");
+        };
 
-      utterance.onstart = () => {
-        setIsPlayingQuestion(true);
-        isPlayingQuestionRef.current = true;
-        updateTurnState("AI_SPEAKING");
-        // Ensure mic is strictly muted while AI speaks
-        if (streamRef.current) {
-          streamRef.current.getAudioTracks().forEach((track) => {
-            track.enabled = false;
-          });
+        utterance.onend = () => {
+          cleanupTTS(null);
+        };
+
+        utterance.onerror = (e) => {
+          const errCode = e?.error || "";
+          if (errCode === "canceled" || errCode === "interrupted") {
+            cleanupTTS(null);
+            return;
+          }
+          console.warn("[TTS] Utterance error:", errCode, e);
+          if (errCode === "not-allowed" || errCode === "audio-busy" || errCode === "synthesis-failed") {
+            cleanupTTS("Audio playback was paused by your browser. Tap 'Listen to Question' above to hear it.");
+          } else {
+            cleanupTTS(null);
+          }
+        };
+
+        // Silent autoplay block detector (critical on iOS Safari & Android Chrome when speak() drops silently)
+        ttsStartWatchdogRef.current = setTimeout(() => {
+          if (playbackId !== ttsPlaybackIdRef.current || didStart) return;
+          const stillActive = Boolean(
+            typeof window !== "undefined" &&
+              (window.speechSynthesis?.speaking || window.speechSynthesis?.pending)
+          );
+          if (!stillActive) {
+            console.warn("[TTS Watchdog] Speech did not start (mobile autoplay gate) - unlocking turn state");
+            cleanupTTS("Tap 'Listen to Question' above to hear the question aloud.");
+          }
+        }, 1400);
+
+        // Chrome Android/Desktop pause recovery keepalive (prevents long utterances stalling if paused)
+        ttsKeepAliveRef.current = setInterval(() => {
+          if (playbackId !== ttsPlaybackIdRef.current) return;
+          try {
+            if (window.speechSynthesis?.paused && !isInterviewPaused && !document.hidden) {
+              window.speechSynthesis.resume();
+            }
+          } catch {}
+        }, 3500);
+
+        // Overall length safety timeout
+        const wordCount = text.split(/\s+/).filter(Boolean).length;
+        const safetyLimitMs = Math.max(5000, Math.min(24000, wordCount * 320 + 3500));
+        ttsSafetyTimeoutRef.current = setTimeout(() => {
+          console.warn("[TTS Watchdog] Safety limit reached - releasing audio lock");
+          cleanupTTS(null);
+        }, safetyLimitMs);
+
+        try {
+          if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+          }
+          window.speechSynthesis.speak(utterance);
+        } catch (err) {
+          console.warn("[TTS] speak() exception:", err);
+          cleanupTTS("Tap 'Listen to Question' above to hear the question aloud.");
         }
-        stopListening(false);
-        setInterimTranscript("");
       };
 
-      utterance.onend = () => {
-        cleanupTTS();
-      };
-
-      utterance.onerror = (e) => {
-        if (e.error !== "canceled" && e.error !== "interrupted") {
-          console.warn("[TTS] Utterance error:", e);
-        }
-        cleanupTTS();
-      };
-
-      // Watchdog safety timeout based on word count (minimum 4s, ~300ms per word + 3s buffer, max 20s)
-      const wordCount = text.split(/\s+/).filter(Boolean).length;
-      const safetyLimitMs = Math.max(4000, Math.min(20000, wordCount * 300 + 3000));
-      ttsSafetyTimeoutRef.current = setTimeout(() => {
-        console.warn("[TTS Watchdog] Safety limit reached - releasing audio lock");
-        cleanupTTS();
-      }, safetyLimitMs);
-
-      try {
-        if (window.speechSynthesis.paused) {
-          window.speechSynthesis.resume();
-        }
-        window.speechSynthesis.speak(utterance);
-      } catch (err) {
-        console.warn("[TTS] speak() exception:", err);
-        cleanupTTS();
+      // Android Chrome & iOS Safari drop speak() if called synchronously right after cancel()
+      if (wasActive) {
+        ttsPendingStartTimeoutRef.current = setTimeout(beginSpeak, 80);
+      } else {
+        beginSpeak();
       }
     },
-    [currentQuestion?.questionText, stopQuestionAudio, startListening, stopListening, activeTab, isInterviewPaused, updateTurnState]
+    [
+      currentQuestion?.questionText,
+      clearAllTtsTimers,
+      stopQuestionAudio,
+      startListening,
+      stopListening,
+      unlockSpeechAndAudio,
+      activeTab,
+      isInterviewPaused,
+      updateTurnState,
+    ]
   );
 
   playQuestionAudioRef.current = playQuestionAudio;
   stopQuestionAudioRef.current = stopQuestionAudio;
 
+  // Pause/recover TTS cleanly when mobile tab/screen goes inactive or returns active
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (activeTab !== "interview") return;
+      if (document.hidden) {
+        if (isPlayingQuestionRef.current || turnStateRef.current === "AI_SPEAKING") {
+          stopQuestionAudioRef.current?.(false);
+          setTtsBlockedNotice("Question audio paused while tab was inactive. Tap 'Listen to Question' to replay.");
+        }
+      } else if (
+        !isPlayingQuestionRef.current &&
+        turnStateRef.current === "AI_SPEAKING" &&
+        micEnabledRef.current &&
+        !isInterviewPaused
+      ) {
+        updateTurnState("USER_LISTENING");
+        startListening();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => document.removeEventListener("visibilitychange", handleVisibility);
+  }, [activeTab, isInterviewPaused, startListening, updateTurnState]);
+
   // Auto-Play Question Audio ("Listen to Question") on Question Load
   useEffect(() => {
-    // Only auto-play during active interview and when a question is present
     if (activeTab !== "interview" || !currentQuestion?.id || isInterviewPaused) {
       stopQuestionAudioRef.current?.(false);
       return;
     }
 
-    // Prevent repeat trigger on other state re-renders for the same question
     if (lastSpokenQuestionIdRef.current === currentQuestion.id) {
       return;
     }
     lastSpokenQuestionIdRef.current = currentQuestion.id;
+    setTtsBlockedNotice("");
 
     // Hard-mute mic and STT immediately so zero speaker noise can be captured
     stopListening(false);
     updateTurnState("AI_SPEAKING");
 
-    // Small delay (250ms) to ensure smooth transition and allow previous audio cleanup
+    // 60ms delay ensures state has settled while preserving user-gesture window
     const timer = setTimeout(() => {
       playQuestionAudioRef.current?.(currentQuestion.questionText);
-    }, 250);
+    }, 60);
 
     return () => {
       clearTimeout(timer);
@@ -2018,6 +2231,8 @@ function InterviewRoomInner() {
     if (!session) return;
     setPermissionError("");
     setQueueError("");
+    // Synchronously unlock mobile audio & SpeechSynthesis inside the tap gesture before any await
+    unlockSpeechAndAudio();
 
     // 1. Mandatory Camera & Microphone Check
     if (!cameraReady || !micReady || !streamRef.current) {
@@ -2115,6 +2330,8 @@ function InterviewRoomInner() {
   ========================================================= */
   const handleSubmitAnswer = async () => {
     if (!session || !currentQuestion || isEndingRef.current) return;
+    // Keep mobile speech synthesis unlocked synchronously across Q1 -> Q7 transitions
+    unlockSpeechAndAudio();
 
     const maxQuestions = session.maxQuestions || MAX_QUESTIONS;
     const currentIdx = session.currentQuestionIndex || 0;
@@ -2390,18 +2607,18 @@ function InterviewRoomInner() {
 
         <div className="relative z-10 mx-auto max-w-4xl space-y-6">
           {/* Top Bar Navigation */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2">
             <button
               type="button"
               onClick={() => goBack("/dashboard")}
-              className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer shrink-0"
+              className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-3 sm:px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer shrink-0 whitespace-nowrap"
               aria-label="Back to Dashboard"
             >
               <ArrowLeft size={16} />
-              <span>Back to Dashboard</span>
+              <span>Back<span className="hidden min-[440px]:inline"> to Dashboard</span></span>
             </button>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
               <button
                 type="button"
                 onClick={(e) => {
@@ -2410,12 +2627,12 @@ function InterviewRoomInner() {
                   logout();
                 }}
                 title="Log Out"
-                className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
+                className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95 whitespace-nowrap shrink-0"
               >
                 <LogOut size={13} />
-                <span>Log Out</span>
+                <span className="hidden min-[380px]:inline">Log Out</span>
               </button>
-              <Logo size="sm" suffix="Assessment" />
+              <Logo size="xs" suffix="Assessment" className="shrink-0" />
             </div>
           </div>
 
@@ -2584,19 +2801,19 @@ function InterviewRoomInner() {
   ========================================================= */
   if (activeTab === "preflight") {
     return (
-      <div className="min-h-screen bg-[#f6f4ee] px-4 py-8 text-[#18181b] md:px-12 selection:bg-[#f97316] selection:text-white">
+      <div className="min-h-screen bg-[#f6f4ee] px-3 sm:px-4 py-4 sm:py-8 text-[#18181b] md:px-12 selection:bg-[#f97316] selection:text-white">
         <div className="relative z-10 mx-auto max-w-5xl">
           {/* Header */}
-          <div className="mb-8 flex items-center justify-between">
+          <div className="mb-5 sm:mb-8 flex items-center justify-between gap-2">
             <button
               onClick={() => navigate("/")}
-              className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/80 px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-sm backdrop-blur-md"
+              className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-[#e7e3da] bg-white/80 px-3 sm:px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-sm backdrop-blur-md whitespace-nowrap shrink-0 cursor-pointer"
             >
               <ArrowLeft size={16} />
-              <span>Back to Overview</span>
+              <span>Back<span className="hidden min-[420px]:inline"> to Overview</span></span>
             </button>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
               <button
                 type="button"
                 onClick={(e) => {
@@ -2605,7 +2822,7 @@ function InterviewRoomInner() {
                 logout();
               }}
                 title="Log Out"
-                className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
+                className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95 whitespace-nowrap shrink-0"
               >
                 <LogOut size={13} />
                 <span>Log Out</span>
@@ -2614,9 +2831,9 @@ function InterviewRoomInner() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-5 sm:gap-8 items-center">
             {/* Camera Preview Box */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-[#27272a] bg-[#18181b] shadow-2xl">
+            <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-3xl border border-[#27272a] bg-[#18181b] shadow-2xl">
               <video
                 ref={setCameraVideoNode}
                 autoPlay
@@ -2690,7 +2907,7 @@ function InterviewRoomInner() {
                         setSelectedModule("all");
                         initializeSession(newCourseId, "all");
                       }}
-                      className="w-full appearance-none rounded-xl border border-stone-200 bg-stone-50/70 px-3.5 py-2.5 pr-8 text-xs font-semibold text-stone-800 outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/20 cursor-pointer shadow-2xs"
+                      className="w-full rounded-xl border border-stone-200 bg-stone-50/70 px-3.5 py-2.5 text-xs font-semibold text-stone-800 outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/20 cursor-pointer shadow-2xs"
                     >
                       {PREPSPACES_COURSES.map((course) => (
                         <option
@@ -2703,7 +2920,6 @@ function InterviewRoomInner() {
                         </option>
                       ))}
                     </select>
-                    <ChevronDown size={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-stone-400" />
                   </div>
                 </div>
 
@@ -2721,7 +2937,7 @@ function InterviewRoomInner() {
                         setSelectedModule(newModuleId);
                         initializeSession(selectedCourse, newModuleId);
                       }}
-                      className="w-full appearance-none rounded-xl border border-stone-200 bg-stone-50/70 px-3.5 py-2.5 pr-8 text-xs font-semibold text-stone-800 outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/20 cursor-pointer shadow-2xs"
+                      className="w-full rounded-xl border border-stone-200 bg-stone-50/70 px-3.5 py-2.5 text-xs font-semibold text-stone-800 outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/20 cursor-pointer shadow-2xs"
                     >
                       {currentCourse.modules.map((m) => (
                         <option key={m.id} value={m.id}>
@@ -2729,7 +2945,6 @@ function InterviewRoomInner() {
                         </option>
                       ))}
                     </select>
-                    <ChevronDown size={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-stone-400" />
                   </div>
                 </div>
               </div>
@@ -2863,34 +3078,39 @@ function InterviewRoomInner() {
   const isFinalQuestion = currentIdx >= maxQuestions - 1;
 
   return (
-    <div className="relative h-screen h-[100dvh] w-screen w-[100vw] overflow-hidden bg-[#f6f4ee] text-[#18181b] flex flex-col selection:bg-[#f97316] selection:text-white">
+    <div className="relative min-h-screen min-h-[100dvh] lg:h-[100dvh] w-full overflow-x-hidden lg:overflow-hidden bg-[#f6f4ee] text-[#18181b] flex flex-col selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="pointer-events-none fixed -top-40 left-1/4 h-96 w-96 rounded-full bg-orange-500/[0.04] blur-[140px]" />
       <div className="pointer-events-none fixed bottom-10 right-10 h-80 w-80 rounded-full bg-amber-500/[0.04] blur-[130px]" />
 
-      {/* Header (Compact 62-64px fixed/shrink-0) */}
-      <header className="relative z-10 h-[62px] shrink-0 border-b border-[#e7e3da] bg-white/95 backdrop-blur-xl px-4 md:px-6">
-        <div className="flex h-full items-center justify-between">
-          <Logo size="sm" />
+      {/* Header (Compact 58-62px sticky on mobile, fixed/shrink-0 on desktop) */}
+      <header className="sticky top-0 lg:relative z-20 h-[58px] sm:h-[62px] shrink-0 border-b border-[#e7e3da] bg-white/95 backdrop-blur-xl px-3 sm:px-4 md:px-6">
+        <div className="flex h-full items-center justify-between gap-2">
+          <div className="sm:hidden shrink-0">
+            <Logo size="xs" />
+          </div>
+          <div className="hidden sm:block shrink-0">
+            <Logo size="sm" />
+          </div>
 
-          {/* Center Timer & Session info */}
-          <div className="hidden sm:flex items-center gap-3 md:gap-5">
-            <div className="flex items-center gap-2 rounded-full border border-[#e7e3da] bg-stone-50/80 px-3.5 py-1 shadow-2xs">
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-stone-700">
+          {/* Center Timer & Session info (Timer visible on ALL viewports including mobile!) */}
+          <div className="flex items-center gap-2 md:gap-4 min-w-0">
+            <div className="hidden md:flex items-center gap-2 rounded-full border border-[#e7e3da] bg-stone-50/80 px-3.5 py-1 shadow-2xs max-w-[200px] xl:max-w-[300px]">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-stone-700 truncate">
                 {session?.track || currentQuestion?.topic || "AI Engineering Track"}
               </span>
             </div>
 
-            <div className="flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50/60 px-3.5 py-1 text-xs font-semibold text-stone-700">
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-orange-200/80 bg-orange-50/60 px-2.5 sm:px-3.5 py-1 text-xs font-semibold text-stone-700 shrink-0 whitespace-nowrap">
               <Clock className="h-3.5 w-3.5 text-[#ea580c]" />
               <span className="font-mono font-bold text-stone-900">{formatTimer(timeRemaining)}</span>
             </div>
           </div>
 
           {/* Right Live indicator, Fullscreen status & Logout */}
-          <div className="flex items-center gap-2.5 sm:gap-3.5">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <div
-              className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider border ${
+              className={`hidden sm:flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider border whitespace-nowrap shrink-0 ${
                 isFullscreen
                   ? "bg-emerald-50 text-emerald-700 border-emerald-200"
                   : "bg-amber-50 text-amber-700 border-amber-200"
@@ -2900,7 +3120,7 @@ function InterviewRoomInner() {
               <span>{isFullscreen ? "Full-Screen" : "Full-Screen Off"}</span>
             </div>
 
-            <div className="hidden md:flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50/60 border border-emerald-200/60 px-2.5 py-1 rounded-full">
+            <div className="hidden md:flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50/60 border border-emerald-200/60 px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/80" />
               <span>Live</span>
             </div>
@@ -2913,7 +3133,7 @@ function InterviewRoomInner() {
                 logout();
               }}
               title="Leave and Log Out"
-              className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
+              className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95 whitespace-nowrap shrink-0"
             >
               <LogOut size={13} />
               <span className="hidden sm:inline">Log Out</span>
@@ -2929,21 +3149,21 @@ function InterviewRoomInner() {
           <span>{serviceCooldownNotice}</span>
           <button
             onClick={() => setServiceCooldownNotice("")}
-            className="ml-2 rounded px-1.5 py-0.5 text-[10px] font-bold text-amber-800 hover:bg-amber-100 transition cursor-pointer"
+            className="ml-2 rounded px-1.5 py-0.5 text-[10px] font-bold text-amber-800 hover:bg-amber-100 transition cursor-pointer shrink-0"
           >
             Dismiss
           </button>
         </div>
       )}
 
-      {/* Main Grid: Equal 50 / 50 Split-Screen Layout (Full Viewport Height) */}
-      <main className="relative z-10 flex-1 min-h-0 w-full overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+      {/* Main Grid: Vertical Flow on Mobile/Tablet (<1024px) & 50/50 Split-Screen on Desktop (>=1024px) */}
+      <main className="relative z-10 flex-1 lg:min-h-0 w-full lg:overflow-hidden grid grid-cols-1 lg:grid-cols-2">
         {/* ===================================================
             LEFT PANEL: CANDIDATE VIDEO FEED (50% on Desktop/Laptop)
         =================================================== */}
-        <section className="h-full min-h-0 flex flex-col border-b lg:border-b-0 lg:border-r border-[#e7e3da] bg-[#faf8f4]/40 p-3 sm:p-4 lg:p-5 overflow-hidden">
+        <section className="lg:h-full lg:min-h-0 flex flex-col border-b lg:border-b-0 lg:border-r border-[#e7e3da] bg-[#faf8f4]/40 p-2.5 sm:p-4 lg:p-5 lg:overflow-hidden">
           {/* Camera Frame Container */}
-          <div className="flex-1 min-h-0 relative flex items-center justify-center overflow-hidden rounded-2xl md:rounded-3xl border border-[#27272a] bg-[#18181b] shadow-xl">
+          <div className="h-[200px] sm:h-[260px] md:h-[300px] lg:h-auto lg:flex-1 lg:min-h-0 relative flex items-center justify-center overflow-hidden rounded-2xl md:rounded-3xl border border-[#27272a] bg-[#18181b] shadow-xl">
             {/* Top Overlay: Camera & Mic Status Badges */}
             <div className="absolute top-3.5 left-3.5 right-3.5 z-20 flex items-center justify-between pointer-events-none">
               <div className="flex items-center gap-2 rounded-xl bg-black/65 px-3 py-1.5 backdrop-blur-md border border-white/10 text-[11px] font-mono text-white">
@@ -3063,9 +3283,9 @@ function InterviewRoomInner() {
         {/* ===================================================
             RIGHT PANEL: AI INTERVIEWER WORKSPACE (50% on Desktop/Laptop)
         =================================================== */}
-        <aside className="h-full min-h-0 flex flex-col bg-white overflow-hidden">
+        <aside className="flex-1 lg:h-full lg:min-h-0 flex flex-col bg-white lg:overflow-hidden">
           {/* Top Subheader: Interviewer Identity & Live Question Badge */}
-          <div className="shrink-0 border-b border-[#e7e3da] px-5 py-3.5 sm:px-6 bg-[#faf8f4]/70">
+          <div className="shrink-0 border-b border-[#e7e3da] px-4 py-3 sm:px-6 sm:py-3.5 bg-[#faf8f4]/70">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-[#f97316] to-[#ea580c] text-white shadow-xs">
@@ -3082,8 +3302,8 @@ function InterviewRoomInner() {
             </div>
           </div>
 
-          {/* Scrollable Content Body (Independent Vertical Scrolling) */}
-          <div className="flex-1 min-h-0 overflow-y-auto px-5 py-4 sm:px-6 space-y-4">
+          {/* Scrollable Content Body (Independent Vertical Scrolling on Desktop, Natural Flow on Mobile/Tablet) */}
+          <div className="flex-1 lg:min-h-0 lg:overflow-y-auto px-3.5 py-3.5 sm:px-6 sm:py-4 space-y-3.5 sm:space-y-4">
             {currentQuestion ? (
               <>
                 {/* Question Details Card */}
@@ -3109,7 +3329,7 @@ function InterviewRoomInner() {
                     <button
                       type="button"
                       onClick={playQuestionAudio}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-white px-3 py-1 text-[11px] font-semibold text-stone-700 hover:border-orange-400 hover:text-[#f97316] transition shadow-2xs cursor-pointer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-white px-3 py-1.5 sm:py-1 text-[11px] font-semibold text-stone-700 hover:border-orange-400 hover:text-[#f97316] transition shadow-2xs cursor-pointer min-h-[34px] whitespace-nowrap"
                       title="Play question audio with text-to-speech"
                     >
                       {isPlayingQuestion ? (
@@ -3126,6 +3346,19 @@ function InterviewRoomInner() {
                     </button>
                   </div>
 
+                  {ttsBlockedNotice && (
+                    <div className="rounded-xl border border-amber-200 bg-amber-50/90 px-3 py-2 text-[11px] text-amber-900 flex items-center justify-between gap-2">
+                      <span className="leading-snug">{ttsBlockedNotice}</span>
+                      <button
+                        type="button"
+                        onClick={() => playQuestionAudio()}
+                        className="shrink-0 rounded-lg bg-[#f97316] px-2.5 py-1 text-[10px] font-bold text-white hover:bg-[#ea580c] transition cursor-pointer whitespace-nowrap"
+                      >
+                        Play Audio
+                      </button>
+                    </div>
+                  )}
+
                   <h1 className="text-base sm:text-lg lg:text-xl font-bold leading-snug tracking-tight text-[#18181b]">
                     {currentQuestion.questionText}
                   </h1>
@@ -3140,10 +3373,10 @@ function InterviewRoomInner() {
 
                 {/* Live Spoken Response Card */}
                 <div className="rounded-2xl border border-[#e7e3da] bg-white p-4 sm:p-5 shadow-2xs space-y-3">
-                  <div className="flex items-center justify-between pb-2.5 border-b border-[#e7e3da]/70">
-                    <div className="flex items-center gap-2">
-                      <MessageSquare className="h-4 w-4 text-[#ea580c]" />
-                      <h3 className="font-bold text-sm text-[#18181b]">
+                  <div className="flex items-center justify-between gap-2 pb-2.5 border-b border-[#e7e3da]/70">
+                    <div className="flex flex-wrap items-center gap-2 min-w-0">
+                      <MessageSquare className="h-4 w-4 text-[#ea580c] shrink-0" />
+                      <h3 className="font-bold text-sm text-[#18181b] whitespace-nowrap">
                         Live Spoken Response
                       </h3>
                       {/* Visual Turn Indicator */}
