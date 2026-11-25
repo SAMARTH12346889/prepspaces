@@ -10,10 +10,29 @@
     "directory": "./content",
     "binding": "ASSETS"
   },
+  "ai": {
+    "binding": "AI"
+  },
   "kv_namespaces": [
     {
       "binding": "PREPSPACES_DB",
       "id": "875fa82d4cc244ba838eddb8e16ff727"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "INTERVIEW_COORDINATOR",
+        "class_name": "InterviewCoordinatorDO"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "InterviewCoordinatorDO"
+      ]
     }
   ],
   "routes": [
@@ -35,12 +54,23 @@
           "custom_domain": true
         }
       ],
+      "ai": {
+        "binding": "AI"
+      },
       "kv_namespaces": [
         {
           "binding": "PREPSPACES_DB",
           "id": "875fa82d4cc244ba838eddb8e16ff727"
         }
       ],
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "INTERVIEW_COORDINATOR",
+            "class_name": "InterviewCoordinatorDO"
+          }
+        ]
+      },
       "vars": {
         "ENVIRONMENT": "production",
         "GOOGLE_CLIENT_ID": "929583128715-vha62ek3tmooka7n67dhff3r77na4e0l.apps.googleusercontent.com"
@@ -48,6 +78,23 @@
     },
     "staging": {
       "name": "prepspaces-backend-staging",
+      "ai": {
+        "binding": "AI"
+      },
+      "kv_namespaces": [
+        {
+          "binding": "PREPSPACES_DB",
+          "id": "875fa82d4cc244ba838eddb8e16ff727"
+        }
+      ],
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "INTERVIEW_COORDINATOR",
+            "class_name": "InterviewCoordinatorDO"
+          }
+        ]
+      },
       "vars": {
         "ENVIRONMENT": "staging",
         "GOOGLE_CLIENT_ID": "929583128715-vha62ek3tmooka7n67dhff3r77na4e0l.apps.googleusercontent.com"

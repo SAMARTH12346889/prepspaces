@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "vite build && node scripts/prerender.js",
     "lint": "oxlint",
-    "test": "node scripts/test_platform.mjs",
+    "test": "node scripts/test_platform.mjs && node scripts/test_interview_system.mjs",
     "test:voice": "node src/voice/test_voice_system.js",
+    "test:interview": "node scripts/test_interview_system.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

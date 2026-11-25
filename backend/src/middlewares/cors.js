@@ -54,8 +54,16 @@ export const prepspacesCors = cors({
     return null;
   },
   allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowHeaders: ["Content-Type", "Authorization", "X-Requested-With", "x-guest-session-id", "X-Guest-Session-Id"],
-  exposeHeaders: ["Content-Length", "X-Request-Id"],
+  allowHeaders: [
+    "Content-Type",
+    "Authorization",
+    "X-Requested-With",
+    "x-guest-session-id",
+    "X-Guest-Session-Id",
+    "X-PrepSpaces-TwoPhase-Fallback",
+    "x-prepspaces-twophase-fallback",
+  ],
+  exposeHeaders: ["Content-Length", "X-Request-Id", "X-PrepSpaces-Fallback-Pending"],
   maxAge: 86400,
   credentials: true,
 });
