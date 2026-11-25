@@ -33,7 +33,7 @@ body {
   background-color: #f6f4ee;
   color: #1c1917;
   letter-spacing: -0.01em;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-tap-highlight-color: transparent;
   touch-action: pan-x pan-y;
   min-height: 100vh;
@@ -398,7 +398,7 @@ table {
 
 html, body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @media screen and (max-width: 640px) {

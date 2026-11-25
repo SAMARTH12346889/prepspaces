@@ -26,8 +26,9 @@ export default function Login() {
   // Render Google button once GSI is ready
   useEffect(() => {
     if (gsiLoaded && googleBtnContainerRef.current) {
+      const containerWidth = googleBtnContainerRef.current.clientWidth || 340;
       renderGoogleButton(googleBtnContainerRef.current, {
-        width: 340,
+        width: Math.min(340, Math.max(220, containerWidth)),
         onSuccess: () => {
           const target = location.state?.from || "/dashboard";
           navigate(target, { replace: true });

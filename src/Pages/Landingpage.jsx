@@ -138,7 +138,7 @@ export default function Landingpage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] flex antialiased font-sans selection:bg-[#f97316] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] flex antialiased font-sans selection:bg-[#f97316] selection:text-white overflow-x-clip">
       {/* Soft Ambient Warm Glow Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-orange-400/[0.04] rounded-full blur-[140px]" />
@@ -233,7 +233,7 @@ export default function Landingpage() {
       </aside>
 
       {/* ================= MAIN CONTENT AREA ================= */}
-      <div className="flex-1 flex flex-col min-w-0 z-10 overflow-x-hidden">
+      <div className="flex-1 flex flex-col min-w-0 z-10 overflow-x-clip">
         {/* Top Header */}
         <header className="sticky top-0 z-30 flex items-center justify-between gap-2 border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-3 sm:px-6 py-2.5 sm:py-4 pt-[max(0.6rem,env(safe-area-inset-top))] md:px-10">
           <div className="flex items-center gap-2 sm:gap-4 min-w-0">

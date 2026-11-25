@@ -307,16 +307,16 @@ export default function ModuleNav({
       return rawTrack;
     }
     const path = (location?.pathname || "").toLowerCase();
-    if (path.includes("/learning/machine-learning") || path.includes("/learning/ml") || path.includes("/courses/machine-learning")) return "machine-learning";
+    if (path.includes("/learning/machine-learning") || path.includes("/learning/ml") || path.includes("/courses/machine-learning") || path.includes("/courses/ml") || path.includes("/learn/machine-learning")) return "machine-learning";
     if (path.includes("/learning/data-engineering") || path.includes("/learn/data-engineering") || path.includes("/courses/data-engineering")) return "data-engineering";
-    if (path.includes("/learning/ai") || path.includes("/learn/ai")) return "ai";
-    if (path.includes("/learning/os") || path.includes("/learn/os")) return "os";
-    if (path.includes("/learning/networks") || path.includes("/learn/networks")) return "networks";
-    if (path.includes("/learning/cybersecurity") || path.includes("/learn/cybersecurity")) return "cybersecurity";
-    if (path.includes("/learning/system-design") || path.includes("/learn/system-design")) return "system-design";
-    if (path.includes("/learning/devops") || path.includes("/learn/devops")) return "devops";
-    if (path.includes("/learning/blockchain") || path.includes("/learn/blockchain")) return "blockchain";
-    if (path.includes("/learning/cloud") || path.includes("/learn/cloud")) return "cloud";
+    if (path.includes("/learning/ai") || path.includes("/learn/ai") || path.includes("/courses/artificial-intelligence") || path.includes("/courses/generative-ai")) return "ai";
+    if (path.includes("/learning/operating-systems") || path.includes("/learning/os") || path.includes("/learn/os") || path.includes("/courses/operating-systems") || path.includes("/courses/os")) return "os";
+    if (path.includes("/learning/computer-networks") || path.includes("/learning/networks") || path.includes("/learn/networks") || path.includes("/courses/computer-networks") || path.includes("/courses/networks")) return "networks";
+    if (path.includes("/learning/cybersecurity") || path.includes("/learn/cybersecurity") || path.includes("/courses/cybersecurity")) return "cybersecurity";
+    if (path.includes("/learning/system-design") || path.includes("/learn/system-design") || path.includes("/courses/system-design")) return "system-design";
+    if (path.includes("/learning/devops") || path.includes("/learn/devops") || path.includes("/courses/devops")) return "devops";
+    if (path.includes("/learning/blockchain") || path.includes("/learn/blockchain") || path.includes("/courses/blockchain")) return "blockchain";
+    if (path.includes("/learning/cloud") || path.includes("/learn/cloud") || path.includes("/courses/cloud")) return "cloud";
     return rawTrack || "machine-learning";
   }, [rawTrack, location?.pathname]);
 
@@ -455,11 +455,20 @@ export default function ModuleNav({
   }, [resolvedCourseId, modules]);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      const activeBtn = scrollRef.current.querySelector("[data-active='true']");
+    const container = scrollRef.current;
+    if (container) {
+      const activeBtn = container.querySelector("[data-active='true']");
       if (activeBtn) {
         const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-        activeBtn.scrollIntoView({ behavior: isTouch ? "auto" : "smooth", block: "nearest", inline: "center" });
+        const targetLeft = Math.max(
+          0,
+          activeBtn.offsetLeft - container.clientWidth / 2 + activeBtn.offsetWidth / 2
+        );
+        if (typeof container.scrollTo === "function") {
+          container.scrollTo({ left: targetLeft, behavior: isTouch ? "auto" : "smooth" });
+        } else {
+          container.scrollLeft = targetLeft;
+        }
       }
     }
   }, [currentModuleId, modules]);
