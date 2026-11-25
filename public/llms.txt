@@ -1,13 +1,26 @@
-# prepspaces
+# PrepSpaces
 
-> prepspaces (https://prepspaces.com) is an open, high-depth technical learning and systems engineering education platform. It provides university-informed masterclasses and structured learning paths in System Design, Cloud Computing Architecture, DevOps & SRE, Operating Systems Internals, Computer Networks, and Offensive & Defensive Cybersecurity.
+> PrepSpaces (https://prepspaces.com) is an AI Interview Practice and open technical systems engineering platform. Candidates practice realistic voice-based 7-question mock interviews across 10 unlocked engineering tracks (216 modules) with real-time speech transcription, automated 1–10 rubric feedback, ideal expected answers, and university-informed study curricula.
 
 ## Overview
 - Website: https://prepspaces.com/
+- AI Interview Practice Landing Page: https://prepspaces.com/ai-interview
+- About PrepSpaces & Citations: https://prepspaces.com/about
+- Interview Preparation Guides: https://prepspaces.com/guides
 - Curriculum Hub: https://prepspaces.com/learning
-- Official Instagram: https://www.instagram.com/prepspaces/ (@prepspaces)
+- Live Interview Studio (Free Student Account): https://prepspaces.com/interview
+- Contact & Social: support@prepspaces.com | https://www.instagram.com/prepspaces/ (@prepspaces)
 - Full Content Manifest: https://prepspaces.com/llms-full.txt
-- Primary Audience: Software Engineers, Systems Engineers, Computer Science Students, SREs, Security Practitioners.
+- Primary Audience: Freshers, Computer Science Students, Software Engineers, Systems Engineers, AI/ML/Data Engineers, SREs, Security Practitioners.
+
+## AI Interview Practice & Preparation Guides
+- [AI Interview Practice Overview & FAQ](https://prepspaces.com/ai-interview): Full walkthrough of PrepSpaces' live voice mock interview simulator across 10 tracks and 216 modules.
+- [How to Prepare for an AI Mock Interview](https://prepspaces.com/guides/ai-interview-preparation-guide): Spoken answer framing, microphone hygiene, and rubric-driven improvement.
+- [What Is an AI Interview and How Does It Work?](https://prepspaces.com/guides/how-ai-mock-interviews-work): Question orchestration, TTS/STT audio pipeline, and 1–10 rubric evaluation.
+- [Technical Interview Preparation Roadmap](https://prepspaces.com/guides/technical-interview-preparation-roadmap): Structured 6-week preparation roadmap across OS, Networks, System Design, AI, and Cloud.
+- [HR & Behavioral Interview Questions (STAR Guide)](https://prepspaces.com/guides/hr-and-behavioral-interview-questions): Structured communication for non-technical and hiring manager loops.
+- [Interview Questions for Freshers & CS Students](https://prepspaces.com/guides/interview-questions-for-freshers): Core CS fundamentals tested in campus and entry-level technical rounds.
+- [Software Engineering Interview Preparation](https://prepspaces.com/guides/software-engineering-interview-guide): Trade-off reasoning, capacity planning, and production architecture interviews.
 
 ## System Design Masterclass (24 Modules)
 > Comprehensive curriculum on large-scale distributed systems, high availability, database replication, microservices, consensus, traffic control, and architectural trade-offs.

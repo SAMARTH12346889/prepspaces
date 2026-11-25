@@ -1,18 +1,79 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import {
+  AI_INTERVIEW_PAGE,
+  INTERVIEW_GUIDES,
+  BRAND_INFO,
+  getGuideBySlug,
+} from "../data/seoContent";
 
 const BASE_URL = "https://prepspaces.com";
 
 // Comprehensive route SEO definitions
 const routeMeta = {
   "/": {
-    title: "PrepSpaces — AI Interview Preparation & Technical Learning",
-    description: "Prepare for technical interviews with structured learning resources, System Design masterclasses, DevOps, Cloud Computing, and interview practice tools from PrepSpaces.",
+    title: "PrepSpaces — AI Interview Practice & Technical Learning Platform",
+    description: "Practice voice-based AI mock interviews across 10 engineering tracks and 216 modules. Prepare for software, AI, system design, cloud, DevOps, and CS interviews on PrepSpaces.",
+    keywords: "AI Interview Practice, AI Mock Interview, PrepSpaces, Technical Interview Preparation, System Design, Operating Systems, AI Engineering",
     canonical: `${BASE_URL}/`,
   },
+  "/ai-interview": {
+    title: "AI Interview Practice — Free Online AI Mock Interview Platform | PrepSpaces",
+    description: "Practice realistic voice-based technical AI mock interviews across 10 engineering courses and 216 modules. Get instant rubric scores (1–10), expected answer breakdowns, and structured interview reports on PrepSpaces.",
+    keywords: "AI Interview Practice, Free AI Interview, AI Mock Interview, Online AI Interview Practice, AI Interview Preparation, Technical Mock Interview, AI Interview for Freshers, AI Job Interview Practice",
+    canonical: `${BASE_URL}/ai-interview`,
+  },
+  "/about": {
+    title: "About PrepSpaces — AI Interview Practice & Open Engineering Curriculum",
+    description: "Learn about PrepSpaces: our mission to make rigorous systems engineering education and realistic voice-based AI mock interview practice accessible to students and engineers.",
+    keywords: "About PrepSpaces, PrepSpaces AI Interview, technical interview education, computer science curriculum platform",
+    canonical: `${BASE_URL}/about`,
+  },
+  "/guides": {
+    title: "AI Interview & Technical Preparation Guides | PrepSpaces",
+    description: "Original engineering interview preparation guides covering AI mock interviews, technical interview roadmaps, HR STAR answers, and CS questions for freshers.",
+    keywords: "AI interview preparation guide, technical interview preparation, HR interview questions, interview questions for freshers, software engineering interview guide",
+    canonical: `${BASE_URL}/guides`,
+  },
+  "/guides/ai-interview-preparation-guide": {
+    title: "How to Prepare for an AI Mock Interview | PrepSpaces Guide",
+    description: "Learn how AI interviews evaluate spoken answers, how to structure concise technical explanations for voice transcription, and how to score higher using rubric-focused practice.",
+    keywords: "AI interview preparation, how to prepare for AI interview, AI mock interview tips, voice AI interview practice",
+    canonical: `${BASE_URL}/guides/ai-interview-preparation-guide`,
+  },
+  "/guides/how-ai-mock-interviews-work": {
+    title: "What Is an AI Interview? How Automated Mock Interviews Work | PrepSpaces",
+    description: "Clear explanation of how AI interviews work end to end: dynamic question selection, spoken audio synthesis, speech-to-text transcription, anti-repetition guards, and rubric evaluation.",
+    keywords: "what is an AI interview, how does AI interview work, automated interview evaluation, AI mock interview technology",
+    canonical: `${BASE_URL}/guides/how-ai-mock-interviews-work`,
+  },
+  "/guides/technical-interview-preparation-roadmap": {
+    title: "How to Prepare for Technical Interviews (6-Week Roadmap) | PrepSpaces",
+    description: "A practical multi-domain roadmap for software, backend, cloud, and AI interviews covering OS internals, networking, system design, and AI mock interview checkpoints.",
+    keywords: "how to prepare for technical interviews, technical interview preparation roadmap, software engineering study plan, system design preparation",
+    canonical: `${BASE_URL}/guides/technical-interview-preparation-roadmap`,
+  },
+  "/guides/hr-and-behavioral-interview-questions": {
+    title: "HR & Behavioral Interview Questions Guide (STAR Method) | PrepSpaces",
+    description: "Learn how to answer HR and behavioral interview questions clearly using the STAR framework, quantify engineering impact, and avoid common pitfalls in fresher and experienced rounds.",
+    keywords: "HR interview questions, behavioral interview questions, STAR method interview answers, job interview communication",
+    canonical: `${BASE_URL}/guides/hr-and-behavioral-interview-questions`,
+  },
+  "/guides/interview-questions-for-freshers": {
+    title: "Interview Questions for Freshers & CS Students | PrepSpaces",
+    description: "Essential technical interview topics and sample questions for freshers and computer science graduates covering Operating Systems, Computer Networks, Databases, Cloud, and AI fundamentals.",
+    keywords: "interview questions for freshers, AI interview for freshers, CS graduate technical interview questions, fresher job interview preparation",
+    canonical: `${BASE_URL}/guides/interview-questions-for-freshers`,
+  },
+  "/guides/software-engineering-interview-guide": {
+    title: "Software Engineering Interview Preparation Guide | PrepSpaces",
+    description: "Master modern software engineering interviews covering distributed system design, reliability, cloud security, AI integration, and clear architectural communication.",
+    keywords: "software engineering interview preparation, system design interview guide, software engineer mock interview, backend engineering interview",
+    canonical: `${BASE_URL}/guides/software-engineering-interview-guide`,
+  },
   "/interview": {
-    title: "AI Technical Interview Simulation — PrepSpaces",
-    description: "Interactive technical interview simulation and design evaluations from PrepSpaces.",
+    title: "AI Technical Interview Studio — PrepSpaces",
+    description: "Interactive voice-based AI mock interview studio and rubric evaluation workspace from PrepSpaces.",
     canonical: `${BASE_URL}/interview`,
     robots: "noindex, follow",
   },
@@ -20,16 +81,19 @@ const routeMeta = {
     title: "Student Learning Progress & Course Dashboard — PrepSpaces",
     description: "Track your course progress, completed modules, and resume technical lessons across all PrepSpaces tracks.",
     canonical: `${BASE_URL}/dashboard`,
+    robots: "noindex, follow",
   },
   "/login": {
     title: "Student Sign In — PrepSpaces",
-    description: "Sign in to PrepSpaces with Google or email to sync your course progress and technical interview preparation.",
+    description: "Sign in to PrepSpaces with Google or email to start AI mock interviews and track your learning progress.",
     canonical: `${BASE_URL}/login`,
+    robots: "noindex, follow",
   },
   "/register": {
     title: "Create Student Account — PrepSpaces",
-    description: "Join PrepSpaces to master operating systems, computer networks, system design, cloud, and DevOps.",
+    description: "Join PrepSpaces for free AI mock interviews and master operating systems, computer networks, system design, cloud, AI, and DevOps.",
     canonical: `${BASE_URL}/register`,
+    robots: "noindex, follow",
   },
   "/privacy-policy": {
     title: "Privacy Policy — PrepSpaces",
@@ -41,9 +105,9 @@ const routeMeta = {
     description: "Review the PrepSpaces Terms of Service regarding student account responsibilities, educational curriculum usage, and platform terms.",
     canonical: `${BASE_URL}/terms-of-service`,
   },
-    "/learning": {
+  "/learning": {
     title: "Technical Systems Engineering Curriculum & Masterclasses — PrepSpaces",
-    description: "Explore comprehensive university-informed preparation tracks in System Design, Cloud Computing, DevOps & SRE, Operating Systems, Computer Networks, and Cybersecurity.",
+    description: "Explore comprehensive university-informed preparation tracks in AI Engineering, System Design, Cloud Computing, DevOps & SRE, Operating Systems, Computer Networks, Cybersecurity, Machine Learning, Data Engineering, and Blockchain.",
     canonical: `${BASE_URL}/learning`,
   },
   "/learn": {
@@ -61,7 +125,7 @@ const routeMeta = {
     title: "Artificial Intelligence Course — Learn AI Fundamentals | PrepSpaces",
     description: "Learn Artificial Intelligence from fundamentals to advanced concepts with university-level lessons, practical projects, AI algorithms, and hands-on learning on PrepSpaces.",
     keywords: "Artificial Intelligence course, AI course online, Learn Artificial Intelligence, AI fundamentals course, Artificial Intelligence learning, AI algorithms course",
-    canonical: `${BASE_URL}/courses/artificial-intelligence`,
+    canonical: `${BASE_URL}/learning/ai`,
   },
   "/courses/generative-ai": {
     title: "Generative AI Course — Learn GenAI & LLMs | PrepSpaces",
@@ -103,7 +167,7 @@ const routeMeta = {
     title: "Module 2: Numerical Computing with NumPy | PrepSpaces",
     description: "Master NumPy for machine learning: ndarray memory representation, strides, advanced slicing, broadcasting mechanics, vectorization, matrix algebra, linear algebra, and ML math formulas.",
     keywords: "NumPy Course, NumPy for Machine Learning, ndarray architecture, NumPy Strides, Broadcasting rules, Vectorization vs Loops, Matrix Multiplication @, np.linalg, Machine Learning Mathematics, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/numpy`,
+    canonical: `${BASE_URL}/learning/machine-learning/numpy`,
   },
   "/learning/machine-learning/pandas": {
     title: "Module 3: Data Analysis & Manipulation with Pandas | PrepSpaces",
@@ -115,7 +179,7 @@ const routeMeta = {
     title: "Module 3: Data Analysis & Manipulation with Pandas | PrepSpaces",
     description: "Master Pandas for machine learning: Series & DataFrame architectures, indexing (loc/iloc/query), missing-value imputation, deduplication, GroupBy aggregations, relational joins, pivot tables, chunk streaming, and IQR outlier detection.",
     keywords: "Pandas Course, Learn Pandas, Series vs DataFrame, Data Cleaning, Missing Value Imputation, Pandas GroupBy, Relational Merge, Pivot Tables, Large Dataset Processing, IQR Outliers, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/pandas`,
+    canonical: `${BASE_URL}/learning/machine-learning/pandas`,
   },
   "/learning/machine-learning/eda": {
     title: "Module 4: Exploratory Data Analysis & Visualization | PrepSpaces",
@@ -127,7 +191,7 @@ const routeMeta = {
     title: "Module 4: Exploratory Data Analysis & Visualization | PrepSpaces",
     description: "Master exploratory data analysis for machine learning: 9-step EDA methodology, univariate distribution shapes, skewness, bivariate scatter regressions, Pearson vs Spearman correlation matrices, FacetGrids, Matplotlib & Seaborn, IQR vs Z-score outlier detection, and leakage prevention.",
     keywords: "Exploratory Data Analysis Course, EDA Machine Learning, Seaborn, Matplotlib, Pearson Correlation, Spearman Rank, Skewness, Kurtosis, IQR Outliers, Z-Score Outlier, LOWESS Regression, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/eda`,
+    canonical: `${BASE_URL}/learning/machine-learning/eda`,
   },
   "/learning/machine-learning/regression": {
     title: "Module 5: Regression Analysis & Linear Models | PrepSpaces",
@@ -139,7 +203,7 @@ const routeMeta = {
     title: "Module 5: Regression Analysis & Linear Models | PrepSpaces",
     description: "Master regression analysis and linear models for machine learning: simple vs multiple linear regression, Ordinary Least Squares (OLS), normal equations, Gauss-Markov assumptions, residual diagnostics, VIF multicollinearity, Scikit-learn pipelines, and Statsmodels inference.",
     keywords: "Regression Analysis Course, Linear Regression Machine Learning, Ordinary Least Squares, OLS Normal Equation, Residual Diagnostics, Homoscedasticity, Multicollinearity VIF, Scikit-learn LinearRegression, Statsmodels OLS, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/regression`,
+    canonical: `${BASE_URL}/learning/machine-learning/regression`,
   },
   "/learning/machine-learning/advanced-regression": {
     title: "Module 6: Advanced Regression & Regularization | PrepSpaces",
@@ -151,7 +215,7 @@ const routeMeta = {
     title: "Module 6: Advanced Regression & Regularization | PrepSpaces",
     description: "Master advanced regression techniques: polynomial feature modeling, SciPy nonlinear regression, Ridge L2 regularization, Lasso L1 feature selection, Elastic Net, VIF multicollinearity diagnostics, K-fold cross-validation, and the bias-variance tradeoff.",
     keywords: "Advanced Regression Course, Regularization Machine Learning, Ridge Regression L2, Lasso Regression L1, Elastic Net, PolynomialFeatures, Bias-Variance Tradeoff, VIF Multicollinearity, Recursive Feature Elimination RFE, GridSearchCV, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/advanced-regression`,
+    canonical: `${BASE_URL}/learning/machine-learning/advanced-regression`,
   },
   "/learning/machine-learning/classification": {
     title: "Module 7: Classification & Logistic Regression | PrepSpaces",
@@ -163,7 +227,7 @@ const routeMeta = {
     title: "Module 7: Classification & Logistic Regression | PrepSpaces",
     description: "Master classification and logistic regression in machine learning: binary and multiclass classification, sigmoid function, log-odds logit, decision boundaries, log-loss cross-entropy, softmax, One-vs-Rest, One-vs-One, decision thresholds, precision-recall tradeoffs, ROC-AUC, imbalanced data, and Scikit-learn pipelines.",
     keywords: "Classification Machine Learning, Logistic Regression, Sigmoid Function, Log-Loss, Cross-Entropy, Softmax Regression, One-vs-Rest OvR, One-vs-One OvO, Decision Boundaries, Classification Thresholds, Precision Recall F1, ROC-AUC, SMOTE Imbalanced Classification, Scikit-learn LogisticRegression, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/classification`,
+    canonical: `${BASE_URL}/learning/machine-learning/classification`,
   },
   "/learning/machine-learning/decision-trees": {
     title: "Module 8: Decision Trees & Rule-Based Learning | PrepSpaces",
@@ -175,7 +239,7 @@ const routeMeta = {
     title: "Module 8: Decision Trees & Rule-Based Learning | PrepSpaces",
     description: "Master decision trees and rule-based supervised learning: recursive partitioning, Shannon entropy, information gain, Gini impurity, classification vs regression trees, tree depth and complexity, pre-pruning, cost-complexity post-pruning ccp_alpha, tree visualization, and Scikit-learn pipelines.",
     keywords: "Decision Trees Machine Learning, Recursive Partitioning, Entropy, Information Gain, Gini Impurity, Classification Trees, Regression Trees, Tree Depth, Pre-Pruning, Post-Pruning, Cost-Complexity Pruning ccp_alpha, DecisionTreeClassifier, DecisionTreeRegressor, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/decision-trees`,
+    canonical: `${BASE_URL}/learning/machine-learning/decision-trees`,
   },
   "/learning/machine-learning/ensemble-learning": {
     title: "Module 9: Ensemble Learning & Boosting Algorithms | PrepSpaces",
@@ -187,7 +251,7 @@ const routeMeta = {
     title: "Module 9: Ensemble Learning & Boosting Algorithms | PrepSpaces",
     description: "Master ensemble learning and boosting algorithms: Bagging, Random Forest, Extra Trees, AdaBoost, Gradient Boosting, XGBoost, LightGBM, CatBoost, Voting Classifiers, and Stacking with out-of-fold cross-validation.",
     keywords: "Ensemble Learning, Bagging Classifier, Random Forest, Extra Trees, AdaBoost, Gradient Boosting, XGBoost, LightGBM, CatBoost, Voting Classifier, Stacking Classifier, Out-of-Bag OOB, Permutation Importance, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/ensemble-learning`,
+    canonical: `${BASE_URL}/learning/machine-learning/ensemble-learning`,
   },
   "/learning/machine-learning/svm": {
     title: "Module 10: Support Vector Machines (SVM) | PrepSpaces",
@@ -199,7 +263,7 @@ const routeMeta = {
     title: "Module 10: Support Vector Machines (SVM) | PrepSpaces",
     description: "Master Support Vector Machines (SVM) for classification and regression: Maximum-Margin Classifiers, Support Vectors, Hyperplanes, Hard vs Soft-Margin, Slack Variables, Hinge Loss, C Parameter, Kernel Trick (Linear, Poly, RBF, Sigmoid), SVR with Epsilon Tube, SMO Optimization, and Scikit-learn pipelines.",
     keywords: "Support Vector Machines, SVM, SVC, SVR, Maximum Margin Classifier, Support Vectors, Hyperplane, Soft-Margin SVM, Slack Variables, Hinge Loss, Regularization C, Kernel Trick, RBF Kernel, Radial Basis Function, Polynomial Kernel, LinearSVC, LIBSVM, LIBLINEAR, Epsilon Insensitive Loss, Sequential Minimal Optimization SMO, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/svm`,
+    canonical: `${BASE_URL}/learning/machine-learning/svm`,
   },
   "/learning/machine-learning/knn-naive-bayes": {
     title: "Module 11: KNN & Naive Bayes Algorithms | PrepSpaces",
@@ -211,7 +275,7 @@ const routeMeta = {
     title: "Module 11: KNN & Naive Bayes Algorithms | PrepSpaces",
     description: "Master instance-based and probabilistic machine learning: K-Nearest Neighbors (KNN classification & regression), distance metrics (Euclidean, Manhattan, Minkowski), optimal K selection, curse of dimensionality, KD-Tree & Ball Tree indexing, Bayes' Theorem, GaussianNB, MultinomialNB, BernoulliNB, and Laplace smoothing.",
     keywords: "K-Nearest Neighbors, KNN, Instance-Based Learning, Lazy Learning, Naive Bayes, Bayes Theorem, GaussianNB, MultinomialNB, BernoulliNB, Euclidean Distance, Manhattan Distance, Minkowski Distance, Curse of Dimensionality, KD-Tree, Ball Tree, Laplace Smoothing, Maximum A Posteriori MAP, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/knn-naive-bayes`,
+    canonical: `${BASE_URL}/learning/machine-learning/knn-naive-bayes`,
   },
   "/learning/machine-learning/model-evaluation": {
     title: "Module 12: Model Evaluation & Cross-Validation | PrepSpaces",
@@ -223,7 +287,7 @@ const routeMeta = {
     title: "Module 12: Model Evaluation & Cross-Validation | PrepSpaces",
     description: "Master model evaluation, generalization diagnostics, and cross-validation: train-validation-test data splitting, preventing data leakage, regression metrics (MAE, MSE, RMSE, R², Adjusted R²), classification metrics (Confusion Matrix, Precision, Recall, F1, ROC-AUC, PR-AUC, Threshold Tuning), K-Fold, Stratified K-Fold, Group K-Fold, TimeSeriesSplit, LOOCV, Bootstrap validation, Nested Cross-Validation, and Learning Curves.",
     keywords: "Model Evaluation, Cross-Validation, Data Leakage, MAE, MSE, RMSE, R-Squared, Adjusted R-Squared, Confusion Matrix, Precision, Recall, F1-Score, ROC Curve, ROC-AUC, Precision-Recall Curve, Average Precision, Classification Threshold, K-Fold, Stratified K-Fold, Group K-Fold, TimeSeriesSplit, Leave-One-Out LOOCV, Bootstrap Validation, Nested Cross-Validation, Learning Curves, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/model-evaluation`,
+    canonical: `${BASE_URL}/learning/machine-learning/model-evaluation`,
   },
   "/learning/machine-learning/feature-engineering": {
     title: "Module 13: Feature Engineering & Data Preprocessing | PrepSpaces",
@@ -235,7 +299,7 @@ const routeMeta = {
     title: "Module 13: Feature Engineering & Data Preprocessing | PrepSpaces",
     description: "Master feature engineering, transformations, and data preprocessing: log and power transforms (Box-Cox, Yeo-Johnson), categorical encoding (One-Hot, Ordinal, Target Encoding with smoothing), feature scaling (StandardScaler, MinMaxScaler, RobustScaler, Normalizer), missing value imputation (SimpleImputer, KNNImputer, IterativeImputer), outlier treatment (IQR, Z-score, Winsorization), binning, interaction terms, cyclical date encoding, feature selection (Filter, Wrapper, Embedded, RFE), and leakage-safe ColumnTransformer pipelines.",
     keywords: "Feature Engineering, Data Preprocessing, One-Hot Encoding, Target Encoding, Ordinal Encoding, StandardScaler, MinMaxScaler, RobustScaler, Normalizer, Missing Value Imputation, SimpleImputer, KNNImputer, IterativeImputer, Outlier Detection, IQR, Winsorization, Binning, Feature Interactions, Polynomial Features, Cyclical Date Encoding, Feature Selection, VarianceThreshold, Mutual Information, RFE, RFECV, SelectFromModel, ColumnTransformer, Pipeline, Data Leakage, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/feature-engineering`,
+    canonical: `${BASE_URL}/learning/machine-learning/feature-engineering`,
   },
   "/learning/machine-learning/ml-pipelines": {
     title: "Module 14: ML Pipelines & Workflow Automation | PrepSpaces",
@@ -247,7 +311,7 @@ const routeMeta = {
     title: "Module 14: ML Pipelines & Workflow Automation | PrepSpaces",
     description: "Master production machine learning pipelines and workflow automation: Scikit-learn Pipeline architecture, ColumnTransformer for heterogeneous data, Custom Transformers with BaseEstimator and TransformerMixin, FunctionTransformer, pipeline cross-validation, hyperparameter tuning with GridSearchCV and RandomizedSearchCV via double underscore syntax, preventing preprocessing leakage, model persistence (Joblib, Pickle, skops, ONNX), and automated end-to-end retraining scripts.",
     keywords: "Machine Learning Pipelines, Pipeline, ColumnTransformer, Custom Transformers, BaseEstimator, TransformerMixin, FunctionTransformer, Pipeline Cross-Validation, GridSearchCV, RandomizedSearchCV, Double Underscore Notation, Preprocessing Leakage, Model Persistence, Joblib, skops, ONNX, ML Workflow Automation, Customer Churn Pipeline, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/ml-pipelines`,
+    canonical: `${BASE_URL}/learning/machine-learning/ml-pipelines`,
   },
   "/learning/machine-learning/unsupervised-clustering": {
     title: "Module 15: Unsupervised Learning & Clustering | PrepSpaces",
@@ -259,7 +323,7 @@ const routeMeta = {
     title: "Module 15: Unsupervised Learning & Clustering | PrepSpaces",
     description: "Master unsupervised clustering and customer segmentation: K-Means, K-Means++ initialization, Elbow Method, Silhouette Score, Agglomerative Hierarchical Clustering, Linkage criteria (Single, Complete, Average, Ward), Dendrograms with SciPy, DBSCAN (eps, min_samples, core/border/noise points), OPTICS reachability plots, Mean Shift mode seeking, Gaussian Mixture Models (GMM) with Expectation-Maximization (EM), covariance types, AIC/BIC model selection, Spectral Clustering with graph Laplacians, and enterprise RFM customer segmentation.",
     keywords: "Unsupervised Learning, Clustering, K-Means, KMeans++, Within-Cluster Sum of Squares, Inertia, Elbow Method, Silhouette Analysis, Hierarchical Clustering, Agglomerative Clustering, Dendrogram, Ward Linkage, Complete Linkage, DBSCAN, Core Points, Noise Points, OPTICS, Reachability Plot, Mean Shift, Gaussian Mixture Models, GMM, Expectation-Maximization, EM Algorithm, Soft Clustering, AIC, BIC, Spectral Clustering, Graph Laplacian, Customer Segmentation, RFM Analysis, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/unsupervised-clustering`,
+    canonical: `${BASE_URL}/learning/machine-learning/unsupervised-clustering`,
   },
   "/learning/machine-learning/dimensionality-reduction": {
     title: "Module 16: Dimensionality Reduction & Feature Extraction | PrepSpaces",
@@ -271,7 +335,7 @@ const routeMeta = {
     title: "Module 16: Dimensionality Reduction & Feature Extraction | PrepSpaces",
     description: "Master dimensionality reduction and feature extraction: Curse of Dimensionality, distance concentration, PCA mathematics, covariance matrix decomposition, eigenvalues and eigenvectors, explained variance ratio, scree plots, SVD singular value decomposition, Kernel PCA with RBF kernel, Linear Discriminant Analysis (LDA) with Fisher criterion, Independent Component Analysis (ICA) FastICA blind source separation, t-SNE with Student-t heavy tail KL divergence, UMAP manifold topology, and leak-free machine learning pipelines.",
     keywords: "Dimensionality Reduction, Feature Extraction, Curse of Dimensionality, Distance Concentration, Principal Component Analysis, PCA, Covariance Matrix, Eigenvalues, Eigenvectors, Explained Variance Ratio, Scree Plot, SVD, Singular Value Decomposition, Kernel PCA, RBF Kernel, Linear Discriminant Analysis, LDA, Fisher Criterion, Between-Class Scatter, Within-Class Scatter, Independent Component Analysis, ICA, FastICA, Cocktail Party Problem, t-SNE, Kullback-Leibler Divergence, Perplexity, UMAP, Uniform Manifold Approximation and Projection, High-Dimensional Visualization, Data Leakage Prevention, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/dimensionality-reduction`,
+    canonical: `${BASE_URL}/learning/machine-learning/dimensionality-reduction`,
   },
   "/learning/machine-learning/anomaly-detection": {
     title: "Module 17: Anomaly Detection & Imbalanced Learning | PrepSpaces",
@@ -283,7 +347,7 @@ const routeMeta = {
     title: "Module 17: Anomaly Detection & Imbalanced Learning | PrepSpaces",
     description: "Master anomaly detection and imbalanced learning: statistical screening with Z-score, Tukey IQR fences, Median Absolute Deviation (MAD), Isolation Forest, Local Outlier Factor (LOF), One-Class SVM, sampling strategies (Random Undersampling, Random Oversampling, SMOTE), cost-sensitive class weighting, probability threshold optimization (F1, Precision-Recall curves, cost-sensitive tradeoffs), and production financial fraud detection pipelines.",
     keywords: "Anomaly Detection, Imbalanced Learning, Outlier vs Anomaly, Point Anomaly, Contextual Anomaly, Collective Anomaly, Z-Score, Interquartile Range, IQR, Median Absolute Deviation, MAD, Modified Z-Score, Isolation Forest, Local Outlier Factor, LOF, One-Class SVM, Random Undersampling, Random Oversampling, SMOTE, Synthetic Minority Oversampling, Class Weights, Threshold Optimization, Precision-Recall AUC, Average Precision, ROC-AUC, Fraud Detection, Imbalanced-Learn, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/anomaly-detection`,
+    canonical: `${BASE_URL}/learning/machine-learning/anomaly-detection`,
   },
   "/learning/machine-learning/recommendation-systems": {
     title: "Module 18: Recommendation Systems & Personalization | PrepSpaces",
@@ -295,7 +359,7 @@ const routeMeta = {
     title: "Module 18: Recommendation Systems & Personalization | PrepSpaces",
     description: "Master recommendation systems and personalization: user-item interaction matrices, explicit vs implicit feedback, sparsity, content-based filtering with TF-IDF, user-based and item-based collaborative filtering, cosine similarity, Pearson correlation, Jaccard distance, regularized matrix factorization, SVD, bias terms, cold-start solutions, hybrid recommender architectures, Precision@K, Recall@K, NDCG, popularity bias, and end-to-end Python movie recommendation pipelines.",
     keywords: "Recommendation Systems, Personalization, Collaborative Filtering, Content-Based Filtering, User-Item Matrix, Explicit Feedback, Implicit Feedback, Matrix Factorization, Singular Value Decomposition, SVD, Latent Factors, Cosine Similarity, Pearson Correlation, Jaccard Similarity, Cold Start Problem, Hybrid Recommendation Systems, Precision@K, Recall@K, NDCG, Normalized Discounted Cumulative Gain, Popularity Bias, Filter Bubble, Movie Recommendation System, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/recommendation-systems`,
+    canonical: `${BASE_URL}/learning/machine-learning/recommendation-systems`,
   },
   "/learning/machine-learning/time-series-forecasting": {
     title: "Module 19: Time Series Analysis & Forecasting | PrepSpaces",
@@ -307,7 +371,7 @@ const routeMeta = {
     title: "Module 19: Time Series Analysis & Forecasting | PrepSpaces",
     description: "Master time series analysis and forecasting: trend and seasonality decomposition (classical & STL), stationarity tests (ADF & KPSS), differencing, autocorrelation (ACF) and partial autocorrelation (PACF), lag and rolling features, chronological splitting and walk-forward validation, exponential smoothing (SES, Holt, Holt-Winters), ARIMA, SARIMA, regression-based forecasting, gradient boosting (LightGBM, XGBoost, CatBoost), evaluation metrics (MAE, RMSE, MAPE, sMAPE, WAPE, MASE), and end-to-end retail sales forecasting pipelines.",
     keywords: "Time Series Analysis, Forecasting, Trend, Seasonality, Classical Decomposition, STL Decomposition, Stationarity, Augmented Dickey-Fuller, ADF Test, KPSS Test, Differencing, Log Transformation, Autocorrelation, ACF, Partial Autocorrelation, PACF, Lag Features, Rolling Statistics, Expanding Windows, TimeSeriesSplit, Walk-Forward Validation, Moving Average, Simple Exponential Smoothing, Holt Linear Trend, Holt-Winters, AR, MA, ARMA, ARIMA, SARIMA, Exogenous Variables, Gradient Boosting Forecasting, LightGBM, XGBoost, CatBoost, Recursive Forecasting, Direct Forecasting, MAE, RMSE, MAPE, sMAPE, WAPE, MASE, Sales Forecasting, Statsmodels, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/time-series-forecasting`,
+    canonical: `${BASE_URL}/learning/machine-learning/time-series-forecasting`,
   },
   "/learning/machine-learning/probabilistic-machine-learning": {
     title: "Module 20: Probabilistic Machine Learning & Bayesian Methods | PrepSpaces",
@@ -319,7 +383,7 @@ const routeMeta = {
     title: "Module 20: Probabilistic Machine Learning & Bayesian Methods | PrepSpaces",
     description: "Master probabilistic machine learning and Bayesian methods: random variables, conditional and joint distributions, generative vs discriminative models, Bayes' theorem, conjugate priors (Beta-Binomial, Normal-Normal), Maximum Likelihood Estimation (MLE), Maximum A Posteriori (MAP), L2/L1 regularization connection, Bayesian decision theory, expected loss minimization, Bayesian linear regression, Gaussian Processes (GPs), RBF kernels, aleatoric vs epistemic uncertainty, predictive distributions, and model calibration (Log Loss, Brier Score, ECE).",
     keywords: "Probabilistic Machine Learning, Bayesian Methods, Bayes Theorem, Prior Distribution, Likelihood, Posterior Distribution, Marginal Likelihood, Evidence, Maximum Likelihood Estimation, MLE, Maximum A Posteriori, MAP, L2 Regularization, Ridge, Lasso, Bayesian Decision Theory, Expected Loss, Bayesian Linear Regression, Predictive Distribution, Gaussian Processes, RBF Kernel, Covariance Function, Aleatoric Uncertainty, Epistemic Uncertainty, Probability Calibration, Expected Calibration Error, ECE, Brier Score, Log Loss, CRPS, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/probabilistic-machine-learning`,
+    canonical: `${BASE_URL}/learning/machine-learning/probabilistic-machine-learning`,
   },
   "/learning/machine-learning/advanced-statistical-learning": {
     title: "Module 21: Advanced Statistical Learning & ML Research | PrepSpaces",
@@ -331,7 +395,7 @@ const routeMeta = {
     title: "Module 21: Advanced Statistical Learning & ML Research | PrepSpaces",
     description: "Master advanced statistical learning theory and machine learning research methodology: Empirical Risk Minimization (ERM), generalization error bounds, bias-variance decomposition, PAC learning, VC dimension, Structural Risk Minimization (SRM), regularization theory (L1, L2, Elastic Net), model assumptions, semi-supervised learning, self-training, pseudo-labeling, active learning query strategies, transfer learning, controlled experimental design, ablation studies, and reproducible ML research.",
     keywords: "Statistical Learning Theory, Empirical Risk Minimization, ERM, Generalization Error, Generalization Bounds, Bias-Variance Decomposition, PAC Learning, Probably Approximately Correct, Sample Complexity, VC Dimension, Vapnik-Chervonenkis, Shattering, Structural Risk Minimization, SRM, Regularization Theory, L1 Lasso, L2 Ridge, Elastic Net, Semi-Supervised Learning, Self-Training, Pseudo-Labeling, Active Learning, Uncertainty Sampling, Margin Sampling, Transfer Learning, Experimental Design, Ablation Studies, Reproducible ML Research, Research Paper Implementation, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/advanced-statistical-learning`,
+    canonical: `${BASE_URL}/learning/machine-learning/advanced-statistical-learning`,
   },
   "/learning/machine-learning/hyperparameter-optimization-xai": {
     title: "Module 22: Hyperparameter Optimization & Explainable ML | PrepSpaces",
@@ -343,7 +407,7 @@ const routeMeta = {
     title: "Module 22: Hyperparameter Optimization & Explainable ML | PrepSpaces",
     description: "Master hyperparameter optimization and explainable machine learning (XAI): Model selection strategies (K-Fold, Stratified, Time Series, Nested CV), Grid Search, Randomized Search, Bayesian Optimization, Optuna framework, Successive Halving, Early Stopping, Probability Calibration (Platt Scaling, Isotonic Regression, Temperature Scaling), Decision Threshold Optimization, Global vs Local interpretability, Permutation Feature Importance, Partial Dependence Plots (PDP), ICE, SHAP (Shapley values, beeswarm, waterfall), Feature Attribution, Systematic Error Analysis, and Model Fairness Evaluation (Demographic Parity, Equal Opportunity, Equalized Odds).",
     keywords: "Hyperparameter Optimization, HPO, Explainable AI, XAI, Model Selection, Grid Search, Randomized Search, Bayesian Optimization, Optuna, TPE Sampler, Successive Halving, HalvingRandomSearchCV, Early Stopping, Model Calibration, Probability Calibration, Platt Scaling, Sigmoid Calibration, Isotonic Regression, Temperature Scaling, Reliability Diagrams, Calibration Display, Decision Threshold Optimization, TunedThresholdClassifierCV, Cost-Sensitive Learning, Permutation Feature Importance, Partial Dependence Plots, PDP, Individual Conditional Expectation, ICE, SHAP, Shapley Additive Explanations, TreeExplainer, Beeswarm Plot, Waterfall Plot, Feature Attribution, Error Analysis, Confusion Matrix, Fairness in Machine Learning, Fairlearn, Demographic Parity, Equal Opportunity, Equalized Odds, Predictive Parity, Bias Mitigation, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/hyperparameter-optimization-xai`,
+    canonical: `${BASE_URL}/learning/machine-learning/hyperparameter-optimization-xai`,
   },
   "/learning/machine-learning/real-world-ml-case-studies": {
     title: "Module 23: Real-World ML Engineering & Case Studies | PrepSpaces",
@@ -355,7 +419,7 @@ const routeMeta = {
     title: "Module 23: Real-World ML Engineering & Case Studies | PrepSpaces",
     description: "Master real-world machine learning engineering: translating business problems into ML tasks, data requirements & quality assessment (leakage, class imbalance, outliers), baseline development (DummyClassifier, heuristic), algorithm benchmarking, experiment tracking, ML research reproducibility, model interpretation, performance analysis, and 6 end-to-end industry case studies: Credit Risk Prediction (Basel norms, PD/LGD/EAD), Financial Fraud Detection, Customer Churn, Recommendation Systems, Sales Forecasting (walk-forward validation), and Medical Risk Prediction.",
     keywords: "Real-World Machine Learning, ML Engineering, Business Problem Formulation, Data Leakage Prevention, Baseline Development, DummyClassifier, Algorithm Benchmarking, Experiment Tracking, MLflow, ML Reproducibility, Credit Risk Prediction, Probability of Default, Basel Norms, Financial Fraud Detection, Imbalanced Learning, Precision at K, Customer Churn Prediction, Recommendation Systems, Matrix Factorization, NDCG, Sales Forecasting, Walk-Forward Validation, Lag Features, Medical Risk Prediction, Clinical AI, Responsible ML, Model Cards, Datasheets, Scikit-learn, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/real-world-ml-case-studies`,
+    canonical: `${BASE_URL}/learning/machine-learning/real-world-ml-case-studies`,
   },
   "/learning/machine-learning/final-capstone": {
     title: "Module 24: Final ML Capstone & Interview Mastery | PrepSpaces",
@@ -367,7 +431,7 @@ const routeMeta = {
     title: "Module 24: Final ML Capstone & Interview Mastery | PrepSpaces",
     description: "The grand finale capstone of the Machine Learning with Python track. Build a production-grade customer churn prediction system, master Python coding interviews, statistics and probability questions, classical ML algorithm deep-dives, end-to-end case studies, and ML system design fundamentals with interactive 24-skill readiness tracker.",
     keywords: "Machine Learning Capstone, Customer Churn Prediction, ML Interview Preparation, Python Coding Interview, Statistics and Probability for ML, Classical Machine Learning, ML System Design, Feature Store, Batch Inference, Real-Time Inference, Model Serialization, Joblib, SHAP Explainability, Scikit-learn Pipeline, PrepSpaces",
-    canonical: `${BASE_URL}/courses/machine-learning/final-capstone`,
+    canonical: `${BASE_URL}/learning/machine-learning/final-capstone`,
   },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
@@ -888,7 +952,7 @@ const routeMeta = {
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",
-    canonical: `${BASE_URL}/learning/ai/foundations`,
+    canonical: `${BASE_URL}/learning/ai`,
   },
   "/learning/os": {
     title: "Operating Systems Master Course — Kernel Internals & Systems Thinking | PrepSpaces",
@@ -1148,7 +1212,7 @@ const routeMeta = {
   "/learn/computer-networks": {
     title: "Computer Networks & Internet Engineering Course | PrepSpaces",
     description: "University-level computer networks course based on MIT, Stanford, Berkeley, CMU, and Princeton curricula. Packet switching, sockets, routing, and Wireshark labs.",
-    canonical: `${BASE_URL}/learn/computer-networks`,
+    canonical: `${BASE_URL}/learning/networks`,
   },
   "/learn/system-design": {
     title: "System Design Course for Beginners | PrepSpaces",
@@ -1364,7 +1428,7 @@ const routeMeta = {
   "/learning/devops": {
     title: "DevOps Course & SRE Interview Preparation | PrepSpaces",
     description: "Master modern production infrastructure, Linux systems, GitOps, Docker, Kubernetes, CI/CD, and DevOps interview questions.",
-    canonical: `${BASE_URL}/learning/devops`,
+    canonical: `${BASE_URL}/learning/devops/linux`,
   },
   "/learning/devops/linux": {
     title: "Linux Administration & System Internals for DevOps — PrepSpaces",
@@ -1651,20 +1715,27 @@ function updateCourseSchema(pathname, meta) {
     ];
   }
 
+  setJsonLd("jsonld-course", courseData);
+}
+
+function setJsonLd(id, data) {
+  let script = document.getElementById(id);
+  if (!data) {
+    if (script) script.remove();
+    return;
+  }
   if (!script) {
     script = document.createElement("script");
-    script.id = "jsonld-course";
+    script.id = id;
     script.type = "application/ld+json";
     document.head.appendChild(script);
   }
-  script.text = JSON.stringify(courseData);
+  script.text = JSON.stringify(data);
 }
 
 function updateBreadcrumbs(pathname, title) {
-  let script = document.getElementById("jsonld-breadcrumbs");
-  
   if (pathname === "/" || pathname === "") {
-    if (script) script.remove();
+    setJsonLd("jsonld-breadcrumbs", null);
     return;
   }
 
@@ -1694,35 +1765,182 @@ function updateBreadcrumbs(pathname, title) {
     });
   });
 
-  const breadcrumbData = {
+  setJsonLd("jsonld-breadcrumbs", {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": itemListElement,
+  });
+}
+
+function updatePageSchemas(pathname, meta) {
+  // Remove previous page-specific schema nodes before applying current route's schema
+  setJsonLd("jsonld-webpage", null);
+  setJsonLd("jsonld-software-app", null);
+  setJsonLd("jsonld-faq", null);
+  setJsonLd("jsonld-article", null);
+  setJsonLd("jsonld-techarticle", null);
+
+  const isUtilityRoute =
+    pathname === "/login" ||
+    pathname === "/register" ||
+    pathname === "/dashboard" ||
+    pathname === "/interview";
+
+  if (isUtilityRoute || meta.robots === "noindex, nofollow") {
+    return;
+  }
+
+  const orgRef = {
+    "@type": "Organization",
+    "@id": `${BASE_URL}/#organization`,
+    "name": BRAND_INFO.name,
+    "url": BRAND_INFO.url,
+    "logo": {
+      "@type": "ImageObject",
+      "url": BRAND_INFO.logo,
+    },
+    "sameAs": [BRAND_INFO.instagram],
   };
 
-  if (!script) {
-    script = document.createElement("script");
-    script.id = "jsonld-breadcrumbs";
-    script.type = "application/ld+json";
-    document.head.appendChild(script);
+  if (pathname === "/ai-interview") {
+    setJsonLd("jsonld-webpage", {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "about": {
+        "@type": "Thing",
+        "name": "AI Interview Practice",
+      },
+      "publisher": orgRef,
+    });
+    setJsonLd("jsonld-software-app", {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "PrepSpaces AI Mock Interview Platform",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web Browser",
+      "url": `${BASE_URL}/ai-interview`,
+      "description": AI_INTERVIEW_PAGE.directDefinition,
+      "featureList": [
+        "10 technical engineering tracks covering 216 curriculum modules",
+        "7 non-repeating technical interview questions per session",
+        "Spoken voice playback with visible text prompts",
+        "Real-time voice transcription and automated 1-10 rubric scoring",
+        "Question-by-question report with ideal expected answers",
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+      },
+      "publisher": orgRef,
+    });
+    setJsonLd("jsonld-faq", {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": AI_INTERVIEW_PAGE.faqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer,
+        },
+      })),
+    });
+    return;
   }
-  script.text = JSON.stringify(breadcrumbData);
+
+  if (pathname === "/about") {
+    setJsonLd("jsonld-webpage", {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "mainEntity": orgRef,
+    });
+    return;
+  }
+
+  if (pathname === "/guides") {
+    setJsonLd("jsonld-webpage", {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": INTERVIEW_GUIDES.map((g, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": g.title,
+          "url": `${BASE_URL}${g.route}`,
+        })),
+      },
+    });
+    return;
+  }
+
+  if (pathname.startsWith("/guides/")) {
+    const slug = pathname.replace("/guides/", "");
+    const guide = getGuideBySlug(slug);
+    if (guide) {
+      setJsonLd("jsonld-article", {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": guide.title,
+        "description": guide.description,
+        "articleSection": guide.category,
+        "datePublished": guide.publishedDate,
+        "dateModified": guide.publishedDate,
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `${BASE_URL}${guide.route}`,
+        },
+        "author": orgRef,
+        "publisher": orgRef,
+      });
+    }
+    return;
+  }
+
+  if (pathname === "/learning" || pathname === "/") {
+    setJsonLd("jsonld-webpage", {
+      "@context": "https://schema.org",
+      "@type": pathname === "/learning" ? "CollectionPage" : "WebPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+    });
+  }
 }
 
 /**
  * SeoManager Component
  * Observes React Router pathname changes and updates document.title, meta descriptions,
- * canonical link tags, Open Graph, Twitter metadata, and Breadcrumbs in real time.
+ * canonical link tags, Open Graph, Twitter metadata, and Schema.org JSON-LD in real time.
  */
 export default function SeoManager() {
   const location = useLocation();
 
   useEffect(() => {
     const pathname = location.pathname.replace(/\/+$/, "") || "/";
-    const meta = routeMeta[pathname] || {
-      title: "PrepSpaces — Technical Interview Preparation & Architecture Mastery",
-      description: "Interactive technical learning platform for software engineers. System design, cloud computing, and DevOps.",
+    const isGuideRoute = pathname.startsWith("/guides/");
+    const matchedGuide = isGuideRoute ? getGuideBySlug(pathname.replace("/guides/", "")) : null;
+    const knownMeta = routeMeta[pathname];
+    const meta = knownMeta || {
+      title: "Page Not Found — PrepSpaces",
+      description: "The requested PrepSpaces page could not be found. Browse AI interview practice guides or open engineering courses.",
       canonical: `${BASE_URL}${pathname}`,
+      robots: matchedGuide ? undefined : "noindex, nofollow",
     };
 
     // 1. Update Title
@@ -1742,19 +1960,23 @@ export default function SeoManager() {
     updateMetaTag("property", "og:title", meta.title);
     updateMetaTag("property", "og:description", meta.description);
     updateMetaTag("property", "og:url", meta.canonical);
-    updateMetaTag("property", "og:type", "website");
+    updateMetaTag("property", "og:type", isGuideRoute && matchedGuide ? "article" : "website");
     updateMetaTag("property", "og:site_name", "PrepSpaces");
     updateMetaTag("property", "og:image", `${BASE_URL}/logo-mark.png`);
+    updateMetaTag("property", "og:image:alt", `${meta.title} — PrepSpaces`);
 
     // 5. Update Twitter Meta
     updateMetaTag("name", "twitter:card", "summary_large_image");
+    updateMetaTag("name", "twitter:url", meta.canonical);
     updateMetaTag("name", "twitter:title", meta.title);
     updateMetaTag("name", "twitter:description", meta.description);
     updateMetaTag("name", "twitter:image", `${BASE_URL}/logo-mark.png`);
+    updateMetaTag("name", "twitter:image:alt", `${meta.title} — PrepSpaces`);
 
-    // 6. Update Breadcrumbs & Course Structured Data
+    // 6. Update Structured Data JSON-LD
     updateBreadcrumbs(pathname, meta.title);
     updateCourseSchema(pathname, meta);
+    updatePageSchemas(pathname, meta);
 
     // 7. Track SPA page views in Google Analytics (gtag.js)
     if (typeof window !== "undefined" && typeof window.gtag === "function") {

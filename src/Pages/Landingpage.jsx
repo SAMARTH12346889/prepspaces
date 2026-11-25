@@ -278,7 +278,13 @@ export default function Landingpage() {
                   className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-stone-200 bg-white/90 px-2.5 sm:px-3 py-1.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs cursor-pointer shrink-0"
                 >
                   {user?.picture ? (
-                    <img src={user.picture} alt="" className="w-5 h-5 rounded-full object-cover border border-orange-400" referrerPolicy="no-referrer" />
+                    <img
+                      src={user.picture}
+                      alt={user?.name ? `${user.name} avatar` : "User profile avatar"}
+                      loading="lazy"
+                      className="w-5 h-5 rounded-full object-cover border border-orange-400"
+                      referrerPolicy="no-referrer"
+                    />
                   ) : (
                     <User size={14} className="text-orange-500" />
                   )}
@@ -683,6 +689,18 @@ export default function Landingpage() {
                 <span>— Technical Interview Preparation & Architecture Mastery</span>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-medium">
+                <Link to="/ai-interview" className="hover:text-[#ea580c] transition">
+                  AI Interview
+                </Link>
+                <span className="text-stone-300">•</span>
+                <Link to="/guides" className="hover:text-[#ea580c] transition">
+                  Prep Guides
+                </Link>
+                <span className="text-stone-300">•</span>
+                <Link to="/about" className="hover:text-[#ea580c] transition">
+                  About
+                </Link>
+                <span className="text-stone-300">•</span>
                 <Link to="/privacy-policy" className="hover:text-[#ea580c] transition">
                   Privacy Policy
                 </Link>

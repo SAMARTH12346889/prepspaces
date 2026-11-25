@@ -1,8 +1,11 @@
-# prepspaces — Complete Technical Curriculum Manifest
+# PrepSpaces — Complete AI Interview & Technical Curriculum Manifest
 
 > Website: https://prepspaces.com/
+> AI Interview Practice Platform: https://prepspaces.com/ai-interview
+> About PrepSpaces: https://prepspaces.com/about
+> Interview Preparation Guides: https://prepspaces.com/guides
 > Official Instagram: https://www.instagram.com/prepspaces/ (@prepspaces)
-> Description: Comprehensive open educational curriculum covering 6 core systems engineering disciplines across 121 technical modules, architectural blueprints, interactive labs, and diagnostic frameworks.
+> Description: Live voice-based AI Mock Interview simulator and open technical engineering curriculum covering 10 flagship courses (216 interview modules) with 7-question spoken interviews, real-time transcription, and 1–10 rubric evaluation.
 
 ---
 

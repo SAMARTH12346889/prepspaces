@@ -1,6 +1,15 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import {
+  AI_INTERVIEW_PAGE,
+  AI_INTERVIEW_COURSE_LINKS,
+  ABOUT_PAGE,
+  AUTHORITATIVE_CITATIONS,
+  INTERVIEW_GUIDES,
+  BRAND_INFO,
+  getGuideBySlug,
+} from "../src/data/seoContent.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -376,6 +385,31 @@ for (const [route, meta] of Object.entries(routeMeta)) {
     },
   });
 
+  // Remove WebSite/Organization duplication checks and build page-accurate schemas
+  const isCourseOrModuleRoute =
+    route.startsWith("/learning/") ||
+    route.startsWith("/courses/") ||
+    route.startsWith("/learn/");
+  const isUtilityRoute =
+    route === "/interview" ||
+    route === "/dashboard" ||
+    route === "/login" ||
+    route === "/register";
+  const isGuideArticle = route.startsWith("/guides/");
+  const matchedGuide = isGuideArticle ? getGuideBySlug(route.replace("/guides/", "")) : null;
+
+  const orgRef = {
+    "@type": "Organization",
+    "@id": `${BASE_URL}/#organization`,
+    "name": BRAND_INFO.name,
+    "url": BRAND_INFO.url,
+    "logo": {
+      "@type": "ImageObject",
+      "url": BRAND_INFO.logo,
+    },
+    "sameAs": [BRAND_INFO.instagram],
+  };
+
   let html = template;
 
   // 1. Replace Title
@@ -383,7 +417,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
 
   // 2. Replace Meta Description
   html = html.replace(
-    /<meta\s+name="description"\s+content=".*?"\s*\/>/,
+    /<meta\s+name="description"\s+content="[\s\S]*?"\s*\/>/,
     `<meta name="description" content="${meta.description.replace(/"/g, '&quot;')}" />`
   );
 
@@ -411,25 +445,128 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   );
 
   // 5. Update Open Graph Meta Tags
+  html = html.replace(/<meta\s+property="og:type"\s+content=".*?"\s*\/>/, `<meta property="og:type" content="${matchedGuide ? "article" : "website"}" />`);
   html = html.replace(/<meta\s+property="og:title"\s+content="[\s\S]*?"\s*\/>/, `<meta property="og:title" content="${meta.title.replace(/"/g, '&quot;')}" />`);
   html = html.replace(/<meta\s+property="og:description"\s+content="[\s\S]*?"\s*\/>/, `<meta property="og:description" content="${meta.description.replace(/"/g, '&quot;')}" />`);
   html = html.replace(/<meta\s+property="og:url"\s+content="[\s\S]*?"\s*\/>/, `<meta property="og:url" content="${meta.canonical}" />`);
+  html = html.replace(/<meta\s+property="og:image:alt"\s+content="[\s\S]*?"\s*\/>/, `<meta property="og:image:alt" content="${meta.title.replace(/"/g, '&quot;')} — PrepSpaces" />`);
 
   // 6. Update Twitter Meta Tags
   html = html.replace(/<meta\s+name="twitter:title"\s+content="[\s\S]*?"\s*\/>/, `<meta name="twitter:title" content="${meta.title.replace(/"/g, '&quot;')}" />`);
   html = html.replace(/<meta\s+name="twitter:description"\s+content="[\s\S]*?"\s*\/>/, `<meta name="twitter:description" content="${meta.description.replace(/"/g, '&quot;')}" />`);
   html = html.replace(/<meta\s+name="twitter:url"\s+content="[\s\S]*?"\s*\/>/, `<meta name="twitter:url" content="${meta.canonical}" />`);
+  html = html.replace(/<meta\s+name="twitter:image:alt"\s+content="[\s\S]*?"\s*\/>/, `<meta name="twitter:image:alt" content="${meta.title.replace(/"/g, '&quot;')} — PrepSpaces" />`);
 
   // 6b. Remove WebSite structured data from subpages (Google requires WebSite schema ONLY on the homepage)
   html = html.replace(/<script\s+type="application\/ld\+json"\s+id="schema-website">[\s\S]*?<\/script>\s*/, '');
 
-  // 7. Inject Structured Data JSON-LD
-  const schemaTags = `
-    <!-- Structured Data: Breadcrumbs, Course & TechArticle (AEO/GEO Grounding) -->
-    <script type="application/ld+json" id="jsonld-breadcrumbs">${breadcrumbsJsonLd}</script>
-    <script type="application/ld+json" id="jsonld-course">${courseJsonLd}</script>
-    <script type="application/ld+json" id="jsonld-techarticle">${techArticleJsonLd}</script>
-  </head>`;
+  // 7. Inject Structured Data JSON-LD strictly matched to page type
+  const extraSchemaScripts = [
+    `<script type="application/ld+json" id="jsonld-breadcrumbs">${breadcrumbsJsonLd}</script>`,
+  ];
+
+  if (route === "/ai-interview") {
+    const webPageJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "about": { "@type": "Thing", "name": "AI Interview Practice" },
+      "publisher": orgRef,
+    });
+    const softwareAppJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "PrepSpaces AI Mock Interview Platform",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web Browser",
+      "url": `${BASE_URL}/ai-interview`,
+      "description": AI_INTERVIEW_PAGE.directDefinition,
+      "featureList": [
+        "10 technical engineering tracks covering 216 curriculum modules",
+        "7 non-repeating technical interview questions per session",
+        "Spoken voice playback with visible text prompts",
+        "Real-time voice transcription and automated 1-10 rubric scoring",
+        "Question-by-question report with ideal expected answers",
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": orgRef,
+    });
+    const faqJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": AI_INTERVIEW_PAGE.faqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+      })),
+    });
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-webpage">${webPageJsonLd}</script>`);
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-software-app">${softwareAppJsonLd}</script>`);
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-faq">${faqJsonLd}</script>`);
+  } else if (route === "/about") {
+    const aboutJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "mainEntity": orgRef,
+    });
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-webpage">${aboutJsonLd}</script>`);
+  } else if (route === "/guides") {
+    const guidesHubJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": INTERVIEW_GUIDES.map((g, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": g.title,
+          "url": `${BASE_URL}${g.route}`,
+        })),
+      },
+    });
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-webpage">${guidesHubJsonLd}</script>`);
+  } else if (matchedGuide) {
+    const articleJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": matchedGuide.title,
+      "description": matchedGuide.description,
+      "articleSection": matchedGuide.category,
+      "datePublished": matchedGuide.publishedDate,
+      "dateModified": matchedGuide.publishedDate,
+      "inLanguage": "en",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}${matchedGuide.route}` },
+      "author": orgRef,
+      "publisher": orgRef,
+    });
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-article">${articleJsonLd}</script>`);
+  } else if (route === "/learning") {
+    const collectionJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+    });
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-webpage">${collectionJsonLd}</script>`);
+  } else if (isCourseOrModuleRoute && !isUtilityRoute) {
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-course">${courseJsonLd}</script>`);
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-techarticle">${techArticleJsonLd}</script>`);
+  }
+
+  const schemaTags = `\n    <!-- Structured Data JSON-LD -->\n    ${extraSchemaScripts.join("\n    ")}\n  </head>`;
   html = html.replace('</head>', schemaTags);
 
   // 8. Inject Semantic Content inside <div id="root"></div> for zero-JS crawlers & AI Answer Engines
@@ -775,9 +912,9 @@ for (const [route, meta] of Object.entries(routeMeta)) {
                 <a href="/courses/data-engineering" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore 24 Modules &rarr;</a>
               </div>
               <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
-                <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/java" style="color: #ea580c; text-decoration: none;">Java Programming & DSA Masterclass</a></h2>
-                <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">24 Modules: Modern Java, OOP, collections, recursion, sorting, linked lists, trees, graphs, dynamic programming, JVM internals, and interview placement mastery.</p>
-                <a href="/courses/java" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore 24 Modules &rarr;</a>
+                <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/ai-interview" style="color: #ea580c; text-decoration: none;">AI Interview Practice Platform</a></h2>
+                <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">Live voice-based 7-question AI mock interviews across all 10 tracks and 216 modules with speech transcription and 1–10 rubric reports.</p>
+                <a href="/ai-interview" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore AI Interviews &rarr;</a>
               </div>
               <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
                 <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/blockchain" style="color: #ea580c; text-decoration: none;">Blockchain Development & Web3 Engineering</a></h2>
@@ -827,12 +964,108 @@ for (const [route, meta] of Object.entries(routeMeta)) {
           </main>
         </div>
       </div>`;
+  } else if (route === "/ai-interview") {
+    const stepsHtml = AI_INTERVIEW_PAGE.howItWorksSteps
+      .map((s) => `<li><strong>Step ${s.step} — ${s.title}:</strong> ${s.detail}</li>`)
+      .join("");
+    const coursesHtml = AI_INTERVIEW_COURSE_LINKS
+      .map((c) => `<li><a href="${c.route}" style="color: #ea580c; font-weight: 600;">${c.title} (${c.modules} Modules)</a> — ${c.summary}</li>`)
+      .join("");
+    const faqHtml = AI_INTERVIEW_PAGE.faqs
+      .map((f) => `<section style="margin-bottom: 1rem;"><h3 style="font-size: 1rem; font-weight: 700; color: #18181b;">${f.question}</h3><p style="font-size: 0.95rem; line-height: 1.6; color: #44403c;">${f.answer}</p></section>`)
+      .join("");
+    semanticContent = `<div id="root">
+      <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 72rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
+          <a href="/" style="color: #ea580c; text-decoration: none; font-weight: 600;">Home</a> &rarr; <span>AI Interview Practice</span>
+        </nav>
+        <header style="margin-bottom: 2rem;">
+          <h1 style="font-size: 2.25rem; font-weight: 800; color: #18181b; margin-bottom: 0.75rem;">AI Interview Practice Across 10 Engineering Tracks</h1>
+          <p style="font-size: 1.05rem; line-height: 1.6; color: #44403c;">${AI_INTERVIEW_PAGE.directDefinition}</p>
+        </header>
+        <main>
+          <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.75rem; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">How AI Mock Interviews Work on PrepSpaces</h2>
+            <ol style="line-height: 1.75; color: #44403c; padding-left: 1.25rem; margin-bottom: 1.5rem;">${stepsHtml}</ol>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">10 Unlocked Technical Interview Tracks (216 Modules)</h2>
+            <ul style="line-height: 1.75; color: #44403c; padding-left: 1.25rem; margin-bottom: 1.5rem;">${coursesHtml}</ul>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">Frequently Asked Questions About AI Interviews</h2>
+            ${faqHtml}
+          </article>
+          <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="/interview" style="padding: 0.75rem 1.5rem; font-weight: 700; color: white; background: #f97316; border-radius: 0.75rem; text-decoration: none;">Start Free AI Interview</a>
+            <a href="/learning" style="padding: 0.75rem 1.5rem; font-weight: 700; color: #18181b; background: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">Explore 10 Courses</a>
+            <a href="/guides" style="padding: 0.75rem 1.5rem; font-weight: 700; color: #18181b; background: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">Interview Prep Guides</a>
+          </nav>
+        </main>
+      </div>
+    </div>`;
+  } else if (route === "/about") {
+    const pillarsHtml = ABOUT_PAGE.pillars
+      .map((p) => `<section style="margin-bottom: 1rem;"><h2 style="font-size: 1.25rem; font-weight: 700; color: #18181b;">${p.title}</h2><p style="font-size: 0.95rem; line-height: 1.6; color: #44403c;">${p.detail}</p></section>`)
+      .join("");
+    const citesHtml = AUTHORITATIVE_CITATIONS
+      .map((c) => `<li><a href="${c.url}" rel="noopener noreferrer">${c.title}</a> (${c.publisher}) — ${c.context}</li>`)
+      .join("");
+    semanticContent = `<div id="root">
+      <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 68rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
+          <a href="/" style="color: #ea580c; font-weight: 600; text-decoration: none;">Home</a> &rarr; <span>About PrepSpaces</span>
+        </nav>
+        <h1 style="font-size: 2.25rem; font-weight: 800; color: #18181b; margin-bottom: 0.75rem;">About PrepSpaces: AI Interview Practice & Systems Engineering Education</h1>
+        <p style="font-size: 1.05rem; line-height: 1.6; color: #44403c; margin-bottom: 1.5rem;">${ABOUT_PAGE.missionSummary}</p>
+        <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.75rem; margin-bottom: 1.5rem;">
+          ${pillarsHtml}
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin-top: 1.25rem;">Curriculum Standards & References</h2>
+          <ul style="line-height: 1.75; color: #44403c; padding-left: 1.25rem;">${citesHtml}</ul>
+        </article>
+        <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="/ai-interview" style="color: #ea580c; font-weight: 700;">AI Interview Practice</a>
+          <a href="/learning" style="color: #ea580c; font-weight: 700;">10 Engineering Tracks</a>
+          <a href="/guides" style="color: #ea580c; font-weight: 700;">Interview Guides</a>
+        </nav>
+      </div>
+    </div>`;
+  } else if (route === "/guides") {
+    const guidesListHtml = INTERVIEW_GUIDES
+      .map((g) => `<article style="margin-bottom: 1.25rem;"><h2 style="font-size: 1.2rem; font-weight: 700;"><a href="${g.route}" style="color: #ea580c; text-decoration: none;">${g.title}</a></h2><p style="font-size: 0.95rem; color: #44403c;">${g.description}</p></article>`)
+      .join("");
+    semanticContent = `<div id="root">
+      <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 68rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+        <h1 style="font-size: 2.25rem; font-weight: 800; color: #18181b; margin-bottom: 0.75rem;">AI Interview & Technical Preparation Guides</h1>
+        <p style="font-size: 1.05rem; color: #44403c; margin-bottom: 1.5rem;">${meta.description}</p>
+        <main style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.75rem;">${guidesListHtml}</main>
+      </div>
+    </div>`;
+  } else if (matchedGuide) {
+    const sectionsHtml = matchedGuide.sections
+      .map((sec) => `<section style="margin-bottom: 1.25rem;"><h2 style="font-size: 1.25rem; font-weight: 700; color: #18181b;">${sec.heading}</h2>${sec.paragraphs.map((p) => `<p style="font-size: 0.95rem; line-height: 1.65; color: #44403c;">${p}</p>`).join("")}</section>`)
+      .join("");
+    const takeawaysHtml = matchedGuide.keyTakeaways.map((t) => `<li>${t}</li>`).join("");
+    semanticContent = `<div id="root">
+      <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 64rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1.25rem; font-size: 0.875rem; color: #78716c;">
+          <a href="/" style="color: #ea580c; font-weight: 600;">Home</a> &rarr; <a href="/guides" style="color: #ea580c; font-weight: 600;">Guides</a> &rarr; <span>${matchedGuide.title}</span>
+        </nav>
+        <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 2rem;">
+          <h1 style="font-size: 2rem; font-weight: 800; color: #18181b; margin-bottom: 0.75rem;">${matchedGuide.title}</h1>
+          <p style="font-size: 1rem; color: #44403c; margin-bottom: 1.25rem;">${matchedGuide.directAnswer}</p>
+          <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Key Takeaways</h2>
+          <ul style="line-height: 1.7; color: #44403c; padding-left: 1.25rem; margin-bottom: 1.5rem;">${takeawaysHtml}</ul>
+          ${sectionsHtml}
+          <nav style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="/ai-interview" style="color: #ea580c; font-weight: 700;">Explore AI Interview Practice</a>
+            <a href="/guides" style="color: #ea580c; font-weight: 700;">All Interview Guides</a>
+          </nav>
+        </article>
+      </div>
+    </div>`;
   } else if (isInterview) {
     semanticContent = `<div id="root">
         <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 48rem; margin: 4rem auto; padding: 2rem 1.5rem; text-align: center; color: #1c1917;">
-          <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">AI Technical Interview Practice</h1>
-          <p style="font-size: 1rem; color: #57534e; margin-bottom: 2rem;">Interactive mock interview simulations with real-time speech and design feedback. Coming soon to PrepSpaces.</p>
-          <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Explore Technical Curriculum &rarr;</a>
+          <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">AI Technical Interview Studio</h1>
+          <p style="font-size: 1rem; color: #57534e; margin-bottom: 2rem;">Live voice-based AI mock interviews across 10 engineering tracks and 216 modules. Sign in with a free student account or read the full AI Interview guide first.</p>
+          <a href="/ai-interview" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Explore AI Interview Practice &rarr;</a>
         </div>
       </div>`;
   } else {
@@ -894,7 +1127,7 @@ removeSubfolderIndexHtml(distDir);
 
 // 9. Sync llms.txt and llms-full.txt to dist/
 const publicDir = path.resolve(projectRoot, "public");
-['llms.txt', 'llms-full.txt'].forEach(file => {
+['llms.txt', 'llms-full.txt', 'robots.txt', 'BingSiteAuth.xml'].forEach(file => {
   const src = path.resolve(publicDir, file);
   const dest = path.resolve(distDir, file);
   if (fs.existsSync(src)) {
@@ -902,5 +1135,62 @@ const publicDir = path.resolve(projectRoot, "public");
     console.log(`Synced ${file} to dist/`);
   }
 });
+
+// 10. Auto-generate canonical, indexable XML sitemap for both public/ and dist/
+const today = new Date().toISOString().slice(0, 10);
+const indexableUrls = [];
+const seenLocs = new Set();
+
+for (const [route, meta] of Object.entries(routeMeta)) {
+  if (meta.robots && meta.robots.includes("noindex")) continue;
+  const canonicalUrl = meta.canonical || `${BASE_URL}${route}`;
+  if (canonicalUrl !== `${BASE_URL}${route === "/" ? "/" : route}`) continue;
+  if (seenLocs.has(canonicalUrl)) continue;
+  seenLocs.add(canonicalUrl);
+
+  let priority = "0.85";
+  let changefreq = "weekly";
+  if (route === "/") {
+    priority = "1.0";
+    changefreq = "daily";
+  } else if (route === "/ai-interview" || route === "/learning") {
+    priority = "0.95";
+  } else if (route === "/about" || route === "/guides") {
+    priority = "0.9";
+  } else if (route.startsWith("/guides/")) {
+    priority = "0.85";
+    changefreq = "monthly";
+  } else if (route === "/privacy-policy" || route === "/terms-of-service") {
+    priority = "0.4";
+    changefreq = "yearly";
+  } else if (
+    route === "/learning/system-design" ||
+    route === "/learning/cloud" ||
+    route === "/learning/devops/linux" ||
+    route === "/learning/os" ||
+    route === "/learning/networks" ||
+    route === "/learning/cybersecurity" ||
+    route === "/learning/ai" ||
+    route === "/courses/generative-ai" ||
+    route === "/courses/machine-learning" ||
+    route === "/courses/data-engineering" ||
+    route === "/courses/blockchain"
+  ) {
+    priority = "0.9";
+  }
+
+  indexableUrls.push({ loc: canonicalUrl, lastmod: today, changefreq, priority });
+}
+
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexableUrls
+  .map(
+    (u) =>
+      `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
+  )
+  .join("\n")}\n</urlset>\n`;
+
+fs.writeFileSync(path.resolve(publicDir, "sitemap.xml"), sitemapXml, "utf8");
+fs.writeFileSync(path.resolve(distDir, "sitemap.xml"), sitemapXml, "utf8");
+console.log(`Generated canonical sitemap.xml (${indexableUrls.length} indexable URLs) in public/ and dist/.`);
 
 console.log(`Successfully prerendered ${generatedCount} static pages with unique metadata, AEO blocks, and semantic HTML into dist/.`);

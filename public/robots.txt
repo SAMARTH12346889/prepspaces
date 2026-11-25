@@ -1,7 +1,12 @@
 # robots.txt for https://prepspaces.com/
-# Optimized for Web Search Engines, Googlebot, AI Answer Engines & LLM Citations
+# Configured for Googlebot, Bingbot, and AI Search / Answer Engine crawlers
 
 User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /dashboard
+
+User-agent: Google-Extended
 Allow: /
 Disallow: /api/
 Disallow: /dashboard
@@ -17,6 +22,11 @@ Disallow: /api/
 Disallow: /dashboard
 
 User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /dashboard
+
+User-agent: GPTBot
 Allow: /
 Disallow: /api/
 Disallow: /dashboard

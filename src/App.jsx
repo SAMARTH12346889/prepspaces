@@ -10,6 +10,10 @@ const PrivacyPolicy = React.lazy(() => import("./Pages/PrivacyPolicy"));
 const TermsOfService = React.lazy(() => import("./Pages/TermsOfService"));
 import { AuthProvider } from "./context/AuthContext";
 const Learning = React.lazy(() => import("./Pages/Learning"));
+const AIInterviewLanding = React.lazy(() => import("./Pages/AIInterviewLanding"));
+const About = React.lazy(() => import("./Pages/About"));
+const GuidesHub = React.lazy(() => import("./Pages/GuidesHub"));
+const GuideArticle = React.lazy(() => import("./Pages/GuideArticle"));
 const InterviewRoom = React.lazy(() => import("./Pages/InterviewRoom"));
 const NotFound = React.lazy(() => import("./Pages/NotFound"));
 const OSIntro = React.lazy(() => import("./Componets/OSIntro"));
@@ -1986,6 +1990,12 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            {/* SEO / AEO / GEO PUBLIC PAGES */}
+            <Route path="/ai-interview" element={<AIInterviewLanding />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/guides" element={<GuidesHub />} />
+            <Route path="/guides/:slug" element={<GuideArticle />} />
 
             {/* NOT FOUND ROUTE */}
             <Route path="*" element={<NotFound />} />

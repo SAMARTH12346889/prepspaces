@@ -324,7 +324,8 @@ export default function Learning() {
                   {user?.picture ? (
                     <img
                       src={user.picture}
-                      alt=""
+                      alt={user?.name ? `${user.name} avatar` : "User profile avatar"}
+                      loading="lazy"
                       className="w-5 h-5 rounded-full object-cover border border-orange-400"
                       referrerPolicy="no-referrer"
                     />
