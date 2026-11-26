@@ -75,8 +75,8 @@ for (const file of htmlFiles) {
   }
 }
 
-check("Prerendered HTML bundle contains 237 pages", () => {
-  assert.strictEqual(htmlFiles.length, 237);
+check("Prerendered HTML bundle contains 286 pages (237 core/course + 49 Concept Library)", () => {
+  assert.strictEqual(htmlFiles.length, 286);
 });
 
 check("Every HTML file has valid JSON-LD syntax", () => {
@@ -154,16 +154,58 @@ check("Utility routes (/login, /register, /dashboard, /interview) are noindex an
   assert.ok(!intHtml.includes("Coming soon"), "/interview prerender must not claim Coming soon");
 });
 
-check("sitemap.xml URLs match existing dist files, contain zero noindex/Java/dupes, and include new SEO routes", () => {
+check("Concept Library hub, 8 category hubs, and 40 concept lessons emit valid crawlable HTML & Article schemas", () => {
+  const hubHtml = fs.readFileSync(path.join(distDir, "concepts.html"), "utf8");
+  const hubSchemas = [...hubHtml.matchAll(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) =>
+    JSON.parse(m[1])
+  );
+  const coll = hubSchemas.find((s) => s["@type"] === "CollectionPage");
+  assert.ok(coll);
+  assert.strictEqual(coll.mainEntity.itemListElement.length, 8);
+
+  let checkedConcepts = 0;
+  for (const catItem of coll.mainEntity.itemListElement) {
+    const catFile = catItem.url.replace("https://prepspaces.com/", "") + ".html";
+    const catHtml = fs.readFileSync(path.join(distDir, catFile), "utf8");
+    const catSchemas = [...catHtml.matchAll(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) =>
+      JSON.parse(m[1])
+    );
+    const catColl = catSchemas.find((s) => s["@type"] === "CollectionPage");
+    assert.ok(catColl, `Missing CollectionPage schema on ${catFile}`);
+    assert.strictEqual(catColl.mainEntity.itemListElement.length, 5, `Expected 5 concepts on ${catFile}`);
+
+    for (const cItem of catColl.mainEntity.itemListElement) {
+      const cFile = cItem.url.replace("https://prepspaces.com/", "") + ".html";
+      const cHtml = fs.readFileSync(path.join(distDir, cFile), "utf8");
+      assert.ok(cHtml.includes('<meta property="og:type" content="article" />'), `Missing article og:type on ${cFile}`);
+      assert.ok(cHtml.includes("Common Mistakes"), `Missing Common Mistakes section on ${cFile}`);
+      assert.ok(cHtml.includes("Interview Questions"), `Missing Interview Questions section on ${cFile}`);
+      const cSchemas = [...cHtml.matchAll(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) =>
+        JSON.parse(m[1])
+      );
+      assert.ok(cSchemas.some((s) => s["@type"] === "Article"), `Missing Article schema on ${cFile}`);
+      assert.ok(cSchemas.some((s) => s["@type"] === "BreadcrumbList"), `Missing BreadcrumbList on ${cFile}`);
+      assert.ok(!cSchemas.some((s) => s["@type"] === "Course"), `Unexpected Course schema on ${cFile}`);
+      checkedConcepts++;
+    }
+  }
+  assert.strictEqual(checkedConcepts, 40);
+});
+
+check("sitemap.xml URLs match existing dist files, contain zero noindex/dead/dupes, and include 282 URLs", () => {
   const sm = fs.readFileSync(path.join(distDir, "sitemap.xml"), "utf8");
   const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  assert.strictEqual(locs.length, 233);
+  assert.strictEqual(locs.length, 282);
   assert.strictEqual(new Set(locs).size, locs.length);
   assert.ok(locs.includes("https://prepspaces.com/ai-interview"));
   assert.ok(locs.includes("https://prepspaces.com/about"));
   assert.ok(locs.includes("https://prepspaces.com/guides"));
-  assert.ok(locs.includes("https://prepspaces.com/guides/ai-interview-preparation-guide"));
-  assert.ok(!locs.some((u) => u.includes("/java")), "Dead /java URLs leaked into sitemap");
+  assert.ok(locs.includes("https://prepspaces.com/concepts"));
+  assert.ok(locs.includes("https://prepspaces.com/concepts/java/jvm"));
+  assert.ok(locs.includes("https://prepspaces.com/concepts/ai/rag"));
+  assert.ok(locs.includes("https://prepspaces.com/concepts/networks/tcp-vs-udp"));
+  assert.ok(locs.includes("https://prepspaces.com/concepts/cybersecurity/sql-injection"));
+  assert.ok(!locs.some((u) => u.includes("/learning/java") || u.includes("/courses/java")), "Dead /java course URLs leaked into sitemap");
   assert.ok(!locs.some((u) => u.endsWith("/login") || u.endsWith("/dashboard") || u.endsWith("/interview")), "Utility noindex routes leaked into sitemap");
 
   for (const loc of locs) {

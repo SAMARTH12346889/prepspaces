@@ -10,6 +10,22 @@ import {
   BRAND_INFO,
   getGuideBySlug,
 } from "../src/data/seoContent.js";
+import {
+  CONCEPT_CATEGORIES,
+  ALL_CONCEPTS,
+  getConceptCategory,
+  getConceptByPath,
+  getConceptsByCategory,
+  resolveRelatedConcepts,
+} from "../src/data/conceptsIndex.js";
+
+function escapeHtml(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -60,6 +76,36 @@ while ((match = routeEntryRegex.exec(block)) !== null) {
       robots: robMatch ? robMatch[1] : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     };
   }
+}
+
+// Register Concept Knowledge Library hubs and lesson pages cleanly from single data index
+routeMeta["/concepts"] = {
+  title: "Concept Knowledge Library — Computer Science & Engineering Topics | PrepSpaces",
+  description:
+    "Browse 40+ standalone technical concept lessons across Java, Operating Systems, Computer Networks, Cybersecurity, AI Engineering, Cloud, DevOps, and System Design.",
+  keywords: "PrepSpaces Concepts, computer science concepts, software engineering library, JVM, TCP vs UDP, RAG, SQL injection, Raft",
+  canonical: `${BASE_URL}/concepts`,
+  robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+};
+
+for (const cat of CONCEPT_CATEGORIES) {
+  routeMeta[cat.route] = {
+    title: cat.metaTitle,
+    description: cat.description,
+    keywords: cat.keywords,
+    canonical: `${BASE_URL}${cat.route}`,
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  };
+}
+
+for (const concept of ALL_CONCEPTS) {
+  routeMeta[concept.route] = {
+    title: concept.metaTitle,
+    description: concept.description,
+    keywords: concept.keywords,
+    canonical: `${BASE_URL}${concept.route}`,
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  };
 }
 
 console.log(`Loaded ${Object.keys(routeMeta).length} route definitions for prerendering.`);
@@ -397,6 +443,10 @@ for (const [route, meta] of Object.entries(routeMeta)) {
     route === "/register";
   const isGuideArticle = route.startsWith("/guides/");
   const matchedGuide = isGuideArticle ? getGuideBySlug(route.replace("/guides/", "")) : null;
+  const conceptParts = route.startsWith("/concepts/") ? route.slice("/concepts/".length).split("/").filter(Boolean) : [];
+  const matchedConceptCategory = route === "/concepts" ? null : (conceptParts.length === 1 ? getConceptCategory(conceptParts[0]) : null);
+  const matchedConcept = conceptParts.length === 2 ? getConceptByPath(conceptParts[0], conceptParts[1]) : null;
+  const isArticleLike = Boolean(matchedGuide || matchedConcept);
 
   const orgRef = {
     "@type": "Organization",
@@ -445,7 +495,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   );
 
   // 5. Update Open Graph Meta Tags
-  html = html.replace(/<meta\s+property="og:type"\s+content=".*?"\s*\/>/, `<meta property="og:type" content="${matchedGuide ? "article" : "website"}" />`);
+  html = html.replace(/<meta\s+property="og:type"\s+content=".*?"\s*\/>/, `<meta property="og:type" content="${isArticleLike ? "article" : "website"}" />`);
   html = html.replace(/<meta\s+property="og:title"\s+content="[\s\S]*?"\s*\/>/, `<meta property="og:title" content="${meta.title.replace(/"/g, '&quot;')}" />`);
   html = html.replace(/<meta\s+property="og:description"\s+content="[\s\S]*?"\s*\/>/, `<meta property="og:description" content="${meta.description.replace(/"/g, '&quot;')}" />`);
   html = html.replace(/<meta\s+property="og:url"\s+content="[\s\S]*?"\s*\/>/, `<meta property="og:url" content="${meta.canonical}" />`);
@@ -551,6 +601,60 @@ for (const [route, meta] of Object.entries(routeMeta)) {
       "publisher": orgRef,
     });
     extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-article">${articleJsonLd}</script>`);
+  } else if (route === "/concepts") {
+    const conceptsHubJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": CONCEPT_CATEGORIES.map((cat, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": cat.title,
+          "url": `${BASE_URL}${cat.route}`,
+        })),
+      },
+    });
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-webpage">${conceptsHubJsonLd}</script>`);
+  } else if (matchedConceptCategory) {
+    const catConcepts = getConceptsByCategory(matchedConceptCategory.id);
+    const catHubJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": catConcepts.map((c, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": c.title,
+          "url": `${BASE_URL}${c.route}`,
+        })),
+      },
+    });
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-webpage">${catHubJsonLd}</script>`);
+  } else if (matchedConcept) {
+    const conceptArticleJsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": matchedConcept.title,
+      "description": matchedConcept.description,
+      "articleSection": `${matchedConcept.category} / ${matchedConcept.subcategory}`,
+      "datePublished": matchedConcept.publishedAt,
+      "dateModified": matchedConcept.updatedAt,
+      "inLanguage": "en",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}${matchedConcept.route}` },
+      "author": orgRef,
+      "publisher": orgRef,
+    });
+    extraSchemaScripts.push(`<script type="application/ld+json" id="jsonld-article">${conceptArticleJsonLd}</script>`);
   } else if (route === "/learning") {
     const collectionJsonLd = JSON.stringify({
       "@context": "https://schema.org",
@@ -1060,6 +1164,95 @@ for (const [route, meta] of Object.entries(routeMeta)) {
         </article>
       </div>
     </div>`;
+  } else if (route === "/concepts") {
+    const catCardsHtml = CONCEPT_CATEGORIES.map(
+      (cat) =>
+        `<article style="background: white; border: 1px solid #e7e3da; border-radius: 1rem; padding: 1.25rem;"><h2 style="font-size: 1.15rem; font-weight: 700;"><a href="${cat.route}" style="color: #ea580c;">${escapeHtml(cat.title)}</a></h2><p style="font-size: 0.9rem; color: #44403c;">${escapeHtml(cat.overview)}</p></article>`
+    ).join("");
+    const allConceptLinksHtml = ALL_CONCEPTS.map(
+      (c) => `<li><a href="${c.route}" style="color: #ea580c; font-weight: 600;">${escapeHtml(c.title)}</a> (${escapeHtml(c.subcategory)})</li>`
+    ).join("");
+    semanticContent = `<div id="root">
+      <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 72rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1.25rem; font-size: 0.875rem;"><a href="/">Home</a> &rarr; <span>Concept Knowledge Library</span></nav>
+        <h1 style="font-size: 2.25rem; font-weight: 800; color: #18181b; margin-bottom: 0.75rem;">PrepSpaces Concept Knowledge Library</h1>
+        <p style="font-size: 1.05rem; color: #44403c; margin-bottom: 1.5rem;">${escapeHtml(meta.description)}</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem;">${catCardsHtml}</div>
+        <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.75rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">All ${ALL_CONCEPTS.length} Technical Concepts</h2>
+          <ul style="line-height: 1.8; color: #44403c; padding-left: 1.25rem;">${allConceptLinksHtml}</ul>
+        </article>
+      </div>
+    </div>`;
+  } else if (matchedConceptCategory) {
+    const catConcepts = getConceptsByCategory(matchedConceptCategory.id);
+    const itemsHtml = catConcepts
+      .map(
+        (c) => `<article style="margin-bottom: 1.25rem;"><h2 style="font-size: 1.2rem; font-weight: 700;"><a href="${c.route}" style="color: #ea580c;">${escapeHtml(c.title)}</a></h2><p style="font-size: 0.95rem; color: #44403c;">${escapeHtml(c.description)}</p></article>`
+      )
+      .join("");
+    semanticContent = `<div id="root">
+      <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 68rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1.25rem; font-size: 0.875rem;"><a href="/">Home</a> &rarr; <a href="/concepts">Concepts</a> &rarr; <span>${escapeHtml(matchedConceptCategory.shortTitle)}</span></nav>
+        <h1 style="font-size: 2.25rem; font-weight: 800; color: #18181b; margin-bottom: 0.75rem;">${escapeHtml(matchedConceptCategory.title)}</h1>
+        <p style="font-size: 1.05rem; color: #44403c; margin-bottom: 1.5rem;">${escapeHtml(matchedConceptCategory.description)}</p>
+        <main style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.75rem;">${itemsHtml}</main>
+        <nav style="margin-top: 1.5rem; display: flex; gap: 1rem;"><a href="${matchedConceptCategory.companionCourse.route}">${escapeHtml(matchedConceptCategory.companionCourse.title)}</a> <a href="/ai-interview">AI Interview Practice</a></nav>
+      </div>
+    </div>`;
+  } else if (matchedConcept) {
+    const catObj = getConceptCategory(matchedConcept.category);
+    const sectionsHtml = matchedConcept.sections
+      .map(
+        (sec) =>
+          `<section style="margin-bottom: 1.5rem;"><h2 style="font-size: 1.25rem; font-weight: 700; color: #18181b;">${escapeHtml(sec.heading)}</h2>${sec.paragraphs
+            .map((p) => `<p style="font-size: 0.95rem; line-height: 1.65; color: #44403c;">${escapeHtml(p)}</p>`)
+            .join("")}${
+            sec.bullets?.length
+              ? `<ul style="line-height: 1.7; color: #44403c; padding-left: 1.25rem;">${sec.bullets
+                  .map((b) => `<li>${escapeHtml(b)}</li>`)
+                  .join("")}</ul>`
+              : ""
+          }</section>`
+      )
+      .join("");
+    const codeHtml = matchedConcept.codeExample
+      ? `<section style="margin-bottom: 1.5rem;"><h2 style="font-size: 1.2rem; font-weight: 700;">${escapeHtml(matchedConcept.codeExample.title)}</h2><pre style="background: #18181b; color: #f5f5f4; padding: 1rem; border-radius: 0.75rem; overflow-x: auto;"><code>${escapeHtml(matchedConcept.codeExample.code)}</code></pre><p style="font-size: 0.92rem; color: #44403c;">${escapeHtml(matchedConcept.codeExample.explanation)}</p></section>`
+      : "";
+    const mistakesHtml = matchedConcept.commonMistakes
+      .map((m) => `<li><strong>Mistake:</strong> ${escapeHtml(m.mistake)} <strong>Fix:</strong> ${escapeHtml(m.correction)}</li>`)
+      .join("");
+    const qaHtml = matchedConcept.interviewQuestions
+      .map((q) => `<section style="margin-bottom: 0.85rem;"><h3 style="font-size: 1rem; font-weight: 700;">${escapeHtml(q.question)}</h3><p style="font-size: 0.95rem; color: #44403c;">${escapeHtml(q.answer)}</p></section>`)
+      .join("");
+    const relatedConceptsHtml = resolveRelatedConcepts(matchedConcept)
+      .map((rc) => `<li><a href="${rc.route}" style="color: #ea580c; font-weight: 600;">${escapeHtml(rc.title)}</a></li>`)
+      .join("");
+    const relatedModulesHtml = matchedConcept.relatedModules
+      .map((rm) => `<li><a href="${rm.route}" style="color: #ea580c;">${escapeHtml(rm.title)}</a></li>`)
+      .join("");
+    semanticContent = `<div id="root">
+      <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 68rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1.25rem; font-size: 0.875rem;">
+          <a href="/" style="color: #ea580c;">Home</a> &rarr; <a href="/concepts" style="color: #ea580c;">Concepts</a> &rarr; <a href="${catObj.route}" style="color: #ea580c;">${escapeHtml(catObj.shortTitle)}</a> &rarr; <span>${escapeHtml(matchedConcept.title)}</span>
+        </nav>
+        <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 2rem;">
+          <p style="font-size: 0.8rem; color: #78716c;">Category: ${escapeHtml(catObj.title)} • Subcategory: ${escapeHtml(matchedConcept.subcategory)} • Published: ${matchedConcept.publishedAt} • Updated: ${matchedConcept.updatedAt}</p>
+          <h1 style="font-size: 2rem; font-weight: 800; color: #18181b; margin-bottom: 0.75rem;">${escapeHtml(matchedConcept.title)}</h1>
+          <p style="font-size: 1rem; color: #44403c; margin-bottom: 1.25rem;">${escapeHtml(matchedConcept.directAnswer)}</p>
+          ${sectionsHtml}
+          ${codeHtml}
+          <section style="margin-bottom: 1.5rem;"><h2 style="font-size: 1.25rem; font-weight: 700;">Common Mistakes</h2><ul style="line-height: 1.7; color: #44403c; padding-left: 1.25rem;">${mistakesHtml}</ul></section>
+          <section style="margin-bottom: 1.5rem;"><h2 style="font-size: 1.25rem; font-weight: 700;">Interview Questions</h2>${qaHtml}</section>
+          <section><h2 style="font-size: 1.2rem; font-weight: 700;">Connected Course, Modules &amp; Concepts</h2>
+            <p><a href="${matchedConcept.relatedCourse.route}" style="color: #ea580c; font-weight: 700;">Course: ${escapeHtml(matchedConcept.relatedCourse.title)}</a> | <a href="${matchedConcept.practiceAction.to}" style="color: #ea580c; font-weight: 700;">${escapeHtml(matchedConcept.practiceAction.label)}</a></p>
+            <ul>${relatedModulesHtml}</ul>
+            <h3 style="font-size: 1rem; font-weight: 700;">Related Technical Concepts</h3>
+            <ul>${relatedConceptsHtml}</ul>
+          </section>
+        </article>
+      </div>
+    </div>`;
   } else if (isInterview) {
     semanticContent = `<div id="root">
         <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 48rem; margin: 4rem auto; padding: 2rem 1.5rem; text-align: center; color: #1c1917;">
@@ -1155,9 +1348,9 @@ for (const [route, meta] of Object.entries(routeMeta)) {
     changefreq = "daily";
   } else if (route === "/ai-interview" || route === "/learning") {
     priority = "0.95";
-  } else if (route === "/about" || route === "/guides") {
+  } else if (route === "/about" || route === "/guides" || route === "/concepts" || /^\/concepts\/[^/]+$/.test(route)) {
     priority = "0.9";
-  } else if (route.startsWith("/guides/")) {
+  } else if (route.startsWith("/guides/") || route.startsWith("/concepts/")) {
     priority = "0.85";
     changefreq = "monthly";
   } else if (route === "/privacy-policy" || route === "/terms-of-service") {

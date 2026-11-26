@@ -14,6 +14,9 @@ const AIInterviewLanding = React.lazy(() => import("./Pages/AIInterviewLanding")
 const About = React.lazy(() => import("./Pages/About"));
 const GuidesHub = React.lazy(() => import("./Pages/GuidesHub"));
 const GuideArticle = React.lazy(() => import("./Pages/GuideArticle"));
+const ConceptsHub = React.lazy(() => import("./Pages/ConceptsHub"));
+const ConceptCategoryHub = React.lazy(() => import("./Pages/ConceptCategoryHub"));
+const ConceptDetail = React.lazy(() => import("./Pages/ConceptDetail"));
 const InterviewRoom = React.lazy(() => import("./Pages/InterviewRoom"));
 const NotFound = React.lazy(() => import("./Pages/NotFound"));
 const OSIntro = React.lazy(() => import("./Componets/OSIntro"));
@@ -1996,6 +1999,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/guides" element={<GuidesHub />} />
             <Route path="/guides/:slug" element={<GuideArticle />} />
+            <Route path="/concepts" element={<ConceptsHub />} />
+            <Route path="/concepts/:category" element={<ConceptCategoryHub />} />
+            <Route path="/concepts/:category/:slug" element={<ConceptDetail />} />
 
             {/* NOT FOUND ROUTE */}
             <Route path="*" element={<NotFound />} />

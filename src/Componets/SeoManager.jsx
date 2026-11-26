@@ -1772,7 +1772,7 @@ function updateBreadcrumbs(pathname, title) {
   });
 }
 
-function updatePageSchemas(pathname, meta) {
+function updatePageSchemas(pathname, meta, conceptsMod = null) {
   // Remove previous page-specific schema nodes before applying current route's schema
   setJsonLd("jsonld-webpage", null);
   setJsonLd("jsonld-software-app", null);
@@ -1911,6 +1911,76 @@ function updatePageSchemas(pathname, meta) {
     return;
   }
 
+  if (pathname === "/concepts" && conceptsMod) {
+    setJsonLd("jsonld-webpage", {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": meta.title,
+      "description": meta.description,
+      "url": meta.canonical,
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": conceptsMod.CONCEPT_CATEGORIES.map((cat, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": cat.title,
+          "url": `${BASE_URL}${cat.route}`,
+        })),
+      },
+    });
+    return;
+  }
+
+  if (pathname.startsWith("/concepts/") && conceptsMod) {
+    const parts = pathname.slice("/concepts/".length).split("/").filter(Boolean);
+    if (parts.length === 1) {
+      const cat = conceptsMod.getConceptCategory(parts[0]);
+      if (cat) {
+        setJsonLd("jsonld-webpage", {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": meta.title,
+          "description": meta.description,
+          "url": meta.canonical,
+          "isPartOf": { "@id": `${BASE_URL}/#website` },
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": conceptsMod.getConceptsByCategory(cat.id).map((c, idx) => ({
+              "@type": "ListItem",
+              "position": idx + 1,
+              "name": c.title,
+              "url": `${BASE_URL}${c.route}`,
+            })),
+          },
+        });
+      }
+      return;
+    }
+    if (parts.length === 2) {
+      const concept = conceptsMod.getConceptByPath(parts[0], parts[1]);
+      if (concept) {
+        setJsonLd("jsonld-article", {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": concept.title,
+          "description": concept.description,
+          "articleSection": `${concept.category} / ${concept.subcategory}`,
+          "datePublished": concept.publishedAt,
+          "dateModified": concept.updatedAt,
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `${BASE_URL}${concept.route}`,
+          },
+          "author": orgRef,
+          "publisher": orgRef,
+        });
+      }
+      return;
+    }
+  }
+
   if (pathname === "/learning" || pathname === "/") {
     setJsonLd("jsonld-webpage", {
       "@context": "https://schema.org",
@@ -1924,6 +1994,107 @@ function updatePageSchemas(pathname, meta) {
 }
 
 /**
+ * Resolve runtime metadata dynamically for static routeMeta entries as well as
+ * lazily loaded Concept Knowledge Library hubs and lesson routes.
+ */
+function resolveRouteMeta(pathname, conceptsMod = null) {
+  if (routeMeta[pathname]) {
+    return { meta: routeMeta[pathname], isArticle: pathname.startsWith("/guides/") };
+  }
+
+  if (pathname === "/concepts") {
+    return {
+      isArticle: false,
+      meta: {
+        title: "Concept Knowledge Library — Computer Science & Engineering Topics | PrepSpaces",
+        description:
+          "Browse 40+ standalone technical concept lessons across Java, Operating Systems, Computer Networks, Cybersecurity, AI Engineering, Cloud, DevOps, and System Design.",
+        keywords: "PrepSpaces Concepts, computer science concepts, software engineering library, JVM, TCP vs UDP, RAG, SQL injection, Raft",
+        canonical: `${BASE_URL}/concepts`,
+      },
+    };
+  }
+
+  if (pathname.startsWith("/concepts/") && conceptsMod) {
+    const parts = pathname.slice("/concepts/".length).split("/").filter(Boolean);
+    if (parts.length === 1) {
+      const cat = conceptsMod.getConceptCategory(parts[0]);
+      if (cat) {
+        return {
+          isArticle: false,
+          meta: {
+            title: cat.metaTitle,
+            description: cat.description,
+            keywords: cat.keywords,
+            canonical: `${BASE_URL}${cat.route}`,
+          },
+        };
+      }
+    } else if (parts.length === 2) {
+      const concept = conceptsMod.getConceptByPath(parts[0], parts[1]);
+      if (concept) {
+        return {
+          isArticle: true,
+          meta: {
+            title: concept.metaTitle,
+            description: concept.description,
+            keywords: concept.keywords,
+            canonical: `${BASE_URL}${concept.route}`,
+          },
+        };
+      }
+    }
+  }
+
+  return {
+    isArticle: false,
+    meta: {
+      title: "Page Not Found — PrepSpaces",
+      description: "The requested PrepSpaces page could not be found. Browse AI interview practice guides or open engineering courses.",
+      canonical: `${BASE_URL}${pathname}`,
+      robots: "noindex, nofollow",
+    },
+  };
+}
+
+function applySeoToDocument(pathname, meta, isArticle, conceptsMod = null) {
+  document.title = meta.title;
+  updateMetaTag("name", "description", meta.description);
+  if (meta.keywords) {
+    updateMetaTag("name", "keywords", meta.keywords);
+  }
+  updateMetaTag("name", "robots", meta.robots || "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+  updateCanonicalUrl(meta.canonical);
+
+  updateMetaTag("property", "og:title", meta.title);
+  updateMetaTag("property", "og:description", meta.description);
+  updateMetaTag("property", "og:url", meta.canonical);
+  updateMetaTag("property", "og:type", isArticle ? "article" : "website");
+  updateMetaTag("property", "og:site_name", "PrepSpaces");
+  updateMetaTag("property", "og:image", `${BASE_URL}/logo-mark.png`);
+  updateMetaTag("property", "og:image:alt", `${meta.title} — PrepSpaces`);
+
+  updateMetaTag("name", "twitter:card", "summary_large_image");
+  updateMetaTag("name", "twitter:url", meta.canonical);
+  updateMetaTag("name", "twitter:title", meta.title);
+  updateMetaTag("name", "twitter:description", meta.description);
+  updateMetaTag("name", "twitter:image", `${BASE_URL}/logo-mark.png`);
+  updateMetaTag("name", "twitter:image:alt", `${meta.title} — PrepSpaces`);
+
+  updateBreadcrumbs(pathname, meta.title);
+  updateCourseSchema(pathname, meta);
+  updatePageSchemas(pathname, meta, conceptsMod);
+
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("config", "G-N10P6557MZ", {
+      page_path: pathname,
+      page_title: meta.title,
+      page_location: window.location.href,
+    });
+  }
+}
+
+/**
  * SeoManager Component
  * Observes React Router pathname changes and updates document.title, meta descriptions,
  * canonical link tags, Open Graph, Twitter metadata, and Schema.org JSON-LD in real time.
@@ -1932,60 +2103,25 @@ export default function SeoManager() {
   const location = useLocation();
 
   useEffect(() => {
+    let active = true;
     const pathname = location.pathname.replace(/\/+$/, "") || "/";
-    const isGuideRoute = pathname.startsWith("/guides/");
-    const matchedGuide = isGuideRoute ? getGuideBySlug(pathname.replace("/guides/", "")) : null;
-    const knownMeta = routeMeta[pathname];
-    const meta = knownMeta || {
-      title: "Page Not Found — PrepSpaces",
-      description: "The requested PrepSpaces page could not be found. Browse AI interview practice guides or open engineering courses.",
-      canonical: `${BASE_URL}${pathname}`,
-      robots: matchedGuide ? undefined : "noindex, nofollow",
-    };
 
-    // 1. Update Title
-    document.title = meta.title;
-
-    // 2. Update Standard Meta
-    updateMetaTag("name", "description", meta.description);
-    if (meta.keywords) {
-      updateMetaTag("name", "keywords", meta.keywords);
-    }
-    updateMetaTag("name", "robots", meta.robots || "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
-
-    // 3. Update Canonical Link
-    updateCanonicalUrl(meta.canonical);
-
-    // 4. Update Open Graph Meta
-    updateMetaTag("property", "og:title", meta.title);
-    updateMetaTag("property", "og:description", meta.description);
-    updateMetaTag("property", "og:url", meta.canonical);
-    updateMetaTag("property", "og:type", isGuideRoute && matchedGuide ? "article" : "website");
-    updateMetaTag("property", "og:site_name", "PrepSpaces");
-    updateMetaTag("property", "og:image", `${BASE_URL}/logo-mark.png`);
-    updateMetaTag("property", "og:image:alt", `${meta.title} — PrepSpaces`);
-
-    // 5. Update Twitter Meta
-    updateMetaTag("name", "twitter:card", "summary_large_image");
-    updateMetaTag("name", "twitter:url", meta.canonical);
-    updateMetaTag("name", "twitter:title", meta.title);
-    updateMetaTag("name", "twitter:description", meta.description);
-    updateMetaTag("name", "twitter:image", `${BASE_URL}/logo-mark.png`);
-    updateMetaTag("name", "twitter:image:alt", `${meta.title} — PrepSpaces`);
-
-    // 6. Update Structured Data JSON-LD
-    updateBreadcrumbs(pathname, meta.title);
-    updateCourseSchema(pathname, meta);
-    updatePageSchemas(pathname, meta);
-
-    // 7. Track SPA page views in Google Analytics (gtag.js)
-    if (typeof window !== "undefined" && typeof window.gtag === "function") {
-      window.gtag("config", "G-N10P6557MZ", {
-        page_path: pathname,
-        page_title: meta.title,
-        page_location: window.location.href,
+    if (pathname === "/concepts" || pathname.startsWith("/concepts/")) {
+      import("../data/conceptsIndex").then((conceptsMod) => {
+        if (!active) return;
+        const { meta, isArticle } = resolveRouteMeta(pathname, conceptsMod);
+        applySeoToDocument(pathname, meta, isArticle, conceptsMod);
       });
+      return () => {
+        active = false;
+      };
     }
+
+    const { meta, isArticle } = resolveRouteMeta(pathname, null);
+    applySeoToDocument(pathname, meta, isArticle, null);
+    return () => {
+      active = false;
+    };
   }, [location.pathname]);
 
   return null;

@@ -693,6 +693,10 @@ export default function Landingpage() {
                   AI Interview
                 </Link>
                 <span className="text-stone-300">•</span>
+                <Link to="/concepts" className="hover:text-[#ea580c] transition">
+                  Concept Library
+                </Link>
+                <span className="text-stone-300">•</span>
                 <Link to="/guides" className="hover:text-[#ea580c] transition">
                   Prep Guides
                 </Link>
