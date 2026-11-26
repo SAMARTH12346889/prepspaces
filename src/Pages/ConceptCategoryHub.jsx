@@ -23,31 +23,34 @@ export default function ConceptCategoryHub() {
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] flex flex-col antialiased font-sans selection:bg-[#f97316] selection:text-white overflow-x-clip">
-      <header className="sticky top-0 z-30 border-b border-[#e7e3da] bg-[#f6f4ee]/90 backdrop-blur-xl px-4 sm:px-6 md:px-10 py-3.5">
-        <div className="mx-auto max-w-6xl flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3 min-w-0">
+      <header className="sticky top-0 z-30 border-b border-[#e7e3da] bg-[#f6f4ee]/90 backdrop-blur-xl px-3 sm:px-6 md:px-10 py-3">
+        <div className="mx-auto max-w-6xl flex items-center justify-between gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <Link
               to="/concepts"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white px-3 py-1.5 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#ea580c] transition shadow-2xs shrink-0"
+              aria-label="Back to All Concepts"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#ea580c] transition shadow-2xs shrink-0 whitespace-nowrap"
             >
               <ArrowLeft size={14} />
-              <span>All Concepts</span>
+              <span className="hidden sm:inline">All Concepts</span>
             </Link>
             <Link to="/" aria-label="PrepSpaces Home" className="shrink-0">
-              <Logo size="sm" suffix={cat.shortTitle} />
+              <Logo size="xs" className="sm:hidden" />
+              <Logo size="sm" suffix={cat.shortTitle} className="hidden sm:inline-flex" />
             </Link>
           </div>
 
-          <nav aria-label="Topic hub navigation" className="flex items-center gap-2 sm:gap-3 text-xs font-semibold">
+          <nav aria-label="Topic hub navigation" className="flex items-center gap-2 sm:gap-3 text-xs font-semibold shrink-0">
             <Link to={cat.companionCourse.route} className="hidden md:inline text-stone-600 hover:text-[#ea580c] px-2.5 py-1.5">
               Full Course
             </Link>
             <Link
               to="/ai-interview"
-              className="inline-flex items-center gap-1.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] px-3.5 py-2 font-bold text-white transition shrink-0"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] px-3 sm:px-3.5 py-1.5 sm:py-2 font-bold text-white transition shrink-0 whitespace-nowrap"
             >
-              <Mic size={14} />
-              <span>AI Interview</span>
+              <Mic size={14} className="shrink-0" />
+              <span className="sm:hidden">Interview</span>
+              <span className="hidden sm:inline">AI Interview</span>
             </Link>
           </nav>
         </div>

@@ -46,22 +46,24 @@ export default function ConceptDetail() {
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] flex flex-col antialiased font-sans selection:bg-[#f97316] selection:text-white overflow-x-clip">
-      <header className="sticky top-0 z-30 border-b border-[#e7e3da] bg-[#f6f4ee]/90 backdrop-blur-xl px-4 sm:px-6 md:px-10 py-3.5">
-        <div className="mx-auto max-w-6xl flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3 min-w-0">
+      <header className="sticky top-0 z-30 border-b border-[#e7e3da] bg-[#f6f4ee]/90 backdrop-blur-xl px-3 sm:px-6 md:px-10 py-3">
+        <div className="mx-auto max-w-6xl flex items-center justify-between gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <Link
               to={cat.route}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white px-3 py-1.5 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#ea580c] transition shadow-2xs shrink-0"
+              aria-label={`Back to ${cat.shortTitle} concepts`}
+              className="inline-flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#ea580c] transition shadow-2xs shrink-0 whitespace-nowrap"
             >
               <ArrowLeft size={14} />
-              <span>{cat.shortTitle}</span>
+              <span className="hidden sm:inline">{cat.shortTitle}</span>
             </Link>
             <Link to="/concepts" aria-label="PrepSpaces Concepts Library" className="shrink-0">
-              <Logo size="sm" suffix="Concept" />
+              <Logo size="xs" className="sm:hidden" />
+              <Logo size="sm" suffix="Concept" className="hidden sm:inline-flex" />
             </Link>
           </div>
 
-          <nav aria-label="Concept lesson navigation" className="flex items-center gap-2 sm:gap-3 text-xs font-semibold">
+          <nav aria-label="Concept lesson navigation" className="flex items-center gap-2 sm:gap-3 text-xs font-semibold shrink-0">
             <Link
               to={concept.relatedCourse.route}
               className="hidden md:inline-flex items-center gap-1 text-stone-600 hover:text-[#ea580c] px-2.5 py-1.5"
@@ -71,10 +73,11 @@ export default function ConceptDetail() {
             </Link>
             <Link
               to={concept.practiceAction.to}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] px-3.5 py-2 font-bold text-white transition shrink-0"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] px-3 sm:px-3.5 py-1.5 sm:py-2 font-bold text-white transition shrink-0 whitespace-nowrap"
             >
-              <Mic size={14} />
-              <span>Practice AI Interview</span>
+              <Mic size={14} className="shrink-0" />
+              <span className="sm:hidden">Practice</span>
+              <span className="hidden sm:inline">Practice AI Interview</span>
             </Link>
           </nav>
         </div>
@@ -164,17 +167,17 @@ export default function ConceptDetail() {
             {/* Practical Code / CLI Demonstration */}
             {concept.codeExample && (
               <section aria-labelledby="code-example-heading" className="space-y-3">
-                <div className="flex items-center justify-between gap-2">
-                  <h2 id="code-example-heading" className="flex items-center gap-2 text-lg sm:text-xl font-extrabold text-[#18181b]">
-                    <Code2 size={18} className="text-[#f97316]" />
+                <div className="flex items-start sm:items-center justify-between gap-3">
+                  <h2 id="code-example-heading" className="flex items-start sm:items-center gap-2 text-lg sm:text-xl font-extrabold text-[#18181b] min-w-0">
+                    <Code2 size={18} className="text-[#f97316] shrink-0 mt-1 sm:mt-0" />
                     <span>{concept.codeExample.title}</span>
                   </h2>
                   <button
                     type="button"
                     onClick={handleCopyCode}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-stone-50 hover:border-orange-300 px-2.5 py-1 text-[11px] font-bold text-stone-700 cursor-pointer"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-stone-50 hover:border-orange-300 px-3 py-1.5 text-[11px] font-bold text-stone-700 cursor-pointer shrink-0 whitespace-nowrap"
                   >
-                    {copied ? <Check size={13} className="text-emerald-600" /> : <Copy size={13} />}
+                    {copied ? <Check size={13} className="text-emerald-600 shrink-0" /> : <Copy size={13} className="shrink-0" />}
                     <span>{copied ? "Copied" : "Copy"}</span>
                   </button>
                 </div>
