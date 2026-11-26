@@ -35,8 +35,7 @@ export default function ConceptCategoryHub() {
               <span className="hidden sm:inline">All Concepts</span>
             </Link>
             <Link to="/" aria-label="PrepSpaces Home" className="shrink-0">
-              <Logo size="xs" className="sm:hidden" />
-              <Logo size="sm" suffix={cat.shortTitle} className="hidden sm:inline-flex" />
+              <Logo size="sm" suffix={cat.shortTitle} />
             </Link>
           </div>
 

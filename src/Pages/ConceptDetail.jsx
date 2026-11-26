@@ -58,8 +58,7 @@ export default function ConceptDetail() {
               <span className="hidden sm:inline">{cat.shortTitle}</span>
             </Link>
             <Link to="/concepts" aria-label="PrepSpaces Concepts Library" className="shrink-0">
-              <Logo size="xs" className="sm:hidden" />
-              <Logo size="sm" suffix="Concept" className="hidden sm:inline-flex" />
+              <Logo size="sm" suffix="Concept" />
             </Link>
           </div>
 
