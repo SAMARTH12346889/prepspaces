@@ -297,6 +297,7 @@ export default function ModuleNav({
   trackId,
   currentTrack,
   course,
+  courseId,
   currentModuleId: propCurrentModuleId,
   activeModuleId,
   showAiTutor,
@@ -308,7 +309,7 @@ export default function ModuleNav({
   const { isAuthenticated, user, logout } = useAuth();
   const scrollRef = useRef(null);
 
-  const rawTrack = propTrack || trackId || currentTrack || course;
+  const rawTrack = propTrack || trackId || currentTrack || course || courseId;
 
   // Auto-detect track if omitted, defaulted to "cloud", or passed as trackId/course
   const track = useMemo(() => {
@@ -323,9 +324,11 @@ export default function ModuleNav({
       if (rawTrack === "data-engineering") return "data-engineering";
       if (rawTrack === "machine-learning" || rawTrack === "ml") return "machine-learning";
       if (rawTrack === "backend-engineering" || rawTrack === "backend") return "backend-engineering";
+      if (rawTrack === "frontend-engineering" || rawTrack === "frontend") return "frontend-engineering";
       return rawTrack;
     }
     const path = (location?.pathname || "").toLowerCase();
+    if (path.includes("/learning/frontend-engineering") || path.includes("/learning/frontend") || path.includes("/courses/frontend-engineering") || path.includes("/courses/frontend") || path.includes("/learn/frontend-engineering")) return "frontend-engineering";
     if (path.includes("/learning/backend-engineering") || path.includes("/learning/backend") || path.includes("/courses/backend-engineering") || path.includes("/courses/backend") || path.includes("/learn/backend-engineering")) return "backend-engineering";
     if (path.includes("/learning/machine-learning") || path.includes("/learning/ml") || path.includes("/courses/machine-learning") || path.includes("/courses/ml") || path.includes("/learn/machine-learning")) return "machine-learning";
     if (path.includes("/learning/data-engineering") || path.includes("/learn/data-engineering") || path.includes("/courses/data-engineering")) return "data-engineering";
@@ -355,6 +358,8 @@ export default function ModuleNav({
     ml: "machine-learning",
     "backend-engineering": "backend-engineering",
     backend: "backend-engineering",
+    "frontend-engineering": "frontend-engineering",
+    frontend: "frontend-engineering",
   };
   const resolvedCourseId = courseIdMap[track] || track;
 

@@ -51,7 +51,8 @@ export default class AppErrorBoundary extends React.Component {
                 errorMessage &&
                 (errorMessage.includes("Failed to fetch dynamically imported module") ||
                   errorMessage.includes("Loading chunk") ||
-                  errorMessage.includes("dynamically imported module"));
+                  errorMessage.includes("dynamically imported module") ||
+                  errorMessage.includes("reading 'default'"));
 
               if (isChunkError) {
                 return (

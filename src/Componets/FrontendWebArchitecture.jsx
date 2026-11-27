@@ -234,7 +234,7 @@ export default function FrontendWebArchitecture() {
 
   return (
     <div className="min-h-screen bg-[#faf8f4] text-[#18181b] font-sans">
-      <ModuleNav courseId="frontend-engineering" currentModuleId="web-architecture-foundations" />
+      <ModuleNav track="frontend-engineering" currentModuleId="web-architecture-foundations" />
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
         {/* Header */}
