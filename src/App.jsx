@@ -198,6 +198,7 @@ const BackendAuthSecurity = React.lazy(() => import("./Componets/BackendAuthSecu
 const BackendValidationReliability = React.lazy(() => import("./Componets/BackendValidationReliability"));
 const BackendCachingAsync = React.lazy(() => import("./Componets/BackendCachingAsync"));
 const BackendTestingQuality = React.lazy(() => import("./Componets/BackendTestingQuality"));
+const BackendApiSecurity = React.lazy(() => import("./Componets/BackendApiSecurity"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2021,6 +2022,11 @@ function App() {
             <Route path="/courses/backend-engineering/testing-quality" element={<BackendTestingQuality />} />
             <Route path="/learning/backend/testing-quality" element={<BackendTestingQuality />} />
             <Route path="/learning/backend/module-8" element={<BackendTestingQuality />} />
+            <Route path="/learning/backend-engineering/api-security" element={<BackendApiSecurity />} />
+            <Route path="/learning/backend-engineering/module-9" element={<BackendApiSecurity />} />
+            <Route path="/courses/backend-engineering/api-security" element={<BackendApiSecurity />} />
+            <Route path="/learning/backend/api-security" element={<BackendApiSecurity />} />
+            <Route path="/learning/backend/module-9" element={<BackendApiSecurity />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

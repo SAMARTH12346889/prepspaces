@@ -241,6 +241,18 @@ const routeMeta = {
     keywords: "Backend Testing, JUnit 5, Mockito, MockMvc, Testcontainers PostgreSQL, Pact Contract Testing, k6 Load Testing, JaCoCo Coverage, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/testing-quality`,
   },
+  "/learning/backend-engineering/api-security": {
+    title: "Module 09: API Security Engineering | PrepSpaces",
+    description: "Secure backend APIs with STRIDE threat modeling, OWASP API Top 10 defenses, BOLA/BFLA prevention, parameterized SQL, Mass Assignment DTOs, CORS, file security, Vault secrets, and OWASP ZAP.",
+    keywords: "API Security, OWASP API Top 10, STRIDE Threat Modeling, BOLA, BFLA, SQL Injection Prevention, Mass Assignment, CORS Security, File Upload Security, OWASP ZAP, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/api-security`,
+  },
+  "/courses/backend-engineering/api-security": {
+    title: "Module 09: API Security Engineering | PrepSpaces",
+    description: "Secure backend APIs with STRIDE threat modeling, OWASP API Top 10 defenses, BOLA/BFLA prevention, parameterized SQL, Mass Assignment DTOs, CORS, file security, Vault secrets, and OWASP ZAP.",
+    keywords: "API Security, OWASP API Top 10, STRIDE Threat Modeling, BOLA, BFLA, SQL Injection Prevention, Mass Assignment, CORS Security, File Upload Security, OWASP ZAP, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/api-security`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

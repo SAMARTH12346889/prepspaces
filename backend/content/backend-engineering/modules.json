@@ -86,5 +86,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "api-security",
+    "courseId": "backend-engineering",
+    "index": 9,
+    "name": "9. API Security Engineering",
+    "route": "/learning/backend-engineering/api-security",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
