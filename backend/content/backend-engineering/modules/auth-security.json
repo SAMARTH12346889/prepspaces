@@ -1,0 +1,130 @@
+{
+  "id": "auth-security",
+  "courseId": "backend-engineering",
+  "index": 5,
+  "name": "5. Authentication and Authorization Engineering",
+  "route": "/learning/backend-engineering/auth-security",
+  "componentName": "BackendAuthSecurity",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why must a public user registration endpoint NEVER trust a role field supplied by the client request?",
+      "options": [
+        "Spring Security cannot parse JSON strings",
+        "An attacker could supply role=ADMIN during registration and escalate their own privileges",
+        "Roles are only stored in browser localStorage",
+        "PostgreSQL rejects role strings"
+      ],
+      "correctIndex": 1,
+      "explanation": "Public registration must always assign a safe default role (such as STUDENT) on the server, never trusting client-supplied privileged roles."
+    },
+    {
+      "id": 2,
+      "question": "Why should passwords be stored using Argon2id or BCrypt rather than reversible encryption or plain SHA-256?",
+      "options": [
+        "Argon2id and BCrypt are one-way, salted, computationally expensive algorithms designed to resist brute-force attacks",
+        "BCrypt allows the backend to decrypt and email the user's original password",
+        "SHA-256 cannot hash strings longer than 8 characters",
+        "Encryption is faster than hashing"
+      ],
+      "correctIndex": 0,
+      "explanation": "Passwords should be hashed one-way with salted, adaptive/memory-hard algorithms (Argon2id or BCrypt) so compromised hashes cannot be easily cracked or decrypted."
+    },
+    {
+      "id": 3,
+      "question": "Which cookie attributes help protect a session or refresh-token cookie against XSS reading and cross-site transmission?",
+      "options": [
+        "Public and Cacheable",
+        "HttpOnly, Secure, and SameSite",
+        "AllowAll and CrossOrigin",
+        "PlainText and Persistent"
+      ],
+      "correctIndex": 1,
+      "explanation": "HttpOnly prevents JavaScript from reading the cookie, Secure restricts it to HTTPS, and SameSite controls cross-site sending."
+    },
+    {
+      "id": 4,
+      "question": "What is a critical security misconception about a signed JWT (HEADER.PAYLOAD.SIGNATURE)?",
+      "options": [
+        "JWTs expire automatically",
+        "A signed JWT is Base64URL-encoded and readable by anyone who obtains it—it is NOT encrypted unless JWE is used",
+        "JWTs cannot carry a subject claim",
+        "JWT signatures require a database lookup"
+      ],
+      "correctIndex": 1,
+      "explanation": "Signing protects integrity against tampering, not confidentiality. Never place passwords, secrets, or sensitive private data in a standard signed JWT payload."
+    },
+    {
+      "id": 5,
+      "question": "How does refresh-token rotation with reuse detection protect against stolen refresh tokens?",
+      "options": [
+        "It makes refresh tokens valid forever",
+        "Each refresh invalidates the old token (R1) and issues a new one (R2); if R1 is reused later, the backend detects possible theft and revokes the token family",
+        "It stores the password inside the refresh token",
+        "It disables access token expiration"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rotation ensures refresh tokens are single-use, and reuse of an already-rotated token signals compromise so the entire token family can be revoked."
+    },
+    {
+      "id": 6,
+      "question": "What is the key difference between OAuth 2.0 and OpenID Connect (OIDC)?",
+      "options": [
+        "OAuth 2.0 is an authorization framework for delegated access; OIDC is an authentication/identity layer on top of OAuth 2.0 that introduces the ID token",
+        "OIDC replaces HTTPS",
+        "OAuth 2.0 is only for databases",
+        "They are identical protocols"
+      ],
+      "correctIndex": 0,
+      "explanation": "OAuth 2.0 handles delegated authorization (access tokens), while OIDC adds standardized user authentication and identity claims via ID tokens."
+    },
+    {
+      "id": 7,
+      "question": "Why is Authorization Code Flow with PKCE recommended for SPAs and mobile apps?",
+      "options": [
+        "Public clients cannot safely keep a client secret, and PKCE protects the authorization code exchange against interception",
+        "PKCE removes the need for redirect URIs",
+        "PKCE encrypts the PostgreSQL database",
+        "It bypasses user consent"
+      ],
+      "correctIndex": 0,
+      "explanation": "PKCE (Proof Key for Code Exchange) binds the authorization code to a dynamically generated verifier so intercepted codes cannot be exchanged by attackers."
+    },
+    {
+      "id": 8,
+      "question": "In Spring Security, what does @PreAuthorize(\"hasRole('ADMIN')\") check?",
+      "options": [
+        "Whether the request has a CORS header",
+        "Whether the authenticated principal has the ROLE_ADMIN authority",
+        "Whether the password is 8 characters",
+        "Whether the database is PostgreSQL"
+      ],
+      "correctIndex": 1,
+      "explanation": "hasRole('ADMIN') checks for the ROLE_ADMIN granted authority on the authenticated SecurityContext."
+    },
+    {
+      "id": 9,
+      "question": "Why is role-based access control (RBAC) alone not enough when an instructor edits a course?",
+      "options": [
+        "Instructors do not have user IDs",
+        "Having the INSTRUCTOR role or course:update permission does not verify ownership of that specific course (preventing IDOR/BOLA)",
+        "RBAC only works with XML",
+        "Roles cannot be stored in PostgreSQL"
+      ],
+      "correctIndex": 1,
+      "explanation": "Resource-level / object-level authorization must verify that the instructor owns or is assigned to the specific course being modified."
+    },
+    {
+      "id": 10,
+      "question": "Why does simply deleting a JWT from the browser on logout not fully invalidate it?",
+      "options": [
+        "Browsers refuse to delete localStorage",
+        "A signed JWT remains valid until its exp timestamp if an attacker copied it; complete revocation requires refresh-token revocation, a denylist, or token-version checks",
+        "JWTs are stored in DNS",
+        "HTTPS caches JWTs for 30 days"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because stateless JWTs are self-contained until expiry, logout must revoke refresh tokens and, if immediate access-token invalidation is needed, check a denylist or token version."
+    }
+  ]
+}

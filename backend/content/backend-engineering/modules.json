@@ -42,5 +42,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "auth-security",
+    "courseId": "backend-engineering",
+    "index": 5,
+    "name": "5. Authentication and Authorization Engineering",
+    "route": "/learning/backend-engineering/auth-security",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
