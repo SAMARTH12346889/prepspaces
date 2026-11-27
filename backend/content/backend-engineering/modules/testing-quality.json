@@ -1,0 +1,130 @@
+{
+  "id": "testing-quality",
+  "courseId": "backend-engineering",
+  "index": 8,
+  "name": "8. Backend Testing and API Quality Engineering",
+  "route": "/learning/backend-engineering/testing-quality",
+  "componentName": "BackendTestingQuality",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What do the three stages of the Arrange-Act-Assert (AAA) unit testing pattern represent?",
+      "options": [
+        "Authenticate, Authorize, Audit",
+        "Arrange (prepare objects/inputs), Act (execute the method), Assert (verify the expected outcome)",
+        "Add, Alter, Archive",
+        "API, Application, Architecture"
+      ],
+      "correctIndex": 1,
+      "explanation": "AAA structures unit tests cleanly into setup (Arrange), execution (Act), and verification (Assert)."
+    },
+    {
+      "id": 2,
+      "question": "Which Spring Boot test annotation focuses specifically on testing Spring MVC controllers with MockMvc without loading the entire application?",
+      "options": [
+        "@DataJpaTest",
+        "@WebMvcTest",
+        "@JsonTest",
+        "@Testcontainers"
+      ],
+      "correctIndex": 1,
+      "explanation": "@WebMvcTest slices the context to the Spring MVC web layer (controllers, filters, exception handlers), while @MockitoBean mocks service dependencies."
+    },
+    {
+      "id": 3,
+      "question": "Why is testing against a real PostgreSQL container (via Testcontainers) preferred over relying exclusively on an in-memory H2 database?",
+      "options": [
+        "H2 cannot run in Java 21",
+        "Different database engines have different SQL dialects, data types, constraint handling, and locking behaviour, so H2 tests can pass while PostgreSQL fails",
+        "Testcontainers requires no Docker",
+        "PostgreSQL is slower to write SQL for"
+      ],
+      "correctIndex": 1,
+      "explanation": "Testcontainers runs tests against the exact PostgreSQL engine used in production, catching dialect, constraint, and transaction differences."
+    },
+    {
+      "id": 4,
+      "question": "What is the difference between a Stub and a Mock in test doubles?",
+      "options": [
+        "A Stub returns predefined responses; a Mock also allows verifying interactions (such as verify(repo).save(...))",
+        "A Stub connects to PostgreSQL; a Mock connects to Redis",
+        "They are identical",
+        "Mocks cannot throw exceptions"
+      ],
+      "correctIndex": 0,
+      "explanation": "Stubs supply canned return values, whereas Mocks additionally let you assert how methods were called (or never called)."
+    },
+    {
+      "id": 5,
+      "question": "What does consumer-driven contract testing (e.g., Pact) verify?",
+      "options": [
+        "That CPU utilization stays under 50%",
+        "That the API provider (backend) satisfies the exact request/response interactions expected by consumers (frontend/mobile/other services)",
+        "That passwords are hashed with BCrypt",
+        "That 100% of lines are executed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Consumer-driven contract testing catches breaking API changes (renamed/removed fields, wrong status codes) before incompatible releases."
+    },
+    {
+      "id": 6,
+      "question": "Why is @WithMockUser alone NOT sufficient to prove JWT authentication works end-to-end?",
+      "options": [
+        "@WithMockUser only works with H2",
+        "@WithMockUser simulates an already-authenticated SecurityContext for authorization tests; it does not test real JWT parsing, signature verification, or expiration",
+        "@WithMockUser disables MockMvc",
+        "Spring Security ignores @WithMockUser"
+      ],
+      "correctIndex": 1,
+      "explanation": "You still need dedicated authentication tests that send real signed, expired, and tampered JWTs against the filter chain."
+    },
+    {
+      "id": 7,
+      "question": "Why do performance engineers monitor p95 and p99 response-time percentiles instead of only the average?",
+      "options": [
+        "Averages cannot be calculated in Java",
+        "An average hides tail latency where a small percentage of users experience multi-second delays",
+        "p99 measures CPU temperature",
+        "p50 is always higher than p99"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tail percentiles (p95, p99) expose slow outlier requests caused by GC pauses, lock contention, or unindexed queries."
+    },
+    {
+      "id": 8,
+      "question": "What is the difference between Spike Testing and Soak Testing?",
+      "options": [
+        "Spike testing applies a sudden traffic surge (e.g., course launch); Soak testing applies a sustained workload over hours to detect memory or connection leaks",
+        "Spike testing tests SQL syntax; Soak testing tests CSS",
+        "They are identical",
+        "Soak testing runs for 1 second"
+      ],
+      "correctIndex": 0,
+      "explanation": "Spike testing validates sudden burst resilience, while soak testing uncovers gradual resource exhaustion like memory or connection leaks."
+    },
+    {
+      "id": 9,
+      "question": "Why does 100% line coverage in JaCoCo NOT automatically guarantee bug-free software?",
+      "options": [
+        "JaCoCo only measures HTML files",
+        "Coverage measures which lines executed, not whether assertions actually verified business rules, boundary conditions, or security",
+        "Line coverage ignores controllers",
+        "JaCoCo requires k6"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tests can execute every line without meaningful assertions; mutation testing (like PIT) helps verify whether tests actually catch defects."
+    },
+    {
+      "id": 10,
+      "question": "What does the Testing Pyramid recommend regarding test distribution?",
+      "options": [
+        "Only write end-to-end browser tests",
+        "Many fast isolated unit tests at the base, a substantial layer of integration/API tests, and fewer end-to-end workflow tests at the top",
+        "No unit tests if you have k6",
+        "Mock every repository in integration tests"
+      ],
+      "correctIndex": 1,
+      "explanation": "The testing pyramid balances fast feedback from unit tests with realistic integration/API verification and targeted end-to-end checks."
+    }
+  ]
+}

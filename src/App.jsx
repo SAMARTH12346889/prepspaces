@@ -197,6 +197,7 @@ const BackendDatabasePersistence = React.lazy(() => import("./Componets/BackendD
 const BackendAuthSecurity = React.lazy(() => import("./Componets/BackendAuthSecurity"));
 const BackendValidationReliability = React.lazy(() => import("./Componets/BackendValidationReliability"));
 const BackendCachingAsync = React.lazy(() => import("./Componets/BackendCachingAsync"));
+const BackendTestingQuality = React.lazy(() => import("./Componets/BackendTestingQuality"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2015,6 +2016,11 @@ function App() {
             <Route path="/courses/backend-engineering/caching-async-messaging" element={<BackendCachingAsync />} />
             <Route path="/learning/backend/caching-async-messaging" element={<BackendCachingAsync />} />
             <Route path="/learning/backend/module-7" element={<BackendCachingAsync />} />
+            <Route path="/learning/backend-engineering/testing-quality" element={<BackendTestingQuality />} />
+            <Route path="/learning/backend-engineering/module-8" element={<BackendTestingQuality />} />
+            <Route path="/courses/backend-engineering/testing-quality" element={<BackendTestingQuality />} />
+            <Route path="/learning/backend/testing-quality" element={<BackendTestingQuality />} />
+            <Route path="/learning/backend/module-8" element={<BackendTestingQuality />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

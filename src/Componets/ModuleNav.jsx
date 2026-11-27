@@ -282,6 +282,7 @@ export const BACKEND_ENGINEERING_MODULES = [
   { id: "auth-security", name: "5. Authentication and Authorization Engineering", route: "/learning/backend-engineering/auth-security" },
   { id: "validation-reliability", name: "6. API Validation, Error Handling and Reliability", route: "/learning/backend-engineering/validation-reliability" },
   { id: "caching-async-messaging", name: "7. Caching, Asynchronous Processing and Messaging", route: "/learning/backend-engineering/caching-async-messaging" },
+  { id: "testing-quality", name: "8. Backend Testing and API Quality Engineering", route: "/learning/backend-engineering/testing-quality" },
 ];
 
 export default function ModuleNav({

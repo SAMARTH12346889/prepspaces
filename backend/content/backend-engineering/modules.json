@@ -75,5 +75,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "testing-quality",
+    "courseId": "backend-engineering",
+    "index": 8,
+    "name": "8. Backend Testing and API Quality Engineering",
+    "route": "/learning/backend-engineering/testing-quality",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

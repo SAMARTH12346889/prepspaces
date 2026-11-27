@@ -229,6 +229,18 @@ const routeMeta = {
     keywords: "Redis Caching, Cache-Aside, Cache Invalidation, RabbitMQ, Spring AMQP, Apache Kafka, Dead-Letter Queue, Idempotent Consumer, ShedLock, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/caching-async-messaging`,
   },
+  "/learning/backend-engineering/testing-quality": {
+    title: "Module 08: Backend Testing and API Quality Engineering | PrepSpaces",
+    description: "Build production-grade automated test suites with JUnit 5, Mockito, MockMvc, Testcontainers PostgreSQL, Pact contract testing, Spring Security tests, k6 load testing, and JaCoCo.",
+    keywords: "Backend Testing, JUnit 5, Mockito, MockMvc, Testcontainers PostgreSQL, Pact Contract Testing, k6 Load Testing, JaCoCo Coverage, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/testing-quality`,
+  },
+  "/courses/backend-engineering/testing-quality": {
+    title: "Module 08: Backend Testing and API Quality Engineering | PrepSpaces",
+    description: "Build production-grade automated test suites with JUnit 5, Mockito, MockMvc, Testcontainers PostgreSQL, Pact contract testing, Spring Security tests, k6 load testing, and JaCoCo.",
+    keywords: "Backend Testing, JUnit 5, Mockito, MockMvc, Testcontainers PostgreSQL, Pact Contract Testing, k6 Load Testing, JaCoCo Coverage, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/testing-quality`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",
