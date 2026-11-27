@@ -298,6 +298,7 @@ export const FRONTEND_ENGINEERING_MODULES = [
   { id: "typescript-scalable-frontend", name: "7. TypeScript for Scalable Frontend Applications", route: "/learning/frontend-engineering/typescript-scalable-frontend" },
   { id: "react-fundamentals", name: "8. React Fundamentals and Component Engineering", route: "/learning/frontend-engineering/react-fundamentals" },
   { id: "advanced-react", name: "9. Advanced React, Application Architecture and State Management", route: "/learning/frontend-engineering/advanced-react" },
+  { id: "frontend-data-engineering", name: "10. Frontend Data Engineering, Forms and API Integration", route: "/learning/frontend-engineering/frontend-data-engineering" },
 ];
 
 export default function ModuleNav({

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
+  ArrowRight,
   Atom,
   BookOpen,
   CheckCircle2,
@@ -563,11 +564,11 @@ export default function FrontendAdvancedReact() {
           </button>
 
           <button
-            onClick={() => navigate("/learning")}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+            onClick={() => navigate("/learning/frontend-engineering/frontend-data-engineering")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
           >
-            <ShieldCheck size={16} />
-            <span>Curriculum Hub</span>
+            <span>Next: Module 10 &mdash; Frontend Data Engineering &amp; API Integration</span>
+            <ArrowRight size={16} />
           </button>
         </div>
       </main>

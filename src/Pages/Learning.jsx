@@ -277,7 +277,7 @@ const learningTracks = [
     icon: Globe,
     route: "/learning/frontend-engineering",
     tag: "Web & Frontend Engineering",
-    modulesCount: "9 Comprehensive Modules",
+    modulesCount: "10 Comprehensive Modules",
     color: "from-stone-900 via-orange-950 to-orange-600",
     badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
     highlights: [

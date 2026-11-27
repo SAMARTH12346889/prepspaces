@@ -391,6 +391,18 @@ const routeMeta = {
     keywords: "Advanced React, Reconciliation, Context API, useReducer, useMemo, useCallback, React Router, Protected Routes, Error Boundaries, Code Splitting, Feature Architecture, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/advanced-react`,
   },
+  "/learning/frontend-engineering/frontend-data-engineering": {
+    title: "Module 10: Frontend Data Engineering, Forms and API Integration | PrepSpaces",
+    description: "Master REST API service layers, TanStack Query server-state caching & optimistic updates, pagination & debounced search, Zod + React Hook Form validation, authentication-aware clients, upload progress, and WebSockets.",
+    keywords: "Frontend Data Engineering, REST API Integration, TanStack Query, React Query, Zod, React Hook Form, Optimistic Updates, File Upload Progress, WebSockets, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/frontend-data-engineering`,
+  },
+  "/courses/frontend-engineering/frontend-data-engineering": {
+    title: "Module 10: Frontend Data Engineering, Forms and API Integration | PrepSpaces",
+    description: "Master REST API service layers, TanStack Query server-state caching & optimistic updates, pagination & debounced search, Zod + React Hook Form validation, authentication-aware clients, upload progress, and WebSockets.",
+    keywords: "Frontend Data Engineering, REST API Integration, TanStack Query, React Query, Zod, React Hook Form, Optimistic Updates, File Upload Progress, WebSockets, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/frontend-data-engineering`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

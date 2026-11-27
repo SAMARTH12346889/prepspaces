@@ -1,0 +1,130 @@
+{
+  "id": "frontend-data-engineering",
+  "courseId": "frontend-engineering",
+  "index": 10,
+  "name": "10. Frontend Data Engineering, Forms and API Integration",
+  "route": "/learning/frontend-engineering/frontend-data-engineering",
+  "componentName": "FrontendDataEngineering",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary responsibility of a frontend API service layer?",
+      "options": [
+        "Design database tables",
+        "Centralize reusable HTTP communication and response handling",
+        "Replace the backend",
+        "Control server infrastructure"
+      ],
+      "correctIndex": 1,
+      "explanation": "A frontend API service layer centralizes request configuration, status checks, JSON parsing, and typed error handling so components stay clean."
+    },
+    {
+      "id": 2,
+      "question": "What does TanStack Query primarily manage?",
+      "options": [
+        "CSS styling",
+        "Server state, caching and asynchronous data synchronization",
+        "Database transactions",
+        "HTML forms only"
+      ],
+      "correctIndex": 1,
+      "explanation": "TanStack Query manages asynchronous server state, caching, request deduplication, background refetching, and mutations."
+    },
+    {
+      "id": 3,
+      "question": "What is the difference between server state and client state?",
+      "options": [
+        "They are identical",
+        "Server state originates from external services; client state is managed by the frontend",
+        "Client state must always be stored in a database",
+        "Server state only contains strings"
+      ],
+      "correctIndex": 1,
+      "explanation": "Server state is owned by external backend services and synced asynchronously, whereas client state (modals, tabs, local UI inputs) lives in the frontend."
+    },
+    {
+      "id": 4,
+      "question": "What does staleTime control in TanStack Query?",
+      "options": [
+        "How long an inactive cache remains in memory",
+        "How long query data is considered fresh",
+        "How long a form remains open",
+        "How many HTTP requests can run"
+      ],
+      "correctIndex": 1,
+      "explanation": "staleTime defines how long cached query data is treated as fresh before becoming eligible for staleness-based background refetching."
+    },
+    {
+      "id": 5,
+      "question": "What does invalidateQueries() do?",
+      "options": [
+        "Deletes the React application",
+        "Marks matching queries as stale and can trigger refetching",
+        "Clears all browser cookies",
+        "Automatically creates a backend record"
+      ],
+      "correctIndex": 1,
+      "explanation": "invalidateQueries() marks matching cached queries as stale and triggers active queries to refetch fresh server data."
+    },
+    {
+      "id": 6,
+      "question": "What is an optimistic update?",
+      "options": [
+        "An update applied only after a page reload",
+        "Updating the interface before the server confirms the operation",
+        "Disabling all API requests",
+        "Replacing server validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Optimistic updates immediately reflect the expected outcome in the UI while the mutation runs, rolling back if the server rejects it."
+    },
+    {
+      "id": 7,
+      "question": "What is the main purpose of Zod?",
+      "options": [
+        "Manage React routes",
+        "Validate runtime data using schemas and infer TypeScript types",
+        "Store API responses permanently",
+        "Generate database indexes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Zod validates untrusted runtime values (forms, API responses, WebSocket messages) and infers matching TypeScript types via `z.infer`."
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of React Hook Form's register()?",
+      "options": [
+        "Create API endpoints",
+        "Connect input elements to form management and validation",
+        "Load React routes",
+        "Create WebSocket connections"
+      ],
+      "correctIndex": 1,
+      "explanation": "register() attaches refs, field names, and event handlers so React Hook Form can track values, validation, and errors."
+    },
+    {
+      "id": 9,
+      "question": "Why should authentication tokens generally not be stored in LocalStorage?",
+      "options": [
+        "LocalStorage cannot store strings",
+        "JavaScript-accessible storage can expose credentials through XSS vulnerabilities",
+        "LocalStorage automatically deletes every token",
+        "React cannot read LocalStorage"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because any JavaScript on the same origin can read LocalStorage, XSS vulnerabilities can exfiltrate tokens stored there."
+    },
+    {
+      "id": 10,
+      "question": "Which browser API is useful for monitoring upload progress?",
+      "options": [
+        "localStorage",
+        "XMLHttpRequest.upload",
+        "JSON.parse",
+        "useMemo"
+      ],
+      "correctIndex": 1,
+      "explanation": "XMLHttpRequest.upload emits `progress` events with `loaded` and `total` byte counts, which Fetch does not natively expose for uploads."
+    }
+  ]
+}

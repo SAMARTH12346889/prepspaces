@@ -97,5 +97,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "frontend-data-engineering",
+    "courseId": "frontend-engineering",
+    "index": 10,
+    "name": "10. Frontend Data Engineering, Forms and API Integration",
+    "route": "/learning/frontend-engineering/frontend-data-engineering",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
