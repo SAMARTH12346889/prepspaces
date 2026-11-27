@@ -297,6 +297,7 @@ export const FRONTEND_ENGINEERING_MODULES = [
   { id: "browser-apis-async", name: "6. Browser APIs, Asynchronous Programming and Web Integration", route: "/learning/frontend-engineering/browser-apis-async" },
   { id: "typescript-scalable-frontend", name: "7. TypeScript for Scalable Frontend Applications", route: "/learning/frontend-engineering/typescript-scalable-frontend" },
   { id: "react-fundamentals", name: "8. React Fundamentals and Component Engineering", route: "/learning/frontend-engineering/react-fundamentals" },
+  { id: "advanced-react", name: "9. Advanced React, Application Architecture and State Management", route: "/learning/frontend-engineering/advanced-react" },
 ];
 
 export default function ModuleNav({

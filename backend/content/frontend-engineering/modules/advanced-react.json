@@ -1,0 +1,130 @@
+{
+  "id": "advanced-react",
+  "courseId": "frontend-engineering",
+  "index": 9,
+  "name": "9. Advanced React, Application Architecture and State Management",
+  "route": "/learning/frontend-engineering/advanced-react",
+  "componentName": "FrontendAdvancedReact",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What are the three main stages of React screen updates?",
+      "options": [
+        "Compile, deploy, execute",
+        "Trigger, render, commit",
+        "Import, export, update",
+        "Mount, compile, delete"
+      ],
+      "correctIndex": 1,
+      "explanation": "React updates follow three stages: Triggering a render, Rendering the component tree, and Committing changes to the DOM."
+    },
+    {
+      "id": 2,
+      "question": "What is reconciliation?",
+      "options": [
+        "Sending API requests",
+        "Determining how the new UI relates to the previous rendered UI",
+        "Creating CSS styles",
+        "Managing authentication tokens"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reconciliation compares the new rendered element tree against the previous one to determine which DOM parts can be preserved or updated."
+    },
+    {
+      "id": 3,
+      "question": "When should state usually be lifted up?",
+      "options": [
+        "Whenever a component has more than one property",
+        "When multiple components need coordinated access to the same state",
+        "Whenever an application has a Navbar",
+        "Whenever a component uses TypeScript"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lifting state up moves shared state to the closest common parent so sibling or nearby components share a single source of truth."
+    },
+    {
+      "id": 4,
+      "question": "What is the primary purpose of Context API?",
+      "options": [
+        "Replace the browser DOM",
+        "Share values through a component tree without passing props through every intermediate component",
+        "Build CSS layouts",
+        "Create database tables"
+      ],
+      "correctIndex": 1,
+      "explanation": "Context lets ancestor providers share data (like auth user or theme) with any descendant without manual prop drilling."
+    },
+    {
+      "id": 5,
+      "question": "What does useMemo cache?",
+      "options": [
+        "A function definition",
+        "A calculation result",
+        "A browser session",
+        "A React route"
+      ],
+      "correctIndex": 1,
+      "explanation": "useMemo caches the computed return value of a function between renders as long as its dependencies remain unchanged."
+    },
+    {
+      "id": 6,
+      "question": "What does useReducer receive?",
+      "options": [
+        "Only a JSX element",
+        "Current state and an action",
+        "Only browser events",
+        "A route and URL"
+      ],
+      "correctIndex": 1,
+      "explanation": "A reducer function accepts `(state, action)` and returns the next state immutably based on the dispatched action."
+    },
+    {
+      "id": 7,
+      "question": "What does a custom Hook share between components?",
+      "options": [
+        "One automatically shared state instance",
+        "Reusable stateful logic, but not automatically shared state",
+        "A global database",
+        "The DOM element tree"
+      ],
+      "correctIndex": 1,
+      "explanation": "Custom Hooks share stateful logic; each component calling the Hook gets its own independent state instance unless paired with Context or lifted state."
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of Outlet in nested React Router routes?",
+      "options": [
+        "Display CSS files",
+        "Render the currently matched child route inside its parent",
+        "Authenticate API calls",
+        "Load image files"
+      ],
+      "correctIndex": 1,
+      "explanation": "Outlet acts as a placeholder inside a parent layout route where the active child route component is rendered."
+    },
+    {
+      "id": 9,
+      "question": "Why are protected React routes insufficient for actual backend security?",
+      "options": [
+        "React cannot render pages",
+        "Frontend route checks can be bypassed; the backend must independently enforce authorization",
+        "Route parameters are always encrypted",
+        "React does not support authentication"
+      ],
+      "correctIndex": 1,
+      "explanation": "Client-side route guards only control which UI is rendered; users can inspect client code or call APIs directly, so the backend must enforce authorization."
+    },
+    {
+      "id": 10,
+      "question": "What is the main purpose of React.lazy and Suspense together?",
+      "options": [
+        "Automatically create user accounts",
+        "Load components on demand and display a fallback while they load",
+        "Replace Context API",
+        "Store application state permanently"
+      ],
+      "correctIndex": 1,
+      "explanation": "React.lazy enables code splitting by loading component chunks on demand, while Suspense renders a fallback UI until the chunk resolves."
+    }
+  ]
+}

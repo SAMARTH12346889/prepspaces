@@ -379,6 +379,18 @@ const routeMeta = {
     keywords: "React Fundamentals, Vite, JSX, Props, useState, useEffect, useRef, Custom Hooks, Component Lifecycle, TypeScript React, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/react-fundamentals`,
   },
+  "/learning/frontend-engineering/advanced-react": {
+    title: "Module 09: Advanced React, Application Architecture and State Management | PrepSpaces",
+    description: "Master React rendering & reconciliation, component composition, Context API, useReducer, useMemo, useCallback, React Router nested & protected routes, code splitting, Error Boundaries, and feature-based architecture.",
+    keywords: "Advanced React, Reconciliation, Context API, useReducer, useMemo, useCallback, React Router, Protected Routes, Error Boundaries, Code Splitting, Feature Architecture, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/advanced-react`,
+  },
+  "/courses/frontend-engineering/advanced-react": {
+    title: "Module 09: Advanced React, Application Architecture and State Management | PrepSpaces",
+    description: "Master React rendering & reconciliation, component composition, Context API, useReducer, useMemo, useCallback, React Router nested & protected routes, code splitting, Error Boundaries, and feature-based architecture.",
+    keywords: "Advanced React, Reconciliation, Context API, useReducer, useMemo, useCallback, React Router, Protected Routes, Error Boundaries, Code Splitting, Feature Architecture, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/advanced-react`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

@@ -209,6 +209,7 @@ const FrontendModernJs = React.lazy(() => import("./Componets/FrontendModernJs")
 const FrontendBrowserAsync = React.lazy(() => import("./Componets/FrontendBrowserAsync"));
 const FrontendTypeScript = React.lazy(() => import("./Componets/FrontendTypeScript"));
 const FrontendReactFundamentals = React.lazy(() => import("./Componets/FrontendReactFundamentals"));
+const FrontendAdvancedReact = React.lazy(() => import("./Componets/FrontendAdvancedReact"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2091,6 +2092,11 @@ function App() {
             <Route path="/courses/frontend-engineering/react-fundamentals" element={<FrontendReactFundamentals />} />
             <Route path="/learning/frontend/react-fundamentals" element={<FrontendReactFundamentals />} />
             <Route path="/learning/frontend/module-8" element={<FrontendReactFundamentals />} />
+            <Route path="/learning/frontend-engineering/advanced-react" element={<FrontendAdvancedReact />} />
+            <Route path="/learning/frontend-engineering/module-9" element={<FrontendAdvancedReact />} />
+            <Route path="/courses/frontend-engineering/advanced-react" element={<FrontendAdvancedReact />} />
+            <Route path="/learning/frontend/advanced-react" element={<FrontendAdvancedReact />} />
+            <Route path="/learning/frontend/module-9" element={<FrontendAdvancedReact />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

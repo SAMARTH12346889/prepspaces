@@ -1,0 +1,5121 @@
+{
+  "moduleNumber": "09",
+  "title": "MODULE 09 — Advanced React, Application Architecture and State Management",
+  "badges": [
+    "Advanced Core Module",
+    "15 Lessons",
+    "React Architecture",
+    "TypeScript & React Router"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module overview"
+    },
+    {
+      "type": "p",
+      "text": "In Module 08, you learned how to build individual React components, manage local state, handle events, create forms, and develop reusable Hooks."
+    },
+    {
+      "type": "p",
+      "text": "However, building individual components is different from developing a complete application."
+    },
+    {
+      "type": "p",
+      "text": "Consider a full-featured student dashboard such as PrepSpaces."
+    },
+    {
+      "type": "p",
+      "text": "A student should be able to:"
+    },
+    {
+      "type": "p",
+      "text": "Navigate between Dashboard, Courses, Learning Progress, Assignments, and Profile."
+    },
+    {
+      "type": "p",
+      "text": "Open individual course pages and specific lesson pages."
+    },
+    {
+      "type": "p",
+      "text": "Access information shared between different components."
+    },
+    {
+      "type": "p",
+      "text": "Maintain authentication while navigating."
+    },
+    {
+      "type": "p",
+      "text": "Update course progress and immediately see the changes elsewhere."
+    },
+    {
+      "type": "p",
+      "text": "Load application sections without downloading every page at the beginning."
+    },
+    {
+      "type": "p",
+      "text": "Recover from component errors without crashing the entire application."
+    },
+    {
+      "type": "p",
+      "text": "Navigate through a consistent layout."
+    },
+    {
+      "type": "p",
+      "text": "Use an application that remains responsive as its codebase grows."
+    },
+    {
+      "type": "p",
+      "text": "These requirements introduce more advanced React concepts."
+    },
+    {
+      "type": "p",
+      "text": "This module moves beyond individual components and teaches how to design, organize, optimize, and manage complete React applications."
+    },
+    {
+      "type": "h3",
+      "text": "What is advanced React architecture?"
+    },
+    {
+      "type": "p",
+      "text": "Advanced React architecture involves designing how different application parts interact with each other."
+    },
+    {
+      "type": "p",
+      "text": "It includes:"
+    },
+    {
+      "type": "p",
+      "text": "Component architecture."
+    },
+    {
+      "type": "p",
+      "text": "State ownership and communication."
+    },
+    {
+      "type": "p",
+      "text": "Shared and global state."
+    },
+    {
+      "type": "p",
+      "text": "Routing and navigation."
+    },
+    {
+      "type": "p",
+      "text": "Authentication-aware interfaces."
+    },
+    {
+      "type": "p",
+      "text": "Performance optimization."
+    },
+    {
+      "type": "p",
+      "text": "Lazy loading and code splitting."
+    },
+    {
+      "type": "p",
+      "text": "Error handling and fallback interfaces."
+    },
+    {
+      "type": "p",
+      "text": "Feature-based project organization."
+    },
+    {
+      "type": "p",
+      "text": "A well-designed application should not depend on one enormous component or one global state object containing everything."
+    },
+    {
+      "type": "p",
+      "text": "Instead, responsibilities should be distributed logically."
+    },
+    {
+      "type": "h3",
+      "text": "How Module 09 connects to previous modules"
+    },
+    {
+      "type": "p",
+      "text": "Module | Main capability"
+    },
+    {
+      "type": "p",
+      "text": "Module 05 — Modern JavaScript | Programming fundamentals"
+    },
+    {
+      "type": "p",
+      "text": "Module 06 — Browser APIs and Asynchronous Programming | Browser and API integration"
+    },
+    {
+      "type": "p",
+      "text": "Module 07 — TypeScript | Type-safe development"
+    },
+    {
+      "type": "p",
+      "text": "Module 08 — React Fundamentals | Reusable interactive components"
+    },
+    {
+      "type": "p",
+      "text": "Module 09 — Advanced React | Complete application architecture, navigation, shared state, and performance"
+    },
+    {
+      "type": "h3",
+      "text": "Learning outcomes"
+    },
+    {
+      "type": "p",
+      "text": "By the end of this module, you should be able to:"
+    },
+    {
+      "type": "p",
+      "text": "Explain React's rendering and reconciliation process."
+    },
+    {
+      "type": "p",
+      "text": "Design reusable component architectures."
+    },
+    {
+      "type": "p",
+      "text": "Manage communication between distant components."
+    },
+    {
+      "type": "p",
+      "text": "Implement Context API for shared application state."
+    },
+    {
+      "type": "p",
+      "text": "Use useMemo and useCallback appropriately."
+    },
+    {
+      "type": "p",
+      "text": "Manage complex state using useReducer."
+    },
+    {
+      "type": "p",
+      "text": "Develop reusable custom Hooks."
+    },
+    {
+      "type": "p",
+      "text": "Implement client-side routing using React Router."
+    },
+    {
+      "type": "p",
+      "text": "Create nested routes and dynamic route parameters."
+    },
+    {
+      "type": "p",
+      "text": "Build authentication-aware route interfaces."
+    },
+    {
+      "type": "p",
+      "text": "Organize layouts and navigation systems."
+    },
+    {
+      "type": "p",
+      "text": "Implement code splitting and lazy loading."
+    },
+    {
+      "type": "p",
+      "text": "Handle loading states and component errors."
+    },
+    {
+      "type": "p",
+      "text": "Optimize application rendering."
+    },
+    {
+      "type": "p",
+      "text": "Organize large React applications using feature-based architecture."
+    }
+  ],
+  "sections": [
+    {
+      "id": "lesson-01",
+      "badge": "Lesson 01",
+      "title": "React Rendering Model and Reconciliation",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 Understanding React rendering"
+        },
+        {
+          "type": "p",
+          "text": "When developers use React, they describe what the interface should look like using components."
+        },
+        {
+          "type": "p",
+          "text": "React takes these descriptions and determines how the browser interface should be updated."
+        },
+        {
+          "type": "p",
+          "text": "This process is called rendering."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "function StudentDashboard() {\n  return (\n    <div>\n      <h1>Student Dashboard</h1>\n      <p>Welcome back!</p>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "When React renders this component, it executes the function and produces a description of the desired interface."
+        },
+        {
+          "type": "p",
+          "text": "However, rendering a component does not necessarily mean that React must recreate every DOM element."
+        },
+        {
+          "type": "p",
+          "text": "React can identify which parts of the previous interface are still valid and which need updating."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 The three stages of React updates"
+        },
+        {
+          "type": "p",
+          "text": "React's interface update process can be understood through three stages."
+        },
+        {
+          "type": "h3",
+          "text": "1. Trigger — State update, new props, or another update source"
+        },
+        {
+          "type": "h3",
+          "text": "2. Render — React calls components and calculates the next UI description"
+        },
+        {
+          "type": "h3",
+          "text": "3. Commit — React applies the necessary changes to the browser DOM"
+        },
+        {
+          "type": "p",
+          "text": "Stage 1 — Triggering a render"
+        },
+        {
+          "type": "p",
+          "text": "A React component can render initially when it is mounted."
+        },
+        {
+          "type": "p",
+          "text": "It can render again when relevant state, props, or context changes cause an update."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "const [count, setCount] = useState(0);"
+        },
+        {
+          "type": "p",
+          "text": "When the user executes:"
+        },
+        {
+          "type": "code",
+          "text": "setCount(10);"
+        },
+        {
+          "type": "p",
+          "text": "React schedules an update."
+        },
+        {
+          "type": "p",
+          "text": "Stage 2 — Rendering"
+        },
+        {
+          "type": "p",
+          "text": "React calls the component function to calculate what the interface should look like."
+        },
+        {
+          "type": "code",
+          "text": "function Counter() {\n  const [count, setCount] = useState(0);\n  console.log(\"Component rendered\");\n  return (\n    <button onClick={() => setCount(count + 1)}>\n      {count}\n    </button>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The function executes again when React renders the component."
+        },
+        {
+          "type": "p",
+          "text": "Rendering should be pure: the same props, state, and context should produce the same JSX, and the component should not perform unrelated side effects during rendering."
+        },
+        {
+          "type": "p",
+          "text": "Stage 3 — Commit"
+        },
+        {
+          "type": "p",
+          "text": "React applies necessary changes to the browser DOM."
+        },
+        {
+          "type": "p",
+          "text": "For example, when the counter changes from 0 to 1, React updates the relevant text rather than recreating the entire page."
+        },
+        {
+          "type": "p",
+          "text": "The browser then paints the updated interface."
+        },
+        {
+          "type": "p",
+          "text": "React's official documentation describes this sequence as triggering, rendering, and committing. (React)"
+        },
+        {
+          "type": "h3",
+          "text": "1.3 What is reconciliation?"
+        },
+        {
+          "type": "p",
+          "text": "Reconciliation is the process React uses to determine how the new rendered element tree relates to the previous one."
+        },
+        {
+          "type": "p",
+          "text": "Consider the previous interface:"
+        },
+        {
+          "type": "code",
+          "text": "function App() {\n  return (\n    <div>\n      <h1>Dashboard</h1>\n      <p>Completed: 5</p>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Now the updated interface:"
+        },
+        {
+          "type": "code",
+          "text": "function App() {\n  return (\n    <div>\n      <h1>Dashboard</h1>\n      <p>Completed: 6</p>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "React can determine that:"
+        },
+        {
+          "type": "p",
+          "text": "The outer div remains."
+        },
+        {
+          "type": "p",
+          "text": "The heading remains unchanged."
+        },
+        {
+          "type": "p",
+          "text": "The paragraph's text has changed."
+        },
+        {
+          "type": "p",
+          "text": "Therefore, it can update only the necessary DOM content."
+        },
+        {
+          "type": "p",
+          "text": "This process makes declarative UI updates practical."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Understanding component identity"
+        },
+        {
+          "type": "p",
+          "text": "React considers element types, positions, and keys when deciding whether component state should be preserved or reset."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "function Counter() {\n  const [count, setCount] = useState(0);\n  return (\n    <button onClick={() => setCount(count + 1)}>\n      {count}\n    </button>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Suppose this component appears in a page and the parent renders again."
+        },
+        {
+          "type": "p",
+          "text": "If the component maintains the same identity in the tree, its state is generally preserved."
+        },
+        {
+          "type": "p",
+          "text": "However, changing its key can intentionally reset its state."
+        },
+        {
+          "type": "code",
+          "text": "<Counter key={userId} />"
+        },
+        {
+          "type": "p",
+          "text": "When userId changes, React treats it as a different component identity."
+        },
+        {
+          "type": "p",
+          "text": "This is useful when switching between editing sessions, forms, or user-specific views."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 Understanding keys in reconciliation"
+        },
+        {
+          "type": "p",
+          "text": "Keys are especially important when rendering collections."
+        },
+        {
+          "type": "p",
+          "text": "Incorrect:"
+        },
+        {
+          "type": "code",
+          "text": "{courses.map((course, index) => (\n  <CourseCard key={index} course={course} />\n))}"
+        },
+        {
+          "type": "p",
+          "text": "Preferred when stable IDs are available:"
+        },
+        {
+          "type": "code",
+          "text": "{courses.map(course => (\n  <CourseCard key={course.id} course={course} />\n))}"
+        },
+        {
+          "type": "p",
+          "text": "Why?"
+        },
+        {
+          "type": "p",
+          "text": "Imagine that the first course is deleted."
+        },
+        {
+          "type": "p",
+          "text": "With index-based keys, the remaining courses may receive different identities."
+        },
+        {
+          "type": "p",
+          "text": "React might associate existing component state with a different course."
+        },
+        {
+          "type": "p",
+          "text": "Stable keys help React preserve the correct identity when lists change."
+        },
+        {
+          "type": "h3",
+          "text": "1.6 Parent and child rendering"
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "function CourseList() {\n  console.log(\"CourseList rendered\");\n  return (\n    <>\n      <CourseCard />\n      <CourseCard />\n    </>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "When the parent renders, React may also render its child components."
+        },
+        {
+          "type": "p",
+          "text": "This does not necessarily mean that all those components cause DOM updates."
+        },
+        {
+          "type": "p",
+          "text": "A re-render is not the same as a full DOM replacement."
+        },
+        {
+          "type": "h3",
+          "text": "1.7 Why rendering purity matters"
+        },
+        {
+          "type": "p",
+          "text": "Avoid performing these operations during rendering:"
+        },
+        {
+          "type": "p",
+          "text": "Network requests."
+        },
+        {
+          "type": "p",
+          "text": "Starting timers."
+        },
+        {
+          "type": "p",
+          "text": "Modifying existing state objects."
+        },
+        {
+          "type": "p",
+          "text": "Directly changing the DOM."
+        },
+        {
+          "type": "p",
+          "text": "Modifying global variables."
+        },
+        {
+          "type": "p",
+          "text": "Registering event listeners."
+        },
+        {
+          "type": "p",
+          "text": "These operations can create repeated work and unpredictable behaviour."
+        },
+        {
+          "type": "p",
+          "text": "Use event handlers, Effects, or other suitable React mechanisms for operations that interact with external systems."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a parent component with three child components. Add state to the parent and observe which components execute during an update. Then experiment with stable keys and changing component identities."
+        }
+      ]
+    },
+    {
+      "id": "lesson-02",
+      "badge": "Lesson 02",
+      "title": "Component Composition and Advanced Design Patterns",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 Moving beyond simple components"
+        },
+        {
+          "type": "p",
+          "text": "In Module 08, you learned to create reusable components such as:"
+        },
+        {
+          "type": "p",
+          "text": "Navbar"
+        },
+        {
+          "type": "p",
+          "text": "Button"
+        },
+        {
+          "type": "p",
+          "text": "CourseCard"
+        },
+        {
+          "type": "p",
+          "text": "DashboardCard"
+        },
+        {
+          "type": "p",
+          "text": "TaskItem"
+        },
+        {
+          "type": "p",
+          "text": "In larger applications, component architecture requires more than just separating JSX into files."
+        },
+        {
+          "type": "p",
+          "text": "Developers must decide:"
+        },
+        {
+          "type": "p",
+          "text": "Which component owns the data?"
+        },
+        {
+          "type": "p",
+          "text": "Which component controls the layout?"
+        },
+        {
+          "type": "p",
+          "text": "Which components are configurable?"
+        },
+        {
+          "type": "p",
+          "text": "Which components should know about application state?"
+        },
+        {
+          "type": "p",
+          "text": "Which components should remain independent of business logic?"
+        },
+        {
+          "type": "p",
+          "text": "These questions introduce advanced component design patterns."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Composition over unnecessary complexity"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an application needs multiple card types."
+        },
+        {
+          "type": "p",
+          "text": "One approach is creating different components for every variation:"
+        },
+        {
+          "type": "p",
+          "text": "CourseCard, StudentCard, StatisticsCard, AssignmentCard, NotificationCard"
+        },
+        {
+          "type": "p",
+          "text": "Another approach is creating a reusable container that accepts different content."
+        },
+        {
+          "type": "code",
+          "text": "import type { ReactNode } from \"react\";\n\ninterface PanelProps {\n  title: string;\n  children: ReactNode;\n}\n\nfunction Panel({ title, children }: PanelProps) {\n  return (\n    <section className=\"panel\">\n      <h2>{title}</h2>\n      <div className=\"panel-content\">\n        {children}\n      </div>\n    </section>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Now different pages can reuse the same structure:"
+        },
+        {
+          "type": "code",
+          "text": "<Panel title=\"Learning Progress\">\n  <ProgressChart />\n</Panel>\n<Panel title=\"Upcoming Assignments\">\n  <AssignmentList />\n</Panel>"
+        },
+        {
+          "type": "p",
+          "text": "This is component composition."
+        },
+        {
+          "type": "p",
+          "text": "The parent controls the overall structure, while the child content remains customizable."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Container and presentational responsibilities"
+        },
+        {
+          "type": "p",
+          "text": "A traditional component design pattern distinguishes between two responsibilities."
+        },
+        {
+          "type": "p",
+          "text": "Container component:"
+        },
+        {
+          "type": "p",
+          "text": "Responsible for application logic and data."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "function CourseContainer() {\n  const [courses, setCourses] = useState<Course[]>([]);\n  // Retrieve and manage courses.\n  return (\n    <CourseList courses={courses} />\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Presentational component:"
+        },
+        {
+          "type": "p",
+          "text": "Primarily responsible for displaying supplied information."
+        },
+        {
+          "type": "code",
+          "text": "interface CourseListProps {\n  courses: Course[];\n}\n\nfunction CourseList({ courses }: CourseListProps) {\n  return (\n    <div>\n      {courses.map(course => (\n        <CourseCard key={course.id} course={course} />\n      ))}\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "This separation can improve clarity, especially in larger applications."
+        },
+        {
+          "type": "p",
+          "text": "It is a design guideline rather than a mandatory rule. Modern React components commonly combine data fetching, state and rendering when that produces a simpler design."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 Compound components"
+        },
+        {
+          "type": "p",
+          "text": "Compound components are multiple related components that work together through a shared parent API."
+        },
+        {
+          "type": "p",
+          "text": "For example, a tab system:"
+        },
+        {
+          "type": "code",
+          "text": "<Tabs>\n  <Tabs.List>\n    <Tabs.Trigger value=\"courses\">\n      Courses\n    </Tabs.Trigger>\n    <Tabs.Trigger value=\"progress\">\n      Progress\n    </Tabs.Trigger>\n  </Tabs.List>\n  <Tabs.Panel value=\"courses\">\n    <CourseList />\n  </Tabs.Panel>\n  <Tabs.Panel value=\"progress\">\n    <ProgressOverview />\n  </Tabs.Panel>\n</Tabs>"
+        },
+        {
+          "type": "p",
+          "text": "The compound components share the same logical context."
+        },
+        {
+          "type": "p",
+          "text": "This design can make reusable components easier to configure."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Render props pattern"
+        },
+        {
+          "type": "p",
+          "text": "A render prop is a function supplied as a component property that determines what content should be rendered."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "interface DataProviderProps<T> {\n  data: T;\n  children: (value: T) => React.ReactNode;\n}\n\nfunction DataProvider<T>({ data, children }: DataProviderProps<T>) {\n  return <>{children(data)}</>;\n}"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "<DataProvider data={[\"React\", \"TypeScript\"]}>\n  {(courses) => (\n    <ul>\n      {courses.map(course => (\n        <li key={course}>{course}</li>\n      ))}\n    </ul>\n  )}\n</DataProvider>"
+        },
+        {
+          "type": "p",
+          "text": "This can be useful for reusable behaviour that needs customizable rendering."
+        },
+        {
+          "type": "p",
+          "text": "However, custom Hooks and ordinary component composition often provide simpler alternatives in modern React."
+        },
+        {
+          "type": "h3",
+          "text": "2.6 Higher-Order Components"
+        },
+        {
+          "type": "p",
+          "text": "A Higher-Order Component (HOC) is a function that receives a component and returns an enhanced component."
+        },
+        {
+          "type": "p",
+          "text": "Conceptually:"
+        },
+        {
+          "type": "code",
+          "text": "function withLogging<P>(\n  Component: React.ComponentType<P>\n) {\n  return function LoggedComponent(props: P) {\n    console.log(\"Component rendered\");\n    return <Component {...props} />;\n  };\n}"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "const LoggedDashboard = withLogging(Dashboard);"
+        },
+        {
+          "type": "p",
+          "text": "HOCs were widely used to share component behaviour before Hooks became available."
+        },
+        {
+          "type": "p",
+          "text": "They are still found in some libraries and existing codebases, but custom Hooks are usually simpler for sharing stateful logic within function components."
+        },
+        {
+          "type": "h3",
+          "text": "2.7 Choosing the right pattern"
+        },
+        {
+          "type": "p",
+          "text": "Pattern | Useful purpose"
+        },
+        {
+          "type": "p",
+          "text": "Component composition | Combine reusable UI"
+        },
+        {
+          "type": "p",
+          "text": "Container/presentational separation | Separate data handling from presentation"
+        },
+        {
+          "type": "p",
+          "text": "Compound components | Build coordinated component groups"
+        },
+        {
+          "type": "p",
+          "text": "Render props | Customize rendering through callbacks"
+        },
+        {
+          "type": "p",
+          "text": "Higher-Order Components | Enhance or wrap components"
+        },
+        {
+          "type": "p",
+          "text": "Custom Hooks | Reuse stateful logic"
+        },
+        {
+          "type": "p",
+          "text": "Do not use an advanced pattern just because it exists."
+        },
+        {
+          "type": "p",
+          "text": "Use it when it makes the component API clearer and the application easier to maintain."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a reusable Tabs component using composition and Context. Then create a reusable dashboard Panel using the children prop."
+        }
+      ]
+    },
+    {
+      "id": "lesson-03",
+      "badge": "Lesson 03",
+      "title": "State Lifting and Component Communication",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 Why component communication becomes difficult"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a dashboard with the following components:"
+        },
+        {
+          "type": "code",
+          "text": "Dashboard\n├── SearchBar\n├── CourseFilters\n└── CourseList\n    ├── CourseCard\n    ├── CourseCard\n    └── CourseCard"
+        },
+        {
+          "type": "p",
+          "text": "The SearchBar receives user input."
+        },
+        {
+          "type": "p",
+          "text": "The CourseList must display matching courses."
+        },
+        {
+          "type": "p",
+          "text": "The CourseFilters may also change the displayed results."
+        },
+        {
+          "type": "p",
+          "text": "How can these components work together?"
+        },
+        {
+          "type": "p",
+          "text": "A common solution is lifting state up."
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Understanding state lifting"
+        },
+        {
+          "type": "p",
+          "text": "State lifting means moving shared state from separate child components into their closest common parent."
+        },
+        {
+          "type": "p",
+          "text": "The parent becomes the single source of truth for that information."
+        },
+        {
+          "type": "p",
+          "text": "Instead of each child maintaining its own copy, the parent owns the shared state."
+        },
+        {
+          "type": "p",
+          "text": "CoursePage — Owns search and filter state"
+        },
+        {
+          "type": "p",
+          "text": "SearchBar — Receives search value and callback"
+        },
+        {
+          "type": "p",
+          "text": "CourseFilters — Receives filter value and callback"
+        },
+        {
+          "type": "p",
+          "text": "CourseList — Receives filtered course data"
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Implementing lifted state"
+        },
+        {
+          "type": "p",
+          "text": "Parent component:"
+        },
+        {
+          "type": "code",
+          "text": "interface Course {\n  id: number;\n  title: string;\n  level: string;\n}\n\nfunction CoursePage() {\n  const [search, setSearch] = useState(\"\");\n  const [level, setLevel] = useState(\"all\");\n\n  const courses: Course[] = [\n    { id: 1, title: \"JavaScript\", level: \"Beginner\" },\n    { id: 2, title: \"React\", level: \"Advanced\" },\n    { id: 3, title: \"TypeScript\", level: \"Intermediate\" }\n  ];\n\n  const filteredCourses = courses.filter(course => {\n    const matchesSearch = course.title\n      .toLowerCase()\n      .includes(search.toLowerCase());\n    const matchesLevel = level === \"all\" || course.level === level;\n    return matchesSearch && matchesLevel;\n  });\n\n  return (\n    <>\n      <SearchBar value={search} onChange={setSearch} />\n      <CourseFilters value={level} onChange={setLevel} />\n      <CourseList courses={filteredCourses} />\n    </>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "SearchBar:"
+        },
+        {
+          "type": "code",
+          "text": "interface SearchBarProps {\n  value: string;\n  onChange: (value: string) => void;\n}\n\nfunction SearchBar({ value, onChange }: SearchBarProps) {\n  return (\n    <input\n      value={value}\n      onChange={event => onChange(event.target.value)}\n      placeholder=\"Search courses\"\n    />\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Now both the search and filter components communicate through the same parent."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Single source of truth"
+        },
+        {
+          "type": "p",
+          "text": "React encourages developers to decide which component owns each piece of state."
+        },
+        {
+          "type": "p",
+          "text": "Information | Suggested owner"
+        },
+        {
+          "type": "p",
+          "text": "Search input value | CoursePage"
+        },
+        {
+          "type": "p",
+          "text": "Active course filter | CoursePage"
+        },
+        {
+          "type": "p",
+          "text": "Modal visibility | Modal owner or its parent"
+        },
+        {
+          "type": "p",
+          "text": "Course records | Course data owner"
+        },
+        {
+          "type": "p",
+          "text": "Input focus | Input component ref"
+        },
+        {
+          "type": "p",
+          "text": "Current theme | Application settings provider"
+        },
+        {
+          "type": "p",
+          "text": "The aim is to avoid keeping duplicated versions of the same data in multiple components."
+        },
+        {
+          "type": "p",
+          "text": "The official React state-management guidance recommends choosing one owner for each shared piece of state and lifting it to the closest common parent when coordination is required. (React)"
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Understanding prop drilling"
+        },
+        {
+          "type": "p",
+          "text": "State lifting works well when components are close together."
+        },
+        {
+          "type": "p",
+          "text": "However, consider this structure:"
+        },
+        {
+          "type": "code",
+          "text": "App\n└── Dashboard\n    └── DashboardLayout\n        └── Sidebar\n            └── UserProfile"
+        },
+        {
+          "type": "p",
+          "text": "Suppose the App owns the user information, but only UserProfile needs it."
+        },
+        {
+          "type": "p",
+          "text": "The information must pass through several intermediate components."
+        },
+        {
+          "type": "code",
+          "text": "<App user={user}>\n  <Dashboard user={user}>\n    <DashboardLayout user={user}>\n      <Sidebar user={user}>\n        <UserProfile user={user} />\n      </Sidebar>\n    </DashboardLayout>\n  </Dashboard>\n</App>"
+        },
+        {
+          "type": "p",
+          "text": "This is called prop drilling."
+        },
+        {
+          "type": "p",
+          "text": "It is not always bad, but long chains of unnecessary prop forwarding can make large applications difficult to maintain."
+        },
+        {
+          "type": "h3",
+          "text": "3.6 When to use state lifting and when to use Context"
+        },
+        {
+          "type": "p",
+          "text": "Use state lifting when a small group of related components needs shared information."
+        },
+        {
+          "type": "p",
+          "text": "Use Context when many components across different levels need access to the same information."
+        },
+        {
+          "type": "p",
+          "text": "Use a reducer when the shared state has multiple related update operations."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build two sibling components that share a selected course. Lift the state to their parent and compare the implementation with an independently managed state approach."
+        }
+      ]
+    },
+    {
+      "id": "lesson-04",
+      "badge": "Lesson 04",
+      "title": "Context API and Global State",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 What is the Context API?"
+        },
+        {
+          "type": "p",
+          "text": "React Context allows information to be made available to components throughout a component tree without manually passing props through every intermediate component."
+        },
+        {
+          "type": "p",
+          "text": "It is useful for information that many components need to access."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated user information."
+        },
+        {
+          "type": "p",
+          "text": "Application theme."
+        },
+        {
+          "type": "p",
+          "text": "Language preferences."
+        },
+        {
+          "type": "p",
+          "text": "User permissions."
+        },
+        {
+          "type": "p",
+          "text": "Shared navigation settings."
+        },
+        {
+          "type": "p",
+          "text": "Application-wide configuration."
+        },
+        {
+          "type": "p",
+          "text": "Consider this application:"
+        },
+        {
+          "type": "code",
+          "text": "App\n├── Navbar\n│   └── UserProfile\n├── Dashboard\n│   ├── WelcomeMessage\n│   └── CourseList\n└── Footer"
+        },
+        {
+          "type": "p",
+          "text": "Suppose several components need the current user information."
+        },
+        {
+          "type": "p",
+          "text": "Without Context, you may have to pass the user object through several components."
+        },
+        {
+          "type": "p",
+          "text": "Context provides a way to share that information directly."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 Creating a Context"
+        },
+        {
+          "type": "p",
+          "text": "React provides the createContext() function."
+        },
+        {
+          "type": "code",
+          "text": "import { createContext } from \"react\";\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\ninterface AuthContextType {\n  user: User | null;\n}\n\nexport const AuthContext = createContext<AuthContextType | null>(null);"
+        },
+        {
+          "type": "p",
+          "text": "This creates a Context that can carry authentication information."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Providing Context values"
+        },
+        {
+          "type": "p",
+          "text": "The Provider makes a value available to descendant components."
+        },
+        {
+          "type": "code",
+          "text": "import { useState } from \"react\";\nimport { AuthContext } from \"./AuthContext\";\n\nfunction App() {\n  const [user, setUser] = useState<User | null>({\n    id: 101,\n    name: \"Alex\",\n    email: \"alex@example.com\"\n  });\n\n  return (\n    <AuthContext.Provider value={{ user }}>\n      <Dashboard />\n    </AuthContext.Provider>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The Dashboard and its descendants can access the provided Context."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 Consuming Context with useContext"
+        },
+        {
+          "type": "p",
+          "text": "The useContext() Hook reads the closest matching Context value."
+        },
+        {
+          "type": "code",
+          "text": "import { useContext } from \"react\";\nimport { AuthContext } from \"./AuthContext\";\n\nfunction UserProfile() {\n  const auth = useContext(AuthContext);\n\n  if (!auth) {\n    throw new Error(\"AuthProvider is missing\");\n  }\n\n  if (!auth.user) {\n    return <p>Please log in</p>;\n  }\n\n  return (\n    <div>\n      <h2>{auth.user.name}</h2>\n      <p>{auth.user.email}</p>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The component does not need to receive user information through every intermediate parent."
+        },
+        {
+          "type": "h3",
+          "text": "4.5 Creating a reusable Context provider"
+        },
+        {
+          "type": "p",
+          "text": "In larger applications, Context setup should be separated from individual components."
+        },
+        {
+          "type": "p",
+          "text": "Example: context/AuthContext.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import { createContext, useContext, useState } from \"react\";\nimport type { ReactNode } from \"react\";\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\ninterface AuthContextType {\n  user: User | null;\n  login: (user: User) => void;\n  logout: () => void;\n}\n\nconst AuthContext = createContext<AuthContextType | null>(null);\n\ninterface AuthProviderProps {\n  children: ReactNode;\n}\n\nexport function AuthProvider({ children }: AuthProviderProps) {\n  const [user, setUser] = useState<User | null>(null);\n\n  function login(user: User) {\n    setUser(user);\n  }\n\n  function logout() {\n    setUser(null);\n  }\n\n  return (\n    <AuthContext.Provider value={{ user, login, logout }}>\n      {children}\n    </AuthContext.Provider>\n  );\n}\n\nexport function useAuth() {\n  const context = useContext(AuthContext);\n  if (!context) {\n    throw new Error(\"useAuth must be used inside AuthProvider\");\n  }\n  return context;\n}"
+        },
+        {
+          "type": "p",
+          "text": "Now any descendant can use the same authentication interface."
+        },
+        {
+          "type": "code",
+          "text": "function Navbar() {\n  const { user, logout } = useAuth();\n  return (\n    <nav>\n      {user ? (\n        <>\n          <span>{user.name}</span>\n          <button onClick={logout}>Logout</button>\n        </>\n      ) : (\n        <span>Guest</span>\n      )}\n    </nav>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "4.6 Understanding global state"
+        },
+        {
+          "type": "p",
+          "text": "Global state is information that multiple areas of an application need to access."
+        },
+        {
+          "type": "p",
+          "text": "State | Scope"
+        },
+        {
+          "type": "p",
+          "text": "Search input | Usually local"
+        },
+        {
+          "type": "p",
+          "text": "Modal visibility | Usually local"
+        },
+        {
+          "type": "p",
+          "text": "Current authenticated user | Application-wide"
+        },
+        {
+          "type": "p",
+          "text": "Theme preference | Application-wide"
+        },
+        {
+          "type": "p",
+          "text": "Selected course tab | Usually local to the course page"
+        },
+        {
+          "type": "p",
+          "text": "Shopping cart | Shared across relevant application pages"
+        },
+        {
+          "type": "p",
+          "text": "An important point: not every state variable belongs in Context."
+        },
+        {
+          "type": "p",
+          "text": "Putting everything into global state can make the application unnecessarily complicated."
+        },
+        {
+          "type": "h3",
+          "text": "4.7 Context re-rendering behaviour"
+        },
+        {
+          "type": "p",
+          "text": "When the value provided by a Context changes, components that consume that Context may render again."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "<AuthContext.Provider value={{ user, login, logout }}>\n  {children}\n</AuthContext.Provider>"
+        },
+        {
+          "type": "p",
+          "text": "A new object is created whenever the provider renders."
+        },
+        {
+          "type": "p",
+          "text": "This can make the Context value appear different even when the user itself has not changed."
+        },
+        {
+          "type": "p",
+          "text": "For more complex applications, consider:"
+        },
+        {
+          "type": "p",
+          "text": "Separating unrelated Context values."
+        },
+        {
+          "type": "p",
+          "text": "Splitting state and dispatch Contexts."
+        },
+        {
+          "type": "p",
+          "text": "Keeping local state close to its consumers."
+        },
+        {
+          "type": "p",
+          "text": "Memoizing provider values when measurement shows a benefit."
+        },
+        {
+          "type": "p",
+          "text": "Avoiding oversized Context objects."
+        },
+        {
+          "type": "p",
+          "text": "Context is a communication mechanism. It is not automatically a complete performance or state-management solution."
+        },
+        {
+          "type": "p",
+          "text": "The React documentation demonstrates combining Context with reducers to manage more complex screens. (React)"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create an authentication Context and a theme Context. Use them in the Navbar, Dashboard, Sidebar, and Profile components."
+        }
+      ]
+    },
+    {
+      "id": "lesson-05",
+      "badge": "Lesson 05",
+      "title": "Advanced Hooks: useMemo and useCallback",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 Why optimization Hooks exist"
+        },
+        {
+          "type": "p",
+          "text": "React components may render repeatedly during application interactions."
+        },
+        {
+          "type": "p",
+          "text": "Sometimes a component performs expensive calculations or passes newly created functions and objects to child components."
+        },
+        {
+          "type": "p",
+          "text": "This can cause unnecessary work."
+        },
+        {
+          "type": "p",
+          "text": "React provides two useful Hooks:"
+        },
+        {
+          "type": "p",
+          "text": "useMemo"
+        },
+        {
+          "type": "p",
+          "text": "useCallback"
+        },
+        {
+          "type": "p",
+          "text": "Both are associated with memoization."
+        },
+        {
+          "type": "p",
+          "text": "Memoization means caching a calculated value or function definition so it can be reused when its dependencies have not changed."
+        },
+        {
+          "type": "p",
+          "text": "These Hooks are performance optimization tools. They should not be used to make an otherwise incorrect program work."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 Understanding useMemo"
+        },
+        {
+          "type": "p",
+          "text": "useMemo caches the result of a calculation between renders when its dependencies remain unchanged."
+        },
+        {
+          "type": "p",
+          "text": "Syntax:"
+        },
+        {
+          "type": "code",
+          "text": "const cachedValue = useMemo(\n  () => calculateValue(),\n  [dependencies]\n);"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { useMemo, useState } from \"react\";\n\nfunction CourseDashboard() {\n  const [search, setSearch] = useState(\"\");\n  const [courses] = useState([\n    \"JavaScript\",\n    \"React\",\n    \"TypeScript\",\n    \"Node.js\"\n  ]);\n\n  const filteredCourses = useMemo(() => {\n    console.log(\"Filtering courses\");\n    return courses.filter(course =>\n      course.toLowerCase().includes(search.toLowerCase())\n    );\n  }, [courses, search]);\n\n  return (\n    <div>\n      <input\n        value={search}\n        onChange={event => setSearch(event.target.value)}\n      />\n      {filteredCourses.map(course => (\n        <p key={course}>{course}</p>\n      ))}\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Here, React can reuse the previous filtered result when neither courses nor search has changed."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 When should useMemo be used?"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a dashboard processes 100,000 records and calculates statistics."
+        },
+        {
+          "type": "code",
+          "text": "const statistics = calculateStatistics(records);"
+        },
+        {
+          "type": "p",
+          "text": "If this calculation is expensive and runs repeatedly, memoization may help."
+        },
+        {
+          "type": "code",
+          "text": "const statistics = useMemo(() => {\n  return calculateStatistics(records);\n}, [records]);"
+        },
+        {
+          "type": "p",
+          "text": "It can avoid repeating the calculation when records has not changed."
+        },
+        {
+          "type": "p",
+          "text": "But for small calculations:"
+        },
+        {
+          "type": "code",
+          "text": "const total = 5 + 10;"
+        },
+        {
+          "type": "p",
+          "text": "Using useMemo would add unnecessary complexity."
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Understanding useCallback"
+        },
+        {
+          "type": "p",
+          "text": "useCallback caches a function definition between renders."
+        },
+        {
+          "type": "p",
+          "text": "Syntax:"
+        },
+        {
+          "type": "code",
+          "text": "const cachedFunction = useCallback(\n  () => {\n    // Function logic\n  },\n  [dependencies]\n);"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { useCallback, useState } from \"react\";\n\nfunction Dashboard() {\n  const [selectedCourse, setSelectedCourse] = useState<number | null>(null);\n\n  const handleSelect = useCallback(\n    (courseId: number) => {\n      setSelectedCourse(courseId);\n    },\n    []\n  );\n\n  return <CourseList onSelect={handleSelect} />;\n}"
+        },
+        {
+          "type": "p",
+          "text": "The handler can retain the same function identity while its dependencies stay unchanged."
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Understanding React.memo"
+        },
+        {
+          "type": "p",
+          "text": "React also provides memo() to allow a component to skip rendering when its props have not changed."
+        },
+        {
+          "type": "code",
+          "text": "import { memo } from \"react\";\n\ninterface CourseCardProps {\n  title: string;\n  onSelect: () => void;\n}\n\nconst CourseCard = memo(function CourseCard({\n  title,\n  onSelect\n}: CourseCardProps) {\n  console.log(\"CourseCard rendered\");\n  return (\n    <button onClick={onSelect}>\n      {title}\n    </button>\n  );\n});"
+        },
+        {
+          "type": "p",
+          "text": "A parent component may use useCallback when it needs to pass a stable handler to this memoized component."
+        },
+        {
+          "type": "code",
+          "text": "const handleSelect = useCallback(() => {\n  console.log(\"Course selected\");\n}, []);"
+        },
+        {
+          "type": "p",
+          "text": "This can help avoid unnecessary child renders caused only by a newly created function prop."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Understanding the difference"
+        },
+        {
+          "type": "p",
+          "text": "Hook | What it caches"
+        },
+        {
+          "type": "p",
+          "text": "useMemo | Result of a calculation"
+        },
+        {
+          "type": "p",
+          "text": "useCallback | Function definition"
+        },
+        {
+          "type": "p",
+          "text": "memo | Component rendering based on unchanged props"
+        },
+        {
+          "type": "p",
+          "text": "Example comparison:"
+        },
+        {
+          "type": "code",
+          "text": "const total = useMemo(\n  () => calculateTotal(courses),\n  [courses]\n);\n\nconst handleClick = useCallback(\n  () => console.log(total),\n  [total]\n);"
+        },
+        {
+          "type": "p",
+          "text": "The first caches a calculated value."
+        },
+        {
+          "type": "p",
+          "text": "The second caches a function."
+        },
+        {
+          "type": "h3",
+          "text": "5.7 Dependency arrays"
+        },
+        {
+          "type": "p",
+          "text": "Dependencies are critical."
+        },
+        {
+          "type": "p",
+          "text": "Incorrect:"
+        },
+        {
+          "type": "code",
+          "text": "const handleSelect = useCallback(() => {\n  console.log(selectedCourse);\n}, []);"
+        },
+        {
+          "type": "p",
+          "text": "If selectedCourse changes, this function can continue reading the value captured by its earlier render."
+        },
+        {
+          "type": "p",
+          "text": "Correct:"
+        },
+        {
+          "type": "code",
+          "text": "const handleSelect = useCallback(() => {\n  console.log(selectedCourse);\n}, [selectedCourse]);"
+        },
+        {
+          "type": "p",
+          "text": "The dependency array should include reactive values used by the memoized function or calculation."
+        },
+        {
+          "type": "h3",
+          "text": "5.8 Avoiding over-optimization"
+        },
+        {
+          "type": "p",
+          "text": "A common mistake is wrapping every function and value in memoization Hooks."
+        },
+        {
+          "type": "p",
+          "text": "This can make an application harder to understand."
+        },
+        {
+          "type": "p",
+          "text": "A sensible process is:"
+        },
+        {
+          "type": "p",
+          "text": "Build the feature correctly."
+        },
+        {
+          "type": "p",
+          "text": "Measure performance."
+        },
+        {
+          "type": "p",
+          "text": "Identify the expensive component or calculation."
+        },
+        {
+          "type": "p",
+          "text": "Apply memoization where appropriate."
+        },
+        {
+          "type": "p",
+          "text": "Measure the result again."
+        },
+        {
+          "type": "p",
+          "text": "Current React documentation also covers React Compiler, which can automatically handle many memoization optimizations when correctly configured. Consequently, manual useMemo and useCallback should not be applied indiscriminately. (React)"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a dashboard with a large course collection. Measure filtering performance, experiment with useMemo, and compare child rendering with and without memo and useCallback."
+        }
+      ]
+    },
+    {
+      "id": "lesson-06",
+      "badge": "Lesson 06",
+      "title": "Reducer-Based State Management with useReducer",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 Why useReducer is needed"
+        },
+        {
+          "type": "p",
+          "text": "useState works very well for simple component state."
+        },
+        {
+          "type": "p",
+          "text": "However, complex application state may require many related update operations."
+        },
+        {
+          "type": "p",
+          "text": "Consider a task management application."
+        },
+        {
+          "type": "p",
+          "text": "It needs operations to:"
+        },
+        {
+          "type": "p",
+          "text": "Add a task."
+        },
+        {
+          "type": "p",
+          "text": "Edit a task."
+        },
+        {
+          "type": "p",
+          "text": "Delete a task."
+        },
+        {
+          "type": "p",
+          "text": "Complete a task."
+        },
+        {
+          "type": "p",
+          "text": "Reopen a task."
+        },
+        {
+          "type": "p",
+          "text": "Change task priority."
+        },
+        {
+          "type": "p",
+          "text": "Managing these operations with many separate state setters can become difficult."
+        },
+        {
+          "type": "p",
+          "text": "useReducer provides a structured approach."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Understanding reducers"
+        },
+        {
+          "type": "p",
+          "text": "A reducer is a function that receives:"
+        },
+        {
+          "type": "p",
+          "text": "The current state."
+        },
+        {
+          "type": "p",
+          "text": "An action describing what should happen."
+        },
+        {
+          "type": "p",
+          "text": "It returns the next state."
+        },
+        {
+          "type": "p",
+          "text": "General structure:"
+        },
+        {
+          "type": "code",
+          "text": "function reducer(state, action) {\n  // Calculate next state\n  return newState;\n}"
+        },
+        {
+          "type": "p",
+          "text": "A reducer should be pure."
+        },
+        {
+          "type": "p",
+          "text": "It should not directly modify its existing state or perform unrelated side effects."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Understanding actions"
+        },
+        {
+          "type": "p",
+          "text": "An action describes an event or operation."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "type Action =\n  | { type: \"increment\" }\n  | { type: \"decrement\" }\n  | { type: \"reset\" };"
+        },
+        {
+          "type": "p",
+          "text": "Each action has a type property."
+        },
+        {
+          "type": "p",
+          "text": "Some actions also carry additional information."
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Implementing a counter reducer"
+        },
+        {
+          "type": "code",
+          "text": "type Action =\n  | { type: \"increment\" }\n  | { type: \"decrement\" }\n  | { type: \"reset\" };\n\nfunction counterReducer(\n  state: number,\n  action: Action\n): number {\n  switch (action.type) {\n    case \"increment\":\n      return state + 1;\n    case \"decrement\":\n      return state - 1;\n    case \"reset\":\n      return 0;\n    default:\n      return state;\n  }\n}"
+        },
+        {
+          "type": "p",
+          "text": "Use it inside a component:"
+        },
+        {
+          "type": "code",
+          "text": "import { useReducer } from \"react\";\n\nfunction Counter() {\n  const [count, dispatch] = useReducer(counterReducer, 0);\n\n  return (\n    <div>\n      <h2>{count}</h2>\n      <button onClick={() => dispatch({ type: \"increment\" })}>\n        Increase\n      </button>\n      <button onClick={() => dispatch({ type: \"decrement\" })}>\n        Decrease\n      </button>\n      <button onClick={() => dispatch({ type: \"reset\" })}>\n        Reset\n      </button>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Building a task reducer"
+        },
+        {
+          "type": "p",
+          "text": "Define the state:"
+        },
+        {
+          "type": "code",
+          "text": "interface Task {\n  id: number;\n  title: string;\n  completed: boolean;\n}\n\ntype TaskAction =\n  | { type: \"add\"; task: Task }\n  | { type: \"delete\"; id: number }\n  | { type: \"toggle\"; id: number }\n  | { type: \"edit\"; id: number; title: string };"
+        },
+        {
+          "type": "p",
+          "text": "Create the reducer:"
+        },
+        {
+          "type": "code",
+          "text": "function taskReducer(\n  state: Task[],\n  action: TaskAction\n): Task[] {\n  switch (action.type) {\n    case \"add\":\n      return [...state, action.task];\n    case \"delete\":\n      return state.filter(task => task.id !== action.id);\n    case \"toggle\":\n      return state.map(task =>\n        task.id === action.id\n          ? { ...task, completed: !task.completed }\n          : task\n      );\n    case \"edit\":\n      return state.map(task =>\n        task.id === action.id\n          ? { ...task, title: action.title }\n          : task\n      );\n  }\n}"
+        },
+        {
+          "type": "p",
+          "text": "Notice that the reducer returns new arrays and objects."
+        },
+        {
+          "type": "p",
+          "text": "It does not mutate the original state."
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Understanding dispatch"
+        },
+        {
+          "type": "p",
+          "text": "The dispatch() function sends an action to the reducer."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "dispatch({\n  type: \"add\",\n  task: {\n    id: 1,\n    title: \"Learn Context API\",\n    completed: false\n  }\n});"
+        },
+        {
+          "type": "p",
+          "text": "React uses the reducer to calculate the next state."
+        },
+        {
+          "type": "p",
+          "text": "This gives developers one central location for defining state transitions."
+        },
+        {
+          "type": "h3",
+          "text": "6.7 useState versus useReducer"
+        },
+        {
+          "type": "p",
+          "text": "Feature | useState | useReducer"
+        },
+        {
+          "type": "p",
+          "text": "Simple values | Excellent | Possible"
+        },
+        {
+          "type": "p",
+          "text": "Complex objects | Supported | Supported"
+        },
+        {
+          "type": "p",
+          "text": "Multiple related operations | Can become scattered | Centralized reducer"
+        },
+        {
+          "type": "p",
+          "text": "Update logic | Usually in handlers | In reducer"
+        },
+        {
+          "type": "p",
+          "text": "Action-based updates | Not inherent | Built in"
+        },
+        {
+          "type": "p",
+          "text": "Appropriate for | Local UI state | Complex related state"
+        },
+        {
+          "type": "p",
+          "text": "useReducer is not automatically better than useState."
+        },
+        {
+          "type": "p",
+          "text": "Choose based on the complexity of the state transitions."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a task-management reducer supporting add, edit, delete, complete, reopen, and priority-change actions."
+        }
+      ]
+    },
+    {
+      "id": "lesson-07",
+      "badge": "Lesson 07",
+      "title": "Custom Hooks and Shared Application Logic",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 Why custom Hooks matter in large applications"
+        },
+        {
+          "type": "p",
+          "text": "Imagine that several application components need to:"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve student information."
+        },
+        {
+          "type": "p",
+          "text": "Monitor network status."
+        },
+        {
+          "type": "p",
+          "text": "Synchronize LocalStorage."
+        },
+        {
+          "type": "p",
+          "text": "Manage pagination."
+        },
+        {
+          "type": "p",
+          "text": "Track window dimensions."
+        },
+        {
+          "type": "p",
+          "text": "Manage authentication information."
+        },
+        {
+          "type": "p",
+          "text": "Duplicating the same logic inside several components creates maintenance problems."
+        },
+        {
+          "type": "p",
+          "text": "Custom Hooks allow developers to extract and reuse stateful logic."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Understanding a custom Hook"
+        },
+        {
+          "type": "p",
+          "text": "A custom Hook is a function whose name starts with use and which can call React Hooks."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "function useCounter() {\n  const [count, setCount] = useState(0);\n\n  function increment() {\n    setCount(value => value + 1);\n  }\n\n  function decrement() {\n    setCount(value => value - 1);\n  }\n\n  return { count, increment, decrement };\n}"
+        },
+        {
+          "type": "p",
+          "text": "Use it inside a component:"
+        },
+        {
+          "type": "code",
+          "text": "function Counter() {\n  const { count, increment, decrement } = useCounter();\n  return (\n    <div>\n      <p>{count}</p>\n      <button onClick={increment}>+</button>\n      <button onClick={decrement}>-</button>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Custom Hooks share logic, not automatically state"
+        },
+        {
+          "type": "p",
+          "text": "This is an important concept."
+        },
+        {
+          "type": "p",
+          "text": "Suppose two components call:"
+        },
+        {
+          "type": "code",
+          "text": "const counter = useCounter();"
+        },
+        {
+          "type": "p",
+          "text": "Each component receives its own instance of the Hook's internal state."
+        },
+        {
+          "type": "p",
+          "text": "They do not automatically share a single counter value."
+        },
+        {
+          "type": "p",
+          "text": "To share the actual state, use:"
+        },
+        {
+          "type": "p",
+          "text": "A common parent with lifted state."
+        },
+        {
+          "type": "p",
+          "text": "Context."
+        },
+        {
+          "type": "p",
+          "text": "A reducer combined with Context."
+        },
+        {
+          "type": "p",
+          "text": "Another appropriate shared-state solution."
+        },
+        {
+          "type": "p",
+          "text": "React explicitly distinguishes reusable Hook logic from shared application state. (React)"
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Creating a useOnlineStatus Hook"
+        },
+        {
+          "type": "p",
+          "text": "Module 06 introduced browser events."
+        },
+        {
+          "type": "p",
+          "text": "We can create a reusable Hook to track network status."
+        },
+        {
+          "type": "code",
+          "text": "function useOnlineStatus() {\n  const [isOnline, setIsOnline] = useState(navigator.onLine);\n\n  useEffect(() => {\n    function handleOnline() {\n      setIsOnline(true);\n    }\n\n    function handleOffline() {\n      setIsOnline(false);\n    }\n\n    window.addEventListener(\"online\", handleOnline);\n    window.addEventListener(\"offline\", handleOffline);\n\n    return () => {\n      window.removeEventListener(\"online\", handleOnline);\n      window.removeEventListener(\"offline\", handleOffline);\n    };\n  }, []);\n\n  return isOnline;\n}"
+        },
+        {
+          "type": "p",
+          "text": "Any component can now call:"
+        },
+        {
+          "type": "code",
+          "text": "function NetworkStatus() {\n  const online = useOnlineStatus();\n  return (\n    <p>{online ? \"Online\" : \"Offline\"}</p>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Note that browser online status indicates connection status reported by the browser, not guaranteed access to your application's server."
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Reusable pagination Hook"
+        },
+        {
+          "type": "p",
+          "text": "A large application may display hundreds of records."
+        },
+        {
+          "type": "p",
+          "text": "Instead of implementing pagination repeatedly, create a Hook."
+        },
+        {
+          "type": "code",
+          "text": "function usePagination<T>(items: T[], pageSize: number) {\n  const [page, setPage] = useState(1);\n\n  const totalPages = Math.max(\n    1,\n    Math.ceil(items.length / pageSize)\n  );\n  const safePage = Math.min(page, totalPages);\n\n  const paginatedItems = items.slice(\n    (safePage - 1) * pageSize,\n    safePage * pageSize\n  );\n\n  function nextPage() {\n    setPage(current => Math.min(current + 1, totalPages));\n  }\n\n  function previousPage() {\n    setPage(current => Math.max(current - 1, 1));\n  }\n\n  return {\n    page: safePage,\n    totalPages,\n    paginatedItems,\n    nextPage,\n    previousPage,\n    setPage\n  };\n}"
+        },
+        {
+          "type": "p",
+          "text": "The generic type allows the same Hook to work with courses, tasks, students, and other collections."
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Custom Hook design principles"
+        },
+        {
+          "type": "p",
+          "text": "Good custom Hooks should:"
+        },
+        {
+          "type": "p",
+          "text": "Have a clear purpose."
+        },
+        {
+          "type": "p",
+          "text": "Start with use."
+        },
+        {
+          "type": "p",
+          "text": "Encapsulate related behaviour."
+        },
+        {
+          "type": "p",
+          "text": "Accept the inputs they need."
+        },
+        {
+          "type": "p",
+          "text": "Return a clear, useful API."
+        },
+        {
+          "type": "p",
+          "text": "Clean up external subscriptions when necessary."
+        },
+        {
+          "type": "p",
+          "text": "Avoid hiding unrelated responsibilities."
+        },
+        {
+          "type": "p",
+          "text": "Avoid building enormous Hooks that manage every part of an application."
+        },
+        {
+          "type": "p",
+          "text": "The official React guidance recommends extracting concrete, reusable behavioural logic rather than inventing generic lifecycle wrappers. (React)"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create usePagination, useOnlineStatus, useLocalStorage, and useToggle Hooks. Reuse them across multiple dashboard pages."
+        }
+      ]
+    },
+    {
+      "id": "lesson-08",
+      "badge": "Lesson 08",
+      "title": "React Router and Client-Side Routing",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 Why routing is needed"
+        },
+        {
+          "type": "p",
+          "text": "In a real frontend application, users need to move between different pages."
+        },
+        {
+          "type": "p",
+          "text": "Consider a student platform:"
+        },
+        {
+          "type": "code",
+          "text": "/\n├── /login\n├── /register\n├── /dashboard\n├── /courses\n├── /assignments\n├── /progress\n└── /profile"
+        },
+        {
+          "type": "p",
+          "text": "A traditional website may request a new HTML document from the server whenever the user navigates to another page."
+        },
+        {
+          "type": "p",
+          "text": "A React single-page application (SPA) can instead use client-side routing."
+        },
+        {
+          "type": "p",
+          "text": "The browser URL changes, React Router matches the new URL, and the appropriate component is displayed."
+        },
+        {
+          "type": "p",
+          "text": "The application can retain shared layouts and state while navigating."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 What is React Router?"
+        },
+        {
+          "type": "p",
+          "text": "React Router: A routing library that connects application URLs with React components and navigation behaviour."
+        },
+        {
+          "type": "p",
+          "text": "React Router provides:"
+        },
+        {
+          "type": "p",
+          "text": "Route definitions."
+        },
+        {
+          "type": "p",
+          "text": "Navigation links."
+        },
+        {
+          "type": "p",
+          "text": "Dynamic route matching."
+        },
+        {
+          "type": "p",
+          "text": "Nested routes."
+        },
+        {
+          "type": "p",
+          "text": "Layout routes."
+        },
+        {
+          "type": "p",
+          "text": "URL parameters."
+        },
+        {
+          "type": "p",
+          "text": "Programmatic navigation."
+        },
+        {
+          "type": "p",
+          "text": "Route-level loading and data capabilities in supported modes."
+        },
+        {
+          "type": "p",
+          "text": "React Router currently supports Declarative, Data, and Framework modes. In this module, we will primarily use Declarative Mode to understand basic routing and component architecture. (React Router)"
+        },
+        {
+          "type": "h3",
+          "text": "8.3 Installing React Router"
+        },
+        {
+          "type": "p",
+          "text": "For the current React Router v7 declarative setup:"
+        },
+        {
+          "type": "code",
+          "text": "npm install react-router"
+        },
+        {
+          "type": "p",
+          "text": "Note: Older React Router v6 projects commonly use react-router-dom. Follow the import conventions for the installed major version rather than mixing examples from different versions."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Understanding BrowserRouter"
+        },
+        {
+          "type": "p",
+          "text": "The BrowserRouter component provides browser-based routing using the History API."
+        },
+        {
+          "type": "p",
+          "text": "In main.tsx:"
+        },
+        {
+          "type": "code",
+          "text": "import React from \"react\";\nimport ReactDOM from \"react-dom/client\";\nimport { BrowserRouter } from \"react-router\";\nimport App from \"./App\";\n\nReactDOM.createRoot(\n  document.getElementById(\"root\")!\n).render(\n  <React.StrictMode>\n    <BrowserRouter>\n      <App />\n    </BrowserRouter>\n  </React.StrictMode>\n);"
+        },
+        {
+          "type": "p",
+          "text": "The BrowserRouter makes routing functionality available to its descendants."
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Creating basic routes"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { Routes, Route } from \"react-router\";\nimport Home from \"./pages/Home\";\nimport Courses from \"./pages/Courses\";\nimport Profile from \"./pages/Profile\";\n\nfunction App() {\n  return (\n    <Routes>\n      <Route path=\"/\" element={<Home />} />\n      <Route path=\"/courses\" element={<Courses />} />\n      <Route path=\"/profile\" element={<Profile />} />\n    </Routes>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Now each URL corresponds to a different component."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Understanding Link and NavLink"
+        },
+        {
+          "type": "p",
+          "text": "React Router provides two important navigation components."
+        },
+        {
+          "type": "p",
+          "text": "Link — Used to navigate between routes."
+        },
+        {
+          "type": "code",
+          "text": "import { Link } from \"react-router\";\n\nfunction Navbar() {\n  return (\n    <nav>\n      <Link to=\"/\">Home</Link>\n      <Link to=\"/courses\">Courses</Link>\n      <Link to=\"/profile\">Profile</Link>\n    </nav>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "NavLink — Useful when the application needs to display an active navigation state."
+        },
+        {
+          "type": "code",
+          "text": "import { NavLink } from \"react-router\";\n\nfunction Sidebar() {\n  return (\n    <nav>\n      <NavLink to=\"/dashboard\">Dashboard</NavLink>\n      <NavLink to=\"/courses\">Courses</NavLink>\n      <NavLink to=\"/assignments\">Assignments</NavLink>\n    </nav>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "NavLink provides active-state information that can be used for styling."
+        },
+        {
+          "type": "h3",
+          "text": "8.7 Programmatic navigation"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes the application needs to navigate without a user clicking a link."
+        },
+        {
+          "type": "p",
+          "text": "For example, after successfully logging in, the user should be redirected to the dashboard."
+        },
+        {
+          "type": "p",
+          "text": "Use useNavigate():"
+        },
+        {
+          "type": "code",
+          "text": "import { useNavigate } from \"react-router\";\n\nfunction Login() {\n  const navigate = useNavigate();\n\n  function handleLogin() {\n    // Perform authentication.\n    navigate(\"/dashboard\");\n  }\n\n  return (\n    <button onClick={handleLogin}>Login</button>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Use ordinary Link or NavLink elements for normal user-initiated navigation. Programmatic navigation is useful for actions such as successful form submission or logout. (React Router)"
+        },
+        {
+          "type": "h3",
+          "text": "8.8 Understanding browser history"
+        },
+        {
+          "type": "p",
+          "text": "Client-side routing uses browser history to support navigation."
+        },
+        {
+          "type": "p",
+          "text": "Important concepts:"
+        },
+        {
+          "type": "p",
+          "text": "push: Add a new history entry."
+        },
+        {
+          "type": "p",
+          "text": "replace: Replace the current history entry."
+        },
+        {
+          "type": "p",
+          "text": "back: Return to the previous entry."
+        },
+        {
+          "type": "p",
+          "text": "forward: Move to the next entry."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "navigate(\"/dashboard\", { replace: true });"
+        },
+        {
+          "type": "p",
+          "text": "This replaces the current history entry rather than adding another one."
+        },
+        {
+          "type": "h3",
+          "text": "8.9 Client-side routing versus server-side routing"
+        },
+        {
+          "type": "p",
+          "text": "Feature | Client-side routing | Server-side navigation"
+        },
+        {
+          "type": "p",
+          "text": "Route matching | Browser application | Server"
+        },
+        {
+          "type": "p",
+          "text": "Navigation | Usually without full document reload | Often loads a new document"
+        },
+        {
+          "type": "p",
+          "text": "Shared interface | Can remain mounted | Often recreated per document"
+        },
+        {
+          "type": "p",
+          "text": "URL changes | Yes | Yes"
+        },
+        {
+          "type": "p",
+          "text": "Backend involvement | Depends on architecture | Central to document delivery"
+        },
+        {
+          "type": "p",
+          "text": "An important deployment consideration: when someone directly opens /dashboard or refreshes that URL, the hosting server must be configured to serve the SPA entry point for supported client-side routes."
+        },
+        {
+          "type": "p",
+          "text": "Otherwise, the browser may receive a server-side 404 even though navigation from the application's homepage works."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a five-page React application with React Router. Add a Navbar, Sidebar, active navigation indicators, and browser back/forward support."
+        }
+      ]
+    },
+    {
+      "id": "lesson-09",
+      "badge": "Lesson 09",
+      "title": "Nested Routes, Dynamic Routes and Route Parameters",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 Why nested routes are needed"
+        },
+        {
+          "type": "p",
+          "text": "Large applications often contain pages that share a common layout."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard"
+        },
+        {
+          "type": "p",
+          "text": "/courses"
+        },
+        {
+          "type": "p",
+          "text": "/assignments"
+        },
+        {
+          "type": "p",
+          "text": "/progress"
+        },
+        {
+          "type": "p",
+          "text": "/settings"
+        },
+        {
+          "type": "p",
+          "text": "Each page belongs to the same dashboard."
+        },
+        {
+          "type": "p",
+          "text": "The dashboard layout should remain visible while the page content changes."
+        },
+        {
+          "type": "p",
+          "text": "Nested routing makes this possible."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 Understanding parent and child routes"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { Routes, Route } from \"react-router\";\n\nfunction App() {\n  return (\n    <Routes>\n      <Route path=\"/dashboard\" element={<DashboardLayout />}>\n        <Route index element={<DashboardHome />} />\n        <Route path=\"courses\" element={<Courses />} />\n        <Route path=\"assignments\" element={<Assignments />} />\n        <Route path=\"progress\" element={<Progress />} />\n      </Route>\n    </Routes>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "These produce URLs such as:"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard/courses"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard/assignments"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard/progress"
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Understanding Outlet"
+        },
+        {
+          "type": "p",
+          "text": "The parent component needs to indicate where child route content should appear."
+        },
+        {
+          "type": "p",
+          "text": "React Router provides the Outlet component."
+        },
+        {
+          "type": "code",
+          "text": "import { Outlet } from \"react-router\";\n\nfunction DashboardLayout() {\n  return (\n    <div className=\"dashboard-layout\">\n      <Navbar />\n      <Sidebar />\n      <main>\n        <Outlet />\n      </main>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The Outlet renders the currently matched child route."
+        },
+        {
+          "type": "p",
+          "text": "This allows the Navbar and Sidebar to remain part of the common layout."
+        },
+        {
+          "type": "h3",
+          "text": "9.4 Understanding index routes"
+        },
+        {
+          "type": "p",
+          "text": "An index route represents the default child page of a parent route."
+        },
+        {
+          "type": "code",
+          "text": "<Route path=\"/dashboard\" element={<DashboardLayout />}>\n  <Route index element={<DashboardHome />} />\n  <Route path=\"courses\" element={<Courses />} />\n</Route>"
+        },
+        {
+          "type": "p",
+          "text": "The index route is displayed when the user visits:"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard"
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Dynamic routes"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes a URL needs to contain an identifier."
+        },
+        {
+          "type": "p",
+          "text": "For example, each course should have its own details page."
+        },
+        {
+          "type": "p",
+          "text": "/courses/101"
+        },
+        {
+          "type": "p",
+          "text": "/courses/102"
+        },
+        {
+          "type": "p",
+          "text": "/courses/103"
+        },
+        {
+          "type": "p",
+          "text": "Instead of creating a separate route for every course, use a dynamic parameter."
+        },
+        {
+          "type": "code",
+          "text": "<Route path=\"/courses/:courseId\" element={<CourseDetails />} />"
+        },
+        {
+          "type": "p",
+          "text": "The :courseId segment represents a dynamic route parameter."
+        },
+        {
+          "type": "h3",
+          "text": "9.6 Retrieving route parameters with useParams"
+        },
+        {
+          "type": "p",
+          "text": "React Router provides the useParams() Hook."
+        },
+        {
+          "type": "code",
+          "text": "import { useParams } from \"react-router\";\n\nfunction CourseDetails() {\n  const { courseId } = useParams();\n  return <h1>Course ID: {courseId}</h1>;\n}"
+        },
+        {
+          "type": "p",
+          "text": "When the user opens:"
+        },
+        {
+          "type": "p",
+          "text": "/courses/101"
+        },
+        {
+          "type": "p",
+          "text": "The component receives:"
+        },
+        {
+          "type": "p",
+          "text": "courseId = \"101\""
+        },
+        {
+          "type": "p",
+          "text": "An important point: route parameters are strings, even when they represent numbers."
+        },
+        {
+          "type": "p",
+          "text": "Validate or convert them before using them as numeric IDs."
+        },
+        {
+          "type": "h3",
+          "text": "9.7 Nested dynamic routes"
+        },
+        {
+          "type": "p",
+          "text": "A learning platform may have routes like:"
+        },
+        {
+          "type": "p",
+          "text": "/courses/101"
+        },
+        {
+          "type": "p",
+          "text": "/courses/101/modules/3"
+        },
+        {
+          "type": "p",
+          "text": "/courses/101/modules/3/lessons/12"
+        },
+        {
+          "type": "p",
+          "text": "These can be represented using nested dynamic routes."
+        },
+        {
+          "type": "code",
+          "text": "<Route path=\"/courses/:courseId\" element={<CourseLayout />}>\n  <Route index element={<CourseOverview />} />\n  <Route path=\"modules/:moduleId\" element={<ModuleDetails />} />\n  <Route\n    path=\"modules/:moduleId/lessons/:lessonId\"\n    element={<LessonPage />}\n  />\n</Route>"
+        },
+        {
+          "type": "p",
+          "text": "The parent layout can display the course navigation while the specific module or lesson changes."
+        },
+        {
+          "type": "h3",
+          "text": "9.8 Navigating to a dynamic route"
+        },
+        {
+          "type": "code",
+          "text": "import { Link } from \"react-router\";\n\nfunction CourseCard({ course }: { course: Course }) {\n  return (\n    <article>\n      <h2>{course.title}</h2>\n      <Link to={`/courses/${course.id}`}>\n        View Course\n      </Link>\n    </article>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "This generates the appropriate course details URL."
+        },
+        {
+          "type": "h3",
+          "text": "9.9 Understanding catch-all and not-found routes"
+        },
+        {
+          "type": "p",
+          "text": "Users may enter an invalid URL."
+        },
+        {
+          "type": "p",
+          "text": "A catch-all route can display a custom not-found page."
+        },
+        {
+          "type": "code",
+          "text": "<Route path=\"*\" element={<NotFound />} />"
+        },
+        {
+          "type": "p",
+          "text": "This prevents users from seeing an empty page when they visit an unknown frontend route."
+        },
+        {
+          "type": "p",
+          "text": "React Router's nested routing system renders child content through Outlet and supports nested dynamic route structures. (React Router)"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a course navigation system with nested course, module, and lesson pages. Use dynamic parameters to retrieve the correct information for each URL."
+        }
+      ]
+    },
+    {
+      "id": "lesson-10",
+      "badge": "Lesson 10",
+      "title": "Protected Routes and Authentication-Aware Interfaces",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "10.1 Why protected routes are needed"
+        },
+        {
+          "type": "p",
+          "text": "Some pages should only be accessible to authenticated users."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Student dashboard."
+        },
+        {
+          "type": "p",
+          "text": "User profile."
+        },
+        {
+          "type": "p",
+          "text": "Course progress."
+        },
+        {
+          "type": "p",
+          "text": "Assignment submissions."
+        },
+        {
+          "type": "p",
+          "text": "Account settings."
+        },
+        {
+          "type": "p",
+          "text": "Administration panel."
+        },
+        {
+          "type": "p",
+          "text": "A public user might access:"
+        },
+        {
+          "type": "p",
+          "text": "/"
+        },
+        {
+          "type": "p",
+          "text": "/login"
+        },
+        {
+          "type": "p",
+          "text": "/register"
+        },
+        {
+          "type": "p",
+          "text": "But should not normally access:"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard"
+        },
+        {
+          "type": "p",
+          "text": "/profile"
+        },
+        {
+          "type": "p",
+          "text": "/my-courses"
+        },
+        {
+          "type": "p",
+          "text": "This introduces protected routing."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 Understanding authentication-aware routing"
+        },
+        {
+          "type": "p",
+          "text": "A React application can use authentication state to decide which interface a user should see."
+        },
+        {
+          "type": "p",
+          "text": "Authentication state | Interface"
+        },
+        {
+          "type": "p",
+          "text": "Loading | Authentication loading screen"
+        },
+        {
+          "type": "p",
+          "text": "Unauthenticated | Login page"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated student | Student dashboard"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated administrator | Admin dashboard"
+        },
+        {
+          "type": "p",
+          "text": "Expired session | Login or session-expired interface"
+        },
+        {
+          "type": "p",
+          "text": "It is important to distinguish checking a user's interface state from actually securing backend information."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Creating an authentication provider"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "interface User {\n  id: number;\n  name: string;\n  role: \"student\" | \"admin\";\n}\n\ninterface AuthContextType {\n  user: User | null;\n  loading: boolean;\n}"
+        },
+        {
+          "type": "p",
+          "text": "The provider should retrieve or restore the user's authenticated session using the application's real authentication system."
+        },
+        {
+          "type": "p",
+          "text": "For demonstration, the following provider shows the data structure:"
+        },
+        {
+          "type": "code",
+          "text": "const AuthContext = createContext<AuthContextType | null>(null);\n\nfunction AuthProvider({ children }: { children: React.ReactNode }) {\n  const [user, setUser] = useState<User | null>(null);\n  const [loading, setLoading] = useState(false);\n\n  return (\n    <AuthContext.Provider value={{ user, loading }}>\n      {children}\n    </AuthContext.Provider>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "A production implementation must connect this to actual session validation, login, logout, and session restoration."
+        },
+        {
+          "type": "h3",
+          "text": "10.4 Creating a ProtectedRoute component"
+        },
+        {
+          "type": "code",
+          "text": "import { Navigate, Outlet } from \"react-router\";\n\nfunction ProtectedRoute() {\n  const auth = useAuth();\n\n  if (auth.loading) {\n    return <p>Checking authentication...</p>;\n  }\n\n  if (!auth.user) {\n    return <Navigate to=\"/login\" replace />;\n  }\n\n  return <Outlet />;\n}"
+        },
+        {
+          "type": "p",
+          "text": "This checks whether the application currently recognizes an authenticated user."
+        },
+        {
+          "type": "h3",
+          "text": "10.5 Protecting a group of routes"
+        },
+        {
+          "type": "code",
+          "text": "<Routes>\n  <Route path=\"/login\" element={<Login />} />\n  <Route element={<ProtectedRoute />}>\n    <Route path=\"/dashboard\" element={<DashboardLayout />}>\n      <Route index element={<DashboardHome />} />\n      <Route path=\"courses\" element={<MyCourses />} />\n      <Route path=\"profile\" element={<Profile />} />\n    </Route>\n  </Route>\n</Routes>"
+        },
+        {
+          "type": "p",
+          "text": "The protected route acts as a parent wrapper."
+        },
+        {
+          "type": "p",
+          "text": "Unauthenticated users are redirected to login."
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Understanding role-based routes"
+        },
+        {
+          "type": "p",
+          "text": "Some applications support multiple user roles."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "Instructor"
+        },
+        {
+          "type": "p",
+          "text": "Administrator"
+        },
+        {
+          "type": "p",
+          "text": "A role-aware route can check permissions before displaying a protected interface."
+        },
+        {
+          "type": "code",
+          "text": "function AdminRoute() {\n  const { user, loading } = useAuth();\n\n  if (loading) {\n    return <p>Checking permissions...</p>;\n  }\n\n  if (!user) {\n    return <Navigate to=\"/login\" replace />;\n  }\n\n  if (user.role !== \"admin\") {\n    return <Navigate to=\"/dashboard\" replace />;\n  }\n\n  return <Outlet />;\n}"
+        },
+        {
+          "type": "p",
+          "text": "Now administration routes can be placed inside this route group."
+        },
+        {
+          "type": "h3",
+          "text": "10.7 Redirecting after login"
+        },
+        {
+          "type": "p",
+          "text": "After a successful login, navigate to the dashboard."
+        },
+        {
+          "type": "code",
+          "text": "function Login() {\n  const navigate = useNavigate();\n\n  async function handleLogin() {\n    // Validate credentials with the backend.\n    // Update authenticated application state.\n    navigate(\"/dashboard\", { replace: true });\n  }\n\n  return (\n    <button onClick={handleLogin}>Login</button>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "A complete login implementation should also preserve the intended destination when appropriate and validate the authentication response."
+        },
+        {
+          "type": "h3",
+          "text": "10.8 Critical security distinction: frontend versus backend protection"
+        },
+        {
+          "type": "p",
+          "text": "This is one of the most important topics in professional frontend engineering."
+        },
+        {
+          "type": "p",
+          "text": "A protected React route is not a security boundary."
+        },
+        {
+          "type": "p",
+          "text": "A user can inspect frontend code, modify browser state, or directly send requests to backend endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Therefore:"
+        },
+        {
+          "type": "p",
+          "text": "React route protection controls which interface is displayed. Backend authorization controls which information and operations the user is actually allowed to access."
+        },
+        {
+          "type": "p",
+          "text": "For example, even if an administrator page is hidden from students, the backend must still verify administrator permissions before allowing administrative API requests."
+        },
+        {
+          "type": "p",
+          "text": "React Router's documentation also warns that authentication checks in a parent route alone do not automatically secure independently executed child loaders and actions. (React Router)"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a student dashboard and administrator dashboard with different route access. Implement session loading, login redirects, logout, and backend authorization checks."
+        }
+      ]
+    },
+    {
+      "id": "lesson-11",
+      "badge": "Lesson 11",
+      "title": "Layout Routes and Navigation Architecture",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "11.1 What are layout routes?"
+        },
+        {
+          "type": "p",
+          "text": "A layout route provides a shared interface structure for multiple pages."
+        },
+        {
+          "type": "p",
+          "text": "Consider an application with:"
+        },
+        {
+          "type": "p",
+          "text": "Public pages."
+        },
+        {
+          "type": "p",
+          "text": "Student dashboard pages."
+        },
+        {
+          "type": "p",
+          "text": "Administration pages."
+        },
+        {
+          "type": "p",
+          "text": "Each group may require a different navigation system."
+        },
+        {
+          "type": "p",
+          "text": "Instead of repeating the layout in every page, create reusable layouts."
+        },
+        {
+          "type": "code",
+          "text": "Application\n├── PublicLayout\n│   ├── Home\n│   ├── Login\n│   └── Registration\n├── StudentLayout\n│   ├── Dashboard\n│   ├── Courses\n│   ├── Assignments\n│   └── Profile\n└── AdminLayout\n    ├── AdminDashboard\n    ├── UserManagement\n    └── CourseManagement"
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Creating a student dashboard layout"
+        },
+        {
+          "type": "code",
+          "text": "import { Outlet } from \"react-router\";\n\nfunction StudentLayout() {\n  return (\n    <div className=\"student-layout\">\n      <StudentNavbar />\n      <div className=\"student-container\">\n        <StudentSidebar />\n        <main className=\"student-content\">\n          <Outlet />\n        </main>\n      </div>\n      <StudentFooter />\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The layout contains the shared structure."
+        },
+        {
+          "type": "p",
+          "text": "The Outlet displays the currently active page."
+        },
+        {
+          "type": "h3",
+          "text": "11.3 Creating an admin layout"
+        },
+        {
+          "type": "code",
+          "text": "function AdminLayout() {\n  return (\n    <div className=\"admin-layout\">\n      <AdminNavbar />\n      <AdminSidebar />\n      <main>\n        <Outlet />\n      </main>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The administrator can have a different design and navigation system."
+        },
+        {
+          "type": "h3",
+          "text": "11.4 Organizing routes using layout nesting"
+        },
+        {
+          "type": "code",
+          "text": "<Routes>\n  <Route element={<PublicLayout />}>\n    <Route path=\"/\" element={<Home />} />\n    <Route path=\"/login\" element={<Login />} />\n  </Route>\n  <Route element={<ProtectedRoute />}>\n    <Route path=\"/dashboard\" element={<StudentLayout />}>\n      <Route index element={<DashboardHome />} />\n      <Route path=\"courses\" element={<MyCourses />} />\n      <Route path=\"assignments\" element={<Assignments />} />\n      <Route path=\"profile\" element={<Profile />} />\n    </Route>\n  </Route>\n</Routes>"
+        },
+        {
+          "type": "h3",
+          "text": "11.5 What is a layout route without a URL segment?"
+        },
+        {
+          "type": "p",
+          "text": "React Router supports pathless layout routes."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "<Route element={<ProtectedRoute />}>\n  <Route path=\"/dashboard\" element={<DashboardLayout />} />\n  <Route path=\"/profile\" element={<Profile />} />\n</Route>"
+        },
+        {
+          "type": "p",
+          "text": "The parent wrapper does not add a URL segment."
+        },
+        {
+          "type": "p",
+          "text": "It only introduces a shared route-level structure or condition."
+        },
+        {
+          "type": "h3",
+          "text": "11.6 Navigation architecture"
+        },
+        {
+          "type": "p",
+          "text": "A larger application should centralize navigation definitions where practical."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "interface NavigationItem {\n  label: string;\n  path: string;\n  role: \"student\" | \"admin\";\n}\n\nconst navigationItems: NavigationItem[] = [\n  { label: \"Dashboard\", path: \"/dashboard\", role: \"student\" },\n  { label: \"Courses\", path: \"/dashboard/courses\", role: \"student\" },\n  { label: \"Assignments\", path: \"/dashboard/assignments\", role: \"student\" }\n];"
+        },
+        {
+          "type": "p",
+          "text": "The Sidebar can filter navigation items based on the authenticated user."
+        },
+        {
+          "type": "p",
+          "text": "However, hiding links for unauthorized users is only a user-interface decision. Backend permission checks remain mandatory."
+        },
+        {
+          "type": "h3",
+          "text": "11.7 Why layout architecture matters"
+        },
+        {
+          "type": "p",
+          "text": "Without shared layouts:"
+        },
+        {
+          "type": "p",
+          "text": "Navigation markup gets duplicated."
+        },
+        {
+          "type": "p",
+          "text": "Changes become harder to implement."
+        },
+        {
+          "type": "p",
+          "text": "Design consistency becomes difficult."
+        },
+        {
+          "type": "p",
+          "text": "Different pages may behave differently."
+        },
+        {
+          "type": "p",
+          "text": "Common elements are maintained in several places."
+        },
+        {
+          "type": "p",
+          "text": "With layout routes, the shared structure is maintained in one place."
+        },
+        {
+          "type": "p",
+          "text": "React Router supports pathless layouts and nested layouts using its routing tree. (React Router)"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build public, student, and administrator layouts. Each should have its own Navbar and navigation structure, with nested child routes."
+        }
+      ]
+    },
+    {
+      "id": "lesson-12",
+      "badge": "Lesson 12",
+      "title": "Code Splitting and Lazy Loading",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "12.1 Why code splitting is important"
+        },
+        {
+          "type": "p",
+          "text": "Consider a large learning platform."
+        },
+        {
+          "type": "p",
+          "text": "It might contain:"
+        },
+        {
+          "type": "p",
+          "text": "Authentication pages."
+        },
+        {
+          "type": "p",
+          "text": "Student dashboard."
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue."
+        },
+        {
+          "type": "p",
+          "text": "Video learning interface."
+        },
+        {
+          "type": "p",
+          "text": "Assignment editor."
+        },
+        {
+          "type": "p",
+          "text": "Administration dashboard."
+        },
+        {
+          "type": "p",
+          "text": "Analytics interface."
+        },
+        {
+          "type": "p",
+          "text": "If all these components are included in the initial JavaScript bundle, the browser may need to download a large amount of code before the application becomes usable."
+        },
+        {
+          "type": "p",
+          "text": "However, a student visiting the homepage does not necessarily need the administrator dashboard or assignment editor immediately."
+        },
+        {
+          "type": "p",
+          "text": "Code splitting solves this problem."
+        },
+        {
+          "type": "h3",
+          "text": "12.2 What is code splitting?"
+        },
+        {
+          "type": "p",
+          "text": "Code splitting divides a large application bundle into smaller chunks."
+        },
+        {
+          "type": "p",
+          "text": "Instead of loading all application code together, the application can load different parts when needed."
+        },
+        {
+          "type": "code",
+          "text": "Initial Application Bundle\n├── App\n├── Shared Components\n├── Basic Layout\n└── Routing\n\nAdditional Chunks\n├── Dashboard\n├── Courses\n├── Assignments\n├── Analytics\n└── Administration"
+        },
+        {
+          "type": "p",
+          "text": "This can reduce the amount of JavaScript required during initial page loading."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 Understanding dynamic imports"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript supports dynamic imports."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "const module = await import(\"./analytics\");\nmodule.loadAnalytics();"
+        },
+        {
+          "type": "p",
+          "text": "Unlike static imports, dynamic imports can load modules on demand."
+        },
+        {
+          "type": "p",
+          "text": "They return a Promise that resolves with the imported module."
+        },
+        {
+          "type": "p",
+          "text": "Bundlers such as Vite can use these imports as code-splitting boundaries."
+        },
+        {
+          "type": "h3",
+          "text": "12.4 Understanding React.lazy"
+        },
+        {
+          "type": "p",
+          "text": "React provides lazy() to load a component only when React first needs to render it."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { lazy } from \"react\";\n\nconst Analytics = lazy(\n  () => import(\"./pages/Analytics\")\n);"
+        },
+        {
+          "type": "p",
+          "text": "Now the Analytics component's module can be loaded on demand."
+        },
+        {
+          "type": "p",
+          "text": "The imported module should provide a default component export for this form."
+        },
+        {
+          "type": "h3",
+          "text": "12.5 Loading components using Suspense"
+        },
+        {
+          "type": "p",
+          "text": "A lazily loaded component may take some time to download."
+        },
+        {
+          "type": "p",
+          "text": "React provides Suspense to display a fallback during loading."
+        },
+        {
+          "type": "code",
+          "text": "import { lazy, Suspense } from \"react\";\n\nconst Analytics = lazy(\n  () => import(\"./pages/Analytics\")\n);\n\nfunction App() {\n  return (\n    <Suspense fallback={<p>Loading analytics...</p>}>\n      <Analytics />\n    </Suspense>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "While the component code is loading, React displays the fallback."
+        },
+        {
+          "type": "p",
+          "text": "When it becomes available, React displays the actual component."
+        },
+        {
+          "type": "h3",
+          "text": "12.6 Route-level code splitting"
+        },
+        {
+          "type": "p",
+          "text": "One of the most useful applications is lazy loading individual pages."
+        },
+        {
+          "type": "code",
+          "text": "import { lazy, Suspense } from \"react\";\nimport { Routes, Route } from \"react-router\";\n\nconst Dashboard = lazy(() => import(\"./pages/Dashboard\"));\nconst Courses = lazy(() => import(\"./pages/Courses\"));\nconst Assignments = lazy(() => import(\"./pages/Assignments\"));\nconst Analytics = lazy(() => import(\"./pages/Analytics\"));\n\nfunction App() {\n  return (\n    <Suspense fallback={<div>Loading page...</div>}>\n      <Routes>\n        <Route path=\"/dashboard\" element={<Dashboard />} />\n        <Route path=\"/courses\" element={<Courses />} />\n        <Route path=\"/assignments\" element={<Assignments />} />\n        <Route path=\"/analytics\" element={<Analytics />} />\n      </Routes>\n    </Suspense>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Each page can be placed into a separate asynchronous module chunk by the build tool."
+        },
+        {
+          "type": "h3",
+          "text": "12.7 Understanding lazy loading versus normal loading"
+        },
+        {
+          "type": "p",
+          "text": "Normal static import | Lazy loading"
+        },
+        {
+          "type": "p",
+          "text": "Imported module is included in the normal dependency graph | Module can be downloaded on demand"
+        },
+        {
+          "type": "p",
+          "text": "Usually available in the initial application bundle | Can be loaded later"
+        },
+        {
+          "type": "p",
+          "text": "Simple for small components | Useful for large page-level modules"
+        },
+        {
+          "type": "p",
+          "text": "No separate loading fallback is inherently needed | Usually paired with Suspense"
+        },
+        {
+          "type": "h3",
+          "text": "12.8 When should lazy loading be used?"
+        },
+        {
+          "type": "p",
+          "text": "Good candidates include:"
+        },
+        {
+          "type": "p",
+          "text": "Administration pages."
+        },
+        {
+          "type": "p",
+          "text": "Analytics dashboards."
+        },
+        {
+          "type": "p",
+          "text": "Large editors."
+        },
+        {
+          "type": "p",
+          "text": "Rarely accessed tools."
+        },
+        {
+          "type": "p",
+          "text": "Complex reporting interfaces."
+        },
+        {
+          "type": "p",
+          "text": "Large page-specific modules."
+        },
+        {
+          "type": "p",
+          "text": "Avoid lazy loading every tiny button or label."
+        },
+        {
+          "type": "p",
+          "text": "Too many small chunks can introduce additional network overhead and complexity."
+        },
+        {
+          "type": "p",
+          "text": "The React documentation describes combining lazy() and Suspense to load components when they are first rendered. (React)"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Convert a multi-page React application to use lazy-loaded routes. Compare its initial bundle size before and after code splitting."
+        }
+      ]
+    },
+    {
+      "id": "lesson-13",
+      "badge": "Lesson 13",
+      "title": "Suspense, Error Boundaries and Fallback Interfaces",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "13.1 Why fallback interfaces are necessary"
+        },
+        {
+          "type": "p",
+          "text": "Modern frontend applications depend on several external and internal systems."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "A route may still be loading."
+        },
+        {
+          "type": "p",
+          "text": "A component module may not have downloaded."
+        },
+        {
+          "type": "p",
+          "text": "A component may throw an unexpected rendering error."
+        },
+        {
+          "type": "p",
+          "text": "A third-party widget may fail."
+        },
+        {
+          "type": "p",
+          "text": "A data-fetching system may enter an error state."
+        },
+        {
+          "type": "p",
+          "text": "A professional application should not leave users staring at a blank screen."
+        },
+        {
+          "type": "p",
+          "text": "It should display a meaningful fallback interface."
+        },
+        {
+          "type": "p",
+          "text": "Two important React mechanisms are:"
+        },
+        {
+          "type": "p",
+          "text": "Suspense."
+        },
+        {
+          "type": "p",
+          "text": "Error Boundaries."
+        },
+        {
+          "type": "p",
+          "text": "They solve different problems."
+        },
+        {
+          "type": "h3",
+          "text": "13.2 Understanding Suspense"
+        },
+        {
+          "type": "p",
+          "text": "Suspense allows React to display fallback content when a supported child suspends during rendering."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { Suspense, lazy } from \"react\";\n\nconst Reports = lazy(() => import(\"./Reports\"));\n\nfunction Dashboard() {\n  return (\n    <Suspense fallback={<p>Loading reports...</p>}>\n      <Reports />\n    </Suspense>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "When the Reports module has not finished loading, React displays the fallback."
+        },
+        {
+          "type": "p",
+          "text": "Once the component is ready, React displays it."
+        },
+        {
+          "type": "h3",
+          "text": "13.3 Suspense fallback design"
+        },
+        {
+          "type": "p",
+          "text": "A fallback can be any valid React node."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "function LoadingScreen() {\n  return (\n    <div className=\"loading-screen\">\n      <div className=\"spinner\" />\n      <p>Preparing your dashboard...</p>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "You can also use skeleton interfaces:"
+        },
+        {
+          "type": "code",
+          "text": "function CourseSkeleton() {\n  return (\n    <div className=\"course-skeleton\">\n      <div className=\"skeleton-title\" />\n      <div className=\"skeleton-description\" />\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "A skeleton can provide a visual representation of the content that will appear."
+        },
+        {
+          "type": "h3",
+          "text": "13.4 Important distinction: Suspense does not catch every asynchronous operation"
+        },
+        {
+          "type": "p",
+          "text": "This is a common misconception."
+        },
+        {
+          "type": "p",
+          "text": "Suspense does not automatically display its fallback whenever an ordinary fetch() request inside useEffect is pending."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => {\n  fetch(\"/api/courses\");\n}, []);"
+        },
+        {
+          "type": "p",
+          "text": "This operation does not automatically activate Suspense."
+        },
+        {
+          "type": "p",
+          "text": "Suspense supports specific mechanisms, including lazy-loaded components and Suspense-compatible data sources."
+        },
+        {
+          "type": "p",
+          "text": "Use ordinary loading and error state management for normal Fetch operations unless you are using a compatible data-fetching architecture."
+        },
+        {
+          "type": "h3",
+          "text": "13.5 Understanding Error Boundaries"
+        },
+        {
+          "type": "p",
+          "text": "An Error Boundary is a React component that catches certain errors thrown while rendering its descendant component tree."
+        },
+        {
+          "type": "p",
+          "text": "It displays alternative UI rather than allowing the affected section to break the entire application."
+        },
+        {
+          "type": "p",
+          "text": "For example, imagine that the Analytics component contains a rendering bug."
+        },
+        {
+          "type": "p",
+          "text": "Without an appropriate boundary, the error can affect the surrounding application interface."
+        },
+        {
+          "type": "p",
+          "text": "With an Error Boundary, you can isolate that section."
+        },
+        {
+          "type": "h3",
+          "text": "13.6 Creating an Error Boundary"
+        },
+        {
+          "type": "p",
+          "text": "React currently exposes Error Boundary functionality through class-component lifecycle APIs."
+        },
+        {
+          "type": "p",
+          "text": "A reusable implementation:"
+        },
+        {
+          "type": "code",
+          "text": "import React from \"react\";\n\ninterface ErrorBoundaryProps {\n  children: React.ReactNode;\n}\n\ninterface ErrorBoundaryState {\n  hasError: boolean;\n}\n\nclass ErrorBoundary extends React.Component<\n  ErrorBoundaryProps,\n  ErrorBoundaryState\n> {\n  state: ErrorBoundaryState = { hasError: false };\n\n  static getDerivedStateFromError(): ErrorBoundaryState {\n    return { hasError: true };\n  }\n\n  componentDidCatch(\n    error: Error,\n    info: React.ErrorInfo\n  ) {\n    console.error(\n      \"Application error:\",\n      error,\n      info.componentStack\n    );\n  }\n\n  render() {\n    if (this.state.hasError) {\n      return (\n        <div>\n          <h2>Something went wrong.</h2>\n          <p>Please try again later.</p>\n        </div>\n      );\n    }\n\n    return this.props.children;\n  }\n}"
+        },
+        {
+          "type": "p",
+          "text": "Use it:"
+        },
+        {
+          "type": "code",
+          "text": "function Dashboard() {\n  return (\n    <div>\n      <h1>Student Dashboard</h1>\n      <ErrorBoundary>\n        <Analytics />\n      </ErrorBoundary>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "If a descendant throws an applicable rendering error, the boundary displays its fallback."
+        },
+        {
+          "type": "h3",
+          "text": "13.7 What Error Boundaries do not catch"
+        },
+        {
+          "type": "p",
+          "text": "Error Boundaries do not automatically catch errors from:"
+        },
+        {
+          "type": "p",
+          "text": "Ordinary event handlers."
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous callbacks such as setTimeout."
+        },
+        {
+          "type": "p",
+          "text": "Arbitrary Promise rejections."
+        },
+        {
+          "type": "p",
+          "text": "Server-side rendering."
+        },
+        {
+          "type": "p",
+          "text": "The Error Boundary itself."
+        },
+        {
+          "type": "p",
+          "text": "These errors require their appropriate error-handling mechanisms."
+        },
+        {
+          "type": "p",
+          "text": "For example, asynchronous API failures should generally be handled using try/catch and application error state."
+        },
+        {
+          "type": "p",
+          "text": "React's documentation explains these limitations and the Error Boundary lifecycle APIs. (React)"
+        },
+        {
+          "type": "h3",
+          "text": "13.8 Combining Error Boundaries and Suspense"
+        },
+        {
+          "type": "p",
+          "text": "A production-style page can use both mechanisms."
+        },
+        {
+          "type": "code",
+          "text": "import { lazy, Suspense } from \"react\";\n\nconst Analytics = lazy(() => import(\"./Analytics\"));\n\nfunction Dashboard() {\n  return (\n    <ErrorBoundary>\n      <Suspense fallback={<p>Loading analytics...</p>}>\n        <Analytics />\n      </Suspense>\n    </ErrorBoundary>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "This creates two different protections:"
+        },
+        {
+          "type": "p",
+          "text": "Suspense handles the loading period for supported suspended content."
+        },
+        {
+          "type": "p",
+          "text": "Error Boundary handles applicable rendering failures."
+        },
+        {
+          "type": "p",
+          "text": "For more advanced applications, libraries such as react-error-boundary provide convenient APIs for reusable error handling."
+        },
+        {
+          "type": "h3",
+          "text": "13.9 Designing useful fallback states"
+        },
+        {
+          "type": "p",
+          "text": "Situation | Appropriate interface"
+        },
+        {
+          "type": "p",
+          "text": "Initial data loading | Loading indicator"
+        },
+        {
+          "type": "p",
+          "text": "Route chunk downloading | Route skeleton"
+        },
+        {
+          "type": "p",
+          "text": "Component rendering error | Error Boundary fallback"
+        },
+        {
+          "type": "p",
+          "text": "API request failure | Error message and retry"
+        },
+        {
+          "type": "p",
+          "text": "No available records | Empty state"
+        },
+        {
+          "type": "p",
+          "text": "User not authenticated | Login interface"
+        },
+        {
+          "type": "p",
+          "text": "Access denied | Permission message"
+        },
+        {
+          "type": "p",
+          "text": "The user should understand what happened and what action they can take."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Add Suspense boundaries around lazy-loaded dashboard routes and Error Boundaries around individual application sections. Intentionally create a component rendering error and verify that the rest of the dashboard remains accessible."
+        }
+      ]
+    },
+    {
+      "id": "lesson-14",
+      "badge": "Lesson 14",
+      "title": "React Performance and Component Optimization",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "14.1 Why performance matters"
+        },
+        {
+          "type": "p",
+          "text": "A React application may work correctly but still feel slow."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Search results update slowly."
+        },
+        {
+          "type": "p",
+          "text": "A large table becomes unresponsive."
+        },
+        {
+          "type": "p",
+          "text": "Navigating between pages takes too long."
+        },
+        {
+          "type": "p",
+          "text": "Too many components render during an interaction."
+        },
+        {
+          "type": "p",
+          "text": "Large JavaScript bundles delay initial loading."
+        },
+        {
+          "type": "p",
+          "text": "Expensive calculations repeatedly execute."
+        },
+        {
+          "type": "p",
+          "text": "These problems become increasingly important as applications grow."
+        },
+        {
+          "type": "h3",
+          "text": "14.2 Understanding unnecessary re-renders"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a dashboard contains:"
+        },
+        {
+          "type": "code",
+          "text": "Dashboard\n├── Navbar\n├── Sidebar\n├── CourseList\n│   ├── CourseCard\n│   ├── CourseCard\n│   └── CourseCard\n└── Footer"
+        },
+        {
+          "type": "p",
+          "text": "If the Dashboard manages unrelated state, updates can lead to more components rendering than necessary."
+        },
+        {
+          "type": "p",
+          "text": "A good architecture keeps transient state close to the components that need it."
+        },
+        {
+          "type": "h3",
+          "text": "14.3 Understanding React.memo"
+        },
+        {
+          "type": "p",
+          "text": "React provides memo() to allow React to skip rendering a component when its props are unchanged."
+        },
+        {
+          "type": "code",
+          "text": "import { memo } from \"react\";\n\ninterface CourseProps {\n  title: string;\n  level: string;\n}\n\nconst CourseCard = memo(function CourseCard({\n  title,\n  level\n}: CourseProps) {\n  console.log(\"Course card rendered\");\n  return (\n    <div>\n      <h2>{title}</h2>\n      <p>{level}</p>\n    </div>\n  );\n});"
+        },
+        {
+          "type": "p",
+          "text": "If the parent renders again but these props remain the same, React may skip rendering the memoized component."
+        },
+        {
+          "type": "p",
+          "text": "By default, React compares individual props using Object.is."
+        },
+        {
+          "type": "p",
+          "text": "This is an optimization, not a guarantee that the component will never render again."
+        },
+        {
+          "type": "h3",
+          "text": "14.4 Avoiding unstable object props"
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "<CourseCard course={{ title: \"React\", level: \"Advanced\" }} />"
+        },
+        {
+          "type": "p",
+          "text": "A new object is created during every parent render."
+        },
+        {
+          "type": "p",
+          "text": "Even when the object contains identical information, it has a different reference."
+        },
+        {
+          "type": "p",
+          "text": "That can reduce the effectiveness of memoization."
+        },
+        {
+          "type": "p",
+          "text": "Possible solution:"
+        },
+        {
+          "type": "code",
+          "text": "const course = useMemo(\n  () => ({ title: \"React\", level: \"Advanced\" }),\n  []\n);\n\n<CourseCard course={course} />"
+        },
+        {
+          "type": "p",
+          "text": "But only introduce this optimization when it provides a measurable benefit."
+        },
+        {
+          "type": "h3",
+          "text": "14.5 Keeping state local"
+        },
+        {
+          "type": "p",
+          "text": "A frequent architectural mistake is placing every state variable at the top of the application."
+        },
+        {
+          "type": "p",
+          "text": "For example, a single App component might hold:"
+        },
+        {
+          "type": "p",
+          "text": "Search text."
+        },
+        {
+          "type": "p",
+          "text": "Modal visibility."
+        },
+        {
+          "type": "p",
+          "text": "Input focus state."
+        },
+        {
+          "type": "p",
+          "text": "Selected tab."
+        },
+        {
+          "type": "p",
+          "text": "Form fields."
+        },
+        {
+          "type": "p",
+          "text": "Course information."
+        },
+        {
+          "type": "p",
+          "text": "User preferences."
+        },
+        {
+          "type": "p",
+          "text": "Then many descendants can render whenever shared state changes."
+        },
+        {
+          "type": "p",
+          "text": "Instead, place state close to the components that need it."
+        },
+        {
+          "type": "p",
+          "text": "This reduces unnecessary communication and simplifies the architecture."
+        },
+        {
+          "type": "h3",
+          "text": "14.6 Virtualization for large lists"
+        },
+        {
+          "type": "p",
+          "text": "Consider a dashboard displaying 20,000 student records."
+        },
+        {
+          "type": "p",
+          "text": "Rendering every row simultaneously can create unnecessary DOM nodes and performance problems."
+        },
+        {
+          "type": "p",
+          "text": "List virtualization solves this by rendering only the visible portion of the list."
+        },
+        {
+          "type": "p",
+          "text": "For example, if a table displays 20,000 records, the browser might render only the records currently visible in the viewport plus a small buffer."
+        },
+        {
+          "type": "p",
+          "text": "Popular virtualization libraries include:"
+        },
+        {
+          "type": "p",
+          "text": "react-window"
+        },
+        {
+          "type": "p",
+          "text": "@tanstack/react-virtual"
+        },
+        {
+          "type": "p",
+          "text": "This technique is particularly useful for:"
+        },
+        {
+          "type": "p",
+          "text": "Large tables."
+        },
+        {
+          "type": "p",
+          "text": "Long course collections."
+        },
+        {
+          "type": "p",
+          "text": "Student directories."
+        },
+        {
+          "type": "p",
+          "text": "Activity logs."
+        },
+        {
+          "type": "p",
+          "text": "Large notification lists."
+        },
+        {
+          "type": "h3",
+          "text": "14.7 Debouncing search input"
+        },
+        {
+          "type": "p",
+          "text": "Consider a search field that triggers expensive filtering or an API request on every keystroke."
+        },
+        {
+          "type": "p",
+          "text": "If a user types:"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript"
+        },
+        {
+          "type": "p",
+          "text": "The application could generate many unnecessary requests."
+        },
+        {
+          "type": "p",
+          "text": "Debouncing waits until the user stops typing for a specified period."
+        },
+        {
+          "type": "p",
+          "text": "Example custom Hook:"
+        },
+        {
+          "type": "code",
+          "text": "function useDebouncedValue<T>(\n  value: T,\n  delay: number\n): T {\n  const [debouncedValue, setDebouncedValue] = useState(value);\n\n  useEffect(() => {\n    const timeout = setTimeout(() => {\n      setDebouncedValue(value);\n    }, delay);\n\n    return () => {\n      clearTimeout(timeout);\n    };\n  }, [value, delay]);\n\n  return debouncedValue;\n}"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "const [search, setSearch] = useState(\"\");\nconst debouncedSearch = useDebouncedValue(search, 300);"
+        },
+        {
+          "type": "p",
+          "text": "The application can now perform expensive filtering or server searches using debouncedSearch."
+        },
+        {
+          "type": "p",
+          "text": "For network search, also consider cancelling outdated requests."
+        },
+        {
+          "type": "h3",
+          "text": "14.8 Measuring performance"
+        },
+        {
+          "type": "p",
+          "text": "Do not optimize based only on assumptions."
+        },
+        {
+          "type": "p",
+          "text": "Use React Developer Tools and its Profiler to understand:"
+        },
+        {
+          "type": "p",
+          "text": "How frequently components render."
+        },
+        {
+          "type": "p",
+          "text": "Which components take the most time."
+        },
+        {
+          "type": "p",
+          "text": "Which interaction triggers the rendering."
+        },
+        {
+          "type": "p",
+          "text": "Whether memoization actually improves the experience."
+        },
+        {
+          "type": "p",
+          "text": "React also provides the Profiler component for programmatic performance measurements."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { Profiler } from \"react\";\n\nfunction onRender(\n  id: string,\n  phase: \"mount\" | \"update\",\n  actualDuration: number\n) {\n  console.log({ id, phase, actualDuration });\n}\n\nfunction App() {\n  return (\n    <Profiler id=\"Dashboard\" onRender={onRender}>\n      <Dashboard />\n    </Profiler>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The callback provides information about the committed rendering work."
+        },
+        {
+          "type": "p",
+          "text": "Performance results should be measured in realistic production-like conditions, because development mode can introduce additional work."
+        },
+        {
+          "type": "h3",
+          "text": "14.9 Important optimization techniques"
+        },
+        {
+          "type": "p",
+          "text": "Technique | Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Keep state local | Reduce unnecessary update propagation"
+        },
+        {
+          "type": "p",
+          "text": "React.memo | Skip some unchanged-prop renders"
+        },
+        {
+          "type": "p",
+          "text": "useMemo | Cache expensive calculation results"
+        },
+        {
+          "type": "p",
+          "text": "useCallback | Cache function definitions"
+        },
+        {
+          "type": "p",
+          "text": "Code splitting | Reduce initial JavaScript bundle"
+        },
+        {
+          "type": "p",
+          "text": "Lazy loading | Load features when needed"
+        },
+        {
+          "type": "p",
+          "text": "Virtualization | Reduce rendered DOM elements"
+        },
+        {
+          "type": "p",
+          "text": "Debouncing | Reduce repeated processing"
+        },
+        {
+          "type": "p",
+          "text": "Profiling | Identify actual bottlenecks"
+        },
+        {
+          "type": "h3",
+          "text": "14.10 Understanding React Compiler"
+        },
+        {
+          "type": "p",
+          "text": "Modern React also provides React Compiler, which can automatically perform many memoization optimizations when configured and compatible with the project."
+        },
+        {
+          "type": "p",
+          "text": "This means developers should understand useMemo, useCallback, and memo, but should not assume every application requires manual memoization everywhere. (React)"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a dashboard containing a large collection of courses. Profile the application, introduce search debouncing, memoize expensive computations where necessary, and compare performance."
+        }
+      ]
+    },
+    {
+      "id": "lesson-15",
+      "badge": "Lesson 15",
+      "title": "Organizing Large React Applications and Feature-Based Architecture",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "15.1 Why application structure matters"
+        },
+        {
+          "type": "p",
+          "text": "Consider an application that has been developed for six months."
+        },
+        {
+          "type": "p",
+          "text": "It now contains:"
+        },
+        {
+          "type": "p",
+          "text": "100 components."
+        },
+        {
+          "type": "p",
+          "text": "30 custom Hooks."
+        },
+        {
+          "type": "p",
+          "text": "25 API functions."
+        },
+        {
+          "type": "p",
+          "text": "Authentication logic."
+        },
+        {
+          "type": "p",
+          "text": "Course management."
+        },
+        {
+          "type": "p",
+          "text": "Student dashboards."
+        },
+        {
+          "type": "p",
+          "text": "Administration tools."
+        },
+        {
+          "type": "p",
+          "text": "Shared application settings."
+        },
+        {
+          "type": "p",
+          "text": "If everything is stored in a few large folders, locating and maintaining functionality becomes difficult."
+        },
+        {
+          "type": "p",
+          "text": "A scalable folder structure provides a logical organization."
+        },
+        {
+          "type": "h3",
+          "text": "15.2 Traditional folder-based structure"
+        },
+        {
+          "type": "p",
+          "text": "A common organization separates files by technical responsibility."
+        },
+        {
+          "type": "code",
+          "text": "src/\n├── components/\n├── pages/\n├── hooks/\n├── services/\n├── context/\n├── types/\n├── utils/\n└── App.tsx"
+        },
+        {
+          "type": "p",
+          "text": "This works well for small and medium-sized applications."
+        },
+        {
+          "type": "p",
+          "text": "However, as the project grows, related features can become spread across multiple folders."
+        },
+        {
+          "type": "p",
+          "text": "For example, all course-related files might be separated:"
+        },
+        {
+          "type": "p",
+          "text": "components/CourseCard.tsx"
+        },
+        {
+          "type": "p",
+          "text": "pages/Courses.tsx"
+        },
+        {
+          "type": "p",
+          "text": "hooks/useCourses.ts"
+        },
+        {
+          "type": "p",
+          "text": "services/courseApi.ts"
+        },
+        {
+          "type": "p",
+          "text": "types/course.ts"
+        },
+        {
+          "type": "p",
+          "text": "A developer working on courses has to navigate through several folders."
+        },
+        {
+          "type": "h3",
+          "text": "15.3 Understanding feature-based architecture"
+        },
+        {
+          "type": "p",
+          "text": "Feature-based architecture organizes files according to business functionality."
+        },
+        {
+          "type": "code",
+          "text": "src/\n├── app/\n│   ├── App.tsx\n│   ├── router.tsx\n│   └── providers.tsx\n├── features/\n│   ├── auth/\n│   │   ├── components/\n│   │   ├── hooks/\n│   │   ├── services/\n│   │   ├── types/\n│   │   └── pages/\n│   ├── courses/\n│   │   ├── components/\n│   │   ├── hooks/\n│   │   ├── services/\n│   │   ├── types/\n│   │   └── pages/\n│   ├── assignments/\n│   │   ├── components/\n│   │   ├── hooks/\n│   │   ├── services/\n│   │   ├── types/\n│   │   └── pages/\n│   └── progress/\n│       ├── components/\n│       ├── hooks/\n│       ├── services/\n│       ├── types/\n│       └── pages/\n├── shared/\n│   ├── components/\n│   ├── hooks/\n│   ├── utils/\n│   └── types/\n├── layouts/\n└── main.tsx"
+        },
+        {
+          "type": "p",
+          "text": "Each feature contains the files related to its functionality."
+        },
+        {
+          "type": "h3",
+          "text": "15.4 Understanding feature boundaries"
+        },
+        {
+          "type": "p",
+          "text": "A feature should represent a meaningful application capability."
+        },
+        {
+          "type": "p",
+          "text": "Feature | Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "Auth | Login, registration, session and permissions"
+        },
+        {
+          "type": "p",
+          "text": "Courses | Course catalogue, enrollment and details"
+        },
+        {
+          "type": "p",
+          "text": "Assignments | Assignment creation and submissions"
+        },
+        {
+          "type": "p",
+          "text": "Progress | Lesson completion and learning statistics"
+        },
+        {
+          "type": "p",
+          "text": "Notifications | User notifications"
+        },
+        {
+          "type": "p",
+          "text": "Profile | Student information and preferences"
+        },
+        {
+          "type": "p",
+          "text": "Each feature should own its specific business logic where practical."
+        },
+        {
+          "type": "p",
+          "text": "Shared functionality belongs in the shared directory."
+        },
+        {
+          "type": "h3",
+          "text": "15.5 Shared components versus feature components"
+        },
+        {
+          "type": "p",
+          "text": "Not every component needs to be globally reusable."
+        },
+        {
+          "type": "p",
+          "text": "Shared components:"
+        },
+        {
+          "type": "p",
+          "text": "Button"
+        },
+        {
+          "type": "p",
+          "text": "Modal"
+        },
+        {
+          "type": "p",
+          "text": "Input"
+        },
+        {
+          "type": "p",
+          "text": "LoadingSkeleton"
+        },
+        {
+          "type": "p",
+          "text": "Pagination"
+        },
+        {
+          "type": "p",
+          "text": "ConfirmationDialog"
+        },
+        {
+          "type": "p",
+          "text": "Feature-specific components:"
+        },
+        {
+          "type": "p",
+          "text": "CourseEnrollmentButton"
+        },
+        {
+          "type": "p",
+          "text": "AssignmentSubmissionForm"
+        },
+        {
+          "type": "p",
+          "text": "ProgressMilestone"
+        },
+        {
+          "type": "p",
+          "text": "StudentCourseCard"
+        },
+        {
+          "type": "p",
+          "text": "A component should be moved into a shared directory when there is a genuine cross-feature reuse requirement."
+        },
+        {
+          "type": "p",
+          "text": "Do not create a shared component simply because two components look somewhat similar."
+        },
+        {
+          "type": "h3",
+          "text": "15.6 Separating UI, business logic and API services"
+        },
+        {
+          "type": "p",
+          "text": "A good architecture separates responsibilities."
+        },
+        {
+          "type": "code",
+          "text": "Course Feature\n├── UI\n│   ├── CourseCard.tsx\n│   └── CourseList.tsx\n├── Logic\n│   ├── useCourses.ts\n│   └── courseHelpers.ts\n├── Data Access\n│   └── courseApi.ts\n└── Types\n    └── course.ts"
+        },
+        {
+          "type": "p",
+          "text": "The component should not need to know all the low-level details of how the backend works."
+        },
+        {
+          "type": "p",
+          "text": "It should call a suitable feature Hook or service."
+        },
+        {
+          "type": "h3",
+          "text": "15.7 Understanding dependency direction"
+        },
+        {
+          "type": "code",
+          "text": "CoursePage\n   ↓\nuseCourses\n   ↓\ncourseApi\n   ↓\nBackend"
+        },
+        {
+          "type": "p",
+          "text": "The page uses the Hook."
+        },
+        {
+          "type": "p",
+          "text": "The Hook manages the application-facing data logic."
+        },
+        {
+          "type": "p",
+          "text": "The API service handles network communication."
+        },
+        {
+          "type": "p",
+          "text": "The backend processes the request."
+        },
+        {
+          "type": "p",
+          "text": "This makes each layer easier to maintain and test."
+        },
+        {
+          "type": "h3",
+          "text": "15.8 Organizing imports"
+        },
+        {
+          "type": "p",
+          "text": "Large applications benefit from predictable import paths."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "import { CourseCard } from \"@/features/courses/components/CourseCard\";\nimport { useCourses } from \"@/features/courses/hooks/useCourses\";\nimport { Button } from \"@/shared/components/Button\";"
+        },
+        {
+          "type": "p",
+          "text": "Path aliases such as @/ can be configured in TypeScript and Vite."
+        },
+        {
+          "type": "p",
+          "text": "This reduces long relative paths and makes files easier to navigate."
+        },
+        {
+          "type": "h3",
+          "text": "15.9 Understanding modular architecture"
+        },
+        {
+          "type": "p",
+          "text": "Feature-based architecture can support several engineering goals:"
+        },
+        {
+          "type": "p",
+          "text": "Independent feature development."
+        },
+        {
+          "type": "p",
+          "text": "Cleaner ownership of business logic."
+        },
+        {
+          "type": "p",
+          "text": "Easier testing."
+        },
+        {
+          "type": "p",
+          "text": "More predictable imports."
+        },
+        {
+          "type": "p",
+          "text": "Reusable shared components."
+        },
+        {
+          "type": "p",
+          "text": "Gradual feature expansion."
+        },
+        {
+          "type": "p",
+          "text": "Better collaboration between developers."
+        },
+        {
+          "type": "p",
+          "text": "For a very large organization, architecture may also be divided into separate packages or applications."
+        },
+        {
+          "type": "p",
+          "text": "However, a modular monolithic React application is often a sensible starting point."
+        },
+        {
+          "type": "p",
+          "text": "You do not need micro-frontends or dozens of separate packages just because the application is large."
+        },
+        {
+          "type": "h3",
+          "text": "15.10 Architecture design principles"
+        },
+        {
+          "type": "p",
+          "text": "Follow these principles:"
+        },
+        {
+          "type": "p",
+          "text": "Give every feature a clear responsibility."
+        },
+        {
+          "type": "p",
+          "text": "Keep shared UI components independent of specific business logic."
+        },
+        {
+          "type": "p",
+          "text": "Avoid unnecessary duplication."
+        },
+        {
+          "type": "p",
+          "text": "Keep state close to its consumers unless sharing is required."
+        },
+        {
+          "type": "p",
+          "text": "Keep API communication separate from display code when practical."
+        },
+        {
+          "type": "p",
+          "text": "Use typed contracts between modules."
+        },
+        {
+          "type": "p",
+          "text": "Avoid circular dependencies."
+        },
+        {
+          "type": "p",
+          "text": "Keep component responsibilities understandable."
+        },
+        {
+          "type": "p",
+          "text": "Introduce abstractions only when they improve maintainability."
+        },
+        {
+          "type": "p",
+          "text": "Organize around the application's actual functionality rather than theoretical complexity."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Take a React application with at least five major features and reorganize it into a feature-based architecture. Ensure that imports, routes, components, Hooks, and services continue to work."
+        }
+      ]
+    },
+    {
+      "id": "practical-project",
+      "badge": "Practical Project",
+      "title": "Multi-Page Student Dashboard",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Major Practical Project"
+        },
+        {
+          "type": "h3",
+          "text": "Project: Build a Complete Student Dashboard Using React and TypeScript"
+        },
+        {
+          "type": "h3",
+          "text": "1. Project objective"
+        },
+        {
+          "type": "p",
+          "text": "Develop a multi-page student dashboard that combines React components, application-wide state, routing, layouts, authentication-aware interfaces, and performance optimization."
+        },
+        {
+          "type": "p",
+          "text": "The application should resemble the frontend architecture of a real learning management platform."
+        },
+        {
+          "type": "p",
+          "text": "Students should be able to navigate between different sections, retrieve course information, track learning progress, manage assignments, and update their profile."
+        },
+        {
+          "type": "h3",
+          "text": "2. Functional requirements"
+        },
+        {
+          "type": "h3",
+          "text": "A. Dashboard interface"
+        },
+        {
+          "type": "p",
+          "text": "Create a responsive dashboard with:"
+        },
+        {
+          "type": "p",
+          "text": "Navbar."
+        },
+        {
+          "type": "p",
+          "text": "Sidebar."
+        },
+        {
+          "type": "p",
+          "text": "Welcome section."
+        },
+        {
+          "type": "p",
+          "text": "Statistics cards."
+        },
+        {
+          "type": "p",
+          "text": "Enrolled courses."
+        },
+        {
+          "type": "p",
+          "text": "Recent learning activity."
+        },
+        {
+          "type": "p",
+          "text": "Upcoming assignments."
+        },
+        {
+          "type": "p",
+          "text": "Notifications."
+        },
+        {
+          "type": "p",
+          "text": "Student profile."
+        },
+        {
+          "type": "h3",
+          "text": "B. Multi-page navigation"
+        },
+        {
+          "type": "p",
+          "text": "Route | Page | Functionality"
+        },
+        {
+          "type": "p",
+          "text": "/login | Login | Authentication interface"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard | Overview | Student statistics"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard/courses | My Courses | Enrolled courses"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard/courses/:courseId | Course Details | Individual course information"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard/assignments | Assignments | Assignment management"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard/progress | Progress | Learning statistics"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard/notifications | Notifications | Notification management"
+        },
+        {
+          "type": "p",
+          "text": "/dashboard/profile | Profile | Student information"
+        },
+        {
+          "type": "p",
+          "text": "/admin | Admin | Optional administrator area"
+        },
+        {
+          "type": "h3",
+          "text": "C. Shared application state"
+        },
+        {
+          "type": "p",
+          "text": "Use Context API and useReducer to manage shared information such as:"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated student."
+        },
+        {
+          "type": "p",
+          "text": "Enrolled courses."
+        },
+        {
+          "type": "p",
+          "text": "Course completion."
+        },
+        {
+          "type": "p",
+          "text": "Assignment information."
+        },
+        {
+          "type": "p",
+          "text": "Notifications."
+        },
+        {
+          "type": "p",
+          "text": "Student preferences."
+        },
+        {
+          "type": "p",
+          "text": "Do not put every form field and temporary UI state into global state."
+        },
+        {
+          "type": "h3",
+          "text": "D. React Router implementation"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "BrowserRouter."
+        },
+        {
+          "type": "p",
+          "text": "Nested routes."
+        },
+        {
+          "type": "p",
+          "text": "Dynamic course routes."
+        },
+        {
+          "type": "p",
+          "text": "Route parameters."
+        },
+        {
+          "type": "p",
+          "text": "Protected routes."
+        },
+        {
+          "type": "p",
+          "text": "Role-aware navigation."
+        },
+        {
+          "type": "p",
+          "text": "Shared layouts."
+        },
+        {
+          "type": "p",
+          "text": "Active navigation states."
+        },
+        {
+          "type": "p",
+          "text": "Not-found pages."
+        },
+        {
+          "type": "h3",
+          "text": "E. Advanced Hooks"
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate:"
+        },
+        {
+          "type": "p",
+          "text": "useContext"
+        },
+        {
+          "type": "p",
+          "text": "useReducer"
+        },
+        {
+          "type": "p",
+          "text": "useMemo"
+        },
+        {
+          "type": "p",
+          "text": "useCallback"
+        },
+        {
+          "type": "p",
+          "text": "useEffect"
+        },
+        {
+          "type": "p",
+          "text": "useRef"
+        },
+        {
+          "type": "p",
+          "text": "Custom Hooks"
+        },
+        {
+          "type": "p",
+          "text": "Use them where they provide a clear architectural or functional benefit."
+        },
+        {
+          "type": "h3",
+          "text": "F. Performance and loading"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "Lazy-loaded dashboard pages."
+        },
+        {
+          "type": "p",
+          "text": "Code splitting."
+        },
+        {
+          "type": "p",
+          "text": "Suspense fallbacks."
+        },
+        {
+          "type": "p",
+          "text": "Error Boundaries."
+        },
+        {
+          "type": "p",
+          "text": "Efficient rendering."
+        },
+        {
+          "type": "p",
+          "text": "Pagination for large collections."
+        },
+        {
+          "type": "p",
+          "text": "Debounced search."
+        },
+        {
+          "type": "p",
+          "text": "Appropriate memoization."
+        },
+        {
+          "type": "h3",
+          "text": "G. Data integration"
+        },
+        {
+          "type": "p",
+          "text": "Build a service layer for backend communication."
+        },
+        {
+          "type": "p",
+          "text": "Use the concepts from Module 06:"
+        },
+        {
+          "type": "p",
+          "text": "Fetch API."
+        },
+        {
+          "type": "p",
+          "text": "REST endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Promises."
+        },
+        {
+          "type": "p",
+          "text": "Async/Await."
+        },
+        {
+          "type": "p",
+          "text": "HTTP error handling."
+        },
+        {
+          "type": "p",
+          "text": "Request cancellation."
+        },
+        {
+          "type": "p",
+          "text": "Use the concepts from Module 07:"
+        },
+        {
+          "type": "p",
+          "text": "Interfaces."
+        },
+        {
+          "type": "p",
+          "text": "Generics."
+        },
+        {
+          "type": "p",
+          "text": "Discriminated unions."
+        },
+        {
+          "type": "p",
+          "text": "Runtime validation."
+        },
+        {
+          "type": "p",
+          "text": "Strict type checking."
+        },
+        {
+          "type": "h3",
+          "text": "3. Suggested application architecture"
+        },
+        {
+          "type": "code",
+          "text": "student-dashboard/\n├── public/\n├── src/\n│   ├── app/\n│   │   ├── App.tsx\n│   │   ├── router.tsx\n│   │   └── providers.tsx\n│   ├── features/\n│   │   ├── auth/\n│   │   │   ├── components/\n│   │   │   ├── context/\n│   │   │   ├── hooks/\n│   │   │   └── pages/\n│   │   ├── dashboard/\n│   │   │   ├── components/\n│   │   │   └── pages/\n│   │   ├── courses/\n│   │   │   ├── components/\n│   │   │   ├── hooks/\n│   │   │   ├── services/\n│   │   │   └── pages/\n│   │   ├── assignments/\n│   │   │   ├── components/\n│   │   │   ├── hooks/\n│   │   │   └── pages/\n│   │   ├── progress/\n│   │   │   ├── components/\n│   │   │   └── pages/\n│   │   └── notifications/\n│   │       ├── components/\n│   │       └── pages/\n│   ├── layouts/\n│   │   ├── PublicLayout.tsx\n│   │   ├── StudentLayout.tsx\n│   │   └── AdminLayout.tsx\n│   ├── shared/\n│   │   ├── components/\n│   │   ├── hooks/\n│   │   ├── types/\n│   │   └── utils/\n│   ├── services/\n│   │   └── apiClient.ts\n│   ├── main.tsx\n│   └── index.css\n├── package.json\n├── tsconfig.json\n└── README.md"
+        },
+        {
+          "type": "p",
+          "text": "This structure separates application infrastructure, business features, shared components, and layouts."
+        },
+        {
+          "type": "h3",
+          "text": "4. Implementation examples"
+        },
+        {
+          "type": "p",
+          "text": "Step 1 — Define application types: src/shared/types/dashboard.ts"
+        },
+        {
+          "type": "code",
+          "text": "export interface Student {\n  id: number;\n  name: string;\n  email: string;\n}\n\nexport interface Course {\n  id: number;\n  title: string;\n  progress: number;\n  totalLessons: number;\n  completedLessons: number;\n}\n\nexport interface Assignment {\n  id: number;\n  title: string;\n  courseId: number;\n  completed: boolean;\n}\n\nexport interface Notification {\n  id: number;\n  message: string;\n  read: boolean;\n}\n\nexport interface DashboardState {\n  student: Student | null;\n  courses: Course[];\n  assignments: Assignment[];\n  notifications: Notification[];\n}"
+        },
+        {
+          "type": "p",
+          "text": "Step 2 — Build a reducer: src/app/dashboardReducer.ts"
+        },
+        {
+          "type": "code",
+          "text": "import type { Course, DashboardState } from \"../shared/types/dashboard\";\n\nexport type DashboardAction =\n  | {\n      type: \"COURSES_LOADED\";\n      courses: Course[];\n    }\n  | {\n      type: \"COURSE_PROGRESS_UPDATED\";\n      courseId: number;\n      progress: number;\n    }\n  | {\n      type: \"NOTIFICATION_READ\";\n      notificationId: number;\n    };\n\nexport function dashboardReducer(\n  state: DashboardState,\n  action: DashboardAction\n): DashboardState {\n  switch (action.type) {\n    case \"COURSES_LOADED\":\n      return { ...state, courses: action.courses };\n    case \"COURSE_PROGRESS_UPDATED\":\n      return {\n        ...state,\n        courses: state.courses.map(course =>\n          course.id === action.courseId\n            ? { ...course, progress: action.progress }\n            : course\n        )\n      };\n    case \"NOTIFICATION_READ\":\n      return {\n        ...state,\n        notifications: state.notifications.map(item =>\n          item.id === action.notificationId\n            ? { ...item, read: true }\n            : item\n        )\n      };\n    default: {\n      const exhaustiveCheck: never = action;\n      return exhaustiveCheck;\n    }\n  }\n}"
+        },
+        {
+          "type": "p",
+          "text": "This example uses a discriminated union to make state updates explicit and type-safe."
+        },
+        {
+          "type": "p",
+          "text": "Step 3 — Build a shared Context provider: src/app/DashboardContext.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import { createContext, useContext, useReducer } from \"react\";\nimport type { ReactNode } from \"react\";\nimport { dashboardReducer } from \"./dashboardReducer\";\nimport type { DashboardAction } from \"./dashboardReducer\";\nimport type { DashboardState } from \"../shared/types/dashboard\";\n\nconst initialState: DashboardState = {\n  student: null,\n  courses: [],\n  assignments: [],\n  notifications: []\n};\n\nconst DashboardStateContext = createContext<DashboardState | null>(null);\nconst DashboardDispatchContext = createContext<React.Dispatch<DashboardAction> | null>(\n  null\n);\n\nexport function DashboardProvider({\n  children\n}: {\n  children: ReactNode;\n}) {\n  const [state, dispatch] = useReducer(\n    dashboardReducer,\n    initialState\n  );\n\n  return (\n    <DashboardStateContext.Provider value={state}>\n      <DashboardDispatchContext.Provider value={dispatch}>\n        {children}\n      </DashboardDispatchContext.Provider>\n    </DashboardStateContext.Provider>\n  );\n}\n\nexport function useDashboardState() {\n  const context = useContext(DashboardStateContext);\n  if (!context) {\n    throw new Error(\"DashboardProvider is missing\");\n  }\n  return context;\n}\n\nexport function useDashboardDispatch() {\n  const context = useContext(DashboardDispatchContext);\n  if (!context) {\n    throw new Error(\"DashboardProvider is missing\");\n  }\n  return context;\n}"
+        },
+        {
+          "type": "p",
+          "text": "Separating state and dispatch Contexts can prevent components that only consume dispatch from subscribing to the state Context value."
+        },
+        {
+          "type": "p",
+          "text": "Step 4 — Create a student dashboard layout: src/layouts/StudentLayout.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import { Outlet, NavLink } from \"react-router\";\n\nfunction StudentLayout() {\n  return (\n    <div className=\"student-layout\">\n      <header>\n        <h1>Student Dashboard</h1>\n      </header>\n      <aside>\n        <nav>\n          <NavLink to=\"/dashboard\" end>\n            Overview\n          </NavLink>\n          <NavLink to=\"/dashboard/courses\">\n            Courses\n          </NavLink>\n          <NavLink to=\"/dashboard/assignments\">\n            Assignments\n          </NavLink>\n          <NavLink to=\"/dashboard/progress\">\n            Progress\n          </NavLink>\n          <NavLink to=\"/dashboard/profile\">\n            Profile\n          </NavLink>\n        </nav>\n      </aside>\n      <main>\n        <Outlet />\n      </main>\n    </div>\n  );\n}\n\nexport default StudentLayout;"
+        },
+        {
+          "type": "p",
+          "text": "The common Navbar and Sidebar remain available while individual route content changes."
+        },
+        {
+          "type": "p",
+          "text": "Step 5 — Configure lazy-loaded routes: src/app/router.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import { lazy, Suspense } from \"react\";\nimport { Routes, Route } from \"react-router\";\n\nconst DashboardHome = lazy(\n  () => import(\"../features/dashboard/pages/DashboardHome\")\n);\nconst Courses = lazy(\n  () => import(\"../features/courses/pages/Courses\")\n);\nconst CourseDetails = lazy(\n  () => import(\"../features/courses/pages/CourseDetails\")\n);\nconst Assignments = lazy(\n  () => import(\"../features/assignments/pages/Assignments\")\n);\nconst Progress = lazy(\n  () => import(\"../features/progress/pages/Progress\")\n);\nconst Profile = lazy(\n  () => import(\"../features/auth/pages/Profile\")\n);\nconst StudentLayout = lazy(\n  () => import(\"../layouts/StudentLayout\")\n);\n\nfunction ProtectedRoute() {\n  // Use your application's real authentication provider.\n  const { user, loading } = useAuth();\n  if (loading) {\n    return <p>Checking session...</p>;\n  }\n  if (!user) {\n    return <Navigate to=\"/login\" replace />;\n  }\n  return <Outlet />;\n}\n\nexport default function AppRouter() {\n  return (\n    <Suspense fallback={<p>Loading application...</p>}>\n      <Routes>\n        <Route element={<ProtectedRoute />}>\n          <Route path=\"/dashboard\" element={<StudentLayout />}>\n            <Route index element={<DashboardHome />} />\n            <Route path=\"courses\" element={<Courses />} />\n            <Route path=\"courses/:courseId\" element={<CourseDetails />} />\n            <Route path=\"assignments\" element={<Assignments />} />\n            <Route path=\"progress\" element={<Progress />} />\n            <Route path=\"profile\" element={<Profile />} />\n          </Route>\n        </Route>\n      </Routes>\n    </Suspense>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "This is an architectural example. The useAuth, Navigate, and Outlet imports and the actual authentication provider must be supplied by the project."
+        },
+        {
+          "type": "p",
+          "text": "Step 6 — Combine application providers: src/app/providers.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import type { ReactNode } from \"react\";\nimport { DashboardProvider } from \"./DashboardContext\";\nimport { AuthProvider } from \"./AuthContext\";\n\nexport function AppProviders({\n  children\n}: {\n  children: ReactNode;\n}) {\n  return (\n    <AuthProvider>\n      <DashboardProvider>\n        {children}\n      </DashboardProvider>\n    </AuthProvider>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Then in the application entry point:"
+        },
+        {
+          "type": "code",
+          "text": "import { BrowserRouter } from \"react-router\";\nimport { AppProviders } from \"./app/providers\";\nimport AppRouter from \"./app/router\";\n\nfunction App() {\n  return (\n    <BrowserRouter>\n      <AppProviders>\n        <AppRouter />\n      </AppProviders>\n    </BrowserRouter>\n  );\n}\n\nexport default App;"
+        },
+        {
+          "type": "p",
+          "text": "The exact location of providers should reflect which parts of the application need them."
+        },
+        {
+          "type": "h3",
+          "text": "5. Project development phases"
+        },
+        {
+          "type": "h3",
+          "text": "Phase 1 — Application foundation: Configure React, TypeScript, Vite, project folders, shared types, and application providers."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 2 — Component architecture: Build reusable Navbar, Sidebar, cards, tables, buttons, notification components, and dashboard widgets."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 3 — State management: Implement Context, useReducer, authentication state, course data, assignments, and notifications."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 4 — Routing architecture: Implement public and protected routes, nested pages, route parameters, navigation layouts, and not-found handling."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 5 — Backend integration: Connect the dashboard to APIs and implement request handling, validation, loading states, and error handling."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 6 — Performance: Implement lazy loading, Suspense, profiling, search debouncing, and justified memoization."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 7 — Testing and completion: Verify route navigation, shared state updates, authorization, component failures, responsiveness, and production builds."
+        },
+        {
+          "type": "h3",
+          "text": "6. Testing requirements"
+        },
+        {
+          "type": "p",
+          "text": "The finished application must be tested for:"
+        },
+        {
+          "type": "p",
+          "text": "Navigation between all dashboard pages."
+        },
+        {
+          "type": "p",
+          "text": "Direct access to nested URLs."
+        },
+        {
+          "type": "p",
+          "text": "Browser refresh on nested routes."
+        },
+        {
+          "type": "p",
+          "text": "Correct course IDs in dynamic routes."
+        },
+        {
+          "type": "p",
+          "text": "Login and logout."
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized access attempts."
+        },
+        {
+          "type": "p",
+          "text": "State updates across multiple pages."
+        },
+        {
+          "type": "p",
+          "text": "Correct assignment and notification updates."
+        },
+        {
+          "type": "p",
+          "text": "Loading behaviour for lazy routes."
+        },
+        {
+          "type": "p",
+          "text": "Error Boundary fallback behaviour."
+        },
+        {
+          "type": "p",
+          "text": "API failures."
+        },
+        {
+          "type": "p",
+          "text": "Large course and assignment collections."
+        },
+        {
+          "type": "p",
+          "text": "Mobile and desktop layouts."
+        },
+        {
+          "type": "h3",
+          "text": "7. Required project deliverables"
+        },
+        {
+          "type": "p",
+          "text": "Deliverable | Requirement"
+        },
+        {
+          "type": "p",
+          "text": "React application | Complete multi-page application"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript | Strictly typed application"
+        },
+        {
+          "type": "p",
+          "text": "Component system | Reusable UI components"
+        },
+        {
+          "type": "p",
+          "text": "Shared state | Context and useReducer"
+        },
+        {
+          "type": "p",
+          "text": "Routing | Nested and dynamic routing"
+        },
+        {
+          "type": "p",
+          "text": "Authentication | Protected interface and authorization integration"
+        },
+        {
+          "type": "p",
+          "text": "Architecture | Feature-based folder structure"
+        },
+        {
+          "type": "p",
+          "text": "Performance | Lazy loading and measured optimization"
+        },
+        {
+          "type": "p",
+          "text": "Error handling | Suspense and Error Boundaries"
+        },
+        {
+          "type": "p",
+          "text": "Documentation | Architecture and setup guide"
+        },
+        {
+          "type": "p",
+          "text": "Demonstration | Working application with screenshots"
+        },
+        {
+          "type": "h3",
+          "text": "8. Project evaluation"
+        },
+        {
+          "type": "p",
+          "text": "Evaluation area | Weight"
+        },
+        {
+          "type": "p",
+          "text": "Rendering and component architecture | 10%"
+        },
+        {
+          "type": "p",
+          "text": "Context and shared state management | 15%"
+        },
+        {
+          "type": "p",
+          "text": "Reducer and advanced Hooks | 15%"
+        },
+        {
+          "type": "p",
+          "text": "Routing and navigation | 15%"
+        },
+        {
+          "type": "p",
+          "text": "Authentication-aware interfaces | 10%"
+        },
+        {
+          "type": "p",
+          "text": "Lazy loading and error handling | 10%"
+        },
+        {
+          "type": "p",
+          "text": "Performance optimization | 10%"
+        },
+        {
+          "type": "p",
+          "text": "Feature-based architecture | 10%"
+        },
+        {
+          "type": "p",
+          "text": "Documentation and testing | 5%"
+        },
+        {
+          "type": "p",
+          "text": "Total | 100%"
+        }
+      ]
+    },
+    {
+      "id": "summary-resources",
+      "badge": "Summary & Resources",
+      "title": "Learning Outcomes and Next Stage",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Expected learning outcomes"
+        },
+        {
+          "type": "p",
+          "text": "After completing Module 09, students should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Explain React rendering, reconciliation, and component identity."
+        },
+        {
+          "type": "p",
+          "text": "Design advanced component composition patterns."
+        },
+        {
+          "type": "p",
+          "text": "Manage component communication and state ownership."
+        },
+        {
+          "type": "p",
+          "text": "Implement Context API and shared application state."
+        },
+        {
+          "type": "p",
+          "text": "Apply memoization using useMemo, useCallback, and memo."
+        },
+        {
+          "type": "p",
+          "text": "Manage complex state transitions using useReducer."
+        },
+        {
+          "type": "p",
+          "text": "Develop reusable custom Hooks."
+        },
+        {
+          "type": "p",
+          "text": "Implement client-side routing using React Router."
+        },
+        {
+          "type": "p",
+          "text": "Create nested routes, dynamic routes, and URL parameters."
+        },
+        {
+          "type": "p",
+          "text": "Build authentication-aware and role-aware interfaces."
+        },
+        {
+          "type": "p",
+          "text": "Design reusable layout and navigation architecture."
+        },
+        {
+          "type": "p",
+          "text": "Implement lazy loading and code splitting."
+        },
+        {
+          "type": "p",
+          "text": "Create Suspense fallbacks and Error Boundaries."
+        },
+        {
+          "type": "p",
+          "text": "Measure and optimize React application performance."
+        },
+        {
+          "type": "p",
+          "text": "Organize large React applications using feature-based architecture."
+        },
+        {
+          "type": "p",
+          "text": "Build a complete multi-page student dashboard using React and TypeScript."
+        },
+        {
+          "type": "h3",
+          "text": "Recommended official learning resources"
+        },
+        {
+          "type": "p",
+          "text": "These resources provide additional documentation and practical exercises."
+        },
+        {
+          "type": "p",
+          "text": "[React — Render and Commit](https://react.dev/learn/render-and-commit) — rendering and DOM updates."
+        },
+        {
+          "type": "p",
+          "text": "[React — Scaling Up with Reducer and Context](https://react.dev/learn/scaling-up-with-reducer-and-context) — complex shared state."
+        },
+        {
+          "type": "p",
+          "text": "[React — Sharing State Between Components](https://react.dev/learn/sharing-state-between-components) — state lifting."
+        },
+        {
+          "type": "p",
+          "text": "[React — useMemo](https://react.dev/reference/react/useMemo) — memoization."
+        },
+        {
+          "type": "p",
+          "text": "[React — useCallback](https://react.dev/reference/react/useCallback) — function memoization."
+        },
+        {
+          "type": "p",
+          "text": "[React — Custom Hooks](https://react.dev/learn/reusing-logic-with-custom-hooks) — reusable logic."
+        },
+        {
+          "type": "p",
+          "text": "[React Router — Installation](https://reactrouter.com/start/declarative/installation) — routing setup."
+        },
+        {
+          "type": "p",
+          "text": "[React Router — Nested Routing](https://reactrouter.com/start/declarative/routing) — layouts and nested pages."
+        },
+        {
+          "type": "p",
+          "text": "[React — lazy](https://react.dev/reference/react/lazy) — lazy component loading."
+        },
+        {
+          "type": "p",
+          "text": "[React — Suspense](https://react.dev/reference/react/Suspense) — fallback interfaces."
+        },
+        {
+          "type": "p",
+          "text": "[React — Error Boundaries](https://react.dev/reference/react/Component) — rendering error recovery."
+        },
+        {
+          "type": "p",
+          "text": "[React Compiler](https://react.dev/learn/react-compiler/introduction) — automatic optimization."
+        },
+        {
+          "type": "h3",
+          "text": "How Module 09 connects to the next stage"
+        },
+        {
+          "type": "p",
+          "text": "Module | Engineering progression"
+        },
+        {
+          "type": "p",
+          "text": "Module 07 — TypeScript | Type-safe frontend development"
+        },
+        {
+          "type": "p",
+          "text": "Module 08 — React Fundamentals | Components, props, state and Hooks"
+        },
+        {
+          "type": "p",
+          "text": "Module 09 — Advanced React | Application architecture, shared state, routing and optimization"
+        },
+        {
+          "type": "p",
+          "text": "Module 10 — Recommended next stage | Production Frontend Engineering, Testing and Quality Engineering"
+        },
+        {
+          "type": "p",
+          "text": "Recommended next module: Production Frontend Engineering, Testing and Quality Engineering."
+        },
+        {
+          "type": "p",
+          "text": "This should cover automated component testing, React Testing Library, Vitest, end-to-end testing with Playwright, accessibility, frontend security, error monitoring, build optimization, and deployment."
+        },
+        {
+          "type": "p",
+          "text": "The progression from Module 08 to Module 09 is important: students first learn to build React components, then learn to connect those components into complete, scalable applications."
+        }
+      ]
+    }
+  ]
+}
