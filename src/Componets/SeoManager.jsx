@@ -205,6 +205,18 @@ const routeMeta = {
     keywords: "Spring Security, JWT Authentication, Refresh Token Rotation, OAuth 2.0, OpenID Connect, PKCE, RBAC, Argon2id, BCrypt, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/auth-security`,
   },
+  "/learning/backend-engineering/validation-reliability": {
+    title: "Module 06: API Validation, Error Handling and Reliability | PrepSpaces",
+    description: "Make APIs resilient with Jakarta Bean Validation, RFC 9457 Problem Details, Idempotency-Key deduplication, Redis rate limiting, timeouts, retries, Resilience4j circuit breakers, and Transactional Outbox.",
+    keywords: "API Validation, RFC 9457 Problem Details, Idempotency Key, Redis Rate Limiting, Resilience4j Circuit Breaker, Exponential Backoff Jitter, Transactional Outbox, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/validation-reliability`,
+  },
+  "/courses/backend-engineering/validation-reliability": {
+    title: "Module 06: API Validation, Error Handling and Reliability | PrepSpaces",
+    description: "Make APIs resilient with Jakarta Bean Validation, RFC 9457 Problem Details, Idempotency-Key deduplication, Redis rate limiting, timeouts, retries, Resilience4j circuit breakers, and Transactional Outbox.",
+    keywords: "API Validation, RFC 9457 Problem Details, Idempotency Key, Redis Rate Limiting, Resilience4j Circuit Breaker, Exponential Backoff Jitter, Transactional Outbox, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/validation-reliability`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

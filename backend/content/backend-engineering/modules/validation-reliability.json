@@ -1,0 +1,130 @@
+{
+  "id": "validation-reliability",
+  "courseId": "backend-engineering",
+  "index": 6,
+  "name": "6. API Validation, Error Handling and Reliability",
+  "route": "/learning/backend-engineering/validation-reliability",
+  "componentName": "BackendValidationReliability",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the key difference between input validation and sanitization?",
+      "options": [
+        "They are identical operations",
+        "Validation checks whether input is acceptable and rejects invalid data; sanitization transforms input into a safe representation when appropriate",
+        "Sanitization replaces parameterized SQL queries",
+        "Validation only runs in the browser"
+      ],
+      "correctIndex": 1,
+      "explanation": "Validation decides if input meets rules (rejecting invalid input), while sanitization transforms permitted input (e.g., stripping unsafe HTML from rich text)."
+    },
+    {
+      "id": 2,
+      "question": "Which standard defines the Problem Details JSON format (type, title, status, detail, instance) supported by Spring's ProblemDetail?",
+      "options": [
+        "RFC 9110",
+        "RFC 9457",
+        "RFC 2616",
+        "RFC 7519"
+      ],
+      "correctIndex": 1,
+      "explanation": "RFC 9457 defines Problem Details for HTTP APIs, supported directly in Spring Framework / Spring Boot via ProblemDetail."
+    },
+    {
+      "id": 3,
+      "question": "What is the difference between DTO validation and business logic validation?",
+      "options": [
+        "DTO validation checks structural/field rules (@NotNull, @Email); business validation checks domain rules (course exists, seats available, not already enrolled)",
+        "Business validation runs in React",
+        "DTO validation checks PostgreSQL locks",
+        "They are the same"
+      ],
+      "correctIndex": 0,
+      "explanation": "A request can be structurally valid (valid DTO) while still violating business rules (e.g., course is full or archived)."
+    },
+    {
+      "id": 4,
+      "question": "What should a backend do if a client reuses the same Idempotency-Key with a DIFFERENT request payload?",
+      "options": [
+        "Silently overwrite the old response",
+        "Reject the request because the same key must not be reused for a different payload",
+        "Return 200 OK with empty JSON",
+        "Delete the idempotency_records table"
+      ],
+      "correctIndex": 1,
+      "explanation": "Storing a request_hash lets the backend detect key reuse with a mismatched payload and reject it rather than treating it as an identical retry."
+    },
+    {
+      "id": 5,
+      "question": "Why is local in-memory rate limiting insufficient when a backend runs across multiple instances?",
+      "options": [
+        "Java cannot count requests in memory",
+        "Each instance maintains its own separate counter, allowing clients to exceed the global limit across instances; Redis provides shared distributed state",
+        "Rate limiting requires HTTP/3",
+        "Local memory cannot return 429"
+      ],
+      "correctIndex": 1,
+      "explanation": "Distributed rate limiting uses shared storage like Redis so all backend instances enforce the same global limit."
+    },
+    {
+      "id": 6,
+      "question": "Why should exponential backoff include jitter when retrying failed external API calls?",
+      "options": [
+        "To make every retry wait exactly 0 ms",
+        "To add randomness to retry delays so many clients do not retry simultaneously and cause a retry storm",
+        "To bypass TLS timeouts",
+        "To convert 400 errors into 200 OK"
+      ],
+      "correctIndex": 1,
+      "explanation": "Jitter spreads out retry attempts across time, preventing synchronized retry storms against a recovering service."
+    },
+    {
+      "id": 7,
+      "question": "Which failures should a backend generally NOT retry automatically?",
+      "options": [
+        "Transient network timeouts",
+        "HTTP 400 validation errors, 401/403 auth failures, or non-idempotent operations without an idempotency key",
+        "HTTP 503 with Retry-After",
+        "Temporary connection resets"
+      ],
+      "correctIndex": 1,
+      "explanation": "Retrying permanent client errors (400/401/403) wastes resources, and retrying non-idempotent mutations without idempotency keys risks duplicate side effects."
+    },
+    {
+      "id": 8,
+      "question": "What are the three states of a Circuit Breaker (e.g., Resilience4j)?",
+      "options": [
+        "Start, Middle, End",
+        "Closed (normal), Open (fast-fail blocking calls), and Half-Open (limited test calls to check recovery)",
+        "Active, Inactive, Archived",
+        "Read, Write, Lock"
+      ],
+      "correctIndex": 1,
+      "explanation": "A circuit breaker transitions from Closed -> Open when failure rate exceeds threshold, then Open -> Half-Open after wait duration to test recovery."
+    },
+    {
+      "id": 9,
+      "question": "How does the Transactional Outbox Pattern prevent partial failure between a DB write and publishing a message?",
+      "options": [
+        "It disables database transactions",
+        "It writes both the business entity and an outbox event record in the SAME local database transaction, then a separate publisher delivers the event",
+        "It sends emails before saving to PostgreSQL",
+        "It retries forever inside the HTTP controller"
+      ],
+      "correctIndex": 1,
+      "explanation": "Saving business state and the outbox event atomically guarantees no lost events even if the message broker is temporarily unavailable."
+    },
+    {
+      "id": 10,
+      "question": "Which API change is considered BREAKING for existing clients?",
+      "options": [
+        "Adding a new optional response field",
+        "Adding a new endpoint",
+        "Renaming or removing an existing response field, or changing its data type",
+        "Improving backend query latency"
+      ],
+      "correctIndex": 2,
+      "explanation": "Removing or renaming existing fields or changing their types breaks existing clients depending on the original contract."
+    }
+  ]
+}

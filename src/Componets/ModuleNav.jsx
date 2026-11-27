@@ -280,6 +280,7 @@ export const BACKEND_ENGINEERING_MODULES = [
   { id: "spring-boot", name: "3. Java Backend Development with Spring Boot", route: "/learning/backend-engineering/spring-boot" },
   { id: "database-persistence", name: "4. Database Engineering and Backend Persistence", route: "/learning/backend-engineering/database-persistence" },
   { id: "auth-security", name: "5. Authentication and Authorization Engineering", route: "/learning/backend-engineering/auth-security" },
+  { id: "validation-reliability", name: "6. API Validation, Error Handling and Reliability", route: "/learning/backend-engineering/validation-reliability" },
 ];
 
 export default function ModuleNav({

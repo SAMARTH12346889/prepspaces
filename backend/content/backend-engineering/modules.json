@@ -53,5 +53,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "validation-reliability",
+    "courseId": "backend-engineering",
+    "index": 6,
+    "name": "6. API Validation, Error Handling and Reliability",
+    "route": "/learning/backend-engineering/validation-reliability",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
