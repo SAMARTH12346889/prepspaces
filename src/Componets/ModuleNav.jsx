@@ -285,6 +285,7 @@ export const BACKEND_ENGINEERING_MODULES = [
   { id: "testing-quality", name: "8. Backend Testing and API Quality Engineering", route: "/learning/backend-engineering/testing-quality" },
   { id: "api-security", name: "9. API Security Engineering", route: "/learning/backend-engineering/api-security" },
   { id: "production-observability", name: "10. Production Backend, Deployment and Observability", route: "/learning/backend-engineering/production-observability" },
+  { id: "capstone-project", name: "11. Capstone: Production-Ready Learning Platform API", route: "/learning/backend-engineering/capstone-project" },
 ];
 
 export default function ModuleNav({

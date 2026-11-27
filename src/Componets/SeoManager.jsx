@@ -265,6 +265,18 @@ const routeMeta = {
     keywords: "Production Backend, Docker Multi-Stage, Flyway Migrations, Expand and Contract, Kubernetes Probes, Graceful Shutdown, Prometheus Grafana, OpenTelemetry, Incident Response, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/production-observability`,
   },
+  "/learning/backend-engineering/capstone-project": {
+    title: "Module 11: Capstone — Production-Ready Learning Platform API | PrepSpaces",
+    description: "Design, build, test, secure, deploy, and document a complete modular monolith Learning Platform API with Java 21, Spring Boot, PostgreSQL, Flyway, Redis, RabbitMQ Outbox, OpenAPI, and Testcontainers.",
+    keywords: "Backend Engineering Capstone, Spring Boot Modular Monolith, Transactional Outbox, Redis Cache-Aside, Distributed Rate Limiting, Testcontainers, OpenAPI Swagger, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/capstone-project`,
+  },
+  "/courses/backend-engineering/capstone-project": {
+    title: "Module 11: Capstone — Production-Ready Learning Platform API | PrepSpaces",
+    description: "Design, build, test, secure, deploy, and document a complete modular monolith Learning Platform API with Java 21, Spring Boot, PostgreSQL, Flyway, Redis, RabbitMQ Outbox, OpenAPI, and Testcontainers.",
+    keywords: "Backend Engineering Capstone, Spring Boot Modular Monolith, Transactional Outbox, Redis Cache-Aside, Distributed Rate Limiting, Testcontainers, OpenAPI Swagger, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/capstone-project`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

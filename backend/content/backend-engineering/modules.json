@@ -108,5 +108,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "capstone-project",
+    "courseId": "backend-engineering",
+    "index": 11,
+    "name": "11. Capstone: Production-Ready Learning Platform API",
+    "route": "/learning/backend-engineering/capstone-project",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

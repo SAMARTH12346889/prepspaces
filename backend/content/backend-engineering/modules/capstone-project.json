@@ -1,0 +1,130 @@
+{
+  "id": "capstone-project",
+  "courseId": "backend-engineering",
+  "index": 11,
+  "name": "11. Capstone: Production-Ready Learning Platform API",
+  "route": "/learning/backend-engineering/capstone-project",
+  "componentName": "BackendCapstone",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is a modular monolith recommended over 10 separate microservices for the initial Learning Platform Capstone?",
+      "options": [
+        "Spring Boot cannot connect to PostgreSQL from microservices",
+        "It provides clearly separated business modules inside one deployable service, demonstrating transactions, security, caching, and async messaging without premature distributed-system complexity",
+        "Microservices do not support JWT authentication",
+        "Docker only runs a single container"
+      ],
+      "correctIndex": 1,
+      "explanation": "A modular monolith keeps strong module boundaries while avoiding unnecessary network hops, distributed transactions, and operational overhead early on."
+    },
+    {
+      "id": 2,
+      "question": "Why must the backend ignore any role field sent by the client during public student registration?",
+      "options": [
+        "Because PostgreSQL cannot store ENUM values",
+        "To prevent privilege escalation where an attacker registers themselves as an ADMIN; the server must always assign the default STUDENT role",
+        "Because Spring Security disables POST requests with roles",
+        "To reduce JSON payload size"
+      ],
+      "correctIndex": 1,
+      "explanation": "Public registration endpoints must hardcode or enforce the default STUDENT role server-side so clients cannot self-provision administrative access."
+    },
+    {
+      "id": 3,
+      "question": "Why is a PostgreSQL UNIQUE (student_id, course_id) constraint still required on the enrollments table even when the service checks existsByStudentIdAndCourseId(...) first?",
+      "options": [
+        "Spring Data JPA ignores existsBy queries",
+        "Two concurrent HTTP requests can both pass the initial existence check before either commits; the database constraint guarantees no duplicate enrollment is persisted",
+        "Unique constraints speed up password hashing",
+        "PostgreSQL requires unique constraints on every foreign key"
+      ],
+      "correctIndex": 1,
+      "explanation": "Application-level existence checks are vulnerable to race conditions under concurrency; a database unique constraint enforces data integrity atomically."
+    },
+    {
+      "id": 4,
+      "question": "How does the Transactional Outbox Pattern solve the dual-write problem between PostgreSQL and RabbitMQ during enrollment?",
+      "options": [
+        "It stores enrollments inside RabbitMQ instead of PostgreSQL",
+        "It saves the enrollment and the outbox_events row in the same PostgreSQL transaction, and a background publisher reliably forwards committed events to RabbitMQ",
+        "It disables database transactions when RabbitMQ is enabled",
+        "It retries HTTP requests from the browser"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because both writes share one ACID transaction, either both commit or both roll back, eliminating lost events or phantom notifications."
+    },
+    {
+      "id": 5,
+      "question": "Why should the notification consumer in RabbitMQ track processed event IDs and operate idempotently?",
+      "options": [
+        "RabbitMQ guarantees at-least-once delivery, meaning a message can be delivered more than once (e.g., if an acknowledgement is lost)",
+        "RabbitMQ deletes messages before consumers read them",
+        "PostgreSQL cannot generate UUIDs",
+        "Idempotency disables dead-letter queues"
+      ],
+      "correctIndex": 0,
+      "explanation": "At-least-once messaging requires duplicate-safe consumers so redelivered events do not send duplicate notifications."
+    },
+    {
+      "id": 6,
+      "question": "Which data in the Learning Platform API is a good candidate for Redis cache-aside caching, and what must happen when an admin updates a course?",
+      "options": [
+        "Cache raw passwords and JWT secrets in Redis; never evict them",
+        "Cache published course details and public listings in Redis, and explicitly evict affected course and listing cache entries on admin updates",
+        "Cache every user's private progress indefinitely without TTL",
+        "Use Redis as the sole database without PostgreSQL"
+      ],
+      "correctIndex": 1,
+      "explanation": "Read-heavy public course metadata benefits from Redis caching, while explicit eviction and TTLs prevent stale data after admin edits."
+    },
+    {
+      "id": 7,
+      "question": "Why should rate limiting for login and public endpoints be backed by Redis instead of an in-memory map inside each Spring Boot instance?",
+      "options": [
+        "Java HashMaps cannot store integers",
+        "When multiple backend instances run behind a load balancer, Redis provides shared, consistent rate-limit counters across all instances",
+        "In-memory maps bypass HTTPS",
+        "Redis automatically hashes BCrypt passwords"
+      ],
+      "correctIndex": 1,
+      "explanation": "Distributed deployments need shared state in Redis so attackers cannot multiply their allowed request quota across instances."
+    },
+    {
+      "id": 8,
+      "question": "How should the Learning Platform API prevent BOLA (Broken Object Level Authorization) on student progress and enrollment endpoints?",
+      "options": [
+        "Use sequential integer IDs in URLs",
+        "Derive the current user ID from the authenticated principal and verify resource ownership (or ADMIN authorization) before returning or modifying records",
+        "Hide endpoints from Swagger UI",
+        "Validate ownership only in the React frontend"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deriving identity from the verified token/principal and enforcing server-side ownership checks stops users from accessing another student's records."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of using Spring ProblemDetail with @RestControllerAdvice across the capstone API?",
+      "options": [
+        "To return raw Java stack traces and SQL queries to clients",
+        "To provide a consistent, standardized HTTP error response format across all endpoints without duplicating try/catch logic or leaking internals",
+        "To replace PostgreSQL foreign keys",
+        "To disable Jakarta Bean Validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Centralized exception handling with ProblemDetail gives clients predictable error payloads (status, code, fieldErrors, traceId) while protecting internal details."
+    },
+    {
+      "id": 10,
+      "question": "In the recommended 10-phase capstone roadmap, why should automated tests and OpenAPI documentation be written alongside each feature phase rather than left until the end?",
+      "options": [
+        "Because Maven refuses to compile without Swagger UI",
+        "Building tests and API contracts per feature verifies correctness, security, and schema integrity incrementally before dependent modules are layered on top",
+        "Because Flyway only runs once per project",
+        "Because Docker cannot run unit tests"
+      ],
+      "correctIndex": 1,
+      "explanation": "Incremental verification ensures authentication, permissions, and database constraints work reliably before subsequent modules build on them."
+    }
+  ]
+}

@@ -200,6 +200,7 @@ const BackendCachingAsync = React.lazy(() => import("./Componets/BackendCachingA
 const BackendTestingQuality = React.lazy(() => import("./Componets/BackendTestingQuality"));
 const BackendApiSecurity = React.lazy(() => import("./Componets/BackendApiSecurity"));
 const BackendProductionObservability = React.lazy(() => import("./Componets/BackendProductionObservability"));
+const BackendCapstone = React.lazy(() => import("./Componets/BackendCapstone"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2033,6 +2034,12 @@ function App() {
             <Route path="/courses/backend-engineering/production-observability" element={<BackendProductionObservability />} />
             <Route path="/learning/backend/production-observability" element={<BackendProductionObservability />} />
             <Route path="/learning/backend/module-10" element={<BackendProductionObservability />} />
+            <Route path="/learning/backend-engineering/capstone-project" element={<BackendCapstone />} />
+            <Route path="/learning/backend-engineering/capstone" element={<BackendCapstone />} />
+            <Route path="/learning/backend-engineering/module-11" element={<BackendCapstone />} />
+            <Route path="/courses/backend-engineering/capstone-project" element={<BackendCapstone />} />
+            <Route path="/learning/backend/capstone-project" element={<BackendCapstone />} />
+            <Route path="/learning/backend/module-11" element={<BackendCapstone />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
