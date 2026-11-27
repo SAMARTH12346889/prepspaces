@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
+  ArrowRight,
   BookOpen,
   CheckCircle2,
   Code2,
@@ -550,10 +551,13 @@ export default function FrontendSemanticHtml() {
             <span>Previous: Module 1 &mdash; Web Architecture &amp; Foundations</span>
           </button>
 
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-600">
-            <ShieldCheck size={16} className="text-emerald-600" />
-            <span>Next Module: CSS Fundamentals &mdash; Styling Systems &amp; Box Model</span>
-          </div>
+          <button
+            onClick={() => navigate("/learning/frontend-engineering/css-engineering-layout")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+          >
+            <span>Next: Module 3 &mdash; CSS Engineering &amp; Modern Layout Systems</span>
+            <ArrowRight size={16} />
+          </button>
         </div>
       </main>
     </div>

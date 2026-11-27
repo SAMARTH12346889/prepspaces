@@ -307,6 +307,18 @@ const routeMeta = {
     keywords: "Semantic HTML5, Document Engineering, HTML Forms, Constraint Validation API, Accessible Tables, Open Graph, Canonical URL, WCAG Accessibility, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/semantic-html`,
   },
+  "/learning/frontend-engineering/css-engineering-layout": {
+    title: "Module 03: CSS Engineering and Modern Layout Systems | PrepSpaces",
+    description: "Master CSS3 cascade layers, specificity, box model, positioning & stacking contexts, Flexbox, CSS Grid, fluid clamp() typography, container queries, animations, BEM/ITCSS, and CSS Modules.",
+    keywords: "CSS3 Engineering, Flexbox, CSS Grid, Cascade Layers, Box Model, Stacking Context, Container Queries, Design Tokens, CSS Modules, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/css-engineering-layout`,
+  },
+  "/courses/frontend-engineering/css-engineering-layout": {
+    title: "Module 03: CSS Engineering and Modern Layout Systems | PrepSpaces",
+    description: "Master CSS3 cascade layers, specificity, box model, positioning & stacking contexts, Flexbox, CSS Grid, fluid clamp() typography, container queries, animations, BEM/ITCSS, and CSS Modules.",
+    keywords: "CSS3 Engineering, Flexbox, CSS Grid, Cascade Layers, Box Model, Stacking Context, Container Queries, Design Tokens, CSS Modules, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/css-engineering-layout`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

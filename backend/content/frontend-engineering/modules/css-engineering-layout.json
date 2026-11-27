@@ -1,0 +1,130 @@
+{
+  "id": "css-engineering-layout",
+  "courseId": "frontend-engineering",
+  "index": 3,
+  "name": "3. CSS Engineering and Modern Layout Systems",
+  "route": "/learning/frontend-engineering/css-engineering-layout",
+  "componentName": "FrontendCssEngineering",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Under `box-sizing: content-box`, what is the border-box width of an element with `width: 300px; padding: 20px; border: 5px solid black;`?",
+      "options": [
+        "300px",
+        "325px",
+        "350px",
+        "380px"
+      ],
+      "correctIndex": 2,
+      "explanation": "With content-box, left+right padding (40px) and left+right border (10px) are added outside the 300px content width, totaling 350px."
+    },
+    {
+      "id": 2,
+      "question": "Why can a child element with `z-index: 9999` still appear behind another element with `z-index: 2`?",
+      "options": [
+        "CSS ignores z-index values above 1000",
+        "The child is trapped inside a parent's stacking context (e.g., `position: relative; z-index: 1; transform: translateZ(0)`) which sits below the other element's stacking context",
+        "z-index only works on inline elements",
+        "border-box disables z-index"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stacking contexts are self-contained; a child cannot escape its parent's stacking context to compete against an outside stacking context."
+    },
+    {
+      "id": 3,
+      "question": "In Flexbox, what is a common fix when a flex item with long text or wide children refuses to shrink below its content width?",
+      "options": [
+        "Set `min-width: 0` on the flex item",
+        "Set `flex-shrink: 999`",
+        "Remove `display: flex` from the parent",
+        "Set `position: sticky`"
+      ],
+      "correctIndex": 0,
+      "explanation": "Flex items have `min-width: auto` by default; setting `min-width: 0` allows them to shrink below their intrinsic content size."
+    },
+    {
+      "id": 4,
+      "question": "In CSS Grid, what is the difference between `auto-fit` and `auto-fill` inside `repeat(..., minmax(250px, 1fr))`?",
+      "options": [
+        "auto-fit collapses empty tracks when possible so items can expand, whereas auto-fill retains the empty repeated tracks",
+        "auto-fill is only for rows; auto-fit is only for columns",
+        "auto-fit disables `gap`",
+        "They are identical aliases"
+      ],
+      "correctIndex": 0,
+      "explanation": "Both create repeating tracks, but auto-fit collapses empty tracks so existing items stretch to fill the row."
+    },
+    {
+      "id": 5,
+      "question": "Why is `:where(h1, h2, h3)` useful for reusable base styles compared to `:is(h1, h2, h3)`?",
+      "options": [
+        "`:where()` always has zero specificity, making it easy to override later",
+        "`:where()` has higher specificity than IDs",
+        "`:is()` does not support headings",
+        "`:where()` disables inheritance"
+      ],
+      "correctIndex": 0,
+      "explanation": "`:is()` takes the highest specificity of its selector list, whereas `:where()` always contributes 0 specificity."
+    },
+    {
+      "id": 6,
+      "question": "How do container queries (`@container`) differ from viewport media queries (`@media`)?",
+      "options": [
+        "Container queries adapt a component based on the size of its containing element rather than the full browser viewport",
+        "Container queries only work in HTML tables",
+        "Media queries cannot check `min-width`",
+        "Container queries replace CSS Grid"
+      ],
+      "correctIndex": 0,
+      "explanation": "Container queries let reusable components respond to the space allocated to their parent container."
+    },
+    {
+      "id": 7,
+      "question": "Which CSS function cleanly expresses fluid typography with a minimum, preferred viewport-based size, and maximum?",
+      "options": [
+        "calc()",
+        "clamp(min, preferred, max)",
+        "repeat()",
+        "minmax()"
+      ],
+      "correctIndex": 1,
+      "explanation": "`clamp(2rem, 5vw, 4rem)` scales fluidly between a floor and ceiling."
+    },
+    {
+      "id": 8,
+      "question": "What is the key difference between `rem` and `em` units?",
+      "options": [
+        "`rem` is relative to the root (`html`) element's font size and does not compound in nested elements, while `em` is relative to the element/parent font size",
+        "`em` is an absolute physical unit; `rem` is not",
+        "`rem` only works for `margin`",
+        "They are identical"
+      ],
+      "correctIndex": 0,
+      "explanation": "`rem` provides a predictable global scale without compounding across nested containers."
+    },
+    {
+      "id": 9,
+      "question": "Why are CSS Modules (`.module.css`) used in component-based applications like React?",
+      "options": [
+        "They are a native browser CSS feature that replaces HTML",
+        "Build tools generate locally scoped class names, preventing global class-name collisions across unrelated components",
+        "They automatically generate backend REST APIs",
+        "They disable CSS custom properties"
+      ],
+      "correctIndex": 1,
+      "explanation": "CSS Modules scope class names at build time while still supporting global CSS custom properties for shared design tokens."
+    },
+    {
+      "id": 10,
+      "question": "Which two CSS properties are generally preferred for performant animations because browsers can often composite them without triggering layout?",
+      "options": [
+        "width and height",
+        "top and left",
+        "transform and opacity",
+        "margin and padding"
+      ],
+      "correctIndex": 2,
+      "explanation": "Animating `transform` and `opacity` avoids expensive reflow/layout recalculations."
+    }
+  ]
+}
