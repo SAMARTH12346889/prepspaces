@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
+  ArrowRight,
   BookOpen,
   CheckCircle2,
   Code2,
@@ -531,10 +532,13 @@ export default function FrontendWebArchitecture() {
             <span>Back to Curriculum Hub</span>
           </button>
 
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-600">
-            <ShieldCheck size={16} className="text-emerald-600" />
-            <span>Next Module: HTML5 &mdash; Semantic Structure, Forms &amp; Modern Web Document Engineering</span>
-          </div>
+          <button
+            onClick={() => navigate("/learning/frontend-engineering/semantic-html")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+          >
+            <span>Next: Module 2 &mdash; Semantic HTML &amp; Document Engineering</span>
+            <ArrowRight size={16} />
+          </button>
         </div>
       </main>
     </div>

@@ -1,0 +1,130 @@
+{
+  "id": "semantic-html",
+  "courseId": "frontend-engineering",
+  "index": 2,
+  "name": "2. Semantic HTML and Modern Document Engineering",
+  "route": "/learning/frontend-engineering/semantic-html",
+  "componentName": "FrontendSemanticHtml",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of `<!DOCTYPE html>` at the top of an HTML5 document?",
+      "options": [
+        "It imports CSS stylesheets automatically",
+        "It instructs the browser to parse the document in modern HTML standards mode rather than legacy quirks mode",
+        "It registers the domain in DNS",
+        "It enables JavaScript ES modules"
+      ],
+      "correctIndex": 1,
+      "explanation": "The DOCTYPE declaration switches browsers into standards mode so layout and parsing follow modern HTML specifications."
+    },
+    {
+      "id": 2,
+      "question": "Which set of HTML elements are all void elements (cannot contain child content and have no closing tags)?",
+      "options": [
+        "div, span, section, article",
+        "img, br, hr, input, meta, link",
+        "form, table, label, button",
+        "header, nav, main, footer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Void elements such as img, br, hr, input, meta, and link cannot have child nodes or closing tags."
+    },
+    {
+      "id": 3,
+      "question": "When should you choose `<article>` instead of `<section>`?",
+      "options": [
+        "Whenever you need a generic styling wrapper",
+        "When the content is a self-contained composition (such as a blog post, news item, or course card) that makes sense independently",
+        "Only for the page footer",
+        "Instead of `<nav>` for primary links"
+      ],
+      "correctIndex": 1,
+      "explanation": "`<article>` represents an independent, self-contained composition, whereas `<section>` groups thematically related content."
+    },
+    {
+      "id": 4,
+      "question": "Why is a native `<button type=\"button\">` preferred over `<div onclick=\"...\">` for interactive actions?",
+      "options": [
+        "Div elements cannot be styled with CSS",
+        "A native button provides built-in keyboard activation (Enter/Space), focusability, and button semantics for assistive technologies",
+        "Buttons automatically submit GET requests without JavaScript",
+        "Div elements are invalid inside `<main>`"
+      ],
+      "correctIndex": 1,
+      "explanation": "Native semantic controls deliver keyboard support, focus management, and accessibility semantics out of the box."
+    },
+    {
+      "id": 5,
+      "question": "What is the recommended `alt` attribute value for a purely decorative image that adds no informational value?",
+      "options": [
+        "Omit the alt attribute completely",
+        "Set `alt=\"\"` (an empty string) so assistive technologies skip announcing it unnecessarily",
+        "Set `alt=\"decorative-image.jpg\"`",
+        "Use `title=\"image\"` instead of alt"
+      ],
+      "correctIndex": 1,
+      "explanation": "An empty `alt=\"\"` tells screen readers the image is decorative; omitting `alt` entirely may cause them to read the filename."
+    },
+    {
+      "id": 6,
+      "question": "In an HTML form, what is the difference between `method=\"get\"` and `method=\"post\"`?",
+      "options": [
+        "POST encrypts data without needing HTTPS; GET does not",
+        "GET appends form parameters to the URL query string (good for bookmarkable searches), while POST sends data in the request body (good for state-changing operations)",
+        "GET is only for file uploads",
+        "POST cannot be used with `<input type=\"email\">`"
+      ],
+      "correctIndex": 1,
+      "explanation": "GET encodes parameters into the URL for idempotent retrieval; POST sends data in the HTTP body, though HTTPS is still required for encryption."
+    },
+    {
+      "id": 7,
+      "question": "In the Constraint Validation API, how do you clear a custom validation error previously set with `input.setCustomValidity(\"...\")`?",
+      "options": [
+        "Call `input.setCustomValidity(\"\")` (an empty string)",
+        "Call `input.removeAttribute(\"required\")`",
+        "Set `input.value = null`",
+        "Add `novalidate` to the input"
+      ],
+      "correctIndex": 0,
+      "explanation": "A control remains invalid until `setCustomValidity(\"\")` is called with an empty string."
+    },
+    {
+      "id": 8,
+      "question": "Which HTML attributes improve accessibility in a data table by explicitly linking header cells to their row or column cells?",
+      "options": [
+        "`<th>` with `scope=\"col\"` or `scope=\"row\"` (and `<caption>` for the table title)",
+        "`<td>` with `placeholder`",
+        "`<div role=\"table\">` without `<th>`",
+        "`colspan=\"0\"` on every cell"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using `<th>` with `scope` and `<caption>` allows screen readers to announce column and row headers for each data cell."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of `<link rel=\"canonical\" href=\"...\">` in the `<head>`?",
+      "options": [
+        "It redirects users automatically to another domain",
+        "It indicates the preferred URL for a page when multiple URLs serve substantially identical content",
+        "It blocks search engines from crawling the page",
+        "It loads the page favicon"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canonical links help search engines consolidate duplicate or parameterized URLs onto one preferred URL."
+    },
+    {
+      "id": 10,
+      "question": "What are the four core principles of WCAG (Web Content Accessibility Guidelines)?",
+      "options": [
+        "Fast, Responsive, Animated, Styled",
+        "Perceivable, Operable, Understandable, Robust",
+        "Semantic, Validated, Cached, Indexed",
+        "Public, Private, Partner, Internal"
+      ],
+      "correctIndex": 1,
+      "explanation": "WCAG organizes accessibility around POUR: Perceivable, Operable, Understandable, and Robust."
+    }
+  ]
+}

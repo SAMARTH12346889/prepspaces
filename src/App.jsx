@@ -202,6 +202,7 @@ const BackendApiSecurity = React.lazy(() => import("./Componets/BackendApiSecuri
 const BackendProductionObservability = React.lazy(() => import("./Componets/BackendProductionObservability"));
 const BackendCapstone = React.lazy(() => import("./Componets/BackendCapstone"));
 const FrontendWebArchitecture = React.lazy(() => import("./Componets/FrontendWebArchitecture"));
+const FrontendSemanticHtml = React.lazy(() => import("./Componets/FrontendSemanticHtml"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2049,6 +2050,11 @@ function App() {
             <Route path="/courses/frontend-engineering" element={<FrontendWebArchitecture />} />
             <Route path="/learning/frontend" element={<FrontendWebArchitecture />} />
             <Route path="/learning/frontend/module-1" element={<FrontendWebArchitecture />} />
+            <Route path="/learning/frontend-engineering/semantic-html" element={<FrontendSemanticHtml />} />
+            <Route path="/learning/frontend-engineering/module-2" element={<FrontendSemanticHtml />} />
+            <Route path="/courses/frontend-engineering/semantic-html" element={<FrontendSemanticHtml />} />
+            <Route path="/learning/frontend/semantic-html" element={<FrontendSemanticHtml />} />
+            <Route path="/learning/frontend/module-2" element={<FrontendSemanticHtml />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

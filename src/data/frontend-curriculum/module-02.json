@@ -1,0 +1,5602 @@
+{
+  "moduleNumber": "02",
+  "title": "MODULE 02 — Semantic HTML and Modern Document Engineering",
+  "badges": [
+    "Core Module",
+    "HTML5",
+    "Web Document Engineering"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "This module builds directly on Module 01. Students have learned how browsers retrieve and render webpages; now they will learn how to construct the actual documents that browsers process."
+    },
+    {
+      "type": "p",
+      "text": "The focus is not simply memorizing HTML tags. It is learning how to build structured, meaningful, accessible, search-engine-friendly web documents that can serve as the foundation for professional frontend applications."
+    },
+    {
+      "type": "h3",
+      "text": "Module Overview"
+    },
+    {
+      "type": "p",
+      "text": "Master the foundation of every web interface."
+    },
+    {
+      "type": "p",
+      "text": "HTML (HyperText Markup Language) is the standard markup language used to structure content on the web. It defines the meaning and organization of documents that browsers interpret and display."
+    },
+    {
+      "type": "p",
+      "text": "Professional frontend development requires more than knowing individual HTML elements. Developers must understand document structure, semantic meaning, navigation architecture, multimedia integration, forms, validation, structured data, search engine metadata, and accessibility."
+    },
+    {
+      "type": "p",
+      "text": "This module develops the ability to engineer complete, well-structured HTML documents that can be styled with CSS, enhanced with JavaScript, accessed by assistive technologies, and understood by search engines."
+    },
+    {
+      "type": "h3",
+      "text": "Learning Outcomes"
+    },
+    {
+      "type": "p",
+      "text": "By the end of this module, students should be able to:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Construct valid HTML5 documents using appropriate document structure and elements.",
+        "Understand elements, attributes, nesting, document metadata, and HTML parsing.",
+        "Use semantic HTML elements to communicate the purpose of different content regions.",
+        "Organize content using headings, paragraphs, lists, and appropriate document hierarchy.",
+        "Design internal and external navigation using links and meaningful URL structures.",
+        "Integrate images, audio, video, and embedded resources.",
+        "Build accessible forms using appropriate input types and controls.",
+        "Implement native HTML form validation and the Constraint Validation API.",
+        "Represent structured information using accessible HTML tables.",
+        "Configure metadata, Open Graph information, and fundamental SEO elements.",
+        "Apply accessibility principles using semantic HTML and native browser behavior.",
+        "Build a complete multi-page website using reusable document structures."
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Lesson 01",
+      "title": "LESSON 01 — HTML Document Structure and Elements",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 What Is HTML?"
+        },
+        {
+          "type": "p",
+          "text": "HTML stands for HyperText Markup Language."
+        },
+        {
+          "type": "p",
+          "text": "It is the standard markup language used to define the structure and meaning of web documents."
+        },
+        {
+          "type": "p",
+          "text": "HTML tells the browser what different pieces of content represent."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A heading represents a title or heading.",
+            "A paragraph represents a block of text.",
+            "An image represents visual content.",
+            "A link represents navigation to another resource.",
+            "A form represents a user-input mechanism.",
+            "A table represents structured tabular information."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "HTML does not primarily control the visual appearance of a website. That responsibility belongs to CSS."
+        },
+        {
+          "type": "p",
+          "text": "JavaScript adds interactive behavior and dynamic functionality."
+        },
+        {
+          "type": "p",
+          "text": "The three technologies work together:"
+        },
+        {
+          "type": "p",
+          "text": "**HTML:** Defines document structure and meaning."
+        },
+        {
+          "type": "p",
+          "text": "**CSS:** Defines presentation, layout, and visual appearance."
+        },
+        {
+          "type": "p",
+          "text": "**JavaScript:** Defines interactive behavior and dynamic operations."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Understanding HTML Elements"
+        },
+        {
+          "type": "p",
+          "text": "An HTML element generally consists of an opening tag, content, and a closing tag."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<p>This is a paragraph.</p>"
+        },
+        {
+          "type": "p",
+          "text": "Here:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`<p>` is the opening tag.",
+            "`This is a paragraph.` is the text content.",
+            "`</p>` is the closing tag.",
+            "The complete structure is the paragraph element."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Another example:"
+        },
+        {
+          "type": "code",
+          "text": "<h1>Frontend Engineering</h1>"
+        },
+        {
+          "type": "p",
+          "text": "This creates a level-one heading."
+        },
+        {
+          "type": "p",
+          "text": "HTML elements describe how the browser and other tools should interpret the content."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Elements, Tags, and Attributes"
+        },
+        {
+          "type": "p",
+          "text": "These three terms are related but have different meanings."
+        },
+        {
+          "type": "p",
+          "text": "**Tag**"
+        },
+        {
+          "type": "p",
+          "text": "A tag is the markup syntax used to identify an element."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "code",
+          "text": "<h1>\n</h1>"
+        },
+        {
+          "type": "p",
+          "text": "**Element**"
+        },
+        {
+          "type": "p",
+          "text": "An element is the complete structure represented by its tags, content, and applicable attributes."
+        },
+        {
+          "type": "p",
+          "text": "**Attribute**"
+        },
+        {
+          "type": "p",
+          "text": "An attribute provides additional information or configuration for an element."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"https://example.com\">Visit Website</a>"
+        },
+        {
+          "type": "p",
+          "text": "Here:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`a` represents the anchor element.",
+            "`href` is an attribute.",
+            "`https://example.com` is its attribute value.",
+            "`Visit Website` is its text content."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Other common attributes include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`id`",
+            "`class`",
+            "`title`",
+            "`src`",
+            "`alt`",
+            "`name`",
+            "`type`",
+            "`value`",
+            "`disabled`",
+            "`required`"
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Anatomy of an HTML5 Document"
+        },
+        {
+          "type": "p",
+          "text": "Every standard HTML document should have an appropriate document structure."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n    <title>Frontend Engineering</title>\n    <meta name=\"description\"\n          content=\"Learn modern frontend engineering.\">\n</head>\n\n<body>\n\n    <header>\n        <h1>Frontend Engineering</h1>\n    </header>\n\n    <main>\n        <h2>Introduction</h2>\n        <p>Learn how modern web interfaces are built.</p>\n    </main>\n\n    <footer>\n        <p>Copyright 2026</p>\n    </footer>\n\n</body>\n</html>"
+        },
+        {
+          "type": "p",
+          "text": "Let's understand every major part."
+        },
+        {
+          "type": "h3",
+          "text": "DOCTYPE Declaration"
+        },
+        {
+          "type": "code",
+          "text": "<!DOCTYPE html>"
+        },
+        {
+          "type": "p",
+          "text": "The DOCTYPE declaration tells the browser to interpret the document using modern HTML standards mode rather than legacy quirks mode."
+        },
+        {
+          "type": "p",
+          "text": "It is not an HTML element."
+        },
+        {
+          "type": "h3",
+          "text": "HTML Root Element"
+        },
+        {
+          "type": "code",
+          "text": "<html lang=\"en\">"
+        },
+        {
+          "type": "p",
+          "text": "The `html` element is the root element of the document."
+        },
+        {
+          "type": "p",
+          "text": "The `lang` attribute identifies the primary language of the document."
+        },
+        {
+          "type": "p",
+          "text": "This helps browsers, search engines, translation tools, and assistive technologies interpret the content."
+        },
+        {
+          "type": "h3",
+          "text": "Head Element"
+        },
+        {
+          "type": "code",
+          "text": "<head>\n    <title>Frontend Engineering</title>\n</head>"
+        },
+        {
+          "type": "p",
+          "text": "The `head` element contains document metadata and references to resources such as stylesheets and icons."
+        },
+        {
+          "type": "p",
+          "text": "It generally contains information that is not displayed as the main page content."
+        },
+        {
+          "type": "p",
+          "text": "Common elements inside `head` include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`title`",
+            "`meta`",
+            "`link`",
+            "`style`",
+            "`script`",
+            "`base`"
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Body Element"
+        },
+        {
+          "type": "code",
+          "text": "<body>\n    <h1>Welcome</h1>\n    <p>Learn HTML.</p>\n</body>"
+        },
+        {
+          "type": "p",
+          "text": "The `body` element contains the document's actual content."
+        },
+        {
+          "type": "p",
+          "text": "Most visible webpage elements belong inside the body."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 Understanding Void Elements and Normal Elements"
+        },
+        {
+          "type": "p",
+          "text": "Most HTML elements have opening and closing tags."
+        },
+        {
+          "type": "p",
+          "text": "However, some elements are void elements. They cannot contain child content and do not have closing tags."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "code",
+          "text": "<img src=\"logo.png\" alt=\"Company logo\">\n\n<br>\n\n<hr>\n\n<input type=\"text\">\n\n<meta charset=\"UTF-8\">\n\n<link rel=\"stylesheet\" href=\"style.css\">"
+        },
+        {
+          "type": "p",
+          "text": "Common void elements include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`area`",
+            "`base`",
+            "`br`",
+            "`col`",
+            "`embed`",
+            "`hr`",
+            "`img`",
+            "`input`",
+            "`link`",
+            "`meta`",
+            "`source`",
+            "`track`",
+            "`wbr`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A normal element can contain text, other elements, or both."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<article>\n    <h2>Understanding HTML</h2>\n    <p>HTML structures web documents.</p>\n</article>"
+        },
+        {
+          "type": "h3",
+          "text": "1.6 Nesting HTML Elements"
+        },
+        {
+          "type": "p",
+          "text": "HTML elements can contain other elements."
+        },
+        {
+          "type": "p",
+          "text": "This is called nesting."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<main>\n    <section>\n        <h1>Our Courses</h1>\n\n        <article>\n            <h2>Frontend Engineering</h2>\n            <p>Learn to build web interfaces.</p>\n        </article>\n\n    </section>\n</main>"
+        },
+        {
+          "type": "p",
+          "text": "Correct nesting is important for predictable document structure."
+        },
+        {
+          "type": "p",
+          "text": "Avoid invalid or confusing nesting such as:"
+        },
+        {
+          "type": "code",
+          "text": "<p>\n    Paragraph begins\n    <div>Block element</div>\n</p>"
+        },
+        {
+          "type": "p",
+          "text": "A paragraph cannot contain a `div`. Browsers may automatically close the paragraph when parsing this markup, producing a DOM different from what the developer intended."
+        },
+        {
+          "type": "p",
+          "text": "Always understand the HTML content model and the elements permitted inside other elements."
+        },
+        {
+          "type": "h3",
+          "text": "1.7 Common HTML Global Attributes"
+        },
+        {
+          "type": "p",
+          "text": "Global attributes can be used on many HTML elements."
+        },
+        {
+          "type": "p",
+          "text": "**id**"
+        },
+        {
+          "type": "p",
+          "text": "Provides a unique identifier within a document."
+        },
+        {
+          "type": "code",
+          "text": "<section id=\"about\">\n    <h2>About Us</h2>\n</section>"
+        },
+        {
+          "type": "p",
+          "text": "**class**"
+        },
+        {
+          "type": "p",
+          "text": "Provides one or more class names, often used by CSS and JavaScript."
+        },
+        {
+          "type": "code",
+          "text": "<div class=\"course-card featured\">\n    Frontend Engineering\n</div>"
+        },
+        {
+          "type": "p",
+          "text": "**title**"
+        },
+        {
+          "type": "p",
+          "text": "Provides advisory information, commonly presented as a tooltip by some browsers."
+        },
+        {
+          "type": "code",
+          "text": "<abbr title=\"HyperText Markup Language\">HTML</abbr>"
+        },
+        {
+          "type": "p",
+          "text": "Do not rely on `title` alone to communicate essential instructions or information."
+        },
+        {
+          "type": "p",
+          "text": "**hidden**"
+        },
+        {
+          "type": "p",
+          "text": "Indicates that an element is not currently relevant for presentation."
+        },
+        {
+          "type": "code",
+          "text": "<div hidden>\n    This content is hidden.\n</div>"
+        },
+        {
+          "type": "p",
+          "text": "**data-\\***"
+        },
+        {
+          "type": "p",
+          "text": "Provides custom data attributes."
+        },
+        {
+          "type": "code",
+          "text": "<button data-course-id=\"frontend-101\">\n    Enrol\n</button>"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript can access this information through `dataset`."
+        },
+        {
+          "type": "h3",
+          "text": "1.8 HTML Comments"
+        },
+        {
+          "type": "p",
+          "text": "Comments provide explanations within source code."
+        },
+        {
+          "type": "code",
+          "text": "<!-- Main navigation starts here -->\n\n<nav>\n    <a href=\"/\">Home</a>\n    <a href=\"/courses.html\">Courses</a>\n</nav>\n\n<!-- Main navigation ends here -->"
+        },
+        {
+          "type": "p",
+          "text": "Comments are not displayed as normal page content."
+        },
+        {
+          "type": "p",
+          "text": "They can help developers organize complex documents, but excessive comments that simply repeat obvious code should be avoided."
+        },
+        {
+          "type": "h3",
+          "text": "1.9 HTML Entities and Special Characters"
+        },
+        {
+          "type": "p",
+          "text": "Some characters have special meaning in HTML."
+        },
+        {
+          "type": "p",
+          "text": "For example, `<` and `>` are used to construct tags."
+        },
+        {
+          "type": "p",
+          "text": "HTML character references allow these characters to be displayed as text."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "| Character          | HTML reference |"
+        },
+        {
+          "type": "p",
+          "text": "| ------------------ | -------------- |"
+        },
+        {
+          "type": "p",
+          "text": "| <                  | `&lt;`         |"
+        },
+        {
+          "type": "p",
+          "text": "| >                  | `&gt;`         |"
+        },
+        {
+          "type": "p",
+          "text": "| &                  | `&amp;`        |"
+        },
+        {
+          "type": "p",
+          "text": "| \"                  | `&quot;`       |"
+        },
+        {
+          "type": "p",
+          "text": "| '                  | `&apos;`       |"
+        },
+        {
+          "type": "p",
+          "text": "| Non-breaking space | `&nbsp;`       |"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<p>Use &lt;h1&gt; for a main heading.</p>"
+        },
+        {
+          "type": "p",
+          "text": "The browser displays:"
+        },
+        {
+          "type": "p",
+          "text": "Use `<h1>` for a main heading."
+        },
+        {
+          "type": "p",
+          "text": "HTML also supports numeric character references for representing Unicode characters."
+        },
+        {
+          "type": "h3",
+          "text": "1.10 HTML Parsing and Browser Interpretation"
+        },
+        {
+          "type": "p",
+          "text": "The browser does not simply display HTML source code."
+        },
+        {
+          "type": "p",
+          "text": "It parses the document and constructs a DOM according to HTML parsing rules."
+        },
+        {
+          "type": "p",
+          "text": "This means invalid markup may be corrected or rearranged during parsing."
+        },
+        {
+          "type": "p",
+          "text": "For frontend developers, this has an important consequence:"
+        },
+        {
+          "type": "p",
+          "text": "The DOM visible in browser developer tools may not exactly match the original source code."
+        },
+        {
+          "type": "p",
+          "text": "Understanding this behavior helps prevent problems caused by incorrect nesting, omitted structural elements, and invalid markup."
+        },
+        {
+          "type": "h3",
+          "text": "1.11 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Create a basic HTML5 document containing:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A correct DOCTYPE declaration.",
+            "An HTML root element with a language attribute.",
+            "A head section.",
+            "Character encoding metadata.",
+            "Responsive viewport metadata.",
+            "A descriptive document title.",
+            "A header section.",
+            "A main content section.",
+            "At least two nested content elements.",
+            "A footer."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Validate that your document has correct element nesting and a meaningful structure."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Lesson 02",
+      "title": "LESSON 02 — Semantic HTML and Document Outline",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 What Is Semantic HTML?"
+        },
+        {
+          "type": "p",
+          "text": "Semantic HTML means using HTML elements according to the meaning and purpose of their content."
+        },
+        {
+          "type": "p",
+          "text": "A semantic element describes what its content represents rather than merely how it should look."
+        },
+        {
+          "type": "p",
+          "text": "Compare:"
+        },
+        {
+          "type": "code",
+          "text": "<div class=\"header\">\n    <div class=\"title\">Frontend Engineering</div>\n</div>"
+        },
+        {
+          "type": "p",
+          "text": "With:"
+        },
+        {
+          "type": "code",
+          "text": "<header>\n    <h1>Frontend Engineering</h1>\n</header>"
+        },
+        {
+          "type": "p",
+          "text": "Both structures can be styled to look similar."
+        },
+        {
+          "type": "p",
+          "text": "However, the second communicates the purpose of its elements directly through HTML semantics."
+        },
+        {
+          "type": "p",
+          "text": "Semantic HTML improves:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Document organization.",
+            "Accessibility.",
+            "Maintainability.",
+            "Content understanding.",
+            "Search engine interpretation.",
+            "Compatibility with browser features."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Semantic vs Non-Semantic Elements"
+        },
+        {
+          "type": "p",
+          "text": "Semantic elements communicate a particular meaning or purpose."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`header`",
+            "`nav`",
+            "`main`",
+            "`article`",
+            "`section`",
+            "`aside`",
+            "`footer`",
+            "`figure`",
+            "`figcaption`",
+            "`form`",
+            "`table`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Non-semantic elements generally do not communicate a particular content role."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`div`",
+            "`span`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Non-semantic elements are still important. They should be used when no more suitable semantic element exists, or when a generic container is necessary for styling and application behavior."
+        },
+        {
+          "type": "p",
+          "text": "Do not force semantic elements into places where their meaning does not fit."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Understanding the Main Semantic Elements"
+        },
+        {
+          "type": "h3",
+          "text": "Header"
+        },
+        {
+          "type": "p",
+          "text": "The `header` element represents introductory content or navigational assistance for its nearest relevant sectioning context."
+        },
+        {
+          "type": "p",
+          "text": "It commonly contains:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Website logos.",
+            "Main headings.",
+            "Introductory information.",
+            "Navigation-related content."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A page may contain more than one header, such as a page header and an article header."
+        },
+        {
+          "type": "h3",
+          "text": "Navigation"
+        },
+        {
+          "type": "p",
+          "text": "The `nav` element represents a major group of navigation links."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<nav aria-label=\"Main navigation\">\n    <a href=\"/\">Home</a>\n    <a href=\"/courses.html\">Courses</a>\n    <a href=\"/about.html\">About</a>\n</nav>"
+        },
+        {
+          "type": "p",
+          "text": "Use `nav` for major navigation, not for every random group of links."
+        },
+        {
+          "type": "h3",
+          "text": "Main"
+        },
+        {
+          "type": "p",
+          "text": "The `main` element represents the dominant content of the document."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<main>\n    <h1>Frontend Courses</h1>\n    <p>Explore our learning programmes.</p>\n</main>"
+        },
+        {
+          "type": "p",
+          "text": "A normal document should have one main content landmark."
+        },
+        {
+          "type": "h3",
+          "text": "Section"
+        },
+        {
+          "type": "p",
+          "text": "The `section` element represents a thematic grouping of content."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<section>\n    <h2>Popular Courses</h2>\n    <p>Explore our most popular learning programmes.</p>\n</section>"
+        },
+        {
+          "type": "p",
+          "text": "A section will generally have a heading that identifies its topic."
+        },
+        {
+          "type": "p",
+          "text": "Do not use `section` simply because you need a generic styling container. Use `div` when no semantic grouping is intended."
+        },
+        {
+          "type": "h3",
+          "text": "Article"
+        },
+        {
+          "type": "p",
+          "text": "The `article` element represents a self-contained composition that could make sense independently."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Blog posts.",
+            "News articles.",
+            "Forum posts.",
+            "Independent product reviews.",
+            "Course announcements."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<article>\n    <h2>Introduction to HTML</h2>\n    <p>HTML provides the structure of web documents.</p>\n    <a href=\"/articles/html-introduction.html\">\n        Read article\n    </a>\n</article>"
+        },
+        {
+          "type": "h3",
+          "text": "Aside"
+        },
+        {
+          "type": "p",
+          "text": "The `aside` element represents content that is indirectly related to the surrounding content."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Related articles.",
+            "Sidebars.",
+            "Supplementary information.",
+            "Related course recommendations."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Footer"
+        },
+        {
+          "type": "p",
+          "text": "The `footer` element represents footer information for its nearest relevant sectioning context or the page."
+        },
+        {
+          "type": "p",
+          "text": "It may contain:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Copyright information.",
+            "Contact information.",
+            "Related links.",
+            "Author information.",
+            "Legal information."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "2.4 Understanding Document Structure"
+        },
+        {
+          "type": "p",
+          "text": "A well-organized document separates content according to its meaning."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<body>\n\n    <header>\n        <a href=\"/\" aria-label=\"Learning Platform home\">\n            Learning Platform\n        </a>\n\n        <nav aria-label=\"Main navigation\">\n            <a href=\"/\">Home</a>\n            <a href=\"/courses.html\">Courses</a>\n            <a href=\"/about.html\">About</a>\n        </nav>\n    </header>\n\n    <main>\n\n        <section>\n            <h1>Explore Technology Courses</h1>\n            <p>Develop practical engineering skills.</p>\n        </section>\n\n        <section>\n            <h2>Featured Courses</h2>\n\n            <article>\n                <h3>Frontend Engineering</h3>\n                <p>Learn to build modern web interfaces.</p>\n            </article>\n\n            <article>\n                <h3>Backend Engineering</h3>\n                <p>Learn server-side application development.</p>\n            </article>\n        </section>\n\n    </main>\n\n    <footer>\n        <p>Copyright 2026 Learning Platform</p>\n    </footer>\n\n</body>"
+        },
+        {
+          "type": "p",
+          "text": "This structure clearly separates the global header, main content, individual content sections, and footer."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Understanding the HTML Document Outline"
+        },
+        {
+          "type": "p",
+          "text": "A document outline is the conceptual hierarchy of information within a document."
+        },
+        {
+          "type": "p",
+          "text": "For a website, the structure may look like:"
+        },
+        {
+          "type": "code",
+          "text": "Frontend Engineering\n│\n├── Introduction\n│   ├── What Is Frontend Engineering?\n│   └── Why Frontend Engineering Matters\n│\n├── Popular Courses\n│   ├── HTML and CSS\n│   ├── JavaScript\n│   └── React\n│\n└── Frequently Asked Questions\n    ├── Course Requirements\n    └── Learning Resources"
+        },
+        {
+          "type": "p",
+          "text": "The heading elements should communicate this hierarchy."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`h1` identifies the primary page topic.",
+            "`h2` identifies major sections.",
+            "`h3` identifies subsections within those sections.",
+            "`h4`, `h5`, and `h6` identify progressively deeper content levels."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The document's structure should be meaningful even when the CSS is disabled."
+        },
+        {
+          "type": "p",
+          "text": "An important implementation detail: do not rely on a theoretical automatic HTML document-outline algorithm to reorganize headings. Modern browsers and assistive technologies use explicit heading levels. Authors must deliberately create a sensible heading hierarchy."
+        },
+        {
+          "type": "h3",
+          "text": "2.6 Semantic HTML and Accessibility"
+        },
+        {
+          "type": "p",
+          "text": "Semantic elements provide built-in meaning and browser behavior."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "<button type=\"button\">\n    Start Learning\n</button>"
+        },
+        {
+          "type": "p",
+          "text": "A real button supports keyboard interaction, focus behavior, and button semantics."
+        },
+        {
+          "type": "p",
+          "text": "Compare it with:"
+        },
+        {
+          "type": "code",
+          "text": "<div onclick=\"startLearning()\">\n    Start Learning\n</div>"
+        },
+        {
+          "type": "p",
+          "text": "The `div` does not automatically behave like a keyboard-accessible button."
+        },
+        {
+          "type": "p",
+          "text": "To make it function equivalently, developers would have to recreate many behaviors manually."
+        },
+        {
+          "type": "p",
+          "text": "Prefer native semantic elements whenever possible."
+        },
+        {
+          "type": "h3",
+          "text": "2.7 Common Semantic HTML Mistakes"
+        },
+        {
+          "type": "p",
+          "text": "Avoid:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Using `div` for every element.",
+            "Using headings only to make text visually large.",
+            "Skipping heading levels without a meaningful structural reason.",
+            "Using `section` as a generic replacement for every `div`.",
+            "Using `article` for content that is not independently meaningful.",
+            "Using `nav` around every group of links.",
+            "Using semantic elements purely for visual styling.",
+            "Adding ARIA roles to elements that already provide the required native semantics."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "2.8 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Build a semantic homepage for a technology learning platform."
+        },
+        {
+          "type": "p",
+          "text": "It must contain:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A global header.",
+            "Main navigation.",
+            "A hero section with a primary heading.",
+            "A featured courses section.",
+            "At least three course articles.",
+            "A supplementary sidebar or related-content section.",
+            "A footer."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Use browser developer tools to inspect your document structure."
+        },
+        {
+          "type": "p",
+          "text": "Check that the document remains understandable without its CSS."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Lesson 03",
+      "title": "LESSON 03 — Headings, Paragraphs, Lists and Content Structure",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 Why Content Structure Matters"
+        },
+        {
+          "type": "p",
+          "text": "A webpage should present information in a logical order."
+        },
+        {
+          "type": "p",
+          "text": "HTML provides elements that help developers organize text, headings, lists, and other forms of content."
+        },
+        {
+          "type": "p",
+          "text": "Proper content structure improves:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Readability.",
+            "Navigation.",
+            "Accessibility.",
+            "Search engine understanding.",
+            "Content maintenance."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A professional webpage should not be treated as one continuous block of text."
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Understanding Heading Elements"
+        },
+        {
+          "type": "p",
+          "text": "HTML provides six heading levels:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`h1`",
+            "`h2`",
+            "`h3`",
+            "`h4`",
+            "`h5`",
+            "`h6`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<h1>Backend Engineering</h1>\n\n<h2>Database Engineering</h2>\n\n<h3>Relational Database Fundamentals</h3>\n\n<h4>Database Relationships</h4>"
+        },
+        {
+          "type": "h3",
+          "text": "H1"
+        },
+        {
+          "type": "p",
+          "text": "Represents the highest-level heading in the page's content."
+        },
+        {
+          "type": "p",
+          "text": "It commonly identifies the main topic of the page."
+        },
+        {
+          "type": "h3",
+          "text": "H2"
+        },
+        {
+          "type": "p",
+          "text": "Identifies major sections within the document."
+        },
+        {
+          "type": "h3",
+          "text": "H3"
+        },
+        {
+          "type": "p",
+          "text": "Identifies subsections within an H2 section."
+        },
+        {
+          "type": "h3",
+          "text": "H4, H5, and H6"
+        },
+        {
+          "type": "p",
+          "text": "Identify progressively deeper levels of information."
+        },
+        {
+          "type": "p",
+          "text": "A heading level should reflect the structure of the content, not its desired font size."
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Heading Hierarchy Example"
+        },
+        {
+          "type": "p",
+          "text": "Consider a technical article:"
+        },
+        {
+          "type": "code",
+          "text": "<article>\n\n    <h1>Understanding JavaScript</h1>\n\n    <section>\n        <h2>Introduction to JavaScript</h2>\n        <p>JavaScript is a programming language...</p>\n    </section>\n\n    <section>\n        <h2>JavaScript Fundamentals</h2>\n\n        <h3>Variables</h3>\n        <p>Variables store values...</p>\n\n        <h3>Functions</h3>\n        <p>Functions organize reusable logic...</p>\n    </section>\n\n    <section>\n        <h2>Advanced JavaScript</h2>\n\n        <h3>Asynchronous Programming</h3>\n        <p>Asynchronous programming...</p>\n    </section>\n\n</article>"
+        },
+        {
+          "type": "p",
+          "text": "This structure communicates the organization of the article."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Paragraph Elements"
+        },
+        {
+          "type": "p",
+          "text": "The `p` element represents a paragraph."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<p>\n    HTML provides the structural foundation of web applications.\n</p>"
+        },
+        {
+          "type": "p",
+          "text": "Use separate paragraphs for distinct ideas instead of manually inserting many line breaks."
+        },
+        {
+          "type": "p",
+          "text": "Avoid using `<br>` to create spacing between entire paragraphs. Use paragraph elements and CSS spacing."
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Ordered Lists"
+        },
+        {
+          "type": "p",
+          "text": "An ordered list represents items whose sequence or ranking matters."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<ol>\n    <li>Understand HTML</li>\n    <li>Learn CSS</li>\n    <li>Study JavaScript</li>\n    <li>Build applications</li>\n</ol>"
+        },
+        {
+          "type": "p",
+          "text": "The browser normally presents these items with numbered markers."
+        },
+        {
+          "type": "p",
+          "text": "Ordered lists support attributes such as:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`start`",
+            "`reversed`",
+            "`type`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<ol start=\"5\">\n    <li>Advanced JavaScript</li>\n    <li>Frontend Testing</li>\n</ol>"
+        },
+        {
+          "type": "h3",
+          "text": "3.6 Unordered Lists"
+        },
+        {
+          "type": "p",
+          "text": "An unordered list represents a group of items where sequence is not essential."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<ul>\n    <li>HTML</li>\n    <li>CSS</li>\n    <li>JavaScript</li>\n</ul>"
+        },
+        {
+          "type": "p",
+          "text": "Common uses include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Navigation items.",
+            "Feature lists.",
+            "Course topics.",
+            "Product features.",
+            "General collections."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "3.7 Description Lists"
+        },
+        {
+          "type": "p",
+          "text": "A description list represents terms and their associated descriptions or metadata."
+        },
+        {
+          "type": "p",
+          "text": "It uses:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`dl` — description list.",
+            "`dt` — description term.",
+            "`dd` — description details."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<dl>\n    <dt>HTML</dt>\n    <dd>Defines the structure of web documents.</dd>\n\n    <dt>CSS</dt>\n    <dd>Controls the presentation of web documents.</dd>\n\n    <dt>JavaScript</dt>\n    <dd>Adds dynamic behavior to web applications.</dd>\n</dl>"
+        },
+        {
+          "type": "p",
+          "text": "This is useful for glossaries, metadata, terminology, and other term-description relationships."
+        },
+        {
+          "type": "h3",
+          "text": "3.8 Nested Lists"
+        },
+        {
+          "type": "p",
+          "text": "Lists can contain nested lists to represent hierarchical information."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<ul>\n    <li>\n        Frontend Development\n\n        <ul>\n            <li>HTML</li>\n            <li>CSS</li>\n            <li>JavaScript</li>\n        </ul>\n    </li>\n\n    <li>\n        Backend Development\n\n        <ul>\n            <li>APIs</li>\n            <li>Databases</li>\n            <li>Authentication</li>\n        </ul>\n    </li>\n</ul>"
+        },
+        {
+          "type": "p",
+          "text": "The nested structure communicates the relationship between topics."
+        },
+        {
+          "type": "h3",
+          "text": "3.9 Other Useful Text Elements"
+        },
+        {
+          "type": "h3",
+          "text": "Strong"
+        },
+        {
+          "type": "p",
+          "text": "The `strong` element identifies content with strong importance."
+        },
+        {
+          "type": "code",
+          "text": "<p>\n    <strong>Important:</strong>\n    Never expose private credentials in frontend code.\n</p>"
+        },
+        {
+          "type": "h3",
+          "text": "Emphasis"
+        },
+        {
+          "type": "p",
+          "text": "The `em` element represents stress emphasis."
+        },
+        {
+          "type": "code",
+          "text": "<p>\n    Always validate important data\n    <em>before</em> processing it.\n</p>"
+        },
+        {
+          "type": "h3",
+          "text": "Mark"
+        },
+        {
+          "type": "p",
+          "text": "Highlights text relevant to the current context."
+        },
+        {
+          "type": "code",
+          "text": "<p>\n    Search result:\n    <mark>Semantic HTML</mark>\n</p>"
+        },
+        {
+          "type": "h3",
+          "text": "Code"
+        },
+        {
+          "type": "p",
+          "text": "Represents a fragment of computer code."
+        },
+        {
+          "type": "code",
+          "text": "<p>Use <code>document.querySelector()</code> to select an element.</p>"
+        },
+        {
+          "type": "h3",
+          "text": "Pre"
+        },
+        {
+          "type": "p",
+          "text": "Represents preformatted text."
+        },
+        {
+          "type": "code",
+          "text": "<pre>\nconst message = \"Hello\";\nconsole.log(message);\n</pre>"
+        },
+        {
+          "type": "p",
+          "text": "It is commonly used with `code` for code examples."
+        },
+        {
+          "type": "h3",
+          "text": "Blockquote"
+        },
+        {
+          "type": "p",
+          "text": "Represents a quotation from another source."
+        },
+        {
+          "type": "code",
+          "text": "<blockquote cite=\"https://example.com/reference\">\n    Good document structure improves maintainability.\n</blockquote>"
+        },
+        {
+          "type": "h3",
+          "text": "Abbreviation"
+        },
+        {
+          "type": "p",
+          "text": "Represents an abbreviation or acronym."
+        },
+        {
+          "type": "code",
+          "text": "<p>\n    <abbr title=\"HyperText Markup Language\">HTML</abbr>\n    structures web documents.\n</p>"
+        },
+        {
+          "type": "h3",
+          "text": "3.10 Content Organization Best Practices"
+        },
+        {
+          "type": "p",
+          "text": "When creating content-heavy webpages:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Give each page a clear primary topic.",
+            "Organize major topics into sections.",
+            "Use heading levels consistently.",
+            "Use paragraphs for complete ideas.",
+            "Use ordered lists when sequence matters.",
+            "Use unordered lists for general collections.",
+            "Use description lists for term-definition relationships.",
+            "Use inline semantic elements to communicate emphasis and meaning.",
+            "Avoid selecting elements only for their default visual appearance.",
+            "Keep the underlying structure meaningful without CSS."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "3.11 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Create a structured article titled \"The Complete Guide to Frontend Engineering.\""
+        },
+        {
+          "type": "p",
+          "text": "It must include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "One primary heading.",
+            "At least four major sections.",
+            "Appropriate subsections.",
+            "Normal paragraphs.",
+            "An ordered list of development steps.",
+            "An unordered list of technologies.",
+            "A description list explaining HTML, CSS, and JavaScript.",
+            "A code example.",
+            "A quotation."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Verify that the page has a logical heading hierarchy."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Lesson 04",
+      "title": "LESSON 04 — Links, Navigation and Internal Page Architecture",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 What Are HTML Links?"
+        },
+        {
+          "type": "p",
+          "text": "Links allow users to navigate between documents and resources."
+        },
+        {
+          "type": "p",
+          "text": "The `a` element, also known as the anchor element, creates a hyperlink."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"https://example.com\">\n    Visit Example\n</a>"
+        },
+        {
+          "type": "p",
+          "text": "The `href` attribute defines the destination."
+        },
+        {
+          "type": "p",
+          "text": "Links are fundamental to the interconnected structure of the web."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 Absolute URLs"
+        },
+        {
+          "type": "p",
+          "text": "An absolute URL contains the complete resource address."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"https://developer.mozilla.org/\">\n    Documentation\n</a>"
+        },
+        {
+          "type": "p",
+          "text": "Use absolute URLs when linking to external websites or when a complete address is required."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Relative URLs"
+        },
+        {
+          "type": "p",
+          "text": "A relative URL identifies a resource based on the current document's URL."
+        },
+        {
+          "type": "p",
+          "text": "Suppose the project structure is:"
+        },
+        {
+          "type": "code",
+          "text": "website/\n│\n├── index.html\n├── courses.html\n├── about.html\n│\n└── pages/\n    ├── contact.html\n    └── privacy.html"
+        },
+        {
+          "type": "p",
+          "text": "From `index.html`, you can link to:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"courses.html\">Courses</a>"
+        },
+        {
+          "type": "p",
+          "text": "To access a file inside the pages directory:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"pages/contact.html\">Contact</a>"
+        },
+        {
+          "type": "p",
+          "text": "From `pages/contact.html`, you can move back to the root:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"../index.html\">Home</a>"
+        },
+        {
+          "type": "p",
+          "text": "The `..` segment represents the parent directory in a relative URL path."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 Root-Relative Paths"
+        },
+        {
+          "type": "p",
+          "text": "A root-relative path begins at the website's URL root."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"/courses.html\">Courses</a>"
+        },
+        {
+          "type": "p",
+          "text": "It is useful when a website has a consistent root structure."
+        },
+        {
+          "type": "p",
+          "text": "However, developers deploying an application under a subdirectory must consider the hosting configuration and base path."
+        },
+        {
+          "type": "h3",
+          "text": "4.5 Internal Page Navigation"
+        },
+        {
+          "type": "p",
+          "text": "A webpage can link to a particular section using an element's `id`."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<nav aria-label=\"On this page\">\n    <a href=\"#introduction\">Introduction</a>\n    <a href=\"#requirements\">Requirements</a>\n    <a href=\"#projects\">Projects</a>\n</nav>\n\n<section id=\"introduction\">\n    <h2>Introduction</h2>\n</section>\n\n<section id=\"requirements\">\n    <h2>Requirements</h2>\n</section>\n\n<section id=\"projects\">\n    <h2>Projects</h2>\n</section>"
+        },
+        {
+          "type": "p",
+          "text": "When a user activates a link, the browser navigates to the corresponding fragment target."
+        },
+        {
+          "type": "p",
+          "text": "This is useful for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Long documentation pages.",
+            "Course modules.",
+            "Table-of-contents navigation.",
+            "Frequently asked questions.",
+            "Product information pages."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "4.6 Navigation Architecture"
+        },
+        {
+          "type": "p",
+          "text": "A website should have a clear navigation structure."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "Home\n│\n├── Courses\n│   ├── Frontend Engineering\n│   ├── Backend Engineering\n│   └── Data Engineering\n│\n├── Resources\n│\n├── About\n│\n└── Contact"
+        },
+        {
+          "type": "p",
+          "text": "The navigation structure helps users understand how pages are related."
+        },
+        {
+          "type": "p",
+          "text": "A common navigation implementation:"
+        },
+        {
+          "type": "code",
+          "text": "<header>\n\n    <a href=\"/\" aria-label=\"Learning Platform home\">\n        Learning Platform\n    </a>\n\n    <nav aria-label=\"Primary navigation\">\n        <ul>\n            <li><a href=\"/\">Home</a></li>\n            <li><a href=\"/courses.html\">Courses</a></li>\n            <li><a href=\"/resources.html\">Resources</a></li>\n            <li><a href=\"/about.html\">About</a></li>\n            <li><a href=\"/contact.html\">Contact</a></li>\n        </ul>\n    </nav>\n\n</header>"
+        },
+        {
+          "type": "h3",
+          "text": "4.7 Meaningful Link Text"
+        },
+        {
+          "type": "p",
+          "text": "Link text should communicate the destination or purpose."
+        },
+        {
+          "type": "p",
+          "text": "Avoid:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"/frontend.html\">Click here</a>"
+        },
+        {
+          "type": "p",
+          "text": "Prefer:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"/frontend.html\">\n    Explore the Frontend Engineering Course\n</a>"
+        },
+        {
+          "type": "p",
+          "text": "Meaningful link text is useful for all users, particularly people navigating through screen readers."
+        },
+        {
+          "type": "h3",
+          "text": "4.8 Opening Links in New Tabs"
+        },
+        {
+          "type": "p",
+          "text": "The `target` attribute controls the browsing context where a link is opened."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<a\n    href=\"https://example.com\"\n    target=\"_blank\"\n    rel=\"noopener\"\n>\n    Open External Website\n</a>"
+        },
+        {
+          "type": "p",
+          "text": "`_blank` commonly opens a new tab or window."
+        },
+        {
+          "type": "p",
+          "text": "Modern browsers generally imply `noopener` for `_blank` links, but writing it explicitly can make the intention clear."
+        },
+        {
+          "type": "p",
+          "text": "Use a new tab only when it is appropriate for the user's experience."
+        },
+        {
+          "type": "p",
+          "text": "A useful practice is to communicate when a link opens a new tab."
+        },
+        {
+          "type": "h3",
+          "text": "4.9 Download Links"
+        },
+        {
+          "type": "p",
+          "text": "The `download` attribute can indicate that a linked resource should be downloaded."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"/files/course-guide.pdf\" download>\n    Download Course Guide\n</a>"
+        },
+        {
+          "type": "p",
+          "text": "Browser behavior depends on the resource, origin, response headers, and supported browser features."
+        },
+        {
+          "type": "h3",
+          "text": "4.10 Email and Telephone Links"
+        },
+        {
+          "type": "p",
+          "text": "HTML supports special link schemes."
+        },
+        {
+          "type": "p",
+          "text": "Email:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"mailto:support@example.com\">\n    Email Support\n</a>"
+        },
+        {
+          "type": "p",
+          "text": "Telephone:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"tel:+911234567890\">\n    Call Support\n</a>"
+        },
+        {
+          "type": "p",
+          "text": "These allow compatible applications to handle the requested action."
+        },
+        {
+          "type": "h3",
+          "text": "4.11 Breadcrumb Navigation"
+        },
+        {
+          "type": "p",
+          "text": "Breadcrumbs help users understand their current location within a site's hierarchy."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<nav aria-label=\"Breadcrumb\">\n    <ol>\n        <li><a href=\"/\">Home</a></li>\n        <li><a href=\"/courses.html\">Courses</a></li>\n        <li aria-current=\"page\">Frontend Engineering</li>\n    </ol>\n</nav>"
+        },
+        {
+          "type": "p",
+          "text": "Breadcrumbs are particularly useful for content-heavy websites, documentation platforms, and large learning platforms."
+        },
+        {
+          "type": "h3",
+          "text": "4.12 Understanding Navigation and URL Architecture"
+        },
+        {
+          "type": "p",
+          "text": "A well-designed website uses predictable URL structures."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "code",
+          "text": "/\n /courses\n /courses/frontend-engineering\n /courses/backend-engineering\n /resources\n /about\n /contact"
+        },
+        {
+          "type": "p",
+          "text": "These examples describe conceptual URL architecture. The actual implementation depends on whether the website uses static HTML, server-side routing, or a frontend routing framework."
+        },
+        {
+          "type": "p",
+          "text": "The URL design should be:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Understandable.",
+            "Consistent.",
+            "Descriptive.",
+            "Stable when possible.",
+            "Easy to share.",
+            "Suitable for search engines."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "In a multi-page HTML project, each page can be represented by a separate HTML document."
+        },
+        {
+          "type": "p",
+          "text": "In a client-side application, JavaScript routing may manage navigation while the browser URL still identifies the current location."
+        },
+        {
+          "type": "h3",
+          "text": "4.13 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Create a multi-page website with:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Home page.",
+            "Courses page.",
+            "About page.",
+            "Contact page.",
+            "At least three course detail pages."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Add primary navigation to every page."
+        },
+        {
+          "type": "p",
+          "text": "Also implement:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Internal page links.",
+            "Fragment navigation.",
+            "Breadcrumbs on course detail pages.",
+            "External documentation links.",
+            "Email and telephone links."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Verify that all links reach the intended destinations."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Lesson 05",
+      "title": "LESSON 05 — Images, Audio, Video and Embedded Content",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 Multimedia in Modern Websites"
+        },
+        {
+          "type": "p",
+          "text": "Modern websites use multimedia to communicate information and provide interactive experiences."
+        },
+        {
+          "type": "p",
+          "text": "HTML supports several native elements for embedding media:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`img`",
+            "`picture`",
+            "`audio`",
+            "`video`",
+            "`source`",
+            "`track`",
+            "`iframe`",
+            "`figure`",
+            "`figcaption`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Understanding these elements is necessary for building accessible, responsive, and performant interfaces."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 The Image Element"
+        },
+        {
+          "type": "p",
+          "text": "The `img` element embeds an image into a document."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<img\n    src=\"/images/frontend-course.jpg\"\n    alt=\"Student working on a frontend development project\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "Important attributes include:"
+        },
+        {
+          "type": "p",
+          "text": "**src**"
+        },
+        {
+          "type": "p",
+          "text": "Specifies the image resource."
+        },
+        {
+          "type": "p",
+          "text": "**alt**"
+        },
+        {
+          "type": "p",
+          "text": "Provides alternative text for users who cannot see the image."
+        },
+        {
+          "type": "p",
+          "text": "**width and height**"
+        },
+        {
+          "type": "p",
+          "text": "Describe the image's intrinsic dimensions in CSS pixels and help browsers reserve layout space."
+        },
+        {
+          "type": "p",
+          "text": "**loading**"
+        },
+        {
+          "type": "p",
+          "text": "Controls loading behavior, such as eager or lazy loading."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Understanding Alternative Text"
+        },
+        {
+          "type": "p",
+          "text": "Alternative text is one of the most important aspects of image accessibility."
+        },
+        {
+          "type": "p",
+          "text": "For informative images, write meaningful descriptions of the information the image communicates."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<img\n    src=\"network-diagram.png\"\n    alt=\"Diagram showing a browser communicating with an API server\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "For decorative images that do not add meaningful information, use an empty alternative text value:"
+        },
+        {
+          "type": "code",
+          "text": "<img src=\"decorative-pattern.svg\" alt=\"\">"
+        },
+        {
+          "type": "p",
+          "text": "This prevents unnecessary announcements by assistive technologies."
+        },
+        {
+          "type": "p",
+          "text": "Avoid using filenames as alternative text."
+        },
+        {
+          "type": "p",
+          "text": "Alternative text should convey the image's relevant purpose, not describe every visible detail regardless of context."
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Image Dimensions and Responsive Images"
+        },
+        {
+          "type": "p",
+          "text": "Specifying image dimensions helps prevent unexpected layout shifts during loading."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<img\n    src=\"course.jpg\"\n    alt=\"Frontend engineering course\"\n    width=\"800\"\n    height=\"450\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "CSS can make images responsive:"
+        },
+        {
+          "type": "code",
+          "text": "img {\n    max-width: 100%;\n    height: auto;\n}"
+        },
+        {
+          "type": "p",
+          "text": "The browser can scale the image while maintaining its aspect ratio."
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Image Lazy Loading"
+        },
+        {
+          "type": "p",
+          "text": "Lazy loading delays the loading of certain images until they approach the visible area."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<img\n    src=\"course-thumbnail.jpg\"\n    alt=\"Course thumbnail\"\n    loading=\"lazy\"\n    width=\"640\"\n    height=\"360\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "This can reduce initial page-loading work on long pages."
+        },
+        {
+          "type": "p",
+          "text": "However, do not automatically lazy-load every image."
+        },
+        {
+          "type": "p",
+          "text": "Important above-the-fold images, particularly a prominent hero image, may need eager loading to avoid delaying the largest visible content."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Responsive Images With srcset and sizes"
+        },
+        {
+          "type": "p",
+          "text": "Different devices may need different image sizes."
+        },
+        {
+          "type": "p",
+          "text": "The `srcset` attribute allows developers to offer multiple image resources."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<img\n    src=\"course-800.jpg\"\n    srcset=\"\n        course-400.jpg 400w,\n        course-800.jpg 800w,\n        course-1200.jpg 1200w\n    \"\n    sizes=\"\n        (max-width: 600px) 100vw,\n        (max-width: 1000px) 80vw,\n        800px\n    \"\n    alt=\"Frontend engineering course\"\n    width=\"800\"\n    height=\"450\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "The browser uses the available information and device conditions to select an appropriate image resource."
+        },
+        {
+          "type": "p",
+          "text": "This is useful when serving large content images to desktop users and smaller versions to mobile users."
+        },
+        {
+          "type": "h3",
+          "text": "5.7 The Picture Element"
+        },
+        {
+          "type": "p",
+          "text": "The `picture` element provides more control over image resource selection."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<picture>\n    <source\n        media=\"(max-width: 600px)\"\n        srcset=\"mobile-banner.jpg\"\n    >\n\n    <source\n        media=\"(min-width: 601px)\"\n        srcset=\"desktop-banner.jpg\"\n    >\n\n    <img\n        src=\"desktop-banner.jpg\"\n        alt=\"Students learning web development\"\n        width=\"1200\"\n        height=\"500\"\n    >\n</picture>"
+        },
+        {
+          "type": "p",
+          "text": "It can also be used for art direction and modern image formats with appropriate fallback resources."
+        },
+        {
+          "type": "h3",
+          "text": "5.8 Figure and Figcaption"
+        },
+        {
+          "type": "p",
+          "text": "The `figure` element represents self-contained content such as an image, diagram, chart, or code example."
+        },
+        {
+          "type": "p",
+          "text": "The `figcaption` element provides a caption for that figure."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<figure>\n    <img\n        src=\"browser-architecture.png\"\n        alt=\"Diagram showing the major browser subsystems\"\n        width=\"900\"\n        height=\"600\"\n    >\n\n    <figcaption>\n        Figure 1: Simplified browser architecture.\n    </figcaption>\n</figure>"
+        },
+        {
+          "type": "p",
+          "text": "This clearly connects the image with its explanation."
+        },
+        {
+          "type": "h3",
+          "text": "5.9 Embedding Audio"
+        },
+        {
+          "type": "p",
+          "text": "The `audio` element embeds audio content."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<audio controls>\n    <source src=\"lesson.mp3\" type=\"audio/mpeg\">\n    <source src=\"lesson.ogg\" type=\"audio/ogg\">\n\n    Your browser does not support HTML audio.\n</audio>"
+        },
+        {
+          "type": "p",
+          "text": "Important attributes include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`controls`",
+            "`autoplay`",
+            "`loop`",
+            "`muted`",
+            "`preload`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The `controls` attribute enables the browser's native audio controls."
+        },
+        {
+          "type": "p",
+          "text": "Autoplay behavior is restricted by browsers and should not be relied upon."
+        },
+        {
+          "type": "p",
+          "text": "For prerecorded audio information, provide a transcript when appropriate."
+        },
+        {
+          "type": "h3",
+          "text": "5.10 Embedding Video"
+        },
+        {
+          "type": "p",
+          "text": "The `video` element embeds video content."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<video\n    controls\n    width=\"800\"\n    height=\"450\"\n    poster=\"video-thumbnail.jpg\"\n>\n    <source src=\"lesson.mp4\" type=\"video/mp4\">\n    <source src=\"lesson.webm\" type=\"video/webm\">\n\n    Your browser does not support HTML video.\n</video>"
+        },
+        {
+          "type": "p",
+          "text": "Important attributes include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`controls`",
+            "`width`",
+            "`height`",
+            "`poster`",
+            "`muted`",
+            "`loop`",
+            "`autoplay`",
+            "`playsinline`",
+            "`preload`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The `poster` attribute identifies a preview image shown before playback."
+        },
+        {
+          "type": "h3",
+          "text": "5.11 Video Captions and Tracks"
+        },
+        {
+          "type": "p",
+          "text": "The `track` element provides timed text tracks associated with audio and video."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<video controls width=\"800\">\n    <source src=\"lesson.mp4\" type=\"video/mp4\">\n\n    <track\n        kind=\"captions\"\n        src=\"lesson-en.vtt\"\n        srclang=\"en\"\n        label=\"English\"\n        default\n    >\n</video>"
+        },
+        {
+          "type": "p",
+          "text": "Common track kinds include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`subtitles`",
+            "`captions`",
+            "`descriptions`",
+            "`chapters`",
+            "`metadata`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Captions are particularly important for deaf and hard-of-hearing users."
+        },
+        {
+          "type": "p",
+          "text": "Text alternatives and transcripts can also benefit users in environments where sound is unavailable."
+        },
+        {
+          "type": "h3",
+          "text": "5.12 Embedded Content With Iframe"
+        },
+        {
+          "type": "p",
+          "text": "The `iframe` element embeds another browsing context inside the current document."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<iframe\n    src=\"https://example.com\"\n    title=\"Example website preview\"\n    width=\"800\"\n    height=\"500\"\n    loading=\"lazy\"\n>\n</iframe>"
+        },
+        {
+          "type": "p",
+          "text": "Common use cases include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Embedded maps.",
+            "Video players.",
+            "External applications.",
+            "Documentation previews."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "5.13 Iframe Security and Privacy"
+        },
+        {
+          "type": "p",
+          "text": "Embedded content can introduce security and privacy concerns."
+        },
+        {
+          "type": "p",
+          "text": "Useful iframe attributes include:"
+        },
+        {
+          "type": "p",
+          "text": "**title**"
+        },
+        {
+          "type": "p",
+          "text": "Provides an accessible name describing the embedded content."
+        },
+        {
+          "type": "p",
+          "text": "**sandbox**"
+        },
+        {
+          "type": "p",
+          "text": "Restricts capabilities available to the embedded content."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<iframe\n    src=\"https://example.com\"\n    title=\"External application\"\n    sandbox\n    width=\"800\"\n    height=\"500\"\n>\n</iframe>"
+        },
+        {
+          "type": "p",
+          "text": "Additional sandbox permissions may be granted only when necessary."
+        },
+        {
+          "type": "p",
+          "text": "**allow**"
+        },
+        {
+          "type": "p",
+          "text": "Can restrict or grant specified browser capabilities through Permissions Policy."
+        },
+        {
+          "type": "p",
+          "text": "**referrerpolicy**"
+        },
+        {
+          "type": "p",
+          "text": "Controls which referrer information is sent when requesting the embedded resource."
+        },
+        {
+          "type": "p",
+          "text": "Do not grant broad iframe permissions without understanding why the embedded content needs them."
+        },
+        {
+          "type": "p",
+          "text": "Some embedded sites also restrict framing through HTTP security headers, so an iframe will not necessarily work for every external URL."
+        },
+        {
+          "type": "h3",
+          "text": "5.14 Performance Considerations for Multimedia"
+        },
+        {
+          "type": "p",
+          "text": "Large images and media files can significantly affect page performance."
+        },
+        {
+          "type": "p",
+          "text": "Best practices include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Select appropriate image dimensions.",
+            "Compress images.",
+            "Use modern image formats when suitable.",
+            "Provide responsive image resources.",
+            "Use lazy loading for appropriate below-the-fold images.",
+            "Specify image dimensions.",
+            "Avoid autoplaying large media without a clear need.",
+            "Provide captions and transcripts where appropriate.",
+            "Use media hosting or CDN infrastructure when suitable."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "5.15 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Create a multimedia learning page containing:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A course thumbnail.",
+            "An informative image with appropriate alt text.",
+            "A decorative image with empty alt text.",
+            "A responsive image using `srcset`.",
+            "A figure with a caption.",
+            "An audio lesson.",
+            "A video lesson.",
+            "Captions for the video.",
+            "An embedded external resource using an iframe."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Test the page with images disabled or unavailable and inspect its accessibility information."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Lesson 06",
+      "title": "LESSON 06 — HTML Forms and Input Types",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 What Are HTML Forms?"
+        },
+        {
+          "type": "p",
+          "text": "Forms allow users to provide information to a website."
+        },
+        {
+          "type": "p",
+          "text": "Common uses include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "User registration.",
+            "Login.",
+            "Search.",
+            "Contact requests.",
+            "Feedback submission.",
+            "Course enrolment.",
+            "Payments.",
+            "File uploads."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The `form` element provides the structure for collecting and submitting user input."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Basic Form Structure"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<form action=\"/register\" method=\"post\">\n\n    <label for=\"name\">Full Name</label>\n\n    <input\n        type=\"text\"\n        id=\"name\"\n        name=\"name\"\n        required\n    >\n\n    <button type=\"submit\">\n        Register\n    </button>\n\n</form>"
+        },
+        {
+          "type": "p",
+          "text": "Important concepts:"
+        },
+        {
+          "type": "p",
+          "text": "**action**"
+        },
+        {
+          "type": "p",
+          "text": "Defines the URL to which the form submission is directed."
+        },
+        {
+          "type": "p",
+          "text": "**method**"
+        },
+        {
+          "type": "p",
+          "text": "Defines the HTTP method used for submission."
+        },
+        {
+          "type": "p",
+          "text": "**label**"
+        },
+        {
+          "type": "p",
+          "text": "Describes a form control for users and assistive technologies."
+        },
+        {
+          "type": "p",
+          "text": "**name**"
+        },
+        {
+          "type": "p",
+          "text": "Defines the form field's submission name."
+        },
+        {
+          "type": "p",
+          "text": "**type**"
+        },
+        {
+          "type": "p",
+          "text": "Defines the behavior and expected input type."
+        },
+        {
+          "type": "p",
+          "text": "**required**"
+        },
+        {
+          "type": "p",
+          "text": "Specifies that a control must be completed before successful native form submission."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Understanding GET and POST"
+        },
+        {
+          "type": "p",
+          "text": "HTML forms commonly use GET or POST."
+        },
+        {
+          "type": "h3",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<form action=\"/search\" method=\"get\">\n\n    <label for=\"query\">Search Courses</label>\n\n    <input\n        type=\"search\"\n        id=\"query\"\n        name=\"q\"\n    >\n\n    <button type=\"submit\">Search</button>\n\n</form>"
+        },
+        {
+          "type": "p",
+          "text": "The submitted form values are generally encoded into the URL query string."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "`/search?q=frontend`"
+        },
+        {
+          "type": "p",
+          "text": "GET is appropriate for requests that retrieve information and whose parameters can be represented in the URL."
+        },
+        {
+          "type": "p",
+          "text": "Considerations:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Searchable results can be bookmarked.",
+            "URLs can be shared.",
+            "Parameters may appear in browser history and logs.",
+            "GET should not be used to perform operations that change server state."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<form action=\"/register\" method=\"post\">\n\n    <label for=\"email\">Email Address</label>\n\n    <input\n        type=\"email\"\n        id=\"email\"\n        name=\"email\"\n        required\n    >\n\n    <button type=\"submit\">Create Account</button>\n\n</form>"
+        },
+        {
+          "type": "p",
+          "text": "POST submits the form data in the request body."
+        },
+        {
+          "type": "p",
+          "text": "It is commonly used for operations that create or modify server-side information."
+        },
+        {
+          "type": "p",
+          "text": "Important distinction: POST does not automatically encrypt data. HTTPS is still required to protect information in transit."
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Understanding Form Labels"
+        },
+        {
+          "type": "p",
+          "text": "Every form control should have a suitable accessible label."
+        },
+        {
+          "type": "p",
+          "text": "The explicit label association uses matching `for` and `id` values."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<label for=\"username\">Username</label>\n\n<input\n    type=\"text\"\n    id=\"username\"\n    name=\"username\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "The `for` value matches the control's `id`."
+        },
+        {
+          "type": "p",
+          "text": "An alternative is an implicit label:"
+        },
+        {
+          "type": "code",
+          "text": "<label>\n    Username\n\n    <input\n        type=\"text\"\n        name=\"username\"\n    >\n</label>"
+        },
+        {
+          "type": "p",
+          "text": "Labels improve usability because activating the label can focus or toggle the associated control."
+        },
+        {
+          "type": "p",
+          "text": "Placeholder text is not a substitute for a label."
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Text Input Types"
+        },
+        {
+          "type": "p",
+          "text": "HTML provides multiple input types to match different data."
+        },
+        {
+          "type": "h3",
+          "text": "Text"
+        },
+        {
+          "type": "code",
+          "text": "<input type=\"text\" name=\"username\">"
+        },
+        {
+          "type": "p",
+          "text": "For general text input."
+        },
+        {
+          "type": "h3",
+          "text": "Email"
+        },
+        {
+          "type": "code",
+          "text": "<input type=\"email\" name=\"email\">"
+        },
+        {
+          "type": "p",
+          "text": "For email-address input and basic browser validation."
+        },
+        {
+          "type": "p",
+          "text": "It does not prove that an address exists or belongs to the user."
+        },
+        {
+          "type": "h3",
+          "text": "Password"
+        },
+        {
+          "type": "code",
+          "text": "<input type=\"password\" name=\"password\">"
+        },
+        {
+          "type": "p",
+          "text": "For password entry."
+        },
+        {
+          "type": "p",
+          "text": "The browser typically masks the displayed characters."
+        },
+        {
+          "type": "h3",
+          "text": "Search"
+        },
+        {
+          "type": "code",
+          "text": "<input type=\"search\" name=\"query\">"
+        },
+        {
+          "type": "p",
+          "text": "For search queries."
+        },
+        {
+          "type": "h3",
+          "text": "URL"
+        },
+        {
+          "type": "code",
+          "text": "<input type=\"url\" name=\"website\">"
+        },
+        {
+          "type": "p",
+          "text": "For URL input."
+        },
+        {
+          "type": "h3",
+          "text": "Telephone"
+        },
+        {
+          "type": "code",
+          "text": "<input type=\"tel\" name=\"phone\">"
+        },
+        {
+          "type": "p",
+          "text": "For telephone-number input."
+        },
+        {
+          "type": "p",
+          "text": "A phone input does not automatically establish one universal telephone-number format because formats vary internationally."
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Numeric Inputs"
+        },
+        {
+          "type": "p",
+          "text": "The number input accepts numerical values."
+        },
+        {
+          "type": "code",
+          "text": "<label for=\"age\">Age</label>\n\n<input\n    type=\"number\"\n    id=\"age\"\n    name=\"age\"\n    min=\"18\"\n    max=\"100\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "The `min`, `max`, and `step` attributes can define constraints."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "<input\n    type=\"number\"\n    name=\"rating\"\n    min=\"1\"\n    max=\"5\"\n    step=\"1\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "Use number inputs for quantities, not arbitrary digit-based identifiers such as phone numbers or postal codes."
+        },
+        {
+          "type": "h3",
+          "text": "6.7 Date and Time Inputs"
+        },
+        {
+          "type": "p",
+          "text": "HTML supports date and time-related controls."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "code",
+          "text": "<input type=\"date\" name=\"date\">\n\n<input type=\"time\" name=\"time\">\n\n<input type=\"datetime-local\" name=\"appointment\">\n\n<input type=\"month\" name=\"month\">\n\n<input type=\"week\" name=\"week\">"
+        },
+        {
+          "type": "p",
+          "text": "The displayed interface can differ between browsers and operating systems."
+        },
+        {
+          "type": "p",
+          "text": "The submitted value follows the appropriate standardized format."
+        },
+        {
+          "type": "h3",
+          "text": "6.8 Checkbox Inputs"
+        },
+        {
+          "type": "p",
+          "text": "Checkboxes allow users to select independent options."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<fieldset>\n    <legend>Select Learning Interests</legend>\n\n    <label>\n        <input\n            type=\"checkbox\"\n            name=\"interests\"\n            value=\"frontend\"\n        >\n        Frontend\n    </label>\n\n    <label>\n        <input\n            type=\"checkbox\"\n            name=\"interests\"\n            value=\"backend\"\n        >\n        Backend\n    </label>\n\n    <label>\n        <input\n            type=\"checkbox\"\n            name=\"interests\"\n            value=\"data-engineering\"\n        >\n        Data Engineering\n    </label>\n\n</fieldset>"
+        },
+        {
+          "type": "p",
+          "text": "Multiple checked controls with the same name may submit multiple values."
+        },
+        {
+          "type": "h3",
+          "text": "6.9 Radio Inputs"
+        },
+        {
+          "type": "p",
+          "text": "Radio buttons allow the user to select one option from a group."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<fieldset>\n\n    <legend>Choose Your Experience Level</legend>\n\n    <label>\n        <input\n            type=\"radio\"\n            name=\"level\"\n            value=\"beginner\"\n            required\n        >\n        Beginner\n    </label>\n\n    <label>\n        <input\n            type=\"radio\"\n            name=\"level\"\n            value=\"intermediate\"\n        >\n        Intermediate\n    </label>\n\n    <label>\n        <input\n            type=\"radio\"\n            name=\"level\"\n            value=\"advanced\"\n        >\n        Advanced\n    </label>\n\n</fieldset>"
+        },
+        {
+          "type": "p",
+          "text": "Radio controls belong to the same group when they share the same name in the applicable form owner and tree context."
+        },
+        {
+          "type": "h3",
+          "text": "6.10 Select and Option Elements"
+        },
+        {
+          "type": "p",
+          "text": "A select control allows users to choose from a predefined list."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<label for=\"course\">Select a Course</label>\n\n<select id=\"course\" name=\"course\" required>\n\n    <option value=\"\">Choose a course</option>\n\n    <option value=\"frontend\">Frontend Engineering</option>\n\n    <option value=\"backend\">Backend Engineering</option>\n\n    <option value=\"data\">Data Engineering</option>\n\n</select>"
+        },
+        {
+          "type": "p",
+          "text": "The `multiple` attribute allows selecting multiple options."
+        },
+        {
+          "type": "p",
+          "text": "Use `optgroup` to organize larger option lists into logical groups."
+        },
+        {
+          "type": "h3",
+          "text": "6.11 Textarea"
+        },
+        {
+          "type": "p",
+          "text": "A textarea accepts multi-line text."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<label for=\"message\">Your Message</label>\n\n<textarea\n    id=\"message\"\n    name=\"message\"\n    rows=\"5\"\n    cols=\"40\"\n    placeholder=\"Write your message...\"\n></textarea>"
+        },
+        {
+          "type": "p",
+          "text": "Typical uses include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Comments.",
+            "Feedback.",
+            "Contact messages.",
+            "Long-form responses."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "6.12 Buttons"
+        },
+        {
+          "type": "p",
+          "text": "HTML provides several button types."
+        },
+        {
+          "type": "p",
+          "text": "**Submit**"
+        },
+        {
+          "type": "p",
+          "text": "Submits the associated form."
+        },
+        {
+          "type": "code",
+          "text": "<button type=\"submit\">Submit</button>"
+        },
+        {
+          "type": "p",
+          "text": "**Button**"
+        },
+        {
+          "type": "p",
+          "text": "Creates a general-purpose button without submitting the form by default."
+        },
+        {
+          "type": "code",
+          "text": "<button type=\"button\">Open Dialog</button>"
+        },
+        {
+          "type": "p",
+          "text": "**Reset**"
+        },
+        {
+          "type": "p",
+          "text": "Resets form controls to their initial values."
+        },
+        {
+          "type": "code",
+          "text": "<button type=\"reset\">Reset Form</button>"
+        },
+        {
+          "type": "p",
+          "text": "Be careful with reset buttons because they can unintentionally erase user-entered information."
+        },
+        {
+          "type": "p",
+          "text": "Always specify the intended button type, especially inside forms."
+        },
+        {
+          "type": "h3",
+          "text": "6.13 Hidden Inputs"
+        },
+        {
+          "type": "p",
+          "text": "Hidden inputs carry values that are not displayed as normal form fields."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<input\n    type=\"hidden\"\n    name=\"courseId\"\n    value=\"FE-101\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "Hidden input values are not trustworthy merely because users cannot see them."
+        },
+        {
+          "type": "p",
+          "text": "Users can inspect and modify client-side form data. The server must validate submitted values and enforce authorization."
+        },
+        {
+          "type": "h3",
+          "text": "6.14 File Upload Inputs"
+        },
+        {
+          "type": "p",
+          "text": "The file input allows users to select local files."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<form\n    action=\"/upload\"\n    method=\"post\"\n    enctype=\"multipart/form-data\"\n>\n\n    <label for=\"resume\">Upload Resume</label>\n\n    <input\n        type=\"file\"\n        id=\"resume\"\n        name=\"resume\"\n        accept=\".pdf\"\n        required\n    >\n\n    <button type=\"submit\">Upload</button>\n\n</form>"
+        },
+        {
+          "type": "p",
+          "text": "When submitting files through a standard HTML form, `multipart/form-data` is generally required."
+        },
+        {
+          "type": "p",
+          "text": "The `accept` attribute guides the file picker but is not a security boundary."
+        },
+        {
+          "type": "p",
+          "text": "The backend must independently validate file type, size, content, and upload permissions."
+        },
+        {
+          "type": "h3",
+          "text": "6.15 Grouping Form Controls"
+        },
+        {
+          "type": "p",
+          "text": "The `fieldset` element groups related controls."
+        },
+        {
+          "type": "p",
+          "text": "The `legend` element provides a descriptive title for the group."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<fieldset>\n\n    <legend>Personal Information</legend>\n\n    <label for=\"first-name\">First Name</label>\n    <input\n        type=\"text\"\n        id=\"first-name\"\n        name=\"firstName\"\n    >\n\n    <label for=\"last-name\">Last Name</label>\n    <input\n        type=\"text\"\n        id=\"last-name\"\n        name=\"lastName\"\n    >\n\n</fieldset>"
+        },
+        {
+          "type": "p",
+          "text": "This is especially useful for large forms."
+        },
+        {
+          "type": "h3",
+          "text": "6.16 Form Autocomplete"
+        },
+        {
+          "type": "p",
+          "text": "The `autocomplete` attribute tells the browser what type of information a field expects."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "code",
+          "text": "<input\n    type=\"text\"\n    name=\"name\"\n    autocomplete=\"name\"\n>\n\n<input\n    type=\"email\"\n    name=\"email\"\n    autocomplete=\"email\"\n>\n\n<input\n    type=\"password\"\n    name=\"password\"\n    autocomplete=\"new-password\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "For an existing password field, `current-password` may be more appropriate."
+        },
+        {
+          "type": "p",
+          "text": "Good autocomplete configuration can make forms faster and easier to use."
+        },
+        {
+          "type": "h3",
+          "text": "6.17 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Create a complete course registration form."
+        },
+        {
+          "type": "p",
+          "text": "Required fields:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Full name.",
+            "Email address.",
+            "Password.",
+            "Telephone number.",
+            "Date of birth.",
+            "Learning level.",
+            "Preferred course.",
+            "Learning interests.",
+            "Short introduction.",
+            "Resume upload.",
+            "Terms acceptance checkbox."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Every control must have an accessible label.",
+            "Group related inputs using fieldset and legend.",
+            "Use the appropriate input types.",
+            "Configure `name` attributes correctly.",
+            "Include useful autocomplete values.",
+            "Use GET or POST according to the purpose of the form.",
+            "Include a clearly named submit button."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Lesson 07",
+      "title": "LESSON 07 — Form Validation and Constraint Validation API",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 What Is Form Validation?"
+        },
+        {
+          "type": "p",
+          "text": "Form validation determines whether submitted information meets defined requirements."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Email address must be provided.",
+            "Password must meet a minimum length.",
+            "Course selection must be completed.",
+            "Age must fall within an acceptable range.",
+            "Required checkboxes must be selected."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Validation helps prevent incomplete or incorrectly formatted submissions."
+        },
+        {
+          "type": "p",
+          "text": "There are two major layers to understand:"
+        },
+        {
+          "type": "p",
+          "text": "**Client-side validation:** Performed in the browser before form submission."
+        },
+        {
+          "type": "p",
+          "text": "**Server-side validation:** Performed by the backend after receiving submitted information."
+        },
+        {
+          "type": "p",
+          "text": "Both are important."
+        },
+        {
+          "type": "p",
+          "text": "Client-side validation improves usability, but it must never be treated as a security boundary."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Required Attribute"
+        },
+        {
+          "type": "p",
+          "text": "The `required` attribute prevents successful native form submission when the associated control is missing an appropriate value."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<form>\n\n    <label for=\"email\">Email</label>\n\n    <input\n        type=\"email\"\n        id=\"email\"\n        name=\"email\"\n        required\n    >\n\n    <button type=\"submit\">Submit</button>\n\n</form>"
+        },
+        {
+          "type": "p",
+          "text": "The browser checks that the field satisfies the applicable constraints before submission."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Minlength and Maxlength"
+        },
+        {
+          "type": "p",
+          "text": "These attributes define minimum and maximum text lengths."
+        },
+        {
+          "type": "code",
+          "text": "<input\n    type=\"text\"\n    name=\"username\"\n    minlength=\"3\"\n    maxlength=\"20\"\n    required\n>"
+        },
+        {
+          "type": "p",
+          "text": "This requires the text to be within the specified length constraints."
+        },
+        {
+          "type": "p",
+          "text": "Use these attributes to provide clear input boundaries."
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Min and Max"
+        },
+        {
+          "type": "p",
+          "text": "For number and supported date-related inputs, `min` and `max` define value boundaries."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<input\n    type=\"number\"\n    name=\"age\"\n    min=\"18\"\n    max=\"100\"\n    required\n>"
+        },
+        {
+          "type": "p",
+          "text": "An out-of-range value will fail the corresponding native constraint."
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Step Attribute"
+        },
+        {
+          "type": "p",
+          "text": "The `step` attribute controls valid increments for applicable numerical and date-related controls."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<input\n    type=\"number\"\n    name=\"rating\"\n    min=\"1\"\n    max=\"5\"\n    step=\"1\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "For a decimal value:"
+        },
+        {
+          "type": "code",
+          "text": "<input\n    type=\"number\"\n    name=\"price\"\n    min=\"0\"\n    step=\"0.01\"\n>"
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Pattern Attribute"
+        },
+        {
+          "type": "p",
+          "text": "The `pattern` attribute allows developers to define a regular-expression pattern for text-like input types that support it."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<label for=\"student-id\">Student ID</label>\n\n<input\n    type=\"text\"\n    id=\"student-id\"\n    name=\"studentId\"\n    pattern=\"[A-Z]{2}[0-9]{4}\"\n    title=\"Enter two uppercase letters followed by four digits.\"\n    required\n>"
+        },
+        {
+          "type": "p",
+          "text": "The pattern must match the complete input value according to HTML pattern-matching rules."
+        },
+        {
+          "type": "p",
+          "text": "Pattern validation should be clear and forgiving enough for legitimate input."
+        },
+        {
+          "type": "p",
+          "text": "Do not invent restrictive patterns without understanding valid user data."
+        },
+        {
+          "type": "h3",
+          "text": "7.7 Understanding Type Validation"
+        },
+        {
+          "type": "p",
+          "text": "Certain input types provide built-in validation."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<input type=\"email\" required>"
+        },
+        {
+          "type": "p",
+          "text": "The browser can identify some malformed email formats."
+        },
+        {
+          "type": "p",
+          "text": "However, browser validation does not establish:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Whether the address exists.",
+            "Whether the user owns that address.",
+            "Whether the address can receive messages."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Those require additional application-level verification."
+        },
+        {
+          "type": "h3",
+          "text": "7.8 The Constraint Validation API"
+        },
+        {
+          "type": "p",
+          "text": "HTML provides a browser API for inspecting and controlling form validation."
+        },
+        {
+          "type": "p",
+          "text": "Important methods include:"
+        },
+        {
+          "type": "p",
+          "text": "**checkValidity()**"
+        },
+        {
+          "type": "p",
+          "text": "Returns whether the control or form satisfies its constraints."
+        },
+        {
+          "type": "p",
+          "text": "**reportValidity()**"
+        },
+        {
+          "type": "p",
+          "text": "Checks constraints and asks the browser to display validation feedback when applicable."
+        },
+        {
+          "type": "p",
+          "text": "**setCustomValidity()**"
+        },
+        {
+          "type": "p",
+          "text": "Sets a custom validation message for a control."
+        },
+        {
+          "type": "p",
+          "text": "An empty string clears the custom error."
+        },
+        {
+          "type": "p",
+          "text": "Important properties include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`validity`",
+            "`validationMessage`",
+            "`willValidate`"
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "7.9 Accessing Validity Information"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<form id=\"registration-form\">\n\n    <label for=\"username\">Username</label>\n\n    <input\n        type=\"text\"\n        id=\"username\"\n        name=\"username\"\n        minlength=\"3\"\n        required\n    >\n\n    <button type=\"submit\">Register</button>\n\n</form>"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript:"
+        },
+        {
+          "type": "code",
+          "text": "const username = document.querySelector(\"#username\");\n\nconsole.log(username.validity.valid);\nconsole.log(username.validity.valueMissing);\nconsole.log(username.validity.tooShort);\nconsole.log(username.validationMessage);"
+        },
+        {
+          "type": "p",
+          "text": "The validity state provides more specific information about validation failures."
+        },
+        {
+          "type": "h3",
+          "text": "7.10 Implementing Custom Validation"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a registration form requires a username that must not contain spaces."
+        },
+        {
+          "type": "p",
+          "text": "HTML:"
+        },
+        {
+          "type": "code",
+          "text": "<label for=\"username\">Username</label>\n\n<input\n    type=\"text\"\n    id=\"username\"\n    name=\"username\"\n    minlength=\"3\"\n    required\n>"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript:"
+        },
+        {
+          "type": "code",
+          "text": "const username = document.querySelector(\"#username\");\n\nusername.addEventListener(\"input\", () => {\n\n    if (username.value.includes(\" \")) {\n        username.setCustomValidity(\n            \"Username cannot contain spaces.\"\n        );\n    } else {\n        username.setCustomValidity(\"\");\n    }\n\n});"
+        },
+        {
+          "type": "p",
+          "text": "The custom validation message is set while the input is invalid and cleared when the issue is corrected."
+        },
+        {
+          "type": "h3",
+          "text": "7.11 Form-Level Validation"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<form id=\"register-form\">\n\n    <label for=\"email\">Email</label>\n\n    <input\n        type=\"email\"\n        id=\"email\"\n        name=\"email\"\n        required\n    >\n\n    <label for=\"password\">Password</label>\n\n    <input\n        type=\"password\"\n        id=\"password\"\n        name=\"password\"\n        minlength=\"8\"\n        required\n    >\n\n    <button type=\"submit\">Create Account</button>\n\n</form>"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript:"
+        },
+        {
+          "type": "code",
+          "text": "const form = document.querySelector(\"#register-form\");\n\nform.addEventListener(\"submit\", (event) => {\n\n    if (!form.checkValidity()) {\n        event.preventDefault();\n        form.reportValidity();\n        return;\n    }\n\n    console.log(\"Client-side validation passed.\");\n\n});"
+        },
+        {
+          "type": "p",
+          "text": "The example prevents submission when the browser detects invalid form controls."
+        },
+        {
+          "type": "p",
+          "text": "In a real application, the backend must still validate the submitted data independently."
+        },
+        {
+          "type": "h3",
+          "text": "7.12 Understanding novalidate"
+        },
+        {
+          "type": "p",
+          "text": "The `novalidate` attribute disables automatic native constraint validation during form submission."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<form id=\"custom-form\" novalidate>\n    <!-- Form controls -->\n</form>"
+        },
+        {
+          "type": "p",
+          "text": "This can be useful when an application implements a custom validation experience."
+        },
+        {
+          "type": "p",
+          "text": "However, the Constraint Validation API remains available for manually checking controls."
+        },
+        {
+          "type": "p",
+          "text": "Use this approach only when the custom feedback experience is fully implemented and accessible."
+        },
+        {
+          "type": "h3",
+          "text": "7.13 Accessible Validation Feedback"
+        },
+        {
+          "type": "p",
+          "text": "Validation errors should be understandable and associated with the relevant fields."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<label for=\"email\">Email Address</label>\n\n<input\n    type=\"email\"\n    id=\"email\"\n    name=\"email\"\n    aria-describedby=\"email-error\"\n    required\n>\n\n<p id=\"email-error\">\n    Enter a valid email address.\n</p>"
+        },
+        {
+          "type": "p",
+          "text": "In a dynamic application:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Clearly identify the invalid field.",
+            "Explain how to fix the problem.",
+            "Preserve the user's existing input.",
+            "Make errors available to assistive technologies.",
+            "Provide a useful focus and announcement strategy.",
+            "Avoid communicating errors through color alone."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Use ARIA only as needed. Native HTML constraints and associated descriptions should form the foundation."
+        },
+        {
+          "type": "h3",
+          "text": "7.14 Client-Side vs Server-Side Validation"
+        },
+        {
+          "type": "p",
+          "text": "Client-side validation:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Provides immediate feedback.",
+            "Reduces accidental form errors.",
+            "Improves usability.",
+            "Can be modified or bypassed by users."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Server-side validation:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Verifies submitted information in a trusted environment.",
+            "Prevents reliance on manipulated browser data.",
+            "Enforces business rules.",
+            "Protects application operations."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "For example, a browser may check that a course ID field is not empty."
+        },
+        {
+          "type": "p",
+          "text": "The backend must still check that the course exists and that the user is permitted to enrol."
+        },
+        {
+          "type": "h3",
+          "text": "7.15 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Extend your course registration form from Lesson 06."
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Required name and email fields.",
+            "Appropriate email validation.",
+            "Password minimum length.",
+            "A custom username constraint.",
+            "A required learning-level selection.",
+            "A required terms checkbox.",
+            "Clear validation messages.",
+            "Accessible error descriptions.",
+            "Browser validation using the Constraint Validation API.",
+            "Independent server-side validation requirements documented for the backend."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Test empty inputs, malformed emails, short passwords, invalid patterns, and valid submissions."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Lesson 08",
+      "title": "LESSON 08 — Tables and Structured Data",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 What Are HTML Tables?"
+        },
+        {
+          "type": "p",
+          "text": "HTML tables represent information arranged in rows and columns."
+        },
+        {
+          "type": "p",
+          "text": "They are appropriate when information has a genuine tabular relationship."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Course schedules.",
+            "Pricing comparisons.",
+            "Student results.",
+            "Product specifications.",
+            "Financial data.",
+            "Technical reference information."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Tables should represent data, not be used as the primary layout system for modern webpages."
+        },
+        {
+          "type": "p",
+          "text": "CSS Grid and Flexbox are more suitable for page layout."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Basic Table Structure"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<table>\n\n    <tr>\n        <th>Course</th>\n        <th>Duration</th>\n        <th>Level</th>\n    </tr>\n\n    <tr>\n        <td>Frontend Engineering</td>\n        <td>12 Months</td>\n        <td>Intermediate</td>\n    </tr>\n\n    <tr>\n        <td>Backend Engineering</td>\n        <td>10 Months</td>\n        <td>Advanced</td>\n    </tr>\n\n</table>"
+        },
+        {
+          "type": "p",
+          "text": "Important elements:"
+        },
+        {
+          "type": "p",
+          "text": "**table**"
+        },
+        {
+          "type": "p",
+          "text": "Defines the table."
+        },
+        {
+          "type": "p",
+          "text": "**tr**"
+        },
+        {
+          "type": "p",
+          "text": "Defines a table row."
+        },
+        {
+          "type": "p",
+          "text": "**th**"
+        },
+        {
+          "type": "p",
+          "text": "Defines a header cell."
+        },
+        {
+          "type": "p",
+          "text": "**td**"
+        },
+        {
+          "type": "p",
+          "text": "Defines a data cell."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 Table Caption"
+        },
+        {
+          "type": "p",
+          "text": "The `caption` element identifies what the table represents."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<table>\n\n    <caption>Available Technology Courses</caption>\n\n    <tr>\n        <th>Course</th>\n        <th>Level</th>\n    </tr>\n\n    <tr>\n        <td>Frontend Engineering</td>\n        <td>Intermediate</td>\n    </tr>\n\n</table>"
+        },
+        {
+          "type": "p",
+          "text": "A caption helps users understand the purpose of the table."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Thead, Tbody and Tfoot"
+        },
+        {
+          "type": "p",
+          "text": "These elements organize table sections."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<table>\n\n    <caption>Course Enrolment Statistics</caption>\n\n    <thead>\n        <tr>\n            <th scope=\"col\">Course</th>\n            <th scope=\"col\">Students</th>\n        </tr>\n    </thead>\n\n    <tbody>\n        <tr>\n            <td>Frontend</td>\n            <td>250</td>\n        </tr>\n\n        <tr>\n            <td>Backend</td>\n            <td>180</td>\n        </tr>\n    </tbody>\n\n    <tfoot>\n        <tr>\n            <th scope=\"row\">Total</th>\n            <td>430</td>\n        </tr>\n    </tfoot>\n\n</table>"
+        },
+        {
+          "type": "p",
+          "text": "**thead:** Contains header rows."
+        },
+        {
+          "type": "p",
+          "text": "**tbody:** Contains the main data rows."
+        },
+        {
+          "type": "p",
+          "text": "**tfoot:** Contains summary or footer rows."
+        },
+        {
+          "type": "p",
+          "text": "These structures improve organization and support more advanced tables."
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Understanding Table Headers"
+        },
+        {
+          "type": "p",
+          "text": "The `th` element represents a header cell."
+        },
+        {
+          "type": "p",
+          "text": "The `scope` attribute describes which cells a header applies to."
+        },
+        {
+          "type": "p",
+          "text": "Common values:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`col`",
+            "`row`",
+            "`colgroup`",
+            "`rowgroup`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<table>\n\n    <tr>\n        <th scope=\"col\">Course</th>\n        <th scope=\"col\">Price</th>\n    </tr>\n\n    <tr>\n        <th scope=\"row\">Frontend Engineering</th>\n        <td>₹4,999</td>\n    </tr>\n\n</table>"
+        },
+        {
+          "type": "p",
+          "text": "Clear header associations are important for accessible data tables."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Colspan"
+        },
+        {
+          "type": "p",
+          "text": "The `colspan` attribute allows a cell to span multiple columns."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<table>\n\n    <tr>\n        <th colspan=\"2\">Frontend Courses</th>\n    </tr>\n\n    <tr>\n        <td>HTML</td>\n        <td>Beginner</td>\n    </tr>\n\n</table>"
+        },
+        {
+          "type": "h3",
+          "text": "8.7 Rowspan"
+        },
+        {
+          "type": "p",
+          "text": "The `rowspan` attribute allows a cell to span multiple rows."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<table>\n\n    <tr>\n        <th rowspan=\"2\">Frontend</th>\n        <td>HTML</td>\n    </tr>\n\n    <tr>\n        <td>CSS</td>\n    </tr>\n\n</table>"
+        },
+        {
+          "type": "p",
+          "text": "These attributes are useful for tables with grouped information."
+        },
+        {
+          "type": "h3",
+          "text": "8.8 Accessible Tables"
+        },
+        {
+          "type": "p",
+          "text": "Well-structured tables should:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Include an appropriate caption when necessary.",
+            "Define meaningful row and column headers.",
+            "Use `th` for headers and `td` for data.",
+            "Apply suitable `scope` values.",
+            "Maintain a logical reading order.",
+            "Avoid unnecessary merged cells.",
+            "Provide a clear alternative when a complex table is unsuitable for smaller screens."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Complex tables may require additional header-association techniques such as `id` and `headers`."
+        },
+        {
+          "type": "h3",
+          "text": "8.9 Making Tables Usable on Mobile"
+        },
+        {
+          "type": "p",
+          "text": "Large data tables can overflow narrow screens."
+        },
+        {
+          "type": "p",
+          "text": "A simple approach is to place the table in a horizontally scrollable container."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<div class=\"table-container\">\n\n    <table>\n        <!-- Table content -->\n    </table>\n\n</div>"
+        },
+        {
+          "type": "p",
+          "text": "CSS:"
+        },
+        {
+          "type": "code",
+          "text": ".table-container {\n    overflow-x: auto;\n}\n\ntable {\n    border-collapse: collapse;\n    min-width: 600px;\n    width: 100%;\n}"
+        },
+        {
+          "type": "p",
+          "text": "The surrounding container allows horizontal scrolling when necessary."
+        },
+        {
+          "type": "p",
+          "text": "The table's structure and meaning remain intact."
+        },
+        {
+          "type": "h3",
+          "text": "8.10 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Create an academic course comparison table containing:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Course name.",
+            "Category.",
+            "Difficulty.",
+            "Duration.",
+            "Prerequisites.",
+            "Available projects.",
+            "Enrolment status."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Add a descriptive caption.",
+            "Use thead and tbody.",
+            "Use proper header cells.",
+            "Add a summary row using tfoot.",
+            "Use scope appropriately.",
+            "Include at least one meaningful grouped heading.",
+            "Test the table at narrow viewport widths."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Lesson 09",
+      "title": "LESSON 09 — HTML Metadata, Open Graph and SEO Fundamentals",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 What Is HTML Metadata?"
+        },
+        {
+          "type": "p",
+          "text": "Metadata is information that describes a web document."
+        },
+        {
+          "type": "p",
+          "text": "It is generally defined inside the document's `head` element."
+        },
+        {
+          "type": "p",
+          "text": "Metadata may describe:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Character encoding.",
+            "Page title.",
+            "Page description.",
+            "Viewport behavior.",
+            "Search engine instructions.",
+            "Resource relationships.",
+            "Social sharing information.",
+            "Document language and other properties."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Metadata helps browsers, search engines, and other services interpret a webpage."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 Character Encoding"
+        },
+        {
+          "type": "p",
+          "text": "The `meta charset` declaration identifies the document's character encoding."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<meta charset=\"UTF-8\">"
+        },
+        {
+          "type": "p",
+          "text": "UTF-8 is the standard recommended encoding for modern HTML documents."
+        },
+        {
+          "type": "p",
+          "text": "It supports a broad range of international characters."
+        },
+        {
+          "type": "p",
+          "text": "Place this declaration near the beginning of the document head."
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Responsive Viewport Metadata"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<meta\n    name=\"viewport\"\n    content=\"width=device-width, initial-scale=1.0\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "This tells mobile browsers to use the device's viewport width when calculating the layout viewport."
+        },
+        {
+          "type": "p",
+          "text": "Without suitable viewport configuration, mobile rendering may not behave as expected."
+        },
+        {
+          "type": "p",
+          "text": "Do not unnecessarily disable user zoom because this can reduce accessibility."
+        },
+        {
+          "type": "h3",
+          "text": "9.4 Page Title"
+        },
+        {
+          "type": "p",
+          "text": "The `title` element defines the document title."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<title>Frontend Engineering Course | PrepSpaces</title>"
+        },
+        {
+          "type": "p",
+          "text": "The title may appear in:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Browser tabs.",
+            "Browser history.",
+            "Search result titles.",
+            "Bookmarks.",
+            "Shared browsing interfaces."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A good title should:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Clearly describe the page.",
+            "Be unique where appropriate.",
+            "Include relevant terminology naturally.",
+            "Avoid keyword stuffing.",
+            "Match the actual page content."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Meta Description"
+        },
+        {
+          "type": "p",
+          "text": "The meta description provides a brief description of the page."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<meta\n    name=\"description\"\n    content=\"Learn modern frontend engineering through structured lessons, practical examples, and projects.\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "Search engines may use the description when constructing search snippets, but they can choose other content instead."
+        },
+        {
+          "type": "p",
+          "text": "A useful description should accurately explain the page and encourage relevant users to visit it."
+        },
+        {
+          "type": "h3",
+          "text": "9.6 Robots Meta Tag"
+        },
+        {
+          "type": "p",
+          "text": "The robots metadata can provide crawling and indexing instructions to participating search engines."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<meta name=\"robots\" content=\"index, follow\">"
+        },
+        {
+          "type": "p",
+          "text": "A page that should not be indexed might use:"
+        },
+        {
+          "type": "code",
+          "text": "<meta name=\"robots\" content=\"noindex\">"
+        },
+        {
+          "type": "p",
+          "text": "The actual indexing behavior depends on crawler support, page accessibility, and applicable directives."
+        },
+        {
+          "type": "p",
+          "text": "Do not accidentally deploy `noindex` on pages that should appear in search results."
+        },
+        {
+          "type": "p",
+          "text": "Robots metadata is not an access-control or security mechanism."
+        },
+        {
+          "type": "h3",
+          "text": "9.7 Canonical URL"
+        },
+        {
+          "type": "p",
+          "text": "A canonical link identifies the preferred URL for a page when multiple URLs may represent substantially identical content."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<link\n    rel=\"canonical\"\n    href=\"https://prepspaces.com/courses/frontend-engineering\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "This can help search engines understand which URL should be treated as the preferred version."
+        },
+        {
+          "type": "p",
+          "text": "Canonicalization should reflect the actual preferred URL."
+        },
+        {
+          "type": "p",
+          "text": "It does not automatically redirect users or prevent duplicate content from being accessible."
+        },
+        {
+          "type": "h3",
+          "text": "9.8 Favicon"
+        },
+        {
+          "type": "p",
+          "text": "A favicon provides a small visual identity for a website."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<link rel=\"icon\" href=\"/favicon.ico\">"
+        },
+        {
+          "type": "p",
+          "text": "A modern site may also provide PNG, SVG, or other supported icon resources."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<link\n    rel=\"icon\"\n    type=\"image/svg+xml\"\n    href=\"/favicon.svg\"\n>\n\n<link\n    rel=\"apple-touch-icon\"\n    href=\"/apple-touch-icon.png\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "The available icon formats and behavior depend on browser and platform support."
+        },
+        {
+          "type": "h3",
+          "text": "9.9 Open Graph Metadata"
+        },
+        {
+          "type": "p",
+          "text": "Open Graph metadata helps describe a webpage when it is shared on supported social platforms and other services."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<meta property=\"og:type\" content=\"website\">\n\n<meta\n    property=\"og:title\"\n    content=\"Frontend Engineering Course | PrepSpaces\"\n>\n\n<meta\n    property=\"og:description\"\n    content=\"Learn frontend engineering through structured lessons and projects.\"\n>\n\n<meta\n    property=\"og:url\"\n    content=\"https://prepspaces.com/courses/frontend-engineering\"\n>\n\n<meta\n    property=\"og:image\"\n    content=\"https://prepspaces.com/images/frontend-course-preview.jpg\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "These fields describe:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Content type.",
+            "Page title.",
+            "Description.",
+            "Preferred shared URL.",
+            "Preview image."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The image should be publicly accessible and suitable for social sharing."
+        },
+        {
+          "type": "h3",
+          "text": "9.10 Social Sharing Metadata"
+        },
+        {
+          "type": "p",
+          "text": "Other social-sharing conventions also exist."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "<meta\n    name=\"twitter:card\"\n    content=\"summary_large_image\"\n>\n\n<meta\n    name=\"twitter:title\"\n    content=\"Frontend Engineering Course\"\n>\n\n<meta\n    name=\"twitter:description\"\n    content=\"Explore modern frontend engineering.\"\n>\n\n<meta\n    name=\"twitter:image\"\n    content=\"https://prepspaces.com/images/frontend-course-preview.jpg\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "The actual display depends on the platform's current support and processing behavior."
+        },
+        {
+          "type": "p",
+          "text": "Social metadata should match the page content rather than presenting misleading information."
+        },
+        {
+          "type": "h3",
+          "text": "9.11 Understanding Search Engine Optimization"
+        },
+        {
+          "type": "p",
+          "text": "Search Engine Optimization (SEO) refers to improving a website's ability to be discovered and understood through search engines."
+        },
+        {
+          "type": "p",
+          "text": "HTML contributes to SEO through several important practices."
+        },
+        {
+          "type": "h3",
+          "text": "Descriptive Titles"
+        },
+        {
+          "type": "p",
+          "text": "Every important page should have an informative title."
+        },
+        {
+          "type": "h3",
+          "text": "Semantic Headings"
+        },
+        {
+          "type": "p",
+          "text": "Use a meaningful heading hierarchy to organize the content."
+        },
+        {
+          "type": "h3",
+          "text": "Semantic Content Elements"
+        },
+        {
+          "type": "p",
+          "text": "Use appropriate elements such as article, nav, main, and headings."
+        },
+        {
+          "type": "h3",
+          "text": "Descriptive Links"
+        },
+        {
+          "type": "p",
+          "text": "Use meaningful anchor text instead of generic labels such as \"click here.\""
+        },
+        {
+          "type": "h3",
+          "text": "Image Alternative Text"
+        },
+        {
+          "type": "p",
+          "text": "Describe informative images meaningfully."
+        },
+        {
+          "type": "h3",
+          "text": "Crawlable Navigation"
+        },
+        {
+          "type": "p",
+          "text": "Create links that allow search engines and users to discover important pages."
+        },
+        {
+          "type": "h3",
+          "text": "Unique and Useful Content"
+        },
+        {
+          "type": "p",
+          "text": "Each important page should serve a clear purpose and provide content that satisfies its intended audience."
+        },
+        {
+          "type": "h3",
+          "text": "Canonicalization"
+        },
+        {
+          "type": "p",
+          "text": "Specify preferred URLs where applicable."
+        },
+        {
+          "type": "h3",
+          "text": "Mobile-Friendly Documents"
+        },
+        {
+          "type": "p",
+          "text": "Make sure content works at different viewport sizes."
+        },
+        {
+          "type": "h3",
+          "text": "Structured Data"
+        },
+        {
+          "type": "p",
+          "text": "Structured data can provide machine-readable descriptions of information on a webpage."
+        },
+        {
+          "type": "p",
+          "text": "For example, certain content types may support structured data represented using Schema.org vocabulary and JSON-LD."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Course\",\n  \"name\": \"Frontend Engineering\",\n  \"description\": \"A structured course covering modern frontend development.\"\n}\n</script>"
+        },
+        {
+          "type": "p",
+          "text": "Structured data must accurately represent visible page content and comply with applicable search engine guidelines."
+        },
+        {
+          "type": "p",
+          "text": "Adding structured data does not guarantee enhanced search results."
+        },
+        {
+          "type": "h3",
+          "text": "9.12 HTML Metadata and Modern Search Strategies"
+        },
+        {
+          "type": "p",
+          "text": "A technically sound HTML document is an important foundation for SEO, but metadata alone is not enough."
+        },
+        {
+          "type": "p",
+          "text": "Modern content discovery also depends on:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Useful and original information.",
+            "Clear topic coverage.",
+            "Crawlable internal links.",
+            "Correct HTTP responses.",
+            "Appropriate indexing controls.",
+            "Fast and usable experiences.",
+            "Authoritative external references where relevant.",
+            "Consistent URL architecture.",
+            "Content that clearly answers users' questions."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "For educational platforms, individual lesson and concept pages should contain their own useful content rather than relying entirely on one broad course landing page."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "/courses/frontend-engineering\n/courses/frontend-engineering/html-document-structure\n/courses/frontend-engineering/semantic-html\n/courses/frontend-engineering/html-forms"
+        },
+        {
+          "type": "p",
+          "text": "Each URL should represent a genuinely useful, accessible page."
+        },
+        {
+          "type": "h3",
+          "text": "9.13 Complete Metadata Example"
+        },
+        {
+          "type": "code",
+          "text": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\n    <meta charset=\"UTF-8\">\n\n    <meta\n        name=\"viewport\"\n        content=\"width=device-width, initial-scale=1.0\"\n    >\n\n    <title>Semantic HTML Guide | PrepSpaces</title>\n\n    <meta\n        name=\"description\"\n        content=\"Learn semantic HTML, document structure, accessibility, forms, and modern web document engineering.\"\n    >\n\n    <link\n        rel=\"canonical\"\n        href=\"https://prepspaces.com/learn/semantic-html\"\n    >\n\n    <link rel=\"icon\" href=\"/favicon.ico\">\n\n    <meta property=\"og:type\" content=\"article\">\n\n    <meta\n        property=\"og:title\"\n        content=\"Semantic HTML Guide | PrepSpaces\"\n    >\n\n    <meta\n        property=\"og:description\"\n        content=\"Understand semantic HTML and modern document engineering.\"\n    >\n\n    <meta\n        property=\"og:url\"\n        content=\"https://prepspaces.com/learn/semantic-html\"\n    >\n\n    <meta\n        property=\"og:image\"\n        content=\"https://prepspaces.com/images/semantic-html.jpg\"\n    >\n\n</head>\n\n<body>\n\n    <main>\n        <h1>Semantic HTML and Modern Document Engineering</h1>\n        <p>Learn to build accessible and structured web documents.</p>\n    </main>\n\n</body>\n\n</html>"
+        },
+        {
+          "type": "h3",
+          "text": "9.14 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Prepare complete metadata for three pages:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Homepage.",
+            "Frontend Engineering course page.",
+            "Semantic HTML lesson page."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Each page should have:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A unique title.",
+            "A suitable meta description.",
+            "Character encoding.",
+            "Viewport configuration.",
+            "Favicon reference.",
+            "Canonical URL where appropriate.",
+            "Open Graph metadata.",
+            "Social-sharing image.",
+            "A meaningful semantic document structure."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Verify that the metadata accurately matches the visible page content."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Lesson 10",
+      "title": "LESSON 10 — Accessibility with Semantic HTML",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "10.1 What Is Web Accessibility?"
+        },
+        {
+          "type": "p",
+          "text": "Web accessibility means designing and developing websites so that people with different abilities can use them effectively."
+        },
+        {
+          "type": "p",
+          "text": "Users may interact with a website through:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A mouse.",
+            "A keyboard.",
+            "A touchscreen.",
+            "Screen readers.",
+            "Voice control.",
+            "Switch devices.",
+            "Other assistive technologies."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Accessibility should be considered during development rather than added as a final correction."
+        },
+        {
+          "type": "p",
+          "text": "HTML provides many accessibility features through its native semantics and behavior."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 Understanding the Importance of Semantic HTML"
+        },
+        {
+          "type": "p",
+          "text": "Semantic elements communicate meaning to browsers and assistive technologies."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "<button type=\"button\">\n    Submit Application\n</button>"
+        },
+        {
+          "type": "p",
+          "text": "A native button provides:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Button semantics.",
+            "Keyboard activation.",
+            "Focus behavior.",
+            "Integration with assistive technologies."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A generic `div` does not provide these features automatically."
+        },
+        {
+          "type": "p",
+          "text": "Using the correct elements reduces the need for unnecessary custom accessibility code."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Understanding the Four WCAG Principles"
+        },
+        {
+          "type": "p",
+          "text": "The Web Content Accessibility Guidelines (WCAG) organize accessibility around four major principles."
+        },
+        {
+          "type": "h3",
+          "text": "Perceivable"
+        },
+        {
+          "type": "p",
+          "text": "Information must be presented in ways that users can perceive."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Provide alternative text for meaningful images.",
+            "Provide captions for relevant video content.",
+            "Use readable text.",
+            "Ensure sufficient color contrast.",
+            "Do not communicate important information using color alone."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Operable"
+        },
+        {
+          "type": "p",
+          "text": "Users must be able to operate the interface."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Make interactive controls keyboard accessible.",
+            "Provide visible focus indicators.",
+            "Make navigation predictable.",
+            "Avoid interactions that require only a mouse.",
+            "Provide sufficient time where relevant."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Understandable"
+        },
+        {
+          "type": "p",
+          "text": "Information and interactions should be understandable."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Use clear headings.",
+            "Provide understandable form labels.",
+            "Explain errors.",
+            "Keep navigation consistent.",
+            "Identify the language of the page."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Robust"
+        },
+        {
+          "type": "p",
+          "text": "Content should work with different browsers and assistive technologies."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Use valid, meaningful HTML.",
+            "Provide correct element semantics.",
+            "Avoid invalid control nesting.",
+            "Use ARIA according to its specification.",
+            "Test with assistive technologies."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "10.4 Page Language"
+        },
+        {
+          "type": "p",
+          "text": "The `lang` attribute identifies the language of a document or content section."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<html lang=\"en\">"
+        },
+        {
+          "type": "p",
+          "text": "For a different-language section:"
+        },
+        {
+          "type": "code",
+          "text": "<p>\n    Welcome to the course.\n    <span lang=\"fr\">Bonjour</span>\n</p>"
+        },
+        {
+          "type": "p",
+          "text": "Language information can help assistive technologies use appropriate pronunciation rules."
+        },
+        {
+          "type": "h3",
+          "text": "10.5 Accessible Navigation"
+        },
+        {
+          "type": "p",
+          "text": "Navigation should be structured using appropriate elements."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<header>\n\n    <a href=\"/\" aria-label=\"PrepSpaces home\">\n        PrepSpaces\n    </a>\n\n    <nav aria-label=\"Main navigation\">\n        <ul>\n            <li><a href=\"/\">Home</a></li>\n            <li><a href=\"/courses.html\">Courses</a></li>\n            <li><a href=\"/resources.html\">Resources</a></li>\n            <li><a href=\"/contact.html\">Contact</a></li>\n        </ul>\n    </nav>\n\n</header>"
+        },
+        {
+          "type": "p",
+          "text": "Useful practices:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Give major navigation regions descriptive labels when multiple navigation regions exist.",
+            "Use meaningful link text.",
+            "Maintain keyboard access.",
+            "Provide clear focus indicators.",
+            "Identify the current page where appropriate."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Accessible Images"
+        },
+        {
+          "type": "p",
+          "text": "Informative images should contain meaningful alternative text."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<img\n    src=\"api-architecture.png\"\n    alt=\"Diagram showing a frontend client communicating with a backend API and database\"\n>"
+        },
+        {
+          "type": "p",
+          "text": "Decorative images should generally have empty alt text."
+        },
+        {
+          "type": "code",
+          "text": "<img src=\"decorative-background.jpg\" alt=\"\">"
+        },
+        {
+          "type": "p",
+          "text": "Do not use lengthy alternative text for decorative design elements."
+        },
+        {
+          "type": "h3",
+          "text": "10.7 Accessible Forms"
+        },
+        {
+          "type": "p",
+          "text": "Every form control should have an accessible name."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<form>\n\n    <label for=\"email\">Email Address</label>\n\n    <input\n        type=\"email\"\n        id=\"email\"\n        name=\"email\"\n        required\n    >\n\n    <button type=\"submit\">Continue</button>\n\n</form>"
+        },
+        {
+          "type": "p",
+          "text": "For related controls, use fieldset and legend."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<fieldset>\n\n    <legend>Preferred Learning Method</legend>\n\n    <label>\n        <input\n            type=\"radio\"\n            name=\"method\"\n            value=\"video\"\n        >\n        Video lessons\n    </label>\n\n    <label>\n        <input\n            type=\"radio\"\n            name=\"method\"\n            value=\"reading\"\n        >\n        Reading materials\n    </label>\n\n</fieldset>"
+        },
+        {
+          "type": "p",
+          "text": "Labels, instructions, and errors should clearly explain what is required."
+        },
+        {
+          "type": "h3",
+          "text": "10.8 Keyboard Accessibility"
+        },
+        {
+          "type": "p",
+          "text": "Some users cannot operate a mouse."
+        },
+        {
+          "type": "p",
+          "text": "They need to navigate the interface using a keyboard."
+        },
+        {
+          "type": "p",
+          "text": "Common keyboard interactions include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Tab: Move to the next focusable element.",
+            "Shift + Tab: Move to the previous focusable element.",
+            "Enter: Activate links and many buttons.",
+            "Space: Activate buttons and toggle appropriate controls.",
+            "Arrow keys: Navigate certain grouped controls and widgets.",
+            "Escape: Close certain dialogs and interactive interfaces."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Native HTML elements provide much of this behavior automatically."
+        },
+        {
+          "type": "p",
+          "text": "Avoid removing the browser's visible focus indicator without providing an equivalent alternative."
+        },
+        {
+          "type": "h3",
+          "text": "10.9 Understanding Focus Order"
+        },
+        {
+          "type": "p",
+          "text": "Focus order describes the sequence in which keyboard users navigate interactive content."
+        },
+        {
+          "type": "p",
+          "text": "A sensible focus order should follow the logical structure of the page."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<header>\n    <a href=\"/\">Home</a>\n    <a href=\"/courses.html\">Courses</a>\n</header>\n\n<main>\n    <h1>Course Registration</h1>\n\n    <form>\n        <label for=\"name\">Name</label>\n        <input id=\"name\" name=\"name\">\n\n        <button type=\"submit\">Register</button>\n    </form>\n</main>"
+        },
+        {
+          "type": "p",
+          "text": "The browser's default focus order follows the relevant document order and focusability rules."
+        },
+        {
+          "type": "p",
+          "text": "Avoid using positive `tabindex` values to force an artificial keyboard sequence."
+        },
+        {
+          "type": "h3",
+          "text": "10.10 Skip Navigation Links"
+        },
+        {
+          "type": "p",
+          "text": "Long pages should provide a way for keyboard users to bypass repeated navigation."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<a href=\"#main-content\" class=\"skip-link\">\n    Skip to main content\n</a>\n\n<header>\n    <!-- Navigation -->\n</header>\n\n<main id=\"main-content\">\n    <h1>Frontend Engineering</h1>\n</main>"
+        },
+        {
+          "type": "p",
+          "text": "CSS can visually hide the link until it receives keyboard focus."
+        },
+        {
+          "type": "p",
+          "text": "This makes it easier for keyboard users to reach the primary content."
+        },
+        {
+          "type": "h3",
+          "text": "10.11 Understanding Accessible Names"
+        },
+        {
+          "type": "p",
+          "text": "An accessible name identifies a control or interactive element to assistive technology."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "<button type=\"button\">\n    Open Menu\n</button>"
+        },
+        {
+          "type": "p",
+          "text": "The visible text supplies its accessible name."
+        },
+        {
+          "type": "p",
+          "text": "For an image-only button:"
+        },
+        {
+          "type": "code",
+          "text": "<button type=\"button\" aria-label=\"Close dialog\">\n    <svg aria-hidden=\"true\">\n        <!-- Decorative icon -->\n    </svg>\n</button>"
+        },
+        {
+          "type": "p",
+          "text": "The `aria-label` supplies a name for the control."
+        },
+        {
+          "type": "p",
+          "text": "Prefer visible text labels whenever practical."
+        },
+        {
+          "type": "p",
+          "text": "Use ARIA to supplement native semantics when a real accessibility need exists, not as a replacement for correct HTML structure."
+        },
+        {
+          "type": "h3",
+          "text": "10.12 Understanding ARIA"
+        },
+        {
+          "type": "p",
+          "text": "ARIA stands for Accessible Rich Internet Applications."
+        },
+        {
+          "type": "p",
+          "text": "It provides attributes that communicate accessibility information about interface elements."
+        },
+        {
+          "type": "p",
+          "text": "Common attributes include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`aria-label`",
+            "`aria-labelledby`",
+            "`aria-describedby`",
+            "`aria-hidden`",
+            "`aria-current`",
+            "`aria-expanded`",
+            "`aria-controls`",
+            "`aria-live`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<button\n    type=\"button\"\n    aria-expanded=\"false\"\n    aria-controls=\"course-menu\"\n>\n    Courses\n</button>\n\n<div id=\"course-menu\" hidden>\n    <a href=\"/courses/frontend.html\">Frontend</a>\n    <a href=\"/courses/backend.html\">Backend</a>\n</div>"
+        },
+        {
+          "type": "p",
+          "text": "When the menu opens, JavaScript must update the visibility and the `aria-expanded` value."
+        },
+        {
+          "type": "p",
+          "text": "ARIA communicates state; it does not automatically implement interaction behavior."
+        },
+        {
+          "type": "h3",
+          "text": "10.13 Accessible Data Tables"
+        },
+        {
+          "type": "p",
+          "text": "Tables should communicate row and column relationships."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<table>\n\n    <caption>Course Completion Results</caption>\n\n    <thead>\n        <tr>\n            <th scope=\"col\">Student</th>\n            <th scope=\"col\">Course</th>\n            <th scope=\"col\">Progress</th>\n        </tr>\n    </thead>\n\n    <tbody>\n        <tr>\n            <th scope=\"row\">Alex</th>\n            <td>Frontend Engineering</td>\n            <td>85%</td>\n        </tr>\n    </tbody>\n\n</table>"
+        },
+        {
+          "type": "p",
+          "text": "The table headers help users understand the meaning of each value."
+        },
+        {
+          "type": "h3",
+          "text": "10.14 Color Contrast"
+        },
+        {
+          "type": "p",
+          "text": "Text and controls should be sufficiently distinguishable from their backgrounds."
+        },
+        {
+          "type": "p",
+          "text": "WCAG 2.2 specifies contrast requirements at different conformance levels."
+        },
+        {
+          "type": "p",
+          "text": "Common minimum contrast ratios at Level AA include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "4.5:1 for normal text.",
+            "3:1 for large text.",
+            "3:1 for relevant non-text interface components and graphical objects."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "These requirements have specific exceptions and measurement rules."
+        },
+        {
+          "type": "p",
+          "text": "Do not use color alone to identify:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Errors.",
+            "Success states.",
+            "Required fields.",
+            "Selected options.",
+            "Navigation states."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Include text, symbols, or other identifiable cues."
+        },
+        {
+          "type": "h3",
+          "text": "10.15 Accessibility Testing"
+        },
+        {
+          "type": "p",
+          "text": "Accessibility testing should combine automated tools and manual evaluation."
+        },
+        {
+          "type": "p",
+          "text": "Useful methods include:"
+        },
+        {
+          "type": "p",
+          "text": "**Keyboard Testing**"
+        },
+        {
+          "type": "p",
+          "text": "Navigate the entire page without a mouse."
+        },
+        {
+          "type": "p",
+          "text": "**Screen Reader Testing**"
+        },
+        {
+          "type": "p",
+          "text": "Check how headings, links, forms, buttons, and landmarks are announced."
+        },
+        {
+          "type": "p",
+          "text": "**Browser Accessibility Inspection**"
+        },
+        {
+          "type": "p",
+          "text": "Inspect the browser's accessibility tree and accessible names."
+        },
+        {
+          "type": "p",
+          "text": "**Automated Testing**"
+        },
+        {
+          "type": "p",
+          "text": "Use accessibility testing tools to identify common problems."
+        },
+        {
+          "type": "p",
+          "text": "**Zoom Testing**"
+        },
+        {
+          "type": "p",
+          "text": "Check whether content remains usable when users enlarge the page."
+        },
+        {
+          "type": "p",
+          "text": "**Responsive Testing**"
+        },
+        {
+          "type": "p",
+          "text": "Verify that all controls and content remain accessible on small screens."
+        },
+        {
+          "type": "p",
+          "text": "Automated tests can identify many issues, but they cannot establish that an entire interface is accessible."
+        },
+        {
+          "type": "h3",
+          "text": "10.16 Practical Exercise"
+        },
+        {
+          "type": "p",
+          "text": "Audit the website you created in the previous lessons."
+        },
+        {
+          "type": "p",
+          "text": "Check:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "The document language is defined.",
+            "Headings follow a meaningful hierarchy.",
+            "Navigation uses appropriate semantic elements.",
+            "Links have descriptive names.",
+            "Informative images have meaningful alt text.",
+            "Decorative images have empty alt text.",
+            "Forms have associated labels.",
+            "Form errors are understandable.",
+            "All interactive controls can be accessed using a keyboard.",
+            "Focus indicators are visible.",
+            "A skip navigation link is available.",
+            "Tables have meaningful headers and captions where appropriate.",
+            "Embedded media has suitable alternatives.",
+            "Text and controls have sufficient contrast."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Document the accessibility problems discovered and the changes made to resolve them."
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Project",
+      "title": "PRACTICAL PROJECT — Build a Multi-Page, Semantic Website With Accessible Navigation and Forms",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Project Title"
+        },
+        {
+          "type": "p",
+          "text": "**Professional Technology Learning Website**"
+        },
+        {
+          "type": "h3",
+          "text": "Project Objective"
+        },
+        {
+          "type": "p",
+          "text": "Build a complete multi-page website using semantic HTML5."
+        },
+        {
+          "type": "p",
+          "text": "The project should demonstrate your ability to construct structured web documents, create navigation between pages, display educational content, handle user input, and apply fundamental accessibility and SEO principles."
+        },
+        {
+          "type": "p",
+          "text": "The website should be structured as a realistic product rather than a collection of disconnected HTML exercises."
+        },
+        {
+          "type": "h3",
+          "text": "1. Required Pages"
+        },
+        {
+          "type": "p",
+          "text": "Create the following pages."
+        },
+        {
+          "type": "h3",
+          "text": "Page 1 — Homepage"
+        },
+        {
+          "type": "p",
+          "text": "URL: `/index.html`"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Semantic header.",
+            "Website logo or name.",
+            "Primary navigation.",
+            "Hero section.",
+            "Primary heading.",
+            "Short platform introduction.",
+            "Featured courses.",
+            "Course articles.",
+            "Benefits section.",
+            "Call-to-action links.",
+            "Footer."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Page 2 — Courses"
+        },
+        {
+          "type": "p",
+          "text": "URL: `/courses.html`"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Page heading.",
+            "Course category navigation.",
+            "At least six course listings.",
+            "Course descriptions.",
+            "Course level and duration.",
+            "Course detail links.",
+            "An accessible comparison table.",
+            "Breadcrumb or contextual navigation where useful."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Page 3 — Course Details"
+        },
+        {
+          "type": "p",
+          "text": "URL: `/courses/frontend-engineering.html`"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Course title.",
+            "Course overview.",
+            "Learning outcomes.",
+            "Prerequisites.",
+            "Module list.",
+            "Lesson descriptions.",
+            "Image or illustration.",
+            "Related course links.",
+            "Enrolment form or action."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "You may create additional course detail pages using the same structure."
+        },
+        {
+          "type": "h3",
+          "text": "Page 4 — About"
+        },
+        {
+          "type": "p",
+          "text": "URL: `/about.html`"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Semantic page structure.",
+            "Platform introduction.",
+            "Mission and objectives.",
+            "Content sections.",
+            "Team or contributor information.",
+            "Relevant images with alternative text.",
+            "Contact navigation."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Page 5 — Contact"
+        },
+        {
+          "type": "p",
+          "text": "URL: `/contact.html`"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Contact information.",
+            "Email and telephone links.",
+            "Accessible contact form.",
+            "Name field.",
+            "Email field.",
+            "Subject field.",
+            "Message textarea.",
+            "Consent checkbox where appropriate.",
+            "Submit and reset controls.",
+            "Native form validation."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Page 6 — Registration"
+        },
+        {
+          "type": "p",
+          "text": "URL: `/register.html`"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Personal information fields.",
+            "Email and password inputs.",
+            "Course selection.",
+            "Learning-level selection.",
+            "Learning-interest checkboxes.",
+            "Date input where appropriate.",
+            "File upload.",
+            "Terms acceptance.",
+            "Clear validation messages."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "2. Required HTML Skills"
+        },
+        {
+          "type": "p",
+          "text": "Your implementation must demonstrate all of the following:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "HTML5 document structure.",
+            "Correct element nesting.",
+            "Global attributes.",
+            "Semantic header, nav, main, section, article, aside, and footer elements where appropriate.",
+            "Meaningful heading hierarchy.",
+            "Paragraphs and nested lists.",
+            "Absolute and relative links.",
+            "Fragment navigation.",
+            "Breadcrumb navigation.",
+            "Informative and decorative images.",
+            "Responsive image resources.",
+            "Audio and video integration.",
+            "Video captions.",
+            "Iframe embedding.",
+            "Accessible forms.",
+            "Appropriate form input types.",
+            "Native constraint validation.",
+            "Constraint Validation API usage.",
+            "Semantic tables.",
+            "Accessible table headers.",
+            "Metadata.",
+            "Open Graph information.",
+            "Canonical URL configuration.",
+            "Keyboard accessibility.",
+            "Appropriate ARIA usage."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "3. Suggested Project Structure"
+        },
+        {
+          "type": "code",
+          "text": "technology-learning-website/\n│\n├── index.html\n├── courses.html\n├── about.html\n├── contact.html\n├── register.html\n│\n├── courses/\n│   └── frontend-engineering.html\n│\n├── assets/\n│   ├── images/\n│   │   ├── logo.svg\n│   │   ├── hero.jpg\n│   │   └── frontend-course.jpg\n│   │\n│   ├── audio/\n│   │\n│   ├── video/\n│   │\n│   └── documents/\n│\n└── README.md"
+        },
+        {
+          "type": "p",
+          "text": "This project focuses on HTML document engineering. CSS and JavaScript enhancements can be added as appropriate without replacing or weakening the semantic HTML structure."
+        },
+        {
+          "type": "h3",
+          "text": "4. Functional Requirements"
+        },
+        {
+          "type": "p",
+          "text": "The website should allow users to:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Navigate between all pages.",
+            "Open individual course pages.",
+            "Move between major sections using internal links.",
+            "Navigate back to the homepage through the logo.",
+            "View multimedia content.",
+            "Submit contact-form information to an appropriately configured endpoint.",
+            "Complete and validate the registration form.",
+            "Navigate the entire website using a keyboard."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A static HTML website without a backend cannot persist registration or contact submissions by itself. For the project, form submissions may be tested against a suitable development endpoint or documented as backend integration requirements."
+        },
+        {
+          "type": "h3",
+          "text": "5. SEO Requirements"
+        },
+        {
+          "type": "p",
+          "text": "Each page must have:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A unique and relevant title.",
+            "An appropriate meta description.",
+            "Character encoding metadata.",
+            "Viewport metadata.",
+            "A suitable favicon.",
+            "Appropriate canonical URL configuration.",
+            "Open Graph title.",
+            "Open Graph description.",
+            "Open Graph image.",
+            "Descriptive headings.",
+            "Meaningful internal links.",
+            "Appropriate image alternatives."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Make sure metadata accurately represents the content of each page."
+        },
+        {
+          "type": "h3",
+          "text": "6. Accessibility Requirements"
+        },
+        {
+          "type": "p",
+          "text": "The final project must:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Use semantic HTML.",
+            "Define the primary language.",
+            "Include meaningful heading structures.",
+            "Provide accessible navigation.",
+            "Provide accessible form controls.",
+            "Identify validation errors.",
+            "Support keyboard navigation.",
+            "Preserve visible focus indicators.",
+            "Include alternative text for informative images.",
+            "Use empty alt text for decorative images.",
+            "Provide captions or suitable alternatives for media.",
+            "Use accessible table structures.",
+            "Avoid unnecessary ARIA attributes."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "7. Project Testing Checklist"
+        },
+        {
+          "type": "h3",
+          "text": "Document Structure"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "All pages have a valid HTML document structure.",
+            "Elements are correctly nested.",
+            "There is a meaningful document outline.",
+            "Every page has a primary content area.",
+            "Semantic elements are used appropriately."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Navigation"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "All navigation links work.",
+            "Relative paths are correct.",
+            "Internal section links work.",
+            "Breadcrumb links work.",
+            "No broken internal links remain."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Multimedia"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "All image paths work.",
+            "Alternative text is appropriate.",
+            "Responsive images function correctly.",
+            "Audio and video resources load.",
+            "Captions are available for the video.",
+            "Embedded content has an accessible title."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Forms"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Every field has an accessible name.",
+            "Input types are appropriate.",
+            "Required fields are configured.",
+            "Validation works.",
+            "Custom validation messages can be understood.",
+            "File uploads use appropriate form encoding.",
+            "Submission behavior is documented."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "SEO"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Each page has a unique title.",
+            "Meta descriptions are relevant.",
+            "Canonical URLs are appropriate.",
+            "Open Graph metadata is configured.",
+            "Headings and links are descriptive."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Accessibility"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "The website can be navigated by keyboard.",
+            "Focus indicators are visible.",
+            "Images have suitable text alternatives.",
+            "Form errors are understandable.",
+            "Tables expose meaningful headers.",
+            "No important information is communicated by color alone."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "8. Final Project Deliverables"
+        },
+        {
+          "type": "p",
+          "text": "Submit:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Complete source code for all pages.",
+            "A structured project folder.",
+            "A README explaining the website architecture.",
+            "Screenshots of all six pages.",
+            "A browser developer tools inspection.",
+            "An accessibility testing report.",
+            "An SEO and metadata checklist.",
+            "A working demonstration of all navigation and form-validation behavior.",
+            "A short explanation of the semantic structure used on each page."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "badge": "Module 02",
+      "title": "MODULE 02 — KNOWLEDGE ASSESSMENT",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Part A — Conceptual Questions"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "What is HTML, and how does it differ from CSS and JavaScript?",
+            "Explain the difference between an HTML element, a tag, and an attribute.",
+            "What is the purpose of the DOCTYPE declaration?",
+            "Explain the responsibilities of the head and body elements.",
+            "What are void elements? Give five examples.",
+            "What is the difference between semantic and non-semantic HTML?",
+            "Explain the purpose of header, nav, main, section, article, aside, and footer.",
+            "How is a semantic document outline constructed?",
+            "Why should heading levels represent content hierarchy rather than visual size?",
+            "What is the difference between ordered, unordered, and description lists?",
+            "Explain the difference between an absolute URL and a relative URL.",
+            "What is fragment navigation, and how is it implemented?",
+            "What is the purpose of a breadcrumb?",
+            "Explain the role of the alt attribute.",
+            "What is the difference between img and picture?",
+            "Explain the purpose of srcset and sizes.",
+            "How do audio and video elements work?",
+            "What is the purpose of the track element?",
+            "What is an iframe, and what security considerations apply to it?",
+            "Explain the purpose of form, label, input, select, and textarea.",
+            "What is the difference between GET and POST in HTML forms?",
+            "What is the purpose of name and id attributes in form controls?",
+            "Explain how fieldset and legend improve form organization.",
+            "What is the Constraint Validation API?",
+            "Explain the purpose of checkValidity(), reportValidity(), and setCustomValidity().",
+            "Why is server-side validation necessary even when native browser validation exists?",
+            "What is the difference between th and td?",
+            "Explain the purposes of thead, tbody, and tfoot.",
+            "What are HTML metadata and Open Graph metadata?",
+            "What is the purpose of a canonical URL?",
+            "How does semantic HTML improve accessibility?",
+            "Explain the four fundamental principles of WCAG.",
+            "What is the difference between an accessible name and a placeholder?",
+            "What is ARIA, and why should native HTML semantics be preferred?",
+            "How do keyboard users interact with a webpage?"
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Part B — Applied Engineering Questions"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A webpage contains several nested div elements but no meaningful semantic structure. How would you redesign it?",
+            "A heading structure jumps from h1 directly to h4 in several sections. What issues could this create?",
+            "A user clicks a course navigation link, but the page returns 404. How would you inspect the relative URL structure?",
+            "A website's images are loading slowly. Which HTML image attributes and responsive-image techniques could help?",
+            "A contact form uses placeholder text instead of labels. How would you improve it?",
+            "An input field accepts an invalid value despite having required set. What does required actually validate?",
+            "A form passes client-side validation, but the backend rejects its data. Why can this happen?",
+            "A table is difficult to understand using a screen reader. What structural improvements would you make?",
+            "A social media preview displays the wrong image and title. Which HTML metadata would you inspect?",
+            "A website can be navigated with a mouse but not a keyboard. What HTML and accessibility improvements would you investigate?",
+            "A decorative image is being announced unnecessarily by a screen reader. How should its alternative text be handled?",
+            "An embedded external application does not work inside an iframe. What restrictions or response headers could be responsible?"
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Part C — Code-Based Challenges"
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 1: Document Engineering**"
+        },
+        {
+          "type": "p",
+          "text": "Build a valid HTML document containing all essential structural elements and appropriate metadata."
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 2: Semantic Refactoring**"
+        },
+        {
+          "type": "p",
+          "text": "Convert a webpage built entirely using generic containers into a semantically meaningful document."
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 3: Navigation System**"
+        },
+        {
+          "type": "p",
+          "text": "Build a multi-page website with a primary navigation bar, breadcrumbs, fragment navigation, and related-resource links."
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 4: Multimedia Integration**"
+        },
+        {
+          "type": "p",
+          "text": "Create a page containing responsive images, an audio lesson, a captioned video, and an embedded resource."
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 5: Advanced Form Engineering**"
+        },
+        {
+          "type": "p",
+          "text": "Build a registration form with suitable input types, validation constraints, custom validation, field grouping, and accessible error messages."
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 6: Accessible Data Presentation**"
+        },
+        {
+          "type": "p",
+          "text": "Build a course comparison table that uses proper header relationships and remains usable on mobile screens."
+        }
+      ]
+    },
+    {
+      "id": "section-13",
+      "badge": "Module 02",
+      "title": "MODULE 02 — FINAL ENGINEERING EXPECTATIONS",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "After completing this module, students should be able to independently create a structured HTML website consisting of multiple connected pages."
+        },
+        {
+          "type": "p",
+          "text": "They should understand when to use semantic elements, how to create meaningful content hierarchy, how to implement multimedia and accessible forms, how to use browser-native validation, and how to structure metadata for search engines and social sharing."
+        },
+        {
+          "type": "p",
+          "text": "The expected outcome is the ability to write HTML that is not merely visually presentable, but also meaningful, maintainable, accessible, and suitable for real-world frontend applications."
+        },
+        {
+          "type": "p",
+          "text": "**Next Module: CSS Fundamentals — Styling Systems, Selectors, Box Model and Visual Presentation Engineering.**"
+        },
+        {
+          "type": "p",
+          "text": "**Course progression:** Module 01 taught how the browser and web infrastructure work. Module 02 now teaches how to engineer the documents the browser interprets. The next module can build on this structure with CSS without needing to repeat HTML fundamentals."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T14:13:54+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

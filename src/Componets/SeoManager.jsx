@@ -295,6 +295,18 @@ const routeMeta = {
     keywords: "Web Architecture, Frontend Engineering Foundations, DOM, CSSOM, Render Tree, Reflow, Repaint, HTTP HTTPS, DNS, Browser DevTools, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/web-architecture-foundations`,
   },
+  "/learning/frontend-engineering/semantic-html": {
+    title: "Module 02: Semantic HTML and Modern Document Engineering | PrepSpaces",
+    description: "Master semantic HTML5 landmarks, document outlines, multimedia & responsive images, accessible forms & Constraint Validation API, accessible tables, Open Graph/SEO metadata, and WCAG.",
+    keywords: "Semantic HTML5, Document Engineering, HTML Forms, Constraint Validation API, Accessible Tables, Open Graph, Canonical URL, WCAG Accessibility, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/semantic-html`,
+  },
+  "/courses/frontend-engineering/semantic-html": {
+    title: "Module 02: Semantic HTML and Modern Document Engineering | PrepSpaces",
+    description: "Master semantic HTML5 landmarks, document outlines, multimedia & responsive images, accessible forms & Constraint Validation API, accessible tables, Open Graph/SEO metadata, and WCAG.",
+    keywords: "Semantic HTML5, Document Engineering, HTML Forms, Constraint Validation API, Accessible Tables, Open Graph, Canonical URL, WCAG Accessibility, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/semantic-html`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",
