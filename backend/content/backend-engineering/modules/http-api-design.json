@@ -1,0 +1,130 @@
+{
+  "id": "http-api-design",
+  "courseId": "backend-engineering",
+  "index": 2,
+  "name": "2. HTTP Protocol and API Design",
+  "route": "/learning/backend-engineering/http-api-design",
+  "componentName": "BackendHttpApiDesign",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the key difference between the Content-Type header and the Accept header in an HTTP request?",
+      "options": [
+        "Content-Type specifies the format of the request body being sent; Accept specifies the response media type the client wants to receive",
+        "Accept specifies the request body format; Content-Type is only used in responses",
+        "Both headers carry JWT authentication tokens",
+        "They are identical aliases in HTTP/2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Content-Type describes the media type of the body sent by the client (e.g., application/json), while Accept tells the server which response media types the client can handle."
+    },
+    {
+      "id": 2,
+      "question": "Which HTTP method is BOTH safe and idempotent according to HTTP semantics (RFC 9110)?",
+      "options": [
+        "POST",
+        "PUT",
+        "GET",
+        "PATCH"
+      ],
+      "correctIndex": 2,
+      "explanation": "GET is both safe (read-only semantics; not intended to modify server state) and idempotent (repeating it has the same intended effect)."
+    },
+    {
+      "id": 3,
+      "question": "Why should an API use an Idempotency-Key header for sensitive POST operations like payments or enrollments?",
+      "options": [
+        "To compress the JSON body over HTTP/2",
+        "To ensure that retrying a timed-out request does not create duplicate charges or duplicate records",
+        "To bypass authentication middleware",
+        "To convert POST into a GET request"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because POST is not inherently idempotent, an Idempotency-Key lets the backend detect retried submissions and avoid executing duplicate side effects."
+    },
+    {
+      "id": 4,
+      "question": "How do ETag and If-Match headers help prevent lost updates when two administrators edit the same course?",
+      "options": [
+        "They lock the browser UI until both admins log out",
+        "The server rejects an update with 412 Precondition Failed if the client's If-Match ETag no longer matches the current resource version",
+        "They automatically merge conflicting JSON fields",
+        "They disable HTTP caching permanently"
+      ],
+      "correctIndex": 1,
+      "explanation": "ETag identifies a specific resource representation version. Sending If-Match with an outdated ETag causes the server to return 412 Precondition Failed instead of silently overwriting newer changes."
+    },
+    {
+      "id": 5,
+      "question": "When should you use path parameters versus query parameters in a REST API?",
+      "options": [
+        "Path parameters identify a specific resource or hierarchy; query parameters filter, sort, search, or paginate",
+        "Query parameters identify resources; path parameters are only for authentication",
+        "Path parameters are only for POST requests",
+        "They are interchangeable in all cases"
+      ],
+      "correctIndex": 0,
+      "explanation": "Path parameters (e.g., /courses/course-101) identify the target resource, while query parameters (e.g., ?status=published&page=2) refine retrieval."
+    },
+    {
+      "id": 6,
+      "question": "What problem does GraphQL primarily solve compared to fixed-shape REST endpoints?",
+      "options": [
+        "It eliminates the need for a database",
+        "It allows clients to request the exact fields they need in a single query, reducing over-fetching and under-fetching",
+        "It replaces TLS encryption",
+        "It automatically prevents N+1 queries without resolvers"
+      ],
+      "correctIndex": 1,
+      "explanation": "GraphQL lets clients specify exact fields via a typed schema, reducing over-fetching (unused fields) and under-fetching (multiple round-trips)."
+    },
+    {
+      "id": 7,
+      "question": "What are the typical transport protocol and serialization format used by gRPC?",
+      "options": [
+        "HTTP/1.1 and XML",
+        "HTTP/2 and Protocol Buffers",
+        "WebSockets and CSV",
+        "SMTP and JSON"
+      ],
+      "correctIndex": 1,
+      "explanation": "gRPC commonly uses HTTP/2 as its transport and Protocol Buffers (binary serialization) to define strongly typed service contracts."
+    },
+    {
+      "id": 8,
+      "question": "Why is cursor-based pagination often preferred over offset-based pagination for large, frequently changing datasets?",
+      "options": [
+        "Cursor pagination does not require any database index",
+        "Offset pagination can skip or duplicate items when new records are inserted and becomes slower as offset grows",
+        "Cursor pagination allows jumping directly to page 500 without scanning",
+        "Offset pagination cannot return JSON"
+      ],
+      "correctIndex": 1,
+      "explanation": "Large offsets force databases to scan and skip many rows, and concurrent inserts/deletes shift page boundaries. Cursor pagination anchors to a stable key."
+    },
+    {
+      "id": 9,
+      "question": "Which API change is generally considered a BREAKING change that may require a new major API version?",
+      "options": [
+        "Adding a new optional endpoint",
+        "Adding an optional field to a response object",
+        "Renaming an existing response field (e.g., name to fullName) or removing a field clients depend on",
+        "Improving internal database query performance"
+      ],
+      "correctIndex": 2,
+      "explanation": "Renaming or removing existing response fields breaks existing clients expecting the original contract."
+    },
+    {
+      "id": 10,
+      "question": "What is the relationship between OpenAPI and Swagger?",
+      "options": [
+        "Swagger is the specification and OpenAPI is a database engine",
+        "OpenAPI is the machine-readable API description specification, while Swagger refers to tools (Editor, UI, Codegen) that work with OpenAPI documents",
+        "They are two incompatible competitors",
+        "OpenAPI only works for GraphQL APIs"
+      ],
+      "correctIndex": 1,
+      "explanation": "OpenAPI defines the standard YAML/JSON format for describing HTTP APIs; Swagger is the ecosystem of tools for editing, viewing, and generating from those specs."
+    }
+  ]
+}

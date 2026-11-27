@@ -157,6 +157,18 @@ const routeMeta = {
     keywords: "Backend Engineering Foundations, Request Lifecycle, Authentication vs Authorization, Layered Architecture, Student Management System Design, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/foundations`,
   },
+  "/learning/backend-engineering/http-api-design": {
+    title: "Module 02: HTTP Protocol and API Design | PrepSpaces",
+    description: "Master HTTP semantics (RFC 9110), methods, status codes, headers, REST vs GraphQL vs gRPC, pagination, versioning, OpenAPI 3.2.1, and contract-first API design.",
+    keywords: "HTTP Protocol, API Design, REST vs GraphQL vs gRPC, OpenAPI 3.2.1, Swagger, Pagination, API Versioning, Contract-First Design, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/http-api-design`,
+  },
+  "/courses/backend-engineering/http-api-design": {
+    title: "Module 02: HTTP Protocol and API Design | PrepSpaces",
+    description: "Master HTTP semantics (RFC 9110), methods, status codes, headers, REST vs GraphQL vs gRPC, pagination, versioning, OpenAPI 3.2.1, and contract-first API design.",
+    keywords: "HTTP Protocol, API Design, REST vs GraphQL vs gRPC, OpenAPI 3.2.1, Swagger, Pagination, API Versioning, Contract-First Design, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/http-api-design`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

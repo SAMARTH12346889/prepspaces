@@ -9,5 +9,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "http-api-design",
+    "courseId": "backend-engineering",
+    "index": 2,
+    "name": "2. HTTP Protocol and API Design",
+    "route": "/learning/backend-engineering/http-api-design",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

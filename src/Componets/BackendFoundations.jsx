@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   Server,
   ArrowLeft,
+  ArrowRight,
   BookOpen,
   Copy,
   Check,
@@ -590,9 +591,13 @@ app.listen(3000, () => {
             <span>Curriculum Hub</span>
           </button>
 
-          <div className="text-xs font-mono text-stone-500">
-            Backend Engineering &bull; Module 01 Foundations
-          </div>
+          <button
+            onClick={() => navigate("/learning/backend-engineering/http-api-design")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+          >
+            <span>Next: Module 2 &mdash; HTTP Protocol and API Design</span>
+            <ArrowRight size={16} />
+          </button>
         </div>
       </main>
     </div>
