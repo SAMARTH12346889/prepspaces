@@ -18,6 +18,7 @@ import {
   Brain,
   Blocks,
   Database,
+  Server,
   User,
   LogOut,
 } from "lucide-react";
@@ -245,6 +246,26 @@ const learningTracks = [
       "XGBoost, LightGBM, SVM & Clustering",
       "Time Series, Optuna & SHAP Explainability",
       "Production Capstone & Interview Mastery",
+    ],
+  },
+  {
+    id: "backend-engineering",
+    title: "Backend Engineering Master Course",
+    tagline: "APIs, Request Lifecycle, Architecture Patterns & Production Systems",
+    description:
+      "Master backend engineering from server-side foundations, client-server communication, HTTP request lifecycles, and application runtimes to monolithic vs distributed architectures, clean architecture patterns, and end-to-end backend system design.",
+    icon: Server,
+    route: "/learning/backend-engineering",
+    tag: "Backend & Architecture",
+    modulesCount: "1 Comprehensive Module",
+    color: "from-stone-900 via-orange-950 to-orange-600",
+    badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
+    highlights: [
+      "Backend Engineering & Client-Server Architecture",
+      "Complete 12-Step HTTP Request Lifecycle & Latency",
+      "Application Servers, Runtimes & Deployment Models",
+      "Monolithic vs Distributed & Event-Driven Systems",
+      "Layered, MVC, Clean & Repository Architecture Patterns",
     ],
   },
 ];

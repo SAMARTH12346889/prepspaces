@@ -274,6 +274,10 @@ export const MACHINE_LEARNING_MODULES = [
   { id: "final-capstone", name: "24. Final ML Capstone & Interview Mastery", route: "/learning/machine-learning/final-capstone" },
 ];
 
+export const BACKEND_ENGINEERING_MODULES = [
+  { id: "foundations", name: "1. Backend Engineering Foundations", route: "/learning/backend-engineering" },
+];
+
 export default function ModuleNav({
   track: propTrack,
   trackId,
@@ -304,9 +308,11 @@ export default function ModuleNav({
       if (rawTrack === "blockchain") return "blockchain";
       if (rawTrack === "data-engineering") return "data-engineering";
       if (rawTrack === "machine-learning" || rawTrack === "ml") return "machine-learning";
+      if (rawTrack === "backend-engineering" || rawTrack === "backend") return "backend-engineering";
       return rawTrack;
     }
     const path = (location?.pathname || "").toLowerCase();
+    if (path.includes("/learning/backend-engineering") || path.includes("/learning/backend") || path.includes("/courses/backend-engineering") || path.includes("/courses/backend") || path.includes("/learn/backend-engineering")) return "backend-engineering";
     if (path.includes("/learning/machine-learning") || path.includes("/learning/ml") || path.includes("/courses/machine-learning") || path.includes("/courses/ml") || path.includes("/learn/machine-learning")) return "machine-learning";
     if (path.includes("/learning/data-engineering") || path.includes("/learn/data-engineering") || path.includes("/courses/data-engineering")) return "data-engineering";
     if (path.includes("/learning/ai") || path.includes("/learn/ai") || path.includes("/courses/artificial-intelligence") || path.includes("/courses/generative-ai")) return "ai";
@@ -333,6 +339,8 @@ export default function ModuleNav({
     "data-engineering": "data-engineering",
     "machine-learning": "machine-learning",
     ml: "machine-learning",
+    "backend-engineering": "backend-engineering",
+    backend: "backend-engineering",
   };
   const resolvedCourseId = courseIdMap[track] || track;
 
@@ -358,6 +366,9 @@ export default function ModuleNav({
       case "machine-learning":
       case "ml":
         return MACHINE_LEARNING_MODULES;
+      case "backend-engineering":
+      case "backend":
+        return BACKEND_ENGINEERING_MODULES;
       case "cloud":
         return CLOUD_MODULES;
       default:

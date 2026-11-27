@@ -190,6 +190,7 @@ const BlockchainDAOsGovernance = React.lazy(() => import("./Componets/Blockchain
 const BlockchainHyperledgerFabric = React.lazy(() => import("./Componets/BlockchainHyperledgerFabric"));
 const BlockchainSolanaRust = React.lazy(() => import("./Componets/BlockchainSolanaRust"));
 const BlockchainFinalCapstone = React.lazy(() => import("./Componets/BlockchainFinalCapstone"));
+const BackendFoundations = React.lazy(() => import("./Componets/BackendFoundations"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -1966,6 +1967,18 @@ function App() {
             <Route path="/learning/ml" element={<MachineLearningIntro />} />
             <Route path="/learning/ml/module-1" element={<MachineLearningIntro />} />
             <Route path="/courses/ml" element={<MachineLearningIntro />} />
+
+            {/* BACKEND ENGINEERING ROUTES */}
+            <Route path="/learning/backend-engineering" element={<BackendFoundations />} />
+            <Route path="/learning/backend-engineering/intro" element={<BackendFoundations />} />
+            <Route path="/learning/backend-engineering/module-1" element={<BackendFoundations />} />
+            <Route path="/learning/backend-engineering/foundations" element={<BackendFoundations />} />
+            <Route path="/courses/backend-engineering" element={<BackendFoundations />} />
+            <Route path="/learn/backend-engineering" element={<BackendFoundations />} />
+            <Route path="/learning/backend" element={<BackendFoundations />} />
+            <Route path="/learning/backend/module-1" element={<BackendFoundations />} />
+            <Route path="/learning/backend/foundations" element={<BackendFoundations />} />
+            <Route path="/courses/backend" element={<BackendFoundations />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

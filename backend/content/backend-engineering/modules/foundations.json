@@ -1,0 +1,130 @@
+{
+  "id": "foundations",
+  "courseId": "backend-engineering",
+  "index": 1,
+  "name": "1. Backend Engineering Foundations",
+  "route": "/learning/backend-engineering",
+  "componentName": "BackendFoundations",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why should the frontend not be trusted to calculate or enforce important business rules such as course progress or prices?",
+      "options": [
+        "Browsers cannot perform floating-point arithmetic accurately",
+        "Browser code is accessible to the user and can be modified or bypassed by sending direct HTTP requests",
+        "Frontend frameworks automatically delete business logic on page reload",
+        "HTTP does not allow JSON bodies from browsers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Frontend code runs in an untrusted environment (the user's browser) and can be inspected, modified, or bypassed via tools like curl. The backend must enforce authoritative business rules and validation."
+    },
+    {
+      "id": 2,
+      "question": "What is the key difference between HTTP status codes 401 Unauthorized and 403 Forbidden?",
+      "options": [
+        "401 means the server crashed; 403 means the database is down",
+        "401 means missing or invalid authentication; 403 means the user is authenticated but lacks permission for the operation",
+        "401 is for GET requests; 403 is for POST requests",
+        "There is no difference; they are interchangeable"
+      ],
+      "correctIndex": 1,
+      "explanation": "401 indicates that the request lacks valid authentication credentials (who the user is cannot be verified), while 403 indicates the user is identified but does not have permission to perform the action."
+    },
+    {
+      "id": 3,
+      "question": "Which HTTP method is generally used to partially update a resource (such as changing only a student's department)?",
+      "options": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "correctIndex": 2,
+      "explanation": "PATCH applies partial modifications to a resource, whereas PUT typically replaces the entire resource representation."
+    },
+    {
+      "id": 4,
+      "question": "What does idempotency mean in the context of HTTP operations?",
+      "options": [
+        "The server encrypts the response using TLS",
+        "Repeating the same request has the same intended effect on the server as performing it once",
+        "The request completes in under 10 milliseconds",
+        "The server stores session state in memory"
+      ],
+      "correctIndex": 1,
+      "explanation": "An idempotent operation produces the same intended server state whether it is executed once or multiple times with the same parameters."
+    },
+    {
+      "id": 5,
+      "question": "In a layered backend architecture, which layer is responsible for handling HTTP-facing concerns like extracting request parameters and sending JSON responses?",
+      "options": [
+        "Repository layer",
+        "Database driver",
+        "Controller / Presentation layer",
+        "Domain entity layer"
+      ],
+      "correctIndex": 2,
+      "explanation": "Controllers handle HTTP-facing operations (reading params/headers/body, calling services, and returning HTTP status codes and responses), while services hold business logic and repositories handle data access."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary role of DNS during a backend API request?",
+      "options": [
+        "Encrypting the HTTP payload",
+        "Translating human-readable domain names into IP addresses",
+        "Distributing traffic across backend containers",
+        "Validating JWT access tokens"
+      ],
+      "correctIndex": 1,
+      "explanation": "DNS (Domain Name System) resolves domain names such as api.example.com into network IP addresses so the client can establish a connection."
+    },
+    {
+      "id": 7,
+      "question": "How is the relationship between language, runtime, and framework accurately described?",
+      "options": [
+        "Node.js is a language, Express is a runtime, JavaScript is a framework",
+        "JavaScript is a language, Node.js is a runtime environment, and Express is a web framework",
+        "Spring Boot is a runtime, JVM is a language, Java is a framework",
+        "Runtime and framework are identical terms"
+      ],
+      "correctIndex": 1,
+      "explanation": "A programming language defines syntax and semantics (JavaScript, Java), a runtime executes the code (Node.js, JVM), and a framework provides structure and conventions for building applications (Express, Spring Boot)."
+    },
+    {
+      "id": 8,
+      "question": "What is eventual consistency in a distributed system?",
+      "options": [
+        "All databases reject writes until every replica responds synchronously",
+        "Separate components may not observe an update at the exact same instant, but converge to a consistent state once updates propagate",
+        "Data is never persisted to disk",
+        "Only one user can access the system at a time"
+      ],
+      "correctIndex": 1,
+      "explanation": "In asynchronous or distributed systems, after an enrollment is saved, downstream consumers (like analytics or notifications) may process the event shortly afterward, converging to the correct state."
+    },
+    {
+      "id": 9,
+      "question": "Why is a modular monolith often recommended as the starting architecture for a new backend application?",
+      "options": [
+        "Monoliths cannot be refactored later",
+        "It offers simpler development, local testing, deployment, and transactions without premature distributed-system complexity",
+        "Microservices do not support HTTP APIs",
+        "Monoliths automatically scale each feature independently"
+      ],
+      "correctIndex": 1,
+      "explanation": "A modular monolith keeps clear internal module boundaries while avoiding network failure modes, distributed tracing overhead, and multi-service operational complexity until there is a measurable need to split."
+    },
+    {
+      "id": 10,
+      "question": "In a relational database design for a Student Management System, how should the many-to-many relationship between students and courses be modeled?",
+      "options": [
+        "Store a comma-separated list of course IDs inside the students table",
+        "Create an enrollments table referencing both student_id and course_id with appropriate constraints",
+        "Duplicate the courses table for every student",
+        "Store enrollments only in browser localStorage"
+      ],
+      "correctIndex": 1,
+      "explanation": "A dedicated enrollments join table with foreign keys to students and courses (and a uniqueness constraint on student_id, course_id) cleanly models the many-to-many relationship and prevents duplicate enrollments."
+    }
+  ]
+}

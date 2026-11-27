@@ -139,6 +139,24 @@ const routeMeta = {
     keywords: "Generative AI course, GenAI course, Generative AI online learning, Large Language Models course, LLM course, Prompt engineering course, RAG course, Learn Generative AI",
     canonical: `${BASE_URL}/courses/generative-ai`,
   },
+  "/courses/backend-engineering": {
+    title: "Backend Engineering Master Course | APIs, Request Lifecycle & Architecture – PrepSpaces",
+    description: "Master backend engineering from server-side foundations, client-server communication, HTTP request lifecycles, and application runtimes to monolithic vs distributed architectures and clean architecture patterns.",
+    keywords: "Backend Engineering Course, Learn Backend Engineering, HTTP Request Lifecycle, Client-Server Architecture, Monolith vs Microservices, Clean Architecture, Express.js Lab, PrepSpaces",
+    canonical: `${BASE_URL}/courses/backend-engineering`,
+  },
+  "/learning/backend-engineering": {
+    title: "Backend Engineering Master Course | APIs, Request Lifecycle & Architecture – PrepSpaces",
+    description: "Master backend engineering from server-side foundations, client-server communication, HTTP request lifecycles, and application runtimes to monolithic vs distributed architectures and clean architecture patterns.",
+    keywords: "Backend Engineering Course, Learn Backend Engineering, HTTP Request Lifecycle, Client-Server Architecture, Monolith vs Microservices, Clean Architecture, Express.js Lab, PrepSpaces",
+    canonical: `${BASE_URL}/courses/backend-engineering`,
+  },
+  "/learning/backend-engineering/foundations": {
+    title: "Module 01: Backend Engineering Foundations | PrepSpaces",
+    description: "Understand how backend systems work, how applications communicate with servers, how HTTP requests are processed, and how to translate requirements into a backend architecture.",
+    keywords: "Backend Engineering Foundations, Request Lifecycle, Authentication vs Authorization, Layered Architecture, Student Management System Design, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/foundations`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

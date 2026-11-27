@@ -1,0 +1,13 @@
+[
+  {
+    "id": "foundations",
+    "courseId": "backend-engineering",
+    "index": 1,
+    "name": "1. Backend Engineering Foundations",
+    "route": "/learning/backend-engineering",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  }
+]
