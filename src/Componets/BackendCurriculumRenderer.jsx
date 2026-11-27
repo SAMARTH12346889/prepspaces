@@ -615,7 +615,26 @@ function renderBlock(block, idx) {
 }
 
 export default function BackendCurriculumRenderer({ data }) {
-  const sections = data?.sections || [];
+  const rawSections = data?.sections || [];
+  const sections = useMemo(() => {
+    const merged = [];
+    for (const sec of rawSections) {
+      const blocks = sec.blocks || [];
+      if (blocks.length === 0 && merged.length > 0) {
+        merged[merged.length - 1] = {
+          ...merged[merged.length - 1],
+          blocks: [
+            ...(merged[merged.length - 1].blocks || []),
+            { type: "p", text: sec.title },
+          ],
+        };
+      } else {
+        merged.push({ ...sec, blocks: [...blocks] });
+      }
+    }
+    return merged;
+  }, [rawSections]);
+
   const storageKey = `prepspaces_understood_${data?.moduleNumber || "mod"}`;
 
   const [understoodMap, setUnderstoodMap] = useState({});
