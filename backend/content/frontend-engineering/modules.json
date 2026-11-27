@@ -64,5 +64,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "typescript-scalable-frontend",
+    "courseId": "frontend-engineering",
+    "index": 7,
+    "name": "7. TypeScript for Scalable Frontend Applications",
+    "route": "/learning/frontend-engineering/typescript-scalable-frontend",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

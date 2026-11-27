@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
+  ArrowRight,
   BookOpen,
   CheckCircle2,
   Code2,
@@ -516,10 +517,13 @@ export default function FrontendBrowserAsync() {
             <span>Previous: Module 5 &mdash; Modern JavaScript for Web Applications</span>
           </button>
 
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-600">
-            <ShieldCheck size={16} className="text-emerald-600" />
-            <span>Next Module: Component Architecture &amp; React Engineering</span>
-          </div>
+          <button
+            onClick={() => navigate("/learning/frontend-engineering/typescript-scalable-frontend")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+          >
+            <span>Next: Module 7 &mdash; TypeScript for Scalable Frontend Applications</span>
+            <ArrowRight size={16} />
+          </button>
         </div>
       </main>
     </div>

@@ -355,6 +355,18 @@ const routeMeta = {
     keywords: "Browser APIs, Asynchronous JavaScript, Fetch API, Promises, IndexedDB, WebSockets, AbortController, File API, MediaDevices, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/browser-apis-async`,
   },
+  "/learning/frontend-engineering/typescript-scalable-frontend": {
+    title: "Module 07: TypeScript for Scalable Frontend Applications | PrepSpaces",
+    description: "Master TypeScript static type checking, type inference & erasure, unknown vs any, interfaces, unions & intersections, generics, keyof, discriminated unions, and runtime API validation.",
+    keywords: "TypeScript, Frontend Engineering, Interfaces, Generics, Discriminated Unions, Type Narrowing, keyof, React TSX, Zod Runtime Validation, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/typescript-scalable-frontend`,
+  },
+  "/courses/frontend-engineering/typescript-scalable-frontend": {
+    title: "Module 07: TypeScript for Scalable Frontend Applications | PrepSpaces",
+    description: "Master TypeScript static type checking, type inference & erasure, unknown vs any, interfaces, unions & intersections, generics, keyof, discriminated unions, and runtime API validation.",
+    keywords: "TypeScript, Frontend Engineering, Interfaces, Generics, Discriminated Unions, Type Narrowing, keyof, React TSX, Zod Runtime Validation, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/typescript-scalable-frontend`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

@@ -1,0 +1,2458 @@
+{
+  "moduleNumber": "07",
+  "title": "MODULE 07 — TypeScript for Scalable Frontend Applications",
+  "badges": [
+    "Core Module",
+    "13 Lessons",
+    "TypeScript",
+    "Static Type Safety"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module overview"
+    },
+    {
+      "type": "p",
+      "text": "Modern frontend applications can contain hundreds of components, thousands of functions, and complex interactions between different parts of the system."
+    },
+    {
+      "type": "p",
+      "text": "As an application grows, managing its data becomes increasingly difficult."
+    },
+    {
+      "type": "p",
+      "text": "Consider a learning platform such as PrepSpaces."
+    },
+    {
+      "type": "p",
+      "text": "A student object might contain:"
+    },
+    {
+      "type": "code",
+      "text": "const student = { id: 101, name: \"Alex\", email: \"alex@example.com\", enrolledCourses: 5, completedCourses: 2 };"
+    },
+    {
+      "type": "p",
+      "text": "Initially, this looks straightforward."
+    },
+    {
+      "type": "p",
+      "text": "But imagine that different developers work on different parts of the application:"
+    },
+    {
+      "type": "p",
+      "text": "One developer expects id to be a number."
+    },
+    {
+      "type": "p",
+      "text": "Another developer sends it as a string."
+    },
+    {
+      "type": "p",
+      "text": "A dashboard component expects completedCourses, but the API does not return it."
+    },
+    {
+      "type": "p",
+      "text": "A component expects a function to return an array, but it receives null."
+    },
+    {
+      "type": "p",
+      "text": "An API response changes its structure, breaking several pages."
+    },
+    {
+      "type": "p",
+      "text": "A developer accidentally passes the wrong property to a React component."
+    },
+    {
+      "type": "p",
+      "text": "JavaScript does not automatically detect all these mistakes before the application runs."
+    },
+    {
+      "type": "p",
+      "text": "This is where TypeScript becomes important."
+    },
+    {
+      "type": "p",
+      "text": "What is TypeScript?"
+    },
+    {
+      "type": "p",
+      "text": "TypeScript is a programming language built on JavaScript that adds a static type system."
+    },
+    {
+      "type": "p",
+      "text": "It allows developers to describe what kind of information variables, functions, objects, components, and APIs should receive and return."
+    },
+    {
+      "type": "p",
+      "text": "TypeScript checks these definitions before the application runs."
+    },
+    {
+      "type": "p",
+      "text": "For example:"
+    },
+    {
+      "type": "code",
+      "text": "let studentName: string = \"Alex\"; let studentAge: number = 22; let isEnrolled: boolean = true;"
+    },
+    {
+      "type": "p",
+      "text": "Now consider:"
+    },
+    {
+      "type": "code",
+      "text": "let studentAge: number = \"twenty-two\";"
+    },
+    {
+      "type": "p",
+      "text": "TypeScript identifies this as a type error because a string cannot be assigned to a variable declared as a number."
+    },
+    {
+      "type": "p",
+      "text": "The important distinction is that TypeScript checks code during development and compilation. Its type annotations are generally removed when producing JavaScript. They do not automatically validate data received from a server at runtime."
+    },
+    {
+      "type": "p",
+      "text": "The TypeScript Handbook+1"
+    },
+    {
+      "type": "p",
+      "text": "How TypeScript fits into frontend development"
+    },
+    {
+      "type": "p",
+      "text": "TypeScript Source Code"
+    },
+    {
+      "type": "p",
+      "text": ".ts and .tsx files"
+    },
+    {
+      "type": "p",
+      "text": "Type Checking"
+    },
+    {
+      "type": "p",
+      "text": "Checks types, functions, objects, components and API contracts"
+    },
+    {
+      "type": "p",
+      "text": "JavaScript Output / Transpilation"
+    },
+    {
+      "type": "p",
+      "text": "TypeScript-specific syntax and types are removed"
+    },
+    {
+      "type": "p",
+      "text": "Browser Execution"
+    },
+    {
+      "type": "p",
+      "text": "The browser executes JavaScript"
+    },
+    {
+      "type": "p",
+      "text": "TypeScript does not replace JavaScript. It enhances the development process by adding a type-checking layer."
+    },
+    {
+      "type": "p",
+      "text": "What you will learn"
+    },
+    {
+      "type": "p",
+      "text": "By completing this module, you will learn how to:"
+    },
+    {
+      "type": "p",
+      "text": "Understand TypeScript's role in modern frontend engineering."
+    },
+    {
+      "type": "p",
+      "text": "Convert ordinary JavaScript code into TypeScript."
+    },
+    {
+      "type": "p",
+      "text": "Define primitive types and use type inference."
+    },
+    {
+      "type": "p",
+      "text": "Create structured objects, arrays and tuples."
+    },
+    {
+      "type": "p",
+      "text": "Design interfaces and reusable type definitions."
+    },
+    {
+      "type": "p",
+      "text": "Type functions and their parameters."
+    },
+    {
+      "type": "p",
+      "text": "Develop reusable generic components and utilities."
+    },
+    {
+      "type": "p",
+      "text": "Handle complex data using type narrowing."
+    },
+    {
+      "type": "p",
+      "text": "Use advanced type manipulation and utility types."
+    },
+    {
+      "type": "p",
+      "text": "Integrate TypeScript with React and JSX."
+    },
+    {
+      "type": "p",
+      "text": "Type React components, props, events and hooks."
+    },
+    {
+      "type": "p",
+      "text": "Validate API responses at runtime."
+    },
+    {
+      "type": "p",
+      "text": "Configure TypeScript for production frontend applications."
+    }
+  ],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Lesson 01",
+      "title": "LESSON 01 — Introduction to TypeScript and Its Role in Frontend Engineering",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 Why TypeScript was introduced"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript was originally designed to make webpages interactive."
+        },
+        {
+          "type": "p",
+          "text": "Over time, it evolved into a language used to develop:"
+        },
+        {
+          "type": "p",
+          "text": "Large web applications"
+        },
+        {
+          "type": "p",
+          "text": "E-commerce platforms"
+        },
+        {
+          "type": "p",
+          "text": "Learning management systems"
+        },
+        {
+          "type": "p",
+          "text": "Financial dashboards"
+        },
+        {
+          "type": "p",
+          "text": "SaaS products"
+        },
+        {
+          "type": "p",
+          "text": "Enterprise frontend applications"
+        },
+        {
+          "type": "p",
+          "text": "Complex React applications"
+        },
+        {
+          "type": "p",
+          "text": "As applications grew, managing data and relationships between different components became increasingly difficult."
+        },
+        {
+          "type": "p",
+          "text": "Consider this JavaScript function:"
+        },
+        {
+          "type": "code",
+          "text": "function calculateTotal(price, quantity) { return price * quantity; } console.log(calculateTotal(100, 5));"
+        },
+        {
+          "type": "p",
+          "text": "The function works correctly when supplied with numbers."
+        },
+        {
+          "type": "p",
+          "text": "However, JavaScript does not prevent someone from writing:"
+        },
+        {
+          "type": "p",
+          "text": "calculateTotal(\"hello\", \"world\");"
+        },
+        {
+          "type": "p",
+          "text": "The resulting value will not represent a meaningful total."
+        },
+        {
+          "type": "p",
+          "text": "TypeScript helps catch this mistake before execution."
+        },
+        {
+          "type": "code",
+          "text": "function calculateTotal( price: number, quantity: number ): number { return price * quantity; } console.log(calculateTotal(100, 5));"
+        },
+        {
+          "type": "p",
+          "text": "Now TypeScript expects both arguments to be numbers and the function to return a number."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Static typing versus dynamic typing"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript is dynamically typed."
+        },
+        {
+          "type": "p",
+          "text": "A variable can contain different types of values during its lifetime."
+        },
+        {
+          "type": "code",
+          "text": "let value = 100; value = \"Hello\"; value = true;"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript permits these assignments."
+        },
+        {
+          "type": "p",
+          "text": "TypeScript allows developers to define expected types."
+        },
+        {
+          "type": "code",
+          "text": "let value: number = 100; value = \"Hello\"; // Type error"
+        },
+        {
+          "type": "p",
+          "text": "This helps detect unintended changes in data."
+        },
+        {
+          "type": "p",
+          "text": "However, TypeScript still allows dynamic JavaScript patterns where the type definitions permit them."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Understanding static type checking"
+        },
+        {
+          "type": "p",
+          "text": "Static type checking means examining code without executing the application to detect invalid type usage."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "interface Course { id: number; title: string; duration: number; } function displayCourse(course: Course) { console.log(course.title); }"
+        },
+        {
+          "type": "p",
+          "text": "The Course interface describes the expected structure."
+        },
+        {
+          "type": "p",
+          "text": "Now:"
+        },
+        {
+          "type": "p",
+          "text": "displayCourse({ id: 1, title: \"Frontend Engineering\", duration: 40 });"
+        },
+        {
+          "type": "p",
+          "text": "This is valid."
+        },
+        {
+          "type": "p",
+          "text": "But:"
+        },
+        {
+          "type": "p",
+          "text": "displayCourse({ id: \"one\", title: \"Frontend Engineering\", duration: 40 });"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript reports an error because id should be a number."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Compile-time errors versus runtime errors"
+        },
+        {
+          "type": "p",
+          "text": "Understanding the difference is important."
+        },
+        {
+          "type": "p",
+          "text": "Compile-time or type-checking error:"
+        },
+        {
+          "type": "code",
+          "text": "const age: number = \"twenty\";"
+        },
+        {
+          "type": "p",
+          "text": "The TypeScript checker identifies the problem before the program executes."
+        },
+        {
+          "type": "p",
+          "text": "Runtime error:"
+        },
+        {
+          "type": "code",
+          "text": "const student = null; console.log(student.name);"
+        },
+        {
+          "type": "p",
+          "text": "This produces an error when JavaScript executes because the program attempts to access a property on null."
+        },
+        {
+          "type": "p",
+          "text": "TypeScript can help prevent many such problems, but it cannot eliminate every runtime error."
+        },
+        {
+          "type": "p",
+          "text": "For example, external API data can still be invalid even when the frontend has TypeScript interfaces."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 TypeScript and large frontend applications"
+        },
+        {
+          "type": "p",
+          "text": "Consider a frontend application with these areas:"
+        },
+        {
+          "type": "code",
+          "text": "Learning Platform │ ├── Authentication │ ├── Login │ ├── Registration │ └── User Profile │ ├── Courses │ ├── Course Catalogue │ ├── Course Details │ └── Course Progress │ ├── Dashboard │ ├── Statistics │ ├── Analytics │ └── Notifications │ └── Administration ├── Course Management ├── Student Management └── Reports"
+        },
+        {
+          "type": "p",
+          "text": "Each area exchanges data with other areas."
+        },
+        {
+          "type": "p",
+          "text": "TypeScript allows developers to establish shared contracts for:"
+        },
+        {
+          "type": "p",
+          "text": "User information"
+        },
+        {
+          "type": "p",
+          "text": "Course records"
+        },
+        {
+          "type": "p",
+          "text": "Authentication responses"
+        },
+        {
+          "type": "p",
+          "text": "Progress information"
+        },
+        {
+          "type": "p",
+          "text": "Component properties"
+        },
+        {
+          "type": "p",
+          "text": "Application state"
+        },
+        {
+          "type": "p",
+          "text": "This makes it easier to understand how different parts of the application communicate."
+        },
+        {
+          "type": "h3",
+          "text": "1.6 Important limitations of TypeScript"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript does not automatically:"
+        },
+        {
+          "type": "p",
+          "text": "Validate API responses."
+        },
+        {
+          "type": "p",
+          "text": "Prevent every runtime error."
+        },
+        {
+          "type": "p",
+          "text": "Secure frontend data."
+        },
+        {
+          "type": "p",
+          "text": "Replace backend validation."
+        },
+        {
+          "type": "p",
+          "text": "Improve application performance by itself."
+        },
+        {
+          "type": "p",
+          "text": "Convert JavaScript into a different runtime language."
+        },
+        {
+          "type": "p",
+          "text": "Its primary purpose is to improve development-time correctness, tooling, and maintainability."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Take five JavaScript functions and add TypeScript parameter and return types. Intentionally introduce incorrect arguments and observe the errors."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Lesson 02",
+      "title": "LESSON 02 — JavaScript vs TypeScript",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 Understanding the relationship"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript is built on JavaScript."
+        },
+        {
+          "type": "p",
+          "text": "It supports JavaScript syntax and adds additional development-time features."
+        },
+        {
+          "type": "p",
+          "text": "Every ordinary JavaScript program can generally be used as a starting point for TypeScript, although stricter checking may reveal issues that need correction."
+        },
+        {
+          "type": "p",
+          "text": "The browser does not execute TypeScript-specific syntax directly. TypeScript must first be processed into JavaScript by a suitable build or execution tool."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 JavaScript and TypeScript comparison"
+        },
+        {
+          "type": "p",
+          "text": "Feature"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript"
+        },
+        {
+          "type": "p",
+          "text": "Type system"
+        },
+        {
+          "type": "p",
+          "text": "Dynamic"
+        },
+        {
+          "type": "p",
+          "text": "Static checking"
+        },
+        {
+          "type": "p",
+          "text": "Type annotations"
+        },
+        {
+          "type": "p",
+          "text": "Not supported"
+        },
+        {
+          "type": "p",
+          "text": "Supported"
+        },
+        {
+          "type": "p",
+          "text": "Interfaces"
+        },
+        {
+          "type": "p",
+          "text": "Not built in"
+        },
+        {
+          "type": "p",
+          "text": "Supported"
+        },
+        {
+          "type": "p",
+          "text": "Generics"
+        },
+        {
+          "type": "p",
+          "text": "Not built in"
+        },
+        {
+          "type": "p",
+          "text": "Supported"
+        },
+        {
+          "type": "p",
+          "text": "Type checking"
+        },
+        {
+          "type": "p",
+          "text": "Primarily runtime behavior"
+        },
+        {
+          "type": "p",
+          "text": "Development-time checking"
+        },
+        {
+          "type": "p",
+          "text": "Browser execution"
+        },
+        {
+          "type": "p",
+          "text": "Directly supported"
+        },
+        {
+          "type": "p",
+          "text": "Requires processing"
+        },
+        {
+          "type": "p",
+          "text": "IDE assistance"
+        },
+        {
+          "type": "p",
+          "text": "Available"
+        },
+        {
+          "type": "p",
+          "text": "Enhanced by type information"
+        },
+        {
+          "type": "p",
+          "text": "Large applications"
+        },
+        {
+          "type": "p",
+          "text": "Possible"
+        },
+        {
+          "type": "p",
+          "text": "Strong support for type contracts"
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Example: JavaScript implementation"
+        },
+        {
+          "type": "code",
+          "text": "function createStudent(name, age) { return { name: name, age: age }; } const student = createStudent(\"Alex\", 22);"
+        },
+        {
+          "type": "p",
+          "text": "The function can be called with incorrect information:"
+        },
+        {
+          "type": "code",
+          "text": "const student = createStudent(100, \"twenty\");"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript permits this."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 The same implementation in TypeScript"
+        },
+        {
+          "type": "code",
+          "text": "interface Student { name: string; age: number; } function createStudent( name: string, age: number ): Student { return { name, age }; } const student = createStudent(\"Alex\", 22);"
+        },
+        {
+          "type": "p",
+          "text": "Now incorrect inputs can be detected by the TypeScript checker."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Understanding Type Erasure"
+        },
+        {
+          "type": "p",
+          "text": "Type annotations and most type-system constructs do not exist in the generated JavaScript."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript:"
+        },
+        {
+          "type": "code",
+          "text": "function greet(name: string): string { return `Hello, ${name}`; }"
+        },
+        {
+          "type": "p",
+          "text": "Generated JavaScript:"
+        },
+        {
+          "type": "code",
+          "text": "function greet(name) { return `Hello, ${name}`; }"
+        },
+        {
+          "type": "p",
+          "text": "The type information is removed."
+        },
+        {
+          "type": "p",
+          "text": "There are some TypeScript constructs, such as enums and certain parameter-property syntax, that can generate JavaScript runtime code. The important principle is that ordinary types and interfaces are compile-time constructs, not runtime validators."
+        },
+        {
+          "type": "h3",
+          "text": "2.6 TypeScript file extensions"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript uses different file extensions depending on the code."
+        },
+        {
+          "type": "p",
+          "text": "Extension"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": ".js"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript"
+        },
+        {
+          "type": "p",
+          "text": ".jsx"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript containing JSX"
+        },
+        {
+          "type": "p",
+          "text": ".ts"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript without JSX"
+        },
+        {
+          "type": "p",
+          "text": ".tsx"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript containing JSX"
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "src/ ├── App.tsx ├── main.tsx ├── types/ │ └── course.ts ├── services/ │ └── courseApi.ts └── utils/ └── formatDate.ts"
+        },
+        {
+          "type": "p",
+          "text": "React components containing JSX normally use .tsx."
+        },
+        {
+          "type": "p",
+          "text": "React+1"
+        },
+        {
+          "type": "h3",
+          "text": "2.7 When should a project use TypeScript?"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript becomes particularly valuable when:"
+        },
+        {
+          "type": "p",
+          "text": "Multiple developers work on the same project."
+        },
+        {
+          "type": "p",
+          "text": "Application features share complex data structures."
+        },
+        {
+          "type": "p",
+          "text": "Components receive many properties."
+        },
+        {
+          "type": "p",
+          "text": "APIs return complicated responses."
+        },
+        {
+          "type": "p",
+          "text": "The application requires frequent modifications."
+        },
+        {
+          "type": "p",
+          "text": "Refactoring must be performed safely."
+        },
+        {
+          "type": "p",
+          "text": "Code needs to remain maintainable as it grows."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Implement a student-registration function in JavaScript and TypeScript. Compare how each version handles incorrect values and missing properties."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Lesson 03",
+      "title": "LESSON 03 — Primitive Types, Type Inference and Type Annotations",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 What are types?"
+        },
+        {
+          "type": "p",
+          "text": "A type describes the kind of value a variable can contain."
+        },
+        {
+          "type": "p",
+          "text": "TypeScript supports primitive types and more advanced type constructions."
+        },
+        {
+          "type": "p",
+          "text": "The most important primitive types are:"
+        },
+        {
+          "type": "p",
+          "text": "Type"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "string"
+        },
+        {
+          "type": "p",
+          "text": "Text"
+        },
+        {
+          "type": "p",
+          "text": "\"Alex\""
+        },
+        {
+          "type": "p",
+          "text": "number"
+        },
+        {
+          "type": "p",
+          "text": "Numeric values"
+        },
+        {
+          "type": "p",
+          "text": "100, 25.5"
+        },
+        {
+          "type": "p",
+          "text": "boolean"
+        },
+        {
+          "type": "p",
+          "text": "True or false"
+        },
+        {
+          "type": "p",
+          "text": "true"
+        },
+        {
+          "type": "p",
+          "text": "bigint"
+        },
+        {
+          "type": "p",
+          "text": "Large integers"
+        },
+        {
+          "type": "p",
+          "text": "100n"
+        },
+        {
+          "type": "p",
+          "text": "symbol"
+        },
+        {
+          "type": "p",
+          "text": "Unique identifiers"
+        },
+        {
+          "type": "p",
+          "text": "`Symbol(\"id\")"
+        },
+        {
+          "type": "p",
+          "text": "null"
+        },
+        {
+          "type": "p",
+          "text": "Intentional absence"
+        },
+        {
+          "type": "p",
+          "text": "null"
+        },
+        {
+          "type": "p",
+          "text": "undefined"
+        },
+        {
+          "type": "p",
+          "text": "Missing or uninitialized value"
+        },
+        {
+          "type": "p",
+          "text": "undefined"
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Type annotations"
+        },
+        {
+          "type": "p",
+          "text": "A type annotation explicitly declares the expected type."
+        },
+        {
+          "type": "p",
+          "text": "Syntax:"
+        },
+        {
+          "type": "code",
+          "text": "let variableName: type = value;"
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "code",
+          "text": "let studentName: string = \"Alex\"; let studentAge: number = 22; let isRegistered: boolean = true; let studentScore: number = 95.5;"
+        },
+        {
+          "type": "p",
+          "text": "When an incompatible value is assigned, TypeScript reports a type error."
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Type inference"
+        },
+        {
+          "type": "p",
+          "text": "Developers do not need to annotate every variable."
+        },
+        {
+          "type": "p",
+          "text": "TypeScript can automatically determine types from assigned values."
+        },
+        {
+          "type": "p",
+          "text": "This is called type inference."
+        },
+        {
+          "type": "code",
+          "text": "let courseName = \"Frontend Engineering\"; let duration = 40; let isPublished = true;"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript infers:"
+        },
+        {
+          "type": "p",
+          "text": "courseName: string duration: number isPublished: boolean"
+        },
+        {
+          "type": "p",
+          "text": "Type inference reduces unnecessary code and makes development more readable."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Explicit types versus inferred types"
+        },
+        {
+          "type": "p",
+          "text": "Use inference when TypeScript can clearly determine the expected type."
+        },
+        {
+          "type": "p",
+          "text": "Use an explicit annotation when:"
+        },
+        {
+          "type": "p",
+          "text": "The variable starts without a meaningful initial value."
+        },
+        {
+          "type": "p",
+          "text": "A function's public contract should be clear."
+        },
+        {
+          "type": "p",
+          "text": "A variable can contain multiple permitted types."
+        },
+        {
+          "type": "p",
+          "text": "React state needs a specific union type."
+        },
+        {
+          "type": "p",
+          "text": "The intended type cannot be inferred accurately."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "let course: string; course = \"JavaScript\";"
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Special types: any, unknown, void and never"
+        },
+        {
+          "type": "p",
+          "text": "These types are especially important."
+        },
+        {
+          "type": "p",
+          "text": "any"
+        },
+        {
+          "type": "p",
+          "text": "Allows almost any operation and disables much of TypeScript's checking."
+        },
+        {
+          "type": "code",
+          "text": "let data: any = 100; data = \"Hello\"; data = true; data.someUnknownMethod();"
+        },
+        {
+          "type": "p",
+          "text": "This is flexible but dangerous when used frequently."
+        },
+        {
+          "type": "p",
+          "text": "unknown"
+        },
+        {
+          "type": "p",
+          "text": "Represents a value whose type is not yet known."
+        },
+        {
+          "type": "code",
+          "text": "let data: unknown = \"Hello\";"
+        },
+        {
+          "type": "p",
+          "text": "You must check or narrow the value before using it as a specific type."
+        },
+        {
+          "type": "code",
+          "text": "if (typeof data === \"string\") { console.log(data.toUpperCase()); }"
+        },
+        {
+          "type": "p",
+          "text": "Prefer unknown over any when receiving untrusted data."
+        },
+        {
+          "type": "p",
+          "text": "void"
+        },
+        {
+          "type": "p",
+          "text": "Usually describes a function that does not return a meaningful value."
+        },
+        {
+          "type": "code",
+          "text": "function showMessage(): void { console.log(\"Welcome\"); }"
+        },
+        {
+          "type": "p",
+          "text": "never"
+        },
+        {
+          "type": "p",
+          "text": "Represents a value that cannot occur."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "function throwError(message: string): never { throw new Error(message); }"
+        },
+        {
+          "type": "h3",
+          "text": "3.6 Understanding null and undefined"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript has two commonly used absence values:"
+        },
+        {
+          "type": "code",
+          "text": "let selectedCourse: string | null = null; let optionalValue: string | undefined = undefined;"
+        },
+        {
+          "type": "p",
+          "text": "When strictNullChecks is enabled, TypeScript requires developers to account for potentially missing values."
+        },
+        {
+          "type": "code",
+          "text": "function printCourse(course: string | null) { if (course !== null) { console.log(course.toUpperCase()); } }"
+        },
+        {
+          "type": "p",
+          "text": "This prevents many accidental property-access errors. 3.7 Literal types and as const"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes a variable should accept only specific values."
+        },
+        {
+          "type": "code",
+          "text": "let theme: \"light\" | \"dark\"; theme = \"dark\"; theme = \"blue\"; // Error"
+        },
+        {
+          "type": "p",
+          "text": "This is useful for application states, themes, roles, and configuration values."
+        },
+        {
+          "type": "p",
+          "text": "The as const assertion preserves literal types:"
+        },
+        {
+          "type": "code",
+          "text": "const settings = { theme: \"dark\", language: \"en\" } as const;"
+        },
+        {
+          "type": "p",
+          "text": "Now the properties are treated as readonly literal values rather than general strings."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create variables for a student's profile, account status, course level, score, and preferences. Use correct primitive and literal types."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Lesson 04",
+      "title": "LESSON 04 — Arrays, Tuples, Objects and Type Aliases",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 Typing arrays"
+        },
+        {
+          "type": "p",
+          "text": "An array contains multiple values."
+        },
+        {
+          "type": "p",
+          "text": "In TypeScript, developers can specify the type of its elements."
+        },
+        {
+          "type": "code",
+          "text": "let courseNames: string[] = [ \"JavaScript\", \"React\", \"TypeScript\" ];"
+        },
+        {
+          "type": "p",
+          "text": "Another syntax uses the generic Array type:"
+        },
+        {
+          "type": "code",
+          "text": "let scores: Array<number> = [ 85, 90, 95 ];"
+        },
+        {
+          "type": "p",
+          "text": "Both approaches are valid."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 Arrays containing objects"
+        },
+        {
+          "type": "p",
+          "text": "Real applications commonly work with collections of structured records."
+        },
+        {
+          "type": "code",
+          "text": "interface Course { id: number; title: string; duration: number; } const courses: Course[] = [ { id: 1, title: \"JavaScript\", duration: 30 }, { id: 2, title: \"React\", duration: 40 } ];"
+        },
+        {
+          "type": "p",
+          "text": "Now TypeScript checks the structure of each course."
+        },
+        {
+          "type": "p",
+          "text": "For example, omitting duration or assigning a string to id produces a type error."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Understanding tuples"
+        },
+        {
+          "type": "p",
+          "text": "A tuple is an array type with a defined structure and specific types at particular positions."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "let student: [number, string, boolean]; student = [ 101, \"Alex\", true ];"
+        },
+        {
+          "type": "p",
+          "text": "The tuple means:"
+        },
+        {
+          "type": "p",
+          "text": "Position 0: number"
+        },
+        {
+          "type": "p",
+          "text": "Position 1: string"
+        },
+        {
+          "type": "p",
+          "text": "Position 2: boolean"
+        },
+        {
+          "type": "p",
+          "text": "This is different from an ordinary array, where elements can vary in length and are usually described using a common element type."
+        },
+        {
+          "type": "p",
+          "text": "Tuples are useful for fixed data structures, although ordinary objects are often easier to read for business information."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 Optional tuple elements"
+        },
+        {
+          "type": "p",
+          "text": "Some tuple positions can be optional."
+        },
+        {
+          "type": "code",
+          "text": "type StudentRecord = [ number, string, boolean? ]; const first: StudentRecord = [ 101, \"Alex\" ]; const second: StudentRecord = [ 102, \"Sam\", true ];"
+        },
+        {
+          "type": "h3",
+          "text": "4.5 Understanding objects"
+        },
+        {
+          "type": "p",
+          "text": "Objects group related properties together."
+        },
+        {
+          "type": "code",
+          "text": "const student: { id: number; name: string; email: string; enrolled: boolean; } = { id: 101, name: \"Alex\", email: \"alex@example.com\", enrolled: true };"
+        },
+        {
+          "type": "p",
+          "text": "Although this works, repeating complex object definitions throughout a large application is not ideal."
+        },
+        {
+          "type": "h3",
+          "text": "4.6 Type aliases"
+        },
+        {
+          "type": "p",
+          "text": "A type alias gives a reusable name to an existing type."
+        },
+        {
+          "type": "code",
+          "text": "type Student = { id: number; name: string; email: string; enrolled: boolean; };"
+        },
+        {
+          "type": "p",
+          "text": "Now the type can be reused:"
+        },
+        {
+          "type": "code",
+          "text": "const studentOne: Student = { id: 101, name: \"Alex\", email: \"alex@example.com\", enrolled: true }; const studentTwo: Student = { id: 102, name: \"Sam\", email: \"sam@example.com\", enrolled: false };"
+        },
+        {
+          "type": "h3",
+          "text": "4.7 Optional properties"
+        },
+        {
+          "type": "p",
+          "text": "Not every object property needs to be mandatory."
+        },
+        {
+          "type": "p",
+          "text": "Use ? to define optional properties."
+        },
+        {
+          "type": "code",
+          "text": "type User = { id: number; name: string; phone?: string; };"
+        },
+        {
+          "type": "p",
+          "text": "Both objects are valid:"
+        },
+        {
+          "type": "code",
+          "text": "const userOne: User = { id: 1, name: \"Alex\" }; const userTwo: User = { id: 2, name: \"Sam\", phone: \"9876543210\" };"
+        },
+        {
+          "type": "h3",
+          "text": "4.8 Readonly properties"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes application data should not be modified after initialization."
+        },
+        {
+          "type": "code",
+          "text": "type Course = { readonly id: number; title: string; }; const course: Course = { id: 101, title: \"Frontend Engineering\" }; course.title = \"Advanced Frontend\"; // course.id = 202; // Type error"
+        },
+        {
+          "type": "p",
+          "text": "readonly is a compile-time restriction. It does not automatically make the underlying object deeply immutable at runtime."
+        },
+        {
+          "type": "h3",
+          "text": "4.9 Index signatures"
+        },
+        {
+          "type": "p",
+          "text": "An index signature describes objects that can contain properties under dynamic keys."
+        },
+        {
+          "type": "code",
+          "text": "type Scores = { [studentName: string]: number; }; const scores: Scores = { Alex: 90, Sam: 85, Jordan: 95 };"
+        },
+        {
+          "type": "p",
+          "text": "It is useful when the property names are not known beforehand but their values have a known type."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Define types for Student, Course, Lesson, Assignment, and Enrollment. Build arrays of these objects and create functions to search and filter them."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Lesson 05",
+      "title": "LESSON 05 — Interfaces, Union Types and Intersection Types",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 Understanding interfaces"
+        },
+        {
+          "type": "p",
+          "text": "An interface describes the structure an object should follow."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "interface Student { id: number; name: string; email: string; }"
+        },
+        {
+          "type": "p",
+          "text": "A variable implementing this interface should satisfy its structure."
+        },
+        {
+          "type": "code",
+          "text": "const student: Student = { id: 101, name: \"Alex\", email: \"alex@example.com\" };"
+        },
+        {
+          "type": "p",
+          "text": "Interfaces are widely used to describe:"
+        },
+        {
+          "type": "p",
+          "text": "API data"
+        },
+        {
+          "type": "p",
+          "text": "Component properties"
+        },
+        {
+          "type": "p",
+          "text": "Application models"
+        },
+        {
+          "type": "p",
+          "text": "Service contracts"
+        },
+        {
+          "type": "p",
+          "text": "Configuration objects"
+        },
+        {
+          "type": "h3",
+          "text": "5.2 Interface extension"
+        },
+        {
+          "type": "p",
+          "text": "An interface can extend another interface to reuse its properties."
+        },
+        {
+          "type": "code",
+          "text": "interface User { id: number; name: string; } interface Student extends User { enrolledCourses: number; completedCourses: number; }"
+        },
+        {
+          "type": "p",
+          "text": "Now the Student interface includes all properties from User as well as its own."
+        },
+        {
+          "type": "code",
+          "text": "const student: Student = { id: 101, name: \"Alex\", enrolledCourses: 5, completedCourses: 2 };"
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Interface versus type alias"
+        },
+        {
+          "type": "p",
+          "text": "Both interfaces and type aliases can describe object structures."
+        },
+        {
+          "type": "code",
+          "text": "interface CourseInterface { id: number; title: string; }"
+        },
+        {
+          "type": "p",
+          "text": "Equivalent object description using a type alias:"
+        },
+        {
+          "type": "code",
+          "text": "type CourseType = { id: number; title: string; };"
+        },
+        {
+          "type": "p",
+          "text": "Important differences:"
+        },
+        {
+          "type": "p",
+          "text": "Feature"
+        },
+        {
+          "type": "p",
+          "text": "Interface"
+        },
+        {
+          "type": "p",
+          "text": "Type Alias"
+        },
+        {
+          "type": "p",
+          "text": "Describe objects"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Extend object types"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes, using intersections"
+        },
+        {
+          "type": "p",
+          "text": "Union types"
+        },
+        {
+          "type": "p",
+          "text": "No direct declaration"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Primitive aliases"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Declaration merging"
+        },
+        {
+          "type": "p",
+          "text": "Supported"
+        },
+        {
+          "type": "p",
+          "text": "Not supported"
+        },
+        {
+          "type": "p",
+          "text": "Mapped and conditional types"
+        },
+        {
+          "type": "p",
+          "text": "Not directly declared as interfaces"
+        },
+        {
+          "type": "p",
+          "text": "Supported"
+        },
+        {
+          "type": "p",
+          "text": "For ordinary application models, either can be appropriate."
+        },
+        {
+          "type": "p",
+          "text": "Use interfaces when defining extendable object contracts. Use type aliases when defining unions, intersections, primitives, or more complex type transformations."
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Union types"
+        },
+        {
+          "type": "p",
+          "text": "A union allows a value to belong to one of several types."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "type ID = number | string; let studentId: ID; studentId = 101; studentId = \"STU-101\";"
+        },
+        {
+          "type": "p",
+          "text": "Both values are valid."
+        },
+        {
+          "type": "p",
+          "text": "A common frontend example is representing loading states."
+        },
+        {
+          "type": "code",
+          "text": "type Status = | \"loading\" | \"success\" | \"error\" | \"empty\"; let dashboardStatus: Status = \"loading\";"
+        },
+        {
+          "type": "p",
+          "text": "The variable cannot contain an unrelated value such as \"finished\"."
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Intersection types"
+        },
+        {
+          "type": "p",
+          "text": "An intersection combines multiple types into one type that must satisfy all their requirements."
+        },
+        {
+          "type": "code",
+          "text": "type User = { id: number; name: string; }; type StudentDetails = { enrolledCourses: number; }; type Student = User & StudentDetails;"
+        },
+        {
+          "type": "p",
+          "text": "The resulting Student type contains all three properties."
+        },
+        {
+          "type": "code",
+          "text": "const student: Student = { id: 101, name: \"Alex\", enrolledCourses: 5 };"
+        },
+        {
+          "type": "p",
+          "text": "Be careful when intersecting conflicting property types. For example, combining the same property as string and number creates an incompatible requirement."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Choosing unions or intersections"
+        },
+        {
+          "type": "p",
+          "text": "Use a union when data can have one of several alternative forms."
+        },
+        {
+          "type": "p",
+          "text": "Use an intersection when data needs to combine multiple sets of properties."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create interfaces for a User and Instructor. Use interface extension to create specialized types, and use unions to represent different authentication and application states."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Lesson 06",
+      "title": "LESSON 06 — Functions, Optional Parameters and Function Overloading",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 Typing function parameters"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript allows developers to specify the type expected by every function parameter."
+        },
+        {
+          "type": "code",
+          "text": "function calculateScore( obtainedMarks: number, totalMarks: number ): number { return (obtainedMarks / totalMarks) * 100; }"
+        },
+        {
+          "type": "p",
+          "text": "Incorrect arguments produce type errors."
+        },
+        {
+          "type": "p",
+          "text": "calculateScore(80, 100); // calculateScore(\"80\", \"100\"); // Type error"
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Return types"
+        },
+        {
+          "type": "p",
+          "text": "A return type specifies what a function should return."
+        },
+        {
+          "type": "code",
+          "text": "function getStudentName(): string { return \"Alex\"; }"
+        },
+        {
+          "type": "p",
+          "text": "For functions that do not return a meaningful value:"
+        },
+        {
+          "type": "code",
+          "text": "function displayMessage(message: string): void { console.log(message); }"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript can infer many return types, but explicit return types are especially useful for public functions and reusable services."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Optional parameters"
+        },
+        {
+          "type": "p",
+          "text": "Some function parameters may not always be supplied."
+        },
+        {
+          "type": "p",
+          "text": "Use ? to make a parameter optional."
+        },
+        {
+          "type": "code",
+          "text": "function greetStudent( name: string, course?: string ): string { if (course) { return `Hello $DIL2, welcome to $DIL3`; }\nreturn Hello $DIL0;"
+        },
+        {
+          "type": "p",
+          "text": "}"
+        },
+        {
+          "type": "p",
+          "text": "Both calls are valid: ```typescript greetStudent(\"Alex\"); greetStudent(\"Alex\", \"React\");"
+        },
+        {
+          "type": "p",
+          "text": "Optional parameters must follow required parameters."
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Default parameters"
+        },
+        {
+          "type": "p",
+          "text": "Default parameters assign a value when an argument is omitted or supplied as undefined."
+        },
+        {
+          "type": "code",
+          "text": "function createCourse( title: string, level: string = \"Beginner\" ): void { console.log(title, level); } createCourse(\"JavaScript\"); createCourse(\"React\", \"Advanced\");"
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Rest parameters"
+        },
+        {
+          "type": "p",
+          "text": "Rest parameters allow a function to receive multiple arguments as an array."
+        },
+        {
+          "type": "code",
+          "text": "function calculateAverage( ...scores: number[] ): number { const total = scores.reduce( (sum, score) => sum + score, 0 ); return scores.length === 0 ? 0 : total / scores.length; }"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "p",
+          "text": "calculateAverage(80, 90, 85, 95);"
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Function types"
+        },
+        {
+          "type": "p",
+          "text": "Functions can themselves be assigned to variables with defined types."
+        },
+        {
+          "type": "code",
+          "text": "type Calculator = ( first: number, second: number ) => number;"
+        },
+        {
+          "type": "p",
+          "text": "Implementation:"
+        },
+        {
+          "type": "code",
+          "text": "const add: Calculator = (a, b) => { return a + b; };"
+        },
+        {
+          "type": "p",
+          "text": "This is useful for event handlers, callbacks, reusable utilities, and service functions."
+        },
+        {
+          "type": "h3",
+          "text": "6.7 Function overloading"
+        },
+        {
+          "type": "p",
+          "text": "Function overloading allows developers to define multiple supported ways to call a function."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "function createLabel(value: string): { kind: \"name\"; value: string; }; function createLabel(value: number): { kind: \"id\"; value: number; }; function createLabel(value: string | number) { if (typeof value === \"string\") { return { kind: \"name\" as const, value }; } return { kind: \"id\" as const, value }; }"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "const first = createLabel(\"Alex\"); const second = createLabel(101);"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript understands the return type for each supported argument."
+        },
+        {
+          "type": "p",
+          "text": "The implementation must support all the declared overload signatures."
+        },
+        {
+          "type": "h3",
+          "text": "6.8 When overloading is useful"
+        },
+        {
+          "type": "p",
+          "text": "Consider a frontend utility that accepts either:"
+        },
+        {
+          "type": "p",
+          "text": "A course ID"
+        },
+        {
+          "type": "p",
+          "text": "A complete Course object"
+        },
+        {
+          "type": "p",
+          "text": "Function overloading can describe both supported calls."
+        },
+        {
+          "type": "p",
+          "text": "However, overloads should be used only when they genuinely improve the function's API. A union parameter is often simpler for straightforward cases."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create typed functions for calculating course progress, formatting student information, searching courses, and processing optional arguments."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Lesson 07",
+      "title": "LESSON 07 — Generics and Reusable Type Definitions",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 What are generics?"
+        },
+        {
+          "type": "p",
+          "text": "Generics allow developers to create reusable functions, interfaces, classes, and components that work with different data types while preserving type information."
+        },
+        {
+          "type": "p",
+          "text": "Imagine a function that returns whatever value it receives."
+        },
+        {
+          "type": "p",
+          "text": "Without generics:"
+        },
+        {
+          "type": "code",
+          "text": "function getValue(value: any): any { return value; }"
+        },
+        {
+          "type": "p",
+          "text": "This function works, but it loses useful type information."
+        },
+        {
+          "type": "p",
+          "text": "With generics:"
+        },
+        {
+          "type": "code",
+          "text": "function getValue<T>(value: T): T { return value; }"
+        },
+        {
+          "type": "p",
+          "text": "Now TypeScript remembers the type supplied to the function."
+        },
+        {
+          "type": "code",
+          "text": "const first = getValue<string>(\"Hello\"); const second = getValue<number>(100);"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript can also infer the generic type from the argument:"
+        },
+        {
+          "type": "code",
+          "text": "const third = getValue(true);"
+        },
+        {
+          "type": "p",
+          "text": "Here, the result is inferred as a boolean."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Why generics are important"
+        },
+        {
+          "type": "p",
+          "text": "Large frontend applications often need reusable utilities."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "A reusable API response structure"
+        },
+        {
+          "type": "p",
+          "text": "A searchable data table"
+        },
+        {
+          "type": "p",
+          "text": "A reusable dropdown"
+        },
+        {
+          "type": "p",
+          "text": "A generic storage utility"
+        },
+        {
+          "type": "p",
+          "text": "A reusable pagination function"
+        },
+        {
+          "type": "p",
+          "text": "A typed custom hook"
+        },
+        {
+          "type": "p",
+          "text": "Without generics, developers may repeat similar code or lose type safety."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Generic interfaces"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "interface ApiResponse<T> { success: boolean; message: string; data: T; }"
+        },
+        {
+          "type": "p",
+          "text": "Now the same interface can represent different response types."
+        },
+        {
+          "type": "p",
+          "text": "Course response:"
+        },
+        {
+          "type": "code",
+          "text": "interface Course { id: number; title: string; } const courseResponse: ApiResponse<Course> = { success: true, message: \"Course retrieved\", data: { id: 1, title: \"React\" } };"
+        },
+        {
+          "type": "p",
+          "text": "Student response:"
+        },
+        {
+          "type": "code",
+          "text": "interface Student { id: number; name: string; } const studentResponse: ApiResponse<Student> = { success: true, message: \"Student retrieved\", data: { id: 101, name: \"Alex\" } };"
+        },
+        {
+          "type": "p",
+          "text": "The structure stays reusable, while the data type changes."
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Generic arrays and functions"
+        },
+        {
+          "type": "code",
+          "text": "function getFirstItem<T>( items: T[] ): T | undefined { return items[0]; }"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "const firstCourse = getFirstItem([ \"JavaScript\", \"React\", \"TypeScript\" ]); const firstScore = getFirstItem([ 80, 90, 95 ]);"
+        },
+        {
+          "type": "p",
+          "text": "The function preserves the element type."
+        },
+        {
+          "type": "p",
+          "text": "Notice that T | undefined is important: an empty array has no first element."
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Generic constraints"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes a generic function needs to know that a type contains a particular property."
+        },
+        {
+          "type": "p",
+          "text": "The extends keyword can restrict which types are accepted."
+        },
+        {
+          "type": "code",
+          "text": "function getLength<T extends { length: number }>( value: T ): number { return value.length; }"
+        },
+        {
+          "type": "p",
+          "text": "Valid:"
+        },
+        {
+          "type": "p",
+          "text": "getLength(\"Hello\"); getLength([1, 2, 3]);"
+        },
+        {
+          "type": "p",
+          "text": "Invalid:"
+        },
+        {
+          "type": "p",
+          "text": "// getLength(100); // Number does not have the required length property"
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Understanding keyof"
+        },
+        {
+          "type": "p",
+          "text": "The keyof operator produces a union of an object's property names."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "interface Course { id: number; title: string; duration: number; } type CourseKeys = keyof Course;"
+        },
+        {
+          "type": "p",
+          "text": "The resulting type is:"
+        },
+        {
+          "type": "p",
+          "text": "\"id\" | \"title\" | \"duration\""
+        },
+        {
+          "type": "p",
+          "text": "We can combine keyof with generics."
+        },
+        {
+          "type": "code",
+          "text": "function getProperty<T, K extends keyof T>( object: T, key: K ): T[K] { return object[key]; }"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "const course = { id: 101, title: \"TypeScript\", duration: 40 }; const title = getProperty(course, \"title\");"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript understands that title is a string and rejects invalid property names. 7.7 Generic reusable components"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a dashboard displaying different types of records."
+        },
+        {
+          "type": "p",
+          "text": "A generic table can accept different datasets while maintaining correct property types."
+        },
+        {
+          "type": "code",
+          "text": "interface TableProps<T> { data: T[]; getKey: (item: T) => string | number; }"
+        },
+        {
+          "type": "p",
+          "text": "The component can be reused for courses, students, assignments, or other records."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a generic API response interface, a generic search function, and a generic reusable table structure that supports multiple data types."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Lesson 08",
+      "title": "LESSON 08 — Type Narrowing and Discriminated Unions",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 What is type narrowing?"
+        },
+        {
+          "type": "p",
+          "text": "Type narrowing is the process of making TypeScript understand that a value has a more specific type after checking its actual characteristics."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "function displayId(id: string | number) { console.log(id); }"
+        },
+        {
+          "type": "p",
+          "text": "The variable can contain either a string or number."
+        },
+        {
+          "type": "p",
+          "text": "But this is not valid:"
+        },
+        {
+          "type": "code",
+          "text": "function displayId(id: string | number) { // console.log(id.toUpperCase()); }"
+        },
+        {
+          "type": "p",
+          "text": "The problem is that numbers do not have the toUpperCase() method."
+        },
+        {
+          "type": "p",
+          "text": "We need to narrow the type first."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Using typeof"
+        },
+        {
+          "type": "code",
+          "text": "function displayId(id: string | number) { if (typeof id === \"string\") { console.log(id.toUpperCase()); } else { console.log(id.toFixed(0)); } }"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript understands the type inside each branch."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 Using Array.isArray"
+        },
+        {
+          "type": "code",
+          "text": "function displayCourses( courses: string[] | string ): void { if (Array.isArray(courses)) { courses.forEach((course) => { console.log(course); }); } else { console.log(courses); } }"
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Using the in operator"
+        },
+        {
+          "type": "p",
+          "text": "The in operator checks whether a property exists on an object."
+        },
+        {
+          "type": "code",
+          "text": "type Student = { name: string; enrolledCourses: number; }; type Instructor = { name: string; subjects: string[]; }; function displayProfile( person: Student | Instructor ) { if (\"enrolledCourses\" in person) { console.log(person.enrolledCourses); } else { console.log(person.subjects); } }"
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Discriminated unions"
+        },
+        {
+          "type": "p",
+          "text": "A discriminated union is a powerful technique for representing data that can have multiple distinct states."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "type ApiState = | { status: \"loading\"; } | { status: \"success\"; data: string[]; } | { status: \"error\"; message: string; };"
+        },
+        {
+          "type": "p",
+          "text": "Each state has a shared property named status, but different properties depending on the state."
+        },
+        {
+          "type": "p",
+          "text": "We can handle each state safely:"
+        },
+        {
+          "type": "code",
+          "text": "function renderState(state: ApiState) { switch (state.status) { case \"loading\": return \"Loading...\"; case \"success\": return state.data; case \"error\": return state.message; } }"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript knows which properties are available in each branch."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Exhaustive checking with never"
+        },
+        {
+          "type": "p",
+          "text": "For more reliable state handling, use never to check whether every possible state has been handled."
+        },
+        {
+          "type": "code",
+          "text": "function assertNever(value: never): never { throw new Error(`Unexpected state: $DIL1`); } function renderState(state: ApiState) { switch (state.status) { case \"loading\": return \"Loading...\"; case \"success\": return state.data; case \"error\": return state.message; default: return assertNever(state); } }"
+        },
+        {
+          "type": "p",
+          "text": "If a new state is added later, TypeScript can identify places that do not handle it."
+        },
+        {
+          "type": "h3",
+          "text": "8.7 User-defined type guards"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes developers need to create reusable checks."
+        },
+        {
+          "type": "code",
+          "text": "interface Student { id: number; name: string; } function isStudent(value: unknown): value is Student { return ( typeof value === \"object\" && value !== null && \"id\" in value && typeof value.id === \"number\" && \"name\" in value && typeof value.name === \"string\" ); }"
+        },
+        {
+          "type": "p",
+          "text": "The value is Student return annotation tells TypeScript that the function acts as a type guard."
+        },
+        {
+          "type": "p",
+          "text": "This example performs a basic structural check; more complex API data generally needs a proper schema validator."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build discriminated unions for authentication states, API request states, and course publication states. Implement exhaustive switch statements for each."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Lesson 09",
+      "title": "LESSON 09 — Utility Types and Advanced Type Manipulation",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 Why advanced type manipulation is necessary"
+        },
+        {
+          "type": "p",
+          "text": "As applications grow, developers frequently need variations of existing types."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "A Student object may contain:"
+        },
+        {
+          "type": "code",
+          "text": "interface Student { id: number; name: string; email: string; phone: string; enrolled: boolean; }"
+        },
+        {
+          "type": "p",
+          "text": "Different parts of the application may require different versions:"
+        },
+        {
+          "type": "p",
+          "text": "A registration form needs only the name and email."
+        },
+        {
+          "type": "p",
+          "text": "A profile-editing form may update optional properties."
+        },
+        {
+          "type": "p",
+          "text": "A dashboard may display only the student's ID and name."
+        },
+        {
+          "type": "p",
+          "text": "An administrator may need a complete student record."
+        },
+        {
+          "type": "p",
+          "text": "Instead of rewriting these types, TypeScript provides utility types."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 Partial"
+        },
+        {
+          "type": "p",
+          "text": "`Partial"
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Outcomes",
+      "title": "Expected learning outcomes",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "After completing this module, students should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Explain TypeScript's role in large frontend applications."
+        },
+        {
+          "type": "p",
+          "text": "Understand the differences between JavaScript and TypeScript."
+        },
+        {
+          "type": "p",
+          "text": "Use primitive types, type inference, and annotations."
+        },
+        {
+          "type": "p",
+          "text": "Create reusable interfaces, arrays, tuples, and object types."
+        },
+        {
+          "type": "p",
+          "text": "Apply unions, intersections, and interface inheritance."
+        },
+        {
+          "type": "p",
+          "text": "Develop strongly typed functions and reusable function definitions."
+        },
+        {
+          "type": "p",
+          "text": "Build generic functions, interfaces, and components."
+        },
+        {
+          "type": "p",
+          "text": "Apply type narrowing, guards, and discriminated unions."
+        },
+        {
+          "type": "p",
+          "text": "Use utility types and advanced type transformations."
+        },
+        {
+          "type": "p",
+          "text": "Build React components using TypeScript and JSX."
+        },
+        {
+          "type": "p",
+          "text": "Properly type component properties, events, and hooks."
+        },
+        {
+          "type": "p",
+          "text": "Integrate backend APIs using static typing and runtime validation."
+        },
+        {
+          "type": "p",
+          "text": "Configure strict TypeScript checking in professional projects."
+        },
+        {
+          "type": "p",
+          "text": "Migrate an existing JavaScript application into a maintainable TypeScript application."
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Resources",
+      "title": "Recommended official learning resources",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "These resources can supplement the lessons and provide additional exercises and technical references."
+        },
+        {
+          "type": "p",
+          "text": "[Official TypeScript Documentation](https://www.typescriptlang.org/docs/index.html?utm_source=chatgpt.com) — fundamentals, handbook, modules and tooling."
+        },
+        {
+          "type": "p",
+          "text": "[TypeScript TSConfig Reference](https://www.typescriptlang.org/tsconfig/?utm_source=chatgpt.com) — compiler settings and strict checking."
+        },
+        {
+          "type": "p",
+          "text": "[React — Using TypeScript](https://react.dev/learn/typescript?utm_source=chatgpt.com) — component props, hooks, events and JSX."
+        },
+        {
+          "type": "p",
+          "text": "[Zod — Basic Usage](https://zod.dev/basics?utm_source=chatgpt.com) — runtime validation and type inference."
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "badge": "Progression",
+      "title": "How Module 07 connects to the previous module",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Module"
+        },
+        {
+          "type": "p",
+          "text": "Main engineering capability"
+        },
+        {
+          "type": "p",
+          "text": "Module 05 — Modern JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "Programming foundation"
+        },
+        {
+          "type": "p",
+          "text": "Module 06 — Browser APIs and Asynchronous Programming"
+        },
+        {
+          "type": "p",
+          "text": "Browser interaction, API communication and asynchronous operations"
+        },
+        {
+          "type": "p",
+          "text": "Module 07 — TypeScript"
+        },
+        {
+          "type": "p",
+          "text": "Type safety, scalable architecture and maintainable frontend code"
+        },
+        {
+          "type": "p",
+          "text": "The progression is intentional."
+        },
+        {
+          "type": "p",
+          "text": "Module 05 teaches students to write JavaScript. Module 06 teaches them to connect applications with browsers, APIs, and external services. Module 07 teaches them to build those applications with stronger type contracts and more predictable code."
+        },
+        {
+          "type": "p",
+          "text": "The next stage should introduce React Architecture, Component Engineering and Advanced State Management, where students can apply these TypeScript skills to build larger production-style frontend applications."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T15:15:36+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

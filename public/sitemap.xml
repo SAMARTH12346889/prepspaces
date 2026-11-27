@@ -205,6 +205,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://prepspaces.com/learning/frontend-engineering/typescript-scalable-frontend</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://prepspaces.com/courses/machine-learning</loc>
     <lastmod>2026-11-27</lastmod>
     <changefreq>weekly</changefreq>

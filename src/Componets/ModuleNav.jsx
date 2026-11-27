@@ -295,6 +295,7 @@ export const FRONTEND_ENGINEERING_MODULES = [
   { id: "responsive-accessibility-ui", name: "4. Responsive Design, Accessibility and UI Engineering", route: "/learning/frontend-engineering/responsive-accessibility-ui" },
   { id: "modern-javascript", name: "5. Modern JavaScript for Web Applications", route: "/learning/frontend-engineering/modern-javascript" },
   { id: "browser-apis-async", name: "6. Browser APIs, Asynchronous Programming and Web Integration", route: "/learning/frontend-engineering/browser-apis-async" },
+  { id: "typescript-scalable-frontend", name: "7. TypeScript for Scalable Frontend Applications", route: "/learning/frontend-engineering/typescript-scalable-frontend" },
 ];
 
 export default function ModuleNav({
