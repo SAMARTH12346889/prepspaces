@@ -343,6 +343,18 @@ const routeMeta = {
     keywords: "Modern JavaScript, ECMAScript, Event Loop, Closures, DOM Manipulation, Event Delegation, ES Modules, Functional Programming, Memory Management, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/modern-javascript`,
   },
+  "/learning/frontend-engineering/browser-apis-async": {
+    title: "Module 06: Browser APIs, Asynchronous Programming and Web Integration | PrepSpaces",
+    description: "Master Promises, Async/Await, Fetch API, REST & CORS integration, JSON transformation, LocalStorage/SessionStorage/IndexedDB, WebSockets, File/Media APIs, and AbortController timeouts/retries.",
+    keywords: "Browser APIs, Asynchronous JavaScript, Fetch API, Promises, IndexedDB, WebSockets, AbortController, File API, MediaDevices, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/browser-apis-async`,
+  },
+  "/courses/frontend-engineering/browser-apis-async": {
+    title: "Module 06: Browser APIs, Asynchronous Programming and Web Integration | PrepSpaces",
+    description: "Master Promises, Async/Await, Fetch API, REST & CORS integration, JSON transformation, LocalStorage/SessionStorage/IndexedDB, WebSockets, File/Media APIs, and AbortController timeouts/retries.",
+    keywords: "Browser APIs, Asynchronous JavaScript, Fetch API, Promises, IndexedDB, WebSockets, AbortController, File API, MediaDevices, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/browser-apis-async`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

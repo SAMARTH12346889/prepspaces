@@ -1,0 +1,130 @@
+{
+  "id": "browser-apis-async",
+  "courseId": "frontend-engineering",
+  "index": 6,
+  "name": "6. Browser APIs, Asynchronous Programming and Web Integration",
+  "route": "/learning/frontend-engineering/browser-apis-async",
+  "componentName": "FrontendBrowserAsync",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary responsibility of the JavaScript Event Loop?",
+      "options": [
+        "To execute CSS animations",
+        "To coordinate the execution of queued callbacks when the call stack is available",
+        "To store application data",
+        "To send HTTP requests"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Event Loop coordinates when pending microtasks and tasks execute once the Call Stack is clear."
+    },
+    {
+      "id": 2,
+      "question": "Which callback normally runs first after the current synchronous code finishes?",
+      "options": [
+        "A setTimeout callback",
+        "A Promise .then() callback",
+        "A network request callback regardless of state",
+        "An arbitrary DOM event"
+      ],
+      "correctIndex": 1,
+      "explanation": "Promise reactions run in the microtask queue, which drains before the next macrotask such as setTimeout."
+    },
+    {
+      "id": 3,
+      "question": "What does an async function always return?",
+      "options": [
+        "A string",
+        "An array",
+        "A Promise",
+        "A callback"
+      ],
+      "correctIndex": 2,
+      "explanation": "Any value returned from an `async` function is automatically wrapped in a fulfilled Promise."
+    },
+    {
+      "id": 4,
+      "question": "What happens when Fetch receives an HTTP 404 response?",
+      "options": [
+        "The Fetch Promise always rejects",
+        "The browser automatically retries",
+        "Fetch normally fulfills with a Response object",
+        "The browser closes the page"
+      ],
+      "correctIndex": 2,
+      "explanation": "Fetch only rejects on network failures or aborts; always check `response.ok` or `response.status`."
+    },
+    {
+      "id": 5,
+      "question": "Which Promise method waits for every supplied Promise to settle?",
+      "options": [
+        "Promise.race()",
+        "Promise.allSettled()",
+        "Promise.resolve()",
+        "Promise.any()"
+      ],
+      "correctIndex": 1,
+      "explanation": "`Promise.allSettled()` waits for all input Promises to either fulfill or reject and returns each outcome."
+    },
+    {
+      "id": 6,
+      "question": "Which browser storage mechanism is designed for asynchronous structured data storage?",
+      "options": [
+        "LocalStorage",
+        "SessionStorage",
+        "IndexedDB",
+        "Cookies only"
+      ],
+      "correctIndex": 2,
+      "explanation": "IndexedDB provides asynchronous, indexed, transactional storage for larger structured client-side datasets."
+    },
+    {
+      "id": 7,
+      "question": "What is the main advantage of WebSockets?",
+      "options": [
+        "They replace HTML",
+        "They provide persistent bidirectional communication",
+        "They store data permanently",
+        "They automatically validate user input"
+      ],
+      "correctIndex": 1,
+      "explanation": "WebSockets establish a persistent, full-duplex channel so both client and server can push messages anytime."
+    },
+    {
+      "id": 8,
+      "question": "Which API is used to request camera or microphone access?",
+      "options": [
+        "localStorage",
+        "Notification",
+        "navigator.mediaDevices.getUserMedia()",
+        "JSON.parse()"
+      ],
+      "correctIndex": 2,
+      "explanation": "`navigator.mediaDevices.getUserMedia()` prompts for camera/audio access and returns a `MediaStream`."
+    },
+    {
+      "id": 9,
+      "question": "Why should developers be careful when implementing automatic retries?",
+      "options": [
+        "Retries always reduce server load",
+        "Every HTTP error is temporary",
+        "Retries can duplicate non-idempotent operations",
+        "Retries disable CORS"
+      ],
+      "correctIndex": 2,
+      "explanation": "Retrying POST or payment requests without idempotency keys can create duplicate operations."
+    },
+    {
+      "id": 10,
+      "question": "Which mechanism can abort an ongoing Fetch request?",
+      "options": [
+        "Promise.all()",
+        "AbortController",
+        "JSON.stringify()",
+        "SessionStorage"
+      ],
+      "correctIndex": 1,
+      "explanation": "Passing `controller.signal` to `fetch()` and calling `controller.abort()` cancels an in-flight request."
+    }
+  ]
+}

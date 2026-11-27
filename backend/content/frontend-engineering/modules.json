@@ -53,5 +53,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "browser-apis-async",
+    "courseId": "frontend-engineering",
+    "index": 6,
+    "name": "6. Browser APIs, Asynchronous Programming and Web Integration",
+    "route": "/learning/frontend-engineering/browser-apis-async",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

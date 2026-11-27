@@ -1,0 +1,4272 @@
+{
+  "moduleNumber": "06",
+  "title": "MODULE 06 — Browser APIs, Asynchronous Programming and Web Integration",
+  "badges": [
+    "Core Module",
+    "12 Lessons",
+    "Browser APIs",
+    "Async & Fetch"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module overview"
+    },
+    {
+      "type": "p",
+      "text": "Modern frontend applications do much more than display HTML and CSS. They communicate with external servers, retrieve information, store user preferences, respond to browser events, handle files, access device capabilities, and update interfaces in real time."
+    },
+    {
+      "type": "p",
+      "text": "Consider a typical application such as an online learning platform:"
+    },
+    {
+      "type": "p",
+      "text": "A student opens a course, and the frontend retrieves course information from an API."
+    },
+    {
+      "type": "p",
+      "text": "The student logs in, and the application communicates with an authentication service."
+    },
+    {
+      "type": "p",
+      "text": "The student completes a lesson, and the frontend sends progress data to the backend."
+    },
+    {
+      "type": "p",
+      "text": "The application remembers the student's theme and preferences."
+    },
+    {
+      "type": "p",
+      "text": "A notification appears when a new assignment becomes available."
+    },
+    {
+      "type": "p",
+      "text": "The dashboard refreshes when new information becomes available."
+    },
+    {
+      "type": "p",
+      "text": "If the internet connection fails, the application displays an appropriate error instead of breaking."
+    },
+    {
+      "type": "p",
+      "text": "All these operations involve JavaScript's asynchronous execution model, browser-provided APIs, and communication with external services."
+    },
+    {
+      "type": "p",
+      "text": "This module develops the knowledge required to implement these features correctly."
+    },
+    {
+      "type": "p",
+      "text": "What you will learn"
+    },
+    {
+      "type": "p",
+      "text": "By the end of this module, you should understand how JavaScript handles asynchronous operations, how browsers communicate with servers, how to manage external data, and how to use browser capabilities safely."
+    }
+  ],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Lesson 01",
+      "title": "LESSON 01 — JavaScript's Call Stack and Event Loop",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 Understanding JavaScript execution"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript is commonly described as a single-threaded programming language when discussing its main execution thread."
+        },
+        {
+          "type": "p",
+          "text": "This means that ordinary JavaScript code executes one operation at a time on the main JavaScript thread. The browser must coordinate JavaScript execution with other activities, including network communication, timers, user interactions, and rendering."
+        },
+        {
+          "type": "p",
+          "text": "To understand this properly, we need to understand three important components:"
+        },
+        {
+          "type": "p",
+          "text": "Call Stack"
+        },
+        {
+          "type": "p",
+          "text": "Browser Web APIs"
+        },
+        {
+          "type": "p",
+          "text": "Event Loop and Task Queues"
+        },
+        {
+          "type": "p",
+          "text": "These components work together to execute JavaScript applications."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 The Call Stack"
+        },
+        {
+          "type": "p",
+          "text": "The Call Stack is a data structure used by JavaScript to keep track of which functions are currently executing."
+        },
+        {
+          "type": "p",
+          "text": "It follows the Last In, First Out (LIFO) principle."
+        },
+        {
+          "type": "p",
+          "text": "The last function placed on the stack is the first function removed."
+        },
+        {
+          "type": "p",
+          "text": "Consider this example:"
+        },
+        {
+          "type": "code",
+          "text": "function first() { console.log(\"First function\"); } function second() { first(); console.log(\"Second function\"); } function third() { second(); console.log(\"Third function\"); } third();"
+        },
+        {
+          "type": "p",
+          "text": "Execution happens in the following order:"
+        },
+        {
+          "type": "p",
+          "text": "Step 1: JavaScript starts executing third()."
+        },
+        {
+          "type": "p",
+          "text": "Step 2: third() calls second(), so second() is placed on top of the stack."
+        },
+        {
+          "type": "p",
+          "text": "Step 3: second() calls first(), so first() is placed above second()."
+        },
+        {
+          "type": "p",
+          "text": "Step 4: first() completes and is removed from the stack."
+        },
+        {
+          "type": "p",
+          "text": "Step 5: second() continues and completes."
+        },
+        {
+          "type": "p",
+          "text": "Step 6: third() completes."
+        },
+        {
+          "type": "p",
+          "text": "The output is:"
+        },
+        {
+          "type": "p",
+          "text": "First function Second function Third function"
+        },
+        {
+          "type": "p",
+          "text": "The important principle is that JavaScript must finish the currently executing synchronous function before continuing with the next operation on the same call stack."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Browser Web APIs"
+        },
+        {
+          "type": "p",
+          "text": "Not every operation is executed directly by the JavaScript engine."
+        },
+        {
+          "type": "p",
+          "text": "Browsers provide APIs that handle operations such as:"
+        },
+        {
+          "type": "p",
+          "text": "Timers"
+        },
+        {
+          "type": "p",
+          "text": "Network requests"
+        },
+        {
+          "type": "p",
+          "text": "DOM events"
+        },
+        {
+          "type": "p",
+          "text": "Geolocation"
+        },
+        {
+          "type": "p",
+          "text": "Clipboard access"
+        },
+        {
+          "type": "p",
+          "text": "File operations"
+        },
+        {
+          "type": "p",
+          "text": "Notifications"
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "console.log(\"Application started\"); setTimeout(() => { console.log(\"Timer completed\"); }, 2000); console.log(\"Application continues\");"
+        },
+        {
+          "type": "p",
+          "text": "Output:"
+        },
+        {
+          "type": "p",
+          "text": "Application started Application continues Timer completed"
+        },
+        {
+          "type": "p",
+          "text": "The timer does not block JavaScript for two seconds."
+        },
+        {
+          "type": "p",
+          "text": "Instead, the browser manages the timer and schedules its callback to run when the required delay has passed and the JavaScript execution environment can process it."
+        },
+        {
+          "type": "p",
+          "text": "Note that setTimeout specifies a minimum delay, not an exact execution time."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Understanding the Event Loop"
+        },
+        {
+          "type": "p",
+          "text": "The Event Loop coordinates when queued JavaScript callbacks can execute."
+        },
+        {
+          "type": "p",
+          "text": "A simplified browser execution model looks like this:"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript Call Stack"
+        },
+        {
+          "type": "p",
+          "text": "Executes currently running JavaScript functions"
+        },
+        {
+          "type": "p",
+          "text": "Microtask Queue"
+        },
+        {
+          "type": "p",
+          "text": "Promise callbacks and queueMicrotask()"
+        },
+        {
+          "type": "p",
+          "text": "Task Queue"
+        },
+        {
+          "type": "p",
+          "text": "Timers, many DOM events and other tasks"
+        },
+        {
+          "type": "p",
+          "text": "Event Loop"
+        },
+        {
+          "type": "p",
+          "text": "Coordinates queued work when the stack is available"
+        },
+        {
+          "type": "p",
+          "text": "A simplified way to understand the process:"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript executes the current synchronous code."
+        },
+        {
+          "type": "p",
+          "text": "When the call stack becomes empty, the browser processes pending microtasks."
+        },
+        {
+          "type": "p",
+          "text": "Once the microtask queue is drained, the browser can process another task."
+        },
+        {
+          "type": "p",
+          "text": "The browser also gets opportunities to update the screen between appropriate execution cycles."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 Microtasks and Macrotasks"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript uses different scheduling mechanisms."
+        },
+        {
+          "type": "p",
+          "text": "Microtasks include:"
+        },
+        {
+          "type": "p",
+          "text": "Promise .then() callbacks"
+        },
+        {
+          "type": "p",
+          "text": "Promise .catch() callbacks"
+        },
+        {
+          "type": "p",
+          "text": "Promise .finally() callbacks"
+        },
+        {
+          "type": "p",
+          "text": "queueMicrotask()"
+        },
+        {
+          "type": "p",
+          "text": "Tasks, often informally called macrotasks, include:"
+        },
+        {
+          "type": "p",
+          "text": "setTimeout()"
+        },
+        {
+          "type": "p",
+          "text": "setInterval()"
+        },
+        {
+          "type": "p",
+          "text": "Many DOM event callbacks"
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "console.log(\"A\"); setTimeout(() => { console.log(\"B\"); }, 0); Promise.resolve().then(() => { console.log(\"C\"); }); console.log(\"D\");"
+        },
+        {
+          "type": "p",
+          "text": "Output:"
+        },
+        {
+          "type": "p",
+          "text": "A D C B"
+        },
+        {
+          "type": "p",
+          "text": "Why?"
+        },
+        {
+          "type": "p",
+          "text": "A executes immediately."
+        },
+        {
+          "type": "p",
+          "text": "The timer callback is scheduled as a task."
+        },
+        {
+          "type": "p",
+          "text": "The Promise callback is scheduled as a microtask."
+        },
+        {
+          "type": "p",
+          "text": "D executes before the current stack finishes."
+        },
+        {
+          "type": "p",
+          "text": "The microtask runs before the next task."
+        },
+        {
+          "type": "p",
+          "text": "This is an essential concept when debugging complex frontend execution."
+        },
+        {
+          "type": "h3",
+          "text": "1.6 Why this matters in real applications"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a dashboard receives thousands of records from an API and tries to process everything synchronously."
+        },
+        {
+          "type": "p",
+          "text": "Heavy computation can block the main thread, preventing the browser from responding smoothly to user interactions."
+        },
+        {
+          "type": "p",
+          "text": "Understanding the Event Loop helps developers identify these problems and choose suitable solutions, such as breaking work into smaller tasks or using Web Workers for CPU-intensive computation."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Write a JavaScript program using nested functions, setTimeout(), and Promises. Predict the execution order before running it in the browser console."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Lesson 02",
+      "title": "LESSON 02 — Synchronous and Asynchronous Execution",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 Synchronous execution"
+        },
+        {
+          "type": "p",
+          "text": "Synchronous code executes sequentially."
+        },
+        {
+          "type": "p",
+          "text": "Each operation must complete before the next operation begins."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "console.log(\"Step 1\"); console.log(\"Step 2\"); console.log(\"Step 3\");"
+        },
+        {
+          "type": "p",
+          "text": "Output:"
+        },
+        {
+          "type": "p",
+          "text": "Step 1 Step 2 Step 3"
+        },
+        {
+          "type": "p",
+          "text": "This execution model is simple and predictable."
+        },
+        {
+          "type": "p",
+          "text": "However, it becomes problematic when an operation takes a long time."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 The problem with blocking operations"
+        },
+        {
+          "type": "p",
+          "text": "Consider a function that performs a large calculation:"
+        },
+        {
+          "type": "code",
+          "text": "function calculateSomething() { let total = 0; for (let i = 0; i < 1000000000; i++) { total += i; } return total; } console.log(\"Starting\"); calculateSomething(); console.log(\"Completed\");"
+        },
+        {
+          "type": "p",
+          "text": "The browser cannot execute the following JavaScript on that same thread until the calculation finishes."
+        },
+        {
+          "type": "p",
+          "text": "During this time, the interface may become unresponsive."
+        },
+        {
+          "type": "p",
+          "text": "This is called blocking execution."
+        },
+        {
+          "type": "p",
+          "text": "In a frontend application, blocking can cause:"
+        },
+        {
+          "type": "p",
+          "text": "Delayed button responses"
+        },
+        {
+          "type": "p",
+          "text": "Frozen animations"
+        },
+        {
+          "type": "p",
+          "text": "Slow page rendering"
+        },
+        {
+          "type": "p",
+          "text": "Poor user experience"
+        },
+        {
+          "type": "p",
+          "text": "Browser warnings about an unresponsive page"
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Asynchronous execution"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous programming allows JavaScript to initiate an operation and continue executing other work while waiting for the operation to complete."
+        },
+        {
+          "type": "p",
+          "text": "Typical asynchronous operations include:"
+        },
+        {
+          "type": "p",
+          "text": "Fetching information from a server"
+        },
+        {
+          "type": "p",
+          "text": "Reading files"
+        },
+        {
+          "type": "p",
+          "text": "Waiting for a timer"
+        },
+        {
+          "type": "p",
+          "text": "Accessing browser device capabilities"
+        },
+        {
+          "type": "p",
+          "text": "Communicating through WebSockets"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "console.log(\"Request started\"); setTimeout(() => { console.log(\"Request completed\"); }, 2000); console.log(\"Other work continues\");"
+        },
+        {
+          "type": "p",
+          "text": "The browser schedules the callback while JavaScript continues with other synchronous work."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 Asynchronous does not automatically mean parallel"
+        },
+        {
+          "type": "p",
+          "text": "This distinction is important."
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous programming means that execution does not have to wait synchronously for an operation to finish."
+        },
+        {
+          "type": "p",
+          "text": "It does not mean all JavaScript operations are executing simultaneously on multiple CPU cores."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "async function getData() { const response = await fetch(\"/api/courses\"); return response.json(); }"
+        },
+        {
+          "type": "p",
+          "text": "While the browser waits for the network response, it can process other work."
+        },
+        {
+          "type": "p",
+          "text": "However, once JavaScript begins a large CPU-intensive calculation on the main thread, that calculation can still block the interface."
+        },
+        {
+          "type": "p",
+          "text": "Parallel CPU processing can be achieved with mechanisms such as Web Workers."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Common asynchronous patterns"
+        },
+        {
+          "type": "p",
+          "text": "Frontend applications commonly use several techniques:"
+        },
+        {
+          "type": "p",
+          "text": "Technique"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Callbacks"
+        },
+        {
+          "type": "p",
+          "text": "Execute a function after an operation"
+        },
+        {
+          "type": "p",
+          "text": "Promises"
+        },
+        {
+          "type": "p",
+          "text": "Represent future completion or failure"
+        },
+        {
+          "type": "p",
+          "text": "Async/Await"
+        },
+        {
+          "type": "p",
+          "text": "Write asynchronous code in a sequential style"
+        },
+        {
+          "type": "p",
+          "text": "Events"
+        },
+        {
+          "type": "p",
+          "text": "Respond to actions or state changes"
+        },
+        {
+          "type": "p",
+          "text": "Web Workers"
+        },
+        {
+          "type": "p",
+          "text": "Run JavaScript in another thread"
+        },
+        {
+          "type": "p",
+          "text": "WebSockets"
+        },
+        {
+          "type": "p",
+          "text": "Maintain real-time communication"
+        },
+        {
+          "type": "h3",
+          "text": "2.6 When to use each execution model"
+        },
+        {
+          "type": "p",
+          "text": "Use synchronous code when operations are short and need immediate results."
+        },
+        {
+          "type": "p",
+          "text": "Use asynchronous operations when waiting for network responses, browser APIs, file operations, or other operations that complete later."
+        },
+        {
+          "type": "p",
+          "text": "Use Web Workers when significant CPU-intensive work would otherwise block the main interface."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a page with a button that starts a long synchronous calculation. Observe how the interface behaves, then redesign the operation using a Web Worker."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Lesson 03",
+      "title": "LESSON 03 — Callbacks, Promises and Promise Chaining",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 Understanding callbacks"
+        },
+        {
+          "type": "p",
+          "text": "A callback is a function passed into another function so that it can be executed later."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "function greetUser(name, callback) { console.log(\"Hello \" + name); callback(); } function showMessage() { console.log(\"Welcome to the application\"); } greetUser(\"Student\", showMessage);"
+        },
+        {
+          "type": "p",
+          "text": "Output:"
+        },
+        {
+          "type": "p",
+          "text": "Hello Student Welcome to the application"
+        },
+        {
+          "type": "p",
+          "text": "Callbacks are widely used in JavaScript."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "p",
+          "text": "Button event handlers"
+        },
+        {
+          "type": "p",
+          "text": "Array methods"
+        },
+        {
+          "type": "p",
+          "text": "Timer functions"
+        },
+        {
+          "type": "p",
+          "text": "Browser event listeners"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous operations"
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Asynchronous callbacks"
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "function getUserData(callback) { setTimeout(() => { const user = { id: 1, name: \"Sam\" }; callback(user); }, 1000); } getUserData((user) => { console.log(user); });"
+        },
+        {
+          "type": "p",
+          "text": "The callback executes after the simulated asynchronous operation completes."
+        },
+        {
+          "type": "p",
+          "text": "This approach was historically common for handling asynchronous tasks."
+        },
+        {
+          "type": "p",
+          "text": "However, multiple dependent callbacks can create complicated code."
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Callback Hell"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a frontend application needs to:"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve a user."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve the user's courses."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve progress for each course."
+        },
+        {
+          "type": "p",
+          "text": "Display the final dashboard."
+        },
+        {
+          "type": "p",
+          "text": "With nested callbacks, code can become difficult to maintain."
+        },
+        {
+          "type": "p",
+          "text": "getUser((user) => { getCourses(user.id, (courses) => { getProgress(courses, (progress) => { displayDashboard(progress); }); }); });"
+        },
+        {
+          "type": "p",
+          "text": "As dependencies increase, the nesting becomes harder to understand."
+        },
+        {
+          "type": "p",
+          "text": "This is commonly called Callback Hell."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Understanding Promises"
+        },
+        {
+          "type": "p",
+          "text": "A Promise represents the eventual completion or failure of an asynchronous operation."
+        },
+        {
+          "type": "p",
+          "text": "A Promise has three possible states:"
+        },
+        {
+          "type": "p",
+          "text": "State"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "Pending"
+        },
+        {
+          "type": "p",
+          "text": "Operation is still running"
+        },
+        {
+          "type": "p",
+          "text": "Fulfilled"
+        },
+        {
+          "type": "p",
+          "text": "Operation completed successfully"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Operation failed"
+        },
+        {
+          "type": "p",
+          "text": "A Promise settles when it becomes fulfilled or rejected."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "const coursePromise = new Promise((resolve, reject) => { const courseLoaded = true; if (courseLoaded) { resolve(\"Course loaded successfully\"); } else { reject(\"Unable to load course\"); } }); coursePromise .then((result) => { console.log(result); }) .catch((error) => { console.error(error); });"
+        },
+        {
+          "type": "p",
+          "text": "resolve() indicates successful completion."
+        },
+        {
+          "type": "p",
+          "text": "reject() indicates failure."
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Promise chaining"
+        },
+        {
+          "type": "p",
+          "text": "Promises allow asynchronous operations to be connected using .then()."
+        },
+        {
+          "type": "p",
+          "text": "fetch(\"/api/user\") .then((response) => { if (!response.ok) { throw new Error(\"Unable to fetch user\"); } return response.json(); }) .then((user) => { console.log(user); return fetch(`/api/courses/${user.id}`); }) .then((response) => { if (!response.ok) { throw new Error(\"Unable to fetch courses\"); } return response.json(); }) .then((courses) => { console.log(courses); }) .catch((error) => { console.error(\"Application error:\", error); });"
+        },
+        {
+          "type": "p",
+          "text": "Each .then() can return a normal value or another Promise."
+        },
+        {
+          "type": "p",
+          "text": "If another Promise is returned, the next stage waits for it to settle."
+        },
+        {
+          "type": "p",
+          "text": "This is called Promise chaining."
+        },
+        {
+          "type": "h3",
+          "text": "3.6 Promise utility methods"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript provides useful Promise methods for managing multiple asynchronous operations."
+        },
+        {
+          "type": "p",
+          "text": "Promise.all()"
+        },
+        {
+          "type": "p",
+          "text": "Waits until all Promises fulfill. Rejects when one rejects."
+        },
+        {
+          "type": "code",
+          "text": "const results = await Promise.all([ fetch(\"/api/users\"), fetch(\"/api/courses\"), fetch(\"/api/assignments\") ]);"
+        },
+        {
+          "type": "p",
+          "text": "Useful when all operations are required to display a page."
+        },
+        {
+          "type": "p",
+          "text": "Promise.allSettled()"
+        },
+        {
+          "type": "p",
+          "text": "Waits until all Promises settle, regardless of whether they fulfill or reject."
+        },
+        {
+          "type": "code",
+          "text": "const results = await Promise.allSettled([ fetch(\"/api/users\"), fetch(\"/api/courses\"), fetch(\"/api/assignments\") ]); console.log(results);"
+        },
+        {
+          "type": "p",
+          "text": "Useful when a dashboard can display some sections even if other requests fail."
+        },
+        {
+          "type": "p",
+          "text": "Promise.race()"
+        },
+        {
+          "type": "p",
+          "text": "Returns the result of the first Promise to settle."
+        },
+        {
+          "type": "p",
+          "text": "Promise.any()"
+        },
+        {
+          "type": "p",
+          "text": "Returns the first successfully fulfilled Promise. It rejects with an AggregateError if all supplied Promises reject."
+        },
+        {
+          "type": "h3",
+          "text": "3.7 Real-world application"
+        },
+        {
+          "type": "p",
+          "text": "An educational platform may load several independent resources:"
+        },
+        {
+          "type": "p",
+          "text": "User information"
+        },
+        {
+          "type": "p",
+          "text": "Enrolled courses"
+        },
+        {
+          "type": "p",
+          "text": "Course completion statistics"
+        },
+        {
+          "type": "p",
+          "text": "Notifications"
+        },
+        {
+          "type": "p",
+          "text": "Using Promise utilities can make it easier to load these resources efficiently."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create three asynchronous functions representing user, course, and progress retrieval. Connect them using Promise chaining and then rewrite the solution using Promise.all()."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Lesson 04",
+      "title": "LESSON 04 — Async/Await and Error Handling",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 Understanding async functions"
+        },
+        {
+          "type": "code",
+          "text": "async and await provide a cleaner way to work with Promises."
+        },
+        {
+          "type": "p",
+          "text": "An async function always returns a Promise."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "async function getMessage() { return \"Welcome to JavaScript\"; } getMessage().then((message) => { console.log(message); });"
+        },
+        {
+          "type": "p",
+          "text": "Even though the function returns a normal string, JavaScript wraps the returned value in a fulfilled Promise."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 Understanding await"
+        },
+        {
+          "type": "p",
+          "text": "The await keyword allows an async function to pause its own execution until a Promise settles."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "async function loadCourse() { const result = await fetch(\"/api/courses\"); console.log(result); } loadCourse();"
+        },
+        {
+          "type": "p",
+          "text": "The async function waits for the network operation, but JavaScript can continue processing other work."
+        },
+        {
+          "type": "p",
+          "text": "await can normally be used inside async functions. Modern JavaScript also supports top-level await in compatible modules."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Building a complete asynchronous operation"
+        },
+        {
+          "type": "p",
+          "text": "Consider a frontend application retrieving course information."
+        },
+        {
+          "type": "code",
+          "text": "async function getCourses() { const response = await fetch(\"/api/courses\"); if (!response.ok) { throw new Error(\"Failed to retrieve courses\"); } const courses = await response.json(); return courses; }"
+        },
+        {
+          "type": "p",
+          "text": "This function:"
+        },
+        {
+          "type": "p",
+          "text": "Sends a network request."
+        },
+        {
+          "type": "p",
+          "text": "Waits for the response."
+        },
+        {
+          "type": "p",
+          "text": "Checks the HTTP status."
+        },
+        {
+          "type": "p",
+          "text": "Converts the response body into JSON."
+        },
+        {
+          "type": "p",
+          "text": "Returns the course information."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 Handling errors with try/catch"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous operations may fail for many reasons."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "The internet connection is unavailable."
+        },
+        {
+          "type": "p",
+          "text": "The server is unavailable."
+        },
+        {
+          "type": "p",
+          "text": "The request is unauthorized."
+        },
+        {
+          "type": "p",
+          "text": "The response contains invalid data."
+        },
+        {
+          "type": "p",
+          "text": "A browser API denies permission."
+        },
+        {
+          "type": "p",
+          "text": "We can handle these problems using try/catch."
+        },
+        {
+          "type": "code",
+          "text": "async function loadCourses() { try { const response = await fetch(\"/api/courses\"); if (!response.ok) { throw new Error(`HTTP Error: ${response.status}`); } const courses = await response.json(); console.log(courses); } catch (error) { console.error(\"Unable to load courses:\", error); } }"
+        },
+        {
+          "type": "p",
+          "text": "The try section contains operations that may fail."
+        },
+        {
+          "type": "p",
+          "text": "The catch section handles thrown errors and rejected awaited Promises."
+        },
+        {
+          "type": "h3",
+          "text": "4.5 The finally block"
+        },
+        {
+          "type": "p",
+          "text": "The finally block executes after the try or catch section completes."
+        },
+        {
+          "type": "p",
+          "text": "It is useful for cleanup operations."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "async function loadDashboard() { showLoading(); try { const response = await fetch(\"/api/dashboard\"); if (!response.ok) { throw new Error(\"Dashboard request failed\"); } const data = await response.json(); displayDashboard(data); } catch (error) { showError(error.message); } finally { hideLoading(); } }"
+        },
+        {
+          "type": "p",
+          "text": "Even when the request fails, the loading indicator is removed."
+        },
+        {
+          "type": "h3",
+          "text": "4.6 Sequential versus parallel execution"
+        },
+        {
+          "type": "p",
+          "text": "One common performance mistake is waiting for independent operations unnecessarily."
+        },
+        {
+          "type": "p",
+          "text": "Sequential execution:"
+        },
+        {
+          "type": "code",
+          "text": "const users = await fetch(\"/api/users\"); const courses = await fetch(\"/api/courses\"); const analytics = await fetch(\"/api/analytics\");"
+        },
+        {
+          "type": "p",
+          "text": "Each request starts after the previous awaited operation has completed."
+        },
+        {
+          "type": "p",
+          "text": "Parallel execution:"
+        },
+        {
+          "type": "code",
+          "text": "const [users, courses, analytics] = await Promise.all([ fetch(\"/api/users\"), fetch(\"/api/courses\"), fetch(\"/api/analytics\") ]);"
+        },
+        {
+          "type": "p",
+          "text": "All requests are initiated without waiting for the previous request to finish."
+        },
+        {
+          "type": "p",
+          "text": "Parallel execution is generally preferable when the operations are independent and every result is required."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build an async function that retrieves a user's details and course information. Add error handling, a loading state, and a success message."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Lesson 05",
+      "title": "LESSON 05 — Fetch API and HTTP-Based Data Retrieval",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 What is the Fetch API?"
+        },
+        {
+          "type": "p",
+          "text": "The Fetch API is a browser-provided JavaScript interface for making network requests."
+        },
+        {
+          "type": "p",
+          "text": "It allows frontend applications to communicate with external servers and backend APIs."
+        },
+        {
+          "type": "p",
+          "text": "For example, a course platform might request:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses"
+        },
+        {
+          "type": "p",
+          "text": "The server may return:"
+        },
+        {
+          "type": "code",
+          "text": "[ { \"id\": 1, \"title\": \"JavaScript Fundamentals\", \"level\": \"Beginner\" }, { \"id\": 2, \"title\": \"Advanced React\", \"level\": \"Advanced\" } ]"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript can retrieve this information and use it to display course cards."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 Basic Fetch request"
+        },
+        {
+          "type": "code",
+          "text": "async function getCourses() { const response = await fetch(\"/api/courses\"); const courses = await response.json(); console.log(courses); }"
+        },
+        {
+          "type": "p",
+          "text": "The important point is that fetch() returns a Promise."
+        },
+        {
+          "type": "p",
+          "text": "It does not immediately return the final response data."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Understanding the Response object"
+        },
+        {
+          "type": "p",
+          "text": "The Fetch API returns a Response object."
+        },
+        {
+          "type": "p",
+          "text": "Important properties include:"
+        },
+        {
+          "type": "p",
+          "text": "Property"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "status"
+        },
+        {
+          "type": "p",
+          "text": "HTTP status code"
+        },
+        {
+          "type": "p",
+          "text": "ok"
+        },
+        {
+          "type": "p",
+          "text": "Indicates whether status is in the 200–299 range"
+        },
+        {
+          "type": "p",
+          "text": "headers"
+        },
+        {
+          "type": "p",
+          "text": "Response headers"
+        },
+        {
+          "type": "p",
+          "text": "url"
+        },
+        {
+          "type": "p",
+          "text": "Final response URL"
+        },
+        {
+          "type": "p",
+          "text": "redirected"
+        },
+        {
+          "type": "p",
+          "text": "Indicates whether a redirect occurred"
+        },
+        {
+          "type": "p",
+          "text": "You can inspect these properties:"
+        },
+        {
+          "type": "code",
+          "text": "async function getCourses() { const response = await fetch(\"/api/courses\"); console.log(response.status); console.log(response.ok); console.log(response.headers); if (!response.ok) { throw new Error(\"Request failed\"); } return response.json(); }"
+        },
+        {
+          "type": "h3",
+          "text": "5.4 An important Fetch behaviour"
+        },
+        {
+          "type": "p",
+          "text": "A frequent beginner mistake is assuming that HTTP errors automatically reject a Fetch Promise."
+        },
+        {
+          "type": "p",
+          "text": "They do not."
+        },
+        {
+          "type": "p",
+          "text": "For example, a server can respond with:"
+        },
+        {
+          "type": "p",
+          "text": "404 Not Found"
+        },
+        {
+          "type": "p",
+          "text": "The Fetch Promise normally fulfills with a Response object."
+        },
+        {
+          "type": "p",
+          "text": "Therefore, developers must inspect response.ok or response.status."
+        },
+        {
+          "type": "p",
+          "text": "Fetch rejects for failures such as network errors, invalid request construction in applicable cases, and aborted requests."
+        },
+        {
+          "type": "h3",
+          "text": "5.5 HTTP methods"
+        },
+        {
+          "type": "p",
+          "text": "The Fetch API supports different HTTP methods."
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Common purpose"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve information"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Create a resource or initiate an operation"
+        },
+        {
+          "type": "p",
+          "text": "PUT"
+        },
+        {
+          "type": "p",
+          "text": "Replace a resource"
+        },
+        {
+          "type": "p",
+          "text": "PATCH"
+        },
+        {
+          "type": "p",
+          "text": "Partially update a resource"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "Delete a resource"
+        },
+        {
+          "type": "p",
+          "text": "Example GET request:"
+        },
+        {
+          "type": "code",
+          "text": "const response = await fetch(\"/api/courses\");"
+        },
+        {
+          "type": "p",
+          "text": "Example POST request:"
+        },
+        {
+          "type": "code",
+          "text": "const response = await fetch(\"/api/courses\", { method: \"POST\", headers: { \"Content-Type\": \"application/json\" }, body: JSON.stringify({ title: \"Frontend Engineering\", level: \"Intermediate\" }) });"
+        },
+        {
+          "type": "p",
+          "text": "The body property sends data to the server."
+        },
+        {
+          "type": "code",
+          "text": "JSON.stringify() converts a JavaScript object into JSON text."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Reading different response formats"
+        },
+        {
+          "type": "p",
+          "text": "The browser can read response data in different formats."
+        },
+        {
+          "type": "p",
+          "text": "Common methods include:"
+        },
+        {
+          "type": "code",
+          "text": "const jsonData = await response.json(); const textData = await response.text(); const blobData = await response.blob(); const arrayBuffer = await response.arrayBuffer();"
+        },
+        {
+          "type": "p",
+          "text": "Choose a method appropriate for the content returned by the server."
+        },
+        {
+          "type": "p",
+          "text": "A response body is generally consumed once. Do not attempt to read it with multiple body-reading methods unless you deliberately clone the Response first."
+        },
+        {
+          "type": "h3",
+          "text": "5.7 Real-world application"
+        },
+        {
+          "type": "p",
+          "text": "An online learning platform might use Fetch for:"
+        },
+        {
+          "type": "p",
+          "text": "Loading course information"
+        },
+        {
+          "type": "p",
+          "text": "Retrieving student progress"
+        },
+        {
+          "type": "p",
+          "text": "Submitting assignments"
+        },
+        {
+          "type": "p",
+          "text": "Uploading profile information"
+        },
+        {
+          "type": "p",
+          "text": "Updating completed lessons"
+        },
+        {
+          "type": "p",
+          "text": "Retrieving notifications"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Retrieve a list of courses from an API and display the course titles, levels, and descriptions on a webpage."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Lesson 06",
+      "title": "LESSON 06 — REST API Integration from the Browser",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 What is REST?"
+        },
+        {
+          "type": "p",
+          "text": "REST stands for Representational State Transfer."
+        },
+        {
+          "type": "p",
+          "text": "It is an architectural style for designing networked applications."
+        },
+        {
+          "type": "p",
+          "text": "REST APIs commonly represent application data as resources and use HTTP methods to interact with those resources."
+        },
+        {
+          "type": "p",
+          "text": "For example, consider a learning platform."
+        },
+        {
+          "type": "p",
+          "text": "It may contain these resources:"
+        },
+        {
+          "type": "p",
+          "text": "/users /courses /lessons /enrollments /progress /assignments"
+        },
+        {
+          "type": "p",
+          "text": "Each resource can have different operations."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Understanding API endpoints"
+        },
+        {
+          "type": "p",
+          "text": "An endpoint is a URL through which a client interacts with a particular API resource or operation."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses GET /api/courses/101 POST /api/courses PATCH /api/courses/101 DELETE /api/courses/101"
+        },
+        {
+          "type": "p",
+          "text": "These endpoints allow the frontend to:"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve all courses."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve an individual course."
+        },
+        {
+          "type": "p",
+          "text": "Create a new course."
+        },
+        {
+          "type": "p",
+          "text": "Update a course."
+        },
+        {
+          "type": "p",
+          "text": "Delete a course."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Integrating an API with JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a student completes a lesson."
+        },
+        {
+          "type": "p",
+          "text": "The frontend might submit the following request:"
+        },
+        {
+          "type": "code",
+          "text": "async function completeLesson(lessonId) { const response = await fetch( `/api/lessons/${lessonId}/complete`, { method: \"POST\", headers: { \"Content-Type\": \"application/json\" }, body: JSON.stringify({ completed: true }) } ); if (!response.ok) { throw new Error(\"Unable to update lesson progress\"); } return response.json(); }"
+        },
+        {
+          "type": "p",
+          "text": "The frontend communicates with the backend, which validates the operation and updates the database."
+        },
+        {
+          "type": "p",
+          "text": "A frontend should never assume that a successful button click means the server has successfully saved the information."
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Authentication and authorization"
+        },
+        {
+          "type": "p",
+          "text": "Many APIs require authentication."
+        },
+        {
+          "type": "p",
+          "text": "A server needs to know which user is making a request."
+        },
+        {
+          "type": "p",
+          "text": "Depending on the authentication architecture, requests may use:"
+        },
+        {
+          "type": "p",
+          "text": "Secure session cookies"
+        },
+        {
+          "type": "p",
+          "text": "Bearer access tokens"
+        },
+        {
+          "type": "p",
+          "text": "Other supported authentication mechanisms"
+        },
+        {
+          "type": "p",
+          "text": "Example using an access token:"
+        },
+        {
+          "type": "code",
+          "text": "const response = await fetch(\"/api/profile\", { headers: { \"Authorization\": `Bearer ${accessToken}` } });"
+        },
+        {
+          "type": "p",
+          "text": "Do not expose private API keys, server secrets, or privileged credentials in frontend JavaScript."
+        },
+        {
+          "type": "p",
+          "text": "Anything sent to the browser can potentially be inspected by the user."
+        },
+        {
+          "type": "p",
+          "text": "Prefer a backend service to handle secret credentials and sensitive operations."
+        },
+        {
+          "type": "h3",
+          "text": "6.5 CORS"
+        },
+        {
+          "type": "p",
+          "text": "CORS stands for Cross-Origin Resource Sharing."
+        },
+        {
+          "type": "p",
+          "text": "Browsers enforce a same-origin security policy. When a frontend accesses a different origin, the browser applies CORS rules."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Frontend: https://prepspaces.com Backend: https://api.prepspaces.com"
+        },
+        {
+          "type": "p",
+          "text": "These are different origins because their hostnames differ."
+        },
+        {
+          "type": "p",
+          "text": "The backend needs appropriate CORS response headers to permit the frontend origin."
+        },
+        {
+          "type": "p",
+          "text": "A typical response might include:"
+        },
+        {
+          "type": "code",
+          "text": "Access-Control-Allow-Origin: https://prepspaces.com Access-Control-Allow-Methods: GET, POST, PATCH, DELETE Access-Control-Allow-Headers: Content-Type, Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Some cross-origin requests trigger a preflight request using the HTTP OPTIONS method."
+        },
+        {
+          "type": "p",
+          "text": "The browser checks whether the server permits the actual request."
+        },
+        {
+          "type": "p",
+          "text": "CORS is enforced by browsers. It is not a replacement for backend authentication or authorization."
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Understanding API integration errors"
+        },
+        {
+          "type": "p",
+          "text": "Frontend developers should distinguish between:"
+        },
+        {
+          "type": "p",
+          "text": "Authentication failure: the user is not properly authenticated."
+        },
+        {
+          "type": "p",
+          "text": "Authorization failure: the user lacks permission."
+        },
+        {
+          "type": "p",
+          "text": "Validation failure: submitted data does not satisfy server requirements."
+        },
+        {
+          "type": "p",
+          "text": "Server failure: the backend could not successfully process the request."
+        },
+        {
+          "type": "p",
+          "text": "Network failure: the browser could not successfully communicate with the server."
+        },
+        {
+          "type": "p",
+          "text": "CORS failure: the browser did not allow the cross-origin response to be accessed by the application."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a course management interface that retrieves, creates, updates, and deletes course records through a REST API."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Lesson 07",
+      "title": "LESSON 07 — JSON Processing and Data Transformation",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 Understanding JSON"
+        },
+        {
+          "type": "p",
+          "text": "JSON stands for JavaScript Object Notation."
+        },
+        {
+          "type": "p",
+          "text": "It is a text-based data format commonly used for exchanging information between frontend and backend applications."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"student\": { \"id\": 101, \"name\": \"Alex\", \"enrolled\": true }, \"courses\": [ { \"id\": 1, \"title\": \"JavaScript\", \"completed\": false }, { \"id\": 2, \"title\": \"React\", \"completed\": true } ] }"
+        },
+        {
+          "type": "p",
+          "text": "JSON supports:"
+        },
+        {
+          "type": "p",
+          "text": "Strings"
+        },
+        {
+          "type": "p",
+          "text": "Numbers"
+        },
+        {
+          "type": "p",
+          "text": "Booleans"
+        },
+        {
+          "type": "p",
+          "text": "Arrays"
+        },
+        {
+          "type": "p",
+          "text": "Objects"
+        },
+        {
+          "type": "p",
+          "text": "Null"
+        },
+        {
+          "type": "p",
+          "text": "It does not directly represent JavaScript functions, undefined, or symbols."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Converting JSON into JavaScript objects"
+        },
+        {
+          "type": "p",
+          "text": "The JSON.parse() method converts JSON text into a JavaScript value."
+        },
+        {
+          "type": "code",
+          "text": "const jsonString = '{\"name\":\"Alex\",\"age\":22}'; const user = JSON.parse(jsonString); console.log(user.name); console.log(user.age);"
+        },
+        {
+          "type": "p",
+          "text": "Output:"
+        },
+        {
+          "type": "p",
+          "text": "Alex 22"
+        },
+        {
+          "type": "p",
+          "text": "Invalid JSON causes JSON.parse() to throw a SyntaxError."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Converting JavaScript objects into JSON"
+        },
+        {
+          "type": "p",
+          "text": "The JSON.stringify() method converts supported JavaScript values into JSON text."
+        },
+        {
+          "type": "code",
+          "text": "const user = { name: \"Alex\", age: 22, enrolled: true }; const jsonData = JSON.stringify(user); console.log(jsonData);"
+        },
+        {
+          "type": "p",
+          "text": "This is particularly important when sending application data to a backend."
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Understanding data transformation"
+        },
+        {
+          "type": "p",
+          "text": "Data retrieved from APIs is not always in the exact format required by the user interface."
+        },
+        {
+          "type": "p",
+          "text": "Developers frequently transform information before displaying it."
+        },
+        {
+          "type": "p",
+          "text": "Suppose the backend returns:"
+        },
+        {
+          "type": "code",
+          "text": "const courses = [ { id: 1, name: \"JavaScript\", completed: true }, { id: 2, name: \"React\", completed: false }, { id: 3, name: \"Node.js\", completed: true } ];"
+        },
+        {
+          "type": "p",
+          "text": "To retrieve only completed courses:"
+        },
+        {
+          "type": "code",
+          "text": "const completedCourses = courses.filter( course => course.completed );"
+        },
+        {
+          "type": "p",
+          "text": "To retrieve course names:"
+        },
+        {
+          "type": "code",
+          "text": "const courseNames = courses.map( course => course.name );"
+        },
+        {
+          "type": "p",
+          "text": "To calculate the total number of completed courses:"
+        },
+        {
+          "type": "code",
+          "text": "const completedCount = courses.reduce( (total, course) => { return total + (course.completed ? 1 : 0); }, 0 );"
+        },
+        {
+          "type": "p",
+          "text": "These techniques help organize API data for frontend interfaces."
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Handling nested JSON"
+        },
+        {
+          "type": "p",
+          "text": "Real-world API responses can contain deeply nested objects and arrays."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "const dashboard = { student: { profile: { name: \"Alex\" } } }; console.log(dashboard.student.profile.name);"
+        },
+        {
+          "type": "p",
+          "text": "Optional chaining can protect against missing intermediate properties:"
+        },
+        {
+          "type": "code",
+          "text": "console.log(dashboard.student?.profile?.name);"
+        },
+        {
+          "type": "p",
+          "text": "If an intermediate property is null or undefined, the expression returns undefined instead of throwing an error."
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Data validation"
+        },
+        {
+          "type": "p",
+          "text": "Receiving JSON does not guarantee that its contents are correct."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "const user = { name: 123, age: \"unknown\" };"
+        },
+        {
+          "type": "p",
+          "text": "A frontend should validate important data before relying on it."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "function validateUser(user) { return ( typeof user === \"object\" && user !== null && typeof user.name === \"string\" && typeof user.age === \"number\" ); }"
+        },
+        {
+          "type": "p",
+          "text": "For complex applications, schema-validation libraries can provide more comprehensive validation."
+        },
+        {
+          "type": "p",
+          "text": "Remember that backend validation is still essential. Frontend validation is not a security boundary."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Retrieve a JSON dataset, filter records, calculate statistics, and display the transformed information in a dashboard."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Lesson 08",
+      "title": "LESSON 08 — Browser Storage: LocalStorage, SessionStorage and IndexedDB",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 Why browser storage is needed"
+        },
+        {
+          "type": "p",
+          "text": "Most frontend applications need to remember certain information between interactions or page reloads."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Theme preferences"
+        },
+        {
+          "type": "p",
+          "text": "Recently viewed courses"
+        },
+        {
+          "type": "p",
+          "text": "Draft form information"
+        },
+        {
+          "type": "p",
+          "text": "Shopping cart contents"
+        },
+        {
+          "type": "p",
+          "text": "Offline application data"
+        },
+        {
+          "type": "p",
+          "text": "Cached records"
+        },
+        {
+          "type": "p",
+          "text": "Browsers provide multiple storage mechanisms for these requirements."
+        },
+        {
+          "type": "p",
+          "text": "The three important mechanisms in this lesson are:"
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage"
+        },
+        {
+          "type": "p",
+          "text": "SessionStorage"
+        },
+        {
+          "type": "p",
+          "text": "IndexedDB"
+        },
+        {
+          "type": "h3",
+          "text": "8.2 LocalStorage"
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage allows a browser application to store key-value pairs that persist across page reloads and browser sessions for the same origin, subject to browser storage policies."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "localStorage.setItem(\"theme\", \"dark\");"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve the stored value:"
+        },
+        {
+          "type": "code",
+          "text": "const theme = localStorage.getItem(\"theme\"); console.log(theme);"
+        },
+        {
+          "type": "p",
+          "text": "Remove a specific value:"
+        },
+        {
+          "type": "code",
+          "text": "localStorage.removeItem(\"theme\");"
+        },
+        {
+          "type": "p",
+          "text": "Remove all LocalStorage values for the current origin:"
+        },
+        {
+          "type": "code",
+          "text": "localStorage.clear();"
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage stores strings."
+        },
+        {
+          "type": "p",
+          "text": "To store an object:"
+        },
+        {
+          "type": "code",
+          "text": "const student = { name: \"Alex\", course: \"Frontend Engineering\" }; localStorage.setItem( \"student\", JSON.stringify(student) );"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve the object:"
+        },
+        {
+          "type": "code",
+          "text": "const studentData = JSON.parse( localStorage.getItem(\"student\") );"
+        },
+        {
+          "type": "p",
+          "text": "Be aware that invalid JSON can cause parsing errors."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 SessionStorage"
+        },
+        {
+          "type": "p",
+          "text": "SessionStorage also stores key-value pairs."
+        },
+        {
+          "type": "p",
+          "text": "However, its lifetime is associated with the page session in a particular browser tab."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "sessionStorage.setItem(\"currentLesson\", \"lesson-06\");"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve the value:"
+        },
+        {
+          "type": "code",
+          "text": "const lesson = sessionStorage.getItem(\"currentLesson\");"
+        },
+        {
+          "type": "p",
+          "text": "SessionStorage is useful for information that should normally be discarded when the tab's page session ends."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 LocalStorage versus SessionStorage"
+        },
+        {
+          "type": "p",
+          "text": "Feature"
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage"
+        },
+        {
+          "type": "p",
+          "text": "SessionStorage"
+        },
+        {
+          "type": "p",
+          "text": "Persistence"
+        },
+        {
+          "type": "p",
+          "text": "Across browser sessions"
+        },
+        {
+          "type": "p",
+          "text": "Current page session"
+        },
+        {
+          "type": "p",
+          "text": "Page reload"
+        },
+        {
+          "type": "p",
+          "text": "Data remains"
+        },
+        {
+          "type": "p",
+          "text": "Data remains"
+        },
+        {
+          "type": "p",
+          "text": "Typical use"
+        },
+        {
+          "type": "p",
+          "text": "Preferences"
+        },
+        {
+          "type": "p",
+          "text": "Temporary tab state"
+        },
+        {
+          "type": "p",
+          "text": "Data format"
+        },
+        {
+          "type": "p",
+          "text": "Strings"
+        },
+        {
+          "type": "p",
+          "text": "Strings"
+        },
+        {
+          "type": "p",
+          "text": "Access"
+        },
+        {
+          "type": "p",
+          "text": "Synchronous"
+        },
+        {
+          "type": "p",
+          "text": "Synchronous"
+        },
+        {
+          "type": "p",
+          "text": "Both are synchronous APIs. Reading or writing large amounts of data can block the main thread."
+        },
+        {
+          "type": "h3",
+          "text": "8.5 IndexedDB"
+        },
+        {
+          "type": "p",
+          "text": "IndexedDB is a browser database for storing larger amounts of structured information."
+        },
+        {
+          "type": "p",
+          "text": "Unlike LocalStorage and SessionStorage, IndexedDB is designed for asynchronous database operations."
+        },
+        {
+          "type": "p",
+          "text": "It supports:"
+        },
+        {
+          "type": "p",
+          "text": "Object stores"
+        },
+        {
+          "type": "p",
+          "text": "Indexes"
+        },
+        {
+          "type": "p",
+          "text": "Transactions"
+        },
+        {
+          "type": "p",
+          "text": "Structured-clone-compatible data"
+        },
+        {
+          "type": "p",
+          "text": "Large collections of records"
+        },
+        {
+          "type": "p",
+          "text": "A simplified IndexedDB initialization example:"
+        },
+        {
+          "type": "code",
+          "text": "const request = indexedDB.open(\"LearningPlatformDB\", 1); request.onupgradeneeded = (event) => { const database = event.target.result; database.createObjectStore(\"courses\", { keyPath: \"id\" }); }; request.onsuccess = (event) => { const database = event.target.result; console.log(\"Database opened\", database); }; request.onerror = () => { console.error(\"Database could not be opened\"); };"
+        },
+        {
+          "type": "p",
+          "text": "A real application must also handle transactions, schema upgrades, and database errors."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Choosing the appropriate storage mechanism"
+        },
+        {
+          "type": "p",
+          "text": "Requirement"
+        },
+        {
+          "type": "p",
+          "text": "Suitable mechanism"
+        },
+        {
+          "type": "p",
+          "text": "Theme preference"
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage"
+        },
+        {
+          "type": "p",
+          "text": "Temporary tab state"
+        },
+        {
+          "type": "p",
+          "text": "SessionStorage"
+        },
+        {
+          "type": "p",
+          "text": "Offline course records"
+        },
+        {
+          "type": "p",
+          "text": "IndexedDB"
+        },
+        {
+          "type": "p",
+          "text": "Large structured data"
+        },
+        {
+          "type": "p",
+          "text": "IndexedDB"
+        },
+        {
+          "type": "p",
+          "text": "Server-side user progress"
+        },
+        {
+          "type": "p",
+          "text": "Backend database"
+        },
+        {
+          "type": "p",
+          "text": "An important architectural principle:"
+        },
+        {
+          "type": "p",
+          "text": "Browser storage should not be treated as the application's authoritative database."
+        },
+        {
+          "type": "p",
+          "text": "For example, a student might mark a lesson completed."
+        },
+        {
+          "type": "p",
+          "text": "The frontend can immediately update its interface, but the backend should verify and persist the student's actual progress."
+        },
+        {
+          "type": "h3",
+          "text": "8.7 Security considerations"
+        },
+        {
+          "type": "p",
+          "text": "Browser storage has important security limitations."
+        },
+        {
+          "type": "p",
+          "text": "JavaScript running on the same origin can access LocalStorage and SessionStorage. This means an XSS vulnerability can expose stored information."
+        },
+        {
+          "type": "p",
+          "text": "Avoid storing sensitive information, particularly privileged API keys and authentication secrets, in browser storage."
+        },
+        {
+          "type": "p",
+          "text": "For authentication, a carefully configured server-side session using secure, HttpOnly and appropriate SameSite cookies is often preferable."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Implement a theme selector using LocalStorage and build an IndexedDB-based feature that saves recently accessed course information."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Lesson 09",
+      "title": "LESSON 09 — WebSockets and Real-Time Interface Updates",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 Understanding the limitation of ordinary HTTP requests"
+        },
+        {
+          "type": "p",
+          "text": "In a typical HTTP request-response interaction:"
+        },
+        {
+          "type": "p",
+          "text": "The frontend sends a request."
+        },
+        {
+          "type": "p",
+          "text": "The backend processes it."
+        },
+        {
+          "type": "p",
+          "text": "The backend returns a response."
+        },
+        {
+          "type": "p",
+          "text": "For many applications, this is sufficient."
+        },
+        {
+          "type": "p",
+          "text": "However, consider applications that need real-time updates:"
+        },
+        {
+          "type": "p",
+          "text": "Messaging applications"
+        },
+        {
+          "type": "p",
+          "text": "Live interview platforms"
+        },
+        {
+          "type": "p",
+          "text": "Multiplayer games"
+        },
+        {
+          "type": "p",
+          "text": "Collaboration tools"
+        },
+        {
+          "type": "p",
+          "text": "Live monitoring dashboards"
+        },
+        {
+          "type": "p",
+          "text": "Real-time notifications"
+        },
+        {
+          "type": "p",
+          "text": "Repeatedly requesting information from the server is not always the most efficient approach."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 What are WebSockets?"
+        },
+        {
+          "type": "p",
+          "text": "WebSockets provide a persistent, bidirectional communication channel between a browser and a server."
+        },
+        {
+          "type": "p",
+          "text": "Unlike ordinary request-response communication, both sides can send messages over the established connection."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "A student opens an online classroom."
+        },
+        {
+          "type": "p",
+          "text": "The browser establishes a WebSocket connection to the backend."
+        },
+        {
+          "type": "p",
+          "text": "When an instructor sends a message, the server can immediately send it to the connected browser."
+        },
+        {
+          "type": "p",
+          "text": "The frontend does not need to continuously request new messages."
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Establishing a WebSocket connection"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript provides the WebSocket API."
+        },
+        {
+          "type": "code",
+          "text": "const socket = new WebSocket( \"wss://example.com/socket\" );"
+        },
+        {
+          "type": "p",
+          "text": "The wss:// scheme provides WebSocket communication over TLS, while ws:// is the non-TLS scheme."
+        },
+        {
+          "type": "h3",
+          "text": "9.4 Handling WebSocket events"
+        },
+        {
+          "type": "p",
+          "text": "A WebSocket connection produces different events."
+        },
+        {
+          "type": "p",
+          "text": "socket.addEventListener(\"open\", () => { console.log(\"Connected to server\"); }); socket.addEventListener(\"message\", (event) => { console.log(\"New message:\", event.data); }); socket.addEventListener(\"error\", (error) => { console.error(\"WebSocket error:\", error); }); socket.addEventListener(\"close\", () => { console.log(\"Connection closed\"); });"
+        },
+        {
+          "type": "p",
+          "text": "These event handlers help the frontend respond to communication changes."
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Sending information through WebSockets"
+        },
+        {
+          "type": "p",
+          "text": "Once the connection is open, JavaScript can send messages."
+        },
+        {
+          "type": "code",
+          "text": "function sendMessage(message) { if (socket.readyState === WebSocket.OPEN) { socket.send(JSON.stringify({ type: \"chat-message\", message })); } }"
+        },
+        {
+          "type": "p",
+          "text": "The server receives the message and can distribute it to other connected users."
+        },
+        {
+          "type": "h3",
+          "text": "9.6 WebSocket connection states"
+        },
+        {
+          "type": "p",
+          "text": "The WebSocket API provides four important connection states:"
+        },
+        {
+          "type": "p",
+          "text": "State"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "CONNECTING"
+        },
+        {
+          "type": "p",
+          "text": "Connection is being established"
+        },
+        {
+          "type": "p",
+          "text": "OPEN"
+        },
+        {
+          "type": "p",
+          "text": "Connection is active"
+        },
+        {
+          "type": "p",
+          "text": "CLOSING"
+        },
+        {
+          "type": "p",
+          "text": "Connection is being closed"
+        },
+        {
+          "type": "p",
+          "text": "CLOSED"
+        },
+        {
+          "type": "p",
+          "text": "Connection is closed"
+        },
+        {
+          "type": "p",
+          "text": "Frontend applications should check the connection state before sending messages."
+        },
+        {
+          "type": "h3",
+          "text": "9.7 Real-time dashboard example"
+        },
+        {
+          "type": "p",
+          "text": "Imagine an administrator monitoring a learning platform."
+        },
+        {
+          "type": "p",
+          "text": "The dashboard might receive:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"type\": \"student-activity\", \"studentId\": 101, \"event\": \"lesson-completed\", \"courseId\": 25 }"
+        },
+        {
+          "type": "p",
+          "text": "The frontend can process that message and update the activity display without refreshing the whole page."
+        },
+        {
+          "type": "h3",
+          "text": "9.8 Production considerations"
+        },
+        {
+          "type": "p",
+          "text": "Real-time communication requires more than opening a WebSocket."
+        },
+        {
+          "type": "p",
+          "text": "Production applications should consider:"
+        },
+        {
+          "type": "p",
+          "text": "Authentication during connection establishment"
+        },
+        {
+          "type": "p",
+          "text": "Server-side authorization for every sensitive operation"
+        },
+        {
+          "type": "p",
+          "text": "Reconnection strategies"
+        },
+        {
+          "type": "p",
+          "text": "Heartbeats or application-level connection health checks"
+        },
+        {
+          "type": "p",
+          "text": "Message validation"
+        },
+        {
+          "type": "p",
+          "text": "Connection cleanup"
+        },
+        {
+          "type": "p",
+          "text": "Secure transport"
+        },
+        {
+          "type": "p",
+          "text": "Handling duplicate messages"
+        },
+        {
+          "type": "p",
+          "text": "Scaling across multiple backend instances"
+        },
+        {
+          "type": "p",
+          "text": "For example, the frontend should reconnect when an unexpected network interruption closes the connection, using controlled delays rather than repeatedly reconnecting without limits."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a real-time chat interface with a WebSocket server. Implement connection status, incoming messages, outgoing messages, and reconnection handling."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Lesson 10",
+      "title": "LESSON 10 — File, Clipboard and Notification APIs",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Modern browsers provide several APIs that allow frontend applications to interact with files, clipboard contents, and user notifications."
+        },
+        {
+          "type": "h3",
+          "text": "10.1 File API"
+        },
+        {
+          "type": "p",
+          "text": "The File API allows JavaScript to access files selected by a user."
+        },
+        {
+          "type": "p",
+          "text": "For example, a user may upload:"
+        },
+        {
+          "type": "p",
+          "text": "A profile image"
+        },
+        {
+          "type": "p",
+          "text": "A resume"
+        },
+        {
+          "type": "p",
+          "text": "A document"
+        },
+        {
+          "type": "p",
+          "text": "A project file"
+        },
+        {
+          "type": "p",
+          "text": "An assignment submission"
+        },
+        {
+          "type": "p",
+          "text": "HTML file input:"
+        },
+        {
+          "type": "code",
+          "text": "<input type=\"file\" id=\"fileInput\" />"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript:"
+        },
+        {
+          "type": "code",
+          "text": "const input = document.getElementById(\"fileInput\"); input.addEventListener(\"change\", (event) => { const file = event.target.files[0]; if (!file) { return; } console.log(\"File name:\", file.name); console.log(\"File size:\", file.size); console.log(\"File type:\", file.type); });"
+        },
+        {
+          "type": "p",
+          "text": "Important File properties:"
+        },
+        {
+          "type": "p",
+          "text": "Property"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "name"
+        },
+        {
+          "type": "p",
+          "text": "File name"
+        },
+        {
+          "type": "p",
+          "text": "size"
+        },
+        {
+          "type": "p",
+          "text": "File size in bytes"
+        },
+        {
+          "type": "p",
+          "text": "type"
+        },
+        {
+          "type": "p",
+          "text": "MIME type"
+        },
+        {
+          "type": "p",
+          "text": "lastModified"
+        },
+        {
+          "type": "p",
+          "text": "Last modification timestamp"
+        },
+        {
+          "type": "p",
+          "text": "Always validate file types and file sizes on the frontend for user experience, and independently validate them on the backend for security."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 Reading file contents"
+        },
+        {
+          "type": "p",
+          "text": "The File.text() method can read a file as text."
+        },
+        {
+          "type": "code",
+          "text": "async function readFile(file) { const content = await file.text(); console.log(content); }"
+        },
+        {
+          "type": "p",
+          "text": "For image previews, object URLs are useful:"
+        },
+        {
+          "type": "code",
+          "text": "const imageURL = URL.createObjectURL(file); const preview = document.querySelector(\"#preview\"); preview.src = imageURL;"
+        },
+        {
+          "type": "p",
+          "text": "Release the object URL when it is no longer needed:"
+        },
+        {
+          "type": "code",
+          "text": "URL.revokeObjectURL(imageURL);"
+        },
+        {
+          "type": "p",
+          "text": "This prevents unnecessary retention of browser resources."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Clipboard API"
+        },
+        {
+          "type": "p",
+          "text": "The Clipboard API allows a frontend application to read or write clipboard data, subject to browser permissions and security restrictions."
+        },
+        {
+          "type": "p",
+          "text": "Copy text:"
+        },
+        {
+          "type": "code",
+          "text": "async function copyText(text) { try { await navigator.clipboard.writeText(text); console.log(\"Copied successfully\"); } catch (error) { console.error(\"Clipboard access failed\", error); } }"
+        },
+        {
+          "type": "p",
+          "text": "A learning platform might use this feature to let students copy code examples or share course links."
+        },
+        {
+          "type": "p",
+          "text": "Clipboard access generally requires a secure context and may also depend on user activation and permission rules."
+        },
+        {
+          "type": "h3",
+          "text": "10.4 Notification API"
+        },
+        {
+          "type": "p",
+          "text": "The Notification API allows web applications to display notifications through the browser."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "async function requestNotificationPermission() { if (!(\"Notification\" in window)) { console.log(\"Notifications are not supported\"); return; } const permission = await Notification.requestPermission(); console.log(permission); }"
+        },
+        {
+          "type": "p",
+          "text": "When permission is granted:"
+        },
+        {
+          "type": "code",
+          "text": "function showNotification() { if (Notification.permission === \"granted\") { new Notification(\"New Assignment\", { body: \"Your instructor has published a new assignment.\" }); } }"
+        },
+        {
+          "type": "p",
+          "text": "Applications should request notification permission at a suitable time, normally in response to a meaningful user action."
+        },
+        {
+          "type": "p",
+          "text": "For persistent notifications that need service-worker integration, the Push API and Service Worker APIs provide additional capabilities."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a document upload component with file validation, an image-preview feature, a copy-link button, and a notification when an assignment has been submitted."
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Lesson 11",
+      "title": "LESSON 11 — Geolocation and Media APIs",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "11.1 Understanding Geolocation"
+        },
+        {
+          "type": "p",
+          "text": "The Geolocation API allows a browser application to request a user's geographical position."
+        },
+        {
+          "type": "p",
+          "text": "The browser normally requires user permission."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "navigator.geolocation.getCurrentPosition( (position) => { console.log(position.coords.latitude); console.log(position.coords.longitude); }, (error) => { console.error(error.message); } );"
+        },
+        {
+          "type": "p",
+          "text": "The API can provide:"
+        },
+        {
+          "type": "p",
+          "text": "Latitude"
+        },
+        {
+          "type": "p",
+          "text": "Longitude"
+        },
+        {
+          "type": "p",
+          "text": "Accuracy"
+        },
+        {
+          "type": "p",
+          "text": "Altitude, where available"
+        },
+        {
+          "type": "p",
+          "text": "Heading, where available"
+        },
+        {
+          "type": "p",
+          "text": "Speed, where available"
+        },
+        {
+          "type": "p",
+          "text": "The availability and accuracy of individual measurements depend on the device."
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Understanding Geolocation errors"
+        },
+        {
+          "type": "p",
+          "text": "Common error codes include:"
+        },
+        {
+          "type": "p",
+          "text": "Error code"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "Permission denied"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "Position unavailable"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "Request timed out"
+        },
+        {
+          "type": "p",
+          "text": "A production application should display meaningful explanations instead of assuming the location request will always succeed."
+        },
+        {
+          "type": "h3",
+          "text": "11.3 Continuous location tracking"
+        },
+        {
+          "type": "p",
+          "text": "For applications that need location updates, the browser provides watchPosition()."
+        },
+        {
+          "type": "code",
+          "text": "const watchId = navigator.geolocation.watchPosition( (position) => { console.log( position.coords.latitude, position.coords.longitude ); }, (error) => { console.error(error.message); } );"
+        },
+        {
+          "type": "p",
+          "text": "Stop tracking when it is no longer needed:"
+        },
+        {
+          "type": "code",
+          "text": "navigator.geolocation.clearWatch(watchId);"
+        },
+        {
+          "type": "p",
+          "text": "This is important for privacy, performance, and resource management."
+        },
+        {
+          "type": "h3",
+          "text": "11.4 Media Devices API"
+        },
+        {
+          "type": "p",
+          "text": "The MediaDevices API provides access to available media-input devices, subject to permissions and browser restrictions."
+        },
+        {
+          "type": "p",
+          "text": "It is commonly used for:"
+        },
+        {
+          "type": "p",
+          "text": "Video conferencing"
+        },
+        {
+          "type": "p",
+          "text": "Online interviews"
+        },
+        {
+          "type": "p",
+          "text": "Audio recording"
+        },
+        {
+          "type": "p",
+          "text": "Screen sharing"
+        },
+        {
+          "type": "p",
+          "text": "Voice communication"
+        },
+        {
+          "type": "p",
+          "text": "Real-time collaboration"
+        },
+        {
+          "type": "p",
+          "text": "Request microphone access:"
+        },
+        {
+          "type": "code",
+          "text": "const stream = await navigator.mediaDevices.getUserMedia({ audio: true });"
+        },
+        {
+          "type": "p",
+          "text": "Request camera and microphone access:"
+        },
+        {
+          "type": "code",
+          "text": "const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });"
+        },
+        {
+          "type": "h3",
+          "text": "11.5 Displaying a camera preview"
+        },
+        {
+          "type": "p",
+          "text": "The returned MediaStream can be connected to a video element."
+        },
+        {
+          "type": "code",
+          "text": "<video id=\"cameraPreview\" autoplay playsinline></video>\nconst stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true }); const video = document.querySelector(\"#cameraPreview\"); video.srcObject = stream;"
+        },
+        {
+          "type": "p",
+          "text": "The browser receives the camera stream and displays it in the video element."
+        },
+        {
+          "type": "h3",
+          "text": "11.6 Releasing media resources"
+        },
+        {
+          "type": "p",
+          "text": "When a user ends an interview or video call, media tracks should be stopped."
+        },
+        {
+          "type": "code",
+          "text": "function stopMedia(stream) { stream.getTracks().forEach((track) => { track.stop(); }); }"
+        },
+        {
+          "type": "p",
+          "text": "This releases the microphone and camera resources associated with those tracks."
+        },
+        {
+          "type": "h3",
+          "text": "11.7 Screen sharing"
+        },
+        {
+          "type": "p",
+          "text": "The browser also provides the Screen Capture API."
+        },
+        {
+          "type": "code",
+          "text": "const screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true });"
+        },
+        {
+          "type": "p",
+          "text": "This allows users to select a display, window, or tab to share, depending on browser and operating-system support."
+        },
+        {
+          "type": "p",
+          "text": "The browser controls the selection and prompts the user for permission."
+        },
+        {
+          "type": "h3",
+          "text": "11.8 Security and privacy"
+        },
+        {
+          "type": "p",
+          "text": "Geolocation, camera, microphone, and screen-sharing features are sensitive browser capabilities."
+        },
+        {
+          "type": "p",
+          "text": "Developers must:"
+        },
+        {
+          "type": "p",
+          "text": "Request permission only when necessary."
+        },
+        {
+          "type": "p",
+          "text": "Clearly explain why access is needed."
+        },
+        {
+          "type": "p",
+          "text": "Handle denied permissions."
+        },
+        {
+          "type": "p",
+          "text": "Stop streams when they are no longer required."
+        },
+        {
+          "type": "p",
+          "text": "Avoid collecting unnecessary personal information."
+        },
+        {
+          "type": "p",
+          "text": "Never assume browser permission means the backend may freely use or retain the data."
+        },
+        {
+          "type": "p",
+          "text": "Most of these capabilities require a secure context, generally HTTPS, apart from specific browser exceptions such as localhost during development."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a video-interview preview page with camera selection, microphone permission handling, screen sharing, connection status, and a button to stop all media tracks."
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "badge": "Lesson 12",
+      "title": "LESSON 12 — Handling Network Failures, Timeouts and Retries",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "12.1 Why network failures happen"
+        },
+        {
+          "type": "p",
+          "text": "Frontend applications depend on many external systems."
+        },
+        {
+          "type": "p",
+          "text": "A request can fail even when the code is correct."
+        },
+        {
+          "type": "p",
+          "text": "Common causes include:"
+        },
+        {
+          "type": "p",
+          "text": "Poor internet connectivity"
+        },
+        {
+          "type": "p",
+          "text": "Server downtime"
+        },
+        {
+          "type": "p",
+          "text": "DNS resolution problems"
+        },
+        {
+          "type": "p",
+          "text": "Request timeouts"
+        },
+        {
+          "type": "p",
+          "text": "Authentication expiration"
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting"
+        },
+        {
+          "type": "p",
+          "text": "API errors"
+        },
+        {
+          "type": "p",
+          "text": "CORS configuration problems"
+        },
+        {
+          "type": "p",
+          "text": "Invalid or unexpected responses"
+        },
+        {
+          "type": "p",
+          "text": "A professional frontend application must anticipate these conditions."
+        },
+        {
+          "type": "h3",
+          "text": "12.2 Understanding different error categories"
+        },
+        {
+          "type": "p",
+          "text": "Not all errors should be treated in the same way."
+        },
+        {
+          "type": "p",
+          "text": "Error"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "Appropriate handling"
+        },
+        {
+          "type": "p",
+          "text": "Network error"
+        },
+        {
+          "type": "p",
+          "text": "Server unreachable"
+        },
+        {
+          "type": "p",
+          "text": "Show connectivity message"
+        },
+        {
+          "type": "p",
+          "text": "HTTP 400"
+        },
+        {
+          "type": "p",
+          "text": "Invalid request"
+        },
+        {
+          "type": "p",
+          "text": "Explain validation problem"
+        },
+        {
+          "type": "p",
+          "text": "HTTP 401"
+        },
+        {
+          "type": "p",
+          "text": "Unauthenticated"
+        },
+        {
+          "type": "p",
+          "text": "Request authentication"
+        },
+        {
+          "type": "p",
+          "text": "HTTP 403"
+        },
+        {
+          "type": "p",
+          "text": "Forbidden"
+        },
+        {
+          "type": "p",
+          "text": "Explain access restriction"
+        },
+        {
+          "type": "p",
+          "text": "HTTP 404"
+        },
+        {
+          "type": "p",
+          "text": "Resource missing"
+        },
+        {
+          "type": "p",
+          "text": "Show not-found state"
+        },
+        {
+          "type": "p",
+          "text": "HTTP 429"
+        },
+        {
+          "type": "p",
+          "text": "Rate limited"
+        },
+        {
+          "type": "p",
+          "text": "Respect retry guidance"
+        },
+        {
+          "type": "p",
+          "text": "HTTP 500"
+        },
+        {
+          "type": "p",
+          "text": "Server failure"
+        },
+        {
+          "type": "p",
+          "text": "Show temporary error"
+        },
+        {
+          "type": "p",
+          "text": "AbortError"
+        },
+        {
+          "type": "p",
+          "text": "Request cancelled"
+        },
+        {
+          "type": "p",
+          "text": "Handle cancellation separately"
+        },
+        {
+          "type": "p",
+          "text": "Correct error classification helps developers decide whether to retry, refresh authentication, or show a user-facing error."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 Implementing request timeouts"
+        },
+        {
+          "type": "p",
+          "text": "A request should not be allowed to wait indefinitely when the application has a reasonable timeout requirement."
+        },
+        {
+          "type": "p",
+          "text": "The browser provides AbortController to cancel a Fetch request."
+        },
+        {
+          "type": "code",
+          "text": "async function fetchWithTimeout(url, timeout = 5000) { const controller = new AbortController(); const timeoutId = setTimeout(() => { controller.abort(); }, timeout); try { const response = await fetch(url, { signal: controller.signal }); if (!response.ok) { throw new Error(`HTTP Error: ${response.status}`); } return await response.json(); } finally { clearTimeout(timeoutId); } }"
+        },
+        {
+          "type": "p",
+          "text": "When the timeout expires, the browser aborts the request."
+        },
+        {
+          "type": "p",
+          "text": "The finally block ensures that the timer is cleaned up after completion."
+        },
+        {
+          "type": "p",
+          "text": "In production code, it is also important to distinguish a timeout abort from an intentional user cancellation."
+        },
+        {
+          "type": "h3",
+          "text": "12.4 Understanding retry mechanisms"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes a request fails temporarily."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "A server is restarting."
+        },
+        {
+          "type": "p",
+          "text": "A temporary network interruption occurs."
+        },
+        {
+          "type": "p",
+          "text": "An API is temporarily unavailable."
+        },
+        {
+          "type": "p",
+          "text": "A retry mechanism attempts the request again after a delay."
+        },
+        {
+          "type": "p",
+          "text": "However, blindly retrying every failure can create more problems."
+        },
+        {
+          "type": "p",
+          "text": "For example, retrying a payment or resource-creation request without an idempotency mechanism may create duplicate operations."
+        },
+        {
+          "type": "h3",
+          "text": "12.5 Exponential backoff"
+        },
+        {
+          "type": "p",
+          "text": "Exponential backoff increases the time between repeated attempts."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Attempt"
+        },
+        {
+          "type": "p",
+          "text": "Approximate delay"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "1 second"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "2 seconds"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "4 seconds"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "8 seconds"
+        },
+        {
+          "type": "p",
+          "text": "A production retry strategy normally adds random jitter to prevent many clients from retrying at exactly the same time."
+        },
+        {
+          "type": "h3",
+          "text": "12.6 Implementing a retry mechanism"
+        },
+        {
+          "type": "code",
+          "text": "function wait(ms) { return new Promise((resolve) => { setTimeout(resolve, ms); }); } async function retryRequest(request, maxAttempts = 3) { for (let attempt = 1; attempt <= maxAttempts; attempt++) { try { const response = await request(); if (!response.ok) { throw new Error(`HTTP Error: ${response.status}`); } return response; } catch (error) { if (attempt === maxAttempts) { throw error; } const delay = Math.min( 1000 * (2 ** (attempt - 1)), 10000 ); await wait(delay); } } }"
+        },
+        {
+          "type": "p",
+          "text": "This is a simplified teaching example. A real implementation should classify errors before retrying and should support cancellation."
+        },
+        {
+          "type": "h3",
+          "text": "12.7 What should be retried?"
+        },
+        {
+          "type": "p",
+          "text": "Good candidates can include temporary network failures and certain server errors."
+        },
+        {
+          "type": "p",
+          "text": "Use particular care with HTTP 429 responses and the server's Retry-After header."
+        },
+        {
+          "type": "p",
+          "text": "Do not blindly retry:"
+        },
+        {
+          "type": "p",
+          "text": "Most validation errors"
+        },
+        {
+          "type": "p",
+          "text": "Authentication or authorization failures"
+        },
+        {
+          "type": "p",
+          "text": "Requests with permanently invalid data"
+        },
+        {
+          "type": "p",
+          "text": "Non-idempotent operations without appropriate protection against duplicates"
+        },
+        {
+          "type": "p",
+          "text": "GET requests are generally safe to retry."
+        },
+        {
+          "type": "p",
+          "text": "PUT and DELETE are defined as idempotent HTTP methods, although application implementation still matters."
+        },
+        {
+          "type": "p",
+          "text": "POST requests may require an idempotency key or another server-side mechanism to prevent duplicate operations."
+        },
+        {
+          "type": "h3",
+          "text": "12.8 Managing frontend loading and error states"
+        },
+        {
+          "type": "p",
+          "text": "A good application should communicate what is happening."
+        },
+        {
+          "type": "p",
+          "text": "For example, an API-driven dashboard may have these states:"
+        },
+        {
+          "type": "p",
+          "text": "Loading"
+        },
+        {
+          "type": "p",
+          "text": "Waiting for the API"
+        },
+        {
+          "type": "p",
+          "text": "Display a loading indicator or skeleton."
+        },
+        {
+          "type": "p",
+          "text": "Success"
+        },
+        {
+          "type": "p",
+          "text": "Information retrieved"
+        },
+        {
+          "type": "p",
+          "text": "Display the returned information."
+        },
+        {
+          "type": "p",
+          "text": "Error"
+        },
+        {
+          "type": "p",
+          "text": "Request unsuccessful"
+        },
+        {
+          "type": "p",
+          "text": "Display a useful message and an appropriate retry action."
+        },
+        {
+          "type": "p",
+          "text": "Empty"
+        },
+        {
+          "type": "p",
+          "text": "No information available"
+        },
+        {
+          "type": "p",
+          "text": "Display an empty state instead of a broken interface."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a reusable API request utility with timeout support, error classification, retry handling, and loading-state management."
+        }
+      ]
+    },
+    {
+      "id": "section-13",
+      "badge": "Practical Project",
+      "title": "PRACTICAL PROJECT — Live Data Dashboard",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Major Practical Project"
+        },
+        {
+          "type": "p",
+          "text": "Project: Build a Real-Time API-Powered Dashboard"
+        },
+        {
+          "type": "p",
+          "text": "The purpose of this project is to combine the concepts learned throughout the module into one working frontend application."
+        },
+        {
+          "type": "p",
+          "text": "You will develop a dashboard that retrieves information from external APIs, processes the returned data, displays useful statistics, and manages browser-side persistence."
+        },
+        {
+          "type": "p",
+          "text": "[Analytics Dashboard UI Template for Business Data and Performance Tracking](https://images.openai.com/static-rsc-4/qvaPzSMI5E86kqD_isZy5rGbpvWs9uYikLlBiGkD_Qw5rxUwH1QDU2TTmO5LyDsFy8sXvkYcfRU9IatWjEUacX_thRWsPlCjWfv9Pm3tBjUggS99HmHVzYA2tl4zmLY8K3rIzJ9053JXunAGEztab42hwO_-l63ogo7g0oqEXbi-uMgqCZ38b55itrPN2QjL?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "[MonoPi — Complete API Monitoring & Management Platform by Nurul Amin for Zendeeps on Dribbble](https://images.openai.com/static-rsc-4/B2L6h2QzmDcR-RG_nrjxgKVD-RFP21WbvqShhezOdY2fd5VXdV8_n6Gmyb4iyuyqPDO2XcqVPPLanXu5M4ZwiDqRZzg58C6049aZmukZb-3WS7u5dNOnEkUTD1-fR5dpve-pAkgs4a6-kJpIQFKcxDoTXzak5wPg0VDTIW9n620?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "[10 Bootstrap Admin Panel Templates 2026 - AdminLTE.IO](https://images.openai.com/static-rsc-4/Ndaw91DQcTDL33K5IGlC7PtsQBbyN4DdD3EuOZXyqgizdEJeFTMNoIJ__4MT5tqyt6MNxnGpuXGEdVLN8HH8yrtYOWgn-K9kGRvI4P90_QwjdHPWkTjPF-kL3AuZDLgT-Lj27DLE7LkrRf_Fx6q0ieivpLeKnEvUeodA1hZHZC4?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "15"
+        },
+        {
+          "type": "h3",
+          "text": "1. Project requirements"
+        },
+        {
+          "type": "h3",
+          "text": "A. Dashboard interface"
+        },
+        {
+          "type": "p",
+          "text": "Create a responsive dashboard containing:"
+        },
+        {
+          "type": "p",
+          "text": "Overview cards"
+        },
+        {
+          "type": "p",
+          "text": "Data tables"
+        },
+        {
+          "type": "p",
+          "text": "Statistical summaries"
+        },
+        {
+          "type": "p",
+          "text": "Charts and visualizations"
+        },
+        {
+          "type": "p",
+          "text": "Loading indicators"
+        },
+        {
+          "type": "p",
+          "text": "Error messages"
+        },
+        {
+          "type": "p",
+          "text": "Empty states"
+        },
+        {
+          "type": "p",
+          "text": "Refresh controls"
+        },
+        {
+          "type": "p",
+          "text": "The interface should remain usable on desktop, tablet, and mobile devices."
+        },
+        {
+          "type": "h3",
+          "text": "B. API integration"
+        },
+        {
+          "type": "p",
+          "text": "Connect the frontend to one or more external or backend APIs."
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "Fetch API requests."
+        },
+        {
+          "type": "p",
+          "text": "GET and POST operations where appropriate."
+        },
+        {
+          "type": "p",
+          "text": "JSON response processing."
+        },
+        {
+          "type": "p",
+          "text": "Data transformation."
+        },
+        {
+          "type": "p",
+          "text": "API response validation."
+        },
+        {
+          "type": "p",
+          "text": "Authentication where required."
+        },
+        {
+          "type": "p",
+          "text": "Error handling."
+        },
+        {
+          "type": "p",
+          "text": "Timeout support."
+        },
+        {
+          "type": "p",
+          "text": "Do not put private API keys in browser-side source code."
+        },
+        {
+          "type": "h3",
+          "text": "C. Asynchronous programming"
+        },
+        {
+          "type": "p",
+          "text": "Use:"
+        },
+        {
+          "type": "p",
+          "text": "Async/Await"
+        },
+        {
+          "type": "p",
+          "text": "Promises"
+        },
+        {
+          "type": "p",
+          "text": "Promise chaining"
+        },
+        {
+          "type": "p",
+          "text": "Promise.all()"
+        },
+        {
+          "type": "p",
+          "text": "Promise.allSettled()"
+        },
+        {
+          "type": "p",
+          "text": "Try/Catch/Finally"
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate parallel API requests when data sources are independent."
+        },
+        {
+          "type": "h3",
+          "text": "D. Browser storage"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage for user preferences."
+        },
+        {
+          "type": "p",
+          "text": "SessionStorage for temporary session information."
+        },
+        {
+          "type": "p",
+          "text": "IndexedDB for structured client-side data."
+        },
+        {
+          "type": "p",
+          "text": "For example, allow users to select a dashboard theme and remember their preferred display settings."
+        },
+        {
+          "type": "h3",
+          "text": "E. Automatic data refresh"
+        },
+        {
+          "type": "p",
+          "text": "Implement periodic data retrieval."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "async function refreshDashboard() { try { const response = await fetch(\"/api/dashboard\"); if (!response.ok) { throw new Error(\"Dashboard update failed\"); } const data = await response.json(); updateDashboard(data); } catch (error) { showError(error.message); } } refreshDashboard(); const refreshInterval = setInterval( refreshDashboard, 30000 );"
+        },
+        {
+          "type": "p",
+          "text": "This example refreshes dashboard data every 30 seconds."
+        },
+        {
+          "type": "p",
+          "text": "Use an appropriate cleanup mechanism when the dashboard is no longer active. Also consider preventing overlapping requests when one refresh takes longer than the refresh interval."
+        },
+        {
+          "type": "h3",
+          "text": "F. Network reliability"
+        },
+        {
+          "type": "p",
+          "text": "Your application must handle:"
+        },
+        {
+          "type": "p",
+          "text": "API unavailable"
+        },
+        {
+          "type": "p",
+          "text": "Slow responses"
+        },
+        {
+          "type": "p",
+          "text": "Failed requests"
+        },
+        {
+          "type": "p",
+          "text": "HTTP errors"
+        },
+        {
+          "type": "p",
+          "text": "Request timeouts"
+        },
+        {
+          "type": "p",
+          "text": "Retry attempts"
+        },
+        {
+          "type": "p",
+          "text": "Empty responses"
+        },
+        {
+          "type": "p",
+          "text": "Invalid JSON"
+        },
+        {
+          "type": "p",
+          "text": "User cancellation"
+        },
+        {
+          "type": "h3",
+          "text": "G. Real-time updates"
+        },
+        {
+          "type": "p",
+          "text": "As an advanced extension, introduce a WebSocket connection."
+        },
+        {
+          "type": "p",
+          "text": "When the backend sends updated information, the frontend should update the relevant dashboard section without refreshing the entire page."
+        },
+        {
+          "type": "h3",
+          "text": "2. Suggested application architecture"
+        },
+        {
+          "type": "code",
+          "text": "Live Data Dashboard │ ├── Dashboard UI │ ├── Overview Cards │ ├── Statistics │ ├── Charts │ └── Data Tables │ ├── API Layer │ ├── Fetch Requests │ ├── Request Configuration │ ├── Response Processing │ └── Error Handling │ ├── Async Operations │ ├── Promises │ ├── Async/Await │ ├── Parallel Requests │ └── Retry Mechanism │ ├── Browser Storage │ ├── LocalStorage │ ├── SessionStorage │ └── IndexedDB │ └── Real-Time Integration ├── WebSocket Connection ├── Message Handling └── Automatic Updates"
+        },
+        {
+          "type": "h3",
+          "text": "3. Suggested technology"
+        },
+        {
+          "type": "p",
+          "text": "Area"
+        },
+        {
+          "type": "p",
+          "text": "Technology"
+        },
+        {
+          "type": "p",
+          "text": "Structure"
+        },
+        {
+          "type": "p",
+          "text": "HTML5"
+        },
+        {
+          "type": "p",
+          "text": "Styling"
+        },
+        {
+          "type": "p",
+          "text": "CSS3"
+        },
+        {
+          "type": "p",
+          "text": "Programming"
+        },
+        {
+          "type": "p",
+          "text": "Modern JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "API communication"
+        },
+        {
+          "type": "p",
+          "text": "Fetch API"
+        },
+        {
+          "type": "p",
+          "text": "Data format"
+        },
+        {
+          "type": "p",
+          "text": "JSON"
+        },
+        {
+          "type": "p",
+          "text": "Persistent preferences"
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage"
+        },
+        {
+          "type": "p",
+          "text": "Temporary state"
+        },
+        {
+          "type": "p",
+          "text": "SessionStorage"
+        },
+        {
+          "type": "p",
+          "text": "Structured storage"
+        },
+        {
+          "type": "p",
+          "text": "IndexedDB"
+        },
+        {
+          "type": "p",
+          "text": "Real-time communication"
+        },
+        {
+          "type": "p",
+          "text": "WebSocket API"
+        },
+        {
+          "type": "p",
+          "text": "Charts"
+        },
+        {
+          "type": "p",
+          "text": "Chart.js or another charting library"
+        },
+        {
+          "type": "p",
+          "text": "Development"
+        },
+        {
+          "type": "p",
+          "text": "VS Code and Browser DevTools"
+        },
+        {
+          "type": "h3",
+          "text": "4. Required deliverables"
+        },
+        {
+          "type": "p",
+          "text": "At the end of this project, submit:"
+        },
+        {
+          "type": "p",
+          "text": "Complete source code."
+        },
+        {
+          "type": "p",
+          "text": "Responsive dashboard interface."
+        },
+        {
+          "type": "p",
+          "text": "Working API integrations."
+        },
+        {
+          "type": "p",
+          "text": "Data transformation and visualization."
+        },
+        {
+          "type": "p",
+          "text": "Browser storage implementation."
+        },
+        {
+          "type": "p",
+          "text": "Loading, empty, and error states."
+        },
+        {
+          "type": "p",
+          "text": "Timeout and retry implementation."
+        },
+        {
+          "type": "p",
+          "text": "Technical documentation."
+        },
+        {
+          "type": "p",
+          "text": "Screenshots demonstrating the application."
+        },
+        {
+          "type": "p",
+          "text": "A README explaining setup and functionality."
+        },
+        {
+          "type": "h3",
+          "text": "5. Project evaluation"
+        },
+        {
+          "type": "p",
+          "text": "Evaluation area"
+        },
+        {
+          "type": "p",
+          "text": "Weight"
+        },
+        {
+          "type": "p",
+          "text": "API integration and data retrieval"
+        },
+        {
+          "type": "p",
+          "text": "20%"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous programming"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "JSON processing and transformation"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Browser storage"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Error and network handling"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Dashboard interface and responsiveness"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Code quality and documentation"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Real-time integration"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Total"
+        },
+        {
+          "type": "p",
+          "text": "100%"
+        }
+      ]
+    },
+    {
+      "id": "section-14",
+      "badge": "Assessment",
+      "title": "MODULE 06 — Knowledge Assessment",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Test your understanding of the concepts covered in this module."
+        },
+        {
+          "type": "p",
+          "text": "Module assessment"
+        },
+        {
+          "type": "p",
+          "text": "0 / 10 answered"
+        },
+        {
+          "type": "h3",
+          "text": "1. What is the primary responsibility of the JavaScript Event Loop?"
+        },
+        {
+          "type": "p",
+          "text": "To execute CSS animations"
+        },
+        {
+          "type": "p",
+          "text": "To coordinate the execution of queued callbacks when the call stack is available"
+        },
+        {
+          "type": "p",
+          "text": "To store application data"
+        },
+        {
+          "type": "p",
+          "text": "To send HTTP requests"
+        },
+        {
+          "type": "h3",
+          "text": "2. Which callback normally runs first after the current synchronous code finishes?"
+        },
+        {
+          "type": "p",
+          "text": "A setTimeout callback"
+        },
+        {
+          "type": "p",
+          "text": "A Promise .then() callback"
+        },
+        {
+          "type": "p",
+          "text": "A network request callback regardless of state"
+        },
+        {
+          "type": "p",
+          "text": "An arbitrary DOM event"
+        },
+        {
+          "type": "h3",
+          "text": "3. What does an async function always return?"
+        },
+        {
+          "type": "p",
+          "text": "A string"
+        },
+        {
+          "type": "p",
+          "text": "An array"
+        },
+        {
+          "type": "p",
+          "text": "A Promise"
+        },
+        {
+          "type": "p",
+          "text": "A callback"
+        },
+        {
+          "type": "h3",
+          "text": "4. What happens when Fetch receives an HTTP 404 response?"
+        },
+        {
+          "type": "p",
+          "text": "The Fetch Promise always rejects"
+        },
+        {
+          "type": "p",
+          "text": "The browser automatically retries"
+        },
+        {
+          "type": "p",
+          "text": "Fetch normally fulfills with a Response object"
+        },
+        {
+          "type": "p",
+          "text": "The browser closes the page"
+        },
+        {
+          "type": "h3",
+          "text": "5. Which Promise method waits for every supplied Promise to settle?"
+        },
+        {
+          "type": "p",
+          "text": "Promise.race()"
+        },
+        {
+          "type": "p",
+          "text": "Promise.allSettled()"
+        },
+        {
+          "type": "p",
+          "text": "Promise.resolve()"
+        },
+        {
+          "type": "p",
+          "text": "Promise.any()"
+        },
+        {
+          "type": "h3",
+          "text": "6. Which browser storage mechanism is designed for asynchronous structured data storage?"
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage"
+        },
+        {
+          "type": "p",
+          "text": "SessionStorage"
+        },
+        {
+          "type": "p",
+          "text": "IndexedDB"
+        },
+        {
+          "type": "p",
+          "text": "Cookies only"
+        },
+        {
+          "type": "h3",
+          "text": "7. What is the main advantage of WebSockets?"
+        },
+        {
+          "type": "p",
+          "text": "They replace HTML"
+        },
+        {
+          "type": "p",
+          "text": "They provide persistent bidirectional communication"
+        },
+        {
+          "type": "p",
+          "text": "They store data permanently"
+        },
+        {
+          "type": "p",
+          "text": "They automatically validate user input"
+        },
+        {
+          "type": "h3",
+          "text": "8. Which API is used to request camera or microphone access?"
+        },
+        {
+          "type": "p",
+          "text": "localStorage"
+        },
+        {
+          "type": "p",
+          "text": "Notification"
+        },
+        {
+          "type": "code",
+          "text": "navigator.mediaDevices.getUserMedia()\nJSON.parse()"
+        },
+        {
+          "type": "h3",
+          "text": "9. Why should developers be careful when implementing automatic retries?"
+        },
+        {
+          "type": "p",
+          "text": "Retries always reduce server load"
+        },
+        {
+          "type": "p",
+          "text": "Every HTTP error is temporary"
+        },
+        {
+          "type": "p",
+          "text": "Retries can duplicate non-idempotent operations"
+        },
+        {
+          "type": "p",
+          "text": "Retries disable CORS"
+        },
+        {
+          "type": "h3",
+          "text": "10. Which mechanism can abort an ongoing Fetch request?"
+        },
+        {
+          "type": "p",
+          "text": "Promise.all()"
+        },
+        {
+          "type": "p",
+          "text": "AbortController"
+        },
+        {
+          "type": "code",
+          "text": "JSON.stringify()"
+        },
+        {
+          "type": "p",
+          "text": "SessionStorage"
+        },
+        {
+          "type": "p",
+          "text": "Submit assessment"
+        },
+        {
+          "type": "p",
+          "text": "Expected learning outcomes"
+        },
+        {
+          "type": "p",
+          "text": "After completing this module, you should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Explain how the JavaScript Call Stack, Event Loop, and task queues work."
+        },
+        {
+          "type": "p",
+          "text": "Differentiate synchronous execution from asynchronous operations."
+        },
+        {
+          "type": "p",
+          "text": "Write and debug callback-based and Promise-based programs."
+        },
+        {
+          "type": "p",
+          "text": "Implement Async/Await with appropriate error handling."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve and submit information using the Fetch API."
+        },
+        {
+          "type": "p",
+          "text": "Integrate REST APIs into frontend applications."
+        },
+        {
+          "type": "p",
+          "text": "Process, validate, and transform JSON data."
+        },
+        {
+          "type": "p",
+          "text": "Choose between LocalStorage, SessionStorage, and IndexedDB."
+        },
+        {
+          "type": "p",
+          "text": "Implement real-time frontend communication with WebSockets."
+        },
+        {
+          "type": "p",
+          "text": "Work with browser file, clipboard, and notification capabilities."
+        },
+        {
+          "type": "p",
+          "text": "Integrate geolocation, camera, microphone, and screen-sharing features."
+        },
+        {
+          "type": "p",
+          "text": "Build reliable frontend applications that handle network failures, timeouts, and retries."
+        },
+        {
+          "type": "p",
+          "text": "How this module fits into Modern Web & Frontend Engineering: Module 05 develops your JavaScript programming foundation. Module 06 uses that foundation to connect applications with the browser, backend systems, external services, and device capabilities. The following modules can build on these skills to teach component-based architecture, advanced frontend state management, and production application development."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T14:49:47+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}
