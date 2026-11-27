@@ -253,6 +253,18 @@ const routeMeta = {
     keywords: "API Security, OWASP API Top 10, STRIDE Threat Modeling, BOLA, BFLA, SQL Injection Prevention, Mass Assignment, CORS Security, File Upload Security, OWASP ZAP, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/api-security`,
   },
+  "/learning/backend-engineering/production-observability": {
+    title: "Module 10: Production Backend, Deployment and Observability | PrepSpaces",
+    description: "Deploy and operate production backends with multi-stage non-root Docker, Flyway expand-and-contract migrations, Actuator probes, graceful shutdown, Prometheus/Grafana, OpenTelemetry, and incident response.",
+    keywords: "Production Backend, Docker Multi-Stage, Flyway Migrations, Expand and Contract, Kubernetes Probes, Graceful Shutdown, Prometheus Grafana, OpenTelemetry, Incident Response, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/production-observability`,
+  },
+  "/courses/backend-engineering/production-observability": {
+    title: "Module 10: Production Backend, Deployment and Observability | PrepSpaces",
+    description: "Deploy and operate production backends with multi-stage non-root Docker, Flyway expand-and-contract migrations, Actuator probes, graceful shutdown, Prometheus/Grafana, OpenTelemetry, and incident response.",
+    keywords: "Production Backend, Docker Multi-Stage, Flyway Migrations, Expand and Contract, Kubernetes Probes, Graceful Shutdown, Prometheus Grafana, OpenTelemetry, Incident Response, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/production-observability`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

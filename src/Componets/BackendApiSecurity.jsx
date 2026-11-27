@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   Server,
   ArrowLeft,
+  ArrowRight,
   BookOpen,
   Copy,
   Check,
@@ -506,11 +507,11 @@ public UserResponse updateProfile(@Valid @RequestBody UpdateProfileRequest req,
           </button>
 
           <button
-            onClick={() => navigate("/learning")}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+            onClick={() => navigate("/learning/backend-engineering/production-observability")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
           >
-            <ShieldCheck size={16} />
-            <span>Curriculum Hub</span>
+            <span>Next: Module 10 &mdash; Production Backend, Deployment and Observability</span>
+            <ArrowRight size={16} />
           </button>
         </div>
       </main>

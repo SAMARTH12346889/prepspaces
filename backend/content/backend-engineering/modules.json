@@ -97,5 +97,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "production-observability",
+    "courseId": "backend-engineering",
+    "index": 10,
+    "name": "10. Production Backend, Deployment and Observability",
+    "route": "/learning/backend-engineering/production-observability",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

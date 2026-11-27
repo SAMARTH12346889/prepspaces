@@ -284,6 +284,7 @@ export const BACKEND_ENGINEERING_MODULES = [
   { id: "caching-async-messaging", name: "7. Caching, Asynchronous Processing and Messaging", route: "/learning/backend-engineering/caching-async-messaging" },
   { id: "testing-quality", name: "8. Backend Testing and API Quality Engineering", route: "/learning/backend-engineering/testing-quality" },
   { id: "api-security", name: "9. API Security Engineering", route: "/learning/backend-engineering/api-security" },
+  { id: "production-observability", name: "10. Production Backend, Deployment and Observability", route: "/learning/backend-engineering/production-observability" },
 ];
 
 export default function ModuleNav({
