@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
+  ArrowRight,
   BookOpen,
   CheckCircle2,
   Code2,
@@ -544,11 +545,11 @@ export default function FrontendTypeScript() {
           </button>
 
           <button
-            onClick={() => navigate("/learning")}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
+            onClick={() => navigate("/learning/frontend-engineering/react-fundamentals")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] text-white font-bold text-xs sm:text-sm cursor-pointer shadow-xs"
           >
-            <ShieldCheck size={16} />
-            <span>Curriculum Hub</span>
+            <span>Next: Module 8 &mdash; React Fundamentals &amp; Component Engineering</span>
+            <ArrowRight size={16} />
           </button>
         </div>
       </main>

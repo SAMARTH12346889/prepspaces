@@ -367,6 +367,18 @@ const routeMeta = {
     keywords: "TypeScript, Frontend Engineering, Interfaces, Generics, Discriminated Unions, Type Narrowing, keyof, React TSX, Zod Runtime Validation, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/typescript-scalable-frontend`,
   },
+  "/learning/frontend-engineering/react-fundamentals": {
+    title: "Module 08: React Fundamentals and Component Engineering | PrepSpaces",
+    description: "Master React component architecture, Vite, JSX, one-way props, immutable useState, controlled forms, Rules of Hooks, useEffect synchronization, useRef, lifecycle, and custom Hooks.",
+    keywords: "React Fundamentals, Vite, JSX, Props, useState, useEffect, useRef, Custom Hooks, Component Lifecycle, TypeScript React, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/react-fundamentals`,
+  },
+  "/courses/frontend-engineering/react-fundamentals": {
+    title: "Module 08: React Fundamentals and Component Engineering | PrepSpaces",
+    description: "Master React component architecture, Vite, JSX, one-way props, immutable useState, controlled forms, Rules of Hooks, useEffect synchronization, useRef, lifecycle, and custom Hooks.",
+    keywords: "React Fundamentals, Vite, JSX, Props, useState, useEffect, useRef, Custom Hooks, Component Lifecycle, TypeScript React, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/react-fundamentals`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

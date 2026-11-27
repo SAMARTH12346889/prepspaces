@@ -208,6 +208,7 @@ const FrontendResponsiveUi = React.lazy(() => import("./Componets/FrontendRespon
 const FrontendModernJs = React.lazy(() => import("./Componets/FrontendModernJs"));
 const FrontendBrowserAsync = React.lazy(() => import("./Componets/FrontendBrowserAsync"));
 const FrontendTypeScript = React.lazy(() => import("./Componets/FrontendTypeScript"));
+const FrontendReactFundamentals = React.lazy(() => import("./Componets/FrontendReactFundamentals"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2085,6 +2086,11 @@ function App() {
             <Route path="/courses/frontend-engineering/typescript-scalable-frontend" element={<FrontendTypeScript />} />
             <Route path="/learning/frontend/typescript-scalable-frontend" element={<FrontendTypeScript />} />
             <Route path="/learning/frontend/module-7" element={<FrontendTypeScript />} />
+            <Route path="/learning/frontend-engineering/react-fundamentals" element={<FrontendReactFundamentals />} />
+            <Route path="/learning/frontend-engineering/module-8" element={<FrontendReactFundamentals />} />
+            <Route path="/courses/frontend-engineering/react-fundamentals" element={<FrontendReactFundamentals />} />
+            <Route path="/learning/frontend/react-fundamentals" element={<FrontendReactFundamentals />} />
+            <Route path="/learning/frontend/module-8" element={<FrontendReactFundamentals />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

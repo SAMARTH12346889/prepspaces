@@ -1,0 +1,5038 @@
+{
+  "moduleNumber": "08",
+  "title": "MODULE 08 — React Fundamentals and Component Engineering",
+  "badges": [
+    "Core Module",
+    "14 Lessons",
+    "React",
+    "TypeScript & Vite"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module overview"
+    },
+    {
+      "type": "p",
+      "text": "Modern frontend applications require more than JavaScript and TypeScript. Developers need a structured way to build user interfaces, organize application logic, manage changing data, and reuse components across different pages."
+    },
+    {
+      "type": "p",
+      "text": "Imagine building a learning platform such as PrepSpaces."
+    },
+    {
+      "type": "p",
+      "text": "The application might contain:"
+    },
+    {
+      "type": "p",
+      "text": "A navigation bar shared across every page."
+    },
+    {
+      "type": "p",
+      "text": "Course cards displaying information from an API."
+    },
+    {
+      "type": "p",
+      "text": "A student dashboard showing learning progress."
+    },
+    {
+      "type": "p",
+      "text": "Interactive buttons for completing lessons."
+    },
+    {
+      "type": "p",
+      "text": "Forms for authentication and registration."
+    },
+    {
+      "type": "p",
+      "text": "Notifications that update when new information arrives."
+    },
+    {
+      "type": "p",
+      "text": "Reusable components shared across multiple courses."
+    },
+    {
+      "type": "p",
+      "text": "Building all these features using manually manipulated HTML and DOM operations can become difficult as the application grows."
+    },
+    {
+      "type": "p",
+      "text": "React provides a component-based approach to solving this problem."
+    },
+    {
+      "type": "p",
+      "text": "What is React?"
+    },
+    {
+      "type": "p",
+      "text": "[React Logo, Interactive, JavaScript, Web Development, Library PNG](https://images.openai.com/static-rsc-4/Fl2k_M2MV9G60-G7WybCJohvSsz5vwqQsQppvr32F68EV081GHJtW9RJC9qzUmIyqYoKRib8QukYMDHeoi9S68vPmo6QWCkUSZ04wokMQon4iVyQtTjASZavNLZps_OHoxGIXYHG61QQxMlUTbtbDTcfPlPzUqtZndtSvw9CQCM?purpose=inline)"
+    },
+    {
+      "type": "p",
+      "text": "React"
+    },
+    {
+      "type": "p",
+      "text": "A JavaScript library for building interactive user interfaces through reusable components."
+    },
+    {
+      "type": "p",
+      "text": "Developed and maintained by Meta and the React community."
+    },
+    {
+      "type": "p",
+      "text": "React allows developers to describe what the interface should look like for a particular application state."
+    },
+    {
+      "type": "p",
+      "text": "When the state changes, React renders the component again and updates the relevant parts of the interface."
+    },
+    {
+      "type": "p",
+      "text": "Instead of manually finding HTML elements and modifying them, developers describe the interface using components and JSX."
+    },
+    {
+      "type": "p",
+      "text": "Example:"
+    },
+    {
+      "type": "code",
+      "text": "function Welcome() { return ( <div> <h1>Welcome to PrepSpaces</h1> <p>Continue your learning journey.</p> </div> ); }"
+    },
+    {
+      "type": "p",
+      "text": "This component describes a section of the user interface."
+    },
+    {
+      "type": "p",
+      "text": "React applications are built by combining these smaller components into larger interfaces."
+    },
+    {
+      "type": "p",
+      "text": "React+1"
+    },
+    {
+      "type": "p",
+      "text": "How React fits into frontend engineering"
+    },
+    {
+      "type": "p",
+      "text": "The previous modules introduced the skills needed to understand React."
+    },
+    {
+      "type": "p",
+      "text": "Previous module"
+    },
+    {
+      "type": "p",
+      "text": "Knowledge used in React"
+    },
+    {
+      "type": "p",
+      "text": "Module 05 — Modern JavaScript"
+    },
+    {
+      "type": "p",
+      "text": "Functions, objects, arrays, modules and modern syntax"
+    },
+    {
+      "type": "p",
+      "text": "Module 06 — Browser APIs and Asynchronous Programming"
+    },
+    {
+      "type": "p",
+      "text": "API requests, Promises, browser events and storage"
+    },
+    {
+      "type": "p",
+      "text": "Module 07 — TypeScript"
+    },
+    {
+      "type": "p",
+      "text": "Interfaces, generics, types and React component contracts"
+    },
+    {
+      "type": "p",
+      "text": "Module 08 — React Fundamentals"
+    },
+    {
+      "type": "p",
+      "text": "Building reusable, interactive frontend applications"
+    },
+    {
+      "type": "p",
+      "text": "What you will learn"
+    },
+    {
+      "type": "p",
+      "text": "By completing this module, you will learn how to:"
+    },
+    {
+      "type": "p",
+      "text": "Understand React and component-based architecture."
+    },
+    {
+      "type": "p",
+      "text": "Create React applications using Vite."
+    },
+    {
+      "type": "p",
+      "text": "Write JSX and understand React rendering."
+    },
+    {
+      "type": "p",
+      "text": "Build functional components and compose interfaces."
+    },
+    {
+      "type": "p",
+      "text": "Transfer information using props and one-way data flow."
+    },
+    {
+      "type": "p",
+      "text": "Manage component state with useState."
+    },
+    {
+      "type": "p",
+      "text": "Handle user events and create interactive components."
+    },
+    {
+      "type": "p",
+      "text": "Render lists and conditionally display interface elements."
+    },
+    {
+      "type": "p",
+      "text": "Build forms and manage user input."
+    },
+    {
+      "type": "p",
+      "text": "Understand React Hooks and their rules."
+    },
+    {
+      "type": "p",
+      "text": "Synchronize components with external systems using useEffect."
+    },
+    {
+      "type": "p",
+      "text": "Work with DOM elements and mutable references using useRef."
+    },
+    {
+      "type": "p",
+      "text": "Understand component lifecycle concepts, state snapshots and rendering behaviour."
+    },
+    {
+      "type": "p",
+      "text": "Build reusable components and custom Hooks."
+    }
+  ],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Lesson 01",
+      "title": "LESSON 01 — Introduction to React and Component-Based Architecture",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 The problem with traditional DOM manipulation"
+        },
+        {
+          "type": "p",
+          "text": "Before understanding React, consider how JavaScript traditionally modifies a webpage."
+        },
+        {
+          "type": "p",
+          "text": "Suppose you want to create a counter."
+        },
+        {
+          "type": "p",
+          "text": "HTML:"
+        },
+        {
+          "type": "code",
+          "text": "<h1 id=\"counter\">0</h1> <button id=\"increment\"> Increase </button>"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript:"
+        },
+        {
+          "type": "code",
+          "text": "let count = 0; const counter = document.getElementById(\"counter\"); const button = document.getElementById(\"increment\"); button.addEventListener(\"click\", () => { count++; counter.textContent = count; });"
+        },
+        {
+          "type": "p",
+          "text": "This works correctly."
+        },
+        {
+          "type": "p",
+          "text": "However, imagine a larger application containing:"
+        },
+        {
+          "type": "p",
+          "text": "50 different counters or statistics."
+        },
+        {
+          "type": "p",
+          "text": "100 course cards."
+        },
+        {
+          "type": "p",
+          "text": "Multiple forms."
+        },
+        {
+          "type": "p",
+          "text": "Student progress information."
+        },
+        {
+          "type": "p",
+          "text": "Notifications."
+        },
+        {
+          "type": "p",
+          "text": "Filters and search functionality."
+        },
+        {
+          "type": "p",
+          "text": "Now developers must coordinate many DOM elements, event listeners and data updates manually."
+        },
+        {
+          "type": "p",
+          "text": "The code becomes increasingly difficult to maintain."
+        },
+        {
+          "type": "p",
+          "text": "React introduces a more organized approach."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Understanding component-based architecture"
+        },
+        {
+          "type": "p",
+          "text": "A component is an independent and reusable piece of a user interface."
+        },
+        {
+          "type": "p",
+          "text": "Consider an online learning dashboard."
+        },
+        {
+          "type": "p",
+          "text": "Instead of building the entire page as one large block, divide it into components:"
+        },
+        {
+          "type": "p",
+          "text": "App"
+        },
+        {
+          "type": "p",
+          "text": "Main application component"
+        },
+        {
+          "type": "p",
+          "text": "Navbar"
+        },
+        {
+          "type": "p",
+          "text": "Navigation"
+        },
+        {
+          "type": "p",
+          "text": "Sidebar"
+        },
+        {
+          "type": "p",
+          "text": "Navigation menu"
+        },
+        {
+          "type": "p",
+          "text": "Dashboard"
+        },
+        {
+          "type": "p",
+          "text": "ProgressCard"
+        },
+        {
+          "type": "p",
+          "text": "StatisticsCard"
+        },
+        {
+          "type": "p",
+          "text": "CourseList"
+        },
+        {
+          "type": "p",
+          "text": "Contains reusable CourseCard components"
+        },
+        {
+          "type": "p",
+          "text": "Each component has a defined responsibility."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Navbar displays navigation links."
+        },
+        {
+          "type": "p",
+          "text": "Sidebar displays application sections."
+        },
+        {
+          "type": "p",
+          "text": "ProgressCard displays student progress."
+        },
+        {
+          "type": "p",
+          "text": "CourseCard displays course information."
+        },
+        {
+          "type": "p",
+          "text": "Dashboard combines these components."
+        },
+        {
+          "type": "p",
+          "text": "This approach is called component-based architecture."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Creating your first React component"
+        },
+        {
+          "type": "p",
+          "text": "A React component is commonly written as a JavaScript or TypeScript function that returns JSX."
+        },
+        {
+          "type": "code",
+          "text": "function WelcomeMessage() { return ( <div> <h1>Hello Student</h1> <p>Welcome to React development.</p> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The component can be included in another component:"
+        },
+        {
+          "type": "code",
+          "text": "function App() { return ( <div> <WelcomeMessage /> </div> ); } export default App;"
+        },
+        {
+          "type": "p",
+          "text": "Notice that component names begin with capital letters."
+        },
+        {
+          "type": "p",
+          "text": "This distinguishes React components from built-in HTML elements."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Reusability"
+        },
+        {
+          "type": "p",
+          "text": "A major advantage of React is that components can be reused."
+        },
+        {
+          "type": "code",
+          "text": "function CourseCard() { return ( <div className=\"course-card\"> <h2>JavaScript</h2> <p>Learn modern JavaScript.</p> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The same component can be included multiple times:"
+        },
+        {
+          "type": "code",
+          "text": "function CourseSection() { return ( <div> <CourseCard /> <CourseCard /> <CourseCard /> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Later, props will allow each card to display different information."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 React is declarative"
+        },
+        {
+          "type": "p",
+          "text": "React uses a declarative programming model."
+        },
+        {
+          "type": "p",
+          "text": "Declarative means describing the desired interface rather than manually specifying every DOM operation required to produce it."
+        },
+        {
+          "type": "p",
+          "text": "Traditional approach:"
+        },
+        {
+          "type": "p",
+          "text": "document.querySelector(\"#message\").textContent = \"Welcome back\";"
+        },
+        {
+          "type": "p",
+          "text": "React approach:"
+        },
+        {
+          "type": "code",
+          "text": "function Message() { const isLoggedIn = true; return ( <h1> {isLoggedIn ? \"Welcome back\" : \"Please log in\"} </h1> ); }"
+        },
+        {
+          "type": "p",
+          "text": "React calculates what should be displayed from the component's current data and state."
+        },
+        {
+          "type": "h3",
+          "text": "1.6 Understanding why React is useful"
+        },
+        {
+          "type": "p",
+          "text": "React is particularly useful when applications have:"
+        },
+        {
+          "type": "p",
+          "text": "Reusable interface components."
+        },
+        {
+          "type": "p",
+          "text": "Complex interactive interfaces."
+        },
+        {
+          "type": "p",
+          "text": "Frequently changing application data."
+        },
+        {
+          "type": "p",
+          "text": "Multiple developers working together."
+        },
+        {
+          "type": "p",
+          "text": "Shared user-interface logic."
+        },
+        {
+          "type": "p",
+          "text": "Complex forms and dashboards."
+        },
+        {
+          "type": "p",
+          "text": "Large collections of records."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Design a learning dashboard using at least six independent React components. Identify the responsibility of each component before writing the code."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Lesson 02",
+      "title": "LESSON 02 — Creating React Applications with Vite",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 What is Vite?"
+        },
+        {
+          "type": "p",
+          "text": "[File:Vitejs-logo.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/DzpIumVztTaS7-mTAIOw5Lo5MFyY7rDQGjDtD137QwuFVxjMWuEo4c0-c-Y2AKqpUTxUnYnBYonjnn2qBD3_dW0fz9TT8BXdmEF-hNF4lvCP0Ams0FdVFUsrhs6uy9QlwDXnYCkJ2H6vwKyw_GODkacyRZKCQssXamtvYWEm3cg?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Vite"
+        },
+        {
+          "type": "p",
+          "text": "A frontend development tool that provides a fast development server and production build system."
+        },
+        {
+          "type": "p",
+          "text": "React handles the user-interface architecture."
+        },
+        {
+          "type": "p",
+          "text": "Vite handles development and build tooling."
+        },
+        {
+          "type": "p",
+          "text": "These are different responsibilities."
+        },
+        {
+          "type": "p",
+          "text": "Vite provides:"
+        },
+        {
+          "type": "p",
+          "text": "Development server."
+        },
+        {
+          "type": "p",
+          "text": "Fast module updates."
+        },
+        {
+          "type": "p",
+          "text": "Dependency processing."
+        },
+        {
+          "type": "p",
+          "text": "Production build generation."
+        },
+        {
+          "type": "p",
+          "text": "React project templates."
+        },
+        {
+          "type": "p",
+          "text": "TypeScript and JSX processing."
+        },
+        {
+          "type": "p",
+          "text": "Vite is not a replacement for React. It is commonly used to create and run React applications."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Creating a React application"
+        },
+        {
+          "type": "p",
+          "text": "Before starting, ensure that Node.js and npm are installed."
+        },
+        {
+          "type": "p",
+          "text": "Create a new React and TypeScript project:"
+        },
+        {
+          "type": "code",
+          "text": "npm create vite@latest my-react-app -- --template react-ts"
+        },
+        {
+          "type": "p",
+          "text": "This command uses Vite's official React TypeScript starter template."
+        },
+        {
+          "type": "p",
+          "text": "Vite"
+        },
+        {
+          "type": "p",
+          "text": "Navigate into the application:"
+        },
+        {
+          "type": "code",
+          "text": "cd my-react-app"
+        },
+        {
+          "type": "p",
+          "text": "Install dependencies:"
+        },
+        {
+          "type": "code",
+          "text": "npm install"
+        },
+        {
+          "type": "p",
+          "text": "Start the development server:"
+        },
+        {
+          "type": "code",
+          "text": "npm run dev"
+        },
+        {
+          "type": "p",
+          "text": "Vite provides a local development URL, commonly:"
+        },
+        {
+          "type": "p",
+          "text": "http://localhost:5173"
+        },
+        {
+          "type": "p",
+          "text": "The exact port can change when the default port is unavailable."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Understanding the React project structure"
+        },
+        {
+          "type": "p",
+          "text": "A typical project structure looks like this:"
+        },
+        {
+          "type": "code",
+          "text": "my-react-app/ │ ├── public/ │ └── assets/ │ ├── src/ │ │ │ ├── assets/ │ │ │ ├── components/ │ │ │ ├── App.tsx │ │ │ ├── main.tsx │ │ │ └── index.css │ ├── index.html ├── package.json ├── tsconfig.json └── vite.config.ts"
+        },
+        {
+          "type": "p",
+          "text": "Important files:"
+        },
+        {
+          "type": "p",
+          "text": "index.html"
+        },
+        {
+          "type": "p",
+          "text": "The HTML document that provides the application entry point."
+        },
+        {
+          "type": "p",
+          "text": "main.tsx"
+        },
+        {
+          "type": "p",
+          "text": "The JavaScript/TypeScript entry point that mounts the React application."
+        },
+        {
+          "type": "p",
+          "text": "App.tsx"
+        },
+        {
+          "type": "p",
+          "text": "Usually contains the main application component."
+        },
+        {
+          "type": "p",
+          "text": "package.json"
+        },
+        {
+          "type": "p",
+          "text": "Contains project metadata, dependencies, and scripts."
+        },
+        {
+          "type": "p",
+          "text": "vite.config.ts"
+        },
+        {
+          "type": "p",
+          "text": "Contains Vite configuration."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 Understanding main.tsx"
+        },
+        {
+          "type": "p",
+          "text": "A typical React entry point:"
+        },
+        {
+          "type": "code",
+          "text": "import { StrictMode } from \"react\"; import { createRoot } from \"react-dom/client\"; import App from \"./App\"; import \"./index.css\"; createRoot( document.getElementById(\"root\")! ).render( <StrictMode> <App /> </StrictMode> );"
+        },
+        {
+          "type": "p",
+          "text": "Let's understand this step by step."
+        },
+        {
+          "type": "code",
+          "text": "createRoot() creates a React root connected to the browser DOM."
+        },
+        {
+          "type": "p",
+          "text": "document.getElementById(\"root\") finds the HTML element where React should mount the application."
+        },
+        {
+          "type": "p",
+          "text": "render() tells React to render the supplied component tree."
+        },
+        {
+          "type": "p",
+          "text": "StrictMode enables additional development-time checks for certain React behaviours. It does not add a visible interface or change the normal production rendering into a double-rendering application."
+        },
+        {
+          "type": "p",
+          "text": "The non-null assertion ! tells TypeScript that the element is present. A more defensive project can check that the element exists before calling createRoot()."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Creating your first application"
+        },
+        {
+          "type": "p",
+          "text": "Replace the contents of App.tsx:"
+        },
+        {
+          "type": "code",
+          "text": "function App() { return ( <main> <h1>My First React Application</h1> <p> Building interactive user interfaces with React and TypeScript. </p> </main> ); } export default App;"
+        },
+        {
+          "type": "p",
+          "text": "Save the file."
+        },
+        {
+          "type": "p",
+          "text": "Vite's development server updates the application when relevant files change through Hot Module Replacement."
+        },
+        {
+          "type": "p",
+          "text": "This reduces the need to manually refresh the browser during development."
+        },
+        {
+          "type": "h3",
+          "text": "2.6 Important Vite commands"
+        },
+        {
+          "type": "p",
+          "text": "Command"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "code",
+          "text": "npm run dev"
+        },
+        {
+          "type": "p",
+          "text": "Start development server"
+        },
+        {
+          "type": "code",
+          "text": "npm run build"
+        },
+        {
+          "type": "p",
+          "text": "Create production build"
+        },
+        {
+          "type": "code",
+          "text": "npm run preview"
+        },
+        {
+          "type": "p",
+          "text": "Preview the production build"
+        },
+        {
+          "type": "code",
+          "text": "npm install"
+        },
+        {
+          "type": "p",
+          "text": "Install project dependencies"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a React TypeScript project using Vite. Organize it into components, pages, services, and types directories, and run it locally."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Lesson 03",
+      "title": "LESSON 03 — JSX and Component Rendering",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 What is JSX?"
+        },
+        {
+          "type": "p",
+          "text": "JSX stands for JavaScript XML."
+        },
+        {
+          "type": "p",
+          "text": "It is a syntax extension commonly used with React to describe user-interface elements using markup-like syntax inside JavaScript or TypeScript."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "const element = <h1>Hello React</h1>;"
+        },
+        {
+          "type": "p",
+          "text": "This is JSX."
+        },
+        {
+          "type": "p",
+          "text": "It looks like HTML, but it is not HTML."
+        },
+        {
+          "type": "p",
+          "text": "Development tools transform JSX into JavaScript calls that React understands."
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Writing JSX"
+        },
+        {
+          "type": "p",
+          "text": "JSX supports nested elements."
+        },
+        {
+          "type": "code",
+          "text": "function Course() { return ( <div> <h1>Frontend Engineering</h1> <p> Learn modern frontend development. </p> <button> Start Learning </button> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "JSX must follow specific rules."
+        },
+        {
+          "type": "p",
+          "text": "Rule 1: Return a single parent expression"
+        },
+        {
+          "type": "p",
+          "text": "This is invalid:"
+        },
+        {
+          "type": "code",
+          "text": "function App() { return ( <h1>Hello</h1> <p>Welcome</p> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The elements must be wrapped together."
+        },
+        {
+          "type": "code",
+          "text": "function App() { return ( <div> <h1>Hello</h1> <p>Welcome</p> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Alternatively, use a Fragment:"
+        },
+        {
+          "type": "code",
+          "text": "function App() { return ( <> <h1>Hello</h1> <p>Welcome</p> </> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Fragments group multiple elements without introducing an additional DOM element."
+        },
+        {
+          "type": "p",
+          "text": "Rule 2: Close all elements"
+        },
+        {
+          "type": "p",
+          "text": "JSX requires properly closed elements."
+        },
+        {
+          "type": "code",
+          "text": "<img src=\"/logo.png\" alt=\"Logo\" /> <input type=\"text\" /> <br />"
+        },
+        {
+          "type": "p",
+          "text": "Rule 3: Use className"
+        },
+        {
+          "type": "p",
+          "text": "In JSX, use className instead of HTML's class attribute."
+        },
+        {
+          "type": "code",
+          "text": "<div className=\"course-card\"> Course information </div>"
+        },
+        {
+          "type": "p",
+          "text": "For labels associated with form controls, use htmlFor rather than HTML's for."
+        },
+        {
+          "type": "p",
+          "text": "Rule 4: Use camelCase for most event and DOM properties"
+        },
+        {
+          "type": "code",
+          "text": "<button onClick={handleClick}> Click Me </button>"
+        },
+        {
+          "type": "p",
+          "text": "Common examples include:"
+        },
+        {
+          "type": "p",
+          "text": "onClick"
+        },
+        {
+          "type": "p",
+          "text": "onChange"
+        },
+        {
+          "type": "p",
+          "text": "onSubmit"
+        },
+        {
+          "type": "p",
+          "text": "tabIndex"
+        },
+        {
+          "type": "p",
+          "text": "htmlFor"
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Embedding JavaScript inside JSX"
+        },
+        {
+          "type": "p",
+          "text": "Use curly braces to insert JavaScript expressions."
+        },
+        {
+          "type": "code",
+          "text": "function Student() { const name = \"Alex\"; const age = 22; return ( <div> <h1>{name}</h1> <p>Age: {age}</p> <p> Next year: {age + 1} </p> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "You can also use expressions:"
+        },
+        {
+          "type": "code",
+          "text": "function Course() { const completed = 8; const total = 12; return ( <p> Progress: {(completed / total) * 100}% </p> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Curly braces in JSX can contain JavaScript expressions, not arbitrary statements such as if declarations or for loops."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Rendering objects and arrays"
+        },
+        {
+          "type": "p",
+          "text": "React can render strings, numbers, elements, and arrays of renderable content."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "function App() { const courseNames = [ \"JavaScript\", \"React\", \"TypeScript\" ]; return ( <div> {courseNames.map((course) => ( <p key={course}> {course} </p> ))} </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Objects cannot normally be rendered directly as visible React children."
+        },
+        {
+          "type": "p",
+          "text": "Instead, select the values you want to display."
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Inline styling in JSX"
+        },
+        {
+          "type": "p",
+          "text": "JSX accepts style objects."
+        },
+        {
+          "type": "code",
+          "text": "function CourseCard() { return ( <div style={{ backgroundColor: \"#ffffff\", padding: \"20px\", borderRadius: \"10px\" }} > <h2>React Development</h2> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Notice that style properties use camelCase."
+        },
+        {
+          "type": "p",
+          "text": "CSS classes are generally preferable for larger styling systems because they separate visual design from component logic."
+        },
+        {
+          "type": "h3",
+          "text": "3.6 Understanding component rendering"
+        },
+        {
+          "type": "p",
+          "text": "When React renders a component, the component function executes and returns React elements describing the interface."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "function Welcome() { return <h1>Welcome</h1>; }"
+        },
+        {
+          "type": "p",
+          "text": "The returned element describes what React should display."
+        },
+        {
+          "type": "p",
+          "text": "React then coordinates the necessary updates to the DOM."
+        },
+        {
+          "type": "p",
+          "text": "Remember:"
+        },
+        {
+          "type": "p",
+          "text": "Calling a component function during rendering is React's responsibility."
+        },
+        {
+          "type": "p",
+          "text": "Components should be included using JSX."
+        },
+        {
+          "type": "p",
+          "text": "Components should not be manually called as ordinary functions."
+        },
+        {
+          "type": "p",
+          "text": "Rendering describes UI; it should not be used to perform arbitrary side effects."
+        },
+        {
+          "type": "p",
+          "text": "The official React documentation explains JSX, component rendering, and how state changes trigger subsequent renders."
+        },
+        {
+          "type": "p",
+          "text": "React+1"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a course-information page using JSX. Include nested components, JavaScript expressions, image elements, styling, and a list of course features."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Lesson 04",
+      "title": "LESSON 04 — Functional Components and Component Composition",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 What are functional components?"
+        },
+        {
+          "type": "p",
+          "text": "Functional components are JavaScript or TypeScript functions that return React elements."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "function Header() { return ( <header> <h1>PrepSpaces</h1> </header> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Function components are the normal way to build modern React interfaces."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 Creating separate components"
+        },
+        {
+          "type": "p",
+          "text": "Instead of creating an entire dashboard in a single component, divide it into reusable parts."
+        },
+        {
+          "type": "p",
+          "text": "Navbar.tsx"
+        },
+        {
+          "type": "code",
+          "text": "function Navbar() { return ( <nav> <h1>PrepSpaces</h1> <div> <a href=\"/\">Home</a> <a href=\"/courses\">Courses</a> </div> </nav> ); } export default Navbar;"
+        },
+        {
+          "type": "p",
+          "text": "Footer.tsx"
+        },
+        {
+          "type": "code",
+          "text": "function Footer() { return ( <footer> <p>Learning Platform</p> </footer> ); } export default Footer;"
+        },
+        {
+          "type": "p",
+          "text": "App.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import Navbar from \"./components/Navbar\"; import Footer from \"./components/Footer\"; function App() { return ( <> <Navbar /> <main> <h1>Student Dashboard</h1> </main> <Footer /> </> ); } export default App;"
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Understanding component composition"
+        },
+        {
+          "type": "p",
+          "text": "Component composition means creating larger interfaces by combining smaller components."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "App │ ├── Navbar │ ├── Dashboard │ │ │ ├── WelcomeSection │ │ │ ├── StatisticsSection │ │ ├── StatisticsCard │ │ └── StatisticsCard │ │ │ └── CourseSection │ ├── CourseCard │ ├── CourseCard │ └── CourseCard │ └── Footer"
+        },
+        {
+          "type": "p",
+          "text": "Each component has a specific responsibility."
+        },
+        {
+          "type": "p",
+          "text": "This is usually easier to test, understand, and maintain than one extremely large component."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 The children prop"
+        },
+        {
+          "type": "p",
+          "text": "React supports nested composition through children."
+        },
+        {
+          "type": "code",
+          "text": "import type { ReactNode } from \"react\"; interface CardProps { children: ReactNode; } function Card({ children }: CardProps) { return ( <div className=\"card\"> {children} </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "function Dashboard() { return ( <Card> <h2>Learning Progress</h2> <p>You've completed 8 lessons.</p> </Card> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The Card component doesn't need to know what its children contain."
+        },
+        {
+          "type": "p",
+          "text": "It simply provides a reusable container."
+        },
+        {
+          "type": "h3",
+          "text": "4.5 Component responsibility and separation of concerns"
+        },
+        {
+          "type": "p",
+          "text": "Consider two possible implementations."
+        },
+        {
+          "type": "p",
+          "text": "Approach A: One component handles everything:"
+        },
+        {
+          "type": "p",
+          "text": "Fetching student data"
+        },
+        {
+          "type": "p",
+          "text": "Calculating progress"
+        },
+        {
+          "type": "p",
+          "text": "Managing authentication"
+        },
+        {
+          "type": "p",
+          "text": "Rendering course cards"
+        },
+        {
+          "type": "p",
+          "text": "Handling forms"
+        },
+        {
+          "type": "p",
+          "text": "Displaying notifications"
+        },
+        {
+          "type": "p",
+          "text": "Approach B: Separate components and supporting functions handle individual responsibilities."
+        },
+        {
+          "type": "p",
+          "text": "Approach B generally provides better maintainability."
+        },
+        {
+          "type": "p",
+          "text": "However, components should not be divided into extremely tiny pieces without a meaningful reason. Good component boundaries reflect independent responsibilities and reuse."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Design a student dashboard using at least eight components. Identify which components should be reused and which should remain specific to one page."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Lesson 05",
+      "title": "LESSON 05 — Props and One-Way Data Flow",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 What are props?"
+        },
+        {
+          "type": "p",
+          "text": "Props stands for properties."
+        },
+        {
+          "type": "p",
+          "text": "Props allow one component to pass information to another component."
+        },
+        {
+          "type": "p",
+          "text": "Consider an application displaying three courses."
+        },
+        {
+          "type": "p",
+          "text": "Each course card needs different information:"
+        },
+        {
+          "type": "p",
+          "text": "Course title"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Difficulty level"
+        },
+        {
+          "type": "p",
+          "text": "Duration"
+        },
+        {
+          "type": "p",
+          "text": "Instead of creating three separate components, create one reusable component and pass different props to it."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 Creating a component with props"
+        },
+        {
+          "type": "code",
+          "text": "interface CourseCardProps { title: string; description: string; level: string; } function CourseCard({ title, description, level }: CourseCardProps) { return ( <div className=\"course-card\"> <h2>{title}</h2> <p>{description}</p> <span>{level}</span> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Now use the component:"
+        },
+        {
+          "type": "code",
+          "text": "function CourseSection() { return ( <div> <CourseCard title=\"JavaScript\" description=\"Learn modern JavaScript.\" level=\"Beginner\" /> <CourseCard title=\"React\" description=\"Build interactive interfaces.\" level=\"Intermediate\" /> <CourseCard title=\"TypeScript\" description=\"Develop type-safe applications.\" level=\"Advanced\" /> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The same component renders different information depending on the props it receives."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Understanding one-way data flow"
+        },
+        {
+          "type": "p",
+          "text": "React follows a one-way data flow model for component props."
+        },
+        {
+          "type": "p",
+          "text": "A parent component passes information to its child components."
+        },
+        {
+          "type": "p",
+          "text": "Parent Component"
+        },
+        {
+          "type": "p",
+          "text": "Owns course information"
+        },
+        {
+          "type": "p",
+          "text": "Props flow downward"
+        },
+        {
+          "type": "p",
+          "text": "CourseCard 1"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "CourseCard 2"
+        },
+        {
+          "type": "p",
+          "text": "React"
+        },
+        {
+          "type": "p",
+          "text": "A child receives information from its parent."
+        },
+        {
+          "type": "p",
+          "text": "A child should not directly modify the parent's props."
+        },
+        {
+          "type": "p",
+          "text": "Props are read-only inputs to a component."
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Passing functions through props"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes a child component needs to request an action from its parent."
+        },
+        {
+          "type": "p",
+          "text": "For example, a child course card may contain an Enrol button."
+        },
+        {
+          "type": "p",
+          "text": "The parent owns the course enrollment operation."
+        },
+        {
+          "type": "p",
+          "text": "The child receives a callback function."
+        },
+        {
+          "type": "code",
+          "text": "interface CourseCardProps { title: string; onEnroll: () => void; } function CourseCard({ title, onEnroll }: CourseCardProps) { return ( <div> <h2>{title}</h2> <button onClick={onEnroll}> Enrol </button> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Parent:"
+        },
+        {
+          "type": "code",
+          "text": "function CourseSection() { function handleEnroll() { console.log(\"Student enrolled\"); } return ( <CourseCard title=\"React\" onEnroll={handleEnroll} /> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The child receives the function and calls it when the user interacts with the button."
+        },
+        {
+          "type": "p",
+          "text": "This preserves the direction of data ownership while allowing child-to-parent communication through callbacks."
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Passing information between sibling components"
+        },
+        {
+          "type": "p",
+          "text": "Consider two components:"
+        },
+        {
+          "type": "p",
+          "text": "SearchBox"
+        },
+        {
+          "type": "p",
+          "text": "CourseList"
+        },
+        {
+          "type": "p",
+          "text": "Both need to work with the selected search term."
+        },
+        {
+          "type": "p",
+          "text": "They are siblings, so neither should directly control the other."
+        },
+        {
+          "type": "p",
+          "text": "Instead, move their shared state into a common parent."
+        },
+        {
+          "type": "p",
+          "text": "CoursePage / \\ / \\ SearchBox CourseList"
+        },
+        {
+          "type": "p",
+          "text": "The parent:"
+        },
+        {
+          "type": "p",
+          "text": "Stores the search term."
+        },
+        {
+          "type": "p",
+          "text": "Passes it to SearchBox."
+        },
+        {
+          "type": "p",
+          "text": "Receives updates through a callback."
+        },
+        {
+          "type": "p",
+          "text": "Passes the updated value to CourseList."
+        },
+        {
+          "type": "p",
+          "text": "This technique is called lifting state up."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Spreading props"
+        },
+        {
+          "type": "p",
+          "text": "React components can receive props through object spreading."
+        },
+        {
+          "type": "code",
+          "text": "const courseProps = { title: \"React\", level: \"Intermediate\" }; <CourseCard {...courseProps} />;"
+        },
+        {
+          "type": "p",
+          "text": "This is convenient when passing an existing object whose properties match the component's expected inputs."
+        },
+        {
+          "type": "p",
+          "text": "Avoid unnecessary spreading of large objects because it can make component dependencies less obvious."
+        },
+        {
+          "type": "h3",
+          "text": "5.7 When to use props"
+        },
+        {
+          "type": "p",
+          "text": "Use props when:"
+        },
+        {
+          "type": "p",
+          "text": "A component needs information from its parent."
+        },
+        {
+          "type": "p",
+          "text": "Different instances need different data."
+        },
+        {
+          "type": "p",
+          "text": "A parent needs to control the behaviour of a child."
+        },
+        {
+          "type": "p",
+          "text": "A reusable component should support configuration."
+        },
+        {
+          "type": "p",
+          "text": "Children need callbacks to communicate actions upward."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a reusable CourseCard that accepts course information, an enrollment callback, an optional image, and a publication status."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Lesson 06",
+      "title": "LESSON 06 — State Management with useState",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 What is state?"
+        },
+        {
+          "type": "p",
+          "text": "State represents information that a component remembers between renders."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "p",
+          "text": "Counter values"
+        },
+        {
+          "type": "p",
+          "text": "Selected tabs"
+        },
+        {
+          "type": "p",
+          "text": "Search input"
+        },
+        {
+          "type": "p",
+          "text": "Completed tasks"
+        },
+        {
+          "type": "p",
+          "text": "Open menus"
+        },
+        {
+          "type": "p",
+          "text": "Modal visibility"
+        },
+        {
+          "type": "p",
+          "text": "Form values"
+        },
+        {
+          "type": "p",
+          "text": "Loading status"
+        },
+        {
+          "type": "p",
+          "text": "When state changes, React schedules another render so the interface can reflect the new state."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Understanding useState"
+        },
+        {
+          "type": "p",
+          "text": "React provides a Hook called useState to manage local component state."
+        },
+        {
+          "type": "p",
+          "text": "Basic syntax:"
+        },
+        {
+          "type": "code",
+          "text": "const [state, setState] = useState(initialValue);"
+        },
+        {
+          "type": "p",
+          "text": "There are two returned values:"
+        },
+        {
+          "type": "p",
+          "text": "The current state."
+        },
+        {
+          "type": "p",
+          "text": "A function that requests an update to the state."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { useState } from \"react\"; function Counter() { const [count, setCount] = useState(0); return ( <div> <h2>Count: {count}</h2> <button onClick={() => setCount(count + 1)} > Increase </button> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Initially, the value is 0."
+        },
+        {
+          "type": "p",
+          "text": "When the user clicks the button, React receives a state update and renders the component again."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Understanding state as a snapshot"
+        },
+        {
+          "type": "p",
+          "text": "One of the most important React concepts is that state behaves like a snapshot for a particular render."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "function Counter() { const [count, setCount] = useState(0); function handleClick() { setCount(count + 1); console.log(count); } return ( <button onClick={handleClick}> Count: {count} </button> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The console logs the value from the current render, not the updated value."
+        },
+        {
+          "type": "p",
+          "text": "For example, when the button is clicked while the count is 0, the console logs 0."
+        },
+        {
+          "type": "p",
+          "text": "This is because calling the setter does not change the state variable inside the already-running function."
+        },
+        {
+          "type": "p",
+          "text": "The next render receives the updated value."
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Functional state updates"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes the next value depends on the previous value."
+        },
+        {
+          "type": "p",
+          "text": "In these situations, use a functional updater."
+        },
+        {
+          "type": "p",
+          "text": "setCount(previousCount => previousCount + 1);"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "function Counter() { const [count, setCount] = useState(0); function increaseThreeTimes() { setCount(value => value + 1); setCount(value => value + 1); setCount(value => value + 1); } return ( <div> <p>{count}</p> <button onClick={increaseThreeTimes}> Increase by 3 </button> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The updater functions are processed using the previous queued value."
+        },
+        {
+          "type": "p",
+          "text": "This correctly increases the count by three."
+        },
+        {
+          "type": "p",
+          "text": "Using setCount(count + 1) three times in the same event handler would not achieve the same result."
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Managing object state"
+        },
+        {
+          "type": "p",
+          "text": "State can contain objects."
+        },
+        {
+          "type": "code",
+          "text": "interface Student { name: string; age: number; } function StudentProfile() { const [student, setStudent] = useState<Student>({ name: \"Alex\", age: 22 }); function updateName() { setStudent(previous => ({ ...previous, name: \"Sam\" })); } return ( <div> <h2>{student.name}</h2> <p>{student.age}</p> <button onClick={updateName}> Update Name </button> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Notice the use of the spread operator."
+        },
+        {
+          "type": "p",
+          "text": "React state should be treated as immutable."
+        },
+        {
+          "type": "p",
+          "text": "Do not directly modify the existing object:"
+        },
+        {
+          "type": "p",
+          "text": "// Incorrect student.name = \"Sam\";"
+        },
+        {
+          "type": "p",
+          "text": "Instead, create a new object."
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Managing array state"
+        },
+        {
+          "type": "p",
+          "text": "Consider a task list."
+        },
+        {
+          "type": "code",
+          "text": "interface Task { id: number; title: string; completed: boolean; }"
+        },
+        {
+          "type": "p",
+          "text": "Create state:"
+        },
+        {
+          "type": "code",
+          "text": "const [tasks, setTasks] = useState<Task[]>([]);"
+        },
+        {
+          "type": "p",
+          "text": "Add a task:"
+        },
+        {
+          "type": "code",
+          "text": "function addTask() { const newTask: Task = { id: Date.now(), title: \"Learn React\", completed: false }; setTasks(previous => [ ...previous, newTask ]); }"
+        },
+        {
+          "type": "p",
+          "text": "Remove a task:"
+        },
+        {
+          "type": "code",
+          "text": "function removeTask(taskId: number) { setTasks(previous => previous.filter(task => task.id !== taskId) ); }"
+        },
+        {
+          "type": "p",
+          "text": "Update a task:"
+        },
+        {
+          "type": "code",
+          "text": "function completeTask(taskId: number) { setTasks(previous => previous.map(task => task.id === taskId ? { ...task, completed: true } : task ) ); }"
+        },
+        {
+          "type": "p",
+          "text": "These methods create new arrays and objects instead of mutating existing state."
+        },
+        {
+          "type": "h3",
+          "text": "6.7 Choosing what should be state"
+        },
+        {
+          "type": "p",
+          "text": "Not every value needs to be stored in React state."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "const totalTasks = tasks.length;"
+        },
+        {
+          "type": "p",
+          "text": "This value can be calculated directly from the existing state."
+        },
+        {
+          "type": "p",
+          "text": "Avoid storing values that can be derived from other state unless there is a good reason."
+        },
+        {
+          "type": "p",
+          "text": "Excessive duplicated state can create synchronization bugs."
+        },
+        {
+          "type": "h3",
+          "text": "6.8 When to use useState"
+        },
+        {
+          "type": "p",
+          "text": "Use useState when a value:"
+        },
+        {
+          "type": "p",
+          "text": "Changes because of a user interaction."
+        },
+        {
+          "type": "p",
+          "text": "Needs to be remembered between renders."
+        },
+        {
+          "type": "p",
+          "text": "Affects what the component displays."
+        },
+        {
+          "type": "p",
+          "text": "Needs to trigger an interface update when modified."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a task list using useState. Add, edit, complete, and delete tasks. Ensure arrays and objects are updated immutably."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Lesson 07",
+      "title": "LESSON 07 — Event Handling and Interactive Components",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 What is event handling in React?"
+        },
+        {
+          "type": "p",
+          "text": "React applications respond to events generated by users and the browser."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Clicking a button."
+        },
+        {
+          "type": "p",
+          "text": "Typing into a field."
+        },
+        {
+          "type": "p",
+          "text": "Submitting a form."
+        },
+        {
+          "type": "p",
+          "text": "Selecting an option."
+        },
+        {
+          "type": "p",
+          "text": "Moving the pointer."
+        },
+        {
+          "type": "p",
+          "text": "Pressing a keyboard key."
+        },
+        {
+          "type": "p",
+          "text": "React provides event properties through JSX."
+        },
+        {
+          "type": "code",
+          "text": "function App() { function handleClick() { console.log(\"Button clicked\"); } return ( <button onClick={handleClick}> Click Me </button> ); }"
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Event handlers"
+        },
+        {
+          "type": "p",
+          "text": "An event handler is a function that runs when a particular event occurs."
+        },
+        {
+          "type": "code",
+          "text": "function handleClick() { alert(\"Welcome to React\"); }"
+        },
+        {
+          "type": "p",
+          "text": "Attach the event handler:"
+        },
+        {
+          "type": "code",
+          "text": "<button onClick={handleClick}> Open Message </button>"
+        },
+        {
+          "type": "p",
+          "text": "An important difference:"
+        },
+        {
+          "type": "p",
+          "text": "Correct:"
+        },
+        {
+          "type": "code",
+          "text": "<button onClick={handleClick}> Click </button>"
+        },
+        {
+          "type": "p",
+          "text": "Incorrect:"
+        },
+        {
+          "type": "code",
+          "text": "<button onClick={handleClick()}> Click </button>"
+        },
+        {
+          "type": "p",
+          "text": "The second example calls the function during rendering rather than waiting for the click."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Passing parameters to event handlers"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes a handler needs information about the item that was clicked."
+        },
+        {
+          "type": "code",
+          "text": "function CourseButton() { function handleClick(courseId: number) { console.log(\"Selected course:\", courseId); } return ( <button onClick={() => handleClick(101)}> Select Course </button> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The arrow function delays the call until the event occurs."
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Understanding event objects"
+        },
+        {
+          "type": "p",
+          "text": "React event handlers can receive an event object."
+        },
+        {
+          "type": "code",
+          "text": "function SearchButton() { function handleClick( event: React.MouseEvent<HTMLButtonElement> ) { console.log(event.currentTarget); } return ( <button onClick={handleClick}> Search </button> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The event object provides information about the interaction."
+        },
+        {
+          "type": "p",
+          "text": "Important concepts:"
+        },
+        {
+          "type": "p",
+          "text": "Property"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "target"
+        },
+        {
+          "type": "p",
+          "text": "Original event target"
+        },
+        {
+          "type": "p",
+          "text": "currentTarget"
+        },
+        {
+          "type": "p",
+          "text": "Element handling the event"
+        },
+        {
+          "type": "p",
+          "text": "preventDefault()"
+        },
+        {
+          "type": "p",
+          "text": "Prevents the browser's default action"
+        },
+        {
+          "type": "p",
+          "text": "stopPropagation()"
+        },
+        {
+          "type": "p",
+          "text": "Stops further propagation"
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Handling keyboard events"
+        },
+        {
+          "type": "p",
+          "text": "React supports keyboard event handlers."
+        },
+        {
+          "type": "code",
+          "text": "function SearchBox() { function handleKeyDown( event: React.KeyboardEvent<HTMLInputElement> ) { if (event.key === \"Enter\") { console.log(\"Search submitted\"); } } return ( <input type=\"text\" onKeyDown={handleKeyDown} /> ); }"
+        },
+        {
+          "type": "p",
+          "text": "This is useful for search fields, keyboard navigation, and shortcut functionality."
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Understanding event propagation"
+        },
+        {
+          "type": "p",
+          "text": "Browser events can propagate through the DOM."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "function Parent() { return ( <div onClick={() => console.log(\"Parent clicked\")}> <button onClick={(event) => { event.stopPropagation(); console.log(\"Button clicked\"); }} > Click </button> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Clicking the button logs the button message without triggering the parent click handler."
+        },
+        {
+          "type": "p",
+          "text": "React's event system follows familiar event propagation concepts, though its event implementation has React-specific behaviour."
+        },
+        {
+          "type": "h3",
+          "text": "7.7 Building interactive components"
+        },
+        {
+          "type": "p",
+          "text": "Interactive components combine:"
+        },
+        {
+          "type": "p",
+          "text": "State."
+        },
+        {
+          "type": "p",
+          "text": "Event handlers."
+        },
+        {
+          "type": "p",
+          "text": "Props."
+        },
+        {
+          "type": "p",
+          "text": "Conditional rendering."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { useState } from \"react\"; function LikeButton() { const [liked, setLiked] = useState(false); return ( <button onClick={() => setLiked(value => !value)} > {liked ? \"Liked\" : \"Like\"} </button> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The button updates its own state and changes its interface."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build interactive React components for a like button, dropdown, modal, tab selector, and search field."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Lesson 08",
+      "title": "LESSON 08 — Conditional Rendering and List Rendering",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 What is conditional rendering?"
+        },
+        {
+          "type": "p",
+          "text": "Conditional rendering means displaying different interface elements depending on the current application state or data."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Display a login button when the user is signed out."
+        },
+        {
+          "type": "p",
+          "text": "Display a dashboard when the user is signed in."
+        },
+        {
+          "type": "p",
+          "text": "Display a loader while data is being retrieved."
+        },
+        {
+          "type": "p",
+          "text": "Display an error message if an API request fails."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Conditional rendering using if statements"
+        },
+        {
+          "type": "code",
+          "text": "function Dashboard() { const isLoggedIn = true; if (isLoggedIn) { return <h1>Welcome to your dashboard</h1>; } return <h1>Please log in</h1>; }"
+        },
+        {
+          "type": "p",
+          "text": "This is useful when different application states require substantially different interfaces."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 Using the ternary operator"
+        },
+        {
+          "type": "p",
+          "text": "For simple conditional expressions:"
+        },
+        {
+          "type": "code",
+          "text": "function LoginStatus() { const isLoggedIn = true; return ( <div> {isLoggedIn ? <h1>Welcome Back</h1> : <h1>Please Sign In</h1>} </div> ); }"
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Using the logical AND operator"
+        },
+        {
+          "type": "p",
+          "text": "For displaying an element only when a condition is true:"
+        },
+        {
+          "type": "code",
+          "text": "function Notification() { const hasNotification = true; return ( <div> {hasNotification && ( <p>You have a new notification.</p> )} </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Be careful with numeric conditions:"
+        },
+        {
+          "type": "p",
+          "text": "{tasks.length && <TaskList />}"
+        },
+        {
+          "type": "p",
+          "text": "When tasks.length is zero, React can render 0."
+        },
+        {
+          "type": "p",
+          "text": "A clearer version is:"
+        },
+        {
+          "type": "p",
+          "text": "{tasks.length > 0 && <TaskList />}"
+        },
+        {
+          "type": "h3",
+          "text": "8.5 List rendering"
+        },
+        {
+          "type": "p",
+          "text": "React commonly uses JavaScript's map() method to render collections."
+        },
+        {
+          "type": "code",
+          "text": "function CourseList() { const courses = [ \"JavaScript\", \"React\", \"TypeScript\" ]; return ( <ul> {courses.map(course => ( <li key={course}> {course} </li> ))} </ul> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The map() function creates a React element for each item."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Understanding keys"
+        },
+        {
+          "type": "p",
+          "text": "React needs a stable way to identify elements in a list."
+        },
+        {
+          "type": "p",
+          "text": "This is why developers provide a key property."
+        },
+        {
+          "type": "code",
+          "text": "interface Course { id: number; title: string; } const courses: Course[] = [ { id: 1, title: \"JavaScript\" }, { id: 2, title: \"React\" } ];"
+        },
+        {
+          "type": "p",
+          "text": "Render:"
+        },
+        {
+          "type": "p",
+          "text": "{courses.map(course => ( <CourseCard key={course.id} title={course.title} /> ))}"
+        },
+        {
+          "type": "p",
+          "text": "Keys help React match list items between renders when items are inserted, deleted, or reordered."
+        },
+        {
+          "type": "p",
+          "text": "Use stable identifiers whenever possible."
+        },
+        {
+          "type": "p",
+          "text": "Avoid using an array index as a key for lists whose items can move, be inserted, or be deleted. This can cause state or DOM identity to be associated with the wrong item."
+        },
+        {
+          "type": "h3",
+          "text": "8.7 Filtering lists"
+        },
+        {
+          "type": "p",
+          "text": "A course application might allow users to view courses by difficulty."
+        },
+        {
+          "type": "code",
+          "text": "const courses = [ { id: 1, title: \"HTML\", level: \"Beginner\" }, { id: 2, title: \"React\", level: \"Intermediate\" }, { id: 3, title: \"TypeScript\", level: \"Advanced\" } ]; const advancedCourses = courses.filter( course => course.level === \"Advanced\" );"
+        },
+        {
+          "type": "p",
+          "text": "Display:"
+        },
+        {
+          "type": "p",
+          "text": "{advancedCourses.map(course => ( <p key={course.id}> {course.title} </p> ))}"
+        },
+        {
+          "type": "h3",
+          "text": "8.8 Empty states"
+        },
+        {
+          "type": "p",
+          "text": "A good application should handle empty collections."
+        },
+        {
+          "type": "code",
+          "text": "function TaskList({ tasks }: { tasks: Task[] }) { if (tasks.length === 0) { return ( <p>No tasks available. Create your first task.</p> ); } return ( <ul> {tasks.map(task => ( <li key={task.id}>{task.title}</li> ))} </ul> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a course catalogue with category filters, search functionality, conditional loading states, and empty results handling."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Lesson 09",
+      "title": "LESSON 09 — Managing Forms and User Input",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 Why forms are important"
+        },
+        {
+          "type": "p",
+          "text": "Forms are among the most common interactive parts of frontend applications."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Login"
+        },
+        {
+          "type": "p",
+          "text": "Registration"
+        },
+        {
+          "type": "p",
+          "text": "Search"
+        },
+        {
+          "type": "p",
+          "text": "Course creation"
+        },
+        {
+          "type": "p",
+          "text": "Assignment submission"
+        },
+        {
+          "type": "p",
+          "text": "Profile editing"
+        },
+        {
+          "type": "p",
+          "text": "Task creation"
+        },
+        {
+          "type": "p",
+          "text": "React offers different approaches to collecting form information."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 Understanding controlled components"
+        },
+        {
+          "type": "p",
+          "text": "A controlled component is a form input whose value is controlled by React state."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { useState } from \"react\"; function SearchForm() { const [search, setSearch] = useState(\"\"); return ( <div> <input type=\"text\" value={search} onChange={(event) => setSearch(event.target.value) } /> <p>You searched for: {search}</p> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The input value is always synchronized with the state."
+        },
+        {
+          "type": "p",
+          "text": "When the user types:"
+        },
+        {
+          "type": "p",
+          "text": "The input generates a change event."
+        },
+        {
+          "type": "p",
+          "text": "The handler reads the new value."
+        },
+        {
+          "type": "p",
+          "text": "React state is updated."
+        },
+        {
+          "type": "p",
+          "text": "React renders the updated value."
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Managing multiple form fields"
+        },
+        {
+          "type": "p",
+          "text": "A registration form may have several properties."
+        },
+        {
+          "type": "code",
+          "text": "import { useState } from \"react\"; interface RegistrationForm { name: string; email: string; password: string; } function Registration() { const [form, setForm] = useState<RegistrationForm>({ name: \"\", email: \"\", password: \"\" }); function handleChange( event: React.ChangeEvent<HTMLInputElement> ) { const { name, value } = event.target; setForm(previous => ({ ...previous, [name]: value })); } function handleSubmit( event: React.FormEvent<HTMLFormElement> ) { event.preventDefault(); console.log(form); } return ( <form onSubmit={handleSubmit}> <input name=\"name\" value={form.name} onChange={handleChange} placeholder=\"Name\" /> <input name=\"email\" type=\"email\" value={form.email} onChange={handleChange} placeholder=\"Email\" /> <input name=\"password\" type=\"password\" value={form.password} onChange={handleChange} placeholder=\"Password\" /> <button type=\"submit\"> Register </button> </form> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The computed property [name] updates the correct field without creating a different event handler for every input."
+        },
+        {
+          "type": "h3",
+          "text": "9.4 Handling checkboxes"
+        },
+        {
+          "type": "p",
+          "text": "Checkboxes represent boolean input."
+        },
+        {
+          "type": "code",
+          "text": "const [accepted, setAccepted] = useState(false);\n<label> <input type=\"checkbox\" checked={accepted} onChange={event => setAccepted(event.target.checked) } /> Accept terms and conditions </label>"
+        },
+        {
+          "type": "p",
+          "text": "For checkboxes, use checked, not value, to control whether they are selected."
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Handling select inputs"
+        },
+        {
+          "type": "code",
+          "text": "const [level, setLevel] = useState(\"Beginner\");\n<select value={level} onChange={event => setLevel(event.target.value)} > <option value=\"Beginner\">Beginner</option> <option value=\"Intermediate\">Intermediate</option> <option value=\"Advanced\">Advanced</option> </select>"
+        },
+        {
+          "type": "h3",
+          "text": "9.6 Controlled versus uncontrolled components"
+        },
+        {
+          "type": "p",
+          "text": "Feature"
+        },
+        {
+          "type": "p",
+          "text": "Controlled"
+        },
+        {
+          "type": "p",
+          "text": "Uncontrolled"
+        },
+        {
+          "type": "p",
+          "text": "Value management"
+        },
+        {
+          "type": "p",
+          "text": "React state"
+        },
+        {
+          "type": "p",
+          "text": "DOM element"
+        },
+        {
+          "type": "p",
+          "text": "Reading values"
+        },
+        {
+          "type": "p",
+          "text": "State"
+        },
+        {
+          "type": "p",
+          "text": "Ref or form data"
+        },
+        {
+          "type": "p",
+          "text": "Immediate validation"
+        },
+        {
+          "type": "p",
+          "text": "Convenient"
+        },
+        {
+          "type": "p",
+          "text": "Requires additional handling"
+        },
+        {
+          "type": "p",
+          "text": "State synchronization"
+        },
+        {
+          "type": "p",
+          "text": "Direct"
+        },
+        {
+          "type": "p",
+          "text": "Less direct"
+        },
+        {
+          "type": "p",
+          "text": "Common usage"
+        },
+        {
+          "type": "p",
+          "text": "Complex forms"
+        },
+        {
+          "type": "p",
+          "text": "Simple or integration-focused forms"
+        },
+        {
+          "type": "p",
+          "text": "For an uncontrolled input, React can use a ref to access its DOM element."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { useRef } from \"react\"; function SearchForm() { const inputRef = useRef<HTMLInputElement>(null); function handleSubmit( event: React.FormEvent<HTMLFormElement> ) { event.preventDefault(); console.log(inputRef.current?.value); } return ( <form onSubmit={handleSubmit}> <input ref={inputRef} /> <button type=\"submit\"> Search </button> </form> ); }"
+        },
+        {
+          "type": "h3",
+          "text": "9.7 Form validation"
+        },
+        {
+          "type": "p",
+          "text": "Forms should validate information before submitting it."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Required fields."
+        },
+        {
+          "type": "p",
+          "text": "Email format."
+        },
+        {
+          "type": "p",
+          "text": "Password length."
+        },
+        {
+          "type": "p",
+          "text": "Numeric ranges."
+        },
+        {
+          "type": "p",
+          "text": "Correct date values."
+        },
+        {
+          "type": "p",
+          "text": "Basic validation:"
+        },
+        {
+          "type": "code",
+          "text": "function validateEmail(email: string): boolean { return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email); }"
+        },
+        {
+          "type": "p",
+          "text": "Use validation for user experience, but always repeat essential validation on the backend."
+        },
+        {
+          "type": "p",
+          "text": "Frontend validation alone cannot protect server-side data."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a task-creation form with title, description, priority, deadline, and input validation."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Lesson 10",
+      "title": "LESSON 10 — React Hooks and the Rules of Hooks",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "10.1 What are React Hooks?"
+        },
+        {
+          "type": "p",
+          "text": "Hooks are functions provided by React that allow function components to use React features such as state, context, references, and effects."
+        },
+        {
+          "type": "p",
+          "text": "Some commonly used Hooks are:"
+        },
+        {
+          "type": "p",
+          "text": "Hook"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "code",
+          "text": "useState"
+        },
+        {
+          "type": "p",
+          "text": "Manage local state"
+        },
+        {
+          "type": "code",
+          "text": "useEffect"
+        },
+        {
+          "type": "p",
+          "text": "Synchronize with external systems"
+        },
+        {
+          "type": "code",
+          "text": "useRef"
+        },
+        {
+          "type": "p",
+          "text": "Hold mutable references"
+        },
+        {
+          "type": "p",
+          "text": "useContext"
+        },
+        {
+          "type": "p",
+          "text": "Read shared context"
+        },
+        {
+          "type": "p",
+          "text": "useMemo"
+        },
+        {
+          "type": "p",
+          "text": "Cache a calculation"
+        },
+        {
+          "type": "p",
+          "text": "useCallback"
+        },
+        {
+          "type": "p",
+          "text": "Cache a function definition"
+        },
+        {
+          "type": "p",
+          "text": "useReducer"
+        },
+        {
+          "type": "p",
+          "text": "Manage state with a reducer"
+        },
+        {
+          "type": "p",
+          "text": "Custom Hooks"
+        },
+        {
+          "type": "p",
+          "text": "Reuse stateful logic"
+        },
+        {
+          "type": "p",
+          "text": "This module focuses on the fundamental Hooks in your syllabus."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 Understanding why Hooks were introduced"
+        },
+        {
+          "type": "p",
+          "text": "Earlier React development heavily used class components to manage state and lifecycle behaviour."
+        },
+        {
+          "type": "p",
+          "text": "Hooks made it possible to use those React capabilities inside function components."
+        },
+        {
+          "type": "p",
+          "text": "Instead of separating logic across lifecycle methods, developers can organize related logic within a component or reusable Hook."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Rules of Hooks"
+        },
+        {
+          "type": "p",
+          "text": "React has two fundamental rules."
+        },
+        {
+          "type": "p",
+          "text": "Rule 1: Call Hooks only at the top level."
+        },
+        {
+          "type": "p",
+          "text": "Do not call Hooks inside:"
+        },
+        {
+          "type": "p",
+          "text": "Conditions."
+        },
+        {
+          "type": "p",
+          "text": "Loops."
+        },
+        {
+          "type": "p",
+          "text": "Nested functions."
+        },
+        {
+          "type": "p",
+          "text": "Event handlers."
+        },
+        {
+          "type": "p",
+          "text": "try/catch/finally blocks."
+        },
+        {
+          "type": "p",
+          "text": "Incorrect:"
+        },
+        {
+          "type": "code",
+          "text": "function Dashboard() { if (true) { const [count, setCount] = useState(0); } return <div>Dashboard</div>; }"
+        },
+        {
+          "type": "p",
+          "text": "Correct:"
+        },
+        {
+          "type": "code",
+          "text": "function Dashboard() { const [count, setCount] = useState(0); return <div>{count}</div>; }"
+        },
+        {
+          "type": "p",
+          "text": "Rule 2: Call Hooks only from React functions."
+        },
+        {
+          "type": "p",
+          "text": "Hooks can be called from:"
+        },
+        {
+          "type": "p",
+          "text": "React function components."
+        },
+        {
+          "type": "p",
+          "text": "Custom Hooks."
+        },
+        {
+          "type": "p",
+          "text": "They should not be called from ordinary JavaScript functions."
+        },
+        {
+          "type": "p",
+          "text": "React+1"
+        },
+        {
+          "type": "h3",
+          "text": "10.4 Understanding Hook order"
+        },
+        {
+          "type": "p",
+          "text": "React relies on the order of Hook calls to associate Hook state with the correct component instance."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "function Profile() { const [name, setName] = useState(\"Alex\"); const [age, setAge] = useState(22); return <h1>{name}, {age}</h1>; }"
+        },
+        {
+          "type": "p",
+          "text": "React encounters the Hooks in a consistent order."
+        },
+        {
+          "type": "p",
+          "text": "If a Hook is conditionally skipped, the order can become inconsistent across renders."
+        },
+        {
+          "type": "p",
+          "text": "This is why Hook calls must remain at the top level."
+        },
+        {
+          "type": "h3",
+          "text": "10.5 Understanding useState and useEffect together"
+        },
+        {
+          "type": "code",
+          "text": "function TimerStatus() { const [running, setRunning] = useState(false); useEffect(() => { console.log(\"Timer status changed\"); }, [running]); return ( <button onClick={() => setRunning(value => !value)}> {running ? \"Stop\" : \"Start\"} </button> ); }\nuseState stores the current state.\nuseEffect reacts to changes in a value to synchronize with an external system or perform a necessary side effect."
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Why Hook names start with use"
+        },
+        {
+          "type": "p",
+          "text": "Custom Hooks normally start with use."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "function useWindowWidth() { // Custom Hook logic }"
+        },
+        {
+          "type": "p",
+          "text": "This naming convention helps React tooling and developers recognize Hook usage."
+        },
+        {
+          "type": "h3",
+          "text": "10.7 Avoiding unnecessary Hooks"
+        },
+        {
+          "type": "p",
+          "text": "Not every calculation needs a Hook."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "function CourseProgress() { const completed = 8; const total = 10; const percentage = (completed / total) * 100; return <p>{percentage}%</p>; }"
+        },
+        {
+          "type": "p",
+          "text": "There is no need to use state or an effect for this simple calculation."
+        },
+        {
+          "type": "p",
+          "text": "Hooks should be introduced when they provide a meaningful React capability."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Identify incorrect Hook usage in sample components and rewrite those components so all Hooks follow the Rules of Hooks."
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Lesson 11",
+      "title": "LESSON 11 — useEffect and Synchronizing with External Systems",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "11.1 What is useEffect?"
+        },
+        {
+          "type": "code",
+          "text": "useEffect is a React Hook used to synchronize a component with something outside React."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "p",
+          "text": "Network subscriptions."
+        },
+        {
+          "type": "p",
+          "text": "Browser event listeners."
+        },
+        {
+          "type": "p",
+          "text": "Timers."
+        },
+        {
+          "type": "p",
+          "text": "Third-party widgets."
+        },
+        {
+          "type": "p",
+          "text": "External browser APIs."
+        },
+        {
+          "type": "p",
+          "text": "WebSocket connections."
+        },
+        {
+          "type": "p",
+          "text": "Syntax:"
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => { // Synchronization logic return () => { // Cleanup logic }; }, [dependencies]);"
+        },
+        {
+          "type": "p",
+          "text": "The cleanup function is optional."
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Understanding the dependency array"
+        },
+        {
+          "type": "p",
+          "text": "The dependency array controls when the effect is re-synchronized."
+        },
+        {
+          "type": "p",
+          "text": "Case 1: No dependency array"
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => { console.log(\"Effect after every commit\"); });"
+        },
+        {
+          "type": "p",
+          "text": "The effect is scheduled after every commit of that component."
+        },
+        {
+          "type": "p",
+          "text": "Case 2: Empty dependency array"
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => { console.log(\"Effect synchronized on mount\"); }, []);"
+        },
+        {
+          "type": "p",
+          "text": "This effect has no reactive dependencies."
+        },
+        {
+          "type": "p",
+          "text": "In production, it is typically set up on the initial mount, with cleanup when the component unmounts."
+        },
+        {
+          "type": "p",
+          "text": "Development Strict Mode may perform an additional setup-and-cleanup cycle to help detect unsafe effects."
+        },
+        {
+          "type": "p",
+          "text": "Case 3: Dependencies provided"
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => { console.log(\"Selected course changed\"); }, [courseId]);"
+        },
+        {
+          "type": "p",
+          "text": "The effect is re-synchronized after commits when courseId changes."
+        },
+        {
+          "type": "h3",
+          "text": "11.3 Fetching data using useEffect"
+        },
+        {
+          "type": "p",
+          "text": "Consider a component retrieving courses."
+        },
+        {
+          "type": "code",
+          "text": "import { useEffect, useState } from \"react\"; interface Course { id: number; title: string; } function CourseList() { const [courses, setCourses] = useState<Course[]>([]); const [loading, setLoading] = useState(true); const [error, setError] = useState<string | null>(null); useEffect(() => { const controller = new AbortController(); async function loadCourses() { try { setLoading(true); setError(null); const response = await fetch( \"/api/courses\", { signal: controller.signal } ); if (!response.ok) { throw new Error(\"Unable to load courses\"); } const data: unknown = await response.json(); if (!Array.isArray(data)) { throw new Error(\"Invalid course response\"); } setCourses(data as Course[]); } catch (error) { if ( error instanceof Error && error.name !== \"AbortError\" ) { setError(error.message); } } finally { if (!controller.signal.aborted) { setLoading(false); } } } loadCourses(); return () => { controller.abort(); }; }, []); if (loading) { return <p>Loading courses...</p>; } if (error) { return <p>{error}</p>; } return ( <div> {courses.map(course => ( <p key={course.id}>{course.title}</p> ))} </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "This demonstrates the overall pattern."
+        },
+        {
+          "type": "p",
+          "text": "For production use, replace the simple array check and type assertion with proper runtime validation, as learned in Module 07."
+        },
+        {
+          "type": "h3",
+          "text": "11.4 Understanding cleanup functions"
+        },
+        {
+          "type": "p",
+          "text": "Some effects create resources that must be released."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Timers."
+        },
+        {
+          "type": "p",
+          "text": "Event listeners."
+        },
+        {
+          "type": "p",
+          "text": "WebSocket connections."
+        },
+        {
+          "type": "p",
+          "text": "Subscriptions."
+        },
+        {
+          "type": "p",
+          "text": "External media streams."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => { const intervalId = setInterval(() => { console.log(\"Dashboard refresh\"); }, 5000); return () => { clearInterval(intervalId); }; }, []);"
+        },
+        {
+          "type": "p",
+          "text": "When the component no longer needs the timer, the cleanup function clears it."
+        },
+        {
+          "type": "h3",
+          "text": "11.5 Synchronizing browser events"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an application needs to know the current window width."
+        },
+        {
+          "type": "code",
+          "text": "import { useEffect, useState } from \"react\"; function WindowWidth() { const [width, setWidth] = useState(window.innerWidth); useEffect(() => { function handleResize() { setWidth(window.innerWidth); } window.addEventListener(\"resize\", handleResize); handleResize(); return () => { window.removeEventListener( \"resize\", handleResize ); }; }, []); return <p>Width: {width}px</p>; }"
+        },
+        {
+          "type": "p",
+          "text": "The component subscribes to a browser event and cleans up its listener when necessary."
+        },
+        {
+          "type": "h3",
+          "text": "11.6 The most common useEffect mistake"
+        },
+        {
+          "type": "p",
+          "text": "A common mistake is using useEffect for every calculation."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "const [tasks, setTasks] = useState<Task[]>([]); const [completedCount, setCompletedCount] = useState(0); useEffect(() => { setCompletedCount( tasks.filter(task => task.completed).length ); }, [tasks]);"
+        },
+        {
+          "type": "p",
+          "text": "This introduces unnecessary duplicated state."
+        },
+        {
+          "type": "p",
+          "text": "A simpler implementation is:"
+        },
+        {
+          "type": "code",
+          "text": "const completedCount = tasks.filter( task => task.completed ).length;"
+        },
+        {
+          "type": "p",
+          "text": "The second approach is usually preferable because the value is derived directly from existing state."
+        },
+        {
+          "type": "p",
+          "text": "React's guidance is to use Effects for synchronization with external systems, rather than for calculations that can be performed during rendering."
+        },
+        {
+          "type": "p",
+          "text": "React+1"
+        },
+        {
+          "type": "h3",
+          "text": "11.7 Understanding dependency problems"
+        },
+        {
+          "type": "p",
+          "text": "Effects can sometimes use outdated values if dependencies are missing."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => { console.log(courseId); }, []);"
+        },
+        {
+          "type": "p",
+          "text": "If courseId changes later, the effect does not re-synchronize."
+        },
+        {
+          "type": "p",
+          "text": "A correct dependency declaration is:"
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => { console.log(courseId); }, [courseId]);"
+        },
+        {
+          "type": "p",
+          "text": "Dependency arrays should reflect the reactive values used by the effect."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build an API-powered course component that retrieves information, responds to changing course IDs, handles errors, and cancels outdated requests."
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "badge": "Lesson 12",
+      "title": "LESSON 12 — useRef and DOM Interaction",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "12.1 What is useRef?"
+        },
+        {
+          "type": "code",
+          "text": "useRef is a React Hook that provides a mutable reference whose value is preserved between renders."
+        },
+        {
+          "type": "p",
+          "text": "It is commonly used for two purposes:"
+        },
+        {
+          "type": "p",
+          "text": "Accessing DOM elements directly."
+        },
+        {
+          "type": "p",
+          "text": "Storing mutable values that do not need to trigger a re-render."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "const reference = useRef(initialValue);"
+        },
+        {
+          "type": "p",
+          "text": "The reference object contains a current property."
+        },
+        {
+          "type": "h3",
+          "text": "12.2 Accessing DOM elements"
+        },
+        {
+          "type": "p",
+          "text": "Consider a search input."
+        },
+        {
+          "type": "p",
+          "text": "You want to automatically focus the input when the user clicks a button."
+        },
+        {
+          "type": "code",
+          "text": "import { useRef } from \"react\"; function SearchBox() { const inputRef = useRef<HTMLInputElement>(null); function focusInput() { inputRef.current?.focus(); } return ( <div> <input ref={inputRef} type=\"text\" placeholder=\"Search courses\" /> <button onClick={focusInput}> Focus Search </button> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Understanding the process:"
+        },
+        {
+          "type": "code",
+          "text": "useRef() creates a persistent reference object."
+        },
+        {
+          "type": "p",
+          "text": "React attaches the input element to the reference after it is committed."
+        },
+        {
+          "type": "p",
+          "text": "inputRef.current points to the actual DOM element."
+        },
+        {
+          "type": "p",
+          "text": "The button handler calls the DOM element's focus() method."
+        },
+        {
+          "type": "p",
+          "text": "This is useful when interacting with browser features that require direct DOM access."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 Difference between useRef and useState"
+        },
+        {
+          "type": "p",
+          "text": "This is an important distinction."
+        },
+        {
+          "type": "p",
+          "text": "Feature"
+        },
+        {
+          "type": "code",
+          "text": "useState\nuseRef"
+        },
+        {
+          "type": "p",
+          "text": "Stores information"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Persists between renders"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Updating triggers render"
+        },
+        {
+          "type": "p",
+          "text": "Yes, when state changes"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Accesses DOM elements"
+        },
+        {
+          "type": "p",
+          "text": "Indirectly"
+        },
+        {
+          "type": "p",
+          "text": "Commonly"
+        },
+        {
+          "type": "p",
+          "text": "Stores mutable values"
+        },
+        {
+          "type": "p",
+          "text": "Possible through state updates"
+        },
+        {
+          "type": "p",
+          "text": "Commonly"
+        },
+        {
+          "type": "p",
+          "text": "Example using state:"
+        },
+        {
+          "type": "code",
+          "text": "const [count, setCount] = useState(0);"
+        },
+        {
+          "type": "p",
+          "text": "Changing the count causes React to schedule a render."
+        },
+        {
+          "type": "p",
+          "text": "Example using a ref:"
+        },
+        {
+          "type": "code",
+          "text": "const countRef = useRef(0); countRef.current++;"
+        },
+        {
+          "type": "p",
+          "text": "Changing current does not cause a re-render."
+        },
+        {
+          "type": "h3",
+          "text": "12.4 Storing timer identifiers"
+        },
+        {
+          "type": "p",
+          "text": "A timer identifier is a useful example of a value that does not necessarily need to be displayed."
+        },
+        {
+          "type": "code",
+          "text": "import { useRef } from \"react\"; function Timer() { const timerRef = useRef<number | null>(null); function startTimer() { timerRef.current = window.setInterval(() => { console.log(\"Timer running\"); }, 1000); } function stopTimer() { if (timerRef.current !== null) { window.clearInterval(timerRef.current); timerRef.current = null; } } return ( <div> <button onClick={startTimer}>Start</button> <button onClick={stopTimer}>Stop</button> </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "A complete implementation should also clear an active timer when the component unmounts."
+        },
+        {
+          "type": "h3",
+          "text": "12.5 useRef for previous values"
+        },
+        {
+          "type": "p",
+          "text": "Refs can preserve values between renders without triggering additional renders."
+        },
+        {
+          "type": "code",
+          "text": "import { useEffect, useRef } from \"react\"; function CourseTitle({ title }: { title: string }) { const previousTitle = useRef<string | undefined>( undefined ); useEffect(() => { console.log(\"Previous title:\", previousTitle.current); previousTitle.current = title; }, [title]); return <h2>{title}</h2>; }"
+        },
+        {
+          "type": "p",
+          "text": "This example records the previous title after an effect runs."
+        },
+        {
+          "type": "h3",
+          "text": "12.6 Important useRef limitations"
+        },
+        {
+          "type": "p",
+          "text": "Avoid treating refs as replacements for normal React state."
+        },
+        {
+          "type": "p",
+          "text": "If a value needs to update the interface automatically, state is normally more appropriate."
+        },
+        {
+          "type": "p",
+          "text": "Also avoid modifying DOM elements directly when React can handle the same operation through normal rendering."
+        },
+        {
+          "type": "p",
+          "text": "Use refs for specific integrations and imperative operations, not as the primary interface-rendering mechanism."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a form with automatic input focusing, a timer, a scroll-to-top button, and a modal that focuses its first input when opened."
+        }
+      ]
+    },
+    {
+      "id": "section-13",
+      "badge": "Lesson 13",
+      "title": "LESSON 13 — Component Lifecycle and Rendering Behavior",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "13.1 Understanding the component lifecycle"
+        },
+        {
+          "type": "p",
+          "text": "React components go through different stages during their existence."
+        },
+        {
+          "type": "p",
+          "text": "Traditionally, these stages are described as:"
+        },
+        {
+          "type": "p",
+          "text": "Mounting"
+        },
+        {
+          "type": "p",
+          "text": "Updating"
+        },
+        {
+          "type": "p",
+          "text": "Unmounting"
+        },
+        {
+          "type": "p",
+          "text": "Understanding these stages helps developers manage effects, external subscriptions, timers, and component state."
+        },
+        {
+          "type": "h3",
+          "text": "13.2 Mounting"
+        },
+        {
+          "type": "p",
+          "text": "Mounting means that a component is being added to the interface for the first time."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "function Dashboard() { return ( <h1>Student Dashboard</h1> ); }"
+        },
+        {
+          "type": "p",
+          "text": "When the component is first displayed, React renders it and commits the resulting interface."
+        },
+        {
+          "type": "p",
+          "text": "A mount-related effect can be written as:"
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => { console.log(\"Dashboard mounted\"); }, []);"
+        },
+        {
+          "type": "p",
+          "text": "The empty dependency array indicates that the effect has no reactive dependencies."
+        },
+        {
+          "type": "p",
+          "text": "Remember that React Strict Mode can run an additional development-only setup and cleanup cycle."
+        },
+        {
+          "type": "h3",
+          "text": "13.3 Updating"
+        },
+        {
+          "type": "p",
+          "text": "Updating occurs when a component renders again because of changes to its inputs or state."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "function Counter() { const [count, setCount] = useState(0); return ( <button onClick={() => setCount(count + 1)}> {count} </button> ); }"
+        },
+        {
+          "type": "p",
+          "text": "When the count changes:"
+        },
+        {
+          "type": "p",
+          "text": "React schedules an update."
+        },
+        {
+          "type": "p",
+          "text": "The component executes again."
+        },
+        {
+          "type": "p",
+          "text": "React receives the new element description."
+        },
+        {
+          "type": "p",
+          "text": "React determines what needs to change."
+        },
+        {
+          "type": "p",
+          "text": "Relevant DOM updates are committed."
+        },
+        {
+          "type": "h3",
+          "text": "13.4 Unmounting"
+        },
+        {
+          "type": "p",
+          "text": "Unmounting occurs when a component is removed from the rendered component tree."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "function App() { const [visible, setVisible] = useState(true); return ( <div> <button onClick={() => setVisible(false)}> Close Dashboard </button> {visible && <Dashboard />} </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Clicking the button removes the Dashboard component from the rendered tree."
+        },
+        {
+          "type": "p",
+          "text": "An effect cleanup function is the appropriate place to release resources:"
+        },
+        {
+          "type": "code",
+          "text": "function Dashboard() { useEffect(() => { const interval = setInterval(() => { console.log(\"Updating dashboard\"); }, 1000); return () => { clearInterval(interval); console.log(\"Dashboard cleanup\"); }; }, []); return <h1>Dashboard</h1>; }"
+        },
+        {
+          "type": "h3",
+          "text": "13.5 Understanding rendering and committing"
+        },
+        {
+          "type": "p",
+          "text": "React's rendering process has two important conceptual stages."
+        },
+        {
+          "type": "p",
+          "text": "Render phase"
+        },
+        {
+          "type": "p",
+          "text": "React calls components and calculates the next interface description."
+        },
+        {
+          "type": "p",
+          "text": "During this stage, component logic should remain pure."
+        },
+        {
+          "type": "p",
+          "text": "Commit phase"
+        },
+        {
+          "type": "p",
+          "text": "React applies necessary changes to the host environment, such as updating the browser DOM."
+        },
+        {
+          "type": "p",
+          "text": "Effects are handled according to their scheduling rules after the relevant commit."
+        },
+        {
+          "type": "p",
+          "text": "This separation is important because a component may render more than once without every render leading to a DOM change."
+        },
+        {
+          "type": "h3",
+          "text": "13.6 Understanding re-rendering"
+        },
+        {
+          "type": "p",
+          "text": "A React component can render again when:"
+        },
+        {
+          "type": "p",
+          "text": "Its state is updated."
+        },
+        {
+          "type": "p",
+          "text": "Its parent renders and React renders that child as part of the updated tree."
+        },
+        {
+          "type": "p",
+          "text": "Context values it consumes change."
+        },
+        {
+          "type": "p",
+          "text": "Other React mechanisms schedule an update."
+        },
+        {
+          "type": "p",
+          "text": "A re-render does not necessarily mean the browser DOM is completely recreated."
+        },
+        {
+          "type": "p",
+          "text": "React compares the resulting element descriptions and commits the updates needed to synchronize the interface."
+        },
+        {
+          "type": "h3",
+          "text": "13.7 Why React Strict Mode is important"
+        },
+        {
+          "type": "p",
+          "text": "In development, React Strict Mode performs additional checks to help reveal unsafe rendering behaviour and missing cleanup logic."
+        },
+        {
+          "type": "p",
+          "text": "For example, an effect may undergo an extra setup-cleanup-setup cycle in development."
+        },
+        {
+          "type": "code",
+          "text": "useEffect(() => { console.log(\"Setup\"); return () => { console.log(\"Cleanup\"); }; }, []);"
+        },
+        {
+          "type": "p",
+          "text": "You may see:"
+        },
+        {
+          "type": "p",
+          "text": "Setup Cleanup Setup"
+        },
+        {
+          "type": "p",
+          "text": "This is intentional development behaviour, not evidence that production users will automatically experience duplicate effect setups in the same way."
+        },
+        {
+          "type": "p",
+          "text": "Effects should be written so that setup and cleanup correctly mirror each other."
+        },
+        {
+          "type": "h3",
+          "text": "13.8 Understanding state preservation and component identity"
+        },
+        {
+          "type": "p",
+          "text": "React associates state with a component's position and identity in the rendered tree."
+        },
+        {
+          "type": "p",
+          "text": "For example, when the same component remains at the same position with the same identity, its state is generally preserved between renders."
+        },
+        {
+          "type": "p",
+          "text": "Changing its key can intentionally create a different component identity."
+        },
+        {
+          "type": "code",
+          "text": "<ProfileEditor key={userId} userId={userId} />"
+        },
+        {
+          "type": "p",
+          "text": "When userId changes, the key changes, so React treats the new editor as a different component instance and resets its local state."
+        },
+        {
+          "type": "p",
+          "text": "This can be useful when switching between different user profiles or independent editing sessions."
+        },
+        {
+          "type": "h3",
+          "text": "13.9 Common rendering mistakes"
+        },
+        {
+          "type": "p",
+          "text": "Mistake 1: Updating state during rendering"
+        },
+        {
+          "type": "code",
+          "text": "function Counter() { const [count, setCount] = useState(0); // Do not call setCount unconditionally here. return <p>{count}</p>; }"
+        },
+        {
+          "type": "p",
+          "text": "Updating state unconditionally during render can create repeated or infinite rendering."
+        },
+        {
+          "type": "p",
+          "text": "Mistake 2: Mutating existing state"
+        },
+        {
+          "type": "p",
+          "text": "// Incorrect tasks.push(newTask);"
+        },
+        {
+          "type": "p",
+          "text": "Use a new array instead:"
+        },
+        {
+          "type": "p",
+          "text": "setTasks(previous => [...previous, newTask]);"
+        },
+        {
+          "type": "p",
+          "text": "Mistake 3: Performing network requests directly during rendering"
+        },
+        {
+          "type": "code",
+          "text": "function Dashboard() { fetch(\"/api/dashboard\"); return <h1>Dashboard</h1>; }"
+        },
+        {
+          "type": "p",
+          "text": "This would start requests whenever the component renders."
+        },
+        {
+          "type": "p",
+          "text": "Use an effect or an appropriate data-fetching approach instead."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a component that mounts, updates, and unmounts while managing an event listener and timer. Observe its render and cleanup behaviour in development Strict Mode."
+        }
+      ]
+    },
+    {
+      "id": "section-14",
+      "badge": "Lesson 14",
+      "title": "LESSON 14 — Reusable Components and Custom Hooks",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "14.1 What is a reusable component?"
+        },
+        {
+          "type": "p",
+          "text": "A reusable component is an interface element designed to be used in multiple locations without duplicating its implementation."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "p",
+          "text": "Buttons"
+        },
+        {
+          "type": "p",
+          "text": "Cards"
+        },
+        {
+          "type": "p",
+          "text": "Navigation bars"
+        },
+        {
+          "type": "p",
+          "text": "Modals"
+        },
+        {
+          "type": "p",
+          "text": "Input fields"
+        },
+        {
+          "type": "p",
+          "text": "Dropdowns"
+        },
+        {
+          "type": "p",
+          "text": "Tables"
+        },
+        {
+          "type": "p",
+          "text": "Progress indicators"
+        },
+        {
+          "type": "p",
+          "text": "Loading skeletons"
+        },
+        {
+          "type": "p",
+          "text": "Consider a button used across an application."
+        },
+        {
+          "type": "p",
+          "text": "Without a reusable component, developers might repeatedly write slightly different button markup."
+        },
+        {
+          "type": "p",
+          "text": "A reusable component centralizes the common behaviour and design."
+        },
+        {
+          "type": "h3",
+          "text": "14.2 Creating a reusable button"
+        },
+        {
+          "type": "code",
+          "text": "interface ButtonProps { children: React.ReactNode; variant?: \"primary\" | \"secondary\" | \"danger\"; disabled?: boolean; onClick?: () => void; } function Button({ children, variant = \"primary\", disabled = false, onClick }: ButtonProps) { return ( <button className={`button button-${variant}`} disabled={disabled} onClick={onClick} > {children} </button> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "p",
+          "text": "<Button variant=\"primary\"> Save </Button> <Button variant=\"secondary\"> Cancel </Button> <Button variant=\"danger\"> Delete </Button>"
+        },
+        {
+          "type": "p",
+          "text": "One implementation supports several use cases."
+        },
+        {
+          "type": "h3",
+          "text": "14.3 Creating reusable card components"
+        },
+        {
+          "type": "code",
+          "text": "import type { ReactNode } from \"react\"; interface CardProps { title: string; children: ReactNode; } function Card({ title, children }: CardProps) { return ( <section className=\"card\"> <h2>{title}</h2> <div className=\"card-content\"> {children} </div> </section> ); }"
+        },
+        {
+          "type": "p",
+          "text": "This card can be reused for:"
+        },
+        {
+          "type": "p",
+          "text": "Course descriptions."
+        },
+        {
+          "type": "p",
+          "text": "User information."
+        },
+        {
+          "type": "p",
+          "text": "Task details."
+        },
+        {
+          "type": "p",
+          "text": "Dashboard statistics."
+        },
+        {
+          "type": "p",
+          "text": "Notifications."
+        },
+        {
+          "type": "p",
+          "text": "The content changes, while the common structure stays consistent."
+        },
+        {
+          "type": "h3",
+          "text": "14.4 What are custom Hooks?"
+        },
+        {
+          "type": "p",
+          "text": "A custom Hook is a JavaScript or TypeScript function that uses React Hooks to encapsulate and reuse stateful logic."
+        },
+        {
+          "type": "p",
+          "text": "It allows developers to separate repeated behaviour from individual components."
+        },
+        {
+          "type": "p",
+          "text": "For example, multiple components may need to manage similar search logic."
+        },
+        {
+          "type": "p",
+          "text": "Instead of duplicating it, developers can create one custom Hook."
+        },
+        {
+          "type": "h3",
+          "text": "14.5 Creating a useToggle Hook"
+        },
+        {
+          "type": "code",
+          "text": "import { useState } from \"react\"; function useToggle(initialValue = false) { const [value, setValue] = useState(initialValue); function toggle() { setValue(previous => !previous); } return { value, toggle }; }"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "function Modal() { const { value: isOpen, toggle } = useToggle(); return ( <div> <button onClick={toggle}> Toggle Modal </button> {isOpen && ( <div> <h2>Modal Content</h2> </div> )} </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "The custom Hook can be reused by other components."
+        },
+        {
+          "type": "h3",
+          "text": "14.6 Creating a useLocalStorage Hook"
+        },
+        {
+          "type": "p",
+          "text": "Module 06 introduced browser storage."
+        },
+        {
+          "type": "p",
+          "text": "React can use a custom Hook to connect component state with LocalStorage."
+        },
+        {
+          "type": "code",
+          "text": "import { useEffect, useState } from \"react\"; function useLocalStorage( key: string, initialValue: string ) { const [value, setValue] = useState(() => { try { const stored = localStorage.getItem(key); return stored ?? initialValue; } catch { return initialValue; } }); useEffect(() => { try { localStorage.setItem(key, value); } catch (error) { console.error(\"Unable to save preference\", error); } }, [key, value]); return [value, setValue] as const; }"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "function ThemeSelector() { const [theme, setTheme] = useLocalStorage( \"theme\", \"light\" ); return ( <button onClick={() => setTheme(theme === \"light\" ? \"dark\" : \"light\") } > Current theme: {theme} </button> ); }"
+        },
+        {
+          "type": "p",
+          "text": "This demonstrates how custom Hooks combine state with browser-side synchronization."
+        },
+        {
+          "type": "p",
+          "text": "For production applications, this example can be expanded to support multiple tabs, object serialization, storage failures, and server-side rendering constraints."
+        },
+        {
+          "type": "h3",
+          "text": "14.7 Creating a reusable useFetch Hook"
+        },
+        {
+          "type": "p",
+          "text": "A custom Hook can also organize asynchronous data retrieval."
+        },
+        {
+          "type": "code",
+          "text": "import { useEffect, useState } from \"react\"; interface FetchState<T> { data: T | null; loading: boolean; error: string | null; } function useFetch<T>(url: string) { const [state, setState] = useState<FetchState<T>>({ data: null, loading: true, error: null }); useEffect(() => { const controller = new AbortController(); async function loadData() { setState({ data: null, loading: true, error: null }); try { const response = await fetch(url, { signal: controller.signal }); if (!response.ok) { throw new Error( `Request failed: ${response.status}` ); } const data: unknown = await response.json(); if (!controller.signal.aborted) { // The caller must provide runtime validation // before trusting external data as T. setState({ data: data as T, loading: false, error: null }); } } catch (error) { if ( error instanceof Error && error.name !== \"AbortError\" && !controller.signal.aborted ) { setState({ data: null, loading: false, error: error.message }); } } } loadData(); return () => { controller.abort(); }; }, [url]); return state; }"
+        },
+        {
+          "type": "p",
+          "text": "Usage:"
+        },
+        {
+          "type": "code",
+          "text": "interface Course { id: number; title: string; } function Courses() { const { data, loading, error } = useFetch<Course[]>(\"/api/courses\"); if (loading) return <p>Loading...</p>; if (error) return <p>{error}</p>; return ( <div> {data?.map(course => ( <p key={course.id}> {course.title} </p> ))} </div> ); }"
+        },
+        {
+          "type": "p",
+          "text": "Important: Generics describe the expected data type, but they do not validate API responses. As discussed in Module 07, production implementations should validate the response with a runtime schema before treating it as T."
+        },
+        {
+          "type": "h3",
+          "text": "14.8 Custom Hooks versus components"
+        },
+        {
+          "type": "p",
+          "text": "Reusable component"
+        },
+        {
+          "type": "p",
+          "text": "Custom Hook"
+        },
+        {
+          "type": "p",
+          "text": "Reuses UI structure"
+        },
+        {
+          "type": "p",
+          "text": "Reuses stateful logic"
+        },
+        {
+          "type": "p",
+          "text": "Returns React elements"
+        },
+        {
+          "type": "p",
+          "text": "Returns data and functions"
+        },
+        {
+          "type": "p",
+          "text": "Used in JSX"
+        },
+        {
+          "type": "p",
+          "text": "Called inside components or other Hooks"
+        },
+        {
+          "type": "p",
+          "text": "Example: Button"
+        },
+        {
+          "type": "p",
+          "text": "Example: useToggle"
+        },
+        {
+          "type": "p",
+          "text": "A custom Hook does not create shared state automatically across different components."
+        },
+        {
+          "type": "p",
+          "text": "Each component calling the Hook normally receives its own Hook state."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build reusable Button, Card, Modal, and Input components. Then create useToggle, useLocalStorage, and useFetch custom Hooks."
+        }
+      ]
+    },
+    {
+      "id": "section-15",
+      "badge": "Practical Project",
+      "title": "PRACTICAL PROJECT — Interactive Task Management Application",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Major Practical Project"
+        },
+        {
+          "type": "p",
+          "text": "Project: Build a Task Management Application Using React and TypeScript"
+        },
+        {
+          "type": "h3",
+          "text": "1. Project objective"
+        },
+        {
+          "type": "p",
+          "text": "Build a fully functional task management application using React, TypeScript, and Vite."
+        },
+        {
+          "type": "p",
+          "text": "The application should allow users to create tasks, update their information, mark tasks as completed, organize priorities, search tasks, and manage their work through an interactive interface."
+        },
+        {
+          "type": "p",
+          "text": "This project combines the concepts learned in Modules 05–08."
+        },
+        {
+          "type": "p",
+          "text": "[Taskly : My Tasks Page Design by Antora Yeasmin (Nataliya) on Dribbble](https://images.openai.com/static-rsc-4/YcRD1l6nC9-HLX92V42FxR0qKxsD3pVyeq0OvjREABaajsaWW2ha7WUGNgEznjLyMHTWX3oMDL1nESjKeofNB7AetupsbWzybqDAalJYJviL0bOFVWffoKw-ws8ltmj-04JWsU7QTshNTnsCJPBN5BT3L44qDbdNT_Q8edPExJI?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "[Dribbble - task_management_dashboard_design.jpg by Masudur Rahman](https://images.openai.com/static-rsc-4/Ciw5LAHmAohuy1W_M9D6LneTO9qeU9oLIV1HqWTCJ4Xq_BHx0D76zGqJOe-4XrKVHd4JW9cfbAWmiKoj1jHif-d-DUWfI_GCQrEyX8RcB6N4e4DOgFo_rhvq27YRpVshyPTgHTUTRi_HP3fnzMYcXu_lRixVA5C9iNrAzyKZT3A?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "[GitHub - rishabhgokhe/TaskFlow: Project for Task Management](https://images.openai.com/static-rsc-4/kuhFXuedvyJSTvK4BvhsP4encPsCdRZ48-T5jLqBH6MiHNHUptOtsO6lkd53YDHyfMRcKWzj2oWyCNqyGyx6qZinwAHi6WN3xX5DFV85ryDASUGKn-8uHOwfMQTu0UbB6RDD3wpY5b5aO86M4eaYTk9AGC1JosUXN0I27TF6eiU?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "15"
+        },
+        {
+          "type": "h3",
+          "text": "2. Functional requirements"
+        },
+        {
+          "type": "h3",
+          "text": "A. Application interface"
+        },
+        {
+          "type": "p",
+          "text": "Build a responsive application containing:"
+        },
+        {
+          "type": "p",
+          "text": "Navigation bar."
+        },
+        {
+          "type": "p",
+          "text": "Dashboard overview."
+        },
+        {
+          "type": "p",
+          "text": "Task statistics."
+        },
+        {
+          "type": "p",
+          "text": "Task creation form."
+        },
+        {
+          "type": "p",
+          "text": "Task listing section."
+        },
+        {
+          "type": "p",
+          "text": "Search field."
+        },
+        {
+          "type": "p",
+          "text": "Task filters."
+        },
+        {
+          "type": "p",
+          "text": "Task priority indicators."
+        },
+        {
+          "type": "p",
+          "text": "Due-date information."
+        },
+        {
+          "type": "p",
+          "text": "Edit and delete controls."
+        },
+        {
+          "type": "h3",
+          "text": "B. Task management"
+        },
+        {
+          "type": "p",
+          "text": "Users must be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Create a new task."
+        },
+        {
+          "type": "p",
+          "text": "View all existing tasks."
+        },
+        {
+          "type": "p",
+          "text": "Edit task information."
+        },
+        {
+          "type": "p",
+          "text": "Delete tasks."
+        },
+        {
+          "type": "p",
+          "text": "Mark tasks as completed."
+        },
+        {
+          "type": "p",
+          "text": "Reopen completed tasks."
+        },
+        {
+          "type": "p",
+          "text": "Assign task priorities."
+        },
+        {
+          "type": "p",
+          "text": "Set due dates."
+        },
+        {
+          "type": "p",
+          "text": "Add task descriptions."
+        },
+        {
+          "type": "h3",
+          "text": "C. Search and filtering"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "Search by task title."
+        },
+        {
+          "type": "p",
+          "text": "Filter all tasks."
+        },
+        {
+          "type": "p",
+          "text": "Filter active tasks."
+        },
+        {
+          "type": "p",
+          "text": "Filter completed tasks."
+        },
+        {
+          "type": "p",
+          "text": "Filter by priority."
+        },
+        {
+          "type": "p",
+          "text": "Sort tasks by creation date or due date."
+        },
+        {
+          "type": "h3",
+          "text": "D. React implementation"
+        },
+        {
+          "type": "p",
+          "text": "Your implementation must demonstrate:"
+        },
+        {
+          "type": "p",
+          "text": "React concept"
+        },
+        {
+          "type": "p",
+          "text": "Application requirement"
+        },
+        {
+          "type": "p",
+          "text": "Functional components"
+        },
+        {
+          "type": "p",
+          "text": "Separate UI components"
+        },
+        {
+          "type": "p",
+          "text": "JSX"
+        },
+        {
+          "type": "p",
+          "text": "Application interface"
+        },
+        {
+          "type": "p",
+          "text": "Props"
+        },
+        {
+          "type": "p",
+          "text": "Pass task information"
+        },
+        {
+          "type": "code",
+          "text": "useState"
+        },
+        {
+          "type": "p",
+          "text": "Manage tasks and form state"
+        },
+        {
+          "type": "p",
+          "text": "Event handling"
+        },
+        {
+          "type": "p",
+          "text": "Handle user interactions"
+        },
+        {
+          "type": "p",
+          "text": "Conditional rendering"
+        },
+        {
+          "type": "p",
+          "text": "Display task states"
+        },
+        {
+          "type": "p",
+          "text": "List rendering"
+        },
+        {
+          "type": "p",
+          "text": "Display multiple tasks"
+        },
+        {
+          "type": "p",
+          "text": "Controlled forms"
+        },
+        {
+          "type": "p",
+          "text": "Create and edit tasks"
+        },
+        {
+          "type": "code",
+          "text": "useEffect"
+        },
+        {
+          "type": "p",
+          "text": "Synchronize saved tasks"
+        },
+        {
+          "type": "code",
+          "text": "useRef"
+        },
+        {
+          "type": "p",
+          "text": "Focus task input"
+        },
+        {
+          "type": "p",
+          "text": "Custom Hooks"
+        },
+        {
+          "type": "p",
+          "text": "Reusable task management logic"
+        },
+        {
+          "type": "h3",
+          "text": "E. TypeScript implementation"
+        },
+        {
+          "type": "p",
+          "text": "Define strong types for the application."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "type TaskPriority = | \"low\" | \"medium\" | \"high\"; interface Task { id: string; title: string; description: string; priority: TaskPriority; dueDate: string; completed: boolean; }"
+        },
+        {
+          "type": "p",
+          "text": "Avoid using any for application data."
+        },
+        {
+          "type": "h3",
+          "text": "F. Browser persistence"
+        },
+        {
+          "type": "p",
+          "text": "Use LocalStorage to preserve tasks after a page reload."
+        },
+        {
+          "type": "p",
+          "text": "The application should:"
+        },
+        {
+          "type": "p",
+          "text": "Load previously saved tasks."
+        },
+        {
+          "type": "p",
+          "text": "Save new tasks."
+        },
+        {
+          "type": "p",
+          "text": "Save edited tasks."
+        },
+        {
+          "type": "p",
+          "text": "Preserve completion status."
+        },
+        {
+          "type": "p",
+          "text": "Handle invalid or unavailable stored data gracefully."
+        },
+        {
+          "type": "p",
+          "text": "Use appropriate runtime validation when loading stored JSON."
+        },
+        {
+          "type": "h3",
+          "text": "G. User experience"
+        },
+        {
+          "type": "p",
+          "text": "The application should include:"
+        },
+        {
+          "type": "p",
+          "text": "Responsive layouts."
+        },
+        {
+          "type": "p",
+          "text": "Empty task states."
+        },
+        {
+          "type": "p",
+          "text": "Loading or initialization states where appropriate."
+        },
+        {
+          "type": "p",
+          "text": "Form validation."
+        },
+        {
+          "type": "p",
+          "text": "Confirmation before destructive actions."
+        },
+        {
+          "type": "p",
+          "text": "Clear success and error messages."
+        },
+        {
+          "type": "p",
+          "text": "Accessible labels and keyboard interactions."
+        },
+        {
+          "type": "h3",
+          "text": "3. Suggested application architecture"
+        },
+        {
+          "type": "code",
+          "text": "task-management-app/ │ ├── public/ │ ├── src/ │ │ │ ├── components/ │ │ ├── Navbar.tsx │ │ ├── DashboardStats.tsx │ │ ├── TaskForm.tsx │ │ ├── TaskList.tsx │ │ ├── TaskItem.tsx │ │ ├── TaskFilters.tsx │ │ └── SearchBar.tsx │ │ │ ├── hooks/ │ │ ├── useTasks.ts │ │ ├── useLocalStorage.ts │ │ └── useToggle.ts │ │ │ ├── types/ │ │ └── task.ts │ │ │ ├── schemas/ │ │ └── taskSchema.ts │ │ │ ├── utils/ │ │ └── taskHelpers.ts │ │ │ ├── App.tsx │ ├── main.tsx │ └── index.css │ ├── package.json ├── tsconfig.json └── README.md"
+        },
+        {
+          "type": "p",
+          "text": "This architecture separates interface components, business logic, types, and validation."
+        },
+        {
+          "type": "h3",
+          "text": "4. Implementation example"
+        },
+        {
+          "type": "p",
+          "text": "The following is a working foundation for the task management application."
+        },
+        {
+          "type": "p",
+          "text": "Install the runtime validation dependency:"
+        },
+        {
+          "type": "code",
+          "text": "npm install zod"
+        },
+        {
+          "type": "h3",
+          "text": "Step 1 — Define and validate the task model"
+        },
+        {
+          "type": "p",
+          "text": "src/schemas/taskSchema.ts"
+        },
+        {
+          "type": "code",
+          "text": "import { z } from \"zod\"; export const TaskSchema = z.object({ id: z.string(), title: z.string().min(1), description: z.string(), priority: z.enum([\"low\", \"medium\", \"high\"]), dueDate: z.string(), completed: z.boolean() }); export const TasksSchema = z.array(TaskSchema); export type Task = z.infer<typeof TaskSchema>; export type TaskPriority = Task[\"priority\"];"
+        },
+        {
+          "type": "p",
+          "text": "This uses Module 07's TypeScript and runtime-validation concepts."
+        },
+        {
+          "type": "h3",
+          "text": "Step 2 — Build a reusable task form"
+        },
+        {
+          "type": "p",
+          "text": "src/components/TaskForm.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import { useState } from \"react\"; import type { Task, TaskPriority } from \"../schemas/taskSchema\"; interface TaskFormProps { onAdd: ( task: Omit<Task, \"id\" | \"completed\"> ) => void; } function TaskForm({ onAdd }: TaskFormProps) { const [title, setTitle] = useState(\"\"); const [description, setDescription] = useState(\"\"); const [priority, setPriority] = useState<TaskPriority>(\"medium\"); const [dueDate, setDueDate] = useState(\"\"); function handleSubmit( event: React.FormEvent<HTMLFormElement> ) { event.preventDefault(); if (!title.trim()) return; onAdd({ title: title.trim(), description: description.trim(), priority, dueDate }); setTitle(\"\"); setDescription(\"\"); setPriority(\"medium\"); setDueDate(\"\"); } return ( <form onSubmit={handleSubmit}> <input value={title} onChange={event => setTitle(event.target.value)} placeholder=\"Task title\" required /> <textarea value={description} onChange={event => setDescription(event.target.value) } placeholder=\"Task description\" /> <select value={priority} onChange={event => setPriority(event.target.value as TaskPriority) } > <option value=\"low\">Low</option> <option value=\"medium\">Medium</option> <option value=\"high\">High</option> </select> <input type=\"date\" value={dueDate} onChange={event => setDueDate(event.target.value)} /> <button type=\"submit\"> Add Task </button> </form> ); } export default TaskForm;"
+        },
+        {
+          "type": "h3",
+          "text": "Step 3 — Build a reusable task component"
+        },
+        {
+          "type": "p",
+          "text": "src/components/TaskItem.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import { useState } from \"react\"; import type { Task } from \"../schemas/taskSchema\"; interface TaskItemProps { task: Task; onToggle: (id: string) => void; onDelete: (id: string) => void; onUpdate: (id: string, title: string) => void; } function TaskItem({ task, onToggle, onDelete, onUpdate }: TaskItemProps) { const [editing, setEditing] = useState(false); const [draftTitle, setDraftTitle] = useState(task.title); function handleSave( event: React.FormEvent<HTMLFormElement> ) { event.preventDefault(); const updatedTitle = draftTitle.trim(); if (!updatedTitle) return; onUpdate(task.id, updatedTitle); setEditing(false); } return ( <article className=\"task-item\"> <input type=\"checkbox\" checked={task.completed} onChange={() => onToggle(task.id)} aria-label={`Complete ${task.title}`} /> {editing ? ( <form onSubmit={handleSave}> <input value={draftTitle} onChange={event => setDraftTitle(event.target.value) } autoFocus /> <button type=\"submit\">Save</button> <button type=\"button\" onClick={() => { setDraftTitle(task.title); setEditing(false); }} > Cancel </button> </form> ) : ( <> <div> <h3> {task.completed ? `${task.title} — Completed` : task.title} </h3> <p>{task.description}</p> <span>{task.priority}</span> {task.dueDate && ( <p>Due: {task.dueDate}</p> )} </div> <button onClick={() => setEditing(true)} > Edit </button> </> )} <button onClick={() => onDelete(task.id)}> Delete </button> </article> ); } export default TaskItem;"
+        },
+        {
+          "type": "h3",
+          "text": "Step 4 — Manage application state"
+        },
+        {
+          "type": "p",
+          "text": "src/App.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import { useEffect, useState } from \"react\"; import TaskForm from \"./components/TaskForm\"; import TaskItem from \"./components/TaskItem\"; import { TasksSchema, type Task } from \"./schemas/taskSchema\"; type Filter = \"all\" | \"active\" | \"completed\"; function loadTasks(): Task[] { try { const stored = localStorage.getItem(\"tasks\"); if (!stored) return []; const result = TasksSchema.safeParse( JSON.parse(stored) ); return result.success ? result.data : []; } catch { return []; } } function App() { const [tasks, setTasks] = useState<Task[]>(loadTasks); const [filter, setFilter] = useState<Filter>(\"all\"); const [search, setSearch] = useState(\"\"); useEffect(() => { try { localStorage.setItem( \"tasks\", JSON.stringify(tasks) ); } catch (error) { console.error(\"Unable to save tasks\", error); } }, [tasks]); function addTask( data: Omit<Task, \"id\" | \"completed\"> ) { const newTask: Task = { ...data, id: crypto.randomUUID(), completed: false }; setTasks(previous => [...previous, newTask]); } function toggleTask(id: string) { setTasks(previous => previous.map(task => task.id === id ? { ...task, completed: !task.completed } : task ) ); } function deleteTask(id: string) { setTasks(previous => previous.filter(task => task.id !== id) ); } function updateTask(id: string, title: string) { setTasks(previous => previous.map(task => task.id === id ? { ...task, title } : task ) ); } const filteredTasks = tasks.filter(task => { const matchesSearch = task.title .toLowerCase() .includes(search.toLowerCase()); const matchesFilter = filter === \"all\" || (filter === \"active\" && !task.completed) || (filter === \"completed\" && task.completed); return matchesSearch && matchesFilter; }); const completedCount = tasks.filter( task => task.completed ).length; return ( <main className=\"app\"> <header> <h1>Task Manager</h1> <p>Organize your work and stay productive.</p> </header> <section className=\"statistics\"> <p>Total: {tasks.length}</p> <p>Completed: {completedCount}</p> <p>Remaining: {tasks.length - completedCount}</p> </section> <TaskForm onAdd={addTask} /> <section> <input value={search} onChange={event => setSearch(event.target.value) } placeholder=\"Search tasks...\" /> <select value={filter} onChange={event => setFilter(event.target.value as Filter) } > <option value=\"all\">All Tasks</option> <option value=\"active\">Active</option> <option value=\"completed\">Completed</option> </select> </section> <section className=\"task-list\"> {filteredTasks.length === 0 ? ( <p>No matching tasks found.</p> ) : ( filteredTasks.map(task => ( <TaskItem key={task.id} task={task} onToggle={toggleTask} onDelete={deleteTask} onUpdate={updateTask} /> )) )} </section> </main> ); } export default App;"
+        },
+        {
+          "type": "p",
+          "text": "This implementation demonstrates component composition, typed props, React state, controlled forms, list rendering, conditional rendering, effects, immutable updates, and browser persistence."
+        },
+        {
+          "type": "p",
+          "text": "The foundation can be extended with task descriptions editing, priority filters, due-date sorting, and a more complete design system."
+        },
+        {
+          "type": "h3",
+          "text": "5. Recommended development phases"
+        },
+        {
+          "type": "p",
+          "text": "Phase"
+        },
+        {
+          "type": "p",
+          "text": "Development work"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "Vite setup and project structure"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript models and validation"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "Reusable React components"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "Task creation and form management"
+        },
+        {
+          "type": "p",
+          "text": "5"
+        },
+        {
+          "type": "p",
+          "text": "Task editing and deletion"
+        },
+        {
+          "type": "p",
+          "text": "6"
+        },
+        {
+          "type": "p",
+          "text": "State management and filters"
+        },
+        {
+          "type": "p",
+          "text": "7"
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage persistence"
+        },
+        {
+          "type": "p",
+          "text": "8"
+        },
+        {
+          "type": "p",
+          "text": "Responsive UI and accessibility"
+        },
+        {
+          "type": "p",
+          "text": "9"
+        },
+        {
+          "type": "p",
+          "text": "Testing and bug fixing"
+        },
+        {
+          "type": "p",
+          "text": "10"
+        },
+        {
+          "type": "p",
+          "text": "Documentation and deployment"
+        },
+        {
+          "type": "h3",
+          "text": "6. Testing requirements"
+        },
+        {
+          "type": "p",
+          "text": "Test the application for:"
+        },
+        {
+          "type": "p",
+          "text": "Empty task submission."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate task titles."
+        },
+        {
+          "type": "p",
+          "text": "Invalid task data in LocalStorage."
+        },
+        {
+          "type": "p",
+          "text": "Adding and deleting multiple tasks."
+        },
+        {
+          "type": "p",
+          "text": "Editing completed tasks."
+        },
+        {
+          "type": "p",
+          "text": "Switching between filters."
+        },
+        {
+          "type": "p",
+          "text": "Searching for tasks."
+        },
+        {
+          "type": "p",
+          "text": "Reloading the page."
+        },
+        {
+          "type": "p",
+          "text": "Handling storage failures."
+        },
+        {
+          "type": "p",
+          "text": "Mobile and desktop layouts."
+        },
+        {
+          "type": "p",
+          "text": "Keyboard accessibility."
+        },
+        {
+          "type": "p",
+          "text": "Incorrect TypeScript assignments."
+        },
+        {
+          "type": "h3",
+          "text": "7. Required project deliverables"
+        },
+        {
+          "type": "p",
+          "text": "Complete React and TypeScript source code."
+        },
+        {
+          "type": "p",
+          "text": "Responsive task management interface."
+        },
+        {
+          "type": "p",
+          "text": "Reusable component architecture."
+        },
+        {
+          "type": "p",
+          "text": "Task creation, editing, deletion and completion."
+        },
+        {
+          "type": "p",
+          "text": "Search and filtering."
+        },
+        {
+          "type": "p",
+          "text": "Runtime data validation."
+        },
+        {
+          "type": "p",
+          "text": "LocalStorage persistence."
+        },
+        {
+          "type": "p",
+          "text": "Typed custom Hooks."
+        },
+        {
+          "type": "p",
+          "text": "README and setup documentation."
+        },
+        {
+          "type": "p",
+          "text": "Screenshots or a demonstration of the finished application."
+        },
+        {
+          "type": "h3",
+          "text": "8. Project evaluation"
+        },
+        {
+          "type": "p",
+          "text": "Evaluation area"
+        },
+        {
+          "type": "p",
+          "text": "Weight"
+        },
+        {
+          "type": "p",
+          "text": "React component architecture"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript implementation"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Props and state management"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Forms and event handling"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Hooks and lifecycle understanding"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Task functionality"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Persistence and validation"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "UI, responsiveness and accessibility"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Documentation"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Total"
+        },
+        {
+          "type": "p",
+          "text": "100%"
+        }
+      ]
+    },
+    {
+      "id": "section-16",
+      "badge": "Assessment",
+      "title": "MODULE 08 — Knowledge Assessment",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Test your understanding of React and component engineering."
+        },
+        {
+          "type": "p",
+          "text": "React assessment"
+        },
+        {
+          "type": "p",
+          "text": "0/10 answered"
+        },
+        {
+          "type": "h3",
+          "text": "1. What is the primary purpose of React components?"
+        },
+        {
+          "type": "p",
+          "text": "Store database information"
+        },
+        {
+          "type": "p",
+          "text": "Build reusable and independent UI sections"
+        },
+        {
+          "type": "p",
+          "text": "Replace JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "Manage server hardware"
+        },
+        {
+          "type": "h3",
+          "text": "2. What is Vite primarily responsible for in a React project?"
+        },
+        {
+          "type": "p",
+          "text": "Managing React state"
+        },
+        {
+          "type": "p",
+          "text": "Providing development and build tooling"
+        },
+        {
+          "type": "p",
+          "text": "Replacing TypeScript"
+        },
+        {
+          "type": "p",
+          "text": "Providing a database"
+        },
+        {
+          "type": "h3",
+          "text": "3. What does JSX allow developers to do?"
+        },
+        {
+          "type": "p",
+          "text": "Write CSS inside JSON"
+        },
+        {
+          "type": "p",
+          "text": "Describe UI using markup-like syntax inside JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "Create SQL queries"
+        },
+        {
+          "type": "p",
+          "text": "Replace the browser DOM"
+        },
+        {
+          "type": "h3",
+          "text": "4. Which direction does ordinary React props data flow?"
+        },
+        {
+          "type": "p",
+          "text": "Child to parent automatically"
+        },
+        {
+          "type": "p",
+          "text": "Parent to child"
+        },
+        {
+          "type": "p",
+          "text": "Database to CSS"
+        },
+        {
+          "type": "p",
+          "text": "Bidirectionally without callbacks"
+        },
+        {
+          "type": "h3",
+          "text": "5. What happens when a React state setter is called?"
+        },
+        {
+          "type": "p",
+          "text": "The current variable changes immediately"
+        },
+        {
+          "type": "p",
+          "text": "React is asked to schedule an update and re-render"
+        },
+        {
+          "type": "p",
+          "text": "The entire browser reloads"
+        },
+        {
+          "type": "p",
+          "text": "All components are unmounted"
+        },
+        {
+          "type": "h3",
+          "text": "6. Why should stable keys be used when rendering lists?"
+        },
+        {
+          "type": "p",
+          "text": "To create CSS classes"
+        },
+        {
+          "type": "p",
+          "text": "To help React identify items across renders"
+        },
+        {
+          "type": "p",
+          "text": "To encrypt item data"
+        },
+        {
+          "type": "p",
+          "text": "To increase API speed"
+        },
+        {
+          "type": "h3",
+          "text": "7. What is a controlled input?"
+        },
+        {
+          "type": "p",
+          "text": "An input managed through React state"
+        },
+        {
+          "type": "p",
+          "text": "An input that cannot be changed"
+        },
+        {
+          "type": "p",
+          "text": "An input without an event handler"
+        },
+        {
+          "type": "p",
+          "text": "An HTML-only input"
+        },
+        {
+          "type": "h3",
+          "text": "8. Where should ordinary React Hooks be called?"
+        },
+        {
+          "type": "p",
+          "text": "Inside conditions"
+        },
+        {
+          "type": "p",
+          "text": "Inside loops"
+        },
+        {
+          "type": "p",
+          "text": "At the top level of React components or custom Hooks"
+        },
+        {
+          "type": "p",
+          "text": "Inside every event handler"
+        },
+        {
+          "type": "h3",
+          "text": "9. What is the main purpose of useEffect?"
+        },
+        {
+          "type": "p",
+          "text": "Replace JSX"
+        },
+        {
+          "type": "p",
+          "text": "Synchronize a component with external systems"
+        },
+        {
+          "type": "p",
+          "text": "Store all application state"
+        },
+        {
+          "type": "p",
+          "text": "Create HTML elements"
+        },
+        {
+          "type": "h3",
+          "text": "10. What is the main difference between useState and useRef?"
+        },
+        {
+          "type": "p",
+          "text": "Both always trigger renders"
+        },
+        {
+          "type": "p",
+          "text": "Changing state schedules a render; changing ref.current does not"
+        },
+        {
+          "type": "p",
+          "text": "Refs can only store strings"
+        },
+        {
+          "type": "p",
+          "text": "State cannot store objects"
+        },
+        {
+          "type": "p",
+          "text": "Submit assessment"
+        },
+        {
+          "type": "p",
+          "text": "Expected learning outcomes"
+        },
+        {
+          "type": "p",
+          "text": "After completing Module 08, students should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Explain React's component-based architecture."
+        },
+        {
+          "type": "p",
+          "text": "Create and configure React applications using Vite."
+        },
+        {
+          "type": "p",
+          "text": "Write JSX and understand how React renders interfaces."
+        },
+        {
+          "type": "p",
+          "text": "Build reusable functional components."
+        },
+        {
+          "type": "p",
+          "text": "Pass information through props and maintain one-way data flow."
+        },
+        {
+          "type": "p",
+          "text": "Manage component state through useState."
+        },
+        {
+          "type": "p",
+          "text": "Handle mouse, keyboard, form, and browser events."
+        },
+        {
+          "type": "p",
+          "text": "Implement conditional rendering and dynamic lists."
+        },
+        {
+          "type": "p",
+          "text": "Develop controlled and uncontrolled forms."
+        },
+        {
+          "type": "p",
+          "text": "Follow the Rules of Hooks."
+        },
+        {
+          "type": "p",
+          "text": "Synchronize components with browser and external systems using useEffect."
+        },
+        {
+          "type": "p",
+          "text": "Access DOM elements using useRef."
+        },
+        {
+          "type": "p",
+          "text": "Understand component mounting, updating, unmounting, rendering, and cleanup."
+        },
+        {
+          "type": "p",
+          "text": "Build reusable UI components and custom Hooks."
+        },
+        {
+          "type": "p",
+          "text": "Develop a functional React and TypeScript task management application."
+        },
+        {
+          "type": "p",
+          "text": "Recommended official learning resources"
+        },
+        {
+          "type": "p",
+          "text": "These resources provide further explanations and practical examples."
+        },
+        {
+          "type": "p",
+          "text": "[React Official Documentation — Learn React](https://react.dev/learn?utm_source=chatgpt.com) — components, JSX, events, lists and state."
+        },
+        {
+          "type": "p",
+          "text": "[Vite Official Guide](https://vite.dev/guide/?utm_source=chatgpt.com) — project creation and development tooling."
+        },
+        {
+          "type": "p",
+          "text": "[Rules of React Hooks](https://react.dev/reference/rules/rules-of-hooks?utm_source=chatgpt.com) — correct Hook usage."
+        },
+        {
+          "type": "p",
+          "text": "[React — State as a Snapshot](https://react.dev/learn/state-as-a-snapshot?utm_source=chatgpt.com) — understanding state updates."
+        },
+        {
+          "type": "p",
+          "text": "[React — useEffect](https://react.dev/reference/react/useEffect?utm_source=chatgpt.com) — effects, dependencies and cleanup."
+        },
+        {
+          "type": "p",
+          "text": "[React — useRef](https://react.dev/reference/react/useRef?utm_source=chatgpt.com) — DOM references and mutable values."
+        },
+        {
+          "type": "p",
+          "text": "[React — Rendering Lists](https://react.dev/learn/rendering-lists?utm_source=chatgpt.com) — stable keys and list rendering."
+        },
+        {
+          "type": "p",
+          "text": "Development compatibility note: The current Vite guide specifies Node.js 20.19+ or 22.12+ for Vite, with some templates potentially requiring higher versions. Check the installed environment before creating the project."
+        },
+        {
+          "type": "p",
+          "text": "Vite"
+        },
+        {
+          "type": "p",
+          "text": "How Module 08 connects to the next stages"
+        },
+        {
+          "type": "p",
+          "text": "Module"
+        },
+        {
+          "type": "p",
+          "text": "Engineering capability"
+        },
+        {
+          "type": "p",
+          "text": "Module 05 — Modern JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "Programming fundamentals"
+        },
+        {
+          "type": "p",
+          "text": "Module 06 — Browser APIs and Asynchronous Programming"
+        },
+        {
+          "type": "p",
+          "text": "Browser and backend communication"
+        },
+        {
+          "type": "p",
+          "text": "Module 07 — TypeScript"
+        },
+        {
+          "type": "p",
+          "text": "Type-safe application development"
+        },
+        {
+          "type": "p",
+          "text": "Module 08 — React Fundamentals"
+        },
+        {
+          "type": "p",
+          "text": "Component-based UI development"
+        },
+        {
+          "type": "p",
+          "text": "Module 09 — Advanced React and State Management"
+        },
+        {
+          "type": "p",
+          "text": "Larger application state, advanced Hooks and architecture"
+        },
+        {
+          "type": "p",
+          "text": "The objective of Module 08 is to make students capable of building complete interactive React interfaces independently."
+        },
+        {
+          "type": "p",
+          "text": "The next module should take these foundations further into advanced React architecture, application-wide state management, performance optimization, routing, and production-level frontend engineering."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T15:22:02+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

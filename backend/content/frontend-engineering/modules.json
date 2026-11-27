@@ -75,5 +75,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "react-fundamentals",
+    "courseId": "frontend-engineering",
+    "index": 8,
+    "name": "8. React Fundamentals and Component Engineering",
+    "route": "/learning/frontend-engineering/react-fundamentals",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

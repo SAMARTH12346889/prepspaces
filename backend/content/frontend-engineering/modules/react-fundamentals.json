@@ -1,0 +1,130 @@
+{
+  "id": "react-fundamentals",
+  "courseId": "frontend-engineering",
+  "index": 8,
+  "name": "8. React Fundamentals and Component Engineering",
+  "route": "/learning/frontend-engineering/react-fundamentals",
+  "componentName": "FrontendReactFundamentals",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of React components?",
+      "options": [
+        "Store database information",
+        "Build reusable and independent UI sections",
+        "Replace JavaScript",
+        "Manage server hardware"
+      ],
+      "correctIndex": 1,
+      "explanation": "Components divide complex interfaces into reusable, self-contained UI pieces with clear responsibilities."
+    },
+    {
+      "id": 2,
+      "question": "What is Vite primarily responsible for in a React project?",
+      "options": [
+        "Managing React state",
+        "Providing development and build tooling",
+        "Replacing TypeScript",
+        "Providing a database"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vite provides the fast development server (HMR), JSX/TS processing, and production build bundling."
+    },
+    {
+      "id": 3,
+      "question": "What does JSX allow developers to do?",
+      "options": [
+        "Write CSS inside JSON",
+        "Describe UI using markup-like syntax inside JavaScript",
+        "Create SQL queries",
+        "Replace the browser DOM"
+      ],
+      "correctIndex": 1,
+      "explanation": "JSX is a syntax extension that compiles into React element creation calls inside JS/TS."
+    },
+    {
+      "id": 4,
+      "question": "Which direction does ordinary React props data flow?",
+      "options": [
+        "Child to parent automatically",
+        "Parent to child",
+        "Database to CSS",
+        "Bidirectionally without callbacks"
+      ],
+      "correctIndex": 1,
+      "explanation": "React enforces one-way data flow: props flow downward from parent to child, while children notify parents via callbacks."
+    },
+    {
+      "id": 5,
+      "question": "What happens when a React state setter is called?",
+      "options": [
+        "The current variable changes immediately",
+        "React is asked to schedule an update and re-render",
+        "The entire browser reloads",
+        "All components are unmounted"
+      ],
+      "correctIndex": 1,
+      "explanation": "State behaves like a snapshot per render; calling a setter schedules a new render with the updated value."
+    },
+    {
+      "id": 6,
+      "question": "Why should stable keys be used when rendering lists?",
+      "options": [
+        "To create CSS classes",
+        "To help React identify items across renders",
+        "To encrypt item data",
+        "To increase API speed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stable keys let React match list items accurately across insertions, deletions, and reorders."
+    },
+    {
+      "id": 7,
+      "question": "What is a controlled input?",
+      "options": [
+        "An input managed through React state",
+        "An input that cannot be changed",
+        "An input without an event handler",
+        "An HTML-only input"
+      ],
+      "correctIndex": 0,
+      "explanation": "A controlled input binds its value (or `checked` for checkboxes) to React state and updates via `onChange`."
+    },
+    {
+      "id": 8,
+      "question": "Where should ordinary React Hooks be called?",
+      "options": [
+        "Inside conditions",
+        "Inside loops",
+        "At the top level of React components or custom Hooks",
+        "Inside every event handler"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hooks rely on consistent call order across renders, so they must be called unconditionally at the top level."
+    },
+    {
+      "id": 9,
+      "question": "What is the main purpose of useEffect?",
+      "options": [
+        "Replace JSX",
+        "Synchronize a component with external systems",
+        "Store all application state",
+        "Create HTML elements"
+      ],
+      "correctIndex": 1,
+      "explanation": "`useEffect` synchronizes a component with external systems (network, timers, subscriptions, DOM APIs) and cleans up on teardown."
+    },
+    {
+      "id": 10,
+      "question": "What is the main difference between useState and useRef?",
+      "options": [
+        "Both always trigger renders",
+        "Changing state schedules a render; changing ref.current does not",
+        "Refs can only store strings",
+        "State cannot store objects"
+      ],
+      "correctIndex": 1,
+      "explanation": "`useRef` holds a persistent mutable `.current` reference across renders without triggering re-renders."
+    }
+  ]
+}
