@@ -16,19 +16,7 @@ export default function DataEngineeringIntroSections() {
           Module 1: Complete Curriculum Specification
         </h2>
         <div className="space-y-3 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; An Overview of Data Pipeline Architecture</span>
-            <a href="https://images.openai.com/static-rsc-4/kLwbIixB_3P2sXo__6aSl6FqDLoU_rAzNrBfrGwjzHwBIJ67mkIRuAApCnYeBqCNgdYhBok-msz0gPz5acBEr9kJjKlqIt6rcrDRj6cVZd6OL9pLA2zOHRA4GgJ2LzbYF3muNq3fCv-hB_7YaRoqEfJxf7rMVgoP8aQuSlzDT-M?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; Data Engineering Architecture Overview: Scalable Analytics &amp; ML | Sunil Kumar Reddy posted on the topic | LinkedIn</span>
-            <a href="https://images.openai.com/static-rsc-4/pSbKAqRlgjPq2GmqOz4dUSeWuvi82s-aX2bSly6FHJxxhe5hNikFDtX-GNinvKCPpqtKAWhDg4PySCNuDvZzXY1K0rQ1nIGHFGpVZSYy00KhnY2Ju088OKTtZBDDLI5Uq-As-0eYIsoVvL_CNWyPbxFiIiQrRBeamiltYqebzcw?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; 🏗️ DATA LAKE &amp; DATA WAREHOUSE</span>
-            <a href="https://images.openai.com/static-rsc-4/qCGaiWeA_DYgEiBvLP5HoqwRmtC3jgJ0Hi9qoDEafm7PSAkV9Qpu7UZsZQs8mDfrIjeKN44Bbsmxlft7U6v_69cRlQxopGm2kd-SNArJRduF1VVAyKvSvNagY-ezAF0aXAsqbQPgEo5mPH7jMptE-tinZxmiN1LCGykQBjGwk2Y?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
-          <h3 className="text-lg font-bold text-stone-900 mt-4 mb-2">Module overview</h3>
+          <h3 className="text-lg font-extrabold text-stone-900 mt-5 mb-2 border-l-4 border-l-[#f97316] pl-3">Module overview</h3>
           <p>Data Engineering is the foundation of modern data-driven organizations. Every time someone purchases a product, makes a payment, watches a video, searches Google, or uses a banking application, data is generated.</p>
           <p>However, raw data by itself is rarely useful. It must be collected, organized, cleaned, transformed, stored, secured, and delivered to systems that can use it.</p>
           <p>This is where Data Engineering comes in.</p>
@@ -42,8 +30,8 @@ export default function DataEngineeringIntroSections() {
           <p>How should we forecast inventory for the next month?</p>
           <p>To answer these questions reliably, the company needs a complete data infrastructure. A Data Engineer designs and maintains that infrastructure.</p>
           <p>This module introduces the architecture, concepts, technologies, and engineering principles behind these systems.</p>
-          <h3 className="text-lg font-bold text-stone-900 mt-4 mb-2">Learning objectives</h3>
-          <h3 className="text-lg font-bold text-stone-900 mt-4 mb-2">By the end of this module, you should be able to:</h3>
+          <h3 className="text-lg font-extrabold text-stone-900 mt-5 mb-2 border-l-4 border-l-[#f97316] pl-3">Learning objectives</h3>
+          <h3 className="text-lg font-extrabold text-stone-900 mt-5 mb-2 border-l-4 border-l-[#f97316] pl-3">By the end of this module, you should be able to:</h3>
           <p>Explain Data Engineering and its role in modern organizations.</p>
           <p>Understand the evolution of data engineering architectures.</p>
           <p>Differentiate Data Engineers, Data Analysts, and Data Scientists.</p>
@@ -70,7 +58,7 @@ export default function DataEngineeringIntroSections() {
           1. Introduction to Data Engineering
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.1 What is Data Engineering?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.1 What is Data Engineering?</h3>
           <p>Data Engineering is the discipline of designing, developing, deploying, and maintaining systems that collect, process, store, transform, and deliver data.</p>
           <p>The primary objective is to make data accessible, reliable, accurate, secure, and usable for other applications and teams.</p>
           <p>A Data Engineer creates the infrastructure that allows organizations to convert raw data into meaningful information.</p>
@@ -105,7 +93,7 @@ export default function DataEngineeringIntroSections() {
           <p>₹1,70,000</p>
           <p>Validated and aggregated data ready for analysis.</p>
           <p>The important distinction is that Data Engineering is not simply about storing information. It is about building reliable systems that make information useful.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.2 Why is Data Engineering important?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.2 Why is Data Engineering important?</h3>
           <p>Modern applications generate enormous amounts of data.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider some examples:</h4>
           <p>E-commerce: An online shopping platform generates customer activity, product information, payments, inventory updates, and delivery records.</p>
@@ -121,13 +109,9 @@ export default function DataEngineeringIntroSections() {
           <p>Unreliable machine learning predictions.</p>
           <p>Difficulties processing large volumes of information.</p>
           <p>Data Engineering solves these problems by creating standardized data systems.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.3 Evolution of Data Engineering</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.3 Evolution of Data Engineering</h3>
           <p>Data Engineering evolved alongside the growth of computing, databases, the internet, and cloud platforms.</p>
           <p>Understanding this evolution helps explain why modern architectures look the way they do.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>A Practical Guide to Setting Up Your Data Lakehouse across AWS, Azure, GCP and Snowflake - Tiger Analytics</span></div>
-            <a href="https://images.openai.com/static-rsc-4/1DCp8jrr16w3M3K73v3jHTu8GbA_unthk5J-xDNt7kBxXDxdiiPobPUJOJ73UmFswYEABfRM-9UdDFR-6lgr3vJXwOXQBUkZHvCLG0R0h53UdWcsRArO-4DcQPUjyPhpZT3jv9tVtDp09RPeQarFYWzc5FoG3MH6DdIv9a0J1Rw?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>tigeranalytics.com</span></div>
             <a href="https://www.tigeranalytics.com/blog/a-practical-guide-to-setting-up-your-data-lakehouse-across-aws-azure-gcp-and-snowflake/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -205,22 +189,14 @@ export default function DataEngineeringIntroSections() {
           2. What is the Role of a Data Engineer?
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.1 Data Engineer vs Data Analyst vs Data Scientist</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.1 Data Engineer vs Data Analyst vs Data Scientist</h3>
           <p>These three professions work with data, but they solve different problems.</p>
           <p>Imagine a company wants to understand why its sales have decreased.</p>
           <p>Each professional approaches the problem differently.</p>
           <p>Data Engineer</p>
           <p>Builds the infrastructure that collects, cleans, transforms, and delivers the company's data.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Fhits The Content House</span></div>
-            <a href="https://images.openai.com/static-rsc-4/H5mUaT_fVqSKYWV0gI0oO_NHZ6Y4qL_eGOXf_dfD0FNICojqMtPqLc9VouF-pqJkf7C3qSxT1-x1OchVlFswspWWsRACsiIXH2dBLe1Cy1pMo6II6dPFSR4WF6RMqn_AxM0zAtKhbO75793S4XRvSqBTgssKC8-h2rpw_X-m6fI?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Data Analyst</p>
           <p>Uses prepared data to understand business performance and create reports and dashboards.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Training on Introduction to AI, Data Science and Machine Learning with Python - ForElite Training Institute</span></div>
-            <a href="https://images.openai.com/static-rsc-4/YeN3-JBPlN-7KxDqPAlFav2BQfEU6GId5eTIXzOSkj3SAHRebAztsQnJdB3cX_gWIdEp0HldVbooGE9JbK16vBv42XT_GTGDAo1n7Fght4YO5g0gVg56LYg-LQvPF41N887x-tz2eC2ej-OwtQks_1eDJMz_Yy_LIgtHEkTCUJg?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Data Scientist</p>
           <p>Uses statistics, machine learning, and experimentation to discover patterns and build predictive models.</p>
           <p>Example: An e-commerce business</p>
@@ -274,7 +250,7 @@ export default function DataEngineeringIntroSections() {
           <p>Occasional</p>
           <p>Core skill</p>
           <p>There is overlap between these professions. The exact responsibilities depend on the organization.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.2 Responsibilities of a Data Engineer</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.2 Responsibilities of a Data Engineer</h3>
           <p>A Data Engineer is responsible for several important engineering activities.</p>
           <p>A. Data ingestion</p>
           <p>Data ingestion means collecting data from different sources and bringing it into a central data platform.</p>
@@ -352,15 +328,11 @@ export default function DataEngineeringIntroSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>The Data Engineering lifecycle describes how data moves from its original source to a form that can be consumed by applications, analysts, and machine learning systems.</p>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>The Data Engineering Lifecycle - DEV Community</span></div>
-            <a href="https://images.openai.com/static-rsc-4/PJ7tCcj8LNp611Gv3Dx2yhkFWjPl_z8FAOswsxHdAM2vvj29ypxdKauYua6595UrjJZJ45OURvCxCrHP-W6DzBlceOI7HExWWa-PWC1d-lhpWXdVSq_Q9dKipWsZ1djv-0Q_e3nD15iwrjfnTYZ0cKJXq7Vi4RlUehkxmE0eyRc?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>dev.to</span></div>
             <a href="https://dev.to/mirinagonzales/the-data-engineering-lifecycle-2n7m?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
           </div>
           <p>Let's understand each stage.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.1 Data generation</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.1 Data generation</h3>
           <p>Data generation is the starting point.</p>
           <p>Data is produced by applications, users, devices, databases, and external services.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Examples:</h4>
@@ -373,7 +345,7 @@ export default function DataEngineeringIntroSections() {
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">When a user opens a product page, the application might generate:</h4>
           <p>&#123; "event_type": "product_view", "user_id": 101, "product_id": 501, "event_timestamp": "2026-11-09T10:15:00" &#125;</p>
           <p>This event becomes one of the inputs to the data engineering system.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.2 Data ingestion</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.2 Data ingestion</h3>
           <p>Ingestion brings data from its original source into the data infrastructure.</p>
           <p>There are different ingestion approaches.</p>
           <p>Full extraction: Extract all available records.</p>
@@ -381,7 +353,7 @@ export default function DataEngineeringIntroSections() {
           <p>Change Data Capture (CDC): Capture database changes such as inserts, updates, and deletes.</p>
           <p>For example, instead of exporting an entire customer database every hour, a CDC system can capture only changes made since the previous processing interval.</p>
           <p>This can significantly reduce unnecessary data movement.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.3 Data storage</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.3 Data storage</h3>
           <p>Ingested information needs to be stored.</p>
           <p>Storage systems are selected based on how the data will be used.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example:</h4>
@@ -400,7 +372,7 @@ export default function DataEngineeringIntroSections() {
           <p>Data lake storage</p>
           <p>Raw and processed files</p>
           <p>Storage architecture affects performance, scalability, availability, and operating cost.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.4 Data processing</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.4 Data processing</h3>
           <p>Data processing converts raw information into a more useful structure.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">It can include:</h4>
           <p>Removing invalid records.</p>
@@ -435,7 +407,7 @@ export default function DataEngineeringIntroSections() {
           <p>600</p>
           <p>T3</p>
           <p>1000</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.5 Data serving</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.5 Data serving</h3>
           <p>Data serving means making processed information available to consumers.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consumers may include:</h4>
           <p>Business intelligence dashboards.</p>
@@ -446,7 +418,7 @@ export default function DataEngineeringIntroSections() {
           <p>Other data pipelines.</p>
           <p>For example, an analytics team might access a table called daily_sales_summary.</p>
           <p>They do not need to process millions of raw order records themselves every time they create a report.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.6 Orchestration</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.6 Orchestration</h3>
           <p>Orchestration coordinates the execution of different pipeline activities.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider a daily sales pipeline:</h4>
           <p>Extract order data.</p>
@@ -459,7 +431,7 @@ export default function DataEngineeringIntroSections() {
           <p>The revenue calculation must not start before the necessary order information has been loaded.</p>
           <p>Workflow orchestration manages these dependencies, retries, schedules, and execution states.</p>
           <p>Popular orchestration technologies include Apache Airflow, Dagster, and Prefect.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.7 Monitoring and observability</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.7 Monitoring and observability</h3>
           <p>Monitoring helps engineers understand whether their systems are functioning correctly.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Important monitoring metrics include:</h4>
           <p>Pipeline execution time.</p>
@@ -471,7 +443,7 @@ export default function DataEngineeringIntroSections() {
           <p>Processing cost.</p>
           <p>Observability goes further by helping engineers investigate why a system behaved unexpectedly.</p>
           <p>For example, if yesterday's dashboard shows unusually low revenue, observability tools can help identify whether the issue came from missing source data, failed transformations, or delayed pipeline execution.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.8 Governance and security</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.8 Governance and security</h3>
           <p>Governance establishes rules for how organizational data is defined, accessed, protected, and managed.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Examples:</h4>
           <p>Only authorized employees can access customer information.</p>
@@ -495,7 +467,7 @@ export default function DataEngineeringIntroSections() {
           4. Data Sources and Data Consumers
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.1 What are data sources?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.1 What are data sources?</h3>
           <p>A data source is any system, application, device, or file from which information originates.</p>
           <p>Modern organizations rarely store all their information in one location.</p>
           <p>They use multiple applications for different operational activities.</p>
@@ -570,7 +542,7 @@ export default function DataEngineeringIntroSections() {
           <p>Smart electricity meters.</p>
           <p>Manufacturing equipment.</p>
           <p>Industrial monitoring devices.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.2 What are data consumers?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.2 What are data consumers?</h3>
           <p>Data consumers are the systems or people who use processed data.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Examples:</h4>
           <p>Consumer</p>
@@ -624,7 +596,7 @@ export default function DataEngineeringIntroSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Data can exist in different formats.</p>
           <p>Understanding these categories is essential because storage and processing strategies depend on the structure of the information.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.1 Structured data</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.1 Structured data</h3>
           <p>Structured data follows a predefined schema.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A schema defines the organization of data, including:</h4>
           <p>Column names.</p>
@@ -658,7 +630,7 @@ export default function DataEngineeringIntroSections() {
           <p>Easy to validate using constraints.</p>
           <p>Commonly used in business transactions and reporting.</p>
           <p>Examples include banking transactions, customer tables, inventory records, and employee records.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.2 Semi-structured data</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.2 Semi-structured data</h3>
           <p>Semi-structured data does not necessarily follow a rigid tabular format, but it contains organizational information.</p>
           <p>That organization may be expressed through keys, tags, nested objects, or metadata.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">JSON example:</h4>
@@ -672,7 +644,7 @@ export default function DataEngineeringIntroSections() {
           <p>Can support evolving schemas.</p>
           <p>Often used in APIs and modern applications.</p>
           <p>Requires appropriate parsing and validation.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.3 Unstructured data</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.3 Unstructured data</h3>
           <p>Unstructured data does not naturally follow a fixed tabular schema.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Examples:</h4>
           <p>Images.</p>
@@ -682,18 +654,6 @@ export default function DataEngineeringIntroSections() {
           <p>Email content.</p>
           <p>Free-form text.</p>
           <p>Medical scans.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>PPT - C3PI: Computational Photography Project for Pill Identification PowerPoint Presentation - ID:1552932</span></div>
-            <a href="https://images.openai.com/static-rsc-4/VIclY7jKBvqs9p5LyVhqoXuTeKonyRoej_7BlXgJl7PEAWt2xXoC9f8ogJyVxpVs2epPAijkSVP6pps4hj7M8ucxEDr2OMKo386Mvqhq2zLlD6bxGecpTN1FdxruCEne9sWg1RdVbVC1fkowDGZOGz1IZE-AuSMic97hMs97N6I?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Techno BPM: The Heartbeat of Techno Music - Techno Airlines</span></div>
-            <a href="https://images.openai.com/static-rsc-4/THAAPfVBhMFlYAFrnPvESj0TmrW2vYGxAGM6TUmbDOdZMiiUaIZgcXW8FUNrDy3JSo3oIlSWY3ps8Ra5e9OkYP4_qF9soc5VMhEVraaozF1RP3FkJ4G52mpKuCnkiTGBXI0xle5uEXMlkNtwXzNBBaVvx-k97F7ZSbltZbjNOnA?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Major Hack of Camera Company Offers Four Key Lessons on Surveillance | American Civil Liberties Union</span></div>
-            <a href="https://images.openai.com/static-rsc-4/vixrJAw1Jtj97dJShOF83OzYtD-ZFWrr2DMq7Zf7spt5VtEup5dlcP5F064k0HTihD6MMwbAlcvT4UHIv387NG_U79_xNJUqPwDWvQnkOn1E-mDQk5pBwzyzPETRdmIXTZjklYzJB-o5Te41LBDx4gpgAkXipd8nfg6zRwi-aZY?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>4</p>
           <p>Consider a hospital storing MRI images.</p>
           <p>An MRI image contains valuable information, but it cannot be directly organized into ordinary relational columns in the same way as a patient's name or appointment date.</p>
@@ -753,7 +713,7 @@ export default function DataEngineeringIntroSections() {
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>One of the most important foundations in data engineering is understanding the difference between transactional systems and analytical systems.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.1 What is OLTP?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.1 What is OLTP?</h3>
           <p>OLTP stands for Online Transaction Processing.</p>
           <p>OLTP systems are designed to process everyday business transactions.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Examples:</h4>
@@ -787,7 +747,7 @@ export default function DataEngineeringIntroSections() {
           </div>
           <p>This is an example of an operational transaction.</p>
           <p>Real money transfers require additional validation, transaction management, security, and failure-handling logic.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.2 What is OLAP?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.2 What is OLAP?</h3>
           <p>OLAP stands for Online Analytical Processing.</p>
           <p>OLAP systems are designed to analyze large amounts of historical and current information.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Examples:</h4>
@@ -819,7 +779,7 @@ export default function DataEngineeringIntroSections() {
             </pre>
           </div>
           <p>This query calculates the total transaction amount for each month.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.3 OLTP vs OLAP comparison</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.3 OLTP vs OLAP comparison</h3>
           <p>Feature</p>
           <p>OLTP</p>
           <p>OLAP</p>
@@ -847,15 +807,11 @@ export default function DataEngineeringIntroSections() {
           <p>Design</p>
           <p>Usually normalized</p>
           <p>Frequently dimensional</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.4 How do OLTP and OLAP work together?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.4 How do OLTP and OLAP work together?</h3>
           <p>Consider an online shopping company.</p>
           <p>The OLTP database manages customer orders.</p>
           <p>When a customer purchases a mobile phone, the application updates the order database.</p>
           <p>The analytical platform receives a copy of relevant information and prepares it for analysis.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Slice of BI: Life of DW-BI</span></div>
-            <a href="https://images.openai.com/static-rsc-4/3JqfRfUyCsG1Fn5csMqsaj4qrnfB_Chrj7YBQygRDp0pDVZJgNOfPH966CyL4prsERdk9jRLH3_C_-Kea4_3taEgH51D-PgPy9P5TpKq2N7nmdFonCM0GO9CwW85OteqJ2024yAjAaGnKZRXlQ8UhjHogYl1ssfUA57l4ulr85E?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>sliceofbi.com</span></div>
             <a href="https://www.sliceofbi.com/2015/07/life-of-bi-business-intelligence.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -899,15 +855,11 @@ export default function DataEngineeringIntroSections() {
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Data processing can happen in different ways depending on when the information needs to become available.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.1 Batch processing</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.1 Batch processing</h3>
           <p>Batch processing means collecting data over a period of time and processing it together.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example:</h4>
           <p>A company collects every order placed during the day and calculates total sales at midnight.</p>
           <p>Instead of processing every order immediately, the system waits and processes a group of records together.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Batch ETL Pipeline — Flowchart Diagram | Diagrams.so</span></div>
-            <a href="https://images.openai.com/static-rsc-4/mhJXGCm0HeXyjJdPv7MzOY3e0vcpfrgLJ2Xux_6LZmJZrVaCmU1kEk7A6Mv_wWimMCVR6bcrtSPvB_mS8Q-9YyRNcjfi08f83HHe-WSd-sR7f-lpxGf-TnPOqCK_egVunOeC2q_64BLthLhfuqnljggALANWIshWgzIl3Xxu1NY?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>diagrams.so</span></div>
             <a href="https://diagrams.so/d/batch-etl-pipeline?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -957,13 +909,9 @@ export default function DataEngineeringIntroSections() {
           <p>Results are delayed until processing runs.</p>
           <p>Large batches may take longer.</p>
           <p>Late-arriving data may require reprocessing.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.2 Stream processing</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.2 Stream processing</h3>
           <p>Stream processing means processing continuously arriving data events, often shortly after they are generated.</p>
           <p>Instead of waiting until midnight, a system processes incoming events as they arrive.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>The Top 20 Problems with Batch Processing (and How to Fix Them with Data Streaming) | by Kai Waehner | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/ESkHMOvHcM4iqeXjd7B2KRgJ2xlljhpHFx7yIW8vEnBAfUHPDmeeLHnv8lIOVKiLutXTZzA_pj2jsmOFFykafXalrdwAA9RVyJf33ra-TXDY3SXQWkumkFcEg_LNReqCG_gt2rzIrKj7_BfdYrmAK1ZIthrEiKiqtF1ryNXOkig?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>kai-waehner.medium.com</span></div>
             <a href="https://kai-waehner.medium.com/the-top-20-problems-with-batch-processing-and-how-to-fix-them-with-data-streaming-39495de0a653?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -989,7 +937,7 @@ export default function DataEngineeringIntroSections() {
           <p>Apache Flink: Distributed stream-processing framework.</p>
           <p>Kafka Streams: A library for building stream-processing applications using Kafka.</p>
           <p>Spark Structured Streaming: A stream-processing engine built on Apache Spark's structured data processing APIs.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.3 Batch vs stream comparison</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.3 Batch vs stream comparison</h3>
           <p>Feature</p>
           <p>Batch</p>
           <p>Stream</p>
@@ -1011,7 +959,7 @@ export default function DataEngineeringIntroSections() {
           <p>Example</p>
           <p>Daily sales report</p>
           <p>Fraud detection</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.4 Real-time does not always mean instant</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.4 Real-time does not always mean instant</h3>
           <p>A common misconception is that all data must be processed in real time.</p>
           <p>This is unnecessary and sometimes expensive.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider these requirements:</h4>
@@ -1030,7 +978,7 @@ export default function DataEngineeringIntroSections() {
           <p>Historical sales analysis</p>
           <p>Batch</p>
           <p>The correct choice depends on the business requirement and acceptable data latency.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.5 What is micro-batch processing?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.5 What is micro-batch processing?</h3>
           <p>Micro-batch processing divides continuous incoming information into very small batches.</p>
           <p>For example, a system may process events every five seconds.</p>
           <p>It provides a compromise between traditional scheduled batch processing and continuous event-by-event processing.</p>
@@ -1050,16 +998,12 @@ export default function DataEngineeringIntroSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>ETL and ELT describe two common approaches to moving and transforming data.</p>
           <p>The difference is the order in which extraction, transformation, and loading occur.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.1 What is ETL?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.1 What is ETL?</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">ETL stands for:</h4>
           <p>Extract.</p>
           <p>Transform.</p>
           <p>Load.</p>
           <p>In ETL, data is extracted from source systems, transformed in an intermediate processing environment, and then loaded into the destination system.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>ETL Pipelines 101: Your Guide to Data Success | ClicData</span></div>
-            <a href="https://images.openai.com/static-rsc-4/z6emsDyNR9YQ96VnZmA75UrPWDVwLO0vAZ4sN8vM-ba4ISYOsal1S7yo-MwLHF8G3lB7vQoL2fS7DSPCDcXXDcjq1dQDMFv1uvgyL_cRWyN4GMmU4ygErR-6ohY8lPG3He4xLWvkTVJ_sh0H2acv82iXriUmzFSQe4c6kRgQIMc?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>clicdata.com</span></div>
             <a href="https://www.clicdata.com/blog/etl-pipelines-guide/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1092,17 +1036,13 @@ export default function DataEngineeringIntroSections() {
           <p>Requires an intermediate transformation environment.</p>
           <p>Transformations may need to be redesigned when business requirements change.</p>
           <p>Can introduce additional infrastructure and maintenance.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.2 What is ELT?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.2 What is ELT?</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">ELT stands for:</h4>
           <p>Extract.</p>
           <p>Load.</p>
           <p>Transform.</p>
           <p>In ELT, raw or lightly processed data is first loaded into the destination platform.</p>
           <p>Transformations occur after the data has been loaded.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>ETL Pipeline for Data Engineering: A Beginner's Guide to Extract, Transform, and Load - DEV Community</span></div>
-            <a href="https://images.openai.com/static-rsc-4/uN_BW25JAopaYmouGoDspFyP9WftRhoralIub5y48AXnAgyfLYsTScgUu6IkxO6dH3krbJoZY3zZ2cFLvyXbgM2TcszvSl2p0rUbntceUnqSAI994nGevniS8BHfYOG_nOxpG-i4AnopjBe0ss2bz3xM1CnPQhq7uX8NPHE4tJg?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>dev.to</span></div>
             <a href="https://dev.to/gowthampotureddi/etl-pipeline-for-data-engineering-a-beginners-guide-to-extract-transform-and-load-4i1f?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1132,7 +1072,7 @@ export default function DataEngineeringIntroSections() {
           <p>Poorly governed raw data can create security and quality risks.</p>
           <p>Storage and compute costs need careful management.</p>
           <p>Transformation logic still requires testing and maintenance.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.3 ETL vs ELT comparison</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.3 ETL vs ELT comparison</h3>
           <p>Feature</p>
           <p>ETL</p>
           <p>ELT</p>
@@ -1181,7 +1121,7 @@ export default function DataEngineeringIntroSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Organizations need storage architectures capable of handling both structured business information and large volumes of different data formats.</p>
           <p>Two fundamental concepts are data warehouses and data lakes.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.1 What is a Data Warehouse?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.1 What is a Data Warehouse?</h3>
           <p>A data warehouse is a centralized analytical repository that stores organized data for reporting, analysis, and decision-making.</p>
           <p>It integrates information from multiple sources into a consistent structure.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -1192,10 +1132,6 @@ export default function DataEngineeringIntroSections() {
           <p>Payments.</p>
           <p>Delivery.</p>
           <p>The warehouse combines these datasets to provide one integrated view.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Enterprise Data Warehouse</span></div>
-            <a href="https://images.openai.com/static-rsc-4/XIeohY_q00h-2E9Pzg7XcU6rg6wZl6FBqaET6x8OTFpamQ-BiIkCVE1TjfxLyep8YR6AyySka6J4nHXAtXYEJBnNDkAmlnKrQ74ZpracV-m297gflp3tP4sepXDHEBEltx3AOrBTjllM4M7T_-YfDDrL50GqYVz1bdEX-DAEyjg?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>capellasolutions.com</span></div>
             <a href="https://www.capellasolutions.com/blog/enterprise-data-warehouse?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1235,37 +1171,17 @@ export default function DataEngineeringIntroSections() {
           <p>Monthly growth.</p>
           <p>Average order value.</p>
           <p>Popular data warehouse platforms</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Snowflake bets on India’s AI surge for next growth cycle - Business News | The Financial Express</span></div>
-            <a href="https://images.openai.com/static-rsc-4/5wtu-luImOoj28LkceLn3tnRHVmriF-VMG7QifO-WPm49TUseFWccqtkHsimk-yIUC1twHb-Zf89cuPUftcWui8ACDKHTSOs9IKAo82NrgCkTt-quflHXFlPW4_r2wd0bGGn1lsDjoS_MaWpSGeGwNiIth9AVAFW4rh9fBn1or4?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Snowflake</p>
           <p>Cloud-based analytical data platform.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Google BigQuery Logo PNG Vector (SVG) Free Download</span></div>
-            <a href="https://images.openai.com/static-rsc-4/J_ke5IF18E_otFdl4ob_wx-9zqbgbr0uIoB6NoC8ze-o4VWfbTnGmPgaxCUgsV7iPmXD1mwX_Cem6IJpGXnv8o0yI3VsZtKBhVlBy-YvQD8qdF-67umLy3lHOUKxQ6JglFloYz4P4srAsaPcm2kOAyePd9a5lyiE73yZyJkzLOM?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Google BigQuery</p>
           <p>Serverless analytical data warehouse on Google Cloud.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>novixa.ai | AI-Powered Retention Intelligence for Customer Revenue Teams</span></div>
-            <a href="https://images.openai.com/static-rsc-4/XhTA_nlmycFXsBSNMJ8icsnPxEr8QIjUTH6omZ44_CvX_NSQLUniMEaobLTnBkE8y0oCgFWrhN67Gpdy-4PQbI7oly_8EBmSs0u0ms1dDI6XPPKFpVTmhBLfqkZWm2IiZPrpS4CzoYBMXlG_f0RYmZNYiYVuoQd-1uwpvpJgjuo?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Amazon Redshift</p>
           <p>Managed analytical database service on AWS.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Microsoft Fabric</span></div>
-            <a href="https://images.openai.com/static-rsc-4/UkK7_KCq8ssNWcDk2MepPkS5D55XBHD_MPy21rLsKh9g33Wv8Y1taw6weQRGTYGUKUYXqKkogOy7q-R8kCKJizEzozxVD_Bb07Ejm-SQYJAlyEie66t4SayfP1ai3CizZhNPemAxYbMF-03a1Obds_PO_W08d0IrkMNFKjYwO4I?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Microsoft Fabric</p>
           <p>Integrated analytics platform with data engineering and warehousing capabilities.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.2 What is a Data Lake?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.2 What is a Data Lake?</h3>
           <p>A data lake is a storage architecture designed to store large amounts of data in its original or transformed form.</p>
           <p>Unlike traditional data warehouses, data lakes can store structured, semi-structured, and unstructured data.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Data Lake Explained: Architecture and Examples</span></div>
-            <a href="https://images.openai.com/static-rsc-4/V22OBiEE-HkMscB65_ETyJPlwPg9bu4nZN3R24bmsHiLEy9T3jZPY_OjSiotI7GW7JEXdiQctXGx_F49qFLDDResOdAYd8mdiFdntSRemhS08SvJJKER6iVU6nwhC4A5o7b7PGIVvmvahBG_xyEUvJAaziKLc69hnp9qlKQaZZw?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>altexsoft.com</span></div>
             <a href="https://www.altexsoft.com/blog/data-lake-architecture/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1291,7 +1207,7 @@ export default function DataEngineeringIntroSections() {
           <p>A processing application can select relevant fields and apply a schema when consuming the records.</p>
           <p>This flexibility is powerful, but it does not mean data quality can be ignored.</p>
           <p>A poorly governed data lake can turn into a data swamp, where information is difficult to discover, trust, and use.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.3 Data Warehouse vs Data Lake</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.3 Data Warehouse vs Data Lake</h3>
           <p>Feature</p>
           <p>Data Warehouse</p>
           <p>Data Lake</p>
@@ -1344,13 +1260,9 @@ export default function DataEngineeringIntroSections() {
           10. Modern Data Lakehouse Architecture
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.1 What is a Data Lakehouse?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.1 What is a Data Lakehouse?</h3>
           <p>A data lakehouse is an architecture that aims to combine the flexible, relatively inexpensive storage of a data lake with important data management and analytical capabilities commonly associated with a data warehouse.</p>
           <p>The goal is to support structured analytics, large-scale processing, and other workloads on a shared data foundation.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Data Lakehouse 101 | The Definitive Guide to Modern Data Architecture</span></div>
-            <a href="https://images.openai.com/static-rsc-4/GSX0fXqpoycVpbQy1cT8h0xzYij60Hoecn75kEYqWip7vZ9QNRA4rNcCNhR93fMLKzN08R8XybH5F7LzITRNwzpZ9QdGiX0iA2JjE2aIIicx--K8rge5EsWvHno48c4_aOTg5FbqnKM90KeX-c-Xera-KVo4v1C6FIRfhKmqsEw?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>datalakehouse101.com</span></div>
             <a href="https://datalakehouse101.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1396,22 +1308,10 @@ export default function DataEngineeringIntroSections() {
           <p>Time travel.</p>
           <p>Concurrent read and write support.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Important examples include:</h4>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Delta Lake - Database of Databases</span></div>
-            <a href="https://images.openai.com/static-rsc-4/h_8Xwe_N2JxWEDRHo13nUN5ZQAnFDY5Z3qhEwcnASTcNqjFc4dG50UYSjHLc2yYQsZ64mPIDycRTwkmp3hiW2FXshFDYjIbr9HpFE1-h0vCEuhtl5cRRMwN7nMIfOQOFrEuHmRZ-Z5gI2B9qwLCcJc9UT7NdSobkmeCD8MZ1_C4?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Delta Lake</p>
           <p>Provides transactional table management and data reliability features for data lakes.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Apache Iceberg Icon | Dashboard Icons</span></div>
-            <a href="https://images.openai.com/static-rsc-4/KKxU2RyApH_xql380suh_-LbsHpxZdBVLSjeGNXJnOgFnN08XPzHUT2KAUq775vs4zPQj8NkvnZqoK8HAXnPTFU-3lLl9K9cADND0XnpZIkLVNBrg6g_kD6EghA_ez8zs1pfTLIr1e5CPUQakU5CbBIeYW2NqJus3on_ljqiZR4?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Apache Iceberg</p>
           <p>Open table format supporting large analytical tables and schema evolution.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Fletum - Revenue Operations Platform | Boost Your Revenue with AI-Powered RevOps</span></div>
-            <a href="https://images.openai.com/static-rsc-4/rFAT2X_5ZF4TPFpgiYWacY3dUGOEz5Unki33pB-GoWBs84bby8qop-J9MikKpvZDDPqL8ZZELVTyujSKjy7xxcadkSNckIjmRBCl45GOStwOv6HgcvSO9O9mi2QZO8cSOIHXcbW7wI4UexUtDbcF_1JkxROxgmFwb8NihfCtT7g?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Apache Hudi</p>
           <p>Data lake table platform supporting record-level updates, incremental processing, and table management.</p>
           <ol className="list-decimal list-inside space-y-1.5 text-stone-700 text-sm sm:text-base my-3 pl-2">
@@ -1448,13 +1348,13 @@ export default function DataEngineeringIntroSections() {
           <p>Machine learning frameworks.</p>
           <p>Data science notebooks.</p>
           <p>Other applications.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.2 Important lakehouse concepts</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.2 Important lakehouse concepts</h3>
           <p>ACID transactions: Atomicity, Consistency, Isolation, and Durability. They describe properties that help transactions execute reliably.</p>
           <p>Schema evolution: The ability to change a table's structure over time while managing compatibility.</p>
           <p>Time travel: The ability to query or restore certain earlier table states, depending on retention and platform capabilities.</p>
           <p>Partitioning: Dividing a large dataset into smaller logical groups, often based on columns such as date or region.</p>
           <p>Metadata management: Maintaining information about schemas, files, versions, and table states.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.3 Warehouse vs Lake vs Lakehouse</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.3 Warehouse vs Lake vs Lakehouse</h3>
           <p>Feature</p>
           <p>Warehouse</p>
           <p>Lake</p>
@@ -1504,7 +1404,7 @@ export default function DataEngineeringIntroSections() {
           11. Data Pipeline Architecture
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.1 What is a data pipeline?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.1 What is a data pipeline?</h3>
           <p>A data pipeline is a sequence of automated processes that moves data from one or more sources to one or more destinations.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">These processes may include:</h4>
           <p>Extraction.</p>
@@ -1521,10 +1421,6 @@ export default function DataEngineeringIntroSections() {
           <p>A payment provider supplies payment data through an API.</p>
           <p>The retailer needs a daily sales dashboard.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">The data pipeline might look like this:</h4>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Best AI Diagram Generators in 2026 Compared | ConceptViz – Generador de Diagramas Científicos con IA para Docentes e Investigadores</span></div>
-            <a href="https://images.openai.com/static-rsc-4/Gs4Rs0ILcnvR8ybDIEfOXcVOCTI0Y2-J7Oi6FDIZHmgOTjyr6Lc2qVmSHDgAv6EBnT2JmSUzIp7BFRKGrsG_h1_OZFBlRQ8ThF8PUAs81AK0jPWf1IjI1D1hkMJSkqCMwJlif629aHRANeScUJYhPtwy4zv7l8Amdp5eLuINd-U?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>conceptviz.app</span></div>
             <a href="https://conceptviz.app/es/blog/best-ai-diagram-generators-guide?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1545,7 +1441,7 @@ export default function DataEngineeringIntroSections() {
               <span className="px-3 py-1.5 rounded-lg bg-white border border-stone-300 font-semibold text-stone-800 shadow-2xs">v Power BI ML Models</span>
             </div>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.2 Main components of a pipeline</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.2 Main components of a pipeline</h3>
           <ol className="list-decimal list-inside space-y-1.5 text-stone-700 text-sm sm:text-base my-3 pl-2">
             <li value="1"><strong className="text-stone-900">Source systems</strong></li>
           </ol>
@@ -1596,7 +1492,7 @@ export default function DataEngineeringIntroSections() {
           <p>SQL endpoints.</p>
           <p>BI dashboards.</p>
           <p>Data APIs.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.3 What makes a pipeline production-ready?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.3 What makes a pipeline production-ready?</h3>
           <p>A pipeline that successfully works once is not necessarily a production-ready pipeline.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A production system must handle:</h4>
           <p>Failures: What happens when a source database becomes unavailable?</p>
@@ -1608,7 +1504,7 @@ export default function DataEngineeringIntroSections() {
           <p>Scalability: Can the system support increasing data volumes?</p>
           <p>Security: Are credentials and sensitive information protected?</p>
           <p>Cost: Are computing and storage resources being used efficiently?</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.4 Batch pipeline vs streaming pipeline architecture</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.4 Batch pipeline vs streaming pipeline architecture</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A batch pipeline might look like:</h4>
           <div className="my-4 p-4 rounded-xl bg-stone-50 border border-stone-200">
             <div className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2 font-mono">Architecture Flow</div>
@@ -1657,7 +1553,7 @@ export default function DataEngineeringIntroSections() {
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>These concepts are closely related, but they solve different problems.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.1 Data integration</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.1 Data integration</h3>
           <p>Data integration means combining information from multiple sources into a unified system or view.</p>
           <p>Consider an e-commerce company.</p>
           <p>Its customer information is stored in PostgreSQL, product information is in MongoDB, and payment information is obtained from an external API.</p>
@@ -1702,7 +1598,7 @@ export default function DataEngineeringIntroSections() {
           <p>3000</p>
           <p>SUCCESS</p>
           <p>The information from three different datasets is now available in one unified structure.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.2 Data transformation</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.2 Data transformation</h3>
           <p>Data transformation modifies data into a more suitable form for downstream usage.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Common transformations include:</h4>
           <p>A. Data cleaning</p>
@@ -1741,7 +1637,7 @@ export default function DataEngineeringIntroSections() {
           <p>G. Data aggregation</p>
           <p>Reduce detailed records into summary information.</p>
           <p>For example, millions of payment transactions can be summarized into total daily revenue per region.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.3 Data integration vs transformation</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.3 Data integration vs transformation</h3>
           <p>Data integration</p>
           <p>Data transformation</p>
           <p>Combines data from multiple sources</p>
@@ -1772,7 +1668,7 @@ export default function DataEngineeringIntroSections() {
           <p>Consider a sales dashboard that reports ₹10 crore in revenue when the actual revenue was ₹8 crore.</p>
           <p>The issue may not be the dashboard itself. The source data may contain duplicated orders.</p>
           <p>This is why Data Engineers must implement data quality checks.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.1 Dimensions of data quality</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.1 Dimensions of data quality</h3>
           <ol className="list-decimal list-inside space-y-1.5 text-stone-700 text-sm sm:text-base my-3 pl-2">
             <li value="1"><strong className="text-stone-900">Accuracy</strong></li>
           </ol>
@@ -1817,7 +1713,7 @@ export default function DataEngineeringIntroSections() {
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example:</h4>
           <p>A dashboard is supposed to show sales through 10:00 AM, but the latest data is from yesterday.</p>
           <p>The data may be accurate, but it is not timely.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.2 Data quality checks using SQL</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.2 Data quality checks using SQL</h3>
           <p>Suppose we have an orders table.</p>
           <p>Check 1: Missing order IDs</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1844,7 +1740,7 @@ export default function DataEngineeringIntroSections() {
             </pre>
           </div>
           <p>These checks can be integrated into automated pipelines.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.3 What is data reliability?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.3 What is data reliability?</h3>
           <p>Data reliability means that users and downstream systems can depend on the data infrastructure to operate correctly and consistently.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A reliable system should:</h4>
           <p>Deliver data on time.</p>
@@ -1861,7 +1757,7 @@ export default function DataEngineeringIntroSections() {
           <p>Checkpointing: Saving processing progress so that a system can recover after failure.</p>
           <p>Backfilling: Processing historical data for an earlier period, often because of missing data, late-arriving records, or changed transformation logic.</p>
           <p>Data contracts: Agreements between data producers and consumers describing expected schemas, definitions, and quality requirements.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.4 Data freshness and SLAs</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.4 Data freshness and SLAs</h3>
           <p>A Service Level Agreement (SLA) describes expected service performance or availability.</p>
           <p>For a data pipeline, an organization might require the daily sales dataset to be ready by 8:00 AM every day.</p>
           <p>Another related concept is an SLO (Service Level Objective), which defines a measurable performance target.</p>
@@ -1884,11 +1780,7 @@ export default function DataEngineeringIntroSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Data Engineering is used across almost every major industry.</p>
           <p>Let's understand how it works in actual business scenarios.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.1 E-commerce</h3>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Maximize Your Business Potential with Shopify Plus: Features &amp; Pricing</span></div>
-            <a href="https://images.openai.com/static-rsc-4/mTFwn_JAQwW9GFzfhYCYbPMIeYBuZuqO7zpeS84LCVxdCXnBZyVw0rp9xC5Y5B5yyLzKnU1DSw0xodtfk4Odd-ifM3r80WSzCGjgsISOlsKrDHKSOBTY2Kkesjm_-5kLUIAJUKmA4yvj0508Zv4slh7OLdZc6jZMJP0d4zU7_7Q?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.1 E-commerce</h3>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>debutify.com</span></div>
             <a href="https://debutify.com/blog/shopify-plus-in-2026-features-pricing-and-when-to-choose-it?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1912,11 +1804,7 @@ export default function DataEngineeringIntroSections() {
           <p>Demand forecasting.</p>
           <p>Customer segmentation.</p>
           <p>Inventory optimization.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.2 Banking and Financial Services</h3>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Fit for the future: how tech is transforming the banking industry - Raconteur</span></div>
-            <a href="https://images.openai.com/static-rsc-4/RNCYDrqH5-CZ9vo4k-x1vApqJTwRAPmr61jSc7QBBWZLM1G6JydwrtB-3BwMMS7ECcYwTidvfED-3kKktLBr7JAPc4fZrLwxlEyDi67vi99j3x9VGMEfEsiqqTw0Qz4lzT-_kP7AJLkWIH0qUlz-5qnzNhCJQ0mQeVztBK7lZl0?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.2 Banking and Financial Services</h3>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>raconteur.net</span></div>
             <a href="https://www.raconteur.net/insights/fit-for-the-future-how-tech-is-transforming-the-banking-industry?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1939,11 +1827,7 @@ export default function DataEngineeringIntroSections() {
           <p>Customer analytics.</p>
           <p>Financial reporting.</p>
           <p>Transaction monitoring.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.3 Healthcare</h3>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Centrální systém elektronického zdravotnictví se spouští 1. ledna 2026. Co se změní?</span></div>
-            <a href="https://images.openai.com/static-rsc-4/3PGEM3vxuwBAtei96TBYVssOe7g2_0TGIB6vVHO63gHrvvXvSlpMfYGXNAQNI5Y1VN5Sy-kMkXZRkWwf-WFAKfA3zwmwfj76BkEU-d9qMuZGY2eIIrZBi6pFFCPnZ6Gl2HThqnDjT-Za_SOIAy0Qkgr_zX7Er6uaHDRRe0qhp88?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.3 Healthcare</h3>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>nasezdravotnictvi.cz</span></div>
             <a href="https://nasezdravotnictvi.cz/aktualita/centralni-system-elektronickeho-zdravotnictvi-se-spousti-1-ledna-2026-co-se-zmeni?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1966,11 +1850,7 @@ export default function DataEngineeringIntroSections() {
           <p>Research analytics.</p>
           <p>Patient care reporting.</p>
           <p>Healthcare systems require particularly careful privacy, access control, and regulatory compliance.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.4 Social Media</h3>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Cara Menghapus Mungkin Anda Suka di TikTok: Panduan Lengkap untuk Privasi yang Lebih Baik - KapanLagi.com</span></div>
-            <a href="https://images.openai.com/static-rsc-4/Abdp-nGsChpEjhOWYoyrSIK8uVdd_3PV87-HmRj13nAfsT9efJLYJxcICO0uoAZH5Ki4Es1lQ613saa3PvmINspzG7jkDnr9JkFsCvdSY3Nus0hiA-1U_602rzVa-kT5lWcmtLJgEddlGxykkqYe_6vagon2lZzP7tlJTXzhAls?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.4 Social Media</h3>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>kapanlagi.com</span></div>
             <a href="https://www.kapanlagi.com/feeds/cara-menghapus-mungkin-anda-suka-di-tiktok-panduan-lengkap-untuk-privasi-yang-lebih-baik-1a15b82e1b.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1993,11 +1873,7 @@ export default function DataEngineeringIntroSections() {
           <p>Content trend analysis.</p>
           <p>User engagement measurement.</p>
           <p>Advertising analytics.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.5 Manufacturing</h3>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>IoT Gateway - Neousys Technology</span></div>
-            <a href="https://images.openai.com/static-rsc-4/KJ2mmj5AE1sXbBZPdcTCvpI1a0SqouY7bU6BMUqmErH2ZNpZE8pCHKQ9nLCa0CaoA1rDO7bjJyb36es2aQvBma3ATAKibAos-eOAaJa2ujdEUd3jKnRA-UpZJjUbnvgR2CQ_jUC-0t_ZL6okwcD8TWlCoESdII3ph_EJanRq5xA?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.5 Manufacturing</h3>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>neousys-tech.com</span></div>
             <a href="https://www.neousys-tech.com/en/core-technologies/industrial-iot-automation?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -2019,11 +1895,7 @@ export default function DataEngineeringIntroSections() {
           <p>Production optimization.</p>
           <p>Quality control.</p>
           <p>Equipment monitoring.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.6 Transportation and Logistics</h3>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Horizon – Fleet &amp; Delivery Management Dashboard Animation by Sogee UIUX for Sogee on Dribbble</span></div>
-            <a href="https://images.openai.com/static-rsc-4/eL-K_jjOWA5-S17JjliIlGEPMU5teR6_fPA2JCjzU06aqHMiKVqUOO-Ey3NEyfL4sspEqtl9orkPgRDvXFJgDuBi7hc_JjFbBHMOJ8Ywgo6FV-CDdYSxuNzldyhjCjc5jqZnQx4l0sJNOOybcUiKe9Y73ujXtAh-8PAYSRn36cA?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.6 Transportation and Logistics</h3>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>dribbble.com</span></div>
             <a href="https://dribbble.com/shots/26972593-Horizon-Fleet-Delivery-Management-Dashboard-Animation?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -2061,14 +1933,10 @@ export default function DataEngineeringIntroSections() {
           <p>Modern Data Engineering involves multiple categories of technologies.</p>
           <p>You do not need to master every tool immediately. You first need to understand the problem each category solves.</p>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Understanding the Data Tools Ecosystem: Without Getting Overwhelmed | by RINI APRILIANTY RIADI | Mar, 2026 | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/sirxPmPSBoj9qXEiZP8yN8nd3UzQwxddlT5rbbddnv1fPm14qRHIeIKLqK6F3jwdW4INcXmoyyE9HB4s1bttXnJTVMEEGpXpc_H8MxwmhjdEDoRYKftCUfGj8_kJbquoIfhz5uqFHW0xEtIHM7pcBo14pp95hVq4uqDV5jUJTpo?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>medium.com</span></div>
             <a href="https://medium.com/%4017611063/understanding-the-data-tools-ecosystem-without-getting-overwhelmed-e43a329b14f2?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.1 Programming languages</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.1 Programming languages</h3>
           <p>Technology</p>
           <p>Main purpose</p>
           <p>Python</p>
@@ -2082,7 +1950,7 @@ export default function DataEngineeringIntroSections() {
           <p>Bash</p>
           <p>Linux automation and scripting</p>
           <p>Python and SQL are two particularly important foundational skills for Data Engineers.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.2 Databases and storage</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.2 Databases and storage</h3>
           <p>Technology</p>
           <p>Category</p>
           <p>Purpose</p>
@@ -2104,7 +1972,7 @@ export default function DataEngineeringIntroSections() {
           <p>Amazon S3</p>
           <p>Object storage</p>
           <p>Data lake storage</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.3 Data ingestion and integration</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.3 Data ingestion and integration</h3>
           <p>Technology</p>
           <p>Purpose</p>
           <p>Apache Kafka</p>
@@ -2119,7 +1987,7 @@ export default function DataEngineeringIntroSections() {
           <p>Database migration and replication</p>
           <p>Python APIs</p>
           <p>Custom data extraction</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.4 Data processing</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.4 Data processing</h3>
           <p>Technology</p>
           <p>Purpose</p>
           <p>Apache Spark</p>
@@ -2134,7 +2002,7 @@ export default function DataEngineeringIntroSections() {
           <p>Fast DataFrame processing</p>
           <p>dbt</p>
           <p>SQL-based data transformation</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.5 Workflow orchestration</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.5 Workflow orchestration</h3>
           <p>Technology</p>
           <p>Purpose</p>
           <p>Apache Airflow</p>
@@ -2143,7 +2011,7 @@ export default function DataEngineeringIntroSections() {
           <p>Data orchestration and asset management</p>
           <p>Prefect</p>
           <p>Workflow orchestration</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.6 Data warehouses and lakehouses</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.6 Data warehouses and lakehouses</h3>
           <p>Technology</p>
           <p>Category</p>
           <p>Snowflake</p>
@@ -2156,7 +2024,7 @@ export default function DataEngineeringIntroSections() {
           <p>Lakehouse and data intelligence platform</p>
           <p>Microsoft Fabric</p>
           <p>Integrated analytics platform</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.7 Data visualization and BI</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.7 Data visualization and BI</h3>
           <p>Technology</p>
           <p>Purpose</p>
           <p>Power BI</p>
@@ -2169,23 +2037,11 @@ export default function DataEngineeringIntroSections() {
           <p>Business intelligence and dashboards</p>
           <p>Apache Superset</p>
           <p>Open-source data visualization</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.8 Cloud platforms</h3>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>AWS challenging Microsoft's USD 10bn Pentagon Cloud contract win</span></div>
-            <a href="https://images.openai.com/static-rsc-4/Q0INyCgYZWJAfe0l4Iv8UvgGSG4gg2Gw31_H0uSXBO6c0UZIi06WuCli869ZgUTp_YajDTrgXALaSYYcSVHUGvP4OI5fmNrQNWhPdQCOJzEtN6YW_GRE8STWBvb706HxjAwqDzsml0PScKxX1WQhvQtRDof6uATsdZSByGTHYUo?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.8 Cloud platforms</h3>
           <p>AWS</p>
           <p>EC2, S3, Glue, Redshift, Kinesis</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Data Platform: Building An Azure DataHub | PTR</span></div>
-            <a href="https://images.openai.com/static-rsc-4/RiVIanZeN7nxMxrl70b-p2IxKQT_AG85l-6O7Ey8p8JqUqqHFJzhkzmfhN6bAo8u0w98R-is8rmELsF3w9Sj7oZxApctNAk0TBtd8K5_ZgdfXX8K8H-8UFOrHABv3pVz1oYXRO-mPcuPZrF5WJkwV_lTuPrv6j5I6Xg7CHOIWE4?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Microsoft Azure</p>
           <p>ADLS, Data Factory, Synapse, Event Hubs</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Google Cloud to provide AI and cloud services to Brazilian energy firm Eneva - DCD</span></div>
-            <a href="https://images.openai.com/static-rsc-4/-FVbC9XtAKul_uHGzh3mVEX4x-8593fHxTbehNONegGA6AFzi9KofvobY7RpqwT_5tf_OK2CoJ3V4jU7kxf8xQdTcVI9bcvvon_MYqoLaiB0JyhyZR4NGCl2eOdkcYdkbr2_UDqW9E7Bc047TmXfGog6FBZfpdwQFclDxOuW714?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Google Cloud</p>
           <p>GCS, BigQuery, Dataflow, Pub/Sub</p>
           <p>How do all these technologies fit together?</p>

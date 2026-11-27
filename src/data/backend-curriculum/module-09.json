@@ -1274,10 +1274,6 @@
         },
         {
           "type": "p",
-          "text": "[Sovereign GRC for Government, Defense, Critical Ops](https://images.openai.com/static-rsc-4/9ployqQ2arO1sNmIP7UINlJAfIlqLChMRcjZ4AsjM73qxwT18UpoLOL3OVu6ysMw98Wmi9fAmWWpSeksIn4QeOVXmtsCKd0m9N7H1NqQLj6O1xqhxbHCN3Z_7pdOFAZ3I6nxK7aM4-eZzkqmV61dwJwfyWqIDdL1tqBHLIW35dU?purpose=inline)"
-        },
-        {
-          "type": "p",
           "text": "OWASP"
         },
         {
@@ -3943,10 +3939,6 @@
         },
         {
           "type": "p",
-          "text": "[HashiCorp Vault + HSM | Secure Secrets & Sealing/Unsealing](https://images.openai.com/static-rsc-4/3rJO1PZuHw6Ip0Ume_nb0xmCiD_4wwO8IcUJnpwAP6lX0eYPwD6hFEI-eBZDfEJnG01yoCw1NamIGkn1phEw-DvKoW1yLbIJAoRpzPdtWMyquP6x6-0wRtCW4jTi7oFgr0UeINfsNsNc5NXZcAgtwKNczQicFk_ztTRC3xa7n4Q?purpose=inline)"
-        },
-        {
-          "type": "p",
           "text": "HashiCorp Vault"
         },
         {
@@ -3959,10 +3951,6 @@
         },
         {
           "type": "p",
-          "text": "[Case Study: Store and Retrieve secrets using AWS Secrets Manager | by Rohan Mode | Medium](https://images.openai.com/static-rsc-4/PtS8R1k4Ut_VfinJDpdvdx70NrpCAImOhWcOw-VXw5SWkslKAzRVdqhbkPiHNWbx3TAtA2d3ivpE7GVCePOsG25Er31cudoAbZ4Lzp_wggm-CuPfD8OjVxx9gN5ddTR3-tw9dtM34VC0anPjAkF3OEoLLRX9lsPnvBlYQcsXthE?purpose=inline)"
-        },
-        {
-          "type": "p",
           "text": "AWS Secrets Manager"
         },
         {
@@ -3972,10 +3960,6 @@
         {
           "type": "p",
           "text": "[Documentation](https://docs.aws.amazon.com/secretsmanager/?utm_source=chatgpt.com)"
-        },
-        {
-          "type": "p",
-          "text": "[How to Store Sensitive Data on GCP: Secret Manager | by Juan Guillermo Gómez Torres | Google Developer Experts | Medium](https://images.openai.com/static-rsc-4/UFIfeQyO1H1M3XPfPsns5s0zwA_4QtJPgCF9sGX3n8tSc3FI_rB-Cwx-lQ9Nok1Evwnhy3rj2RKaF3HuTez617UcUZD4rMhHelCcENgGJkftTomcL5u0kdHYbeU3xdCSc74OdmG-aZlkXlXhADYtChDnY_oldUO2KzwZTZ44ONQ?purpose=inline)"
         },
         {
           "type": "p",
@@ -4905,10 +4889,6 @@
         },
         {
           "type": "p",
-          "text": "[File:OWASP ZAP logo.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/3Lt-Gs86DR-wfrCgGkj7eOALVCXSWng2_hGDgJtM5S-8t1-9-q3mr8sX2wqFUiKq6bdaTiWMy82uH4hd9qHt0Lo29ZzjLG-l-v7eSJHcYz2e90MpK1itTX3Qpud6lMwmxSE5NlPm06yqO5ReoqpleuVjA2bU7gRNmbsXemi7tQQ?purpose=inline)"
-        },
-        {
-          "type": "p",
           "text": "OWASP ZAP"
         },
         {
@@ -4925,10 +4905,6 @@
         },
         {
           "type": "p",
-          "text": "[PortSwigger Burp Suite Professional - program do testów - Soft360.pl](https://images.openai.com/static-rsc-4/0MHxsct7bK9lc16p68KpKUyoXGJq729L9YkGOTYsnLzs3fGHBNxkkzawJ9pHqAGUWUrqAKg2xXyVBQ6sgOXHw4JVbrQCxpiVjdvy_n4xUMkU7A366EnttfsCVz2QS2yZLD6_EOlmitIrGyzjjWfNs-Q3qNKUo690aPpkouUwTH0?purpose=inline)"
-        },
-        {
-          "type": "p",
           "text": "Burp Suite"
         },
         {
@@ -4941,10 +4917,6 @@
         },
         {
           "type": "p",
-          "text": "[Интеграция Test IT с Postman | Test IT](https://images.openai.com/static-rsc-4/eDP46jptZbnrWrR7zdRQ_a47ByE88fitRbLlFI16GmDbyWlR_BUfmp8_urnDoPlziz1P5HubgTJ8AkwXok_re-iHHpe2bRuS5D-qxhT1gvg3vdHKrSMSKAxc0tqI4e_a7cf2SDfnAJsNFjtDhuUzm7Klvar4WZl8vTA6NzrdNGA?purpose=inline)"
-        },
-        {
-          "type": "p",
           "text": "Postman"
         },
         {
@@ -4954,10 +4926,6 @@
         {
           "type": "p",
           "text": "[Official website](https://www.postman.com/?utm_source=chatgpt.com)"
-        },
-        {
-          "type": "p",
-          "text": "[GitHub - semgrep/semgrep: Lightweight static analysis for many languages. Find bug variants with patterns that look like source code. · GitHub](https://images.openai.com/static-rsc-4/k5NbDkA85m4xEUSTVrawpFu6GFjpjNl8SgGCk8da0WLDaf5oiKu-DR3q5nbcT3wKEVDbjE0pcSKMIabRGQ_-5tLUbosb5ntkWbX2maqah5WAyQI8_x4rwvsn15gcC_bzRVDzPhMwRlHXXDtNVLpmTJ_fHop_Sy8ML7Op7HtA39M?purpose=inline)"
         },
         {
           "type": "p",

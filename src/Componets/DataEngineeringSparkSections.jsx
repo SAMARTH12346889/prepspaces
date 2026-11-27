@@ -87,13 +87,6 @@ export default function DataEngineeringSparkSections() {
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Its memory holds the data being processed.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">The final results are generated.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Mining Lecture_1.pptx</span>
-            <a href="https://images.openai.com/static-rsc-4/_w5TIuSCJCH6YTk0KNB_ZnYIo_RwgRYMP0wvhUzR38fGGA86bPKhSWGiXcJJjkhksoMYQZqYmfMGYYxtr-oFb0Lu3EPFFU_YSkhMIUuhCUM3gHJ9mAE6T5MDwKf1E3PKUIh1tvgQic-N3dg79j3qVMrf--IHsELEvjsYLidi0lw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">slideshare.net</span>
             <a href="https://www.slideshare.net/slideshow/data-mining-lecture1pptx/261371038?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -107,54 +100,6 @@ export default function DataEngineeringSparkSections() {
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Instead of processing all 100 GB on one machine, divide the dataset into smaller partitions and distribute them across several machines.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">For example:</p>
-          <div className="my-4 overflow-x-auto rounded-xl border border-[#e7e3da] bg-white shadow-sm">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
-                <tr>
-                  <th className="px-4 py-3">Machine</th><th className="px-4 py-3">Assigned data</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e7e3da]">
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">Worker 1</td><td className="px-4 py-2.5 text-stone-700">20 GB</td>
-                  </tr>
-                
-                  <tr className="bg-[#fcfbf9]">
-                    <td className="px-4 py-2.5 text-stone-700">Worker 2</td><td className="px-4 py-2.5 text-stone-700">20 GB</td>
-                  </tr>
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">Worker 3</td><td className="px-4 py-2.5 text-stone-700">20 GB</td>
-                  </tr>
-                
-                  <tr className="bg-[#fcfbf9]">
-                    <td className="px-4 py-2.5 text-stone-700">Worker 4</td><td className="px-4 py-2.5 text-stone-700">20 GB</td>
-                  </tr>
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">Worker 5</td><td className="px-4 py-2.5 text-stone-700">20 GB</td>
-                  </tr>
-                
-                  <tr className="bg-[#fcfbf9]">
-                    <td className="px-4 py-2.5 text-stone-700">Total</td><td className="px-4 py-2.5 text-stone-700">100 GB</td>
-                  </tr>
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">Each worker processes its assigned data, and the system combines the partial results.</td><td className="px-4 py-2.5 text-stone-700">[Pandas DataFrame vs. Spark DataFrame: When Parallel Computing Matters | by Kevin C Lee | TDS Archive | Medium](https://images.openai.com/static-rsc-4/MEkCgeBsLF4hU1M21tiUyY2NIDGrbcte4HJADWrun5ms7IuOqJ5wwoKlkhxddAc0Oqb6W6mAgEZBTn_nbZ2ijKPqkvW9XFU8nW_CFYAWlxwAyuHL3WkJVO6E9G3v1Huoaj5W_eGRSLq-NdyMjTqieYYIjNflqJgCf3nksu_P6Yg?purpose=inline)</td>
-                  </tr>
-                
-                  <tr className="bg-[#fcfbf9]">
-                    <td className="px-4 py-2.5 text-stone-700">[medium.com](https://medium.com/data-science/parallelize-pandas-dataframe-computations-w-spark-dataframe-bba4c924487c?utm_source=chatgpt.com)</td><td className="px-4 py-2.5 text-stone-700">This approach allows a large processing task to be divided into smaller tasks that can execute in parallel.</td>
-                  </tr>
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">The important idea is:</td><td className="px-4 py-2.5 text-stone-700">Instead of making one computer do more work, distributed processing allows multiple computers to share the workload.</td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>1.3 Important concepts in distributed computing</span>
@@ -190,13 +135,6 @@ export default function DataEngineeringSparkSections() {
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>2.1 The 5 Vs of Big Data</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What is Big Data?. “The world is one big data problem.”… | by Tech in 3 | Nerd For Tech | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/XdGFqo9MAbhZOsEDyhnurvCchHMtk4j9y6KwLKVVlnP_ny7ANKY7rOHCwsXn-4Dw-47dwlEyq1DuVF6iDcFGa17u5ZMZYXmjKRtkAJ-kFdmCZXeQNiYdJlXZLMZfljMPDC_k6WoUzqXYu3WjN5XBRbI2i72o-jEMMHzIxq2C-gQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/nerd-for-tech/what-is-big-data-6c47407bfbe5?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -307,13 +245,6 @@ export default function DataEngineeringSparkSections() {
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Apache Hadoop is an open-source framework designed to store and process very large datasets across clusters of computers.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Traditional databases generally rely on a centralized database server or a managed database cluster. Hadoop introduced an architecture in which data could be distributed across many inexpensive machines.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Hadoop is built around four major components.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">The Complete Guide to Apache Hadoop in 2025: Mastering Big Data’s Most Powerful Framework | by Swabhab Swarup Panigrahi | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/6RtjSwBJ0vNsy89fmSMnFU3kiizKX68srO-lz77kKadML0CcsgYbwULCCJKaW-BBPIXdA5sBi7QDxZfjFMKCP6IzH-uWLN5yYD9Mu6oM9PvlRvA2b6jehCykqkYtwsYT63tmX5WkyZuf5y36v_JglAEEaSMqw0H0rsbnZwD0UbA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40swabhab.panigrahi/the-complete-guide-to-apache-hadoop-in-2025-mastering-big-datas-most-powerful-framework-b8d7dc122723?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -542,30 +473,6 @@ export default function DataEngineeringSparkSections() {
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Reducer calculations:</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Laptop = 50000 + 60000 + 45000 = 155000 Mobile = 20000 + 15000 = 35000</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Final output:</p>
-          <div className="my-4 overflow-x-auto rounded-xl border border-[#e7e3da] bg-white shadow-sm">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
-                <tr>
-                  <th className="px-4 py-3">Product</th><th className="px-4 py-3">Total sales</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e7e3da]">
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">Laptop</td><td className="px-4 py-2.5 text-stone-700">155,000</td>
-                  </tr>
-                
-                  <tr className="bg-[#fcfbf9]">
-                    <td className="px-4 py-2.5 text-stone-700">Mobile</td><td className="px-4 py-2.5 text-stone-700">35,000</td>
-                  </tr>
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">[Hadoop Performance Analysis Model with Deep Data Locality | MDPI](https://images.openai.com/static-rsc-4/D8paWUnU0C2-jNfldyLk4pZF-5_B01xSgep9h2d85Piq-z_pXlR-DaoyXuIKsRRbFZt3yUM1rgI2QnjhPgNOO9WFQwB3Edl5Y6XOplPsPjcXiawSdSxWHTbM3hP0aWnSuY1v94HjVRYAT-_v6lLMfruGozGNWsuvXHFe_d58xWc?purpose=inline)</td><td className="px-4 py-2.5 text-stone-700">[mdpi.com](https://www.mdpi.com/2078-2489/10/7/222?utm_source=chatgpt.com)</td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>4.4 Complete MapReduce execution flow</span>
@@ -628,13 +535,6 @@ export default function DataEngineeringSparkSections() {
             <span>5.1 HDFS architecture</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">HDFS primarily consists of two types of components.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">An Overview of HDFS: NameNodes and DataNodes - Analytics Vidhya</span>
-            <a href="https://images.openai.com/static-rsc-4/S0bDK0m6Ddy17lwAQV6guEXeYjYvxy0dagU_d8lR9jQgQg9zf96VdQih9p-2lFOvtBrl6D6kjqETFU3j_9DY_Ad4HUdk2Qw04vgxk67lqvj0T3kNIfvUjX94juclVmXA25j0HOwmRpriMrJm0ASQuopCHEIM2sDcaFyNtXrAErc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">analyticsvidhya.com</span>
             <a href="https://www.analyticsvidhya.com/blog/2022/04/an-overview-of-hdfs-namenodes-and-datanodes/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -708,13 +608,6 @@ export default function DataEngineeringSparkSections() {
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">HDFS supports replication to protect data against machine failures.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">For example, if the replication factor is 3, HDFS attempts to maintain three copies of each block across suitable DataNodes.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">🌿 Understanding HDFS Architecture: NameNode, DataNode, and Secondary NameNode Explained | by Allensawant | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/Bf8tpIT_vJhsu3O7EJXg5pcT_J-33GQTyDR96_N5gB7W5yq4-uhvQ3tjtSptujI0j0oeiBFIVkjfLGle31Ed0HTZvnzbZS2vz8Pnk0hhMF87JxDlZFZp3jC4YDhDavfVKogDWKofHEjOTFsJRqau51bkSS8vvLNtP3RoJPI8umg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40allensawant1995/understanding-hdfs-architecture-namenode-datanode-and-secondary-namenode-explained-ccd389964aac?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -802,13 +695,6 @@ export default function DataEngineeringSparkSections() {
             <span>6.1 Core components of Spark</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Spark's architecture contains several important components.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Foundation Spark Day 4: Inside Spark 4.0 — Architecture &amp; SparkSession | by THE BRICK LEARNING | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/AdqarVZatvDUI6KcFsm0GFhoufVQvZYHPnCTwkETFfJsXjvceiMApP8yXRgw_ocK4GBuEKF5Tviq9qDuvV-8BR4lCSS9rzyvGV1hcKPBVHTOwg2hvJXI7KZlo4OZWLvMwYX4DbDItJSIw699kRkkqj4UjAgynWFM3pnak6cfYpY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40infinitylearnings1201/foundation-spark-day-4-inside-spark-4-0-architecture-sparksession-13f2cff65182?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1083,13 +969,6 @@ export default function DataEngineeringSparkSections() {
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Multiple Executors.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">CPU and memory resources across the workers.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Spark Architecture Explained</span>
-            <a href="https://images.openai.com/static-rsc-4/SlhISzX8t373SHXRHncvoQ190BJBxrXYkYwf6JUoL5tOi7TSPXeXiPKgd0O0Z5G5O2audtyIPkwBNt_4Ka9Ca2VziVntgtpGMpkUDzbi_QKAgqr4L0UD4xsXUvvQ-CsblIkHvA1HYZzqpHZ2f115qEMRIAlyzM7ANAeRHbxeXPI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">cloudrps.com</span>
             <a href="https://cloudrps.com/blog/apache-spark-architecture-explained/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -1185,15 +1064,6 @@ export default function DataEngineeringSparkSections() {
             <span>9.1 Understanding RDDs</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Consider the following dataset:</p>
-          <div className="my-3 rounded-xl bg-stone-900 border border-stone-800 p-4 overflow-x-auto">
-            <div className="flex items-center justify-between text-xs text-stone-400 font-mono mb-2 pb-2 border-b border-stone-800">
-              <span className="flex items-center gap-1.5"><Code2 size={13} className="text-orange-400" /> PySpark / SQL Execution Block</span>
-              <span className="text-stone-500">Distributed Code</span>
-            </div>
-            <pre className="font-mono text-xs sm:text-sm text-stone-100 leading-relaxed overflow-x-auto">
-              {"numbers = [10, 20, 30, 40, 50, 60]\nInstead of processing all six numbers as one local collection, Spark can distribute them across partitions.\nFor example:\n[Key topics in Apache Spark - AWS Prescriptive Guidance](https://images.openai.com/static-rsc-4/mDIK2ruGtCIxOH99nzYsjvwRXqxF-BGT8-n329FABYxbDAK3xoO5sEeUYQrqH2XCbHsI07P0I2XDTlJa_9eNYpMo4HYc5ci33he24aRRhEOWEk4a6IQSoRxfS8-37L6zWfZSE2zM3vZwJ-5h_u02RnqotVcCWDR1E7Jd6SPOZfk?purpose=inline)\n[docs.aws.amazon.com](https://docs.aws.amazon.com/prescriptive-guidance/latest/tuning-aws-glue-for-apache-spark/key-topics-apache-spark.html?utm_source=chatgpt.com)\nRDD: [10, 20, 30, 40, 50, 60] Partition 1: [10, 20] Partition 2: [30, 40] Partition 3: [50, 60]\nEach partition can be processed independently."}
-            </pre>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>9.2 Creating an RDD</span>
@@ -1611,13 +1481,6 @@ export default function DataEngineeringSparkSections() {
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Many joins.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">orderBy().</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Transformations and Actions in Spark Explained</span>
-            <a href="https://images.openai.com/static-rsc-4/BuCqJCOOKpMD7oYSuAltJZ-NFsCVVgBtnq1cwi4uh5o-Yv54ryaonK8LprROsGF1Ls4VvT5BSqe8M-4PncGJyvjdDTD2_XFsdlO66rGLB06-s0hl5MpoFrl6V9sNsHtk2_XyjofzPYHGvyREn1YV4ea9XY0n1EXDIhBMbrVXNeM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">sparkplayground.com</span>
             <a href="https://www.sparkplayground.com/tutorials/spark-theory/transformations-actions?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -1844,13 +1707,6 @@ export default function DataEngineeringSparkSections() {
             <span>15.2 Shuffle execution</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How Big Data workflows can become more efficient in Apache Spark - About Amazon India</span>
-            <a href="https://images.openai.com/static-rsc-4/Qp9r1tSaL9ahx9ZX8exqcrrwqnDsLBiavJiR5TY6U_LzavbauLtnRWS8pWDwm2RXmHWB3YYZtVN7jqHcCHE_YlDc6xnNMnyzU5hCa4UhzX3lhJ6kXfUQ9zA9tyQvkmrP_NItOzz8JhLrndFBXnwCMZwTDCwwgf8oqm5e4O2qcD4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">aboutamazon.in</span>
             <a href="https://www.aboutamazon.in/how-big-data-workflows-can-become-more-efficient-in-apache-spark?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -1972,13 +1828,6 @@ export default function DataEngineeringSparkSections() {
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>16.2 Types of joins</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Introduction to SQL Joins | recode hive</span>
-            <a href="https://images.openai.com/static-rsc-4/blXIJYG_d6N4xeqcHKERi9GJX4z7d2jkAlXw3sTIcmDqNjSCA-1jvxoAg3Ba7-R6TZnNDRB2LGRODZvIhxp3kDv1SD1wu80uGclJ_9D7klyRnvRVQmq9Bioaoll4he9znVpvOOCY4ubsSVBStvq5vyRUDvmKAOR75QRawLc5KnI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">recodehive.com</span>
             <a href="https://www.recodehive.com/docs/sql/SQL-joins/intro-sql-joins?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2154,13 +2003,6 @@ export default function DataEngineeringSparkSections() {
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A broadcast join copies the smaller dataset to the worker nodes so that each relevant executor can access it locally.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">My Datascience Journey – spark_joins</span>
-            <a href="https://images.openai.com/static-rsc-4/Bx_iBKSX0BG0Qnhx49zIrZN2993Y0tThqVPRvYbaPf7Cmc4GMXxRtfEbg9GUkYd0iuAWlqqRjGJKBowvMBVYHYzfQTGLNCCTs3LbRVtCb57rLVfJR0KDCJn_Ixl4igyBvDyL68uBsIJ8Q-z3dkhvKxGFKeRgEpbNHvO92Cu1Jok?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">advaitha.github.io</span>
             <a href="https://advaitha.github.io/myDataScienceJourney/pyspark/05_spark_joins.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -2317,13 +2159,6 @@ export default function DataEngineeringSparkSections() {
             <span>18.2 How caching works</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Caching stores a computed dataset for reuse.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Production-Ready Big Data, Apache Spark Jobs in Databricks</span>
-            <a href="https://images.openai.com/static-rsc-4/FXYhlLSECKUe2iNIXQPKdkHZPMXsa-84EJxrI4-ZmZDW56_nd9_YOiMpvSt0hNFQDfR5wtkJLjCTtajcEUwpdz8dpBWQrcWa58kRdEzt9Oil-2wOhksnk5BFd3kt5FpyLo0P45C9jOO7aHLnrQexmqfSkNsHtW7xZF3_mnyf-mg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">dzone.com</span>
             <a href="https://dzone.com/articles/optimizing-apache-spark-jobs-in-databricks?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2487,46 +2322,6 @@ export default function DataEngineeringSparkSections() {
             <span>19.2 Why is data skew a problem?</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Imagine a cluster running four tasks.</p>
-          <div className="my-4 overflow-x-auto rounded-xl border border-[#e7e3da] bg-white shadow-sm">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#faf8f5] text-stone-900 border-b border-[#e7e3da] font-semibold">
-                <tr>
-                  <th className="px-4 py-3">Task</th><th className="px-4 py-3">Records to process</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e7e3da]">
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">Task 1</td><td className="px-4 py-2.5 text-stone-700">10 million</td>
-                  </tr>
-                
-                  <tr className="bg-[#fcfbf9]">
-                    <td className="px-4 py-2.5 text-stone-700">Task 2</td><td className="px-4 py-2.5 text-stone-700">10 million</td>
-                  </tr>
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">Task 3</td><td className="px-4 py-2.5 text-stone-700">10 million</td>
-                  </tr>
-                
-                  <tr className="bg-[#fcfbf9]">
-                    <td className="px-4 py-2.5 text-stone-700">Task 4</td><td className="px-4 py-2.5 text-stone-700">70 million</td>
-                  </tr>
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">The first three tasks may finish quickly.</td><td className="px-4 py-2.5 text-stone-700">The fourth task may take much longer.</td>
-                  </tr>
-                
-                  <tr className="bg-[#fcfbf9]">
-                    <td className="px-4 py-2.5 text-stone-700">The entire stage cannot finish until the slow task completes.</td><td className="px-4 py-2.5 text-stone-700">This problem is called a straggler task.</td>
-                  </tr>
-                
-                  <tr className="bg-white">
-                    <td className="px-4 py-2.5 text-stone-700">[How to Detect Data Skew in Spark](https://images.openai.com/static-rsc-4/SwAvMJET5JQWY_og50-qyctrtfbCOigzsDkK3Fm4aTV8m88lo8XkspPyB5VIfc1gzj0nwaVi8f8MxdLPuds4WP4eIOJCN0bP5fBZb6UXlbomnKqWnPEX4XAfJiGOAyAo7hmw6z7bLfcfu8ts3GIUfI9T9pWOBZWJFra9iKuX3L4?purpose=inline)</td><td className="px-4 py-2.5 text-stone-700">[linkedin.com](https://www.linkedin.com/pulse/how-detect-data-skew-spark-aftab-tamboli--1kq6c?utm_source=chatgpt.com)</td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>19.3 Common causes of data skew</span>
@@ -2791,13 +2586,6 @@ export default function DataEngineeringSparkSections() {
             <span>21.8 Use Spark UI</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Web UI - Spark 3.5.6 Documentation</span>
-            <a href="https://images.openai.com/static-rsc-4/7M7v1suqaKVS-gBCKDGaLT4lbw0v1MUJmBDKn1OinbfnQeJ08vGtyaXW-rNHhbt11I7-ErBP7rx3_rZoaCxUcBG3ab-b_Z_KoHoQ_5IiMAmzYdsYXo00kRxGdEVi7JpCn61JtrHrFH4zLhfXxzHNnx9G2QmuaAZzwHhFlixzLME?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">spark.apache.org</span>
             <a href="https://spark.apache.org/docs/3.5.6/web-ui.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -2935,13 +2723,6 @@ export default function DataEngineeringSparkSections() {
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Parquet organizes values into column chunks:</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Customer: [Amit, Neha, Rahul, Priya] City: [Mumbai, Pune, Delhi, Mumbai] Product: [Laptop, Mobile, Tablet, Laptop] Amount: [50000, 20000, 15000, 45000]</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Parquet Internals: Why Your File Format Choice Determines Query Speed</span>
-            <a href="https://images.openai.com/static-rsc-4/1o2R6xybmtSGHZriu5Ig2C4kzTNtHn-TbbpvpVrWPk7ci3vrkQPTK-cHMhbDMeu-VamQ7yBfJc77_dN7MvX92KVsSXYqoQ18KP3D8aeLyhxYQFMUDSImgnodtj8Du9v7f8GqcByCi1VEN-OhoZxkHT2YYZN7qEnfG1vJrGEDaLc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">blog.systemoverflow.com</span>
             <a href="https://blog.systemoverflow.com/p/parquet-internals-why-your-file-format?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -2964,13 +2745,6 @@ export default function DataEngineeringSparkSections() {
             <span>22.3 Parquet file structure</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A Parquet file uses a hierarchical structure.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Parquet Internals: Why Your File Format Choice Determines Query Speed</span>
-            <a href="https://images.openai.com/static-rsc-4/ZexU3axRaeeasiWUq0hqElMUFXVHVj5Tw1F1oymj456loKvMD11h7LE6YnAPsmgsKSJ1tSEKSz7qteNMWEopBL3O1W9O5OuPClwTIE5ggv8gqKfbuzw8aHFIlUg_xJIUapzzqKygbFZYNqtqlSgdM65b_LXbZhQStqQUX-CskSI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">blog.systemoverflow.com</span>
             <a href="https://blog.systemoverflow.com/p/parquet-internals-why-your-file-format?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3157,13 +2931,6 @@ export default function DataEngineeringSparkSections() {
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A Data Lakehouse combines the flexibility and storage characteristics of data lakes with important data-management capabilities associated with data warehouses.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What is Databricks? | Databricks | QuickLearnPro</span>
-            <a href="https://images.openai.com/static-rsc-4/RMNB83jqiWcevQKW-rBOt4uULJrV0Pu_j4Fk3eHPBlJv8kPWXcw36uD8wTGB30OyEus5f1Flf4Pca9oDfFtZyKnSX1S-gRLpU9FLzuA4pKW9lF6-iHqFl5MdsomtsdgEMHwrpMLiSU8NsVGaBm_uVqFpeOZYx7onWCBF1rx4NxY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">quicklearnpro.com</span>
             <a href="https://quicklearnpro.com/domains/data-analytics/databricks/overview?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -3196,33 +2963,12 @@ export default function DataEngineeringSparkSections() {
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>22.14 Important Lakehouse technologies</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Delta Lake - Database of Databases</span>
-            <a href="https://images.openai.com/static-rsc-4/h_8Xwe_N2JxWEDRHo13nUN5ZQAnFDY5Z3qhEwcnASTcNqjFc4dG50UYSjHLc2yYQsZ64mPIDycRTwkmp3hiW2FXshFDYjIbr9HpFE1-h0vCEuhtl5cRRMwN7nMIfOQOFrEuHmRZ-Z5gI2B9qwLCcJc9UT7NdSobkmeCD8MZ1_C4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Delta Lake</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Provides transactional table management, ACID transactions, schema enforcement, time travel, and update/delete operations on lake storage.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Commonly used with Apache Spark.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Create, Merge and Time-Travel with Apache Iceberg using AWS Glue | by Umid Kumar Dey | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/yBmfuc2G3H5zmDOH5zBGAE6QTPdlsaaPpZkigCINKhPgTgI-opAwQdC4LZhXWM7nIpu48vJObkFUG7DwHl9h8Fm8DPwok5LcELixzWdbGsP7ZxTHkYClBn3AiBWlUilJ40rP3WCxV02gh38PuXA-QC0oMNVp3V4T_MEt1HIY17Y?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Apache Iceberg</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Provides table metadata management, snapshots, schema evolution, partition evolution and reliable analytical table operations.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Supports multiple query and processing engines.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Fletum - Revenue Operations Platform | Boost Your Revenue with AI-Powered RevOps</span>
-            <a href="https://images.openai.com/static-rsc-4/rFAT2X_5ZF4TPFpgiYWacY3dUGOEz5Unki33pB-GoWBs84bby8qop-J9MikKpvZDDPqL8ZZELVTyujSKjy7xxcadkSNckIjmRBCl45GOStwOv6HgcvSO9O9mi2QZO8cSOIHXcbW7wI4UexUtDbcF_1JkxROxgmFwb8NihfCtT7g?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Apache Hudi</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Provides incremental data processing, record-level inserts, updates, deletes and table management for data lake workloads.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Useful in ingestion and change-data-capture pipelines.</p>
@@ -3275,13 +3021,6 @@ export default function DataEngineeringSparkSections() {
             <span>22.16 Medallion Architecture</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A common way to organize data in a lakehouse is the Medallion Architecture.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Databricks The Medallion Architecture - EndToEndData - Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/m5FM23jX83kZnBDPCZKxELBElvsxikkL2ghxOHRrJ0nMCy781545fn82SyGbO-_ULBc2f88LpArg3lzvnRt5MvKOYdzFTce4yaroqOd0A8smV1u3MeNWHxWNUlCJ02cM_473k89nG2d3bdedgsPMG7dzM_wAojWnigFxNBcHMjM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/endtoenddata/databricks-the-medallion-architecture-a1ea27311feb?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3360,13 +3099,6 @@ export default function DataEngineeringSparkSections() {
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Payment records.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Delivery updates.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Its objective is to create reliable datasets for business analytics.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Intelligence End-to-End Architecture With Azure Databricks | Databricks</span>
-            <a href="https://images.openai.com/static-rsc-4/Yy6cg990iSBgodBmhDMP1BYn7fYatbtGNu6eFxv7_LpYXcB0Z07I9ykEzhVhbRyNsKR_3p6vd30cq0Q0k9UcHDE42Rjr22bkJeJneA0DdnkSCRVlEm6ACa0DRnalgJ-Zv0CyTuCkbKb_e10qGM33JK7lu2aCzD0h6HsgxnVBkIw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">databricks.com</span>
             <a href="https://www.databricks.com/resources/architectures/data-intelligence-architecture-end-to-end-with-azure-databricks?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3499,13 +3231,6 @@ export default function DataEngineeringSparkSections() {
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>24.1 Project architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Building a Real-Time E-Commerce Analytics Pipeline | by Srujan Krishna | Feb, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/uSpeS2B4mdC1X-6woZuTkpLuUrdX4IjOPBZOkE1vIyOoqacIy9UlCnqHeGZpuFyEuMVxoY4nxbJDnWP92DmhrbXRuCepEoNBApuCEjfBeAUBuSqr-dU6G9JZyGgHpzyFzIQ8YeSRn_76giAwO8JRT6VT1tbRPCG7nCFG4kzO9s0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40srujankrishnac1/building-a-real-time-e-commerce-analytics-pipeline-923f5abad7e9?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3929,13 +3654,6 @@ export default function DataEngineeringSparkSections() {
         <div className="space-y-3">
 
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">These resources provide deeper technical documentation and implementation guidance.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Spark Architecture Explained</span>
-            <a href="https://images.openai.com/static-rsc-4/Ld1ujnd0gwlrmHmfMddqGJT3iUmZm3HK6IK33JsUkpqhTv8T9KgDuQqOLTuuuVdIaHryf-i4yTgMcxgNT1eqiNzXq0lPnVwGV3Qy7zy0U9drLCcgu0ztvn2A0S2DVV_pyVlWV0SCrbHklN7mFoec3OGrNtDuNTCldS8RGkh3y3M?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-1.5 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-stone-700" />
             <span>1. Apache Spark Documentation</span>
@@ -3944,13 +3662,6 @@ export default function DataEngineeringSparkSections() {
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Explore Spark documentation</span>
             <a href="https://spark.apache.org/docs/latest/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Free High-Quality Hadoop Logo for Creative Design</span>
-            <a href="https://images.openai.com/static-rsc-4/xOZM7rt6GX9nLBPizPDl1zFd5Rfq9L7ZGnFfzjWeqFVVPJNgYZARRTgy2siFP8RjFVFL_qkWKNS56hn8CFIJ5qL3DcaIP2CIW0un1_tP-rPgyNYyDUIcZAkYFfODgijQ7F5VURGXr_MVUJ330nBByJsQqC1jt87SrUrOhiOUtJ0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -3967,13 +3678,6 @@ export default function DataEngineeringSparkSections() {
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Parquet</span>
-            <a href="https://images.openai.com/static-rsc-4/-0sK_22sEW2Sh6u_c7vCRiXW_YiHWZcmawi2ZyB8ylbQQ9ZOYG_oVkHbFjhActMk3Uyyx6KISdt_5s8OcCa-hWo2D7A846ETPWgmu56txkSIRK2QWrjZwYADEiZXQ4E_Yd7mfVtaRl2Y5b3RcQ42TUX2p4trCIjTpecQy0BbvdE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-1.5 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-stone-700" />
             <span>3. Apache Parquet</span>
@@ -3982,13 +3686,6 @@ export default function DataEngineeringSparkSections() {
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Explore Parquet documentation</span>
             <a href="https://parquet.apache.org/docs/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Delta Lake</span>
-            <a href="https://images.openai.com/static-rsc-4/ZjWq_g4mKUF7ESsPvsHzigLNTzSPGKTQBvI_OKX0MLoiBCkHr1-bonUJXlzmRsaqsLhWpZSZWiOBF2MLkARnxjRs299y-Nhn6p1yErZzyWpmre9p_hqnuOIH6XItzSU_hXxx8CI1HkzCCp9CVo93u3tprd_gTSZrOKeYaQKsG5Y?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -4005,13 +3702,6 @@ export default function DataEngineeringSparkSections() {
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Iceberg Icon | Dashboard Icons</span>
-            <a href="https://images.openai.com/static-rsc-4/KKxU2RyApH_xql380suh_-LbsHpxZdBVLSjeGNXJnOgFnN08XPzHUT2KAUq775vs4zPQj8NkvnZqoK8HAXnPTFU-3lLl9K9cADND0XnpZIkLVNBrg6g_kD6EghA_ez8zs1pfTLIr1e5CPUQakU5CbBIeYW2NqJus3on_ljqiZR4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-1.5 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-stone-700" />
             <span>5. Apache Iceberg</span>
@@ -4020,13 +3710,6 @@ export default function DataEngineeringSparkSections() {
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Explore Iceberg documentation</span>
             <a href="https://iceberg.apache.org/docs/latest/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Spark Icon and Apache Spark Logo PNG for Developers</span>
-            <a href="https://images.openai.com/static-rsc-4/0lmfX9ty0fosvUQPhK6_zhCM6_3DBqrKm96By6XN9CcnISRc8M-EZvy4ANhmt6UqxORf1Hdh14aMYj5N9cjrDyTqfK0LzRGUm-CXaaEIRXlAqKcjrdFt91TfXvxhKQymrnamJYdkKCEy6ysPQuiSxW-IYwjOVO1SxyQtOeYepdM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>

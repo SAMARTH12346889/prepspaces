@@ -194,13 +194,6 @@ export default function DataEngineeringWarehousingSections() {
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A data warehouse brings the information together through an ingestion and transformation process.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What is a Data Warehouse and why is it Important?</span>
-            <a href="https://images.openai.com/static-rsc-4/hCc5X_--uPfx2V9HtzNzKM2dTIXR7mMdeklqBn-3VQUBGE4NmpJqEuGksCwAziTdo55sfJnuCGG1e0KeXrhI4QsHwhhX2SClBJGMRAnEQySNEsdmruZIXUg1WB_VynSgcGEjJXX3QXkWb2UUXSe9jQOjb-Fog5R696JMBGx2Bsw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">dasca.org</span>
             <a href="https://www.dasca.org/world-of-data-science/article/what-is-a-data-warehouse-and-why-is-it-important?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -382,13 +375,6 @@ export default function DataEngineeringWarehousingSections() {
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Data warehousing has evolved significantly as businesses have generated increasing volumes of digital data.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Understanding this evolution explains why modern analytical systems use cloud storage, distributed processing, columnar formats, and separation of compute and storage.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Warehouse, Data Lake and Data Lakehouse: Why it’s crucial to know them as Data Scientist - Techitaka.com</span>
-            <a href="https://images.openai.com/static-rsc-4/2RsYrtD6UIYtnPrS3vfOve_rfXJn7FQPi-Bj7ATo-uNoI0WKR6a8fpsAoxTYww112kdeJKG9r4E-exCJrwSDx6NVZPvcAYVXo7GrWGV0uqXUiKd8ISOjM8EoT9jk-2aSFDwCp6pdGBi0ib2ZjmQRWX4tD4iMC23ZwUBccEmoUNA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">techitaka.com</span>
             <a href="https://techitaka.com/data-warehouse-data-lake-and-data-lakehouse-why-its-crucial-to-know-them-as-data-scientist/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -531,13 +517,6 @@ export default function DataEngineeringWarehousingSections() {
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>SQL-based analytical interfaces.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Why Apache Iceberg Is Not “Just Another Table Format” | by Vedprakash | Snowflake Builders Blog: Data Engineers, App Developers, AI, &amp; Data Science | Mar, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/oTb3b9Itq0YHce7Ub2tw895c-qOPvXPrLLG0dxKv9er6s3StW9WQb9OAbYAFmdUxXpweef1hqLCIdTxNxVr4rwgDeZc4XEhhP5Z5WkTboP_hhw922FSmFqcsCwpD4YnVZ7DKJpfqSfPbHnCxaAZuwT6EDeeaj1FIdXHoduNWecs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
@@ -896,13 +875,6 @@ export default function DataEngineeringWarehousingSections() {
             <span>A separate analytical platform isolates these workloads.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">A Brief Overview of the Data Warehouse and BI Architecture | by Smartbridge | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/vm-cF8byBW3PFb7rPeQuLn_ljFJIVIbpdO6Q7dDEtPvDKw3CM3a8iqHmsghxQI-Nl9D0Lp_8Aw8pdql6tMewFR1FVjBHXEOwK2N17qqkOthxdHWg8NQUyJZsP9xnx8HfsJguSmPDiyTnlP3GW32rOF3Rn-WzcVz4xeJtxWOFPPQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">smartbridge.medium.com</span>
             <a href="https://smartbridge.medium.com/a-brief-overview-of-the-data-warehouse-and-bi-architecture-83edaa0a8e6e?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -973,13 +945,6 @@ export default function DataEngineeringWarehousingSections() {
         <div className="space-y-3">
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Data warehouse architecture defines how data moves from source systems through ingestion, storage, transformation, governance, and analytical consumption.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A properly designed architecture makes the data platform scalable, maintainable, reliable, and accessible.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Enterprise Data Warehouse</span>
-            <a href="https://images.openai.com/static-rsc-4/XIeohY_q00h-2E9Pzg7XcU6rg6wZl6FBqaET6x8OTFpamQ-BiIkCVE1TjfxLyep8YR6AyySka6J4nHXAtXYEJBnNDkAmlnKrQ74ZpracV-m297gflp3tP4sepXDHEBEltx3AOrBTjllM4M7T_-YfDDrL50GqYVz1bdEX-DAEyjg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">capellasolutions.com</span>
             <a href="https://www.capellasolutions.com/blog/enterprise-data-warehouse?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1326,13 +1291,6 @@ export default function DataEngineeringWarehousingSections() {
             <span>An EDW integrates these datasets into a consistent enterprise analytical environment.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">4 Characteristics Of Data Warehouse Explained</span>
-            <a href="https://images.openai.com/static-rsc-4/6ZDdSDspkWlmZoh8quZaMmxMszy5n9eWcntiPl2LUr9uXdkF0TuBYm7dZCkhBjdpFWEuYH0kN76N_JbffHTwR-QDRQaxmM0Run3h9UmEKjRgilob1m4q_e3Iq2Z8hdUc-wwf4q_jKMVlrqKVJPddzGv2D-e-pIvL5oindPR67iY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">unstop.com</span>
             <a href="https://unstop.com/blog/characteristics-of-data-warehouse?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -1478,13 +1436,6 @@ export default function DataEngineeringWarehousingSections() {
             <span>Different departments access governed data from the shared platform.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Top 30+ Informatica Interview Questions and Answers \[April 2026\]</span>
-            <a href="https://images.openai.com/static-rsc-4/ra-akQj8zllonzhIlngf21JYh9P3llOStO8VBHNinpZ3HIoXAQyUiA3WNO9s6GQ1WfL5CPe_SlIIljXNzAqAFM_RQKLFVGCyjLgrLuIXegqmXdYV0sZPZ_UruP2UtB0lF48NMtLR8a04Vthzq6rR1P-jOmzhIj7rq2aBaF_tD1w?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">igmguru.com</span>
             <a href="https://www.igmguru.com/blog/informatica-interview-questions?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -1556,13 +1507,6 @@ export default function DataEngineeringWarehousingSections() {
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Different components process portions of the overall analytical workload.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">PPT - TIPE – TIPE SOLUSI DATA WAREHOUSE PowerPoint Presentation, free download - ID:1575860</span>
-            <a href="https://images.openai.com/static-rsc-4/6ms_6QUqM7O7VDEiT8nX7oa9CzNZEd1gGZmQmN5z5LQu6E-JvyQrffvKcsaODIu5vhVL1xFyfqgs_iYWxhIdwZTjXTSx3qoc0AvENqlv_XRacRtfkJ4ZQ6KkG5IYh9N0GN06rZ1jTAqQC7MulFdE6o2371oTr_KHOwNAWt_pFaE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">slideserve.com</span>
@@ -1777,13 +1721,6 @@ export default function DataEngineeringWarehousingSections() {
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>It can represent the data as a multidimensional cube.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">OLAP Cubes and Columnar Databases</span>
-            <a href="https://images.openai.com/static-rsc-4/zhyJFTmiREtEo1VP2hj2KpS-iRfKDCXvAn2ffmcJeqEkIpiysgE0-MRRqOzEORJDSv7uPSs2gMOaEWHZzRIuZ_7pvldSk1gkq16mF-s9W2_AfuIoSGdGu4EhuQCbq_QVfH7E07PNWP3B9bGRkKlAlXtPkouU_vA45yREo-gBsqs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">linkedin.com</span>
@@ -2804,13 +2741,6 @@ export default function DataEngineeringWarehousingSections() {
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A star schema has a central fact table connected directly to denormalized dimension tables.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Star Schema vs Snowflake Schema and the 7 Critical Differences — Blog | Keboola</span>
-            <a href="https://images.openai.com/static-rsc-4/525ffGx--FvgdafMuwBCzxWRljz6jSy7VCWkW5RJR5m0fAzjRCcHCb0iAsyhL-tdl9j8Ts26c5Wba-tN0KMEIYM2HbseWtHhiwGz5qW5QWTX5_-LenLyWAwo966vXiYJcgDxg-KcagGRL8fUCN3CVaUr2f4avqs1Een7UfqXXsA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">keboola.com</span>
             <a href="https://www.keboola.com/blog/star-schema-vs-snowflake-schema?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -3029,13 +2959,6 @@ export default function DataEngineeringWarehousingSections() {
             <span>Inventory Data Mart.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What is a Data Warehouse? Definition, Example &amp; Benefits (A Complete Guide) | Astera Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/pu3vbnrCuumh2avPhenIf2XH29RihsqI4YhKTm8geHrsTcPEDFPj3bjbTsLCQmPtbvfC-uk0QFMGh5nScpr9lYKUCA_P3XWvIUoSkVEmVJjKQeb4ck1bNeqci1rERMPdPJUgOmEmE-JOg081vl5gkpCvo0jArU0yTPWlOR1gF5w?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">astera.com</span>
             <a href="https://www.astera.com/type/blog/data-warehouse-definition?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -3219,13 +3142,6 @@ export default function DataEngineeringWarehousingSections() {
             <span>Traditional enterprise reporting architecture</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Slice of BI: Life of DW-BI</span>
-            <a href="https://images.openai.com/static-rsc-4/3JqfRfUyCsG1Fn5csMqsaj4qrnfB_Chrj7YBQygRDp0pDVZJgNOfPH966CyL4prsERdk9jRLH3_C_-Kea4_3taEgH51D-PgPy9P5TpKq2N7nmdFonCM0GO9CwW85OteqJ2024yAjAaGnKZRXlQ8UhjHogYl1ssfUA57l4ulr85E?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">sliceofbi.com</span>
             <a href="https://www.sliceofbi.com/2015/07/life-of-bi-business-intelligence.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -3317,13 +3233,6 @@ export default function DataEngineeringWarehousingSections() {
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Reporting tools</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Microsoft Power BI training - Services | Keyrus</span>
-            <a href="https://images.openai.com/static-rsc-4/JjTLkqW56B2zQJM11ZiFVaWdgPWIQhHHxEqGDRsgSwChFXiPg_h23ITS5l22jm-_6vDKkzpK_9-8yNGLj-zjTTRJ95OsoHzPU-GC0DLI6LniB5021UnOV5Y_NkUmFD9r40re1QO0CQyYXhibK6ypq1SWnqUHtkN_NFxpLgiP-MQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Microsoft Power BI</span>
@@ -3331,13 +3240,6 @@ export default function DataEngineeringWarehousingSections() {
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Business intelligence dashboards and interactive reporting.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Tableau Software Logo Png | Tableau Software Logo Vector - freepng</span>
-            <a href="https://images.openai.com/static-rsc-4/uhILoeMhYrX5E4x4f8y73VkSdIBZB0_iuSQChocLonYqoz84tgOE9dX0bBEiCCnaNRXdpHDnx9IiAW__ZEqcdGRH8F_dxDu418cuR6krkFHZ_tst-hclKh2NxxotxOfvLeAKu_xtAsmUF8hxY4tmVhMBzjkHWdUBRGi_uqtdWls?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
@@ -3347,13 +3249,6 @@ export default function DataEngineeringWarehousingSections() {
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Visual analytics and enterprise dashboards.</span>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Lookerによるショッピングモール売上分析 デモ動画｜テクニカルブログ｜NTTインテグレーション株式会社</span>
-            <a href="https://images.openai.com/static-rsc-4/PF-xJJAFpdah8jMZOtNRsMhpguiiY6zVqXHUcI5rY580gR0nnjBmiQ0gj-LwZ2LRPuf6LiPBs9ziTx-SgVQ-H1zWh5W8NiLAM1hh8hKnI2fjVSyweBkScdhkMD2D9liLhR6iwWzJREk3Fhe6Z5RU3B4kwPRitoTArEcV_GNLvqs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Looker</span>
@@ -3361,13 +3256,6 @@ export default function DataEngineeringWarehousingSections() {
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Governed data exploration and semantic modeling.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">A Powerful System for Veterinary Clinics Staff and Management | Touch4IT</span>
-            <a href="https://images.openai.com/static-rsc-4/O1qZzweBF7W81apPUERiKbVyaM8bW67fP7pciPZvbh4HJ2JBe2FBNxTAeuM87AIozg-Qs2BPRG1rxteKbHT745MwlC9MqAOlZ1IMANrWJbpEdb90I3cW3kO-_c_a7SPw5ixe2Z5PO4ryAql6dIzv_w2tWHpBprocvQj0M2SeB30?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
@@ -3441,13 +3329,6 @@ export default function DataEngineeringWarehousingSections() {
             <span>Columnar storage organizes data by columns rather than storing complete records together.</span>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">It is especially valuable for analytical workloads because most reports need only a subset of all available columns.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How SQL Queries Run Inside a Data Warehouse | by Satyam Sahu | Feb, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/GeNvBU3i0RBcglga1mhk4MHFY-KZgqNybhEss4vf4z72maL5wZwseZFhqjU31FGtJ00YsqikIcpZf2mmlDlSa1ULT7bh2oQew-hmX0ez2FhFYRVuynu0mG-iIrDksnTH4-xA5b7hCpdXDdVW9Femeyv9HOVzXFpy_Er7jZQOBdg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40satyamsahu_87283/how-sql-queries-run-inside-a-data-warehouse-00da04a3f890?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3667,13 +3548,6 @@ export default function DataEngineeringWarehousingSections() {
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Each node processes a portion of the data.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Ultimate Guide to Enterprise Data Warehouse: Modern Data Infrastructure Explained, Synx Data Labs</span>
-            <a href="https://images.openai.com/static-rsc-4/RkEqz9zVxFOtBrj6YLbRWLhVnwynT_8ITY8SPEq9Pmx9DkUKE4xguq1PlyLEtYE-RBEIMBqAFk6-zalk6oYLWl0CTd5voKn7BitiUsgsHyIOV5ru5nR2t0rSIXQTfrbCoPRfNEencNI47wXjtH4g5rWn5h70h5CSmNFB0HcYnjA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">synxdata.com</span>
@@ -4013,13 +3887,6 @@ export default function DataEngineeringWarehousingSections() {
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Imagine a sales table with 500 million records spanning ten years.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Instead of treating the table as one undivided storage object, we can partition it by year or date.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">The Data Warehouse Engineer’s Playbook | by Satyam Sahu | Data And Beyond | Mar, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/4bW_KGC--uWDmHdhCEjhywKi62It962exF7lYB8eddHPcVboomtCYeT1S2X9j_Qg2Io0-0YPcb3yIV2e6NIx7n67V3MhZy2TzR4ntpwiqsNk56bwjrVoSvZOsUDSdBo2l_wfddOjurDRe-MmW6mAiEUc-orFHmwkw5t6Z39pyHM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/data-and-beyond/the-data-warehouse-engineers-playbook-931c262ebf19?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4410,13 +4277,6 @@ export default function DataEngineeringWarehousingSections() {
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Instead, we can create a materialized view that stores precomputed daily revenue.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Database Schema Design Simplified: Normalization vs Denormalization</span>
-            <a href="https://images.openai.com/static-rsc-4/OtEcinYzU_WdIA0KzwGtTFueREv5Q_dAObmYpUDLfu1eCCWKPg4Dtsy4K2WXVFaD9BqNW1GB4XjfTZFg1GSGDewt2g8y5N6ZQvt_ntCjWVKsGMKoAacr0zPco5a6yE1QebkAU7DgEKaIACQIHdYvvtSRyluOERr3sT1Gvj1xnN4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">blog.bytebytego.com</span>
@@ -5109,13 +4969,6 @@ SELECT order_date, revenue FROM fact_sales;`}</code>
           20. Snowflake Architecture
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Snowflake World Tour Jakarta - Snowflake Indonesia</span>
-            <a href="https://images.openai.com/static-rsc-4/hOGbz6FzvspllA7cHJ9PI5za51zE_pnpWusbLPRMl1qCynSt_W8BaFGNbs_QJbF_k_3qLfh4sjej87wO5L15Kj-mqfPYqAdX8CZUsfMtZxxSOiFd8mo6jSpWr8n66nHq8sntcg56eJ9_caapyJh6JXI6LvXe43gNQPxGiNClpzE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Snowflake</span>
@@ -5131,13 +4984,6 @@ SELECT order_date, revenue FROM fact_sales;`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Snowflake architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Snowflake Deep Dive: Architecture, Performance, and How It Compares to BigQuery &amp; Redshift</span>
-            <a href="https://images.openai.com/static-rsc-4/brSN1jN6PjRJhg95kzr39QAvvZEKrwlUoeONz3M7gwV8vaH92edOcd6hfw-f-Y97VMNdrS8pIRzqTVA4nes2HFQniPNHVeeoCm5Wl8ybGhLIyUd9qVDKofDRI-R2KBHoZHxrat7rBP6A7f7fH_u4nDRVTKNVwT-m8XshDkC2LNw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">daisuke.masuda.tokyo</span>
             <a href="https://daisuke.masuda.tokyo/article-2026-05-25-1132?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -5383,13 +5229,6 @@ SELECT order_date, revenue FROM fact_sales;`}</code>
           21. Google BigQuery Architecture
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Google BigQuery | Integrations | OneTrust</span>
-            <a href="https://images.openai.com/static-rsc-4/7yUUApS88Wr6bI6MojEgbjxtKKon5_incgRUmu5PvXgnpzcQXjpjRH3aIyrh8-sVSi2mK5Pipw2Yjq11CffcOYDG3yEHJj0nWVle4nB8Ep3qbMthT7zbCpJntXRqm3GscVEEdyrDtKjOkkbUsKl0GS4mc5PW8H9Q2hYuPWct5Y4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Google BigQuery</span>
@@ -5411,13 +5250,6 @@ SELECT order_date, revenue FROM fact_sales;`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>BigQuery architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">BigQuery - Query Processing | sqlTechHead</span>
-            <a href="https://images.openai.com/static-rsc-4/ZnshCU6ITKYCrdRJ17QXboZIxO_VWm1qJZ65mbdNbB6_rfeVhFfvpQcZ8VRuBlF4FOgK0fukLCqBUdo38gxWX_J873LV4cwda9Y5yK2cPtH2m1-dy5kGdb-suSEePWcnB-hVy9PExaS-xW3R3S8b5xYPEEB__1WBABEZOf4KVHI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">sqltechhead.github.io</span>
             <a href="https://sqltechhead.github.io/posts/QueryProcessing/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -5654,13 +5486,6 @@ CREATE TABLE analytics.sales ( order_id INT64, customer_id INT64, order_date DAT
           22. Amazon Redshift Architecture
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Amazon Redshift Logo Vector PNG | Amazon Redshift Cloud Data Warehouse Emblem - freepng</span>
-            <a href="https://images.openai.com/static-rsc-4/WVIXN7696s-l7nP97q3a99HmZ3JyKUk0auyrJIUy3oxCBZtPR9KqvCeNZF1dERLaqMV0wYXN_zCCrKNwkUJw2QLiZ2BQtcE5MOtsiXZxyPvHimZylR0GsM-i1Pu03LcCjrSF-BY7mbotmzX03chvxiRKiLbHBHI_xml7GZ0lL6M?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Amazon Redshift</span>
@@ -5675,13 +5500,6 @@ CREATE TABLE analytics.sales ( order_id INT64, customer_id INT64, order_date DAT
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Redshift architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Automate your Amazon Redshift performance tuning with automatic table optimization | AWS Big Data Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/GvcZrvU7qpFwlcbEa0WLXrsY2Amiz56rOfzfThOoR8jgh4yENXIY0cLbwIvRuGhXA4d4EKNxI7wST17G0vgcVH4lnq63_o6yM2DkYJfDDAuG1DGx1ltSivKOWW2o6kSc5vu23ob69GjllPP-hjJNj8-XN_V1d8wt9KdBREktHME?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">aws.amazon.com</span>
             <a href="https://aws.amazon.com/blogs/big-data/automate-your-amazon-redshift-performance-tuning-with-automatic-table-optimization/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -5945,13 +5763,6 @@ CREATE TABLE analytics.sales ( order_id INT64, customer_id INT64, order_date DAT
           23. ClickHouse Architecture
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Click House Logo Vector Download | Logowik</span>
-            <a href="https://images.openai.com/static-rsc-4/JwBfkJ5El7S0bhkTpdBczn8AX4_52kEJECRvChUQTnkJK6WIydictF-2XhVaJs1gGCgMHpjichkgJuSoHdPMHGE8E8EhUxEOtClcDdLsCtqkmGajTc3XmHm97R2eop4aydglqV4MQ7yTUQSnN9WxiIqv3-PfR3Jmloa6bxOjcNE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>ClickHouse</span>
@@ -5994,13 +5805,6 @@ CREATE TABLE analytics.sales ( order_id INT64, customer_id INT64, order_date DAT
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>ClickHouse architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Architecture Overview | ClickHouse Docs</span>
-            <a href="https://images.openai.com/static-rsc-4/5mHoj6n5niShMLZ0xXpFn5sYHrLmIGy8mJEI9jaYX5_yVqj-ZN7HSSrD4RUx0LSUYo01qqOdu1kK8W0YzrfMrMAX0UJoEEUQijVExtDxKXfsJFunO8cSdYnJ7wT5RFka3dbrmoDenQhcHDGeGIHA0_gx-bcnLe15zYF7K5z-U04?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">clickhouse.com</span>
             <a href="https://clickhouse.com/docs/academic_overview?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6046,13 +5850,6 @@ CREATE TABLE analytics.sales ( order_id INT64, customer_id INT64, order_date DAT
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Merges: Background operations that combine smaller parts into larger parts.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">ClickHouse Explained 2026: MergeTree, Distributed &amp; Real-Time OLAP | JusDB Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/FVchDERkxBWNMZD5vKG99d-svsZiE6DXNLbJN4mHnwfq9oOa50kJxI7FNp5XG2buo5H6Qer9JqeIuCx7R2uQDY621c44TRsWT-pakIfeKC7rHn1vQ1yOerJG6Dix_7-mUr_Y1Uoy95E-i0tzcxpnh-UXBmbt8D45WGtIid-fQgo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">jusdb.com</span>
@@ -6101,13 +5898,6 @@ This creates:`}</code>
             <span>ClickHouse can distribute analytical queries across multiple servers.</span>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A Distributed table provides access to local tables across a cluster and coordinates remote query execution and result merging.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Parallel replicas | ClickHouse Docs</span>
-            <a href="https://images.openai.com/static-rsc-4/DWl8AGywa4WznKqnOWPHIPemflFtxCE4XKq9mfKXrX4BgWLnRgDA4YjDhSob4maj7vkYFgFwiq4_PirG9W--Y3ZXUlYVdZp6s9BFoa-HbS0JYYP64RTR_vWGb78s6rLrR-sw54Un73c-jvysnbXCsVG2YCUA50LGEyIh3L-dly4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">clickhouse.com</span>
             <a href="https://clickhouse.com/docs/deployment-guides/parallel-replicas?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6393,13 +6183,6 @@ This creates:`}</code>
             <span>Project — Enterprise E-commerce Analytics Platform</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">This project combines all the topics covered in Module 7 and challenges learners to design a production-style analytical warehouse.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Google BigQuery for Retail: Turning Fragmented Data into Real-Time Advantage — Evonence | Google Cloud Partner</span>
-            <a href="https://images.openai.com/static-rsc-4/eEy1y_dH9t3i-Sy2LRD2Ovqxx3KzDKyy5RXU0TGC4reFtFRjp6fNB4pFWJ_cNN5wPW5zMNP-d30ybVR6pmsmw0vqYy-TeEuLGK9WwIH7fhmYJoj2FWiF4OazvFBepgtdXdkQXw5axQlQypEszCR7aXcv5q-GGzbj0n8E_kgAdtg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">evonence.com</span>
             <a href="https://www.evonence.com/blog/google-bigquery-for-retail-turning-fragmented-data-into-real-time-advantage?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6731,13 +6514,6 @@ Experiment with:`}</code>
             <span>Step 7 — Compare modern warehouse platforms</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Implement a small proof of concept using at least two platforms, then study the architecture of all four.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Snowflake、Microsoftとパートナーシップ拡大 生成AIモデルをデータクラウドへ導入|EnterpriseZine（エンタープライズジン）</span>
-            <a href="https://images.openai.com/static-rsc-4/7vx5BP1-4hamhUQVuvB4L__6RDcWI__cVnD5bAaV4uRt3Rws0-kV4Q8xmNOfRAo-hsBZVIZhCiju6OsbSEb_HCmouTR1F6N4pidTtp7z6hMUnWY79kj9lNWZdrM-x_xkQTty4bWWN6Co7hzlHQbazYILlCCGSrZJt9Eca5HMR1k?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Snowflake</span>
@@ -6745,13 +6521,6 @@ Experiment with:`}</code>
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Micro-partitions and virtual warehouses.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Google BigQuery Use Cases: Cloud-Native Data Warehousing and AI | Airbyte</span>
-            <a href="https://images.openai.com/static-rsc-4/MWUiI7HYMjNHuQhF8r-ELPyjnHuMJWv6ujNdpMvXgWR9CtMDNpR5EOww9Z9g4PzQ_grcYFGDzDavQyK1kdl-knPcaP3kKVbeW-CImCxbfctvwstvgoGpbRlbwFYyFePydkF2qVN9r0VrS_hfswwuKR_-PDze1NWrD1lKoGThdJU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
@@ -6761,13 +6530,6 @@ Experiment with:`}</code>
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Storage-compute separation and slots.</span>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Learn about data integration, migration, replication, and strategic data practices.</span>
-            <a href="https://images.openai.com/static-rsc-4/dVccaUEjTRU1czLMXPjNQmchZ_vYrNGhvjxYHcbHmcEm02EEjDddIXexXVybRXY9QJ30Il5b_KiU1-33zT2v6VhLARJfc2QDpqLR7A1ItVeXTF3PQXOetW95ecUDLPCm4CduJUtcD3pfrLwtiUJ48tQAD0H003KwSE4lfAUtt6I?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Redshift</span>
@@ -6775,13 +6537,6 @@ Experiment with:`}</code>
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>MPP, distribution styles, and sort keys.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">ClickHouse führt Cloud-Angebot für weltweit schnellstes OLAP-Datenbankmanagement-System ein</span>
-            <a href="https://images.openai.com/static-rsc-4/70pk6MxkpFeMtxmQ53xL1vX00qPEqhMLazKMT0-i0A5qEe8xAvfbzNbcbUbdcA77_zZydnSR60GynFCWWgUtn-By6lRQ_sGXTIqPnrFhXmUuWJUS2emOaF47vQ4la8i6OxHdGM8J7a6i1bxb0eNJPJq3H2cfIdeoh9EHTELtH28?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />

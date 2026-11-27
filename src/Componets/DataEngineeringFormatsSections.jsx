@@ -252,13 +252,6 @@ export default function DataEngineeringFormatsSections() {
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">The receiving application can deserialize this JSON into its own programming-language data structure.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Serialization and Deserialization in the Backend World | by Vikas Chhonkar | Jan, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/O3QhpKHaAhLuWlvudjwWSUJVIiK91ZfIsX-9XMe4TFS2KWBO2reiRXRuIQycUVvl_gg75eguNQuOAALzORVr7yKSmPys3LaOPw30ER5K2H1D8unLGMHC_l11KiD7j_PV_Ys8NNoSHyDyZMAv757HP01UVmOBaGexzHPZc1ZsD5o?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40vikaschhonkar1/serialization-and-deserialization-in-the-backend-world-73a99f31ee58?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -486,13 +479,6 @@ Output:`}</code>
             <span>The values belonging to one customer are stored together.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What Is a Columnar Database? | QuestDB</span>
-            <a href="https://images.openai.com/static-rsc-4/-2AAt5pBcDvaHmr2ySpQdU19CiL4puP2fNvuwjztns6c14gTYYZQ7gVMb4TiNYg04_ST1xN9f8L3q4e0WEqrpr-WIVRXO6zvc6SZqdM6Z_5J_IW-V-07x1-wHdV2Ph2ATDmByXUCzOp_J8Gctu0Qd-CrmwXt5bSzqbOCIbAcSdo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">questdb.io</span>
             <a href="https://questdb.io/glossary/columnar-database/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -550,13 +536,6 @@ Output:`}</code>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">The same customer table becomes:</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">customer_id: 101, 102, 103 name: Rahul, Priya, Aman city: Pune, Mumbai, Delhi age: 23, 25, 22</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">In-depth: ClickHouse vs Elasticsearch - PostHog</span>
-            <a href="https://images.openai.com/static-rsc-4/uRnQagWKU1mDklgW_wR7jNzWB_vFvtuvXuYWGEs_JMGDOqJvuhUFR-NrkQKU-ZIdk2ykbBL28cMUik8oiQxTp6AwbxJ1Nvzlxo0Ap2nN7t9ItUYC157d7h6rOsJVile8xoQX5FmA_7a3AfoRll5qLgso4FWp6oJpR_S4rzqzvJM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">posthog.com</span>
             <a href="https://posthog.com/blog/clickhouse-vs-elasticsearch?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -764,13 +743,6 @@ Output:`}</code>
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Business intelligence dashboards.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">An Introduction to Vector Databases - Qdrant</span>
-            <a href="https://images.openai.com/static-rsc-4/JmIYPZ6IwyyHmTwGiq63Oz-VCb02IP9eK0s7jPaaKGneJK27kB9vRE9jApf_oRL6GxqzqdLeV1Z055maHsYzAZ-MgwVzsON8XQeDRfLFfNlTqVtq8f6qVnUklcFwaqqd1yN6LpYZLtiAj72TN2s4Ayp-zWSZxXC5TURr-P-gSzA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">aidoczh.com</span>
@@ -1242,13 +1214,6 @@ Output:`}</code>
             <span>Unlike an ordinary JSON array, each record can be read independently.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How to choose the best file format for your IPinfo database? | IPinfo.io</span>
-            <a href="https://images.openai.com/static-rsc-4/tHONjCWsjjoTWxVMC7J9E0erOFHddNNj2IuzEbUIZrHu2Py_DnPUcB84qnrAJ7j8TmoAaWfsJYQY3CfjhQYah9zxHggPUTQbgjWuNTm43Tm8f2N2G0fpSV05SZS7M46G94lYf_X2l0k-wPWbR_Cd3_Fh0VlAN3MrYbVLNDshHN0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">ipinfo.io</span>
             <a href="https://ipinfo.io/blog/ipinfo-database-formats?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -1579,13 +1544,6 @@ JSON Lines:
           6. Apache Avro
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Avro Logo PNG Vector (SVG) Free Download</span>
-            <a href="https://images.openai.com/static-rsc-4/uzdIlWQGLqyCImrMkPaOmX3WbKQW_jluLRv9V2VngIbgJJTghawZyR2H3bV0Y1JucK8uoHtTVC0MGgBLIpz9dwrt51U5LUEh7DJ1ZD_d-HTHVX-JLx0iWHkmY1CiU7roCYl8PSraWjeKBP8ye0uYSbDSVJujaIMFFMgvsAmcwxI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Apache Avro</span>
@@ -1676,13 +1634,6 @@ This schema describes a Customer record containing:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>How Avro serialization works</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Getting Started with Confluent Schema Registry | PDF</span>
-            <a href="https://images.openai.com/static-rsc-4/ke2nrsFWTNA_Ok2N4SmmryoJ9CrfDr36CH0wdKUHlE48har6lVyLHWFjsJKwZZQzNXDAo2XfTqY6Mmx_iZJg1N1t9ko1xUH4NJzeYgqjHtGyJh9umzYu-JKbHwHEuZEZwgd2ET1vkxQ8u4BJAHRpzHDFubo5tZICJUwINQDAp9E?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">slideshare.net</span>
             <a href="https://www.slideshare.net/slideshow/getting-started-with-confluent-schema-registry/238433511?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1980,13 +1931,6 @@ from fastavro import writer, reader, parse_schema schema = { "type": "record", "
           7. Apache Parquet
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Parquet (@ApacheParquet) on X</span>
-            <a href="https://images.openai.com/static-rsc-4/2TqnObITOj0pQfyEgJF8ZObHPugl59z2KhjQ6FTe1h73lVK2IU49Mdf3zkdSlRFW1MFXA1Gusad0AwTIcKg9w8feZl0DKCB4TvnFqL-IT10BIgODFobEMyzNepH_rAOJn_yuGEioQRa8yXJYQl2MTguDRpEXNygyfrp5wDDRZTA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Apache Parquet</span>
@@ -2143,13 +2087,6 @@ from fastavro import writer, reader, parse_schema schema = { "type": "record", "
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Internal architecture of Parquet</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Parquet Internals: Why Your File Format Choice Determines Query Speed</span>
-            <a href="https://images.openai.com/static-rsc-4/ZexU3axRaeeasiWUq0hqElMUFXVHVj5Tw1F1oymj456loKvMD11h7LE6YnAPsmgsKSJ1tSEKSz7qteNMWEopBL3O1W9O5OuPClwTIE5ggv8gqKfbuzw8aHFIlUg_xJIUapzzqKygbFZYNqtqlSgdM65b_LXbZhQStqQUX-CskSI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">blog.systemoverflow.com</span>
             <a href="https://blog.systemoverflow.com/p/parquet-internals-why-your-file-format?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2342,13 +2279,6 @@ import pandas as pd data = { "order_id": [1001, 1002, 1003], "revenue": [65000, 
           8. Apache ORC
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">ORC file format</span>
-            <a href="https://images.openai.com/static-rsc-4/IejyJGuiUkFStdVVhCKFJGXiwxF2VfruQGEClK74UM4SVKK2HZX04J6CTMndnbR-qrywz1zCDrpk1gjUzZIaiNzZkc9sjyOm3aJ0GbUOMT2Crw9bZaS6pV52jOsrU3fylWdcwi1NDNhzfdyZ_I2ePzmwa2UOX2v8BOS24S3H0lw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Apache ORC</span>
@@ -2392,13 +2322,6 @@ import pandas as pd data = { "order_id": [1001, 1002, 1003], "revenue": [65000, 
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>ORC file architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Formats</span>
-            <a href="https://images.openai.com/static-rsc-4/ttuRIBsF7eoGkryIED7v3MuZgC8aHxP_rhoEnSLIJ_WnwKiqwOTQu6Sp57h-on-m8lYB_5HmGBC05WHLKr4FMKyIv_PUkgQS4m1ecAUvj2QLDyQTz4-Xv08MvTU6DJlSvhH6ibE7CN1QeWv-O4NtFuY01n_dj1tLNgimaEgmBxk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">svds.com</span>
             <a href="https://www.svds.com/dataformats/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2606,13 +2529,6 @@ import pandas as pd data = { "order_id": [1001, 1002, 1003], "revenue": [65000, 
           9. Apache Arrow
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Arrow Flight SQL</span>
-            <a href="https://images.openai.com/static-rsc-4/q41KvRcP2rjDcRfMUwwKtv7KSiozXGMDz_XrqkED2-w7-iaPgkJQ8oh2uBBegh3Ii0v7TwsgBLPGOiH1G-k5ItI6HvYjwvLcRInWl3TlKTMtc1hicOkY1F4Wo7-KWFEXFZIMuOluBVC9l_H7lDLr3CO76X0HbTCWU_C-xaWSdxY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Apache Arrow</span>
@@ -2675,13 +2591,6 @@ import pandas as pd data = { "order_id": [1001, 1002, 1003], "revenue": [65000, 
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Arrow columnar layout</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Chapter 1: Getting Started with Apache Arrow | In-Memory Analytics with Apache Arrow</span>
-            <a href="https://images.openai.com/static-rsc-4/XSNxv7QnYDqlxhez-0Yk6mNnoVPfKInJtxGlx1bj3H450k0PHjXZYrGeQiAD8eiy7jJimICDLzn67Ad5IRIeh89evg_68F0mH8DQd2Kda9JhMH6CCYGNWA1D7q00wWlzC-wl5hie1kVW4lXZcUaIuusrHGQlsiLZHjO_yyVbWKE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">subscription.packtpub.com</span>
             <a href="https://subscription.packtpub.com/book/data/9781801071031/2/ch02lvl1sec06/learning-the-terminology-and-physical-memory-layout?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2899,13 +2808,6 @@ import pandas as pd import pyarrow as pa df = pd.DataFrame({ "id": [1, 2, 3], "a
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>A. Protocol Buffers (Protobuf)</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Serialization Formats: JSON, Protobuf, Avro</span>
-            <a href="https://images.openai.com/static-rsc-4/jZIVBqNpyu0U24MiG8be6qjij40R8vNWUKJO9kPX-VTnAtaDwAFU8emnzwKdLSL1RdVhoK5YA8DqpeCwjN1T6N2jhDiRqb-oOoetX0FqJqrkas3IfieQUTTdDzWs7BXJunZFGw_eDlDMgfi4G6cmqWrhTFySHoD1ibWHmHBotUM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Protocol Buffers</span>
@@ -3875,13 +3777,6 @@ While another expects:
             <span>A Schema Registry helps establish a shared schema-management process.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How to use OpenShift Service Registry | Red Hat Developer</span>
-            <a href="https://images.openai.com/static-rsc-4/LP0EHXrao-maw3Fh5oXseSzj9FFneLb0GrhK94yIZ9_qMeqyU2fJfaiqOI_iXvkSQlxt24YzTekw7d8TlXvisftZy8dExack4FM5yRNFvTyk1Hee_Ijw_k7gbqkNBS5ZqSiE8hI6pcYztvbx7YkunBE5Xn3wfTntSSeUXig76BA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">developers.redhat.com</span>
             <a href="https://developers.redhat.com/articles/2021/10/04/get-started-openshift-service-registry?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -4319,13 +4214,6 @@ While another expects:
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>REST API architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Čo je REST API a ako funguje? Sprievodca pre začiatočníkov | Skillmea</span>
-            <a href="https://images.openai.com/static-rsc-4/3lXYpnAUtN1VF_Gnm845RsBz84cpMH9zTvHXGsm7Ib51nUrtkgf9xNJWrystcYgSM6uyOSpq5wqyG5oIxrwRIbprorzDIPVK8k9eV8K5ejmGtGlS8tkvpcXqN-j085CPTZhsHTLk6LXd_FR1rRWCB7YfNiV2_atOBAUT9X8g4J4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">skillmea.sk</span>
             <a href="https://skillmea.sk/blog/co-je-rest-api?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -5084,13 +4972,6 @@ Advantages:`}</code>
             <span>Each request returns a smaller set of records.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">REST API Essentials: What Every Developer Needs to Know</span>
-            <a href="https://images.openai.com/static-rsc-4/tPyyD1svs1DJbg_8I64f9efHCaI1XhVrzo1ltOD8v_DjLuOL1QE8NYovMjDuWxq729IjyAIqvUIAk6hOVJo_pa9jDRELLO-z24-Dhoa42ERcz6zc-X60WifvWylyHDutOgu4dMPns-BU4Rp-Ehqz67li8Ojc-Tkw0eZLvolqYIM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">javarevisited.substack.com</span>
             <a href="https://javarevisited.substack.com/p/rest-api-fundamentals-from-basics?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -5429,13 +5310,6 @@ Advantages:`}</code>
             <span>API-based extraction architecture</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Engineering System Design: Ingesting External APIs Into a Modern Data Warehouse | by Sarath Sagi | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/reqfoGIVekQyYqI17v66om9RdDqofN9uC-gqhkAlvPA9avAWR7j4PhrxsohuXoBiXyjVby6Y65tHUjFm5dkNKels8lmBoy-1M4fcuchINfa2EmxoEVi2SxdlkPJXaGHihe04VSVZD54_0XuDMuXzRK_XUPapKMICCoz1d_GMP5M?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/itversity/data-engineering-system-design-ingesting-external-apis-into-a-modern-data-warehouse-eecb715da1b2?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -5729,13 +5603,6 @@ Advantages:`}</code>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">When payment completion occurs, the payment gateway sends an event notification directly to your registered endpoint.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">The Role of Webhook Feature in Payment Gateways</span>
-            <a href="https://images.openai.com/static-rsc-4/82OZm-G9Er1IFcwQrAmdi6y6IOuZ2JZvylgkZTzV2twD-Ydgojs1vJr99HTQMtqQlvlQ4BQvZfOjbDhyyVo8tqqeg1EDml5Qs9dNSFzMtm69IYmxhl3PyCI04pFXudLFQlpEwLH05_3_ElVQ3gwPFl40wz5mn344M7DWbM4Q6gA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">linkedin.com</span>
             <a href="https://www.linkedin.com/pulse/role-webhook-feature-payment-gateways-vatsyayan-kishlay--5yk8c?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -5947,13 +5814,6 @@ from flask import Flask, request, jsonify app = Flask(__name__) @app.post("/webh
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>An additional standard worth learning</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">CloudEvents |</span>
-            <a href="https://images.openai.com/static-rsc-4/g82ju8oMhZiuvUpo_tuZkxJWCSQ-jGHncjfDFt6GtxM2qs0yyrQPRdABWksQpifiJlkw-Tr8eWHr3BjbPo4cpaLT8FEEF2PmCwYyWlYXha5Pd177-3Py18q5nMfhU85JRix6XJE8Kniy_T9lldjV8d5ifmjmQjBGWop1VIAtEyE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>CloudEvents</span>
@@ -6175,13 +6035,6 @@ from flask import Flask, request, jsonify app = Flask(__name__) @app.post("/webh
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Data contract architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">📜 Part 2 — Data Contracts That Survive Real Life — Schemas, evolution, ownership &amp; PII | by Chaos To Clarity | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/zeUzU6Gub4dITnD6An3Y-1wLypSEFUWUt-GIrTiJ_mF2OKh5ByKCR95bc27NV9UXmFXK2g7cBvmqlnpVVLvaerwtZBIYdv8IUfvWq2iGpj7VCXME8TXrwOKKIF1vrR_E0nPbKCejLKfLZqqE1t4GTHYtCc0uk8RdmByAnPGNcxI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40sonal.sadafal/part-2-data-contracts-that-survive-real-life-schemas-evolution-ownership-pii-ebdd9e6b52b0?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6669,13 +6522,6 @@ The source application changes the field:
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>When working with REST APIs, web applications, and flexible nested data.</span>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">File:Apache Avro Logo 2023.svg - Wikimedia Commons</span>
-            <a href="https://images.openai.com/static-rsc-4/1gc_HgmWWQFF1GbxU2FQTsEIGKujdxw0PWlu6L2vtvJQYaI8u2BsEcgiTsZeRyX7ziefi9tIBoFuguv614LaP_GJDtzspO9ADA04T_-2aBXwIqRhGq5UibVKswP8IeddaxwECQCOeo1IFb1LdDOwre3gnUe7628SjhfXG_eOTts?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Avro</span>
@@ -6683,13 +6529,6 @@ The source application changes the field:
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>When exchanging schema-governed events and messages between distributed services.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">TPC-H benchmark of Hyper, DuckDB and Datafusion on Parquet files | Architecture &amp; Performance</span>
-            <a href="https://images.openai.com/static-rsc-4/SVyGAnoucmOlT4QJg0OTDQ9jVA67I81P70i-f85Ydl0xx0bPiYfy5l9YPu-6UaE6sY-oaG16WCQGmUUiAQURKSWvdkyTXZUsFmu2uSBrUMuJs9PzlsCqAE1dvXN_XL-gibT4AePaal9K40diKBQUd656VrbiElIEpaWgipQxHJU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
@@ -6699,25 +6538,11 @@ The source application changes the field:
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>When storing large historical datasets for analytical queries in a data lake.</span>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache orc logo - free Icon PNG, SVG</span>
-            <a href="https://images.openai.com/static-rsc-4/XI6DbVtTL9_3YKuudniSi-1OAghnNmD2iaJ7TTVYp0Ugyx5Xoz8ssoGbjgvayJYPHXpE8Lj0ulOdJv5cV38ZdONwis4UIuadQX5Mapxoiq19AQ4Vxsyi_FXCKju4UOyHdet7Mue1YfVSMxrT0OUyzwtby-93c92teis8OcQ0Cgs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>ORC</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">When working with analytical storage, particularly in Hadoop and Hive-oriented environments.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Visual identity | Apache Arrow</span>
-            <a href="https://images.openai.com/static-rsc-4/gvQfvRWVb5T8LVPcu56CnJEXSW62Sl0SiLcfR37bSNiDTKMxbO5g8QQamNunUEnbFqYgFulQa4dYjUCtX68XgNDdyZP2qYNEr2QgEiwI5dHWM2a-5CEhnxKOcHbW4DvlQmmgcIYFuH2c-82GE21XSt87ruoBp7eVz1h81Uktfzs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Arrow</span>
@@ -6725,13 +6550,6 @@ The source application changes the field:
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>When exchanging large datasets efficiently between in-memory processing systems.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Protocol Buffer Basics: Go</span>
-            <a href="https://images.openai.com/static-rsc-4/bImLQOyPDjCIU1VNItmAZeh9J7LuVM8XSe9bc0uLw72Vrjtg-51qFNPRp5XBjYgNfRgsE-pnm53M2ZlmNW35fx2mjYL5yETfJls1esFj3Gu_siWFSPSrlOAJbJdUXdxM3Yqv1uf1mfcgSIc852s0-EO_SaM3doLRGOwjzv1JKhM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
@@ -6747,13 +6565,6 @@ The source application changes the field:
             <span>A production data engineering pipeline rarely relies on only one format.</span>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">For example, an e-commerce organization might use:</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">From Data Chaos to Real-Time Insights: Building a Data Lakehouse with Spark, Kafka, and Iceberg | by Gamal Elkoumy | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/h4Hl30fsmVdW3KLDd5rCR6X6LQnmuceb53c9Rzamj8-kwlhFvi5QzD_vXmmr3RapUklK6kLvw_1tRDZTLE07ziwQGTv49B8CfCMvYQC5qZSTQ0s8r-KUXd68eIUPbM8LlHbTHcTmoFINbsXnm29wwZ79qzIqLmvTIk2JCUOKtlw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">elkoumy.medium.com</span>
             <a href="https://elkoumy.medium.com/from-data-chaos-to-real-time-insights-building-a-data-lakehouse-with-spark-kafka-and-iceberg-0b3aee4b75e9?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">

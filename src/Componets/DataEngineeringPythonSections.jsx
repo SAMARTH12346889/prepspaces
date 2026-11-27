@@ -16,19 +16,7 @@ export default function DataEngineeringPythonSections() {
           Module 2: Complete Python for Data Engineering Specification
         </h2>
         <div className="space-y-3 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; Five years of internships with Theta | Industry Alliance Programme | Te Herenga Waka—Victoria University of Wellington</span>
-            <a href="https://images.openai.com/static-rsc-4/oaGjrrYe-BXB72ysEctumrRIVbltj-6LaOmLtr6Gzm9hCEyD0vXOwAOv7dBFJRsq7Pewh6mBlp9V2hJu_GxMrh4TwpQwAnEAPhY6f4BlWFZV7Rs0EZY5Mj--5CVNmv8adbjrO9pm9qQnAJcDiXnk1lrlP4zcGFnhdPRt9lRrBu0?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; Prompts para Análisis de Datos: Python, SQL y Excel con IA | Aprender21</span>
-            <a href="https://images.openai.com/static-rsc-4/W3F81RsYUByfd4QlLtN1mV_8qCqMRPGHKt3YIM-iGsAwpk3MrfFH6srYM9aaD1vSk1uTbj1vVkKAbH3oGusmXO90It0LjRdxVszrFGdY8CMDgYDbnH7PJhnsbKga3IjxNaz60cDddY6GcWLFIA3EUfQ9ZuvxyxtnMrGnI1oFF5c?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; Extract Transform Load Python: Production Pipelines Guide</span>
-            <a href="https://images.openai.com/static-rsc-4/LeGQEt-WcqCSUyf4rsJU9dmbwYMzfV7pKjA9OTZi43h_hUSsL7iGYUlLEfdFoblVm_APNYicEuYdlq9Om-2yaaA-Gsfgbr5WUTKR0TyQN63aZyn1dAXTmgYxoVwwPsiKJYz5J8vfNjjom78X0jJZuUcSZRreb0aSpjS9TgXbG60?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
-          <h3 className="text-lg font-bold text-stone-900 mt-4 mb-2">Module overview</h3>
+          <h3 className="text-lg font-extrabold text-stone-900 mt-5 mb-2 border-l-4 border-l-[#f97316] pl-3">Module overview</h3>
           <p>Python is one of the most important programming languages in modern Data Engineering. It is used to extract data from APIs, connect to databases, process files, clean datasets, automate workflows, build data pipelines, and integrate different technologies.</p>
           <p>In the previous module, we studied the architecture of data engineering systems. We learned how data moves from sources through ingestion and processing systems into storage platforms and analytical applications.</p>
           <p>Now we will learn how to implement those systems using Python.</p>
@@ -46,7 +34,7 @@ export default function DataEngineeringPythonSections() {
           <p>Automatically test the pipeline.</p>
           <p>Python provides the programming capabilities required to build this system.</p>
           <p>This module starts with Python fundamentals and progresses toward production-quality data engineering applications.</p>
-          <h3 className="text-lg font-bold text-stone-900 mt-4 mb-2">Learning objectives</h3>
+          <h3 className="text-lg font-extrabold text-stone-900 mt-5 mb-2 border-l-4 border-l-[#f97316] pl-3">Learning objectives</h3>
           <p>By completing this module, you should be able to:</p>
           <p>Write Python programs using variables, data types, operators, conditions, and loops.</p>
           <p>Create reusable functions and organize code into modules.</p>
@@ -78,7 +66,7 @@ export default function DataEngineeringPythonSections() {
           1. Python Fundamentals and Syntax
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.1 What is Python?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.1 What is Python?</h3>
           <p>Python is a high-level, general-purpose programming language known for its readable syntax, extensive libraries, and versatility.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">It is widely used in:</h4>
           <p>Data Engineering.</p>
@@ -103,14 +91,10 @@ export default function DataEngineeringPythonSections() {
           <p>Integration: Python works with databases, APIs, cloud services, and distributed processing platforms.</p>
           <p>Automation: Engineers can automate repetitive data extraction, transformation, validation, and reporting operations.</p>
           <p>Scalability through ecosystem: Python can work with large-scale processing engines such as Apache Spark, although Python itself does not automatically make a workload distributed.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.2 How does Python execute code?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.2 How does Python execute code?</h3>
           <p>Python source code is executed by a Python implementation.</p>
           <p>A commonly used implementation is CPython.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A simplified view of the process is:</h4>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Inside the Python Virtual Machine</span></div>
-            <a href="https://images.openai.com/static-rsc-4/kwqpefPIMOSgSblmRritxtKgqXhghpn6C_ZqJ-F79xiMmcRBcs6Cdw5BTTPSMCf4_v_nY-j3mmy6w8mieOxNlUhtwe0ELivzuxZcFhxjf26c77zPsylR6Y8b5QkKb9342StVhEMn7MrxS2mlAlKdo4QjEqntFDi9MJOi9KmSIbU?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>linkedin.com</span></div>
             <a href="https://www.linkedin.com/pulse/inside-python-virtual-machine-kuldeep-pal-wkx4c?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -146,7 +130,7 @@ export default function DataEngineeringPythonSections() {
           <p>Strong typing: Python does not automatically treat unrelated data types as interchangeable.</p>
           <p>Object-oriented: Python supports classes, objects, inheritance, and encapsulation.</p>
           <p>Multi-paradigm: Python supports procedural, object-oriented, and functional programming styles.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.3 Your first Python program</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.3 Your first Python program</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create a file called:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -196,7 +180,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           2. Variables, Data Types, and Operators
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.1 Variables</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.1 Variables</h3>
           <p>A variable is a name that refers to an object in Python.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>customer_name = "Rahul" customer_age = 22 order_amount = 2500.50 payment_successful = True</p>
@@ -219,7 +203,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>total_revenue = 50000</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">is preferable to:</h4>
           <p>tr = 50000</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.2 Python data types</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.2 Python data types</h3>
           <p>Python provides several built-in data types.</p>
           <p>A. Numeric types</p>
           <p>Integer (int)</p>
@@ -266,7 +250,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Sets.</p>
           <p>Dictionaries.</p>
           <p>These are explained in detail in Section 5.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.3 Type conversion</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.3 Type conversion</h3>
           <p>Sometimes data arrives in a different type than required.</p>
           <p>For example, a CSV file may contain an order amount as text.</p>
           <p>amount = "2500" print(type(amount))</p>
@@ -301,7 +285,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>amount = int("twenty")</p>
           <p>This raises a ValueError.</p>
           <p>Production data pipelines should validate values before conversion and handle conversion failures appropriately.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.4 Operators</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.4 Operators</h3>
           <p>Operators perform calculations, comparisons, and logical operations.</p>
           <p>Arithmetic operators</p>
           <p>Operator</p>
@@ -384,14 +368,14 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Retry certain operations.</p>
           <p>Execute different processing logic based on file type.</p>
           <p>Python provides conditional statements and loops to implement these operations.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.1 The if statement</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.1 The if statement</h3>
           <p>The if statement runs a block when a condition is true.</p>
           <p>amount = 5000 if amount &gt; 1000: print("High-value order")</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>High-value order</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.2 if-else</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.2 if-else</h3>
           <p>payment_status = "SUCCESS" if payment_status == "SUCCESS": print("Process order") else: print("Do not process order")</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.3 if-elif-else</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.3 if-elif-else</h3>
           <p>Use multiple conditions when there are several possible outcomes.</p>
           <p>amount = 7500 if amount &gt;= 10000: category = "Premium" elif amount &gt;= 5000: category = "High" elif amount &gt;= 1000: category = "Medium" else: category = "Low" print(category)</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
@@ -399,7 +383,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Real-world data engineering example</p>
           <p>Imagine processing incoming payment records.</p>
           <p>payment = &#123; "order_id": 101, "amount": 5000, "status": "SUCCESS" &#125; if payment["amount"] &lt;= 0: print("Invalid amount") elif payment["status"] != "SUCCESS": print("Payment is not completed") else: print("Payment is ready for processing")</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.4 for loops</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.4 for loops</h3>
           <p>A for loop iterates over elements in a sequence or other iterable.</p>
           <p>orders = [1000, 2000, 3000, 4000] for amount in orders: print(amount)</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
@@ -408,20 +392,20 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>orders = [1000, 2000, 3000, 4000] total_revenue = 0 for amount in orders: total_revenue += amount print("Total:", total_revenue)</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>Total: 10000</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.5 while loops</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.5 while loops</h3>
           <p>A while loop continues running as long as its condition is true.</p>
           <p>attempt = 1 max_attempts = 3 while attempt &lt;= max_attempts: print(f"Attempt: &#123;attempt&#125;") attempt += 1</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>Attempt: 1 Attempt: 2 Attempt: 3</p>
           <p>This concept is useful for retry logic, polling, and controlled processing loops.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.6 break and continue</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.6 break and continue</h3>
           <p>break exits a loop.</p>
           <p>for number in range(1, 10): if number == 5: break print(number)</p>
           <p>continue skips the current iteration.</p>
           <p>orders = [100, -50, 500, -20, 1000] for amount in orders: if amount &lt; 0: continue print(amount)</p>
           <p>This example skips negative values.</p>
           <p>However, in a production pipeline, invalid data should generally be counted and logged rather than silently discarded.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.7 range()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.7 range()</h3>
           <p>range() generates a sequence of integers.</p>
           <p>for number in range(5): print(number)</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
@@ -430,7 +414,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>for number in range(1, 11, 2): print(number)</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>1 3 5 7 9</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.8 enumerate() and zip()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.8 enumerate() and zip()</h3>
           <p>These built-in functions are especially useful for processing datasets.</p>
           <p>enumerate()</p>
           <p>Returns an index along with each item.</p>
@@ -455,7 +439,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           4. Functions and Modular Programming
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.1 What is a function?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.1 What is a function?</h3>
           <p>A function is a reusable block of code that performs a particular task.</p>
           <p>Instead of rewriting the same logic repeatedly, define the logic once and call it whenever required.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example without a function:</h4>
@@ -468,7 +452,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>1000 3000</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.2 Function structure</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.2 Function structure</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`def function_name(parameters): # Function body return result`}</code>
@@ -480,7 +464,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Input validation.</p>
           <p>Processing logic.</p>
           <p>A return statement.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.3 Parameters and arguments</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.3 Parameters and arguments</h3>
           <p>Parameters are the names defined in the function.</p>
           <p>Arguments are the actual values supplied during a function call.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -518,7 +502,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <code>{`def display_customer(**details): for key, value in details.items(): print(key, value) display_customer( name="Rahul", city="Pune", age=22 )`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.4 Return values</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.4 Return values</h3>
           <p>A function can return data to its caller.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -526,7 +510,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>A function without an explicit return statement returns None.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.5 Type hints</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.5 Type hints</h3>
           <p>Type hints describe the expected types of function inputs and outputs.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -535,7 +519,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>Type hints improve readability, documentation, and compatibility with static analysis tools.</p>
           <p>Python does not normally enforce type hints automatically at runtime.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.6 Modular programming</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.6 Modular programming</h3>
           <p>Modular programming means dividing a large application into smaller files and components that have clear responsibilities.</p>
           <p>Instead of writing every pipeline operation inside one enormous Python file, organize the application into modules.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example project structure:</h4>
@@ -570,7 +554,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Python collection types are essential for working with records and datasets.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.1 Lists</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.1 Lists</h3>
           <p>A list is an ordered, mutable collection.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>orders = [1000, 2000, 3000] print(orders[0])</p>
@@ -608,7 +592,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>This is a common way to represent records in Python.</p>
           <p>orders = [ &#123; "order_id": 101, "customer": "Rahul", "amount": 2000 &#125;, &#123; "order_id": 102, "customer": "Priya", "amount": 3000 &#125; ] for order in orders: print(order["order_id"], order["amount"])</p>
           <p>Each dictionary represents one order.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.2 Tuples</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.2 Tuples</h3>
           <p>A tuple is an ordered collection that cannot be modified after creation.</p>
           <p>coordinates = (18.5204, 73.8567) print(coordinates[0])</p>
           <p>Tuples are useful for storing fixed collections of values.</p>
@@ -617,7 +601,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>You cannot assign a different item to an existing tuple position.</p>
           <p># coordinates[0] = 20.0 # Raises TypeError</p>
           <p>An important distinction: a tuple containing a mutable object can still reference an object whose contents change. Tuples are immutable as containers, not necessarily recursively immutable.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.3 Sets</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.3 Sets</h3>
           <p>A set stores unique elements and supports mathematical set operations.</p>
           <p>customer_ids = &#123;101, 102, 103, 101&#125; print(customer_ids)</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
@@ -635,7 +619,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>IDs missing from one source.</p>
           <p>Distinct customer identifiers.</p>
           <p>Sets do not provide positional indexing like lists and do not guarantee a meaningful business ordering.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.4 Dictionaries</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.4 Dictionaries</h3>
           <p>A dictionary stores key-value pairs.</p>
           <p>customer = &#123; "customer_id": 101, "name": "Rahul", "city": "Pune", "age": 22 &#125;</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Access values:</h4>
@@ -659,7 +643,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">can be represented as:</h4>
           <p>order = &#123; "order_id": 101, "customer_id": 25, "amount": 2500 &#125;</p>
           <p>This makes dictionaries an essential structure for API integrations and file processing.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.5 Choosing the right collection</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.5 Choosing the right collection</h3>
           <p>Collection</p>
           <p>Ordered</p>
           <p>Mutable</p>
@@ -700,7 +684,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>These features let you create and process collections more efficiently and expressively.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.1 List comprehensions</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.1 List comprehensions</h3>
           <p>A list comprehension creates a new list using a concise expression.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Normal approach:</h4>
           <p>numbers = [1, 2, 3, 4, 5] squares = [] for number in numbers: squares.append(number ** 2) print(squares)</p>
@@ -719,7 +703,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>You need a new collection.</p>
           <p>The input fits comfortably in memory.</p>
           <p>Do not use extremely complicated comprehensions that make pipeline logic difficult to maintain.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.2 Generators</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.2 Generators</h3>
           <p>A generator produces values one at a time instead of building an entire result collection in memory.</p>
           <p>This is particularly useful when processing large datasets.</p>
           <p>Consider a dataset containing 10 million records.</p>
@@ -744,7 +728,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>numbers = range(1, 1000000) squares = ( number ** 2 for number in numbers )</p>
           <p>This does not create a million-element list immediately.</p>
           <p>Values are calculated as they are consumed.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.3 Processing large files with generators</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.3 Processing large files with generators</h3>
           <p>Suppose we have a large CSV file containing millions of rows.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A generator can process each record:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -779,7 +763,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Loading data.</p>
           <p>Monitoring pipelines.</p>
           <p>Instead of placing everything in one script, you can create classes that represent these components.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.1 Understanding classes and objects</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.1 Understanding classes and objects</h3>
           <p>A class is a blueprint that defines the attributes and methods an object can have.</p>
           <p>An object is an instance created from a class.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -807,7 +791,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>An instance method that defines behavior.</p>
           <p>customer1 and customer2</p>
           <p>Two separate objects created from the same class.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.2 Attributes and methods</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.2 Attributes and methods</h3>
           <p>Attributes represent an object's data.</p>
           <p>Methods represent its behavior.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider a data extraction component:</h4>
@@ -819,7 +803,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>Extracting from PostgreSQL</p>
           <p>This class can later be extended to implement different extraction methods.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.3 Instance attributes and class attributes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.3 Instance attributes and class attributes</h3>
           <p>Instance attributes belong to individual objects.</p>
           <p>Class attributes are shared through the class unless an instance overrides them.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -830,7 +814,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>Python Data Platform Python Data Platform Sales Pipeline Customer Pipeline</p>
           <p>This distinction helps when designing configuration and shared behavior.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.4 Object initialization and lifecycle</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.4 Object initialization and lifecycle</h3>
           <p>A class may define different special methods.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Examples:</h4>
           <p>Method</p>
@@ -858,7 +842,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>This makes debugging easier.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.5 Four important OOP concepts</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.5 Four important OOP concepts</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">OOP is commonly explained through four core concepts:</h4>
           <p>Encapsulation.</p>
           <p>Inheritance.</p>
@@ -904,7 +888,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>The abstract base class defines the required interface. Concrete classes provide the actual implementation.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.6 OOP in a data engineering pipeline</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.6 OOP in a data engineering pipeline</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A simplified architecture might contain:</h4>
           <p>DataPipeline | +--- Extractor | | | +--- CSVExtractor | +--- APIExtractor | +--- DatabaseExtractor | +--- Transformer | +--- Validator | +--- Loader | +--- PipelineMonitor</p>
           <p>This design makes components independently testable and replaceable.</p>
@@ -934,7 +918,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>A pipeline runs out of available memory.</p>
           <p>If errors are not handled properly, an entire workflow may stop unexpectedly.</p>
           <p>Python provides exception handling to deal with these situations.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.1 What is an exception?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.1 What is an exception?</h3>
           <p>An exception is an event that interrupts the normal execution of a program.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>number = 10 result = number / 0</p>
@@ -964,7 +948,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Operation exceeds timeout</p>
           <p>JSONDecodeError</p>
           <p>Invalid JSON content</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.2 try and except</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.2 try and except</h3>
           <p>The try block contains code that may raise an exception.</p>
           <p>The except block handles matching exceptions.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -974,14 +958,14 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>Invalid amount received</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.3 Handling multiple exceptions</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.3 Handling multiple exceptions</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`try: amount = float("invalid") result = 1000 / amount except ValueError: print("Amount conversion failed") except ZeroDivisionError: print("Division by zero is not allowed")`}</code>
             </pre>
           </div>
           <p>Each exception can have its own handling logic.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.4 else and finally</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.4 else and finally</h3>
           <p>The else block runs when the try block completes without an exception.</p>
           <p>The finally block runs when control leaves the try statement, whether or not an exception occurred.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -990,7 +974,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>finally is useful for cleanup operations, although context managers are often better for file and connection resource management.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.5 Raising exceptions</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.5 Raising exceptions</h3>
           <p>Use raise when your application identifies an invalid condition.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1001,7 +985,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>validate_amount(-500)</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Raises:</h4>
           <p>ValueError: Transaction amount must be positive</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.6 Custom exceptions</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.6 Custom exceptions</h3>
           <p>Sometimes standard exceptions are not descriptive enough for your application.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example, a data pipeline may need to distinguish between:</h4>
           <p>Invalid source records.</p>
@@ -1020,7 +1004,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <code>{`def extract_data(source): if source is None: raise ExtractionError( "Data source is not configured" ) return "Data extracted successfully" try: result = extract_data(None) except ExtractionError as error: print(f"Extraction failed: {error}")`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.7 Exception handling in production pipelines</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.7 Exception handling in production pipelines</h3>
           <p>A good pipeline should distinguish between failures that can be retried and failures that require correction.</p>
           <p>Error</p>
           <p>Typical response</p>
@@ -1051,7 +1035,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>For temporary network errors, a separate retry mechanism can be implemented.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.8 Retry with exponential backoff</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.8 Retry with exponential backoff</h3>
           <p>Many external services temporarily fail.</p>
           <p>Instead of retrying immediately in a tight loop, introduce increasing delays.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1082,14 +1066,14 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Data Engineers frequently receive information through files.</p>
           <p>Python provides built-in functionality to create, read, update, and process files.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.1 Opening files</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.1 Opening files</h3>
           <p>Python uses the open() function.</p>
           <p>file = open("sample.txt", "r", encoding="utf-8") content = file.read() print(content) file.close()</p>
           <p>However, manually closing files is error-prone.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Use a context manager:</h4>
           <p>with open( "sample.txt", "r", encoding="utf-8" ) as file: content = file.read() print(content)</p>
           <p>The file is automatically closed when execution leaves the with block.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.2 File opening modes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.2 File opening modes</h3>
           <p>Mode</p>
           <p>Purpose</p>
           <p>r</p>
@@ -1107,7 +1091,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>r+</p>
           <p>Read and write</p>
           <p>Be careful with w: it truncates an existing file.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.3 Reading files</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.3 Reading files</h3>
           <p>read()</p>
           <p>Reads the full content.</p>
           <p>with open("sample.txt", "r", encoding="utf-8") as file: content = file.read()</p>
@@ -1120,11 +1104,11 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For large files, iterating over the file is often preferable:</h4>
           <p>with open("sample.txt", "r", encoding="utf-8") as file: for line in file: process_line = line.strip() print(process_line)</p>
           <p>This avoids loading the entire text file into memory.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.4 Writing files</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.4 Writing files</h3>
           <p>with open("output.txt", "w", encoding="utf-8") as file: file.write("Data Engineering\n") file.write("Python File Processing\n")</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Append information:</h4>
           <p>with open("output.txt", "a", encoding="utf-8") as file: file.write("Additional records\n")</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.5 Working with file paths</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.5 Working with file paths</h3>
           <p>Use pathlib rather than manually constructing operating-system-specific paths.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1149,7 +1133,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>These three formats are commonly used when transferring information between systems.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.1 CSV — Comma-Separated Values</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.1 CSV — Comma-Separated Values</h3>
           <p>CSV stores tabular information as text.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example orders.csv:</h4>
           <p>order_id,customer_id,amount,status 101,1,2000,SUCCESS 102,2,3000,PENDING 103,3,1500,SUCCESS</p>
@@ -1176,7 +1160,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <code>{`import csv orders = [ { "order_id": 101, "customer": "Rahul", "amount": 2000 }, { "order_id": 102, "customer": "Priya", "amount": 3000 } ] with open( "output.csv", "w", encoding="utf-8", newline="" ) as file: writer = csv.DictWriter( file, fieldnames=[ "order_id", "customer", "amount" ] ) writer.writeheader() writer.writerows(orders)`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.2 JSON — JavaScript Object Notation</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.2 JSON — JavaScript Object Notation</h3>
           <p>JSON is a text-based data-interchange format.</p>
           <p>It is particularly popular in REST APIs and application communication.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -1234,7 +1218,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>null</p>
           <p>None</p>
           <p>JSON is especially important because APIs commonly return JSON responses.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.3 XML — Extensible Markup Language</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.3 XML — Extensible Markup Language</h3>
           <p>XML represents information using nested tags.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;orders&gt; &lt;order&gt; &lt;order_id&gt;101&lt;/order_id&gt; &lt;customer&gt;Rahul&lt;/customer&gt; &lt;amount&gt;2500&lt;/amount&gt; &lt;status&gt;SUCCESS&lt;/status&gt; &lt;/order&gt; &lt;order&gt; &lt;order_id&gt;102&lt;/order_id&gt; &lt;customer&gt;Priya&lt;/customer&gt; &lt;amount&gt;3000&lt;/amount&gt; &lt;status&gt;PENDING&lt;/status&gt; &lt;/order&gt; &lt;/orders&gt;</p>
@@ -1298,7 +1282,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>This topic deserves special attention because data engineers frequently process datasets that are larger than available memory.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.1 What is an iterable?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.1 What is an iterable?</h3>
           <p>An iterable is an object that can return an iterator.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Examples include:</h4>
           <p>Lists.</p>
@@ -1310,7 +1294,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Generators.</p>
           <p>orders = [1000, 2000, 3000] for amount in orders: print(amount)</p>
           <p>The list is iterable.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.2 What is an iterator?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.2 What is an iterator?</h3>
           <p>An iterator is an object that produces values one at a time.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">It implements:</h4>
           <p>__iter__()</p>
@@ -1320,14 +1304,14 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>1000 2000 3000</p>
           <p>Calling next() again after the values are exhausted raises StopIteration.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.3 Creating a custom iterator</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.3 Creating a custom iterator</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`class OrderIterator: def __init__(self, orders): self.orders = orders self.index = 0 def __iter__(self): return self def __next__(self): if self.index >= len(self.orders): raise StopIteration order = self.orders[self.index] self.index += 1 return order orders = [101, 102, 103] iterator = OrderIterator(orders) for order in iterator: print(order)`}</code>
             </pre>
           </div>
           <p>This demonstrates how Python's iteration protocol works.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.4 Memory-efficient file reading</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.4 Memory-efficient file reading</h3>
           <p>Consider two approaches.</p>
           <p>Approach A: Read the entire file</p>
           <p>with open("large_file.txt", encoding="utf-8") as file: lines = file.readlines() for line in lines: process(line)</p>
@@ -1335,7 +1319,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Approach B: Iterate over the file</p>
           <p>with open("large_file.txt", encoding="utf-8") as file: for line in file: process(line)</p>
           <p>The second approach generally uses less memory because it processes the file incrementally.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.5 Chunk processing</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.5 Chunk processing</h3>
           <p>Sometimes pipelines need to process a fixed number of records at a time.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1351,7 +1335,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Instead of trying to process all 10 million records simultaneously, an application can process 10,000 records at a time.</p>
           <p>This provides better control over memory usage.</p>
           <p>However, the ideal batch size depends on record size, processing complexity, storage throughput, and memory availability.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.6 Memory usage comparison</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.6 Memory usage comparison</h3>
           <p>Two processing approaches</p>
           <p>Loading everything</p>
           <p>Higher memory pressure</p>
@@ -1401,7 +1385,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>File names.</p>
           <p>Structured text fields.</p>
           <p>Python provides the re module.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.1 Basic matching</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.1 Basic matching</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import re text = "Order ID: 10245" match = re.search(r"\d+", text) if match: print(match.group())`}</code>
@@ -1410,7 +1394,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>10245</p>
           <p>Here \d+ means one or more digits.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.2 Important regex symbols</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.2 Important regex symbols</h3>
           <p>Pattern</p>
           <p>Meaning</p>
           <p>\d</p>
@@ -1444,7 +1428,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>(...)</p>
           <p>Capturing group</p>
           <p>Use raw strings, such as r"\d+", to make backslash patterns easier to read.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.3 Extracting email addresses</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.3 Extracting email addresses</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import re text = """ Contact: rahul@example.com Support: support@company.in Invalid: rahul@ """ pattern = r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" emails = re.findall(pattern, text) print(emails)`}</code>
@@ -1453,13 +1437,13 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>['rahul@example.com', 'support@company.in']</p>
           <p>This is useful for basic extraction, but regex alone does not prove that an email address is deliverable or belongs to a real user.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.4 Extracting transaction IDs from logs</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.4 Extracting transaction IDs from logs</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import re log = """ Payment completed. Transaction ID: TXN-2026-1001 Transaction ID: TXN-2026-1002 """ pattern = r"TXN-\d{4}-\d+" transaction_ids = re.findall(pattern, log) print(transaction_ids)`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.5 Replacing text</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.5 Replacing text</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import re phone = "987-654-3210" cleaned_phone = re.sub( r"\D", "", phone ) print(cleaned_phone)`}</code>
@@ -1467,7 +1451,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>9876543210</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.6 Regex in data pipelines</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.6 Regex in data pipelines</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Common applications:</h4>
           <p>Extracting timestamps from logs.</p>
           <p>Identifying transaction IDs.</p>
@@ -1499,13 +1483,13 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Different projects may require different package versions.</p>
           <p>Installing everything globally can lead to dependency conflicts.</p>
           <p>Virtual environments solve this problem.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.1 What is a virtual environment?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.1 What is a virtual environment?</h3>
           <p>A virtual environment is an isolated Python environment associated with a project.</p>
           <p>It helps keep the project's packages separate from other projects and the system's Python installation.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Imagine two applications:</h4>
           <p>Project A: pandas requests Project B: different pandas version sqlalchemy</p>
           <p>Each can use its own virtual environment.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.2 Creating a virtual environment</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.2 Creating a virtual environment</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create a project:</h4>
           <p>mkdir data-engineering cd data-engineering</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create the environment:</h4>
@@ -1520,7 +1504,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>source .venv/bin/activate</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">To deactivate:</h4>
           <p>deactivate</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.3 Installing packages</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.3 Installing packages</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Use pip:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1533,7 +1517,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <code>{`python -m pip list`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.4 requirements.txt</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.4 requirements.txt</h3>
           <p>A requirements file records dependencies for a project.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Generate one:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1550,7 +1534,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>For more reproducible production environments, pin and review versions, use appropriate lock-file tooling, and manage transitive dependencies.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.5 Project structure</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.5 Project structure</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A maintainable Python data project might look like:</h4>
           <p>sales_pipeline/ │ ├── .venv/ │ ├── config/ │ └── settings.py │ ├── data/ │ ├── src/ │ ├── __init__.py │ ├── extraction.py │ ├── transformation.py │ ├── validation.py │ └── loading.py │ ├── tests/ │ ├── test_extraction.py │ └── test_transformation.py │ ├── logs/ │ ├── .env ├── .gitignore ├── requirements.txt └── main.py</p>
           <p>Do not commit .venv, sensitive .env values, or large data files to a public repository.</p>
@@ -1577,7 +1561,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>How long processing took.</p>
           <p>Why an operation failed.</p>
           <p>Python's built-in logging library provides structured application logging.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.1 What is logging?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.1 What is logging?</h3>
           <p>Logging records information about an application's execution.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1585,7 +1569,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <code>{`import logging logging.basicConfig( level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s" ) logging.info("Pipeline started") logging.warning("Missing records detected") logging.error("Database connection failed")`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.2 Logging levels</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.2 Logging levels</h3>
           <p>Level</p>
           <p>Purpose</p>
           <p>DEBUG</p>
@@ -1604,7 +1588,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <code>{`import logging logger = logging.getLogger(__name__) logger.debug("Debugging information") logger.info("Records extracted successfully") logger.warning("Some rows were rejected") logger.error("Database insert failed") logger.critical("Pipeline cannot continue")`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.3 Logging to a file</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.3 Logging to a file</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import logging logging.basicConfig( filename="pipeline.log", level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s" ) logging.info("Data extraction started") logging.info("Data extraction completed")`}</code>
@@ -1612,7 +1596,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>A pipeline can maintain historical execution logs for debugging and auditing.</p>
           <p>For larger production applications, configure handlers explicitly, including console and rotating file handlers where appropriate.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.4 Why use logging instead of print?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.4 Why use logging instead of print?</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`print()`}</code>
@@ -1629,7 +1613,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Console, files, and external systems</p>
           <p>Not ideal for operational monitoring</p>
           <p>Suitable for application monitoring</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.5 Configuration management</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.5 Configuration management</h3>
           <p>Configuration management means separating application settings from business logic.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example, a pipeline may require:</h4>
           <p>API URL DATABASE HOST DATABASE PORT DATABASE NAME LOG LEVEL BATCH SIZE</p>
@@ -1680,13 +1664,13 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Customer information.</p>
           <p>Inventory updates.</p>
           <p>Third-party product details.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.1 What is a REST API?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.1 What is a REST API?</h3>
           <p>A REST API is an HTTP-based interface that commonly exposes resources through endpoints.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example endpoint:</h4>
           <p>https://api.example.com/orders</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A request may return:</h4>
           <p>&#123; "orders": [ &#123; "order_id": 101, "amount": 2500 &#125;, &#123; "order_id": 102, "amount": 3000 &#125; ] &#125;</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.2 HTTP methods</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.2 HTTP methods</h3>
           <p>Method</p>
           <p>Purpose</p>
           <p>GET</p>
@@ -1700,7 +1684,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>DELETE</p>
           <p>Delete a resource</p>
           <p>For extracting data into a pipeline, GET requests are common.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.3 HTTP status codes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.3 HTTP status codes</h3>
           <p>Code</p>
           <p>Meaning</p>
           <p>200</p>
@@ -1728,14 +1712,14 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>504</p>
           <p>Gateway timeout</p>
           <p>Data Engineers should distinguish temporary failures from permanent request errors.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.4 Install Requests</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.4 Install Requests</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`python -m pip install requests`}</code>
             </pre>
           </div>
           <p>Requests is a popular Python library for HTTP communication.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.5 Sending a GET request</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.5 Sending a GET request</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import requests url = "https://api.example.com/orders" response = requests.get( url, timeout=15 ) response.raise_for_status() data = response.json() print(data)`}</code>
@@ -1748,14 +1732,14 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Check for HTTP errors.</p>
           <p>Parse the JSON response.</p>
           <p>Validate the returned data.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.6 Sending query parameters</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.6 Sending query parameters</h3>
           <p>Many APIs support pagination and filtering through query parameters.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import requests url = "https://api.example.com/orders" params = { "page": 1, "limit": 100, "status": "SUCCESS" } response = requests.get( url, params=params, timeout=15 ) response.raise_for_status() data = response.json()`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.7 Authentication</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.7 Authentication</h3>
           <p>Some APIs require authentication.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A token may be passed through an HTTP header:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1764,7 +1748,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>Do not hardcode the token.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.8 Pagination</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.8 Pagination</h3>
           <p>Large APIs rarely return every record in a single response.</p>
           <p>They commonly return paginated results.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -1776,7 +1760,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>This is illustrative. Some APIs use cursor-based pagination or continuation URLs instead of page numbers. Always follow the API's documented pagination mechanism.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.9 API rate limiting</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.9 API rate limiting</h3>
           <p>Many APIs restrict the number of requests a client can make over a period.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example:</h4>
           <p>Maximum: 100 requests per minute</p>
@@ -1787,7 +1771,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Use bounded retries.</p>
           <p>Avoid sending uncontrolled requests.</p>
           <p>Preserve ingestion progress.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.10 Building an API ingestion component</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.10 Building an API ingestion component</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import requests class APIExtractor: def __init__(self, base_url, token=None): self.base_url = base_url self.session = requests.Session() if token: self.session.headers.update({ "Authorization": f"Bearer {token}" }) def extract(self, params=None): response = self.session.get( self.base_url, params=params, timeout=15 ) response.raise_for_status() return response.json()`}</code>
@@ -1817,7 +1801,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>SQLite.</p>
           <p>Microsoft SQL Server.</p>
           <p>Oracle Database.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.1 What is database connectivity?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.1 What is database connectivity?</h3>
           <p>Database connectivity means establishing a connection from Python to a database so that the application can:</p>
           <p>Execute queries.</p>
           <p>Retrieve records.</p>
@@ -1825,7 +1809,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Update existing records.</p>
           <p>Delete records.</p>
           <p>Manage transactions.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.2 Connecting to SQLite</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.2 Connecting to SQLite</h3>
           <p>SQLite is useful for learning because it can store a database in a local file.</p>
           <p>It is included in Python's standard library.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1834,7 +1818,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>This creates a local database file and an orders table.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.3 Inserting records</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.3 Inserting records</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import sqlite3 connection = sqlite3.connect("sales.db") cursor = connection.cursor() orders = [ (101, "Rahul", 2000), (102, "Priya", 3000), (103, "Amit", 1500) ] cursor.executemany( """ INSERT OR IGNORE INTO orders (order_id, customer, amount) VALUES (?, ?, ?) """, orders ) connection.commit() connection.close()`}</code>
@@ -1842,19 +1826,19 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>Using parameterized SQL keeps values separate from the SQL statement.</p>
           <p>This is important for preventing SQL injection.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.4 Reading records</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.4 Reading records</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import sqlite3 connection = sqlite3.connect("sales.db") cursor = connection.cursor() cursor.execute(""" SELECT order_id, customer, amount FROM orders """) records = cursor.fetchall() for record in records: print(record) connection.close()`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.5 Updating records</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.5 Updating records</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import sqlite3 connection = sqlite3.connect("sales.db") cursor = connection.cursor() cursor.execute( """ UPDATE orders SET amount = ? WHERE order_id = ? """, (2500, 101) ) connection.commit() connection.close()`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.6 Using transactions</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.6 Using transactions</h3>
           <p>A transaction groups related database operations into a unit of work.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1863,7 +1847,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>The transaction is committed only when the operation succeeds.</p>
           <p>If an error occurs, the application rolls back the transaction.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.7 SQLAlchemy</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.7 SQLAlchemy</h3>
           <p>SQLAlchemy is a popular Python SQL toolkit and Object Relational Mapper (ORM).</p>
           <p>It provides a higher-level interface for database connections and SQL execution.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Install:</h4>
@@ -1889,7 +1873,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Transaction management.</p>
           <p>ORM support.</p>
           <p>Integration with Python applications.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.8 Data loading architecture</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.8 Data loading architecture</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A typical database-loading pipeline looks like:</h4>
           <div className="my-4 p-4 rounded-xl bg-stone-50 border border-stone-200">
             <div className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2 font-mono">Architecture Flow</div>
@@ -1935,7 +1919,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Pandas and Polars are important Python tools for manipulating structured datasets.</p>
           <p>They provide DataFrame abstractions, allowing engineers to work with tabular data without manually processing every record.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.1 What is a DataFrame?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.1 What is a DataFrame?</h3>
           <p>A DataFrame is a two-dimensional tabular data structure containing rows and columns.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>order_id</p>
@@ -1959,7 +1943,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Type conversion.</p>
           <p>Grouping.</p>
           <p>File reading and writing.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.2 Pandas introduction</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.2 Pandas introduction</h3>
           <p>Pandas is a widely used Python library for data manipulation and analysis.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Install:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1973,7 +1957,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <code>{`import pandas as pd`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.3 Creating a DataFrame</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.3 Creating a DataFrame</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import pandas as pd data = { "order_id": [101, 102, 103], "customer": ["Rahul", "Priya", "Amit"], "amount": [2000, 3000, 1500] } df = pd.DataFrame(data) print(df)`}</code>
@@ -1981,7 +1965,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Output:</h4>
           <p>order_id customer amount 0 101 Rahul 2000 1 102 Priya 3000 2 103 Amit 1500</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.4 Reading CSV files</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.4 Reading CSV files</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import pandas as pd df = pd.read_csv("orders.csv") print(df.head())`}</code>
@@ -1991,7 +1975,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Other useful commands:</h4>
           <p>df.tail() df.shape df.columns df.dtypes df.info() df.describe()</p>
           <p>These help inspect incoming data before transformation.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.5 Selecting columns</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.5 Selecting columns</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`df["customer"]`}</code>
@@ -2003,15 +1987,15 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <code>{`df[["order_id", "amount"]]`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.6 Filtering records</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.6 Filtering records</h3>
           <p>high_value_orders = df[ df["amount"] &gt; 2000 ] print(high_value_orders)</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.7 Adding new columns</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.7 Adding new columns</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`df["tax"] = df["amount"] * 0.18 df["total_amount"] = ( df["amount"] + df["tax"] )`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.8 Handling missing values</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.8 Handling missing values</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Check missing data:</h4>
           <p>df.isnull().sum()</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Remove rows with missing values:</h4>
@@ -2026,7 +2010,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             Important: filling a missing value with zero is a business decision, not a universal cleaning rule.
           </div>
           <p>For example, a missing order amount should not automatically be treated as a zero-value order.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.9 Removing duplicates</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.9 Removing duplicates</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`df = df.drop_duplicates( subset=["order_id"] )`}</code>
@@ -2034,10 +2018,10 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>This removes duplicate order identifiers.</p>
           <p>Before removing duplicates in a real pipeline, define what counts as a duplicate and what should happen when duplicate records contain conflicting values.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.10 Grouping and aggregation</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.10 Grouping and aggregation</h3>
           <p>revenue_by_customer = ( df.groupby("customer")["amount"] .sum() ) print(revenue_by_customer)</p>
           <p>This calculates total revenue for each customer.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.11 Joining datasets</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.11 Joining datasets</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Customer dataset:</h4>
           <p>customers = pd.DataFrame(&#123; "customer_id": [1, 2], "name": ["Rahul", "Priya"] &#125;)</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Order dataset:</h4>
@@ -2045,7 +2029,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Join:</h4>
           <p>result = pd.merge( orders, customers, on="customer_id", how="inner" ) print(result)</p>
           <p>This combines customer and order information using the shared identifier.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.12 Reading large files in chunks</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.12 Reading large files in chunks</h3>
           <p>Pandas supports chunked CSV processing.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2054,7 +2038,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>This avoids loading the entire file into one DataFrame.</p>
           <p>For aggregation across chunks, accumulate partial summaries rather than every complete chunk when possible.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.13 Polars introduction</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.13 Polars introduction</h3>
           <p>Polars is a DataFrame library designed for efficient data processing.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">It offers:</h4>
           <p>Columnar data processing.</p>
@@ -2110,7 +2094,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>scan_csv() creates a lazy scan.</p>
           <p>collect() triggers execution.</p>
           <p>This can enable optimizations such as projection and predicate pushdown, depending on the query and execution plan.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.14 Pandas vs Polars</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.14 Pandas vs Polars</h3>
           <p>Feature</p>
           <p>Pandas</p>
           <p>Polars</p>
@@ -2165,7 +2149,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Imagine you have written a function that calculates total revenue. It works for one input, but produces incorrect results when it receives zero values, negative values, or missing records.</p>
           <p>Without testing, these problems may enter a production pipeline and affect business reports.</p>
           <p>This is why automated testing is essential.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.1 What is software testing?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.1 What is software testing?</h3>
           <p>Software testing is the process of verifying whether a program behaves as expected.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">In Data Engineering, testing can validate:</h4>
           <p>Data transformation logic.</p>
@@ -2175,7 +2159,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>File processing.</p>
           <p>Pipeline execution.</p>
           <p>Data quality rules.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.2 What is unit testing?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.2 What is unit testing?</h3>
           <p>Unit testing verifies a small individual component, such as a function or method, independently.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2186,7 +2170,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Expected results:</h4>
           <p>calculate_total(100, 2) == 200 calculate_total(500, 3) == 1500</p>
           <p>A unit test checks whether the function behaves correctly for expected and unexpected inputs.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.3 What is Pytest?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.3 What is Pytest?</h3>
           <p>Pytest is a Python testing framework used to write and execute automated tests.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Install:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2194,7 +2178,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <code>{`python -m pip install pytest`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.4 Writing your first Pytest test</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.4 Writing your first Pytest test</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Project structure:</h4>
           <p>python_project/ │ ├── calculation.py │ └── tests/ └── test_calculation.py</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">calculation.py:</h4>
@@ -2217,7 +2201,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Expected result:</h4>
           <p>1 passed</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.5 Understanding assert</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.5 Understanding assert</h3>
           <p>The assert statement verifies whether a condition is true.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2225,14 +2209,14 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>If the expression is false, the test fails.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.6 Testing different inputs</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.6 Testing different inputs</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`from calculation import calculate_total def test_small_order(): assert calculate_total(100, 2) == 200 def test_large_order(): assert calculate_total(1000, 5) == 5000 def test_zero_quantity(): assert calculate_total(500, 0) == 0`}</code>
             </pre>
           </div>
           <p>A good test suite covers more than just normal input.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.7 Testing exceptions</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.7 Testing exceptions</h3>
           <p>Suppose you want to reject negative prices.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2246,7 +2230,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>Pytest verifies that the expected exception is raised.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.8 Parameterized testing</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.8 Parameterized testing</h3>
           <p>When the same test needs to run with multiple inputs, use pytest.mark.parametrize.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2254,7 +2238,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>This avoids repeating nearly identical test functions.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.9 Testing data transformations</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.9 Testing data transformations</h3>
           <p>Suppose a pipeline removes invalid records.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">transformation.py:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2270,7 +2254,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>This tests a simple data-cleaning rule.</p>
           <p>For production systems, define how missing amounts, nonnumeric values, and invalid record structures should be handled before implementing the transformation.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.10 Testing categories in Data Engineering</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.10 Testing categories in Data Engineering</h3>
           <p>Testing type</p>
           <p>What it verifies</p>
           <p>Unit testing</p>
@@ -2335,7 +2319,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Observable.</p>
           <p>Reusable.</p>
           <p>Let's understand the engineering practices required to achieve this.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.1 Follow PEP 8</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.1 Follow PEP 8</h3>
           <p>PEP 8 is the Python style guide.</p>
           <p>It provides recommendations for writing consistent Python code.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example of poorly structured code:</h4>
@@ -2357,7 +2341,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Appropriate line lengths.</p>
           <p>Clear comments.</p>
           <p>Docstrings for important functions.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.2 Type hints</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.2 Type hints</h3>
           <p>Type hints make expected data structures and function behavior clearer.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2379,7 +2363,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>Type hints can be checked with tools such as mypy or Pyright.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.3 Separation of concerns</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.3 Separation of concerns</h3>
           <p>Each component should have a clear responsibility.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Bad architecture:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2390,7 +2374,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Better architecture:</h4>
           <p>DataPipeline | +-- Extractor | +-- Validator | +-- Transformer | +-- Loader | +-- Logger</p>
           <p>Each component can be tested independently.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.4 Avoid hardcoded values</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.4 Avoid hardcoded values</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Bad example:</h4>
           <p>database_host = "production-db.company.com" password = "mypassword123"</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Better:</h4>
@@ -2400,7 +2384,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>Credentials should be handled using secure secret-management mechanisms.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.5 Idempotent operations</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.5 Idempotent operations</h3>
           <p>A reliable ingestion process should consider what happens when the same job runs more than once.</p>
           <p>Suppose the pipeline inserts 1,000 records into a database.</p>
           <p>It fails after inserting 700 records.</p>
@@ -2423,7 +2407,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>This updates an existing record when the same order ID appears.</p>
           <p>The correct upsert behavior must follow the source system's update semantics. A retry should not accidentally overwrite newer information with stale information.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.6 Use transactions</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.6 Use transactions</h3>
           <p>Suppose your pipeline must update two related database tables.</p>
           <p>If the first update succeeds but the second fails, the database could become inconsistent.</p>
           <p>Transactions help maintain consistency.</p>
@@ -2433,7 +2417,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>In SQLAlchemy, transaction context managers can manage this pattern.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.7 Memory optimization</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.7 Memory optimization</h3>
           <p>Avoid loading large datasets into memory unnecessarily.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Use:</h4>
           <p>Generators.</p>
@@ -2445,7 +2429,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Parquet.</p>
           <p>Efficient DataFrame operations.</p>
           <p>For very large distributed workloads, use an appropriate distributed processing framework instead of trying to solve every scale problem through Python memory optimization alone.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.8 Performance optimization</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.8 Performance optimization</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Important techniques include:</h4>
           <p>Avoid unnecessary loops: Use vectorized DataFrame operations when appropriate.</p>
           <p>Batch operations: Prefer bulk database writes over thousands of individual operations.</p>
@@ -2454,7 +2438,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Profile code: Identify actual bottlenecks before optimizing.</p>
           <p>Reuse connections: Use connection pooling for suitable database workloads.</p>
           <p>Reduce data movement: Avoid repeatedly copying enormous datasets between memory structures.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.9 Security</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.9 Security</h3>
           <p>Data Engineers frequently work with business-critical and sensitive information.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Important security practices include:</h4>
           <p>Protect database credentials.</p>
@@ -2467,7 +2451,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Protect personal information.</p>
           <p>Keep dependencies maintained.</p>
           <p>Store sensitive configuration outside source code.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.10 Code review and version control</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.10 Code review and version control</h3>
           <p>Production code should be managed using version control.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Git allows engineers to:</h4>
           <p>Track changes.</p>
@@ -2510,7 +2494,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Static type checking</p>
           <p>pre-commit</p>
           <p>Automated checks before commits</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.11 Production readiness checklist</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.11 Production readiness checklist</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Before releasing a data pipeline, review:</h4>
           <p>Inputs are validated.</p>
           <p>Exceptions are handled appropriately.</p>
@@ -2557,11 +2541,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Stores the final output in SQLite.</p>
           <p>Logs execution details.</p>
           <p>Runs automated tests.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.1 Project architecture</h3>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>A Production-Ready ETL Pipeline Pattern (Using Car Inventory as an Example) | by Nigadepriyanka | Feb, 2026 | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/Qxs-vv28LXvXxdJwgS6bUdemilLnBbNlmu6akDA3BQsNDUthvHEfQgaqX7FtErDH0AQhuAKtTpYeUc7DOUIOSi114f02PyXYENMt2qM3nEhTXcxq3aTT9mMokxwpHOXyCafxKOMIwsx4-MSnw9wlc32yxeHze7KXAYQIj2zKwP4?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.1 Project architecture</h3>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>medium.com</span></div>
             <a href="https://medium.com/%40nigadepriyanka/a-production-ready-etl-pipeline-pattern-using-car-inventory-as-an-example-76e910b824ee?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -2586,12 +2566,12 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
               <span className="px-3 py-1.5 rounded-lg bg-white border border-stone-300 font-semibold text-stone-800 shadow-2xs">Revenue Report</span>
             </div>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.2 Project directory structure</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.2 Project directory structure</h3>
           <p>python-data-pipeline/ │ ├── data/ │ └── orders.csv │ ├── output/ │ ├── logs/ │ ├── src/ │ ├── __init__.py │ ├── extractor.py │ ├── validator.py │ ├── transformer.py │ ├── loader.py │ └── pipeline.py │ ├── tests/ │ ├── test_validator.py │ └── test_transformer.py │ ├── config.py ├── main.py └── requirements.txt</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.3 Create the sample dataset</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.3 Create the sample dataset</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create data/orders.csv:</h4>
           <p>order_id,customer_id,product,quantity,price,status 101,1,Laptop,1,50000,SUCCESS 102,2,Mobile,2,20000,SUCCESS 103,3,Keyboard,3,1000,SUCCESS 104,1,Mouse,2,500,FAILED 105,2,Monitor,1,12000,SUCCESS 106,3,Headphones,2,1500,SUCCESS</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.4 Configure the project</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.4 Configure the project</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create config.py:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2599,7 +2579,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>Centralized configuration makes file locations easier to manage.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.5 Build the extractor</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.5 Build the extractor</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create src/extractor.py:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2607,7 +2587,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>This component is responsible only for extracting records.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.6 Build the validator</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.6 Build the validator</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create src/validator.py:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2620,7 +2600,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Rejects duplicates.</p>
           <p>Keeps a record of rejected rows.</p>
           <p>For a production implementation, duplicate detection may need to happen across previously processed files as well, not just within the current batch.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.7 Build the transformer</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.7 Build the transformer</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create src/transformer.py:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2628,7 +2608,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
             </pre>
           </div>
           <p>This component calculates the total value and excludes unsuccessful payments from the successful sales dataset.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.8 Build the database loader</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.8 Build the database loader</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create src/loader.py:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2642,21 +2622,21 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Batch insertion.</p>
           <p>Upsert behavior for repeated order IDs.</p>
           <p>In this demonstration, each batch is loaded into one SQLite transaction through the connection context manager.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.9 Build the pipeline orchestrator</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.9 Build the pipeline orchestrator</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create src/pipeline.py:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import csv import logging from src.extractor import extract_orders from src.validator import validate_orders from src.transformer import transform_orders from src.loader import load_orders logger = logging.getLogger(__name__) def save_rejected_records(records, output_file): with open( output_file, "w", encoding="utf-8", newline="" ) as file: writer = csv.DictWriter( file, fieldnames=[ "row_number", "reason", "record" ] ) writer.writeheader() for item in records: writer.writerow({ "row_number": item["row_number"], "reason": item["reason"], "record": str(item["record"]) }) def run_pipeline( input_file, database_file, output_directory ): logger.info("Pipeline execution started") raw_records = extract_orders(input_file) valid_records, rejected_records = ( validate_orders(raw_records) ) transformed_records = transform_orders( valid_records ) load_orders( transformed_records, database_file ) output_directory.mkdir( parents=True, exist_ok=True ) rejected_file = ( output_directory / "rejected_orders.csv" ) save_rejected_records( rejected_records, rejected_file ) logger.info("Pipeline execution completed") return { "extracted": len(raw_records), "valid": len(valid_records), "rejected": len(rejected_records), "loaded": len(transformed_records) }`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.10 Create the application entry point</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.10 Create the application entry point</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create main.py:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`import logging from config import ( INPUT_FILE, OUTPUT_DIR, DATABASE_FILE, LOG_DIR ) from src.pipeline import run_pipeline def main(): LOG_DIR.mkdir( parents=True, exist_ok=True ) logging.basicConfig( filename=LOG_DIR / "pipeline.log", level=logging.INFO, format=( "%(asctime)s | " "%(levelname)s | " "%(name)s | " "%(message)s" ) ) logger = logging.getLogger(__name__) try: result = run_pipeline( INPUT_FILE, DATABASE_FILE, OUTPUT_DIR ) print("Pipeline completed") print(result) except Exception: logger.exception("Pipeline failed") raise if __name__ == "__main__": main()`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.11 Execute the project</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.11 Execute the project</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Activate your virtual environment and run:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2707,13 +2687,13 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Once you understand the foundations, there are additional Python concepts that become important in larger data engineering projects.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.1 Context managers</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.1 Context managers</h3>
           <p>Context managers manage resources such as files, connections, and locks.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>with open("orders.txt", "r", encoding="utf-8") as file: content = file.read()</p>
           <p>The with statement manages the resource lifecycle.</p>
           <p>Custom context managers can be implemented using __enter__() and __exit__() or the contextlib module.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.2 Decorators</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.2 Decorators</h3>
           <p>A decorator modifies or extends a function's behavior without changing its main implementation.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example, decorators can be used for:</h4>
           <p>Logging execution.</p>
@@ -2729,7 +2709,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>This measures the execution time of the decorated function.</p>
           <p>In reusable production decorators, also preserve function metadata with functools.wraps and ensure timing information is recorded through logging where appropriate.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.3 Functional programming</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.3 Functional programming</h3>
           <p>Python supports functional programming techniques.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Important concepts:</h4>
           <p>map()</p>
@@ -2741,7 +2721,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Filtering:</h4>
           <p>amounts = [100, 500, -20, 700, 0] valid = list( filter( lambda amount: amount &gt; 0, amounts ) ) print(valid)</p>
           <p>These methods can express transformations concisely, although readable comprehensions are often preferable.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.4 Dataclasses</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.4 Dataclasses</h3>
           <p>Dataclasses help define classes intended primarily to store structured information.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2750,7 +2730,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           </div>
           <p>Dataclasses automatically generate useful methods such as initialization and representation.</p>
           <p>They are useful for configuration objects and typed records.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.5 Working with timestamps</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.5 Working with timestamps</h3>
           <p>Data pipelines often process information from different time zones and sources.</p>
           <p>Python's datetime module is essential.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2761,7 +2741,7 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Parse a timestamp:</h4>
           <p>timestamp = "2026-11-09T10:30:00" parsed = datetime.fromisoformat(timestamp) print(parsed)</p>
           <p>For production pipelines, use timezone-aware timestamps consistently and distinguish event time from ingestion time.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.6 Performance measurement</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.6 Performance measurement</h3>
           <p>Do not optimize code based only on assumptions.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Python provides tools such as:</h4>
           <p>timeit</p>
@@ -3080,40 +3060,16 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Study these resources alongside the practical assignments.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Download the Python logo in PNG y SVG | LogosDown</span></div>
-            <a href="https://images.openai.com/static-rsc-4/4O4w2AQWGAsmr1aTaF29dtT0ouX4IofywzcxWPAaHmB-sJFcjFHpKN3UVkOgR8QmZJcRGOoqVMn_K9yHZe-3llTbgEPKS04-tDtpAIMDhev0ruPj-hhopw50hVHPX7sFESCz_jt_z0gSHIuwbjgMEJI10NNAmcjl3kn7U9_txQY?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Python Official Documentation</p>
           <p>Core Python syntax, standard library, iterators, generators, and exceptions.[Python documentation](https://docs.python.org/3/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Search: Pandas logo Logo PNG Vectors Free Download</span></div>
-            <a href="https://images.openai.com/static-rsc-4/rnSVXh3C-BnarYB0uY5Pxw04dtD7FMou5CtDQgIVRXEjcBxjmV5MSvxXU6C09GHYb3FGH1pdQoCoSfmNbkC0dnsDsxIRkfG9Rx9_yGStUFhIDNkMVZSREqMAFqonuvKHyP6kzmxvExycX4_6bMjailJzO0m3KZr7usO2QHlxuUQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Pandas Documentation</p>
           <p>DataFrame manipulation, cleaning, joining, grouping, and file processing.[Pandas documentation](https://pandas.pydata.org/docs/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Polars — DataFrames for the new era</span></div>
-            <a href="https://images.openai.com/static-rsc-4/SkxQnncsR-HV9E9aYoSqfy086Y7naO7HjUU2-1jk5RJlgG17yP3KWDDcXrTU1uXA5uJd0e2FWurnY6CyMgDnk7tuiKFCf-bqAEyxzLPI5oCHn0j5zi6h0CEyqUdZLbs5i527tnhjNVnzrqndN83mKME3l3hfDXXeYN2EVHJxGzc?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Polars Documentation</p>
           <p>Expressions, lazy execution, DataFrames, and efficient file processing.[Polars documentation](https://docs.pola.rs/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>pytest | Automation Panda</span></div>
-            <a href="https://images.openai.com/static-rsc-4/oUWieunGcLN-p0nTRjVD0Z76Y3GJLsv14IDOXH7NMeL4k7XIT7eDWWghnMG4e193f8xfH6_tkWYUAlm1aSJjhFPVb8jyv4yh9mNcWTv_8XGTR-yr-FYBVuIHJFhRa6w8RgZSQBXfP3iSygDOc0hXYwALpyFgUc6rz0F7SzNME-g?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Pytest Documentation</p>
           <p>Unit testing, fixtures, parameterized tests, and test organization.[Pytest documentation](https://docs.pytest.org/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Пишем обёртку над SQLAlchemy Сore / Хабр</span></div>
-            <a href="https://images.openai.com/static-rsc-4/hLrpLa-52gHNOcnRQ4SyAS4DH-pZK3OxK7YU_5JKUL5bibb6rf_T8Lz4-SoQxXileWVaaif0gPAY0qE7q4nmpVcpuMnNYLXCbeGqA_V5kGOFXO8UFQDl65WMMs2v_prhMwBDUhm2Qe0N2XoXlsJLa8eXpJA_VSOXyriSd-vqiw4?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>SQLAlchemy Documentation</p>
           <p>Database connections, transactions, SQL execution, and ORM concepts.[SQLAlchemy documentation](https://docs.sqlalchemy.org/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Home - learn-pip-trends</span></div>
-            <a href="https://images.openai.com/static-rsc-4/oAkDCiWwxVUBTf-58HNuoly1f3vICHTu2xZJy03J23ak-P8f6wwLTyhgc-JoU1pUe_SuaJOg6nWOGQrnDDQZFXsfeFywME_qKCPow1R7mk8jBtKMLxnpw2e1dqtFLGrTqpFfbhmqKbstvgs4O31ZWnHCGSEw5_gRmiLhQfTCbYw?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Requests Documentation</p>
           <p>HTTP requests, authentication, response handling, and API integrations.[Requests documentation](https://requests.readthedocs.io/?utm_source=chatgpt.com)</p>
           <p>Recommended books</p>
@@ -3213,28 +3169,12 @@ print("Welcome to Data Engineering") name = "Rahul" course = "Python Programming
           <p>Build the complete e-commerce data pipeline.</p>
           <p>Document and upload your project to GitHub.</p>
           <p>What you should be able to build after Module 2</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Data Analytics for Business: KPI Dashboards &amp; BI | Groenewold IT</span></div>
-            <a href="https://images.openai.com/static-rsc-4/1Ewyp0Gkocd5AYar-Ud6jXzKeOolMCLoIL05kunqxfof2DdboirBunAQuD8B7lM01SyjPJ1A3Qx-F3LRoejDDI4bJpQCWQwkcgUQFoHg657vpMJhcKUSU3sEzMtczLP5xF-21-PyinWSZiOLnshwpXQpvOByQFtr5DoQ6GgdfBw?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Python ETL applications</p>
           <p>Automated extraction, processing, and loading.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>APIs | BU Spark Tech Resources</span></div>
-            <a href="https://images.openai.com/static-rsc-4/RX0Sa6ka9CU5MeLtfGu8wgk0fldRJomBjetj6EKNTv3y5-09XvW1-J2RFayowwsVe5SoXzrtgpKU-xa0I4WevONpaSifrpim3BEECe5vUFA_nxOAqMfvHYtLmCyOfcN7H4NeEbgVDUToRuWIc_OpLMiAe069WKlP8oo2XoW-KAQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>API data extractors</p>
           <p>Collect information from external systems.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>7 Easy Steps To Switch From Pandas to Lightning Fast Polars And Never Return | by Bex T. | TDS Archive | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/FzvDXvSGkbeUsoXpIgEIWTfEUULC1bs5MpLWW6-dZQ12YJw26su3KkeYN0PK8-QPAdW_NXL52fU1kH2QNiwI3HPscseueFgOVvxYRpn01N7hvs5rvPWwT_dk-zMlIhfhDQGt0h2Wx4eGlcz5hI_5H-wI7qyDLtDwztMfrF-9YmM?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Data processing systems</p>
           <p>Clean, validate, and transform datasets.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Prompts para Análisis de Datos: Python, SQL y Excel con IA | Aprender21</span></div>
-            <a href="https://images.openai.com/static-rsc-4/Rp4QkyQsT1MPy5vtfUeKF7Zk3JMV1vTqo5g8jaMrAOOKm7UT_G80YU66iuZSVictz0hh6LyOx7x_eNyJ8u7sk8oilI52xLAPoZua9iBIkQGt5S5SvsACQIqS0a3IIAdKsop45FxwdBuBk4GKSeJJwx61bTvOrTYNWLap9D7nndA?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Database applications</p>
           <p>Load records and automate database operations.</p>
           <p>One important engineering lesson: Python is a foundation, not the entire Data Engineering ecosystem. You will eventually combine Python with SQL, distributed processing, workflow orchestration, cloud storage, streaming systems, and data warehouse technologies.</p>

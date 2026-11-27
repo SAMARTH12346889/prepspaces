@@ -3600,13 +3600,6 @@ Database Write | v Primary Node | +-------+-------+ | | v v Replica 1 Replica 2`
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Objective: Understand how producers and consumers exchange messages through a distributed broker.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">All things Kafka - DEV Community</span>
-            <a href="https://images.openai.com/static-rsc-4/DqEEx-xDjrg5xHA14DxSX52W9GJHkrUypD-yPUoFpY9KkD5eA8pCHjWW8I54BlPfiagvxaX8lEElYTxs50EEeem53qqfevYzhlpkp6boL7E9CPD5rkGHcNHDkgfd-AKMLzUnihPTo3CSJ-X1XPWUaQAlBORYa1hIhbB9zzW5SZY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">dev.to</span>
             <a href="https://dev.to/alamfatima1999/all-things-kafka-3cdb?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>

@@ -399,13 +399,6 @@ export default function DataEngineeringDbtSections() {
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A typical analytics engineering architecture looks like this:</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How to Write a High-Quality Data Model From Start to Finish Using dbt | Airbyte</span>
-            <a href="https://images.openai.com/static-rsc-4/qin_rqeMYf0Aj73SUBoYu8cfQuBBq_9l9u92QJhSAfiSoizQgWFGE2EOMkFISXuqrzcHM_AiaV81Eh4f4Xg1lfALla1_PaHYiH8uFOwT7JjWksIvwrYVKYAgf_VHJXJNVH2K8mqg_EBj3MidFaT7-AfG-2XjvSUdIMaLSC5eRz0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">airbyte.com</span>
             <a href="https://airbyte.com/blog/dbt-data-model?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -747,13 +740,6 @@ export default function DataEngineeringDbtSections() {
             </table>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">🚀 Building a Modern ELT Pipeline with dbt, Snowflake &amp; Airflow | by Shreyas Karle | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/ZNtUcuAInI6He9o1vpRL0zrYYQklebqWrQRTS3r2C-tk8E8no1MRJbP_twGB07bDINoGN5fLU4jt3xzNmk3wanRVO0XFaGd-mSvpiOVWm6vzRV7yR8sWmGhr3fFpvUtB7hqqKh95mMrj3sb9KJAViNvC2cTC8Olqb_0T2FDQDe0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40ShreyasKarle/building-a-modern-elt-pipeline-with-dbt-snowflake-airflow-db518f109248?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -847,13 +833,6 @@ dbt tests validate the models.`}</code>
             <pre className="overflow-x-auto [scrollbar-width:thin]">
               <code>{`dbt is composed of project files, a runtime or engine, a database adapter, and a target data platform.`}</code>
             </pre>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">DBT Models Explained: Materializations, ref(), and Sources (The Practical Way)</span>
-            <a href="https://images.openai.com/static-rsc-4/gk9YzYYEaUXZpKBj0PV_hpPvuvUIaTUiVQ36HXWvPdIa0B3ixwQqVEh2QgXMXw_yZp3K8gZZDXkIEs8ibYYZV5_oh1tVoDepK8P1MCWguK6pyJoja1N37wxeBiYwo1mKRLXETrDbC8jw7vRsoxpDsKGvCO9pryQ_ea4JH3ViGBE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">linkedin.com</span>
@@ -1486,13 +1465,6 @@ The setup process asks for information such as:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>5.3 Recommended three-layer model organization</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">dbt Production Best Practices: 10 Tips for Reliable Data Models | Tech with Abhishek</span>
-            <a href="https://images.openai.com/static-rsc-4/pkQ45V_OFlJB8OWymNnN8-4DeE5DgSGe_LKT90BpOl7EpVusKBC5njt7hJ49QHQlsab7jxW-Yw6b8KypDCAytScjH4EVV0wvz7TCHPlHQp4bhBdDANkoS3bWq9so9nv6UOTGK6NubTaJxijrwoCXLYnNhOECzfkrbeeevxyNDeQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/tech-with-abhishek/10-game-changing-dbt-tips-i-wish-i-knew-before-my-first-production-model-363f46b215f0?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2221,13 +2193,6 @@ dbt run --vars '{"start_date": "2026-01-01"}'`}</code>
             <span>9.2 The five built-in materializations</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">dbt Materializations: What Actually Happens When You Change config? | by meghaaa | Feb, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/nstetA-0kbmxbvY77DJe8W60oynDFOgYf9GZs9fcbfmiDleNYlwt2bWwgTfFQMg2vtL3205I5JD6rg3XK4wi_-ipvavM0QLhPqXfLYlOItTp9sPX3qKL9fRD1ognwipXkS0_irkEG4LM4tDeEVR2ck-Ugm2iHTva81apHDySs8g?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">dataengineeringinprogress.medium.com</span>
             <a href="https://dataengineeringinprogress.medium.com/dbt-materializations-what-actually-happens-when-you-change-config-d32428388055?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -2616,13 +2581,6 @@ Advantages:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>10.2 How incremental models work</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">dbt Incremental Models: Efficient Transformations | Conduktor</span>
-            <a href="https://images.openai.com/static-rsc-4/bGIht3rupPeHTphxxucSqDYgiL8pHz7kEqnWP4Mpf8oG2t76Q64pODf1yMlsezPNGETD_2PbTFFxiCR5OJC6bc-2Mf64vUKUd6-ISZsW-yNB630ikVEESHd_4-gUIlFRyMDbSc8p8UP7oCEayBObVt4qRboLFLpx5ioyaaSss5k?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">conduktor.io</span>
             <a href="https://conduktor.io/glossary/dbt-incremental-models-efficient-transformations?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3143,13 +3101,6 @@ dbt creates a database table containing the CSV records.`}</code>
             <span>The validity timestamps describe when each version was considered current.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">25. Slowly Changing Dimensions (SCD) in dbt | by LAXMINARAYANA LIKKI | Mar, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/PfKSPSS02yU8nt57HfyF6sKvkXi2_gvhPM3YSYE8-L2UO9bLr5YQj2vrQNqyt-aBFb1AnAGo60kNUfFfd9RUmAOOJPk68qkWyODG9aS-l4Efy6RGN1nJr0NxVHbHldFzb0oWSR_1J0W2H2gMx2JAIkzvF7bSG0u9llUOTI7ieTE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40likkilaxminarayana/25-slowly-changing-dimensions-scd-in-dbt-feb820eb79e2?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -3613,13 +3564,6 @@ AVG() OVER()`}</code>
             <span>Date.</span>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Example structure:</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Star Schema vs Snowflake Schema and the 7 Critical Differences — Blog | Keboola</span>
-            <a href="https://images.openai.com/static-rsc-4/525ffGx--FvgdafMuwBCzxWRljz6jSy7VCWkW5RJR5m0fAzjRCcHCb0iAsyhL-tdl9j8Ts26c5Wba-tN0KMEIYM2HbseWtHhiwGz5qW5QWTX5_-LenLyWAwo966vXiYJcgDxg-KcagGRL8fUCN3CVaUr2f4avqs1Een7UfqXXsA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">keboola.com</span>
             <a href="https://www.keboola.com/blog/star-schema-vs-snowflake-schema?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4391,13 +4335,6 @@ dbt docs serve`}</code>
             <span>15.6 What does dbt documentation contain?</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Quickstart for dbt and Snowflake | dbt Developer Hub</span>
-            <a href="https://images.openai.com/static-rsc-4/yriCGrBzkspGg5UgLqjbRSYNuxogvOdHXLMW-JU9I8YxFaSH-icsqoIxhS_xhYomoAR2OkvaEfmqteaCDaaGH1S7Qgp667Co9WexN8YwA8IYFjVDmfUZ1wswN1XG7ivDnDRXiUC91_3TQLuz15JWtBQJCSI8rMxP7u-SiF_1OW0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">docs.getdbt.com</span>
             <a href="https://docs.getdbt.com/guides/snowflake?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -4599,13 +4536,6 @@ dbt Catalog provides the hosted documentation experience in dbt platform.`}</cod
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>16.3 Understanding the dbt DAG</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Introduction to dbt. Data Build Tool, or as the cool kids… | by Suraj Nag | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/bhBmU7FOj383vOC2L4vidti0szT7pP9jILGtRwc4BQe1vIY-nC7GWjvZPrS-oQiSjIQ6t2sK0F-eoYrM4M26B4TGlkzFtjm3GpmADivkqYWe8u5TULkcF5o9w_oaBOgxb4UWPenJmkbiQe8M4J8CgPiLOt6x12QNxbRUYQFWXlI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40suraj11nag/introduction-to-dbt-2f2ac93a3961?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -5064,13 +4994,6 @@ dbt deps`}</code>
             <span>18.2 Understanding the dbt CI/CD workflow</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Software Engineering for SQL: The Complete Guide to dbt Cloud at Scale</span>
-            <a href="https://images.openai.com/static-rsc-4/4L8cdB-uqeRhpiVBv3XRmV5q5pq6M5oXO3dBKzwSQdG-2dgy2UHr93qQmH1lRkUJ9kQUhUhiWMtcBMfozAdxtVeFP7WETPw6GnVw9TAylV6sBdZpL_BWSe0IaqsMgnPCz0eOEIJmcTvXjFrgnftVAGc2fow9n4_aIZ5esNZeJMU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">daisuke.masuda.tokyo</span>
             <a href="https://daisuke.masuda.tokyo/article-2026-05-27-1350?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -5473,13 +5396,6 @@ Source Databases | v Data Ingestion | v Apache Spark | v Data Lake | v Data Ware
             <span>20.1 Production project architecture</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Running dbt in the Real World: Cost Control, Governance, and Team Practices at Scale | by Abhishek Kumar Gupta | Tech with Abhishek | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/f8133tpAjpI2nKdvDIqeuSmFAbnSvGiL2Bn3R-CWdY1XTZXgfAqWyJLZDrVa3PFF84GsaRHcVEBcVNBncpkkoK3yRnx4NIXbf5fp0uVg6b5AqRqGr9r2HXGLZUWEYHYu_92SMdH99eTNmeIUYCwzQZGpqpZsjhC4DYZEa73CpVo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/tech-with-abhishek/running-dbt-in-the-real-world-cost-control-governance-and-team-practices-at-scale-3699f3693fed?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -5811,13 +5727,6 @@ Source Databases | v Data Ingestion | v Apache Spark | v Data Lake | v Data Ware
             <span>21.1 Project architecture</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">dbt Explained: The Data Transformation Tool That Rewired How We Think About Analytics Engineering | CloudRPS</span>
-            <a href="https://images.openai.com/static-rsc-4/o_1khuRiaBukQs5btnik8J2daDADPEGt6l1Ii4Y2hicDsAPjc0Y45BbycbBEOpf8WXAECsPu3b79m8AHZbVvCuEGxtTfbWBSp79gLZrlU3P0V0OVnYwHOZzF_ZKqX5Jep1N9rYdgBq4wSI7oM4s_KUaoyrsTsPwVJsuPAGy4O5E?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">cloudrps.com</span>
             <a href="https://cloudrps.com/blog/dbt-data-transformation-modern-analytics/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -6070,13 +5979,6 @@ dbt docs generate`}</code>
             <span>21.12 Step 10 — Understand the final data lineage</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What Are dbt Sources? Overview and Benefits | Zuar</span>
-            <a href="https://images.openai.com/static-rsc-4/uj1bSFSjdmns7_oXvpQexUsjnFdaPg5BrFvVBfMFYpFJJYzULrVhau58qasTTdputIbzxhcICnUenUbyaaeWpFMWMCld4a7ZfdGmtj_7KGP8HCqG9eIHQ-843uyO2fJCm-T8sCF2aKZjYtf0NbhqYvkGJxar6x61cq49Znjm6Go?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">zuar.com</span>
             <a href="https://www.zuar.com/blog/what-are-dbt-sources/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -6131,13 +6033,6 @@ dbt docs generate`}</code>
             </table>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Final business dashboard:</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">تصميم داشبورد احترافي باستخدام Power BI - خمسات</span>
-            <a href="https://images.openai.com/static-rsc-4/H7g6b6qbRlwlDj59-loyvvTzjfBfqPEC70GWxVXftp1VrGFpF5b-AwnlWexVj4b7ci9Xt88Eer4vR9P40WuWDClMZsNWg-8XFzt0k1crPX9L97lDf8TZr0_pw1AnzXLZwMRe0geJoEStlIljmQFQRH55pOPFupsxu3VYm0IAheE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">khamsat.com</span>
             <a href="https://khamsat.com/data/data-dashboards/3996998-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%AF%D8%A7%D8%B4%D8%A8%D9%88%D8%B1%D8%AF-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A-%D8%A8%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85-power-bi?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6919,13 +6814,6 @@ Create table materializations.`}</code>
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Use these official resources for deeper implementation knowledge.</span>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Primeiros passos com DBT - Data Build Tool</span>
-            <a href="https://images.openai.com/static-rsc-4/6Py7pQNaU0GMdISe-p9oIOw1ZWAwbCPVk1df2aUWP1iR_qR0alI_fekVX4ypGtNovDrKsSEc0vvav6hKHgxD9rjldLKQSH77Q1gx8RI2ErR3xmCvlNrHGhjbQv9Cc6nZ9k3_UzYXYiS9-q9AARk7gg9vXa8_FIpoV00R_B8G2Ns?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>1. dbt Developer Hub</span>
@@ -6938,13 +6826,6 @@ Create table materializations.`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Setup dbt Core on your machine in 5 minutes or less! | Newtuple | Newtuple</span>
-            <a href="https://images.openai.com/static-rsc-4/P-q1klTH27Be1jQxArDJUp5JHvegHCd4_OISSKW52mbfAKsF8pGQI5iNjw9AWMap9--4I-mqZsvURRYVDOe5TYJgzsfM2lNeAyJixq0ljJSw16cTcNRS2fPcfCBegKaQfesnZiEje8w7V73vysFuj76tXngn_gfhPO4MtPJEFoo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>2. dbt Core GitHub Repository</span>
@@ -6953,13 +6834,6 @@ Create table materializations.`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Explore dbt Core</span>
             <a href="https://github.com/dbt-labs/dbt-core?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">PostgreSQL Logo PNG Transparent &amp; SVG Vector - Freebie Supply</span>
-            <a href="https://images.openai.com/static-rsc-4/JMKgw90LnSqTtOROwdCoQgqRARQ22e_iEPIkMnlKesH5FmIH_KaSHLnFA3uJKfACpeJ-8DrMi7Q5La5zK6bXMyYtxqqMQou-EOTPzbrpkXpJBsK5jq7tAM2g3dftYYMtGbyaOuhJn0wUPP3Vvzw7OEQ-vAqbkkLXjJ6KwLHcmxM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -6979,13 +6853,6 @@ Create table materializations.`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Phase 5: Setting up CI/CD with Github Actions | Cloud Connections</span>
-            <a href="https://images.openai.com/static-rsc-4/EtjTqatLhTQ4emhM-y4Stkjuc5ub0rUWQCfQAOIvT7l0pgs8Oc-4JIirAvq1K1bdX4Y9LkGbE-aN81YYWxwhru716W-y9hZ0U5L3FVGvNrIbG1OzF7IjsJx3o3dXtgNN0Unw34Nzz5_eksWfem8pNzB1F0_NZnBMCOPdnTMOhL8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>4. GitHub Actions</span>
@@ -7001,13 +6868,6 @@ Create table materializations.`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">GitHub - dbt-labs/dbt-utils: Utility functions for dbt projects.</span>
-            <a href="https://images.openai.com/static-rsc-4/KwMKN0EJdNCI3a13S9KUXTsDvn6UsXmikktxUxpzxbQEt6Zd_ApoaeeGN-tzyVVPFTspnhhlCfAsCisfJSk8w6ImbZQOUdF2btDbXLmD0F7YY-55J1HkVYDVReBvSAoZUaRMOAZ0xplZT_QZ5YcKfPEzTAe2_Tjb-5eYRLYrgIo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>5. dbt-utils</span>
@@ -7019,13 +6879,6 @@ Create table materializations.`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Explore dbt-utils</span>
             <a href="https://github.com/dbt-labs/dbt-utils?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Day 19: dbt Jinja Templating Explained — How Jinja Improves Reusability &amp; Automation | by G Hari Krishna | The Data Movement | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/Q_fvFK8Wrbyjx6InQW6zflr-mNh0VmGuHzC8z9-pms3pHWNObiAwaxSnNVudiqtmCdsPVY-_FW-ozNTC63mLEMzyPZhsXKmC16PPJ_Az1BSks3L7Mg8Nr6aBlmvJbAH2xQ60I-nszPb5LA5VoqWWyEqmRV4FnfeCamIadRPqwCc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>

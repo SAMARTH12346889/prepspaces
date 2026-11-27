@@ -50,27 +50,6 @@ export const ReliabilitySection = memo(function ReliabilitySection({ sectionId }
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Module 21 — Data Reliability, Observability and Performance Optimization
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">What is Data Quality?</span>
-            <a href="https://images.openai.com/static-rsc-4/rtV5EA7flBGGyAGVbHkPbt-D01SR8CYIfjXFbanwcsdrZnQSd1Jz_LxguRDtgpfnedPJoBlYGpY56FCaj98gLgoSLY2ZKvMIKLcUcvxhgTey6jQJ2O4ORxt67yg_xPRTuqRzXN0CDHJXdBuHDmlcy1655_OuQxOditGc4XKLGgU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">How Data Observability Enhances Banking Security | Acceldata</span>
-            <a href="https://images.openai.com/static-rsc-4/N-YWlDqamYgLZ5JBqBy0NngEvSPF7jPpqnE4hrNgwVHeXvNGnCEP2h0CKj3LzavJFAFUe576H7nHlfoQNfuVKXwcnRN8AkiN532gzuH5f6xvHg79gPGIkoiE0gpyAKKGAhj_shoQIKDJwOjhdL7hKzJoCi3bEroBdz-rW5zu-uA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Insights Overview (Databricks)</span>
-            <a href="https://images.openai.com/static-rsc-4/TTH3YwipwOxxBgJ6-k4RbHoKvcUG9lfkc7_2yn8fltDXefNy10aFvS5qAKoARJhNYZxpyvViNOljp5L26vHDEB164YTy4WuF1q9j41w7lUfT6JSfXDpMwjV30CNR9L5QhLyqs9AQ499nxMGwBeXTk0aVQGYOckfSKeemsYVkZQM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             12
           </p>
@@ -466,13 +445,6 @@ WHEN NOT MATCHED THEN
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             A data platform is an integrated infrastructure used to collect, store, process, transform, govern, and analyze data.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Modern Data Architecture: An Overview of Lambda and Kappa Architectures | Credera</span>
-            <a href="https://images.openai.com/static-rsc-4/ArOvqH7vIWJmEeLA-bpAHOrnk27PbP4rNxoQPTFlMUsPKGDJIpZHYnN7bsAnMGFcxbpwpi451NL4hNcP31vt8p-N32vOF7T5ybmOfVmPBQjkqjzsIDjD9VpntfSdA9Tf3uqujEkK6tMybrIRtGqIazqKryvL1xdsJ0Jak9QA0eg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">credera.com</span>
             <a href="https://www.credera.com/en-us/insights/modern-data-architecture-an-overview-of-lambda-and-kappa-architectures?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1274,27 +1246,6 @@ WHEN NOT MATCHED THEN
             <span className="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
             <span>5.2 The Five Pillars of Data Observability</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">What is Data Observability: 5 Pillars, Benefits, &amp; Challenges | Airbyte</span>
-            <a href="https://images.openai.com/static-rsc-4/xnXU6hCA8izscXjr-XLYdWE7i84q3wi1ENQQKPSkbciRB54mEmBJdWeD7-K3n2DY7oE3CrqIXwkUuYwktmptZRG9ZJbzaiit0VehKxf9LS82PUCGbc_DIAJZ6HvSDLQUyGtV7TSKbXbQSCPD4RCQSrSXx66LXUdjOva1rfo8sTo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Open-Source Data Observability with Elementary — From Zero to Hero (Part 1) | by Sezin Sezgin-Rummelsberger | TDS Archive | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/XDuFJZnkwJ20HD3GPlE1jQ7p8nyjMff9Zs0ZDlY9Jb6fuPLJrIWoOjl80hYL3iSC3ISqjP6sg3oXO2aQzPqYPa9XCi9wsbV5n6JHSNBBmjDUkD73M7cuuSRLR-kOofojQeTVbgdfOi-3mzDpUKXeRah4HvvFWOfRViR1R1MDfTc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Anomaly detection - Azure Databricks | Microsoft Learn</span>
-            <a href="https://images.openai.com/static-rsc-4/toY78YxGzhpyiERayLkQzsUK__r8C-DI52SMk-II55kQ__Woyq0pEvfRjskxtMofn9w6fQaSs5UQ-N5poFxhg8s1NaNQqNOQVzUqD57BUf75U19ph4wv5REqLFB5NdxMRtY5SqnGkbmH6uOaVFXuo96KbVsq6tzoLZ_KbAr4_0E?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             9
           </p>
@@ -3110,13 +3061,6 @@ WHERE amount < 0;`}</code>
             It has three common states:
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Designing for Failure: Mastering Timeouts, Retries, and Circuit Breakers</span>
-            <a href="https://images.openai.com/static-rsc-4/4JKxNG1nRJ3-6-VtME-4yTyXF5C0fDEdYXnLY40P8ZRsFri0NcqKxLvmz8akOruGivVYu6H9tT8mqSWA6xpPx0-FHNX0MnBwiYaF-bkfeoRA4W7gCmcdNEWBd7TVVY3VWg_2mOf1XvB1veb1Ov79-9odGrdWwb6njkO5ni0Hauc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">systemdr.systemdrd.com</span>
             <a href="https://systemdr.systemdrd.com/p/designing-for-failure-mastering-timeouts?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -3504,13 +3448,6 @@ WHERE amount < 0;`}</code>
             <span className="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
             <span>19.2 RPO vs RTO</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Establishing RPO and RTO Targets for Cloud Applications | AWS Cloud Operations Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/Ppt2mIX_H8SLu6J4W845T1oxTasV_PQoe5HyjnqHDooO3T47hMnz4ms1RwbSw93Js3deRSmAacJ-9vpbTVeLogQbVPa84NoBRuAQcxEs2nI6Nr__C-kbuvraxUi-Dj9iO84QxnXkYuxunZQuMEwcm0XMQ9SQNnPEB6Em_nFHmMc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">aws.amazon.com</span>
             <a href="https://aws.amazon.com/blogs/mt/establishing-rpo-and-rto-targets-for-cloud-applications/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4210,13 +4147,6 @@ WHERE order_date >= '2026-01-01'
             Vertical scaling increases the resources of a single machine.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Vertical vs. Horizontal Scaling: When to Choose Each</span>
-            <a href="https://images.openai.com/static-rsc-4/rCdcC4sH9nVhM0aLJ6eD5_NtNCy-xdTpJc4q4UB6sw73kCS0hXDEAfR1um6XmzFqwDM_3XCMbU8jbN3VOOmu9U75yP9lkjIoNBsPuIGG0oBNIgNXz-DURjTYohOddtHfdplw-ihbmFYorOZ96BMx5E8xugOQSw9ELKmwobwdrYE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">systemdr.systemdrd.com</span>
             <a href="https://systemdr.systemdrd.com/p/vertical-vs-horizontal-scaling-when?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -4262,13 +4192,6 @@ WHERE order_date >= '2026-01-01'
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Horizontal scaling adds more machines or workers.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Thy's Roam: MapReduce</span>
-            <a href="https://images.openai.com/static-rsc-4/JbMcdaQTUEZ4BKtrC4AdF239RQfpvI4zb2ewDI9NRc-J0mbtxxo_DY07ryQqiTQ48H1nfQKNDsozkI9wG5kg4aZsjcNfGqFZqhzM_zxJRv4w-Ek9nqwUayk-ZI2CMnzLVyX0YX48Opw6u0a67U21V7EYXKny6KogEVrII2ZGURU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">thysrael.github.io</span>
             <a href="https://thysrael.github.io/obsidian-quartz/MapReduce?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4479,27 +4402,6 @@ WHERE order_date >= '2026-01-01'
             <span className="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
             <span>23.2 Major Cloud Cost Optimization Techniques</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">The New Databricks SQL Warehouse Advisor Dashboard | by Databricks SQL SME | DBSQL SME Engineering | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/u___wD0ei8y0Lmr_lBj71xsAil8F1kfzfrQxhjsdsSqTmOPBTLBPBugrsv6tR17kogTSIwP0CM8XbftY6bNhC5HOsrXR0BcgABM3jMSNmvv__mWW944TWbgfOGsz9CElual-y959VZWce6BrPPCsxdLUJzSvaVQpvMvDjoAefPs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Cloud Intelligence Dashboards :: AWS Well-Architected Labs</span>
-            <a href="https://images.openai.com/static-rsc-4/VkTIIYo5U8pzVogi7UyulndN0wtyNOWTWeMVLUOGzFH-X9BTyd6Zql3r7o3jKxJHNfoKDy5kqw7PPOUAWcWUEmzvENC4lISh5F2-rCQb_PMq0XccL-k21ZKK3Y9J6WQ7QHCWQ6-OXvtano1c0Z3QMvLgfcLW4K1rv7kDbxBugxY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Compute Activity and Spend Summary | DataOps.live</span>
-            <a href="https://images.openai.com/static-rsc-4/HU3i0eRC1gK0jRxLz8qnscwhb1H6gdFfI1WqlgaOsICliIttr0tMGOmY8bgtITHRQ8va1MPrXHWLgoxFvfefbmG7PmJSaEb4XyN8MSEdMo7QZsog03Uh2kg2OADVR5cEtcGUstMqLd2mpNPoQOMYIbfeP7Bz_nt7nWlaiWujQYI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             11
           </p>
@@ -4870,13 +4772,6 @@ WHERE order_date >= '2026-01-01'
             Grafana for monitoring
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">How I Built a Production-Grade Real-Time Retail Sales Data Pipeline | by Shrikant Lambe | Mar, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/1YxHOSI10DUGM15AKJUKo7ywWshsUgpU7n248MMt4S7aFZ83QUAEv0UMIDaNQof05gb07pcW-XPbtDJsERTqXLTz9KMqZFW4A61oZPVoGSTTSGRh3OwuJ137TxREcTvd0IiLOcAB2sejG4VGt0Wh2tmYLFmMmojJQyBjdrJrnhM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40shrikantlambe/how-i-built-a-production-grade-real-time-retail-sales-data-pipeline-4601430087db?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -5113,27 +5008,6 @@ WHERE order_date >= '2026-01-01'
             <h2 className="text-lg sm:text-2xl font-bold text-stone-900 mt-2 tracking-tight">
               26. Practical Labs
             </h2>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">What is Airflow®? — Airflow 3.1.2 Documentation</span>
-            <a href="https://images.openai.com/static-rsc-4/ns4Iuhb3a5mmQ_krtzp4C52Fhk7l2jxkteMCoz8zosUTqLQaRPE6stvhooLH0qAsikKD-osKxSp5fu1JZnTRh6U7XAfzPFGdqk2Zc-MscPx4UszBMsbitla4wuF4AYI1NcUSPdNh7UyAsJSCbRJLcsE3c-L8zTkh62ci0bTTQs0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Service level objectives in Grafana Cloud | Grafana SLODatabase Observability | Grafana Cloud | Grafana Labs</span>
-            <a href="https://images.openai.com/static-rsc-4/fgaIoMNqYDgMENimFqt6hJrd1PzgDTDl2EvZczHaw9w7-87UaurNlcnRNB6KEbrf8OBnTbKwZNGUwlhc6rRsvMQrXDdLQMaoOvIdzRj_jtdwIF8iWDIhkHd1itbexvLqD1z0UdR7AFcDlTQGKR-T43pVK1wmLWbC895VyRdcIWM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Web UI - Spark 3.5.6 Documentation</span>
-            <a href="https://images.openai.com/static-rsc-4/7M7v1suqaKVS-gBCKDGaLT4lbw0v1MUJmBDKn1OinbfnQeJ08vGtyaXW-rNHhbt11I7-ErBP7rx3_rZoaCxUcBG3ab-b_Z_KoHoQ_5IiMAmzYdsYXo00kRxGdEVi7JpCn61JtrHrFH4zLhfXxzHNnx9G2QmuaAZzwHhFlixzLME?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             10
@@ -5450,13 +5324,6 @@ WHERE order_date >= '2026-01-01'
             <span className="text-orange-600">▸</span>
             <span>Final Capstone Project</span>
           </h4>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Unified Data Reliability Stack</span>
-            <a href="https://images.openai.com/static-rsc-4/bg_d17XkErupobqBVsohF55UB0KlW6Y2L3RvDJi5IlZoBqzmB5eUV7EzdcK-rRLJt_FpyUocU1T5bZ0xp_U1OyCpfqBTd7ggkas1HmKPGIAHFts-y1fza_lzojZaSVw5_fmgcz2DoZk60OyObsHV6Kzigw7caBY8wHP8tAJc1G4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">linkedin.com</span>
             <a href="https://www.linkedin.com/pulse/unified-data-reliability-stack-karthikeyan-kaliyaperumal-l1bee/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">

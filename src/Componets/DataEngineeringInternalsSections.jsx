@@ -138,13 +138,6 @@ export default function DataEngineeringInternalsSections() {
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A database is more than a collection of tables. Internally, a DBMS contains multiple components that work together to execute queries and manage data.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">PPT - Overview of DBMS Architecture and Classification PowerPoint Presentation - ID:9230464</span>
-            <a href="https://images.openai.com/static-rsc-4/Mzsg2yAqNoVqrj3e7UbPTddQYAwdEV4cG7km-tyAu4a5CiROzyRhKJOXtnuX16jW2gxlvksOsCvc-pYPge0hKfcLkEaT0LDgqKteMge_X5YLBh0ly2YUTLA8eXqdCCjP9C__xuwJWkVhN2F-owTE7loaXnWdpBXo63-hwRsS0QI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">slideserve.com</span>
             <a href="https://www.slideserve.com/romerob/architecture-and-classification-of-dbmss-powerpoint-ppt-presentation?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -426,13 +419,6 @@ export default function DataEngineeringInternalsSections() {
             <span>LSM-oriented storage architecture</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Why Chat, Messaging &amp; Real-Time Apps Prefer Cassandra Over Postgres — The Internal Story Explained | by Faizan Khan | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/ri-hipOknOAij16Xrzq692ORaYtvO9XXvRnvhxBYCAxel6x3Sv9E2UfbBWNteaJJNm1nilRJRoppEHLu8v1bg-f9g2nCOggRrbv000wwwkWEefL9m1EjnnsAjJIzqvsw5LBVVhe0Z1rLSWI4iUtxJCMuKWgRByF4cUJofoVu-Fs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40faizanhaidar48/why-chat-messaging-real-time-apps-prefer-cassandra-over-postgres-the-internal-story-explained-a4777b36f2fd?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -505,13 +491,6 @@ export default function DataEngineeringInternalsSections() {
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A page is a fundamental unit of database storage and often a unit of I/O between persistent storage and memory.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">For example, PostgreSQL commonly uses 8 KB database pages by default, although its build and configuration choices matter.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">An illustrative page structure:</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Structure of heap table in Postgres | by Dien DUONG | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/-kar3FndrhiA-N7Px4fQVv4GkXjy8yIXkTTLUqlSQTXhaihosPMe8J220dw3SSSp9ufgjEh_N7VLzG55ybFYRDxj82vRAJrvLeDhA5M7IcajLZFDwEq-nnWg5EZX1Uzfa5DvXOk22s1zUlarcmUnKm9K7-CtKOPOg26WN-kM5LE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">dldien.medium.com</span>
             <a href="https://dldien.medium.com/structure-of-heap-table-in-postgres-6cf57e7597f4?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -652,13 +631,6 @@ export default function DataEngineeringInternalsSections() {
             <span>A buffer pool is a region of memory used by a database to cache data pages.</span>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Instead of reading the same page from disk every time a query needs it, the database can retain frequently accessed pages in memory.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">\[Database\] Buffer and Indexing — Hello World! Hello Konkuk!</span>
-            <a href="https://images.openai.com/static-rsc-4/8czt2S_IwtsCHSB4FvuChkvrqW54RwnUIaH5Fozyy6hphl3oQ27XWRwdrWD5sFuDMvunOL1Lsfb_O-tKK9p1v2vlKhpqEcp5dRL1PpI7s4foVuefuK50XClq9mx7NiJnG58g9LEJcOjSUw18ck653Enz7eYYmKZo5XTjv3wx0S4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">hw-hk.tistory.com</span>
             <a href="https://hw-hk.tistory.com/226?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -825,13 +797,6 @@ export default function DataEngineeringInternalsSections() {
             <span>Disk storage hierarchy</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Disks and Files - Database Systems</span>
-            <a href="https://images.openai.com/static-rsc-4/HTIQWkF7S2NDz-1r0Ncs0ejPLH79SYiZS-VJqKkMhWzFrdlKjMWdeTWuyG1LDQRPEFYX9eJXVhiTZJrEK9yXD3BrfQ1z5RoL-2Md6JzgdVa9Rl2glE2Sy0y2J27ELYox20O_1B13Xj8lQsaepajoyHL8m4FkrTRHVWQquSNyhV4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">cs186berkeley.net</span>
             <a href="https://cs186berkeley.net/notes/note3/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -989,13 +954,6 @@ CREATE INDEX idx_customers_email ON customers(email);`}</code>
             <span>Now the database can use the index to locate matching records more efficiently.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Designing Data-Intensive Applications — Chapter 1 Summary | by Salma Nour-Eldeen | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/ER_EhbC9sZnyJByOx8barVzeXTYqD4vvr_Nn_O43AWAkcc8A2jserVyPeWhZBsL1yB25zXr-6vxFOUj1jgLVq5z1tlysnWv-dFQR1-lfSGvARUFmMQwh3Plwth_GszP3bjvved7-PpVBMNg-sBPTDEImMUudzTiFI1jcEimquGw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40salmamahdynooreldeen/designing-data-intensive-applications-chapter-1-summary-ec75de2c7bd6?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -1137,13 +1095,6 @@ CREATE INDEX idx_customers_email ON customers(email);`}</code>
             <span>This reduces the height of the tree and makes it efficient for disk-based indexing.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">B-Trees, LSM Trees, and the Indexing Tradeoff Spectrum | Alex Merced's Lakehouse Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/-VenFQBNTGsWSYBipfQRm979YCT7vMP8iOtSq9ftkoU-HN45Mifp1xSCHqLPNJtrQqZqqbuHQqXXie3bDwll3vx7gO8v2tZnvEO_l_mU2UsCYdousP9sXdkMxcvv51tLNjGzU4orOUhyfNBbqQfWvsx_tybWDrTwmdCSSz0PL9c?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">iceberglakehouse.com</span>
             <a href="https://iceberglakehouse.com/posts/2026-04-29-query-engine-04/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -1197,13 +1148,6 @@ CREATE INDEX idx_customers_email ON customers(email);`}</code>
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>All leaf nodes are at the same depth.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">B-Trees vs LSM Trees: Comparison and Trade-Offs</span>
-            <a href="https://images.openai.com/static-rsc-4/00ei4_eiB19-Wd_kiN40Xv3D8ADv1FDJOApFCRnwhbjeLaZ9sCDk-K2w0tD9PQT4GZcactYN8hOUt-K6Q_SHKHQ84RZEXD8yfo6Gly-ueC9OEB6vqdbkVWkney4acAyY8TT9liALbDYjwX5gOqah0QmsYNoEwiGAEMbO9cGZ4vM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">blog.bytebytego.com</span>
@@ -1369,13 +1313,6 @@ CREATE INDEX idx_orders_order_id ON orders USING BTREE(order_id);`}</code>
         <div className="space-y-3">
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Hash indexing uses a hash function to map a search key to a location in an index structure.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Instead of navigating an ordered tree, the database calculates a hash value and uses it to find the corresponding bucket.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">full text search - hash index vs inverted index - Stack Overflow</span>
-            <a href="https://images.openai.com/static-rsc-4/nrBcylbxfiK4xxkDRLxVd_ufcrCI82Lqejxx9KzKPfc1luvvLlmNFpPKB_-AeBzIOH4PRI_5t2SRm1PfHO3CS1-f2e1AG0O5Rr4yNlAw4yqV_jKrfjeCQhrxOWWjp90h797RL5qbYef7Zgu7wz7V4UnD97ieiPVCkxgvzGnswk8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">stackoverflow.com</span>
             <a href="https://stackoverflow.com/questions/29436034/hash-index-vs-inverted-index?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1576,13 +1513,6 @@ CREATE INDEX idx_orders_order_id ON orders USING BTREE(order_id);`}</code>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">LSM-based storage is used in systems such as RocksDB and Apache Cassandra's storage layer.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Traditional B-Tree-based storage may need to perform updates to existing pages. LSM-based designs instead accumulate writes in memory and periodically flush sorted data to persistent storage.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Delving Into Storage Structures: LSM-Tree vs. B+ Tree | by yang guang | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/zzFjGljKRTAjEYuaiVowx--gG9pqKL8kL5lEC7-QLtxZoth0P1ubsGMruqfNfZUlEJFIZVup0tSF7pwiaDNzeKQm4VwLbF6oBRNXWlMey1zxhuqYrcfVhgJmpjSdAy06wCYWHDe-Ao1atV9dXEt_S7fE6RYsJML-RuaDkCoQqJw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40qq549631282/delving-into-storage-structures-lsm-tree-vs-b-tree-54f6a4e5111d?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1875,13 +1805,6 @@ CREATE INDEX idx_orders_order_id ON orders USING BTREE(order_id);`}</code>
             <span>It cannot guarantee that a positive result is correct.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Bloom Filter Introduction, Implementation and Application</span>
-            <a href="https://images.openai.com/static-rsc-4/PxIL76IsTo1Yq02uJ8vBpleEBTdKUXji_cxOBN4SSUmqaabW-8V59X-_EBWvRZX2m3WUTkiKQA4VZCL57qhLWm3iOg_wBkxcGz2AmLHdEjfKl6RMJlxqu71f_C0qsksuH-1KTuPOGsYzSntD5hUDPLqWBBVwRnb8nnO45PuGFyc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">enjoyalgorithms.com</span>
             <a href="https://www.enjoyalgorithms.com/blog/bloom-filter/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -2014,13 +1937,6 @@ CREATE INDEX idx_orders_order_id ON orders USING BTREE(order_id);`}</code>
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>This process generally involves several stages.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/-tZNoK1_H7e9T2WwGkRQnN3480UIT9jdqeG-ymzrDGRQ_CHZoyg_PBpbB1RIMpf9qzClp5aBc0SzjLaOqaFYYNjw8RRSfV1cSb8W5TDovXy3AEr8ezc7tlpEBHBjF3uECdw56n9J7qPUdOnbDCex7XJRxqw5sBpm996pxvLaSgw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
@@ -2423,13 +2339,6 @@ CREATE INDEX idx_orders_order_id ON orders USING BTREE(order_id);`}</code>
             <span>It takes a query plan and performs the operations necessary to produce the result.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Steps to industry-leading query speed: evolution of the Apache Doris execution engine</span>
-            <a href="https://images.openai.com/static-rsc-4/e2qReLH5DhSThTPbynQB0_V1D4GP--r8ZKNPsrywdS3jh4EIsJtsxKsEsJ213rsMD1haihN98YGOq6e1L7NN18RjWOpvj-3ALJqPe9NgBDP162XFyKVjI3W2TjPqE-RG5hfsB6yz-7LqZ4wAMW0Vdn37bKz-LPCiHLzAk7DQJ5U?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">velodb.io</span>
             <a href="https://www.velodb.io/blog/steps-industry-query-speed-evolution-apache?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -2622,13 +2531,6 @@ CREATE INDEX idx_orders_order_id ON orders USING BTREE(order_id);`}</code>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A hash join builds a hash table from one input and probes it using records from the other input.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">The Science of Query Execution Plans: How Databases Think | by Somnath Dutta | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/42uHWutab_2ywZftqzvSGViPvK5-qKl99GSUe4llWqvx3PIYBKjdRLkKaokUE7IQCKi7gvU44-4ZvWTYwdfPXlpvK9fBPsYoXY70bjM7XPBY9w7Hfn4InhEfEnLYozVRKSBcej_Wf8YfYBQuqPZcAS6CMKAIhRYYBwW0nCdM8r4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">somnath-dutta.medium.com</span>
             <a href="https://somnath-dutta.medium.com/the-science-of-query-execution-plans-how-databases-think-a010656c4e36?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -2674,13 +2576,6 @@ Create a hash table based on the join key.`}</code>
             <span>C. Sort-Merge Join</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A sort-merge join sorts both inputs on their join keys and then merges them to identify matching records.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Join Processing in Databases Systems with Large Main</span>
-            <a href="https://images.openai.com/static-rsc-4/wztJVKeTWADQPwLhxA7MgFqdgEQUFqG2WB4xH4-9zihvlpX0aC08Dj4plSxtsc4Mfs-7ekCty7E0ejR18BTYYRrGnuEyvpVCYlpQ3OJ7xJ9oM5oWjiGaVmgs5XU8RVMj6RYiDsj0hpUyisXuqMWohJoHebuRJaIbB9fKbyKIbLY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">slidetodoc.com</span>
             <a href="https://slidetodoc.com/join-processing-in-databases-systems-with-large-main/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2923,13 +2818,6 @@ EXPLAIN ANALYZE SELECT * FROM customers c JOIN orders o ON c.customer_id = o.cus
             <span>D. Durability</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Committed changes should survive failures according to the database's durability guarantees.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">API Development Series Part 2: Data Layer &amp; Persistence - Wasil Zafar</span>
-            <a href="https://images.openai.com/static-rsc-4/yZCzbBrPprAFGcIFyo43NG1wJSgbjHS8W0zpzfRENPxFbDo1RPqDZMpAF7nUSUQGjmCFTWIeKwVOjfpBNvkAAhChh6lPx_f2TucLsDYe6zhwQ_5gGIdhDd4xysuX6ww92lq1d1nwJvMbRqwPp0nbGylhmAuEpP01eay4tBWBovk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">wasilzafar.com</span>
             <a href="https://www.wasilzafar.com/pages/series/api-development/api-dev-data-persistence.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3241,13 +3129,6 @@ EXPLAIN ANALYZE SELECT * FROM customers c JOIN orders o ON c.customer_id = o.cus
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">It allows databases to maintain multiple versions of records so transactions can access appropriate versions without always blocking each other.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Complete Database Mastery Part 5: Transactions, Concurrency &amp; ACID | Wasil Zafar</span>
-            <a href="https://images.openai.com/static-rsc-4/8eZcRsqjueG8Qt2SPJkttSVLZtBYrYLZ2cM1wDi_8IGHImgBA0TJQJyGmm1rpJTUAgj7QAxjqAEYSpTC9J1e_z4WJsRu8prCxR3C3MLt6LyWiZrPu1cFpISsOL1tqYfmk-AViDCfWGXanT9-Y_MgjirfgWHPykVnqGv5_1-9bIU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">wasilzafar.com</span>
             <a href="https://www.wasilzafar.com/pages/series/database-mastery/database-mastery-transactions-concurrency.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -3394,13 +3275,6 @@ EXPLAIN ANALYZE SELECT * FROM customers c JOIN orders o ON c.customer_id = o.cus
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Write-Ahead Logging is a database recovery technique in which required log information is persisted before the corresponding modified data pages are written to their main data files.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">The central principle is:</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">The database must write the necessary recovery log records before writing the corresponding data-page changes to persistent storage.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How Databases Guarantee Durability (Even After Crashes)</span>
-            <a href="https://images.openai.com/static-rsc-4/ap7l4BjxO21c4nZ5cRCJXgua-B94gShszM0N_Uf4gDvCjk5ZED5jY03GK6-LcdqcOImD8KWUSLAcg9XNWC2azbhtNRvhT1l3jyS4UumQbhfJniOxmeCFjNroPQ6ToB5gC3fuvfai4UfPA5D6lZ9Wwx46O7dBGMS3L279-wCdEU0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">blog.algomaster.io</span>
             <a href="https://blog.algomaster.io/p/how-databases-guarantee-durability?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3789,13 +3663,6 @@ EXPLAIN ANALYZE SELECT * FROM customers c JOIN orders o ON c.customer_id = o.cus
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">For example, an orders table contains 100 million records.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Instead of keeping all orders in one undivided storage structure, we can partition the table by order date.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">The Ultimate Guide to Query Optimization: Indexes, Caching, Sharding, and More | by Aramlmanukyan | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/sm38t9n72HF16uwgz20PktbrgE0NzLPY3Dv9qRnzB6o05zO8TfKApm3L-1fdbLpueiOomra5du9rkqRFIha9umOHdqeJ6hOjLqhNpulDL7vOsgJmLqFoPpr6cIOvriuJTKTcEt3yA03WpFlDO-ZVJWyh-ldvQPXmkF42TchyAbQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40aramlmanukyan/the-ultimate-guide-to-query-optimization-indexes-caching-sharding-and-more-0ad2b618bd6c?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -3913,13 +3780,6 @@ CREATE TABLE orders_2026_q1 PARTITION OF orders FOR VALUES FROM ('2026-01-01') T
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Each node stores only part of the overall dataset.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">System Design Concepts - by Neo Kim</span>
-            <a href="https://images.openai.com/static-rsc-4/3peDnVXflmYwLJW4QUeMohYT8j8M5VUgJcciII3-UhB6zYVKxvQ9HvOyeSFliflukqU1pTQcNolw_WtWLkB5F25RBVO_MiyjKwhfJnex7w4s9slygb-f2YehIBg14sK7xiCuPO3uvQcMTronZD_LqIXF5KRDX-A7v8967t1CfhM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">newsletter.systemdesign.one</span>
@@ -4644,13 +4504,6 @@ CREATE TABLE orders_2026_q1 PARTITION OF orders FOR VALUES FROM ('2026-01-01') T
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>H. Important PostgreSQL monitoring tools</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Deep dive into PostgreSQL internal statistics / Алексей Лесовский (PostgreSQL-Consulting LLC) | PDF</span>
-            <a href="https://images.openai.com/static-rsc-4/o4eMJGnsZfnmKw1qD3bLiYP5B70B7mZL-tfv3i2xisW8xHNLKdn0slVcvqVhyk74k4jRB-W5j3wA-ZP-wu9Y0N74177KksBQs-NtMRG4iNOijF7XV2vvSXelWYMoFVQI9UPD6aWIsPLlsd2dd2vzAZTSTO6pYf00oOxy8vjBmP8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>pg_stat_statements</span>
@@ -4658,13 +4511,6 @@ CREATE TABLE orders_2026_q1 PARTITION OF orders FOR VALUES FROM ('2026-01-01') T
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Identifies frequently executed SQL queries and helps analyze their execution statistics.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Fichier:Prometheus software logo.svg - Wikisource</span>
-            <a href="https://images.openai.com/static-rsc-4/fepPjY_neWlerRDx3jGoMbIOODcqUKFP-xK4JCE9gDYjfgE0oZnQot03AShEimFI4xKFWOI5UkXjaTG5Dwy-Y6sHZ8WssrPUsV611AhkfF-bWCojn6LHVlZJ72EWwkfGYPP-yz9x7o0jRJ2iAd1ocItnGSxJJ8IUWLVCqGrrn3I?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
@@ -4674,13 +4520,6 @@ CREATE TABLE orders_2026_q1 PARTITION OF orders FOR VALUES FROM ('2026-01-01') T
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Collects and monitors time-series performance metrics.</span>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">File:Grafana logo.svg - Wikimedia Commons</span>
-            <a href="https://images.openai.com/static-rsc-4/wFlazXwUNtzBWhhYsfsO-iUHvVSX5psinU3cIyRBrPH-55jhN6vA1HJ-mF2Hp100x3Tof5pLNGXUx0-pTz7u8q_JpmVgKgCX44IZUc_4hgiVbRagjB30d5GhTLYc6_wu5rfBVxWTQQ0KKNKianfSW18M10GjLFTQJ_SxujesfgQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Grafana</span>
@@ -4688,13 +4527,6 @@ CREATE TABLE orders_2026_q1 PARTITION OF orders FOR VALUES FROM ('2026-01-01') T
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Visualizes database health, query latency, resource utilization, and monitoring metrics.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Privacy Badger für Google Chrome - Download - CHIP</span>
-            <a href="https://images.openai.com/static-rsc-4/Tp0AhuGi4dRYt8KpMeimjXZPVnCaKhoV0suyqycI2U2E4A901YXNlu-OyT_QXzET1uKnau5pWTYWjOPGTQKJcd0-3JumcsuKoylsoqM8FLa1HjdR_ZScOSuksRstgf5jiMgxx9yeJBMn5RELMzhZqBHQwlty8t54ulDBMfggLSI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
@@ -4773,13 +4605,6 @@ CREATE TABLE orders_2026_q1 PARTITION OF orders FOR VALUES FROM ('2026-01-01') T
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>The following project brings together all the concepts covered in this module.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Surface and optimize slow performing queries with Datadog Database Monitoring | Datadog</span>
-            <a href="https://images.openai.com/static-rsc-4/oFtxJjnTIbPyZVUtHHQxAhm49LNckQsC9pe5dWMCh5UVjUhTRtlMp-4ziro-y04fEK2SxKXWjkadUCEPdndBkxw_dNRrEaG9rVRn2vDGBFtD-5GtYxsvQJ4hQpZdxKVYp4uBVb0ZwVa9dtgtVjycmJhLHBhCbEsrqZlaLkMKJwo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">datadoghq.com</span>

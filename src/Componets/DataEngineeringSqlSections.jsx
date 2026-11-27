@@ -16,19 +16,7 @@ export default function DataEngineeringSqlSections() {
           Module 3: Complete Advanced SQL & Relational Database Systems Specification
         </h2>
         <div className="space-y-3 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; pgconsole - self-hosted Postgres editor for the team</span>
-            <a href="https://images.openai.com/static-rsc-4/b50Y5Rw56O7BfyIb64FyC7NLBE2WDbpUv72-kqCOzKBcC-ZYaDNinYfDOsprwiOFVjpCGsVXT-o9X4C9mG7AbQgGXUirmQvL_hZzBKKHQBY7TeNTaaqHm8jly7QCWuzPpEIx9BvWV0QD_jTbaFDKDTjzV_p48Upacbic-IaN-jQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; Different Types of Databases in 2026: A Comprehensive Guide | Astera Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/PB4oha9HbfsJlOGPQOmxwf_qhdp--RvFQmV9kjTTF1kHUxLv8pM6xEzZe-KI4VhHvZBn-pIhb0sGvYU_QesVb5N8E3UsTHNxkqYz2f2u_tWg43iAEIU2Rei-nOxY5DeWu3JS6rBb4ATz1nzggBcKVcZJwG4M-DVIkE1EkxV-9Gg?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; Understanding PostgreSQL Explain</span>
-            <a href="https://images.openai.com/static-rsc-4/F4gve-agjASMQyyKd-VkBYHXM4NJCqb-5Ez6zkzCKfeZWLzotpEfSKrJnu_rkX7EUOP5lpxTtIjD5cJpiHHlq87LhSPgmExEiBmHw-f4f-K1bEeQzJa5SuUCkDgs1oA6vl60wkgGjjt1_vLHlFmLsk-szQE5QCI2nI_zfQm_pKg?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
-          <h3 className="text-lg font-bold text-stone-900 mt-4 mb-2">Module overview</h3>
+          <h3 className="text-lg font-extrabold text-stone-900 mt-5 mb-2 border-l-4 border-l-[#f97316] pl-3">Module overview</h3>
           <p>SQL (Structured Query Language) is one of the most important skills for a Data Engineer.</p>
           <p>In Module 1, we studied how data engineering systems collect, process, store, and deliver information. In Module 2, we learned how Python can automate data extraction, transformation, validation, and loading.</p>
           <p>Now we will study the database systems that store this information and the SQL techniques used to manage and analyze it.</p>
@@ -52,8 +40,8 @@ export default function DataEngineeringSqlSections() {
           <p>Why does a query take 30 seconds when it should take much less?</p>
           <p>These problems require advanced SQL, relational database knowledge, and database performance engineering.</p>
           <p>In this module, we will use PostgreSQL as our primary implementation database. Most concepts apply to other relational databases, but certain syntax and behavior differ between PostgreSQL, MySQL, SQL Server, Oracle, and other systems.</p>
-          <h3 className="text-lg font-bold text-stone-900 mt-4 mb-2">Learning objectives</h3>
-          <h3 className="text-lg font-bold text-stone-900 mt-4 mb-2">By the end of this module, you should be able to:</h3>
+          <h3 className="text-lg font-extrabold text-stone-900 mt-5 mb-2 border-l-4 border-l-[#f97316] pl-3">Learning objectives</h3>
+          <h3 className="text-lg font-extrabold text-stone-900 mt-5 mb-2 border-l-4 border-l-[#f97316] pl-3">By the end of this module, you should be able to:</h3>
           <p>Understand relational database architecture and relational data models.</p>
           <p>Design database schemas, tables, relationships, and constraints.</p>
           <p>Work with DDL, DML, DQL, and DCL.</p>
@@ -73,10 +61,6 @@ export default function DataEngineeringSqlSections() {
           <p>Optimize complex SQL queries.</p>
           <p>Design and maintain analytical database structures.</p>
           <p>Technology used throughout this module</p>
-          <div className="my-2 p-2.5 rounded-lg bg-orange-50/60 border border-orange-200/80 flex items-center justify-between text-xs">
-            <span className="font-semibold text-stone-800">&#128279; Postgresql Logo PNG Transparent With Clear Background ID 473068 | TOPpng</span>
-            <a href="https://images.openai.com/static-rsc-4/x6sDZ8oKI9URixQ5E82vqCQV1aR38qK7E8n0HKggx6_cD8G7QtlPuHlyO99GalHPJOycjs41bPgfrRTqdHFqayPWJl57hxNttQynREzHXSUSsui_zVAB_ssyc1xdm_msJ5GiDzf23C9Z2RuuoyVCc6J0AbuAqX5Aul_x1J78q2I?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-bold hover:underline">Reference Link &rarr;</a>
-          </div>
           <p>PostgreSQL</p>
           <p>Primary relational database for practical implementation, SQL queries, indexing, transactions, and performance optimization.[Official PostgreSQL documentation](https://www.postgresql.org/docs/?utm_source=chatgpt.com)</p>
           <p>You can run PostgreSQL locally using its community edition, without purchasing a database license.</p>
@@ -95,7 +79,7 @@ export default function DataEngineeringSqlSections() {
           1. Introduction to Relational Database Systems
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.1 What is a relational database?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.1 What is a relational database?</h3>
           <p>A Relational Database Management System (RDBMS) is software that stores and manages information using related tables.</p>
           <p>A table consists of rows and columns.</p>
           <p>A row represents one record.</p>
@@ -150,7 +134,7 @@ export default function DataEngineeringSqlSections() {
           <p>The customer with ID 101 has placed two orders.</p>
           <p>Instead of repeating customer details in every order record, the system stores the customer information once and references it through an identifier.</p>
           <p>This is an important advantage of relational database design.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.2 What is an RDBMS?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.2 What is an RDBMS?</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">An RDBMS provides the software infrastructure to:</h4>
           <p>Create databases.</p>
           <p>Define schemas and tables.</p>
@@ -163,42 +147,18 @@ export default function DataEngineeringSqlSections() {
           <p>Execute transactions.</p>
           <p>Provide security and access permissions.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Popular relational database systems include:</h4>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>postgres - Official Image | Docker Hub</span></div>
-            <a href="https://images.openai.com/static-rsc-4/Pole4xk5FkyhFJxxWDBh3yHjF1pQlxteoZyEQA0ykJQSPxLpLcdTrKWhkIQ2-SeCQp9ObINiyVMBFzoUkAM9P9RUAWW761nUuSEzxGOPsF9Keb0OX7HGw8IiQD84tSEoRfxnWrmYPSxGM1Bq9IBWZrT-EGb7Ta0uoZ1t6-qsVoY?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>PostgreSQL</p>
           <p>Advanced open-source relational database known for SQL capabilities, extensibility, and strong transactional features.[Website](https://www.postgresql.org/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>MySQL Connector | Convertigo Low-Code Platform Integration</span></div>
-            <a href="https://images.openai.com/static-rsc-4/qpwWUxTpxUQ1GSTavwy6cJ2jDXEx_5k-i2uDQ5U7n_nrpE5BJ1VvNbBOUaKjs7uqzdCg_FDhu_GhQOVTcVfVHwnMOhoGA7YbWI1JPYBYqCnkIGFmWAEmEEmKYdpXwskM2urbEPZXdVAPDn4l9OugC6_q7fsH_dU3Zvi8Y0a_QNg?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>MySQL</p>
           <p>Widely used relational database, particularly for web applications and transactional workloads.[Website](https://www.mysql.com/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>MS SQL Server Integration - HubSpot 커넥터 및 ETL 앱 | Datawarehouse.io</span></div>
-            <a href="https://images.openai.com/static-rsc-4/3S-UawyujieriSTwULWdYy3usnZ_D30DQjWYX5k1YLCbOZ1Sdb8vRmjIMNnv2jURZKwSvdr7SRLzYUf1hiSQICGQ1gHcMq92ZWUPXDhvrFPsiWdpsJi8J867NEpf0c-7gC50Lizg0kF5RNKjdK0wdZsUfjAq6_U-JAB_wmd8wUs?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Microsoft SQL Server</p>
           <p>Enterprise relational database platform with integration across Microsoft's data ecosystem.[Website](https://www.microsoft.com/en-us/sql-server?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Oracle DataBase Enterprise Edition</span></div>
-            <a href="https://images.openai.com/static-rsc-4/MAD_OixjnJKShdjBwH7Cp_XBcVd2j47Gw0_EtlJryqE9bcUaqDrYAwrjv2SgvHvJilu_FKsRQ-ZXFFoSFMRsNM4uReG09EtoHSCv82PlDCPtncI-SrNxjM3b6prqaYdYM5FzKVfMryf88wZit5yU137XTlGEN8Wvl2hEDVDpCY0?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Oracle Database</p>
           <p>Enterprise database platform used in large-scale business and transactional systems.[Website](https://www.oracle.com/database/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>▷ Best SQLite Course Online</span></div>
-            <a href="https://images.openai.com/static-rsc-4/JskisXVPtbHvr9eyITeToJGKT2k8O37y_IhEKqM8XMxlIw2iSIp8W_ZaDOsNwpabAdTQCQrsv0d-fqRBSrB4KhB_FU-4h-NuSg4ooJW4EaL4MJMgARdpIXF4XA3hoJQNUJcmbU_ZnF80mwXV7O0WbYNNnaA7tnNvtIKRzgeTEiY?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>SQLite</p>
           <p>Lightweight embedded relational database that does not require a separate database server process.[Website](https://sqlite.org/?utm_source=chatgpt.com)</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.3 How does a relational database work?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.3 How does a relational database work?</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A simplified relational database architecture looks like this:</h4>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Архитектура обработки SQL запросов в Microsoft SQL Server | Info-Comp.ru - IT-блог для начинающих</span></div>
-            <a href="https://images.openai.com/static-rsc-4/NKwoLaG4uYF1KmJoqTGY34RERS157lODXjLi7dtN633EnBeCWP5Ih7Is5LupNGhJPKYc1bgHPQ7eZ5kxGD8GMeN_8Y9oLQBq4kCkENNc4NM6wcq5sSPU-SDeWWBGPa2pJfj1xos9qlHRt2QJYILrqvDtiXbXFUnfBT5I6nM8WrM?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>info-comp.ru</span></div>
             <a href="https://info-comp.ru/architecture-of-sql-query-processing?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -247,7 +207,7 @@ export default function DataEngineeringSqlSections() {
             <li value="6"><strong className="text-stone-900">Transaction management and concurrency control</strong></li>
           </ol>
           <p>The database ensures that concurrent operations are managed according to its transaction and isolation rules.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.4 Database, schema, table, row, and column</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.4 Database, schema, table, row, and column</h3>
           <p>These terms describe different levels of database organization.</p>
           <p>Concept</p>
           <p>Meaning</p>
@@ -277,7 +237,7 @@ export default function DataEngineeringSqlSections() {
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>ecommerce_db │ ├── sales │ ├── customers │ ├── orders │ └── order_items │ ├── inventory │ ├── products │ └── stock │ └── finance ├── payments └── refunds</p>
           <p>This structure separates logically different business areas.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">1.5 Relational database vs NoSQL database</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">1.5 Relational database vs NoSQL database</h3>
           <p>Relational databases are not the only way to store data.</p>
           <p>NoSQL databases provide alternative data models, such as documents, key-value pairs, graphs, and wide-column records.</p>
           <p>Feature</p>
@@ -321,7 +281,7 @@ export default function DataEngineeringSqlSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Understanding relational data modeling is essential before writing advanced SQL.</p>
           <p>A database should not simply contain tables. It should contain logically designed relationships that accurately represent the business.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.1 What is a relational data model?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.1 What is a relational data model?</h3>
           <p>A relational data model represents information as relations, commonly implemented as database tables.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Each relation has:</h4>
           <p>Attributes (columns).</p>
@@ -352,7 +312,7 @@ export default function DataEngineeringSqlSections() {
           <p>20</p>
           <p>Mechanical Engineering</p>
           <p>The department_id column connects students to departments.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.2 Primary key</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.2 Primary key</h3>
           <p>A primary key uniquely identifies every row in a table.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -371,7 +331,7 @@ export default function DataEngineeringSqlSections() {
           <p>Rahul Rahul</p>
           <p>A name is not a reliable unique identifier.</p>
           <p>A customer ID solves this problem.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.3 Foreign key</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.3 Foreign key</h3>
           <p>A foreign key establishes a relationship between tables.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -382,7 +342,7 @@ export default function DataEngineeringSqlSections() {
           <p>The customer_id column references the primary key of the customers table.</p>
           <p>This protects referential integrity.</p>
           <p>For example, PostgreSQL can reject an order that references a nonexistent customer, unless the relationship is configured to allow NULL or another permitted behavior.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.4 Candidate keys and alternate keys</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.4 Candidate keys and alternate keys</h3>
           <p>A candidate key is a minimal set of attributes that uniquely identifies a row.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Suppose a user table contains:</h4>
           <p>user_id email phone_number</p>
@@ -396,7 +356,7 @@ export default function DataEngineeringSqlSections() {
               <code>{`CREATE TABLE users ( user_id INTEGER PRIMARY KEY, email VARCHAR(150) UNIQUE, phone_number VARCHAR(20) UNIQUE );`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.5 Composite keys</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.5 Composite keys</h3>
           <p>A composite key contains multiple columns that together uniquely identify a record.</p>
           <p>Consider an order-items table.</p>
           <p>order_items</p>
@@ -419,7 +379,7 @@ export default function DataEngineeringSqlSections() {
             </pre>
           </div>
           <p>However, if the business permits the same product to appear in multiple separate lines in an order, a separate order_item_id may be more appropriate.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.6 Relationships in relational databases</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.6 Relationships in relational databases</h3>
           <p>There are three common relationship types.</p>
           <p>A. One-to-one relationship</p>
           <p>One record in one table is associated with at most one record in another table.</p>
@@ -449,12 +409,8 @@ export default function DataEngineeringSqlSections() {
               <code>{`CREATE TABLE student_courses ( student_id INTEGER REFERENCES students(student_id), course_id INTEGER REFERENCES courses(course_id), enrollment_date DATE, PRIMARY KEY (student_id, course_id) );`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.7 Entity Relationship Diagrams (ERDs)</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.7 Entity Relationship Diagrams (ERDs)</h3>
           <p>An Entity Relationship Diagram represents entities, attributes, and their relationships.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Lenda Dashboard - The Ultimate SQL Practice Platform</span></div>
-            <a href="https://images.openai.com/static-rsc-4/FL6d7ttmzyHMbm5-tVzdoP9zf-Mi57UJpk1DyFrE-S2nqGGeWV4cFudUITCdeJFbvglckFYHcbIo0_dg00RclNvFRAwyDIVDPSFocp85lfbWBv0Cl4UFf-NJLfd28lq8_jxOWE-b2Np1lT-Cq4D4uMCVeFJsouJlpeMQ_WLt3k4?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>top-sql.com</span></div>
             <a href="https://top-sql.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -463,7 +419,7 @@ export default function DataEngineeringSqlSections() {
           <p>CUSTOMERS ----------- customer_id PK name email city 1 | | places | N ORDERS ----------- order_id PK customer_id FK order_date status 1 | | contains | N ORDER_ITEMS ----------- order_item_id PK order_id FK product_id FK quantity unit_price N | | references | 1 PRODUCTS ----------- product_id PK product_name category_id FK price</p>
           <p>A customer can place many orders. An order can contain many order items. Each order item references a product.</p>
           <p>This ERD helps engineers understand the database before writing queries.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">2.8 Database normalization</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">2.8 Database normalization</h3>
           <p>Normalization is the process of organizing relational data to reduce unnecessary duplication and avoid data modification problems.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider a poorly designed table:</h4>
           <p>order_id</p>
@@ -560,7 +516,7 @@ export default function DataEngineeringSqlSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>A database schema defines how objects are organized and how tables are structured.</p>
           <p>Good schema design is essential because it affects query performance, consistency, and maintainability.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.1 Creating a database</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.1 Creating a database</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">PostgreSQL example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -582,7 +538,7 @@ export default function DataEngineeringSqlSections() {
             </pre>
           </div>
           <p>Notice the different data types.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.2 Important SQL data types</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.2 Important SQL data types</h3>
           <p>Data type</p>
           <p>Usage</p>
           <p>Example</p>
@@ -632,7 +588,7 @@ export default function DataEngineeringSqlSections() {
           <p>Universally unique identifier</p>
           <p>Record ID</p>
           <p>For financial amounts, PostgreSQL NUMERIC is generally preferable to floating-point types because it provides exact decimal arithmetic within its declared precision and scale.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.3 Constraints</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.3 Constraints</h3>
           <p>Constraints enforce business and data integrity rules at the database level.</p>
           <p>PRIMARY KEY</p>
           <p>customer_id INTEGER PRIMARY KEY</p>
@@ -652,7 +608,7 @@ export default function DataEngineeringSqlSections() {
           <p>DEFAULT</p>
           <p>status VARCHAR(20) DEFAULT 'PENDING'</p>
           <p>Provides a default when no value is supplied.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.4 Creating an e-commerce schema</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.4 Creating an e-commerce schema</h3>
           <p>We will use a common dataset throughout the remaining module.</p>
           <p>Execute the following PostgreSQL SQL in a new practice database.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -668,7 +624,7 @@ export default function DataEngineeringSqlSections() {
           <p>Orders and products therefore have a many-to-many relationship through order_items.</p>
           <p>Payments reference orders, allowing a separate payment history.</p>
           <p>For a more advanced real-world payment model, multiple payment attempts, partial payments, refunds, and payment-provider transaction IDs should also be modeled.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">3.5 Insert sample data</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">3.5 Insert sample data</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`INSERT INTO ecommerce.customers (customer_name, email, city) VALUES ('Rahul', 'rahul@example.com', 'Pune'), ('Priya', 'priya@example.com', 'Mumbai'), ('Amit', 'amit@example.com', 'Delhi'), ('Neha', 'neha@example.com', 'Hyderabad'), ('Ananya', 'ananya@example.com', 'Pune'); INSERT INTO ecommerce.categories (category_name) VALUES ('Electronics'), ('Accessories'), ('Computers'); INSERT INTO ecommerce.products (product_name, category_id, price, stock_quantity) VALUES ('Laptop', 3, 50000, 25), ('Mobile', 1, 20000, 50), ('Keyboard', 2, 1500, 100), ('Mouse', 2, 700, 150), ('Monitor', 1, 12000, 30), ('Headphones', 1, 2500, 80); INSERT INTO ecommerce.orders (customer_id, order_date, status, total_amount) VALUES (1, '2026-11-01 10:00:00+05:30', 'COMPLETED', 51500), (2, '2026-11-02 11:30:00+05:30', 'COMPLETED', 20000), (1, '2026-11-03 15:00:00+05:30', 'COMPLETED', 2200), (3, '2026-11-04 12:00:00+05:30', 'PENDING', 2500), (4, '2026-11-05 16:00:00+05:30', 'COMPLETED', 12000), (5, '2026-11-06 09:00:00+05:30', 'CANCELLED', 2500); INSERT INTO ecommerce.order_items (order_id, product_id, quantity, unit_price) VALUES (1, 1, 1, 50000), (1, 3, 1, 1500), (2, 2, 1, 20000), (3, 4, 1, 700), (3, 3, 1, 1500), (4, 6, 1, 2500), (5, 5, 1, 12000), (6, 6, 1, 2500); INSERT INTO ecommerce.payments (order_id, payment_method, payment_status, amount) VALUES (1, 'CARD', 'SUCCESS', 51500), (2, 'UPI', 'SUCCESS', 20000), (3, 'CARD', 'SUCCESS', 2200), (4, 'UPI', 'PENDING', 2500), (5, 'NETBANKING', 'SUCCESS', 12000), (6, 'UPI', 'REFUNDED', 2500);`}</code>
@@ -698,7 +654,7 @@ export default function DataEngineeringSqlSections() {
           <p>Data Query Language (DQL).</p>
           <p>Data Control Language (DCL).</p>
           <p>Transaction Control Language (TCL) is also important and will be covered with transaction management.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.1 Data Definition Language (DDL)</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.1 Data Definition Language (DDL)</h3>
           <p>DDL commands define or modify database structures.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Common commands:</h4>
           <p>CREATE.</p>
@@ -796,7 +752,7 @@ DROP removes the object itself, including its stored data.`}</code>
           <p>Specialized operation</p>
           <p>DDL operation</p>
           <p>PostgreSQL supports transactional execution of these operations under its normal transaction model, subject to constraints and dependencies.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.2 Data Manipulation Language (DML)</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.2 Data Manipulation Language (DML)</h3>
           <p>DML commands modify records stored in database tables.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Common commands:</h4>
           <p>INSERT.</p>
@@ -867,7 +823,7 @@ DROP removes the object itself, including its stored data.`}</code>
             </pre>
           </div>
           <p>This example is for understanding the concept. In production, identity handling and the precise business key need to be designed correctly.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.3 Data Query Language (DQL)</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.3 Data Query Language (DQL)</h3>
           <p>DQL focuses on retrieving information.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">The primary command is:</h4>
           <p>SELECT</p>
@@ -885,7 +841,7 @@ DROP removes the object itself, including its stored data.`}</code>
           </div>
           <p>Avoid using SELECT * in production pipeline transformations when only a few columns are needed.</p>
           <p>Selecting only required columns reduces unnecessary data reading and makes the query's dependencies clearer.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.4 Data Control Language (DCL)</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.4 Data Control Language (DCL)</h3>
           <p>DCL manages access permissions.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Common commands:</h4>
           <p>GRANT.</p>
@@ -927,7 +883,7 @@ DROP removes the object itself, including its stored data.`}</code>
           <p>Read approved reporting views</p>
           <p>Do not provide every user with unrestricted database access.</p>
           <p>Use role-based access control and the principle of least privilege.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">4.5 Transaction Control Language (TCL)</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">4.5 Transaction Control Language (TCL)</h3>
           <p>Transaction commands control how database changes are committed or rolled back.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Common commands:</h4>
           <p>BEGIN.</p>
@@ -970,7 +926,7 @@ DROP removes the object itself, including its stored data.`}</code>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>These are among the most frequently used SQL commands.</p>
           <p>A Data Engineer must understand not just their syntax but also how to execute them safely and efficiently.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.1 SELECT — Retrieving data</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.1 SELECT — Retrieving data</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Basic syntax:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1025,7 +981,7 @@ DROP removes the object itself, including its stored data.`}</code>
               <code>{`SELECT * FROM ecommerce.orders WHERE order_id > 5000 ORDER BY order_id LIMIT 100;`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.2 INSERT — Adding data</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.2 INSERT — Adding data</h3>
           <p>You have already seen individual and multi-row inserts.</p>
           <p>Another important pattern is INSERT ... RETURNING.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">PostgreSQL example:</h4>
@@ -1036,7 +992,7 @@ DROP removes the object itself, including its stored data.`}</code>
           </div>
           <p>This returns information about the newly inserted row.</p>
           <p>It is useful when a Python application needs the generated database identifier.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.3 UPDATE — Modifying data</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.3 UPDATE — Modifying data</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1054,7 +1010,7 @@ DROP removes the object itself, including its stored data.`}</code>
             Important: This example is appropriate only when the order-processing workflow is designed to handle inventory deductions exactly once. Repeating the statement may deduct stock repeatedly.
           </div>
           <p>Production inventory logic needs transaction boundaries and an idempotent order-fulfillment design.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">5.4 DELETE — Removing data</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">5.4 DELETE — Removing data</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`DELETE FROM ecommerce.orders WHERE order_id = 6;`}</code>
@@ -1104,7 +1060,7 @@ DROP removes the object itself, including its stored data.`}</code>
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>SQL becomes particularly powerful when retrieving only relevant information and summarizing it.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.1 WHERE clause</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.1 WHERE clause</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`WHERE filters records according to a condition.`}</code>
@@ -1163,7 +1119,7 @@ SELECT * FROM ecommerce.customers WHERE city = 'Pune' OR city = 'Mumbai';`}</cod
               <code>{`SELECT * FROM ecommerce.customers WHERE customer_name ILIKE 'r%';`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.2 NULL values</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.2 NULL values</h3>
           <p>NULL represents missing or unknown information.</p>
           <p>It does not mean zero or an empty string.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A common mistake is:</h4>
@@ -1201,7 +1157,7 @@ SELECT * FROM ecommerce.customers WHERE city = 'Pune' OR city = 'Mumbai';`}</cod
             </pre>
           </div>
           <p>This avoids division by zero by returning NULL when the denominator is zero.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.3 ORDER BY</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.3 ORDER BY</h3>
           <p>Sort records.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Ascending:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1222,7 +1178,7 @@ SELECT * FROM ecommerce.customers WHERE city = 'Pune' OR city = 'Mumbai';`}</cod
             </pre>
           </div>
           <p>This sorts by category first, then by price within each category.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.4 GROUP BY</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.4 GROUP BY</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`GROUP BY combines records into groups according to one or more attributes.`}</code>
@@ -1261,7 +1217,7 @@ SELECT * FROM ecommerce.customers WHERE city = 'Pune' OR city = 'Mumbai';`}</cod
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">counts rows, whereas:</h4>
           <p>COUNT(column_name)</p>
           <p>counts non-NULL values in that column.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.5 HAVING</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.5 HAVING</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`HAVING filters groups after aggregation.`}</code>
@@ -1293,7 +1249,7 @@ WHERE`}</code>
               <code>{`SELECT customer_id, SUM(total_amount) AS spending FROM ecommerce.orders WHERE status = 'COMPLETED' GROUP BY customer_id HAVING SUM(total_amount) > 5000;`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">6.6 SQL execution order</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">6.6 SQL execution order</h3>
           <p>The order in which SQL is written is not the logical order in which its query clauses are processed.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A simplified logical processing order for a SELECT query is:</h4>
           <p>Logical SQL query processing</p>
@@ -1369,12 +1325,8 @@ WHERE`}</code>
           <p>3</p>
           <p>5000</p>
           <p>Neha has not placed an order.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.1 INNER JOIN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.1 INNER JOIN</h3>
           <p>Returns records with matching values in both tables.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>🛡️ Master SQL in 30 Days: Day 11 — The Concept of Joins 🔗 Inner vs. Outer Joins (Visual Guide) | by SkillStack_Official | Jan, 2026 | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/abFlEQ_hDit9YhAVNqG07H0WXcHc-bMJra8_zy2M5-NCyhwdya5LBCLyvUlrKulaot66OrKvGEdwwEcLLcTz0qVHLWNQ1LpDZUxvQY2Rqp2nFqpiMEoFQHt9YEm_e-K1moyygJTSb7HeWfKRKD9mo7Um0B_XHEdnXUGv3hfgwLM?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>medium.com</span></div>
             <a href="https://medium.com/%40skillstack2025/%EF%B8%8F-master-sql-in-30-days-day-11-the-concept-of-joins-inner-vs-outer-joins-visual-guide-a261fd68b49a?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1407,12 +1359,8 @@ WHERE`}</code>
           <p>Joining products and categories.</p>
           <p>Combining transactions and customer information.</p>
           <p>Building integrated analytical tables.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.2 LEFT JOIN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.2 LEFT JOIN</h3>
           <p>Returns all records from the left table and matching records from the right table.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>A beginner’s guide to 7 types of SQL JOINs | TablePlus</span></div>
-            <a href="https://images.openai.com/static-rsc-4/HJP5AkJGreOJ7C7QidOqvMEwC5uwMVKtBdS-XC4Xe_pNZyLgAV9EC5x4RXzWZEhmFkp6fn2JKfShbmcmOMEG7LM9S9-OaslRP-A6aTgYebb2wnef6KyXaxOmAbeHcu51Uq7Z3HxpmR-kY0QMDOlN-PiJEgcsHxKRJB-P_ol3aFA?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>tableplus.com</span></div>
             <a href="https://tableplus.com/blog/2018/09/a-beginners-guide-to-seven-types-of-sql-joins.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1432,7 +1380,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This is a very common analytical pattern.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.3 RIGHT JOIN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.3 RIGHT JOIN</h3>
           <p>Returns all rows from the right table and matching rows from the left table.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1441,15 +1389,11 @@ WHERE`}</code>
           </div>
           <p>Every order is retained, even if a matching customer record does not exist. With an enforced non-NULL foreign key, such an unmatched order cannot exist in our example schema.</p>
           <p>RIGHT JOIN can generally be rewritten as LEFT JOIN by reversing the table order.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.4 FULL OUTER JOIN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.4 FULL OUTER JOIN</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Returns:</h4>
           <p>Matching rows.</p>
           <p>Unmatched rows from the left table.</p>
           <p>Unmatched rows from the right table.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Different Types of SQL JOINs that You Must Know - StrataScratch</span></div>
-            <a href="https://images.openai.com/static-rsc-4/ewpr4QPLJnWTEUg0JRINX0-w3dqimF-mEHXJCImtA5Q3bca4hyBvbXi1M1E7bc7CGWplGAcEz-DfP-Xl9heX604MVML3jJ7_Ns7JrMTLCxZQlfqoY25MtURuivAwJoPzNvJwjqn22Y5vnwyEFdfXz4q89pKlP0Z0S9RGhA9MNXU?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>stratascratch.com</span></div>
             <a href="https://www.stratascratch.com/blog/different-types-of-sql-joins-that-you-must-know?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1462,7 +1406,7 @@ WHERE`}</code>
           </div>
           <p>This is useful when reconciling two datasets.</p>
           <p>For example, if one system contains customer records and another system contains customer activity, a full outer join helps identify records that exist in only one dataset.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.5 CROSS JOIN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.5 CROSS JOIN</h3>
           <p>Combines every row from the first table with every row from the second table.</p>
           <p>This creates a Cartesian product.</p>
           <p>Suppose table A contains 3 rows and table B contains 4 rows.</p>
@@ -1481,7 +1425,7 @@ WHERE`}</code>
           <p>Creating test datasets.</p>
           <p>Calculating combinations of business dimensions.</p>
           <p>Be careful with large CROSS JOINs because they can create enormous result sets.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.6 SELF JOIN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.6 SELF JOIN</h3>
           <p>A self join joins a table to itself.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider an employee hierarchy:</h4>
           <p>employees</p>
@@ -1519,7 +1463,7 @@ WHERE`}</code>
           <p>Amit</p>
           <p>Rahul</p>
           <p>SELF JOIN is frequently used for hierarchical and comparative data relationships.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.7 Multiple-table joins</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.7 Multiple-table joins</h3>
           <p>Real data engineering queries often combine more than two tables.</p>
           <p>Example: Show customer names, order IDs, product names, quantities, and item revenue.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1545,7 +1489,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This avoids multiplying item rows by payment rows.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">7.8 Join comparison</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">7.8 Join comparison</h3>
           <p>Join</p>
           <p>Result</p>
           <p>INNER JOIN</p>
@@ -1585,7 +1529,7 @@ WHERE`}</code>
           <p>A subquery is a query nested inside another SQL statement.</p>
           <p>Subqueries allow one query to use results produced by another query.</p>
           <p>They are useful for filtering, comparisons, validation, and analytical calculations.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.1 What is a subquery?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.1 What is a subquery?</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>Find products that cost more than the average product price.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1596,7 +1540,7 @@ WHERE`}</code>
           <p>The inner query calculates the average price.</p>
           <p>The outer query selects products above that average.</p>
           <p>The inner query produces a single value.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.2 Scalar subquery</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.2 Scalar subquery</h3>
           <p>A scalar subquery returns one value.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1605,7 +1549,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>The average product price is displayed alongside each product.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.3 Subquery with IN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.3 Subquery with IN</h3>
           <p>Find customers who have placed at least one order.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1614,7 +1558,7 @@ WHERE`}</code>
           </div>
           <p>The inner query returns customer IDs from the orders table.</p>
           <p>The outer query selects customers whose IDs appear in that result.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.4 Subquery with NOT IN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.4 Subquery with NOT IN</h3>
           <p>Find customers who have not placed an order.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1625,7 +1569,7 @@ WHERE`}</code>
             Important: NOT IN can produce surprising results if the subquery contains NULL.
           </div>
           <p>For anti-join logic, NOT EXISTS is often safer.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.5 Subquery with EXISTS</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.5 Subquery with EXISTS</h3>
           <p>EXISTS checks whether a subquery returns at least one row.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1635,7 +1579,7 @@ WHERE`}</code>
           </div>
           <p>This returns customers who have at least one order.</p>
           <p>The database can stop looking for a match when it establishes that one exists, although the actual execution strategy depends on the optimizer.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.6 Correlated subqueries</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.6 Correlated subqueries</h3>
           <p>A correlated subquery references a column from the outer query.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>Find products that cost more than the average price of their own category.</p>
@@ -1649,7 +1593,7 @@ WHERE`}</code>
           <p>The inner query depends on the category of the current product in the outer query.</p>
           <p>This makes it correlated.</p>
           <p>Conceptually, the database evaluates the relationship for each outer row, although the optimizer may transform the query into a more efficient plan.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.7 Subquery in FROM</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.7 Subquery in FROM</h3>
           <p>A subquery can act as a derived table.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>Calculate total spending for each customer, then filter customers who spent more than ₹10,000.</p>
@@ -1660,7 +1604,7 @@ WHERE`}</code>
           </div>
           <p>The inner query generates customer summaries.</p>
           <p>The outer query filters the summaries.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">8.8 Subquery vs JOIN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">8.8 Subquery vs JOIN</h3>
           <p>Subquery</p>
           <p>JOIN</p>
           <p>Nests one query inside another</p>
@@ -1689,7 +1633,7 @@ WHERE`}</code>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>CTEs make complex SQL queries easier to understand by giving intermediate query results meaningful names.</p>
           <p>CTEs are commonly used in analytical queries, data transformations, and pipeline development.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.1 What is a CTE?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.1 What is a CTE?</h3>
           <p>CTE stands for Common Table Expression.</p>
           <p>It is defined using the WITH clause.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -1700,7 +1644,7 @@ WHERE`}</code>
           </div>
           <p>The CTE creates a temporary named result for the duration of the statement.</p>
           <p>customer_revenue is not automatically a permanent table.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.2 Why use CTEs?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.2 Why use CTEs?</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider a query containing:</h4>
           <p>Multiple joins.</p>
           <p>Several aggregations.</p>
@@ -1709,7 +1653,7 @@ WHERE`}</code>
           <p>Revenue calculation.</p>
           <p>Without CTEs, the query can become difficult to maintain.</p>
           <p>CTEs allow the query to be divided into logical steps.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.3 Multiple CTEs</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.3 Multiple CTEs</h3>
           <p>You can define multiple CTEs in one query.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1719,7 +1663,7 @@ WHERE`}</code>
           </div>
           <p>Each CTE performs a separate logical transformation.</p>
           <p>This pattern is particularly useful for complex SQL models and dbt transformations.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.4 CTE vs subquery</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.4 CTE vs subquery</h3>
           <p>Feature</p>
           <p>CTE</p>
           <p>Subquery</p>
@@ -1745,7 +1689,7 @@ WHERE`}</code>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Important PostgreSQL detail:</h4>
           <p>Modern PostgreSQL may inline suitable non-recursive CTEs into their parent query. Materialization behavior can be controlled with MATERIALIZED or NOT MATERIALIZED where supported and appropriate.</p>
           <p>A CTE is not automatically faster than a subquery.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.5 CTE with aggregation</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.5 CTE with aggregation</h3>
           <p>Calculate monthly revenue.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1753,7 +1697,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This is useful for analytical reporting.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">9.6 CTE with JOIN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">9.6 CTE with JOIN</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`WITH product_sales AS ( SELECT product_id, SUM(quantity) AS total_quantity FROM ecommerce.order_items GROUP BY product_id ) SELECT p.product_name, COALESCE(ps.total_quantity, 0) AS units_sold FROM ecommerce.products AS p LEFT JOIN product_sales AS ps ON p.product_id = ps.product_id ORDER BY units_sold DESC;`}</code>
@@ -1784,7 +1728,7 @@ WHERE`}</code>
           <p>Bill of materials.</p>
           <p>Graph-like traversal.</p>
           <p>Parent-child relationships.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.1 Understanding recursion</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.1 Understanding recursion</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider this employee table:</h4>
           <p>employee_id</p>
           <p>employee_name</p>
@@ -1811,7 +1755,7 @@ WHERE`}</code>
           <p>CEO │ ├── Rahul │ │ │ ├── Amit │ │ │ │ │ └── Arjun │ │ │ └── Neha │ └── Priya</p>
           <p>A normal self join can show one level of management.</p>
           <p>A recursive CTE can traverse multiple levels.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.2 Recursive CTE structure</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.2 Recursive CTE structure</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">A recursive CTE has three main components:</h4>
           <p>Anchor member.</p>
           <p>Recursive member.</p>
@@ -1822,7 +1766,7 @@ WHERE`}</code>
               <code>{`WITH RECURSIVE hierarchy AS ( -- Anchor member SELECT ... UNION ALL -- Recursive member SELECT ... FROM source_table JOIN hierarchy ON ... ) SELECT * FROM hierarchy;`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.3 Build an employee hierarchy</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.3 Build an employee hierarchy</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create the example table:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1862,7 +1806,7 @@ WHERE`}</code>
           <p>Third iteration: Find employees managed by those employees.</p>
           <p>Fourth iteration: Continue deeper into the hierarchy.</p>
           <p>The process stops when the recursive member produces no additional records.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.4 Tracking hierarchical paths</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.4 Tracking hierarchical paths</h3>
           <p>We can also build a textual path showing the employee's reporting hierarchy.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -1871,7 +1815,7 @@ WHERE`}</code>
           </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example path:</h4>
           <p>CEO -&gt; Rahul -&gt; Amit -&gt; Arjun</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">10.5 Recursive CTE safeguards</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">10.5 Recursive CTE safeguards</h3>
           <p>Recursive queries can cause problems if the underlying relationship contains cycles.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example:</h4>
           <p>Employee A reports to B Employee B reports to C Employee C reports to A</p>
@@ -1910,7 +1854,7 @@ WHERE`}</code>
           <p>Data warehouse transformations.</p>
           <p>A window function calculates a result across a group of related rows while retaining the individual rows in the result.</p>
           <p>This is different from ordinary aggregation, where GROUP BY generally produces one result per group.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.1 Understanding window functions</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.1 Understanding window functions</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Suppose we have the following sales records:</h4>
           <p>Employee</p>
           <p>Department</p>
@@ -1978,7 +1922,7 @@ WHERE`}</code>
           <p>8000</p>
           <p>6000</p>
           <p>The result preserves all individual records while adding the department average.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.2 Window function syntax</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.2 Window function syntax</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">General syntax:</h4>
           <p>function_name(expression) OVER ( PARTITION BY column ORDER BY column ROWS BETWEEN ... )</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">The major components are:</h4>
@@ -1988,7 +1932,7 @@ WHERE`}</code>
           <p>PARTITION BY: Divides rows into independent groups.</p>
           <p>ORDER BY: Determines the order of rows inside each window.</p>
           <p>Window frame: Specifies the exact subset of rows considered relative to the current row.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.3 PARTITION BY</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.3 PARTITION BY</h3>
           <p>PARTITION BY divides records into groups.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -1998,7 +1942,7 @@ WHERE`}</code>
           </div>
           <p>This calculates total order value for each customer while retaining every order.</p>
           <p>Notice that PARTITION BY does not physically divide the database table. It defines logical windows for the calculation.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.4 ORDER BY inside a window</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.4 ORDER BY inside a window</h3>
           <p>The ordering determines the sequence used by the window calculation.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2008,7 +1952,7 @@ WHERE`}</code>
           </div>
           <p>This calculates cumulative spending for each customer in order.</p>
           <p>The additional order_id creates a deterministic tie-breaker when multiple orders share a timestamp.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">11.5 Window frames</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">11.5 Window frames</h3>
           <p>Window frames determine which rows around the current row are included in a calculation.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example:</h4>
           <p>SUM(amount) OVER ( ORDER BY order_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW )</p>
@@ -2051,7 +1995,7 @@ WHERE`}</code>
           <p>Ranking functions are particularly important for analytics.</p>
           <p>They allow you to rank rows based on values within a dataset or partition.</p>
           <p>PostgreSQL provides several ranking functions.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.1 ROW_NUMBER()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.1 ROW_NUMBER()</h3>
           <p>Assigns a unique sequential number to each row inside a window.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2072,7 +2016,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This returns one latest order per customer.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.2 RANK()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.2 RANK()</h3>
           <p>RANK() assigns ranks based on the ordering values.</p>
           <p>Tied rows receive the same rank, and the next rank contains a gap.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -2097,7 +2041,7 @@ WHERE`}</code>
               <code>{`SELECT employee, sales, RANK() OVER ( ORDER BY sales DESC ) AS sales_rank FROM employee_sales;`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.3 DENSE_RANK()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.3 DENSE_RANK()</h3>
           <p>DENSE_RANK() also assigns equal ranks to tied values, but does not leave gaps.</p>
           <p>Employee</p>
           <p>Sales</p>
@@ -2129,7 +2073,7 @@ WHERE`}</code>
           <p>Same rank, with gaps</p>
           <p>DENSE_RANK</p>
           <p>Same rank, without gaps</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.4 NTILE()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.4 NTILE()</h3>
           <p>Divides records into a specified number of approximately equal-sized groups.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2143,7 +2087,7 @@ WHERE`}</code>
           <p>Performance quartiles.</p>
           <p>Sales distribution analysis.</p>
           <p>Grouping customers by purchasing behavior.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.5 LAG()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.5 LAG()</h3>
           <p>LAG() retrieves a value from a previous row in the ordered window.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2159,7 +2103,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This is useful for time-series and transaction comparisons.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.6 LEAD()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.6 LEAD()</h3>
           <p>LEAD() retrieves a value from a following row.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2167,7 +2111,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This can help compare an event with the next event in a sequence.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.7 FIRST_VALUE() and LAST_VALUE()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.7 FIRST_VALUE() and LAST_VALUE()</h3>
           <p>These functions retrieve the first or last value within a window frame.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2182,7 +2126,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>Without the full frame, LAST_VALUE() often returns the current row's value or the last value in the current frame rather than the final value in the partition.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.8 CUME_DIST() and PERCENT_RANK()</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.8 CUME_DIST() and PERCENT_RANK()</h3>
           <p>These functions help understand relative positions within a distribution.</p>
           <p>CUME_DIST()</p>
           <p>Calculates the cumulative distribution of a row's position.</p>
@@ -2195,7 +2139,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>These are useful for statistical summaries and customer or product segmentation.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.9 Analytical function comparison</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.9 Analytical function comparison</h3>
           <p>Function</p>
           <p>Purpose</p>
           <p>ROW_NUMBER()</p>
@@ -2218,7 +2162,7 @@ WHERE`}</code>
           <p>Cumulative distribution</p>
           <p>PERCENT_RANK()</p>
           <p>Relative ranking</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">12.10 Important Data Engineering applications</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">12.10 Important Data Engineering applications</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Window functions are commonly used for:</h4>
           <p>Deduplication: Keep only the newest record for each business key.</p>
           <p>Running totals: Calculate cumulative revenue.</p>
@@ -2268,7 +2212,7 @@ WHERE`}</code>
           <p>UNION ALL.</p>
           <p>INTERSECT.</p>
           <p>EXCEPT.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.1 UNION</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.1 UNION</h3>
           <p>Combines results and removes duplicate rows.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2277,7 +2221,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This produces a list of distinct cities appearing in either table.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.2 UNION ALL</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.2 UNION ALL</h3>
           <p>Combines results without removing duplicates.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2287,7 +2231,7 @@ WHERE`}</code>
           <p>This preserves duplicate values.</p>
           <p>UNION ALL generally performs less work when duplicate elimination is unnecessary.</p>
           <p>It is commonly used when combining historical or partitioned datasets.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.3 INTERSECT</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.3 INTERSECT</h3>
           <p>Returns rows that appear in both query results.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2295,7 +2239,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This identifies customers present in both systems.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.4 EXCEPT</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.4 EXCEPT</h3>
           <p>Returns rows from the first query that do not appear in the second query.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2303,7 +2247,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This identifies customers present in the website dataset but not in the mobile app dataset.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.5 UNION vs UNION ALL</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.5 UNION vs UNION ALL</h3>
           <p>Feature</p>
           <p>UNION</p>
           <p>UNION ALL</p>
@@ -2319,7 +2263,7 @@ WHERE`}</code>
           <p>Typical performance</p>
           <p>More work</p>
           <p>Often faster</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">13.6 Requirements for set operations</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">13.6 Requirements for set operations</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">The SELECT statements being combined must have:</h4>
           <p>The same number of output columns.</p>
           <p>Corresponding compatible data types.</p>
@@ -2359,7 +2303,7 @@ WHERE`}</code>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Views and materialized views help organize reusable analytical logic.</p>
           <p>They are especially useful in data warehouses and reporting systems.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.1 What is a view?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.1 What is a view?</h3>
           <p>A view is a named SQL query that behaves like a virtual table.</p>
           <p>It normally does not store a separate copy of its query results.</p>
           <p>Instead, PostgreSQL executes the underlying query when the view is queried.</p>
@@ -2376,13 +2320,13 @@ WHERE`}</code>
             </pre>
           </div>
           <p>The application does not need to repeat the filtering logic every time.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.2 Why use views?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.2 Why use views?</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Views provide:</h4>
           <p>Simplification: Complex queries can be hidden behind a simple table-like interface.</p>
           <p>Reusability: Multiple applications can use the same query logic.</p>
           <p>Security: A view can expose only approved columns or rows, when combined with appropriate permissions.</p>
           <p>Consistency: Reporting teams can use a standardized definition of a dataset.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.3 Joining multiple tables inside a view</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.3 Joining multiple tables inside a view</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`CREATE VIEW ecommerce.order_details AS SELECT o.order_id, c.customer_name, o.order_date, p.product_name, oi.quantity, oi.unit_price, oi.quantity * oi.unit_price AS item_revenue FROM ecommerce.orders AS o JOIN ecommerce.customers AS c ON o.customer_id = c.customer_id JOIN ecommerce.order_items AS oi ON o.order_id = oi.order_id JOIN ecommerce.products AS p ON oi.product_id = p.product_id;`}</code>
@@ -2395,7 +2339,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>provides an integrated result.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.4 Updating a view</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.4 Updating a view</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">In PostgreSQL:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2404,7 +2348,7 @@ WHERE`}</code>
           </div>
           <p>Some simple views can be updated through SQL, while more complex views may not be automatically updatable.</p>
           <p>Views also do not automatically guarantee security isolation in every configuration. PostgreSQL's security options and permissions need to be designed carefully.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.5 What is a materialized view?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.5 What is a materialized view?</h3>
           <p>A materialized view stores the result of a query physically.</p>
           <p>Instead of recalculating an expensive query every time it is requested, a materialized view can serve previously computed data.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -2420,7 +2364,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This reads the stored result.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.6 Refreshing materialized views</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.6 Refreshing materialized views</h3>
           <p>Materialized views do not automatically reflect changes in their source tables.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Refresh the result:</h4>
           <p>REFRESH MATERIALIZED VIEW ecommerce.monthly_revenue;</p>
@@ -2434,7 +2378,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>Then concurrent refresh becomes possible.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.7 View vs materialized view</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.7 View vs materialized view</h3>
           <p>Feature</p>
           <p>View</p>
           <p>Materialized view</p>
@@ -2456,7 +2400,7 @@ WHERE`}</code>
           <p>Refresh required</p>
           <p>No</p>
           <p>Yes</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">14.8 When should a Data Engineer use them?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">14.8 When should a Data Engineer use them?</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Use views when:</h4>
           <p>Providing reusable query logic.</p>
           <p>Simplifying complex joins.</p>
@@ -2485,7 +2429,7 @@ WHERE`}</code>
           <p>Stored procedures and functions allow database logic to be stored and executed within the database.</p>
           <p>They can encapsulate business rules, calculations, and database operations.</p>
           <p>PostgreSQL supports stored functions written in SQL or procedural languages such as PL/pgSQL.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.1 What is a stored function?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.1 What is a stored function?</h3>
           <p>A function accepts inputs, performs operations, and returns a result or a set of results.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>Create a function to calculate customer spending.</p>
@@ -2501,7 +2445,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>This returns the total completed order value for customer 1.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.2 PL/pgSQL functions</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.2 PL/pgSQL functions</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">PL/pgSQL provides procedural capabilities, including:</h4>
           <p>Variables.</p>
           <p>Conditions.</p>
@@ -2522,7 +2466,7 @@ WHERE`}</code>
           </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Expected result:</h4>
           <p>1200.00</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.3 What is a stored procedure?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.3 What is a stored procedure?</h3>
           <p>A procedure is a database routine designed to perform an operation.</p>
           <p>Unlike a function, a procedure is invoked using CALL.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -2533,7 +2477,7 @@ WHERE`}</code>
           </div>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Execute:</h4>
           <p>CALL ecommerce.update_product_price(1, 53000);</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.4 Function vs procedure</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.4 Function vs procedure</h3>
           <p>Feature</p>
           <p>Function</p>
           <p>Procedure</p>
@@ -2557,7 +2501,7 @@ WHERE`}</code>
           <p>Restricted in normal function execution</p>
           <p>Can manage transactions in eligible call contexts</p>
           <p>PostgreSQL procedures can perform transaction control under specific invocation conditions, but not in every context. For example, transaction control is restricted in a CALL nested inside an explicit transaction block.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">15.5 When should Data Engineers use stored routines?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">15.5 When should Data Engineers use stored routines?</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Potential applications include:</h4>
           <p>Reusable calculations.</p>
           <p>Database-side validation.</p>
@@ -2589,10 +2533,10 @@ WHERE`}</code>
           <p>Maintaining derived values.</p>
           <p>Recording modifications.</p>
           <p>Enforcing certain business rules.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.1 What is a trigger?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.1 What is a trigger?</h3>
           <p>Imagine an organization wants to maintain an audit history whenever a product's price changes.</p>
           <p>Instead of depending on every application to create an audit entry manually, a database trigger can automatically call a trigger function when an update happens.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.2 Trigger events</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.2 Trigger events</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">PostgreSQL supports triggers associated with events such as:</h4>
           <p>INSERT.</p>
           <p>UPDATE.</p>
@@ -2603,13 +2547,13 @@ WHERE`}</code>
           <p>AFTER the event.</p>
           <p>INSTEAD OF the event, for eligible view operations.</p>
           <p>They can operate at row level or statement level.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.3 Create an audit table</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.3 Create an audit table</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`CREATE TABLE ecommerce.product_price_audit ( audit_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, product_id BIGINT, old_price NUMERIC(12,2), new_price NUMERIC(12,2), changed_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP );`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.4 Create a trigger function</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.4 Create a trigger function</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`CREATE OR REPLACE FUNCTION ecommerce.log_product_price_change() RETURNS TRIGGER LANGUAGE plpgsql AS $$ BEGIN IF OLD.price IS DISTINCT FROM NEW.price THEN INSERT INTO ecommerce.product_price_audit ( product_id, old_price, new_price, changed_at ) VALUES ( OLD.product_id, OLD.price, NEW.price, CURRENT_TIMESTAMP ); END IF; RETURN NEW; END; $$;`}</code>
@@ -2619,13 +2563,13 @@ WHERE`}</code>
           <p>OLD represents the previous row.</p>
           <p>NEW represents the new row.</p>
           <p>IS DISTINCT FROM compares values safely even when NULL is involved.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.5 Create the trigger</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.5 Create the trigger</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`CREATE TRIGGER product_price_update_trigger AFTER UPDATE ON ecommerce.products FOR EACH ROW EXECUTE FUNCTION ecommerce.log_product_price_change();`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.6 Test the trigger</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.6 Test the trigger</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Update a product price:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2639,7 +2583,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>The trigger function automatically creates an audit record for the changed price.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.7 BEFORE vs AFTER triggers</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.7 BEFORE vs AFTER triggers</h3>
           <p>BEFORE trigger</p>
           <p>AFTER trigger</p>
           <p>Executes before the relevant database operation completes</p>
@@ -2650,7 +2594,7 @@ WHERE`}</code>
           <p>Can perform operations based on completed changes</p>
           <p>A BEFORE INSERT trigger might standardize a value before the record is written.</p>
           <p>An AFTER UPDATE trigger might record a change in an audit table.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">16.8 Trigger risks in Data Engineering</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">16.8 Trigger risks in Data Engineering</h3>
           <p>Triggers are powerful, but excessive use may create hidden dependencies.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Problems can include:</h4>
           <p>Unexpected write overhead.</p>
@@ -2685,7 +2629,7 @@ WHERE`}</code>
           <p>What happens if the first operation succeeds but the second operation fails?</p>
           <p>The database must not leave the accounts in an inconsistent state.</p>
           <p>Transactions help solve this problem.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.1 What is a transaction?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.1 What is a transaction?</h3>
           <p>A transaction groups one or more SQL operations into a logical unit.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2698,16 +2642,12 @@ WHERE`}</code>
           <p>ROLLBACK;</p>
           <p>This cancels the uncommitted changes.</p>
           <p>In production, the system must also check that the source account has enough balance, verify that both accounts exist, and ensure that the transfer is safe against concurrent modifications.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.2 ACID properties</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.2 ACID properties</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">ACID represents four important transaction properties:</h4>
           <p>Atomicity.</p>
           <p>Consistency.</p>
           <p>Isolation.</p>
           <p>Durability.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>The Distributed Transaction Guide: Navigating Consistency in Microservices</span></div>
-            <a href="https://images.openai.com/static-rsc-4/amF1_c6sVFxbD5BtP4LkbCkttDOf-8nniHCqufqUwY1v2tiE8-gNEEls-oUJccLmEF3t7-mIapeFBKiR-9BP5Lv62DDxznMd18uXt2czt9jBMSbWC3mQG6JVhq8PLiddPCJneCK8hgKQuoZ2TVkQKzDo7is3ZbhdvQPsC0q46zQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>designgurus.substack.com</span></div>
             <a href="https://designgurus.substack.com/p/the-distributed-transaction-guide?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -2760,7 +2700,7 @@ WHERE`}</code>
           <p>Replication.</p>
           <p>In PostgreSQL, write-ahead logging (WAL) records changes in a log before the corresponding data pages need to be written to their final locations.</p>
           <p>WAL supports crash recovery and other database features.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.3 Practical transaction example</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.3 Practical transaction example</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Create a bank account table:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -2781,7 +2721,7 @@ WHERE`}</code>
           </div>
           <p>This simple demonstration illustrates a transaction, but it is not yet a safe production transfer implementation.</p>
           <p>For a production-quality operation, the application or stored routine must verify that exactly one source account was debited and exactly one destination account was credited. Both accounts should be validated under an appropriate locking or concurrency strategy. Otherwise, a missing destination account could result in a debit without a corresponding credit.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.4 SAVEPOINT</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.4 SAVEPOINT</h3>
           <p>A savepoint creates a point within a transaction to which you can roll back without cancelling the entire transaction.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -2791,7 +2731,7 @@ WHERE`}</code>
           </div>
           <p>In this example, the first customer insertion remains, while the second is rolled back.</p>
           <p>Savepoints are helpful when a transaction contains multiple stages and certain failures should not cancel every earlier operation.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">17.5 COMMIT vs ROLLBACK</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">17.5 COMMIT vs ROLLBACK</h3>
           <p>Command</p>
           <p>Purpose</p>
           <p>BEGIN</p>
@@ -2828,14 +2768,14 @@ WHERE`}</code>
           <p>Data pipelines extract records.</p>
           <p>The database needs a mechanism to coordinate all these activities.</p>
           <p>This is called concurrency control.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.1 What is concurrency?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.1 What is concurrency?</h3>
           <p>Concurrency means multiple transactions or database operations are active at overlapping times.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider:</h4>
           <p>Transaction A: Reads product inventory.</p>
           <p>Transaction B: Updates product inventory.</p>
           <p>If both operate simultaneously, the database must determine how their results are observed.</p>
           <p>Poorly controlled concurrency can produce inconsistent results.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.2 Common concurrency problems</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.2 Common concurrency problems</h3>
           <p>A. Dirty read</p>
           <p>A dirty read occurs when a transaction reads data written by another transaction that has not committed.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -2856,7 +2796,7 @@ WHERE`}</code>
           </div>
           <p>Another transaction inserts an order worth ₹15,000 and commits.</p>
           <p>Transaction A repeats the query and sees an additional matching row under an isolation mode that allows that behavior.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.3 SQL isolation levels</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.3 SQL isolation levels</h3>
           <p>The SQL standard defines four major isolation levels.</p>
           <p>Read Uncommitted.</p>
           <p>Read Committed.</p>
@@ -2887,7 +2827,7 @@ WHERE`}</code>
           <p>The database ensures that successfully committed transactions behave as though they had executed in some serial order.</p>
           <p>In PostgreSQL, the Serializable implementation uses Serializable Snapshot Isolation and may abort transactions when it detects dangerous concurrent patterns.</p>
           <p>Applications must be prepared to retry transactions that fail with serialization errors.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.4 Isolation level comparison</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.4 Isolation level comparison</h3>
           <p>Isolation level</p>
           <p>Dirty reads</p>
           <p>Non-repeatable reads</p>
@@ -2909,7 +2849,7 @@ WHERE`}</code>
           <p>Prevented</p>
           <p>Prevented</p>
           <p>These are the SQL-standard distinctions with PostgreSQL behavior noted. Database implementations can differ.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.5 Setting an isolation level in PostgreSQL</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.5 Setting an isolation level in PostgreSQL</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ; SELECT * FROM ecommerce.orders; COMMIT;`}</code>
@@ -2922,14 +2862,10 @@ WHERE`}</code>
             </pre>
           </div>
           <p>In real systems, Serializable transactions need appropriate retry handling.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.6 What is MVCC?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.6 What is MVCC?</h3>
           <p>MVCC stands for Multi-Version Concurrency Control.</p>
           <p>It allows database transactions to work with different versions of records, depending on their visibility rules.</p>
           <p>PostgreSQL uses MVCC.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Complete Database Mastery Part 5: Transactions, Concurrency &amp; ACID | Wasil Zafar</span></div>
-            <a href="https://images.openai.com/static-rsc-4/8eZcRsqjueG8Qt2SPJkttSVLZtBYrYLZ2cM1wDi_8IGHImgBA0TJQJyGmm1rpJTUAgj7QAxjqAEYSpTC9J1e_z4WJsRu8prCxR3C3MLt6LyWiZrPu1cFpISsOL1tqYfmk-AViDCfWGXanT9-Y_MgjirfgWHPykVnqGv5_1-9bIU?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>wasilzafar.com</span></div>
             <a href="https://www.wasilzafar.com/pages/series/database-mastery/database-mastery-transactions-concurrency.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -2947,7 +2883,7 @@ WHERE`}</code>
           <p>Provides snapshot-based visibility.</p>
           <p>Helps reduce read/write blocking.</p>
           <p>Supports transaction isolation.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.7 Database locking</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.7 Database locking</h3>
           <p>Locks coordinate operations that need controlled access to database objects.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Common categories include:</h4>
           <p>Row-level locks: Protect specific rows against conflicting operations.</p>
@@ -2960,15 +2896,11 @@ WHERE`}</code>
           </div>
           <p>FOR UPDATE locks the selected rows against conflicting modifications until the transaction finishes.</p>
           <p>This is useful for inventory reservation workflows, when combined with correct availability checks.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">18.8 Deadlocks</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">18.8 Deadlocks</h3>
           <p>A deadlock occurs when two or more transactions wait for resources held by each other.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>Transaction A: Locks Row 1 Requests Row 2 Transaction B: Locks Row 2 Requests Row 1</p>
           <p>Neither transaction can proceed.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Deadlocks while Bulk Updating in PostgreSQL | by Harshil Jani | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/tARtEAkhH7l6TqgbLtoSZlpkUT2tsPgXxek3JZFEGJXyQBWg8GOtAmEfsEysd8A3UogRNc2AIsIfQZFDNgaz9Q5LnVbW9WZq-Uj7CF6YLlAAZELQ-SM4F0EgPuBHz8ZhltBiVPyZijVkETu6lgxqi5iIheFQZwRkBKG0-tGi_o4?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>medium.com</span></div>
             <a href="https://medium.com/%40harshiljani2002/deadlocks-while-bulk-updating-in-postgresql-4af4161b7ff8?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -3002,16 +2934,12 @@ WHERE`}</code>
           <p>Indexes are one of the most important tools for SQL performance optimization.</p>
           <p>As tables grow, searching every row for a particular value can become expensive.</p>
           <p>Indexes help the database locate matching records more efficiently.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.1 What is an index?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.1 What is an index?</h3>
           <p>A database index is an additional data structure that helps identify rows without always scanning the entire table.</p>
           <p>Think of a book.</p>
           <p>Without an index, finding a particular topic requires checking pages one by one.</p>
           <p>With an index, you can look up the topic and jump to the relevant page.</p>
           <p>A database index serves a similar purpose.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>A Busy Developer’s Guide to Database Storage Engines — The Basics</span></div>
-            <a href="https://images.openai.com/static-rsc-4/1GlnGh34wT-ZGZf8Cn9KPRN9FHUkt_2lTvt69rMo71xV9YdPTPDSLVoaJ8qDeHYQbCFTWEfe0JbK7xrGj9DjTactpNK80HMoClIpo-TlSJm5ERPTVJJ8BNLTrEtV4ySHIhx4MosLM5tUNGmhI45VFHmVOGlmOivHkubd7jngTXI?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>yugabyte.com</span></div>
             <a href="https://www.yugabyte.com/blog/a-busy-developers-guide-to-database-storage-engines-the-basics/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -3025,7 +2953,7 @@ WHERE`}</code>
           </div>
           <p>Without a suitable index, the database may need to inspect many rows.</p>
           <p>With an appropriate index, the database can potentially locate the matching record much faster.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.2 Creating an index</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.2 Creating an index</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`CREATE INDEX idx_customers_email ON ecommerce.customers(email);`}</code>
@@ -3040,7 +2968,7 @@ WHERE`}</code>
           </div>
           <p>The optimizer can consider using the index.</p>
           <p>An index does not force the database to use it. The planner chooses between available execution strategies.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.3 Why do indexes improve performance?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.3 Why do indexes improve performance?</h3>
           <p>A suitable index can reduce the amount of data the database needs to inspect.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Index structures also support:</h4>
           <p>Equality searches.</p>
@@ -3051,7 +2979,7 @@ WHERE`}</code>
           <p>Efficient filtering.</p>
           <p>However, indexes consume storage and create additional work during inserts, updates, and deletes.</p>
           <p>Adding more indexes is not automatically a good optimization.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.4 B-tree indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.4 B-tree indexes</h3>
           <p>B-tree is PostgreSQL's default index type.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">It supports:</h4>
           <p>Equality comparisons.</p>
@@ -3072,7 +3000,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>The range-based timestamp filtering can make use of the index when appropriate.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.5 Hash indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.5 Hash indexes</h3>
           <p>Hash indexes are designed primarily for equality comparisons.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3082,7 +3010,7 @@ WHERE`}</code>
           </div>
           <p>Hash indexes do not provide the same range and ordering capabilities as B-tree indexes.</p>
           <p>B-tree is usually the more general-purpose choice.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.6 Composite indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.6 Composite indexes</h3>
           <p>A composite index uses multiple columns.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3105,7 +3033,7 @@ WHERE`}</code>
           <p>customer_id and order_date.</p>
           <p>It is not generally as effective for queries filtering only by order_date.</p>
           <p>If a different query workload frequently searches by date alone, a separate date index may be appropriate.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.7 Unique indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.7 Unique indexes</h3>
           <p>A unique index prevents duplicate indexed key values, subject to NULL semantics and index definition.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3116,7 +3044,7 @@ WHERE`}</code>
           <p>This enforces email uniqueness.</p>
           <p>A UNIQUE constraint also creates an appropriate unique index in PostgreSQL.</p>
           <p>Prefer a unique constraint when expressing a business integrity rule.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.8 Partial indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.8 Partial indexes</h3>
           <p>A partial index indexes only rows matching a condition.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3133,7 +3061,7 @@ WHERE`}</code>
           </div>
           <p>may benefit from the partial index.</p>
           <p>Partial indexes are useful when a small subset of a large table is queried frequently.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.9 Expression indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.9 Expression indexes</h3>
           <p>An expression index indexes the result of an expression rather than just a raw column.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3149,7 +3077,7 @@ WHERE`}</code>
           </div>
           <p>can use the expression index.</p>
           <p>This is useful when queries repeatedly apply a transformation to the indexed field.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.10 Covering indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.10 Covering indexes</h3>
           <p>A covering index contains all the columns needed by a particular query.</p>
           <p>PostgreSQL supports INCLUDE columns in B-tree indexes.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -3165,7 +3093,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>However, PostgreSQL may still need heap visibility checks depending on the visibility map and current database state.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.11 GIN and GiST indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.11 GIN and GiST indexes</h3>
           <p>B-tree is not suitable for every data type or query pattern.</p>
           <p>PostgreSQL supports several specialized index types.</p>
           <p>Index type</p>
@@ -3208,7 +3136,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>A GIN index can help with supported JSONB containment queries.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.12 BRIN indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.12 BRIN indexes</h3>
           <p>BRIN stands for Block Range Index.</p>
           <p>It summarizes values over ranges of physical table pages.</p>
           <p>It is useful for very large tables where values correlate with physical storage order.</p>
@@ -3219,7 +3147,7 @@ WHERE`}</code>
             </pre>
           </div>
           <p>BRIN indexes are often much smaller than comparable B-tree indexes, but they are not equally selective for every data distribution.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">19.13 Index disadvantages</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">19.13 Index disadvantages</h3>
           <p>Indexes also create costs.</p>
           <p>Storage: Each index consumes database storage.</p>
           <p>Write overhead: Inserts, updates, and deletes may require index maintenance.</p>
@@ -3245,7 +3173,7 @@ WHERE`}</code>
           <p>A Data Engineer must understand how the database executes a query.</p>
           <p>A query that performs well on 1,000 records may perform badly on 100 million records.</p>
           <p>Query execution plans show how the database expects to retrieve and process information.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.1 What is a query execution plan?</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.1 What is a query execution plan?</h3>
           <p>A query execution plan is a description of the operations the database uses to execute a query.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For example, a plan may include:</h4>
           <p>Sequential scans.</p>
@@ -3258,14 +3186,10 @@ WHERE`}</code>
           <p>Aggregation.</p>
           <p>Filtering.</p>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>7 Postgres Plan Reads Every AI Engineer Should Master | by Velorum | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/FksFD1ySjhI6OzUURrilqj0s6Sm0g8EqCVXpsbrQvsfllh3Jf1ojO2_ykPIbu6B6VHuSAyc81MQd_KL3QINgkk_MNp46bS0shpvjfMn7bqSU6AD7FzjzNJgP0zuWE1GlyOzVuVrx1Av19WxZ5wBF_XJc0ILBJCbx_Ka9wuwWRCM?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>medium.com</span></div>
             <a href="https://medium.com/%401nick1patel1/7-postgres-plan-reads-every-ai-engineer-should-master-d4d81b58e3bc?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.2 EXPLAIN</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.2 EXPLAIN</h3>
           <p>PostgreSQL uses EXPLAIN to display the estimated execution plan.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3277,7 +3201,7 @@ WHERE`}</code>
           <p>Index Scan using orders_customer_idx on orders Index Cond: (customer_id = 1)</p>
           <p>This shows the database planning to use an index scan.</p>
           <p>However, your actual output depends on the schema, available indexes, database statistics, data volume, and PostgreSQL version.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.3 EXPLAIN ANALYZE</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.3 EXPLAIN ANALYZE</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`EXPLAIN ANALYZE executes the query and reports actual execution information in addition to the plan.
@@ -3302,7 +3226,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           </div>
           <p>It is safe to test ordinary SELECT queries in a controlled database, but executing it against a modifying statement such as DELETE, UPDATE, or INSERT can cause real changes.</p>
           <p>For write statements, carefully use transactions and rollback when appropriate, remembering that some external side effects may not be reversible.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.4 Sequential scan</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.4 Sequential scan</h3>
           <p>A sequential scan reads the table's pages to examine rows.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3313,7 +3237,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>If the query needs most of the table, a sequential scan may be the most efficient strategy.</p>
           <p>A sequential scan is not necessarily bad.</p>
           <p>The database may prefer it even when an index exists.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.5 Index scan</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.5 Index scan</h3>
           <p>An index scan uses an index to identify matching rows and then accesses the corresponding table rows.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3322,7 +3246,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
             </pre>
           </div>
           <p>A selective indexed condition may make an index scan efficient.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.6 Index-only scan</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.6 Index-only scan</h3>
           <p>An index-only scan retrieves the required data from the index without needing to read the table for every matching row, provided the index contains the required columns and PostgreSQL's visibility information permits it.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3337,7 +3261,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
             </pre>
           </div>
           <p>PostgreSQL may use an index-only scan when appropriate.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.7 Join algorithms</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.7 Join algorithms</h3>
           <p>PostgreSQL uses different join algorithms based on estimated costs and query conditions.</p>
           <p>A. Nested loop join</p>
           <p>For each matching row from one input, the database searches the other input.</p>
@@ -3368,7 +3292,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Large equality joins</p>
           <p>Merge join</p>
           <p>Inputs available in compatible sorted order</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.8 Sorting and aggregation nodes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.8 Sorting and aggregation nodes</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Execution plans may also contain:</h4>
           <p>Sort: Orders rows.</p>
           <p>HashAggregate: Groups rows using a hash structure.</p>
@@ -3376,13 +3300,13 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Hash: Builds a hash structure used by operations such as hash joins.</p>
           <p>Large sorts or hash operations can exceed available memory and spill to temporary disk storage.</p>
           <p>This can significantly affect performance.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.9 Understanding plan costs</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.9 Understanding plan costs</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">PostgreSQL commonly displays:</h4>
           <p>cost=STARTUP_COST..TOTAL_COST rows=ESTIMATED_ROWS width=ESTIMATED_ROW_WIDTH</p>
           <p>These are optimizer cost estimates, not direct measurements of milliseconds.</p>
           <p>With EXPLAIN ANALYZE, you can compare estimated and actual execution characteristics.</p>
           <p>If estimated rows differ significantly from actual rows, table statistics or data distribution assumptions may be inaccurate.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.10 EXPLAIN with buffers</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.10 EXPLAIN with buffers</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Use:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -3395,7 +3319,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Temporary blocks.</p>
           <p>Buffer usage for plan nodes.</p>
           <p>For real performance investigations, look at actual rows, execution time, loops, buffer activity, and whether expensive operations are occurring repeatedly.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">20.11 Query plan investigation workflow</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">20.11 Query plan investigation workflow</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">When a SQL query is slow:</h4>
           <p>Capture the exact query.</p>
           <p>Run EXPLAIN.</p>
@@ -3432,7 +3356,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Increase cloud compute costs.</p>
           <p>Delay downstream reports.</p>
           <p>Affect application workloads.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.1 Avoid SELECT *</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.1 Avoid SELECT *</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Less efficient for a narrow workload:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -3453,7 +3377,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Memory consumption in consumers.</p>
           <p>Unnecessary column processing.</p>
           <p>In PostgreSQL, this does not necessarily avoid a table scan, but it can still reduce data movement and allow index-only access in appropriate circumstances.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.2 Filter as early as practical</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.2 Filter as early as practical</h3>
           <p>Suppose you need to calculate revenue from completed orders.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Potentially unnecessary approach:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3471,7 +3395,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>The database filters and aggregates the data before returning the results.</p>
           <p>This reduces unnecessary movement into the application.</p>
           <p>The optimizer can also push eligible predicates toward the data source in complex queries.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.3 Use appropriate indexes</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.3 Use appropriate indexes</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -3487,7 +3411,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>However, index effectiveness depends on selectivity and the amount of data returned.</p>
           <p>If a query returns most of a table, a sequential scan can be cheaper than using an index to retrieve many individual rows.</p>
           <p>Always verify with EXPLAIN ANALYZE.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.4 Avoid functions on indexed columns when a range predicate can be used</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.4 Avoid functions on indexed columns when a range predicate can be used</h3>
           <p>Suppose we want orders placed on November 9.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Potentially less efficient:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3505,7 +3429,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>This is more directly compatible with an ordinary B-tree index on order_date.</p>
           <p>The time zone and date boundaries should reflect the application's business time zone.</p>
           <p>This is an example of writing a predicate that preserves the useful ordering of an indexed column.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.5 Understand SARGability</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.5 Understand SARGability</h3>
           <p>SARGability refers to whether a search condition can be used effectively with an index.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider a numeric column:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3527,7 +3451,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
             </pre>
           </div>
           <p>Not every expression prevents index usage. PostgreSQL supports expression indexes, but the indexed expression must be compatible with the query.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.6 Avoid unnecessary DISTINCT</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.6 Avoid unnecessary DISTINCT</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -3539,7 +3463,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Before applying DISTINCT, investigate why duplicate records exist.</p>
           <p>For example, joining orders to order items naturally produces multiple rows for an order with multiple items.</p>
           <p>Those aren't necessarily duplicates.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.7 Use EXISTS for existence checks</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.7 Use EXISTS for existence checks</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -3548,7 +3472,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           </div>
           <p>This directly expresses the business question: does at least one matching order exist?</p>
           <p>PostgreSQL may transform this into a semi-join.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.8 Prefer appropriate bulk database operations</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.8 Prefer appropriate bulk database operations</h3>
           <p>A Python program inserting records one at a time can generate substantial overhead.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Potentially expensive pattern:</h4>
           <p>for record in records: cursor.execute( "INSERT INTO orders VALUES (...)" )</p>
@@ -3566,7 +3490,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           </div>
           <p>This example requires the server process to access the specified file path and have appropriate permissions.</p>
           <p>From a client application, PostgreSQL client-side COPY facilities may be more appropriate.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.9 Optimize JOIN operations</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.9 Optimize JOIN operations</h3>
           <p>A query joining large tables can become expensive.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Useful practices:</h4>
           <p>Join using correct keys.</p>
@@ -3590,7 +3514,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
               <code>{`SELECT c.customer_id, c.customer_name, SUM(o.total_amount) AS total_spending FROM ecommerce.customers AS c JOIN ecommerce.orders AS o ON c.customer_id = o.customer_id WHERE o.status = 'COMPLETED' GROUP BY c.customer_id, c.customer_name;`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.10 Optimize GROUP BY and aggregations</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.10 Optimize GROUP BY and aggregations</h3>
           <p>Aggregation can consume significant memory and processing time.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Consider:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3605,7 +3529,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Review indexes and execution plans.</p>
           <p>Check for large hash aggregation or sorting operations.</p>
           <p>Ensure statistics are up to date.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.11 Use LIMIT for exploration</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.11 Use LIMIT for exploration</h3>
           <p>When exploring a large table, avoid retrieving everything unnecessarily.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -3614,7 +3538,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           </div>
           <p>However, LIMIT does not guarantee that only 20 rows will be scanned.</p>
           <p>For predictable output, combine it with an ORDER BY clause.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.12 Table statistics and ANALYZE</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.12 Table statistics and ANALYZE</h3>
           <p>PostgreSQL collects statistics about tables and column values.</p>
           <p>The optimizer uses these statistics to estimate query costs.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Update statistics manually:</h4>
@@ -3624,14 +3548,14 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>ANALYZE examines table samples to update planner statistics.</p>
           <p>PostgreSQL's autovacuum system also performs automatic analysis under applicable conditions.</p>
           <p>Inaccurate statistics can lead to poor execution plans.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.13 VACUUM</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.13 VACUUM</h3>
           <p>PostgreSQL uses MVCC, which means updates and deletes can leave old row versions behind.</p>
           <p>VACUUM helps reclaim storage space for reuse and maintain database health.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>VACUUM ANALYZE ecommerce.orders;</p>
           <p>This performs vacuuming and updates statistics.</p>
           <p>Routine maintenance is normally handled through autovacuum. Manual VACUUM operations are used when specific maintenance needs require them.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.14 Partitioning</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.14 Partitioning</h3>
           <p>Partitioning divides a large logical table into smaller physical pieces.</p>
           <p>This can improve data management and query performance when queries can eliminate irrelevant partitions.</p>
           <p>Example: A massive orders table partitioned by month.</p>
@@ -3663,7 +3587,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Customer ID</p>
           <p>Partitioning is not a replacement for indexing.</p>
           <p>It is a data organization strategy that should be used when table size and access patterns justify it.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.15 Database connection pooling</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.15 Database connection pooling</h3>
           <p>Creating a new database connection for every query can be expensive.</p>
           <p>Connection pooling maintains reusable database connections.</p>
           <p>For example, SQLAlchemy provides connection pooling through its engine.</p>
@@ -3678,7 +3602,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Python data applications.</p>
           <p>Concurrent ingestion jobs.</p>
           <p>Long-running applications.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">21.16 Query optimization checklist</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">21.16 Query optimization checklist</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Before releasing a complex query, examine:</h4>
           <p>Are only necessary columns selected?</p>
           <p>Are irrelevant records filtered early?</p>
@@ -3717,7 +3641,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Inventory distributed across warehouses.</p>
           <p>Customers purchasing products from multiple categories.</p>
           <p>The engineering team needs to build reliable SQL-based data processing and analytics.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.1 Business requirements</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.1 Business requirements</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Management wants answers to the following questions:</h4>
           <p>What is total monthly revenue?</p>
           <p>Which customers generate the highest revenue?</p>
@@ -3729,11 +3653,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Which payment transactions have failed?</p>
           <p>What percentage of customers purchase repeatedly?</p>
           <p>Why are analytical queries taking too long?</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.2 Database architecture</h3>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Ecommerce Entity Relationship Diagram</span></div>
-            <a href="https://images.openai.com/static-rsc-4/MDlVu1pe299WakkzdOl_9Q2dXyr3tKLTMAidItw3jKtX6NzptEQzaTEzX67_YnwKS2u_B19FF_zwr9SSoDlZrgl_GBYKI_gvXy1gWJFMlrKNM9aaSBptvsg2Gvf0YxBDSw--4P55piJiqSdZniG39r0kxfrwz6eOaiQ2N9_-Y1Y?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.2 Database architecture</h3>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>inettutor.com</span></div>
             <a href="https://www.inettutor.com/diagrams/ecommerce-entity-relationship-diagram/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -3741,7 +3661,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">The operational database consists of:</h4>
           <p>ecommerce_db │ ├── customers │ ├── products │ ├── categories │ ├── orders │ ├── order_items │ └── payments</p>
           <p>The SQL analytical layer combines these tables to create useful business information.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.3 Problem 1 — Calculate total revenue</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.3 Problem 1 — Calculate total revenue</h3>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Requirement:</h4>
           <p>Calculate total revenue from completed orders.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3750,7 +3670,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
             </pre>
           </div>
           <p>This query calculates the total completed-order value.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.4 Problem 2 — Calculate customer-wise revenue</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.4 Problem 2 — Calculate customer-wise revenue</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`SELECT c.customer_id, c.customer_name, SUM(o.total_amount) AS total_spending, COUNT(o.order_id) AS total_orders FROM ecommerce.customers AS c INNER JOIN ecommerce.orders AS o ON c.customer_id = o.customer_id WHERE o.status = 'COMPLETED' GROUP BY c.customer_id, c.customer_name ORDER BY total_spending DESC;`}</code>
@@ -3760,28 +3680,28 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Who are the highest-spending customers?</p>
           <p>How many completed orders did they place?</p>
           <p>How much revenue did each customer generate?</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.5 Problem 3 — Find the top five products</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.5 Problem 3 — Find the top five products</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`SELECT p.product_id, p.product_name, SUM(oi.quantity) AS units_sold, SUM( oi.quantity * oi.unit_price ) AS total_revenue FROM ecommerce.products AS p JOIN ecommerce.order_items AS oi ON p.product_id = oi.product_id JOIN ecommerce.orders AS o ON oi.order_id = o.order_id WHERE o.status = 'COMPLETED' GROUP BY p.product_id, p.product_name ORDER BY total_revenue DESC LIMIT 5;`}</code>
             </pre>
           </div>
           <p>The output identifies the five products generating the highest sales revenue.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.6 Problem 4 — Calculate category-wise revenue</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.6 Problem 4 — Calculate category-wise revenue</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`SELECT cat.category_name, SUM( oi.quantity * oi.unit_price ) AS category_revenue FROM ecommerce.categories AS cat JOIN ecommerce.products AS p ON cat.category_id = p.category_id JOIN ecommerce.order_items AS oi ON p.product_id = oi.product_id JOIN ecommerce.orders AS o ON oi.order_id = o.order_id WHERE o.status = 'COMPLETED' GROUP BY cat.category_id, cat.category_name ORDER BY category_revenue DESC;`}</code>
             </pre>
           </div>
           <p>This helps management understand which product categories generate more sales.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.7 Problem 5 — Find customers who have never purchased</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.7 Problem 5 — Find customers who have never purchased</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`SELECT c.customer_id, c.customer_name, c.city FROM ecommerce.customers AS c WHERE NOT EXISTS ( SELECT 1 FROM ecommerce.orders AS o WHERE o.customer_id = c.customer_id );`}</code>
             </pre>
           </div>
           <p>This is useful for marketing campaigns targeting registered customers who have never ordered.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.8 Problem 6 — Identify each customer's latest order</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.8 Problem 6 — Identify each customer's latest order</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`WITH latest_orders AS ( SELECT order_id, customer_id, order_date, total_amount, ROW_NUMBER() OVER ( PARTITION BY customer_id ORDER BY order_date DESC, order_id DESC ) AS row_num FROM ecommerce.orders ) SELECT * FROM latest_orders WHERE row_num = 1;`}</code>
@@ -3794,14 +3714,14 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>Ranking.</p>
           <p>Filtering.</p>
           <p>This combination is particularly common in real-world Data Engineering.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.9 Problem 7 — Monthly revenue trends</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.9 Problem 7 — Monthly revenue trends</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`SELECT DATE_TRUNC('month', order_date) AS month, SUM(total_amount) AS monthly_revenue, COUNT(*) AS total_orders, AVG(total_amount) AS average_order_value FROM ecommerce.orders WHERE status = 'COMPLETED' GROUP BY DATE_TRUNC('month', order_date) ORDER BY month;`}</code>
             </pre>
           </div>
           <p>This produces the monthly revenue dataset that can power a business intelligence dashboard.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.10 Problem 8 — Calculate revenue growth</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.10 Problem 8 — Calculate revenue growth</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`WITH monthly_revenue AS ( SELECT DATE_TRUNC('month', order_date) AS month, SUM(total_amount) AS revenue FROM ecommerce.orders WHERE status = 'COMPLETED' GROUP BY DATE_TRUNC('month', order_date) ), revenue_comparison AS ( SELECT month, revenue, LAG(revenue) OVER ( ORDER BY month ) AS previous_month_revenue FROM monthly_revenue ) SELECT month, revenue, previous_month_revenue, ROUND( ( (revenue - previous_month_revenue) / NULLIF(previous_month_revenue, 0) ) * 100, 2 ) AS growth_percentage FROM revenue_comparison ORDER BY month;`}</code>
@@ -3816,14 +3736,14 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <div className="rounded-xl border border-orange-200 bg-orange-50/70 p-4 text-xs sm:text-sm text-orange-950 leading-relaxed my-4">
             Important: Growth should be interpreted only when a valid previous-period value exists. A missing previous month should not be treated as zero growth.
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.11 Problem 9 — Identify payment failures</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.11 Problem 9 — Identify payment failures</h3>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`SELECT p.payment_id, p.order_id, c.customer_name, p.payment_method, p.payment_status, p.amount FROM ecommerce.payments AS p JOIN ecommerce.orders AS o ON p.order_id = o.order_id JOIN ecommerce.customers AS c ON o.customer_id = c.customer_id WHERE p.payment_status = 'FAILED';`}</code>
             </pre>
           </div>
           <p>The business can use this dataset to investigate unsuccessful payment activity.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.12 Problem 10 — Create an analytical reporting view</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.12 Problem 10 — Create an analytical reporting view</h3>
           <p>Instead of maintaining the same query repeatedly, create a reusable view.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -3837,7 +3757,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
             </pre>
           </div>
           <p>This provides a reusable analytical interface.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.13 Problem 11 — Optimize the customer sales query</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.13 Problem 11 — Optimize the customer sales query</h3>
           <p>Suppose the customer reporting query becomes slow as the orders table grows.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">First inspect the execution plan:</h4>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
@@ -3854,7 +3774,7 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
           <p>This can help queries that frequently filter completed orders and group them by customer.</p>
           <p>Whether the index improves performance depends on the distribution of statuses, the number of records, and the optimizer's chosen plan.</p>
           <p>Always compare performance before and after the index is created.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">22.14 What this case study teaches</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">22.14 What this case study teaches</h3>
           <p>You have now used multiple advanced SQL concepts in one business problem.</p>
           <p>Requirement</p>
           <p>SQL concepts</p>
@@ -4341,28 +4261,12 @@ EXPLAIN ANALYZE SELECT * FROM ecommerce.orders WHERE customer_id = 1;`}</code>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>These resources provide official documentation, university-level database lectures, and practical SQL training.</p>
           <p>University-level learning</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Massachusetts Institute of Technology - Sustainable Campus - ISCN</span></div>
-            <a href="https://images.openai.com/static-rsc-4/uPfuQXwN1mhifQJ1M6gbQtiprRpBUDX63sxK2tatgwiECQNJoijAm1y_abaXidnzu1mdTCAlG8aCCBwJFUeeZR7lUG74PVqxVt6qv1HJXU3njKkmBWGoMmU5VpE7Ngr8Uzxz1zcN8kb2OkP2tv2Vsfjij_7vze44An8jeYCdpgs?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>MIT OpenCourseWare</p>
           <p>Database systems, relational models, query processing, and database architecture.[Explore MIT OpenCourseWare](https://ocw.mit.edu/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Chong Zeng</span></div>
-            <a href="https://images.openai.com/static-rsc-4/dcqUNEnqOS-i7KYaIpFx6Wc9yOHJ4CxiJKo8kcd9EDWw7KC7OYRVjaoHYxFVnelYm8VEKlVO4xlQ8eToRp9nYhPim5PPyGv_aTvU8J30O_02SsLV-Z9dZ0uAnB832OjFgrCR2AOszIeZagG0W2tS3xmoJnfXE758aKN2hJWVMgs?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Stanford University</p>
           <p>Database management, SQL, relational algebra, and database foundations.[Stanford Online](https://online.stanford.edu/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Carnegie Mellon Establishes Four-Person Leadership Team For School of Drama</span></div>
-            <a href="https://images.openai.com/static-rsc-4/9HSplgTAj8pDwtxxMaGQSGf8KRwr3-msXwY3UXDf4uo3a7ppjlB8cENmeVZVKaeGVAdB4ieEi0zXtxgVseFTne3aFEuCVGuW8Kwh1fS786AfZRg0G_IU75AbYwDba83qx1an0k9VWa5Q01HO_-8QeV0_K4RhZKXY2xtqK15Y7wo?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Carnegie Mellon University</p>
           <p>Database systems, query execution, indexing, transactions, and storage internals.[CMU Database Systems course](https://15445.courses.cs.cmu.edu/?utm_source=chatgpt.com)</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>加州大学伯克利分校_院校简介-启德教育</span></div>
-            <a href="https://images.openai.com/static-rsc-4/Kz0PMvNpfWT_8rWDXc9oezJ6DavBzRzKW4nvm-8RwIKTRiDeb3CZ9gkRQ15kanOQRHdO6pXZxJRKcoxYVUgPcSBo38RuXh2kgYbak2efNE0AtIa3LxBxTXXrRVVgh_rEy-OWAX8K28DY9wvJkcDOxp-G7_2Dr90dBCQf1q65FhQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>University of California Berkeley</p>
           <p>Database architecture and data management.[University website](https://www.berkeley.edu/?utm_source=chatgpt.com)</p>
           <p>Official technical documentation</p>

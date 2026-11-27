@@ -135,13 +135,6 @@ export default function DataEngineeringAirflowSections() {
             <span>Workflow orchestration automates the entire process.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Day 18: Apache Airflow — DAGs &amp; Pipelines in Action | by Lasya | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/4OIU40qnLT_hbQcLGP8LNhjD1pJ9mCXxgKGP0Jdi1JtlQ3Q2YMgQqByVW-BRpDnd7L1jeWQbetreMEZoc4G1uciqaRen73A8FV0M4Ddlxuuh0vaoAzQXrlAgKqQT_KAm1ONny6qs_FTLSu1NZjTVTADXr97GdE54p4pGz2_HLqc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40lasyachowdary1703/day-18-apache-airflow-dags-pipelines-in-action-5601f139bad5?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -521,13 +514,6 @@ export default function DataEngineeringAirflowSections() {
             <span>This distinction is extremely important for interviews and real-world architecture.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Ingestion 101 — Design, Tech Stack and More | by Bharath Kumar | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/XeQW1T8f9qOMh7in-XCIFcwt39idZqNdoOaU-ypIn09jB6v1-oHctmuscU0VQfVS94qz_ca-PWBv9Dr97cawb_gyJetdN0MeTlZtqVLh5iid5glVEq0zifkfs23mVSNlBYLhxiI0S8hkt0Y1OuvIhbujI-rCdAE6vZD35q1OXgk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">data-plumber.medium.com</span>
             <a href="https://data-plumber.medium.com/data-ingestion-101-design-tech-stack-and-more-f52f823e15d7?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -837,13 +823,6 @@ This creates:`}</code>
             <span>Edges, representing relationships between tasks.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Airflow Explained: A Simple Guide for Data Engineers | by Patharjay | Feb, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/odOmCFt95eEtOxhaFDxWW_fz2-o5dAPLL97x2X3V0NnFS77oRZXDy8ETaOtWdDMD2eubxV69T7-MSCVafWYVbEa12nY5lur33l9ovTzQSHv10n1eSMteP1y72PEr6Pe9eWEytYKeGYBgvzGADGrQoj24BKhsH1u0-NBqfh9e5fw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40patharjay20/apache-airflow-explained-a-simple-guide-for-data-engineers-5450302fb304?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -1038,13 +1017,6 @@ Here:`}</code>
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Triggerer.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Airflow® components | Astronomer Documentation</span>
-            <a href="https://images.openai.com/static-rsc-4/ue6Y8x3St7VqExVvUcOBSWkvi5GjTXMNDd35wOoxFdMO2bN2NfzCujrnh-SjBeiBSCzN1YroO7TQ4vRMRx_L4hhly9-JxFobVMcrdapDCuOtAF5TFwWli5xCMb3zNWvu9V80vPjzh6f-g7swnEPokan6oMQI4XTx-bwLHHKid3Q?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">astronomer.io</span>
@@ -1519,13 +1491,6 @@ Here:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>6.3 Types of Airflow Executors</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">\[Apache Airflow\] Airflow Architecture - Bibliothek für Data-Engineering</span>
-            <a href="https://images.openai.com/static-rsc-4/RIFpb43kCn1a7gtnZ0i2qk4DR97QMvTDcAunLSqWXHL2d6hR1Q7F5Z-LN07qhmsibmnB-xfaMbijKn2Bvk-i_JiSOV7Lk6dNMqAyii7AHEo4hP44LCWp6e6ah_5FzZyPkeKbecO8Ff0SVtAiZoY3zgXd25vFZS5Z3sbYtN46UVc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>A. LocalExecutor</span>
@@ -1555,13 +1520,6 @@ Here:`}</code>
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Example: A development environment or relatively small deployment.</span>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Introduction to Apache Airflow: Get started in 5 minutes</span>
-            <a href="https://images.openai.com/static-rsc-4/2h2QkslosGVuVhj5vJ9-AbQQ5sMLa5LU88yIisMgD-yhkc56cCkj77vml8BTj9ZWLZDakqjL-ediPeoMC07ENfK5cJygDoW_tz5QrpzqNSWdNq-5PKrFR9mEL23A6TeNCLLocumDO8cBc9cErsmuC9NseYGn5HWbwWda2MY6r98?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>B. CeleryExecutor</span>
@@ -1590,13 +1548,6 @@ Here:`}</code>
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Example: A company running hundreds of scheduled workflows across multiple worker machines.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How to Deploy Apache Airflow on Kubernetes (Production Guide)</span>
-            <a href="https://images.openai.com/static-rsc-4/MPORz8QMRAtQIju297_6lNaY8zp7sg0NWkVb1T-tBOxCP30q11CvlwhdQizdxFTbCo9saDIbLJJn_6KpqxUn-fzo4zwb4Lb00m-3436xMwz0-ylsdp85C3AWh8ivAez-7qD2ltAUpkXUz4_ehcai8Eplenvyoi3hJ7JVnPj1biQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
@@ -1988,13 +1939,6 @@ from airflow.sdk import task @task def extract(): print("Extracting data") extra
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>8.2 How sensors work</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Event-based DAGs in airflow. Apache airflow is a platform developed… | by krishnaprasad k | CodeX | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/KbNhEW3mZFcUEzQHQ_PCNR-g8NmPUVKS44kwAEeFYt_CqtW6EaukChy60gyvTuU-Vg9PgVuN89GJTsbeuSXefLVFrhzE5xuSwim8T22XxEqMfrXJqOARwLiJYeZHgV6azP2ajPUief3Xdm2qnCxyGQftB8l0MJbfuinv9git4JA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/codex/event-based-dags-in-airflow-7c8ee851665f?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3159,13 +3103,6 @@ An illustrative retry sequence might be:`}</code>
             <span>Backfill can create separate DAG Runs for the requested historical intervals.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">One Way to Execute Airflow DAGs Back in Time | by VivekR | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/I9lk_aotByNL7kiOvLPhKUuUE5fiv7Y3UWj_Ylw3QC0qqdGzjsvbkiNPP_RoIjaCHLB3QXb0F8mxlOvevQo6CWjYZUuwlokjRbH9_MQTBqE7YEpm5YlPGHXIBQ-OX1hNRrpnvfGuvD6Uecrm9d_Yot4YakDl4lO_7PJRh0I52Ro?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">vivekjadhavr.medium.com</span>
             <a href="https://vivekjadhavr.medium.com/one-way-to-execute-airflow-dags-back-in-time-8940ecce1e88?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -3391,13 +3328,6 @@ An illustrative retry sequence might be:`}</code>
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Instead, you can create one task definition that Airflow expands into multiple task instances at runtime.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Airflow: How to model downstream for tasks dynamically mapped | by Ignacy Janiszewski | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/kvLifChMvtEooCSsdxNf1ClUYSMoriagSmNgm5UMeMsn8uW6-BHJYGahIB-5gWBTP4D4RYi-672_lc34MgiTEiIgIOD-PpvjKQGJYXC3kgWOWQiSNCeST8Q_59IoBnFT8svdAGW3Su32O5F2LAwqOpmIMP3p8jMgUbOwUVDZ0-A?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">ijaniszewski.medium.com</span>
@@ -3940,13 +3870,6 @@ config = Variable.get( "pipeline_config", deserialize_json=True ) print(config)`
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>15.3 Common secret-management platforms</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How (and Why) to Use AppRole Correctly in HashiCorp Vault</span>
-            <a href="https://images.openai.com/static-rsc-4/mb6th5xST2jTntkig0F5GJL29LhBB69JdJ9L7o89ukDLFCliNpLJCO5XkVmog6h3APqlTP1IHOVa9m6as7ryoOVjDs8N5nNoQ3Oe8IuKeRMuQrWLTf0cmYtuDhwOZoGX7zXv54aLxH3v6Bz72YKXIbpV5eksu0gkuHDKITqtANg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>HashiCorp Vault</span>
@@ -3958,13 +3881,6 @@ config = Variable.get( "pipeline_config", deserialize_json=True ) print(config)`
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Vault documentation</span>
             <a href="https://developer.hashicorp.com/vault/docs?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Case Study: Store and Retrieve secrets using AWS Secrets Manager | by Rohan Mode | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/PtS8R1k4Ut_VfinJDpdvdx70NrpCAImOhWcOw-VXw5SWkslKAzRVdqhbkPiHNWbx3TAtA2d3ivpE7GVCePOsG25Er31cudoAbZ4Lzp_wggm-CuPfD8OjVxx9gN5ddTR3-tw9dtM34VC0anPjAkF3OEoLLRX9lsPnvBlYQcsXthE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -3984,13 +3900,6 @@ config = Variable.get( "pipeline_config", deserialize_json=True ) print(config)`
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How to Store Sensitive Data on GCP: Secret Manager | by Juan Guillermo Gómez Torres | Google Developer Experts | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/UFIfeQyO1H1M3XPfPsns5s0zwA_4QtJPgCF9sGX3n8tSc3FI_rB-Cwx-lQ9Nok1Evwnhy3rj2RKaF3HuTez617UcUZD4rMhHelCcENgGJkftTomcL5u0kdHYbeU3xdCSc74OdmG-aZlkXlXhADYtChDnY_oldUO2KzwZTZ44ONQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Google Cloud Secret Manager</span>
@@ -4002,13 +3911,6 @@ config = Variable.get( "pipeline_config", deserialize_json=True ) print(config)`
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Google Cloud documentation</span>
             <a href="https://cloud.google.com/secret-manager/docs?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">File:Azure-key-vault-logo.svg - Wikimedia Commons</span>
-            <a href="https://images.openai.com/static-rsc-4/FqKqCIIInJtnZAPb04_spz9VScwCazt15dYKwHLhVAtyju4PmcefJeu3DallsV_U0M_5E0ZrvNXZCTTdoQxSlo5RmB9eHedJZHjgrHvtkb8YrLGzXJqutog6mw-fCklgGG-rMKIAuzw7Fk1s2L7MYj5alOpzR0GmLOnmE9k7H0M?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -4032,13 +3934,6 @@ config = Variable.get( "pipeline_config", deserialize_json=True ) print(config)`
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>15.4 How secret retrieval works</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Enhancing Airflow with AWS Shared Secrets cross-accounts | by Albert Franzi | Albert Franzi | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/GJsC_6cKuyYKSfQ974g8bUfSlBmEB3fwKk79ouucLR_YKVMUH2eLi7X-sPxH4-iSTbNCLIJVA_3Z4aGC60Y8CvQON2Yq0mFvZBJ5o_g9OUoCeduwn7L1o1_iMLKRh7duRPfQ02Y5ooZ6ZjB_sNa9n1M4ZSvXzjp1v7wQoydzXIs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/albert-franzi/enhancing-airflow-with-aws-shared-secrets-cross-accounts-3353bf263be4?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4163,13 +4058,6 @@ config = Variable.get( "pipeline_config", deserialize_json=True ) print(config)`
           <div className="flex items-start gap-2.5 my-1.5 text-stone-700 text-sm sm:text-base">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Airflow provides a web-based interface for managing DAGs and observing their execution.</span>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What is Airflow®? — Airflow 3.0.3 Documentation</span>
-            <a href="https://images.openai.com/static-rsc-4/ho8kSwugIUJdRE4T-rpgQ6Yl6ysO7GoWt3IzmfyGdhfa1MXR0Q3y18vxaTMDcVHD3ralbEhJPxIGIw9NLZt6Fpsk5v0QqkGdGyHBmX-O3r5sZlmih4xVTCvc-wikij9yTy8AjchT9X_qfVrV42qluW4sVPOt4v0JXTqRPHzSfmY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">airflow.apache.org</span>
@@ -4762,13 +4650,6 @@ config = Variable.get( "pipeline_config", deserialize_json=True ) print(config)`
             <span>When the producer successfully updates the Asset, Airflow can schedule the consumer DAG.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Airflow 3.0 使用 Asset-Aware DAG(producer/consumers) | 隔叶黄莺 Yanbin's Blog - 软件编程实践</span>
-            <a href="https://images.openai.com/static-rsc-4/KoLgSjDfJBdSEEIAIs_rNRUGFJZCFm_p1G1zdZwijkfnq1KAUnFVf23lF9ij1Dre5pRyWudEZBmKEi9izqkSSiHDzpxnabWpwNfbW7q6aiEhScJ_r5hT4aRst379bHDeSfvkgSVJljkA7A3a6hKDEBHfI2dXHDB1eciK3PyrsUU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">yanbin.blog</span>
             <a href="https://yanbin.blog/apache-airflow-3-0-us-asset-aware-dagproducer-consumers/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -4964,13 +4845,6 @@ with DAG( dag_id="consume_orders", start_date=pendulum.datetime( 2026, 1, 1, tz=
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Imagine a retail company processes transactions every day.</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Its automation process looks like this:</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Day 18: Apache Airflow — DAGs &amp; Pipelines in Action | by Lasya | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/4OIU40qnLT_hbQcLGP8LNhjD1pJ9mCXxgKGP0Jdi1JtlQ3Q2YMgQqByVW-BRpDnd7L1jeWQbetreMEZoc4G1uciqaRen73A8FV0M4Ddlxuuh0vaoAzQXrlAgKqQT_KAm1ONny6qs_FTLSu1NZjTVTADXr97GdE54p4pGz2_HLqc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40lasyachowdary1703/day-18-apache-airflow-dags-pipelines-in-action-5601f139bad5?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -5201,13 +5075,6 @@ Airflow provides mechanisms such as:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>19.2 Production architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Airflow Executor Migration, from Celery to Kubernetes | Halil Duygulu</span>
-            <a href="https://images.openai.com/static-rsc-4/NIaJ-6EiRxVljHcw3gUb8S8vMOAsHV17C08997sM0plUelTJDyLpqLgTsAMNho1VmNqdlepZv7p1wsU-m4l1z2i3wSFZrMrQ4D5hI4ReAr0UIuoz7IzrzeInOsDBYqbn9inY4OyL_4ODmM6eAfmNjHu-ImMkYo1yTMT6Tv9TuPs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">halilduygulu.com</span>
             <a href="https://halilduygulu.com/blog/2021-12-05-airflow-celery-to-kubernetes-executor-migration/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -5616,13 +5483,6 @@ Here, Dagster understands that:`}</code>
             <span>20.4 Understanding the Dagster architecture and concepts</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What Are Software-Defined Assets?</span>
-            <a href="https://images.openai.com/static-rsc-4/YpzXURlhSvqriDCollKvaK4PjPtDxICjaq6u4xjRr1zehS7EyPY9NU-7Xz63nqqR_5MYSC4s_Y_gf7Sis2wBhN_RcMAe-dZtyysfifGW-RTRz-47fc960W-t8vbYAscy8Uj6kELyX4Iuv0zfZtGCpUAAz1T0Vf4tjLpf_uSfeW4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">dagster.io</span>
             <a href="https://dagster.io/blog/software-defined-assets?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -5895,13 +5755,6 @@ Here, Dagster understands that:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>21.2 Complete architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How Drop used the Amazon EMR runtime for Apache Spark to halve costs and get results 5.4 times faster | AWS Big Data Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/A6tX55u-uw811cBjLbggiEdrKMi6i0LoAeNHMlamrQUn0PL4aIQiLhirXtLRZWhXfZxQvGWmNrmDrmHSBj1B7eZbsLow_JIa4UaZphuA-Uq4osNyWTZ76VCtn0aNEjUklmbRPmQd5GgRXkUpneMdxKgkXQFxAA6QTg7YrxW0KPU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">aws.amazon.com</span>
             <a href="https://aws.amazon.com/blogs/big-data/how-drop-used-the-amazon-emr-runtime-for-apache-spark-to-halve-costs-and-get-results-5-4-times-faster/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6889,13 +6742,6 @@ Create an HTTP-based waiting workflow.`}</code>
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
             <span>Use these official resources to go deeper into implementation and production architecture.</span>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Airflow 3.0: Key New Features</span>
-            <a href="https://images.openai.com/static-rsc-4/76B3hKaDw4mA2WqyTIOZ1_uOzUCfHy6LTew0JtNOcPu-36_tJofz8UuX9H1GJHDuQqUu4f72ADvqTBdgCLMrrkH9ENvHxt61CXbv2jFHCqHj7iPplEOWJ84AlYJTgK5cHbiB51IpH5mpUHKYO6fm1XNRXGJfumZIejJ5RLCj8KA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>1. Apache Airflow Official Documentation</span>
@@ -6904,13 +6750,6 @@ Create an HTTP-based waiting workflow.`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Explore Airflow documentation</span>
             <a href="https://airflow.apache.org/docs/apache-airflow/stable/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Engineering – Imad Dabbura</span>
-            <a href="https://images.openai.com/static-rsc-4/Cwo1wxWd6wd5PNBaIeQA8UBnBY5bHMGwbnA0BrBPJrsoZ-Y4X0dEzeHzOoUMYO94EosH1APLlvV4FuMIq2mHE7JEFaHcyPdWwOyN158B1YfH18MbUUsK78BSVLvK8CbsL0UkmXa3O2jZR0-iRbXsMd1DDizo23ywOBokqMyojV0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -6930,13 +6769,6 @@ Create an HTTP-based waiting workflow.`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Hive 9.4.0 | Airflow Registry</span>
-            <a href="https://images.openai.com/static-rsc-4/cTtUNt0j3FDQR7Q31g2zDa1eVfVcZaGiCHz4EOXW7RYprC8StvFMncrdaKzSAQfK46_0dRCWoWJFYXpbY3Tglxdr2_8IdvYiwMX01r_FRRez6M28Y6W_V_WgZQ-GRh_poSNIHEp9_pmQmc-pt7HdOWybg5D29r-f8yg2EfWGjaA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>3. Operators and Hooks Reference</span>
@@ -6948,13 +6780,6 @@ Create an HTTP-based waiting workflow.`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Explore operators and hooks</span>
             <a href="https://airflow.apache.org/docs/apache-airflow/stable/operators-and-hooks-ref.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Dagster Brand Kit | Logos, Guidelines &amp; Usage</span>
-            <a href="https://images.openai.com/static-rsc-4/NjBIdNJxjEWX3Udv-AO0XJgSV_PzKudK5efq7BKxFc4SNipkDJxTyJTrrRdKUO6o1N88ywEGG_qPGGIXSh-OH7N9HF5W_-hC9bA4dTs6sKj-wnxn3PSX0NiRXap6kBWdBkenqM63e8Is_JC-WN4YWjRYop7K_-wm0z1Jc7K0KcQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -6974,13 +6799,6 @@ Create an HTTP-based waiting workflow.`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Learn How to Develop, Deploy, and Run Your Application with Docker | by Neeraj Kushwaha | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/vpeCahKUt8HLTzNJcfyZuraqvPe4DYkQcZ6H_bYFxktcjGE9IzKNCy_2wzufjFg1CV4gCPUSKqyNqOP1LsjwqsGi_Ptm9bXovNu4KVQgDh00UrSckl0PXpeQz3Fy185kJss3Wgjsqi7965WWyoiWi3LAsk2u_qRKHUOJ4rIUl0s?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>5. Docker Documentation</span>
@@ -6992,13 +6810,6 @@ Create an HTTP-based waiting workflow.`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Explore Docker documentation</span>
             <a href="https://docs.docker.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Download Kubernetes Icon Logo Vector Online | Logowik</span>
-            <a href="https://images.openai.com/static-rsc-4/r_DRTwB4WNPzF-eAhFmzLxQAqu6QCewrKIYIIyiudjw9gROc5PkeO3jHM9lm5F8bJtZaQjBysZpWLRZFJjhV6EVM3EHyUd7358tfRtowcoY7adQ98hlBVqI6EDRNpSHsf2PhxVt-Yr72FsZFbfk5iBkxpd8FcUXzfhNFO8X81BU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>

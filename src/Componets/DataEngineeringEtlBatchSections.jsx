@@ -46,19 +46,6 @@ export default function DataEngineeringEtlBatchSections() {
         <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
           Module 10: ETL, ELT and Batch Data Processing Overview
         </h2>
-        <div className="space-y-3">
-
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Module 10 — ETL, ELT and Batch Data Processing</p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">DATA ENGINEERING MASTER COURSE · MODULE 10</p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">[ETL Vs. ELT: The Complete Guide [2022 Update]](https://images.openai.com/static-rsc-4/ZE0WTBxB1uLUH4TSmYq88rZNP1KV9hErxaGtV2Gc7Zhj5pc-uaIstFaxRDwiKBa1KSheDl5u1iSQLulG6oKTIVSp0cSHuKEu9VicSsh7Pn1lW51povV0fin9hxJQ9MiEOxUI4tdVs-eIGhP4oAQRktTQCKV0cERC3QWePMFFQKI?purpose=inline)</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">firebolt.io</span>
-            <a href="https://www.firebolt.io/blog/etl-vs-elt-know-the-differences?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-        </div>
       </section>
 
       {/* SECTION 1: 1. Introduction to ETL Architecture */}
@@ -152,13 +139,6 @@ export default function DataEngineeringEtlBatchSections() {
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>1.3 Understanding the Three ETL Stages</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">ETL vs ELT: Which One Should You Use and Why? - DEV Community</span>
-            <a href="https://images.openai.com/static-rsc-4/SdWJrsA2K1jKCUcZF1REbiCOAlqkFhSHHrXGYcQLNfwp9sLRCQj_BhXzP10-jJrYLwEQlrym66KNyBcE-ciGjPzQXT54UkOoKr9TbKMXbWXMkvanzYl8hsuRo_Ulm60V0ho8QOk_gZtD86xX0MXGqjZJuszGCTemABp6f751R_M?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">dev.to</span>
             <a href="https://dev.to/rachel_muriuki_c5062dd89a/etl-vs-elt-which-one-should-you-use-and-why-2npa?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -338,13 +318,6 @@ export default function DataEngineeringEtlBatchSections() {
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>2.3 ELT Architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">ETL (Extract, Transform, Load) Process: Steps &amp; Benefits | Airbyte</span>
-            <a href="https://images.openai.com/static-rsc-4/mW6Emg0i922_iz9f_u-u-WPny8Ai8h_SHycVvWb_5ibc1O7-rev5qnFboeTpcQJ3YWQ9gpy2gqAW2kJ82yKtiLHfp7Zc0DzJOnrHJwBhAbl4UqymOYd2Tahz2c8kIYon7xnFB06nDxra8hE1tGdAPHuG_lxePLzvAxwmjODyHhE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">airbyte.com</span>
             <a href="https://airbyte.com/data-engineering-resources/etl-process?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2618,13 +2591,6 @@ export default function DataEngineeringEtlBatchSections() {
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>18.4 Apache Airflow</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Airflow Logo PNG Vector (SVG) Free Download</span>
-            <a href="https://images.openai.com/static-rsc-4/wmlr9q0CgACz0slILfHbyTZyciJR2tqRqq5fFVle7QJZiey2KXpbWelVUlZlL4llzTMDsghfUJwcHviSDnnayw5_sBbh_6TGNT26ja21hXxwPi0tv6OJaOnIt0fWoscxksMFW32iGnxaw3vrchxIiWJOv24PwikUkPAkvsn9CJE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Apache Airflow</p>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Scheduling, dependency management, retries and monitoring.</p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
@@ -3219,118 +3185,6 @@ export default function DataEngineeringEtlBatchSections() {
         <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
           22. Important ETL Tools Used in Industry
         </h2>
-        <div className="space-y-3">
-
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">These are the technologies worth understanding as a Data Engineer.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Spark Architecture Explained</span>
-            <a href="https://images.openai.com/static-rsc-4/Ld1ujnd0gwlrmHmfMddqGJT3iUmZm3HK6IK33JsUkpqhTv8T9KgDuQqOLTuuuVdIaHryf-i4yTgMcxgNT1eqiNzXq0lPnVwGV3Qy7zy0U9drLCcgu0ztvn2A0S2DVV_pyVlWV0SCrbHklN7mFoec3OGrNtDuNTCldS8RGkh3y3M?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Apache Spark</p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Large-scale batch processing, joins, transformations and aggregations.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Documentation</span>
-            <a href="https://spark.apache.org/docs/latest/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Airflow 3.0: Key New Features</span>
-            <a href="https://images.openai.com/static-rsc-4/76B3hKaDw4mA2WqyTIOZ1_uOzUCfHy6LTew0JtNOcPu-36_tJofz8UuX9H1GJHDuQqUu4f72ADvqTBdgCLMrrkH9ENvHxt61CXbv2jFHCqHj7iPplEOWJ84AlYJTgK5cHbiB51IpH5mpUHKYO6fm1XNRXGJfumZIejJ5RLCj8KA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Apache Airflow</p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Scheduling, task dependencies, retries and pipeline monitoring.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Documentation</span>
-            <a href="https://airflow.apache.org/docs/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Dbt Logo PNG Vectors Free Download</span>
-            <a href="https://images.openai.com/static-rsc-4/r18MD4DRXy_TwSjNYtwc-sZtIOfs8_k4_iFVnScqJtRQOxWHQwVkdkpxoejNF9OSmmFAxtZ2D-RZ7nmIsApI5C_KBFbZUc7SqaPxa0Fi-rSUbGIFFI1chgaVqXB4FdnBYl0bT0mggH4ntAFXtCDnhIJP5WZ8zLEVmSQT08fWqQo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">dbt</p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">SQL transformations, incremental models, tests and documentation.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Documentation</span>
-            <a href="https://docs.getdbt.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Bull - High performance computing and IT solutions</span>
-            <a href="https://images.openai.com/static-rsc-4/PqW3AcMM9QZa9OMoKDyN5YfXiqikOVe65IqZB6BA_QmFjJ6xmD2T-yQLV2iOmzGLdUKdB-BM6-fxopQOfbd2tk1fryKOY87Xak-D89DnpJg0JHoGKwDgKgw7zH0DdPEYi1NYI77g_G9NvIfYoU5MnYrrZpxtaiOmW65gTWTAC04?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Databricks</p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Lakehouse ETL, Spark processing and data transformation.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Documentation</span>
-            <a href="https://docs.databricks.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <pre className="bg-stone-900 text-stone-200 p-4 rounded-xl font-mono text-xs overflow-x-auto my-3 leading-relaxed border border-stone-800">
-            {"[▷ AWS Glue Training | Online Course & Certification [2026]](https://images.openai.com/static-rsc-4/DOa69Cl2Tj9NqjH6UDoa-xA_mhg5JZEEEMn1rkCBVP2AXyaU-sm4uYW38Ynjfnc4nJcDb53sv1MyZTteF0VoGYBeIWMkddrtZVQRfqp8aD7soURjkAcA63LECENImJuw-iOXrFQJulTBAHiqdl2DiYdyWOnK3h4hQ10qIX5LoFY?purpose=inline)"}
-          </pre>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">AWS Glue</p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Managed ETL, data catalogs and incremental processing.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Documentation</span>
-            <a href="https://docs.aws.amazon.com/glue/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Snowflake Logo &amp; Brand Kit - SVG, PNG, Vector - Logo.dev</span>
-            <a href="https://images.openai.com/static-rsc-4/NBZcvIHe06-rzfRPZ3-Hrfn_yVqQSSAc9-YR4OZJ3uGkAkYmshp-mS_txJp5qAigKwKXCsWa1yqUP2OPM3ZnDw1xYClQ5xnln6I_wdYii85EJPsZjjuCTLha2_5RUtduwEQHThLP78TUzd_M-t2bmkrNsp-tJm4AW1pSC3iGIys?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Snowflake</p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Cloud SQL transformations, ELT and analytical workloads.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Documentation</span>
-            <a href="https://docs.snowflake.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Google BigQuery Logo PNG Vector (SVG) Free Download</span>
-            <a href="https://images.openai.com/static-rsc-4/J_ke5IF18E_otFdl4ob_wx-9zqbgbr0uIoB6NoC8ze-o4VWfbTnGmPgaxCUgsV7iPmXD1mwX_Cem6IJpGXnv8o0yI3VsZtKBhVlBy-YvQD8qdF-67umLy3lHOUKxQ6JglFloYz4P4srAsaPcm2kOAyePd9a5lyiE73yZyJkzLOM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Google BigQuery</p>
-          <p className="text-stone-700 leading-relaxed text-sm sm:text-base">Serverless analytical queries and ELT transformations.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Documentation</span>
-            <a href="https://cloud.google.com/bigquery/docs?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-        </div>
       </section>
 
       {/* SECTION 23: 23. Common Industry Mistakes */}
@@ -3532,13 +3386,6 @@ export default function DataEngineeringEtlBatchSections() {
         </h2>
         <div className="space-y-3">
 
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Modern Data Engineering on Azure — End-to-End Data Pipeline (Part 1) | by Saurabh Banerjee | Jan, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/V5sc1C2JAE9AfJOBc5UKqd6mG-n-uD20kZef4Tce_-UVtUYZxwU_8QJlqq6XsQkjSCXK5Kwe4xwA4DpaIF3Zou7RTlIxgICesTI7EW4I6ZZZXj8ylH5eGebuUL55Sw8H1La_JJ8076xoVHqCRAK2Do0fhHfU0jHzoh8vYjAUZj0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40saurabh.bandhopadhyay/modern-data-engineering-on-azure-end-to-end-data-pipeline-part-1-1dcdfa08991e?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">

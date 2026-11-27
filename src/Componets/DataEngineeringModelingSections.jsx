@@ -123,14 +123,10 @@ export default function DataEngineeringModelingSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Data modeling is generally performed at three levels: conceptual, logical, and physical.</p>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>A Guide to dbt Dry Runs: Safe Simulation for Data Engineers | by Sendoa Moronta | Towards Data Engineering | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/5I2hauqxoBu3yh4qSgoJq4ZZAYtustRgW--4IDaWiDHZ5100IXAC_8QhcDbEqJ3-WwaLvih_uiy04MwIdE7eOtsIpNKOykn5sHmmEN7uLw-QoQcIasHPnVBu2oIfwuBEmV3ZkCJX2tHOGfLlvQ3PpIglM-PIyOIJ_DQGYdJjDEQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>medium.com</span></div>
             <a href="https://medium.com/towards-data-engineering/a-guide-to-dbt-dry-runs-safe-simulation-for-data-engineers-7e480ce5dcf7?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">A. Conceptual Data Model</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">A. Conceptual Data Model</h3>
           <p>A conceptual model provides a high-level view of the data required by a business.</p>
           <p>It identifies the main entities and their relationships without specifying technical database details.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">For an e-commerce platform, the conceptual model might contain:</h4>
@@ -146,7 +142,7 @@ export default function DataEngineeringModelingSections() {
           <p>An order can have a shipment.</p>
           <p>At this stage, we are concerned with understanding the business, not choosing data types or writing SQL.</p>
           <p>Purpose: To communicate data requirements between business stakeholders, analysts, architects, and developers.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">B. Logical Data Model</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">B. Logical Data Model</h3>
           <p>A logical model provides more detail about the structure of the data.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">It defines:</h4>
           <p>Entities.</p>
@@ -171,7 +167,7 @@ export default function DataEngineeringModelingSections() {
           <p>Customer (1) → (Many) Orders</p>
           <p>This means one customer can place multiple orders, but each order belongs to one customer.</p>
           <p>The logical model focuses on the data structure rather than a specific database technology.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">C. Physical Data Model</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">C. Physical Data Model</h3>
           <p>A physical model explains exactly how the data will be implemented in a database such as PostgreSQL, MySQL, SQL Server, or Oracle.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">It defines:</h4>
           <p>Actual table names.</p>
@@ -235,10 +231,6 @@ export default function DataEngineeringModelingSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>An Entity Relationship Diagram (ERD) is a visual representation of entities, their attributes, and the relationships between them.</p>
           <p>It helps database designers understand how information is connected before implementing tables.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>mysql - Is this ER diagram correct? - Database Administrators Stack Exchange</span></div>
-            <a href="https://images.openai.com/static-rsc-4/sIB2EnSTFqWKFPJ7k1W7QCYAqaIn8OZ8b9s7X9QDRhzJrinGp10WGMkcRPlEGgzI0cx3uN_NwJ1B99gmx5UyimDtZuFYyuwjarOdWelN6iaQdCiA415kIcfdWampTJrGj803El4vlB201kAWQltjFRR5uoxadiCFRK6kZVqNisA?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>dba.stackexchange.com</span></div>
             <a href="https://dba.stackexchange.com/questions/311026/is-this-er-diagram-correct?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -852,37 +844,37 @@ export default function DataEngineeringModelingSections() {
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Referential integrity ensures that relationships between tables remain valid.</p>
           <p>Constraints are rules enforced by the database to prevent invalid or inconsistent data.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">A. NOT NULL</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">A. NOT NULL</h3>
           <p>Ensures a column cannot contain NULL values.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`CREATE TABLE students ( student_id INT PRIMARY KEY, student_name VARCHAR(100) NOT NULL );`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">B. UNIQUE</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">B. UNIQUE</h3>
           <p>Ensures that a column or combination of columns contains unique values.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`CREATE TABLE users ( user_id INT PRIMARY KEY, email VARCHAR(255) UNIQUE );`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">C. CHECK</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">C. CHECK</h3>
           <p>Enforces a condition on column values.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`CREATE TABLE products ( product_id INT PRIMARY KEY, product_name VARCHAR(100), price DECIMAL(10,2) CHECK (price >= 0) );`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">D. DEFAULT</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">D. DEFAULT</h3>
           <p>Provides a default value when an insert does not specify a value for a column.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
               <code>{`CREATE TABLE orders ( order_id INT PRIMARY KEY, order_status VARCHAR(30) DEFAULT 'PENDING' );`}</code>
             </pre>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">E. PRIMARY KEY</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">E. PRIMARY KEY</h3>
           <p>Uniquely identifies each record and does not permit NULL values.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">F. FOREIGN KEY</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">F. FOREIGN KEY</h3>
           <p>Enforces a valid reference to another table's key.</p>
           <div className="rounded-xl bg-[#1e1e2e] p-4 text-xs font-mono text-stone-200 overflow-x-auto my-3 border border-stone-800 shadow-inner">
             <pre className="font-mono">
@@ -949,10 +941,6 @@ export default function DataEngineeringModelingSections() {
           <p>One product can appear in multiple order items.</p>
           <p>Each order item belongs to one order and one product.</p>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Building a Business Analytics Pipeline: SQL Analysis to Power BI Insights | by Athish | Feb, 2026 | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/hIx3STpqI5YL9vdHOMJ8MC04mloCmG_PbdCMnDCYEFrrZ9dnnmBxOQaRU-n5d9EMwFNSjOsHlKHUlTxBn3xhGTJSJFAUH8ZK6hnnXF7rwnc83nXOstRqZpXAAMQrYierompHEoa59wYCb1FGM-vIaYOcDcTKhrNYwAQF2yQTVJQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>medium.com</span></div>
             <a href="https://medium.com/%40athishhlelesh/building-a-business-analytics-pipeline-sql-analysis-to-power-bi-insights-22b7868cc135?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
           </div>
@@ -1011,10 +999,6 @@ export default function DataEngineeringModelingSections() {
           <p>Location.</p>
           <p>The model connects sales transactions to these descriptive dimensions.</p>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Star Schema vs Snowflake Schema and the 7 Critical Differences — Blog | Keboola</span></div>
-            <a href="https://images.openai.com/static-rsc-4/525ffGx--FvgdafMuwBCzxWRljz6jSy7VCWkW5RJR5m0fAzjRCcHCb0iAsyhL-tdl9j8Ts26c5Wba-tN0KMEIYM2HbseWtHhiwGz5qW5QWTX5_-LenLyWAwo966vXiYJcgDxg-KcagGRL8fUCN3CVaUr2f4avqs1Een7UfqXXsA?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>keboola.com</span></div>
             <a href="https://www.keboola.com/blog/star-schema-vs-snowflake-schema?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
           </div>
@@ -1054,7 +1038,7 @@ export default function DataEngineeringModelingSections() {
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Fact tables and dimension tables are the foundation of dimensional modeling.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">A. Fact Tables</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">A. Fact Tables</h3>
           <p>A fact table stores measurable business events or transactions.</p>
           <p>For example, every time a customer purchases a product, a sales record can be stored in a sales fact table.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
@@ -1101,7 +1085,7 @@ export default function DataEngineeringModelingSections() {
           <p>Example: Account balance can be summed across accounts at a point in time, but blindly summing balances across multiple dates is usually incorrect.</p>
           <p>Non-additive facts: Cannot meaningfully be summed.</p>
           <p>Example: Percentage, ratio, and average unit price.</p>
-          <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-6 pt-3 border-t border-stone-100">B. Dimension Tables</h3>
+          <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mt-6 pt-4 border-t border-stone-100 border-l-4 border-l-[#f97316] pl-3">B. Dimension Tables</h3>
           <p>Dimension tables contain descriptive attributes that help explain facts.</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Example:</h4>
           <p>Dim_Product</p>
@@ -1188,10 +1172,6 @@ export default function DataEngineeringModelingSections() {
           <p>A star schema is a dimensional modeling structure where a central fact table connects directly to multiple dimension tables.</p>
           <p>It is called a star schema because the resulting design resembles a star.</p>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Understanding Star Schema in Data Warehouse Modelling</span></div>
-            <a href="https://images.openai.com/static-rsc-4/Z6YjKFE74ki0pa6EHttOXzIC_FU12GjH8Y5_mqa4u1pB-umu6fnVBQYCFkZf0PtORhpz7tGkwKk1IjlwXulFvq7FU0sH07dEcnCbzItipspN6tvJBxAkBlwPhIX4aE2dLDKHuMLevAbxoWV8W59FNBzz3ZYieBej0wSAbTPxc58?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>hevodata.com</span></div>
             <a href="https://hevodata.com/learn/star-schema-data-modelling/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
           </div>
@@ -1264,10 +1244,6 @@ export default function DataEngineeringModelingSections() {
           <p>Subcategory Name.</p>
           <p>Department Name.</p>
           <p>In a snowflake schema, these attributes may be separated into different tables.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>The Backbone of Power BI: A Deep Dive into Data Modeling &amp; Schemas - DEV Community</span></div>
-            <a href="https://images.openai.com/static-rsc-4/wVp0bCzvPmnDKabD173m4uFJ8VtCQO1v5lNS8KsSHmVADrvIJ_mWs5mHblhVxeX37PpTdVVPrAKGac1xhjW-rgHvvZ8C1Dq42wt6OIJ6gIPrMXuOIP5DSz2htigwoAie5XUFPHtIqhg74VCV5IMZGQx1VJrpxSKyg9QtF81KTDE?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>dev.to</span></div>
             <a href="https://dev.to/charles_ndungu/the-backbone-of-power-bi-a-deep-dive-into-data-modeling-schemas-1o1l?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
@@ -1625,10 +1601,6 @@ export default function DataEngineeringModelingSections() {
           <p>Operational databases.</p>
           <p>Monitoring systems.</p>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Free Software Architecture Diagram Generator | Create System Diagrams Online - ConceptViz</span></div>
-            <a href="https://images.openai.com/static-rsc-4/TFOrK0144zTdSWkUi7RT-BSZCZosz7xs-Af7j4pt5Bz8SHTKPj1Di4VM8EXjVRmEsccF7GpsM8jYuvpXpZuxrRtHZttzwZZ0Q9ZBesxWwCPLvvAJNcpR51Va3RzRbbZvgyYiXiSFnP3W3ZRKA90H5vFlSEJ8EfYqujEpZgG3tgM?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>conceptviz.app</span></div>
             <a href="https://conceptviz.app/tools/software-architecture-diagram-generator?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
           </div>
@@ -1724,30 +1696,14 @@ export default function DataEngineeringModelingSections() {
           <p>More tables vs fewer tables</p>
           <p>Separation of concerns vs query complexity</p>
           <h4 className="text-sm sm:text-base font-bold text-stone-900 mt-4 mb-2 flex items-center gap-2">Tools and technologies worth understanding</h4>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Postgresql Logo PNG Transparent With Clear Background ID 473068 | TOPpng</span></div>
-            <a href="https://images.openai.com/static-rsc-4/x6sDZ8oKI9URixQ5E82vqCQV1aR38qK7E8n0HKggx6_cD8G7QtlPuHlyO99GalHPJOycjs41bPgfrRTqdHFqayPWJl57hxNttQynREzHXSUSsui_zVAB_ssyc1xdm_msJ5GiDzf23C9Z2RuuoyVCc6J0AbuAqX5Aul_x1J78q2I?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>PostgreSQL</p>
           <p>Relational database design, keys, constraints, SQL, and schema implementation.</p>
           <p>dbt</p>
           <p>Building analytical models, transforming warehouse data, and testing data quality.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Running Kafka on Production. Apache Kafka is an open-source… | by Pradyumna Khawas | WorkIndia.in | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/IdgpctULbez35q_RTbMO09b-y6gGSwj0M361O82eRjmf4iacIuOlU2NJe7tJ5nG3ML_-Ramx8HPhw_f2BkJ4-7fTax9B_pG2F5mYYn7fI3Wkxu6lEMjmv6TQdRCI7p2vkYr-RROSNxhp8BCekHH4j-k8olCh620FHns5GrtDyDM?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Apache Kafka</p>
           <p>Event-driven data pipelines and streaming data architectures.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Snowflake World Tour Jakarta - Snowflake Indonesia</span></div>
-            <a href="https://images.openai.com/static-rsc-4/hOGbz6FzvspllA7cHJ9PI5za51zE_pnpWusbLPRMl1qCynSt_W8BaFGNbs_QJbF_k_3qLfh4sjej87wO5L15Kj-mqfPYqAdX8CZUsfMtZxxSOiFd8mo6jSpWr8n66nHq8sntcg56eJ9_caapyJh6JXI6LvXe43gNQPxGiNClpzE?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Snowflake</p>
           <p>Implementing analytical data models and dimensional warehouse structures.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>Microsoft SQL Server 2016 Standard</span></div>
-            <a href="https://images.openai.com/static-rsc-4/F5lNkGBnLvdOwTN2IaD6-9CZe7OidElUzJQ5tmwHCNAQR0aKOTLZnEcyBXI5d2RSOgXq9jq1AnkCMTowSyfZMf3Mjjw_GL23d5ml_EWamUYegZ-C5ncLZGUNDeOZ0xdGBmiDApk7hOosDqtshUxwnV8tYMIaTaliYiNs0On01LE?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <p>Microsoft SQL Server</p>
           <p>Relational database development, constraints, indexes, and schema design.</p>
         </div>
@@ -1765,10 +1721,6 @@ export default function DataEngineeringModelingSections() {
         </h2>
         <div className="space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
           <p>Now let's connect the entire module through one realistic data engineering project.</p>
-          <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
-            <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>24. Building a Star Schema Using dbt | by LAXMINARAYANA LIKKI | Mar, 2026 | Medium</span></div>
-            <a href="https://images.openai.com/static-rsc-4/MSivxhz-JJd8nTENRhPaCIL7MBKAMdkwNhaHQOiIYN25-f7Uz4NRQT9TVAeShhaGyqrubowMncQ-6C7MDphN84muySQ6-ad5gvgROKRfPOe9LsavoVMIq6fbCEC89TuGNV4y9Gi0Ge5t4hiKdU5gG-90ZoPzNZSwdWAf5MukwLY?purpose=inline" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>
-          </div>
           <div className="my-3 p-3 rounded-xl bg-orange-50/60 border border-orange-200/80 flex items-center justify-between gap-3 text-xs">
             <div className="font-semibold text-stone-800 flex items-center gap-2"><span>&#128279;</span> <span>medium.com</span></div>
             <a href="https://medium.com/%40likkilaxminarayana/24-building-a-star-schema-using-dbt-5332405c8f23?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 font-bold inline-flex items-center gap-1 cursor-pointer">View Resource &rarr;</a>

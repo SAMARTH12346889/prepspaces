@@ -643,13 +643,6 @@ print(hash_value)`}</code>
             Backup and recovery.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Introduction to Defense in Depth: A Layered Approach to Cybersecurity</span>
-            <a href="https://images.openai.com/static-rsc-4/Fh1ju_qCy81T4qXTNH3wqcQ4FtP5HFHI6Hvb4hA52pVxhgh7SS1YQGhYqH7MPmxizIvp-YwTmvpT5OV0ueMo8kuwoABJh6Hp4zhIZthA3Lp6DZInpZZQQNT25iAg5ltwwKi13_krU3TKScMBjzY9nIzjRsaDULAHFbTF4X6Wuaw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">natsar.com</span>
             <a href="https://www.natsar.com/blog/introduction-to-defense-in-depth-a-layered-approach-to-cybersecurity?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -1143,13 +1136,6 @@ print(hash_value)`}</code>
                 </tr>
               </tbody>
             </table>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Customer Data Privacy: 10 Non-Negotiable Best Practices to Protect Your Business</span>
-            <a href="https://images.openai.com/static-rsc-4/v3O8z0q6LA4sDFTFOftTZijyx0uH6avh5PR1BJu3Jpki1IqTGAu4szIi1o34pfJ-1arJGdxQs9jg5PtmTu06eJ0N146YRvkVDXa47bvv8x8s7I60hhg_AqFkeiJfRnOVBlgUqNWypD4K5F7-Pd3BqKm0v75AoCirjZyyYtKhXVY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">wildfireconcepts.com</span>
@@ -1922,13 +1908,6 @@ print(hash_value)`}</code>
                 </tr>
               </tbody>
             </table>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Choosing an AWS identity service - Choosing an AWS identity service</span>
-            <a href="https://images.openai.com/static-rsc-4/cNNy44x6wWVAkrwpbIJuiKQQ1iTRYMiaSaOIITVxB0QglY2eYqdpatF9dNxHI1Z3aBbfd4UfErSfSfMPwjqAXPtuxEjd11EyeyIyQdaAxq6lST4Fy3b6xfG3f9LRxZsDu3sUb_JKwjPL3tOyw3lX3P16tU4GZ-DlBHvPKX2P8HY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">docs.aws.amazon.com</span>
@@ -3100,13 +3079,6 @@ print(has_permission("data_analyst", "read_curated"))`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             This is commonly called envelope encryption.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Bring your own key for server-side encryption at rest</span>
-            <a href="https://images.openai.com/static-rsc-4/EwnHID-4jw7Dkf5etJlzpMgk_SmVkd9WzK2eBa37BteUYpGXPutYwiuW1PYsh3vqaC-NryoaoVoGsH6urj_FuwYsL_t3iyS1UPWUfPqXNKvUmEsKXKh_jxDDrxfpkHTjsN04KdUvQAfrCS8ZfCuA8SsuYPQioubbpcIeMtA3UPU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">ibm.com</span>
             <a href="https://www.ibm.com/docs/SS5W4X/dita/content/ssear_kms_managed_keys.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6851,13 +6823,6 @@ FROM customers;`}</code>
             <span>19.4 Data Governance Architecture</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Data Governance: Policies, Catalogs, and Lineage That Work</span>
-            <a href="https://images.openai.com/static-rsc-4/RLIGfeO8_nPJwMUvSGq8SW8g6runBX-ICBI6OgyMV7Nsr_sBklM37opVFDekqvDQjmX7buxN0CTyGZ_G571HllW68cX-n6Or3RZhP8lIEARoMTSclpB2DDpdMuq-DFXjrzXNYUVpB7z9jCk3Yy3x_U0-g3Rqgf1I-j-cYpaFVV8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">ml4devs.com</span>
             <a href="https://www.ml4devs.com/what-is/data-governance/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -7714,13 +7679,6 @@ FROM customers;`}</code>
             <span>22.3 Complete Architecture</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Handling sensitive data - AWS Prescriptive Guidance</span>
-            <a href="https://images.openai.com/static-rsc-4/Ct-9MXVqzSZNUOdRTfl1h7JO-9rtuzGDEI3xVzosfnAmaWIqoQJ9HpUNYO2xHssGf4Jf2DxaTWC-FuUQx0jcCGtaUbb9ZzE2oYFoB-JAHL3eFuHOzHEbYRQA6flQhQ4hsEMcQLZasgKuQe-rBkEn9wn7v8cPSWsoumrK1Sd5qGw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">docs.aws.amazon.com</span>
             <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/defining-bucket-names-data-lakes/sensitive-data.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -8343,13 +8301,6 @@ FROM customers;`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Post-incident improvement.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">The 5 Phases of Incident Response - A Complete Guide | SigNoz</span>
-            <a href="https://images.openai.com/static-rsc-4/tX4a2eLuBKCnVuKVkp7lU57JfiVEAV1gzqapBdcQIDlsfw-tNQI-MvdAII0nxwDO4Gy5yQog3dFmptLaoT6DNQq9qA1TG6OLa8ZdOQ1eGgvQW61LKgeF3aygLiAs27ivETer915MTB9Gmq58-9eioHq00in4CCzVbL21mV_geRc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">signoz.io</span>
             <a href="https://signoz.io/guides/incident-response-cycle/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -9856,13 +9807,6 @@ FROM customers;`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Use official documentation to deepen your understanding.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">ISO 27001 vs NIST (2026): Key Differences &amp; Use Cases</span>
-            <a href="https://images.openai.com/static-rsc-4/IDbCQSvcQMk2rsSIcfAHQvMevpjZI2FK42h6LDQbqvKFWhpeYf4OtZ1F72tcm4J8rHFQg9oANXkQzqY0A7B8jWx7vQc4g5Um4D3TJwahad6vJbEX5tMIuaU0E7EXXvhzPK3HExRO44qo304FuZXGXrj4qUQznD6qWXH1yYiOzGA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             NIST
           </p>
@@ -9872,13 +9816,6 @@ FROM customers;`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">NIST Cybersecurity Resources</span>
             <a href="https://www.nist.gov/cybersecurity?utm_source=chatgpt.com)[Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">High Performance Computing - CDAC Software Training and Development Centre</span>
-            <a href="https://images.openai.com/static-rsc-4/9WNqtlAoxOB48ul9mBaATOmiLwGdF7gtv5sLomSzu62Rek_qM4mz9PXhHQg9d_mqvaDzS_u1u_AKo_EkofF0xxF-SF-EAZ1AHXymXzPCC56ETD4MXHY32MEFJD4RCrISiMij1neFIqQPhgdCwnoN-U9rqdhS9JjiAwQJGCb8R8U?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
               <ExternalLink size={12} />
             </a>
@@ -9896,13 +9833,6 @@ FROM customers;`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">The D55 Blueprint for Mastering AWS Security</span>
-            <a href="https://images.openai.com/static-rsc-4/jncbFOel1CQE4BIqTgRivSkYo-tFdPbZ1C0vgxw9DmB2pPaKMl2OWKuBFAd9a6sBOpLwo12Oiwmqb39c0of3sMaupNM-HrMK41sFecfRNLwab64N6qCSXLU--wVOaYJZBPYdxGNNCL8R0Tj4j8VrBr2EwwNIuO7ljE8hoeorxRo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             AWS Security Documentation
           </p>
@@ -9912,13 +9842,6 @@ FROM customers;`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">AWS Security Documentation</span>
             <a href="https://docs.aws.amazon.com/security/?utm_source=chatgpt.com)[S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Medrais</span>
-            <a href="https://images.openai.com/static-rsc-4/yd8jEOI57cq0EPTQlXbn0dDcS-fSCF8jYC8InFjCkNjtyZhb8U-3xy1b1b7y_A55ghS7f0AQSLLNHI2XNIDsjWLyuJQUYx9Ygi_TOYVShssDoD5RGyxWtYCQFVxJDiLNUD-e31ak_f2alJYccofYBlvvANQy3KSsEl7wFHgw_f8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
               <ExternalLink size={12} />
             </a>
@@ -9936,13 +9859,6 @@ FROM customers;`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">ISO Logo PNG Vector (EPS) Free Download</span>
-            <a href="https://images.openai.com/static-rsc-4/qnyKlnh48yIGk0PSBRVNKVdyxC40o7P5wrQwp-wHEi09VYQGlThCN9zwXR_ceb_af9grarzhHP8REwzLuv-khxMdpxBiHyuJZmocMbgc92QOWvQy_6GhC9S2PG8KzRB4i6IB_lEAbbnKI6ytRCGhnFs7C6FGWM8dH5D1afYz2sM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             International Organization for Standardization
           </p>
@@ -9956,13 +9872,6 @@ FROM customers;`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">California Privacy Protection Agency Proposes Rules for Automated Decisionmaking Technology - Employee or Independent Contractor?</span>
-            <a href="https://images.openai.com/static-rsc-4/OCuvNrR5gSVj02rSzWK67ThTQB2LhZpJGp6Z3IFNsnAjbSTf_B-lzYgwjZVmVDMv_q3E8J653Sg0Fe1OJewT0SQEjbQN_F1ZWu85B907zmvUrRo94OZpmw7q1YZKCJl0T-S9u9KPtw7JV-vYMWtUAzgkFhgw1X8-mb7EXUqah6k?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             California Privacy Protection Agency
           </p>
@@ -9972,13 +9881,6 @@ FROM customers;`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">CCPA Regulations</span>
             <a href="https://cppa.ca.gov/regulations/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">File:US Department of Health and Human Services seal.svg - Wikimedia Commons</span>
-            <a href="https://images.openai.com/static-rsc-4/zwQ-c5s0nkTx8uSpXY9k7lYvqgC24Jyz4DQsibHSyYBvjuDUSVekLGTZ0aWOuTxaWyzbGsBgKxxaQIOin-97PAlXvs4phJw7_CVOOgFxVTOg7Vpl2uI_JY5L5WrvdYnWFY3iKRoApaVQQWcT5RZeWGMCnaI7Slsh-9Ql-cpqZpQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
               <ExternalLink size={12} />
             </a>

@@ -211,13 +211,6 @@ export const CloudSection = memo(function CloudSection({ sectionId }) {
             The company pays according to its resource consumption and pricing model.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Cloud vs Dedicated Server: Choosing the Right Setup for Performance, Security &amp; Scale - Insight Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/N3EO4TMY9GKvAsBs9ljYZcCeCwWN5CLNrSflcjfm4LJxUYlPGGRLXnyxPVC2n9e3UZtqqqYygbb52E18U6tQXOoZK5mWr-oHV0SJkqevcnBw0SA_xUBuwmZHHKN0BvV6HyVgG5gUbAIljWMk2dS-SxkqWXk0PPpoRgFdK5F_lq8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">agilityportal.io</span>
             <a href="https://agilityportal.io/blog/cloud-vs-dedicated-server?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -382,13 +375,6 @@ export const CloudSection = memo(function CloudSection({ sectionId }) {
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Distributed data processing frameworks such as Apache Spark benefit from horizontal scaling.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Horizontal vs. Vertical Scaling: Key Differences</span>
-            <a href="https://images.openai.com/static-rsc-4/8a_xrLF-jhv1IJcRUyEx2eTGQ8ZsVoFEpdwlKvMMN_ERo0Y9zCPgQdnaDNtJoixM_brUA2N_oZOHj-YW9femZujbp4eQaN4W5RBZ29LUW7cLNzfeaMUpn1MK-xRFOW71PM85h63r-xLTlnFq-b08svfb_9wlJsh6JAe-nmQdaEY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">cloudavocado.com</span>
             <a href="https://cloudavocado.com/blog/horizontal-vs-vertical-scaling-key-differences-and-the-right-path-for-your-business/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -784,13 +770,6 @@ export const CloudSection = memo(function CloudSection({ sectionId }) {
             If one AZ becomes unavailable, the system can continue using healthy infrastructure, depending on the configured failover architecture.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Key Strategies for Resilient Cloud Infrastructure on AWS Cloud | by Mathan Raj | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/Fn-q7JY9cE91obZBH0dhV8ucjjkte64SJzNDGkds3u98k2yCDi9iw3YXNM-_2iNJuKiaoexiwNT98xt_aWufs7e5M2r3eo2D7BprRrEtuskpyrjtAZSU5pz_stm8ldCvwKN5p7JaW1vl9CjD1dfsP32OXvLUFBUG93QpbMbYMZk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">mathanrajka.medium.com</span>
             <a href="https://mathanrajka.medium.com/key-strategies-for-resilient-cloud-infrastructure-on-aws-cloud-dd35e70833d7?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -990,13 +969,6 @@ export const CloudSection = memo(function CloudSection({ sectionId }) {
           <p className="text-xs sm:text-sm font-semibold text-stone-800 mt-3 mb-1.5">
             A typical architecture might look like this:
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Your first project on AWS — the basics | by Pratik Pednekar | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/eJ_F4UNs637E-mtYXWc-Ceu7VtF6ec1VGGHBZoIMdvGm4wsutbDLeDHpghyz6CTRQ33ZsO4D6PMhPdAHD927RYN2owvw_laCZaXuXtaI8zqwtJ7tVhym9Pa4K9IoUgJu1-aSnCWn0NwrYYAg-jTpO0nhZ_3pkG4bI1ClHUBD5Ss?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">epratik.medium.com</span>
             <a href="https://epratik.medium.com/your-first-project-on-aws-the-basics-bfb9303664dd?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1624,13 +1596,6 @@ export const CloudSection = memo(function CloudSection({ sectionId }) {
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Instead of using one product for everything, engineers combine specialized services.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Modern Data Analytics Reference Architecture on AWS Diagram - Modern Data Analytics Reference Architecture on AWS</span>
-            <a href="https://images.openai.com/static-rsc-4/ap34sBD8Kp2AMdbsir8DerV0LuVJOupztoXBb9lovmcl_R70cCPeLK4H-vQyGJjUNlrcOM8D1Lt-n-hI6M687eFHZ7Iwg_sDGcOE9mpQsSdt5xKJLC98xIPJ8deDJI4flhg-omSl31WaWOvHH2Ds8Jfk_qCFmsXLRA6jTASUmZI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">docs.aws.amazon.com</span>
             <a href="https://docs.aws.amazon.com/architecture-diagrams/latest/modern-data-analytics-on-aws/modern-data-analytics-on-aws.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2587,13 +2552,6 @@ spark.stop()`}</code>
             Amazon Athena+1
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Enhance query performance using AWS Glue Data Catalog column-level statistics | AWS Big Data Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/Ei-82KQZmNV39UOz17wb4Elfs1pG0FsCD_2P5Mm5PgDF4DAXQiFGyyZSw3cmq2YtxnC5Ni2uHOPATvRq-j5fINgt2zZT9alPi4INdOTDb3QD7XDSE8B5cVmo5Pj8bx8OmJFhTIZqITJnYGLu_zJ-WaeaCuekp_uQomHLczToWXk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">aws.amazon.com</span>
             <a href="https://aws.amazon.com/blogs/big-data/enhance-query-performance-using-aws-glue-data-catalog-column-level-statistics/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -2833,13 +2791,6 @@ spark.stop()`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Amazon Redshift
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Arquitetura de sistema do data warehouse - Amazon Redshift</span>
-            <a href="https://images.openai.com/static-rsc-4/jAvXZqye2bbVEMee36vk71qEUxLTs4M-Qm7vRBlpZRnHSdzXNFKC0R041NKUc4Rd3rIzp7jTG_10y8wPJiLiJLFlHWH3ezdkZ_8C47NFrwodnqHeh3a9AokxdlT8HO-Bw6fpPX6aFg8x5ts5F-AzwPjj__P_DpzJE881E-_DCgI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">docs.aws.amazon.com</span>
             <a href="https://docs.aws.amazon.com/pt_br/redshift/latest/dg/c_high_level_system_architecture.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3265,13 +3216,6 @@ spark.stop()`}</code>
             Amazon EMR+1
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">AWS EMR Big Data Processing with Spark and Hadoop | by prasanna kumar | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/18cd7NLI9e4YSTsbwtFBdjM8uoTKyYD5nNVNEKr3pUENFrbEC76ocg1swIu96gwOB_53A8V-WpEAgVgnp2indr99SLjQlq5Jl2X4BGftoFMlhIEpAyitTt5wg3XDxNLhg8TqKOtt1hfmMi4KiUrwGOFWpn36EvJD8HE5dUa_HdU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40prasku/aws-emr-big-data-processing-with-spark-and-hadoop-649509bddd56?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -3643,13 +3587,6 @@ spark.stop()`}</code>
             <span className="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
             <span>12.4 Kinesis Architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Kinesis Data Streams - KodeKloud</span>
-            <a href="https://images.openai.com/static-rsc-4/8tnCSSDHQiG090KZQ4OlZjSFOS8pm_GpFCPWDNrwvgxijIGDDypJJvWxiDhspR2N0UUuKL0vAPDgA6CWPN15tc_aeyqEAeu2CkjqMM5U8It2FRymZLoWA3myP_Bj3kWK0RITGaQsRO9RsypqLLht9xklMbYCs3renP3bMp6elnc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">notes.kodekloud.com</span>
             <a href="https://notes.kodekloud.com/docs/AWS-Certified-Developer-Associate/Data-Analytics/Kinesis-Data-Streams/page?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4082,13 +4019,6 @@ spark.stop()`}</code>
             <span className="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
             <span>14.2 AWS ETL Architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Data Modeling and ETL Design Using AWS Services</span>
-            <a href="https://images.openai.com/static-rsc-4/GRjzWMGNGKiSy4xUEFyMqFcpykxmP8JPKK9oelRlCzoZCX5s0nMH9KT4vkfYkw5ZPF0t9_e01OeZN9K_Rg33AX15XSVl_U5u7t0I56B4u6qG9NS1tkwQnMcWwZc0MAb4BCpOLMVMDoIiQEn5T88rRtsV5LzVxRgG7TiyhncFgTs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">dzone.com</span>
             <a href="https://dzone.com/articles/etl-data-modeling-for-sample-crypto-data?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4626,52 +4556,24 @@ spark.stop()`}</code>
             <span className="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
             <span>16.1 Major Cloud Data Warehouse Platforms</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">novixa.ai | AI-Powered Retention Intelligence for Customer Revenue Teams</span>
-            <a href="https://images.openai.com/static-rsc-4/XhTA_nlmycFXsBSNMJ8icsnPxEr8QIjUTH6omZ44_CvX_NSQLUniMEaobLTnBkE8y0oCgFWrhN67Gpdy-4PQbI7oly_8EBmSs0u0ms1dDI6XPPKFpVTmhBLfqkZWm2IiZPrpS4CzoYBMXlG_f0RYmZNYiYVuoQd-1uwpvpJgjuo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Amazon Redshift
           </p>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             AWS cloud data warehouse, integrating with S3, Glue, and other AWS analytics services.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Google BigQuery Logo PNG Vector (SVG) Free Download</span>
-            <a href="https://images.openai.com/static-rsc-4/J_ke5IF18E_otFdl4ob_wx-9zqbgbr0uIoB6NoC8ze-o4VWfbTnGmPgaxCUgsV7iPmXD1mwX_Cem6IJpGXnv8o0yI3VsZtKBhVlBy-YvQD8qdF-67umLy3lHOUKxQ6JglFloYz4P4srAsaPcm2kOAyePd9a5lyiE73yZyJkzLOM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Google BigQuery
           </p>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Google Cloud's managed analytical data warehouse, designed for SQL-based large-scale analysis.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Get Started with Azure Synapse Analytics in 60 Minutes</span>
-            <a href="https://images.openai.com/static-rsc-4/x4jET5QmQvGypaMcRGOcU2QG1Z9lg3yMYvc9KPSHxCyPC-e-YtBuxEzrmyviEikS5b4tIU1aK5qAFJxtnYPPSp1r6AegS3vXnxpBscbdS2fz7p6CduzAE11vWlPxPKE7iLR1E03gYPou07V_vgd2q5S8dSbqZkiBXas99xICbqw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Azure Synapse Analytics
           </p>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Microsoft's analytical platform for integrating data warehousing and analytics capabilities.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Semi-Structured Data Loading and Analyzing in Snowflake | by Debi Prasad Mishra | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/LvlNcrDnRDe7nXK-6i9WSwgd2zd6Gi3UrguEpOxzqej6D_6mtYc5bJMjUofQXrm2xf1YXK66kNt4GFiUuzVQCKr5xULbN_T-niukJAunWEvgWvqOAdf357EqAml1owKopOS1-GNpIojHILzhve_-wvziOKwdS1XrXdWnYPswHsk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Snowflake
           </p>
@@ -5205,33 +5107,12 @@ spark.stop()`}</code>
               </tbody>
             </table>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Amazon S3 Logo Vector File Free Download | Logowik</span>
-            <a href="https://images.openai.com/static-rsc-4/yERg_TIo2qz3Q-fYJkaK75TyrFas1Wq5iH4apMy2in3HtFdmikR1_0sUTI1PQHYDyT13mf_pa1HMxxbc90VpfW7dq1cqZ65uJSf3akmxsjZimToNWQ5CZMKu5r4Xl50Sl7caKmWfINqlfofCS4YAE0NS56Oh5Zl7-hMW8vKHb58?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             AWS S3
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">How to write to Azure Storage Gen2 via Rest API | by Viktor Chuhra | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/_99QJZLMXt5Bu0TZb4y3r0F4TsUHQSTISud6vurog9EnWTZdNFLYRhYGEHpuWeZmmelWUnSx6mWq0TAYMFtfsNQiIR2pywJWF6k7-Qe_eBDovXItd882-CpfawGQdODacsm0A2mXF0cUE94On-X75mo3zE5REOJhqhjmDpo9woU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Azure ADLS
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Streamlit &amp; Google Cloud Storage: Your Easy File Upload Guide | by Allan Alfonso | Google Cloud - Community | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/FSPzkW2V-AqZ4NmdElX4WTVh_FbnfLOXxL2g5GQQSX40WdKZ2JztOh9A7z4tbveTwmi6k0Q3aI8HudA6E_8Zk2aCY96rXASTgQNGe05jQOJJ8HM20pAQ_FW7xzjtXpaAe1blMUey2JFv4PfdszN7xf7qHqFE4WsizLrmdEKaGpo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             GCS
           </p>
@@ -5518,13 +5399,6 @@ spark.stop()`}</code>
             <span className="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
             <span>19.1 Final Architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Building End-to-End Data Engineering Pipelines with AWS Ecosystem Tools | by Xiaotian Cheng | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/-bkuICllEtZvlwfRZlMXe2etTYlFAqnA8t_deyI76Ug8ERxNgSTMdH4QpIGXrBs5C7TtRwmvrgiW1JqgU83p63aA4HkDfOTppJjhDIttjTnH9RrUlFEArIqo9vMio_W_B5juL-W_idNLlkuNxgc4t40tTd9IMcX6XuAixZzrK8Y?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40xiaotiancheng.orange/building-end-to-end-data-engineering-pipelines-with-aws-ecosystem-tools-a9c4c2c84ff6?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6363,13 +6237,6 @@ spark.stop()`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             These are official documentation resources for learning and further practical implementation.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">AWS Week in Review – AWS Documentation Updates, Amazon EventBridge is Faster, and More – May 22, 2023 | AWS News Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/9pwLeoRsZS5tRGMgJlog9KV4_Ks8yJndbqMRRkeOwWOLgWbDASC-Rwewg28SFIKKx-eSgkqQROCqIViTjf8LZHdXpNlem3EgbfCvfkdqjBRETOa9qyT4y5s1r-Owv18fzVwT9jWIz7g2hmCRtIJorrDfnOMNULMxaAfHv-2x5a8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             AWS Documentation
           </p>
@@ -6379,13 +6246,6 @@ spark.stop()`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">Explore AWS documentation</span>
             <a href="https://docs.aws.amazon.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">AWS Educate badges you can earn for free with knowledge | by Shashini Peiris | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/es-Sby7viuSlJwE4TDoeaR4LwVTPGExbNGikOlsP9KYRTpg3Ik-9coyE4kUzSUsfbPCww6gVo9cJ-wFi-DfYDDt3Z1WY5rfdcjkJ8UQSQWQWPCzGrSTl64Ih_5WjvoRwa6h1-SY5dV03l89lzME2JHkiZN-UFkhxg6WTSTGq3PQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
               <ExternalLink size={12} />
             </a>
@@ -6403,13 +6263,6 @@ spark.stop()`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Employee Learning and Training Platform | Microsoft Viva</span>
-            <a href="https://images.openai.com/static-rsc-4/omd_grkq51-e8sDDi26yQs59TqgqgVgpQzPbLHScT6Isu9nzVQlp0lR0zotwbmRtQduYe_UIDDFjTkO3TqTmwX77i61RTklA2bwvp2prXmElQtJ3h41k3Aw5Cg5yU7_bIRw2N0CCYfiTFbYlQN38xhOrcI_RM4Mr854PS3uSKyw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Microsoft Learn
           </p>
@@ -6419,13 +6272,6 @@ spark.stop()`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">Explore Microsoft Learn</span>
             <a href="https://learn.microsoft.com/en-us/training/azure/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Google Cloud Platform Technology Nuggets — September 16–30, 2024 Edition | by Romin Irani | Google Cloud - Community | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/2GdtEJQ2MTFEHG3QBjAUQk2oUmwgs3yDgcT8UY637TjiXLSH4cWbHxpaLISvZ50MJLJ2GC-9S6cdJN76xv6I4wQWxMjfn7pDX92KGB5YiiBVHq63m4fniH0uuzoAVle_wKpFuse2fuqd0k-A6eWGuHhlUmN0W-NtfuWpkOvlnTY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
               <ExternalLink size={12} />
             </a>

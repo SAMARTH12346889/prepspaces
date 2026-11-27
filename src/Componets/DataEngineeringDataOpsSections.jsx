@@ -1058,13 +1058,6 @@ def process_orders(data):
             Where Git records committed snapshots.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Git Workflow Fundamentals</span>
-            <a href="https://images.openai.com/static-rsc-4/Uk6vHjwUkiron9hY9C8iGUf3G8eEVE0XNTKKTe9fodyAW7nOnil2NycFU49UCfP83vrOnpPV3jqCC5kB-fjnbwCdvmbr6kr7MNCtgbpnfYIVxKjigvf4hUwL6xDujYzZjLTLZdD2GtcV6X0ezgpd4I7Ts0slVLyIPC849Dm6Fi4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">clevertechie.com</span>
             <a href="https://clevertechie.com/guides/git-workflow-fundamentals?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -1639,13 +1632,6 @@ def process_orders(data):
             This is a fundamental interview topic.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">How to use Docker</span>
-            <a href="https://images.openai.com/static-rsc-4/QuaLPMzpbtAk1I6p2df_fUDs4GbNKgFkqp0U6S2cRSsbPrnaDgt4mA6KuS1070SxYZIvYNiNmkvbbV2hWH6hKUcnQ6xhKr81xRAjYi3yoKZQFen0KWddtqECHp83cEOgVcsw5n3ASqWDFQdXTHtSFEBuafAPK_LZFtEwG9akNQk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">digikey.co.nz</span>
             <a href="https://www.digikey.co.nz/en/maker/projects/getting-started-with-docker/aa0d4c708c274ffd975f3b427e5c0ce6?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -1757,13 +1743,6 @@ def process_orders(data):
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Azure Container Registry.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Docker Architecture (What Actually Happens Internally)</span>
-            <a href="https://images.openai.com/static-rsc-4/HijwLm0NbUIIgdg5KZRQ_TyKgB5yMCs-0uWhuZp6J8rs5evLerx-H4IZGCgjuCmorlaa_QLECqiPyccGTWrc8RcquwEmQeR5DgSrCRgZ7_BHX1RcFRshCmLmP02BZdIoVEnc2DPY-R2FdL4qA7MzSvlWJnVK7uVw_YMa-n9vlDc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">linkedin.com</span>
             <a href="https://www.linkedin.com/pulse/docker-architecture-what-actually-happens-internally-safaetul-ahasan-bf30c?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4052,13 +4031,6 @@ def test_duplicate_orders_are_removed():
             <span>15.2 Terraform Architecture</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Terraform Workflow Process Explained | Build5Nines</span>
-            <a href="https://images.openai.com/static-rsc-4/-hIjd4NPu1BOmT9yCYEqMD7dSczAH0ekS8ufhNZETtTrO0aJpZ6fpfmgHQGxQXeNnufildwiD1cDUVrFCo0siQ7vyHX5spwwO2n8chhTlKXeRNpexzn0bGRIhxK0R9_ZeFgYKMTq6MnBMdFFEcw4kE6Bgq6VARwCh6aWYIIYh84?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">build5nines.com</span>
             <a href="https://build5nines.com/terraform-workflow-process-explained/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -5404,13 +5376,6 @@ variable "environment" {
             Once ready, traffic or processing ownership is switched to Green.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Release Strategies in Kubernetes: From Canary Deployments to Progressive Delivery | by Salwan Mohamed | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/6zENBbq6kq27WjXgtKEFSDrVt2lrDNY_k8QnGIlNep_835IQ6U-Y6EegHpWddPXn3TRrEXsnK-QIHE4l9V_BaoKjSpNDfQVm29ijRUs663t7e0p82D5pYlm_1Uppdm_q10HNu2yrg5mDAQJNtnvrMVDgjKcOoxi-YMeDTOfS6U4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40salwan.mohamed/release-strategies-in-kubernetes-from-canary-deployments-to-progressive-delivery-b8ea8fdf7906?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -5842,13 +5807,6 @@ variable "environment" {
             <span className="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
             <span>22.3 Kubernetes Architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">How Kubernetes Clusters Work: A Production-Focused Deep Dive</span>
-            <a href="https://images.openai.com/static-rsc-4/1ADukZG1Vjw9OXT92SMS2Y_3Oi94ovX0UNiC0nr2RBfG4iHPs4nrTstiVN75WUWXn5V9xiPiuZy5-l3m-bu-sw_zINBIXIe1BABgB1r-f52pyYMK8n80xa5MVFwipxUQjzrgIYgC9soA3wuCVsxS82d9eVphrB2dmGr2h-eF31s?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">cloudoptimo.com</span>
             <a href="https://www.cloudoptimo.com/blog/how-kubernetes-clusters-work-a-production-focused-deep-dive/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -7589,13 +7547,6 @@ def transform_orders(data):
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Use official documentation and practical labs to accompany the module.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Anakin.ai - 10x Your Productivity with AI</span>
-            <a href="https://images.openai.com/static-rsc-4/Si2y7ezRjaY6Do1dHDKkpXuqW5koVvaCx7qGxMj3nFsCdtMchtJmEJgVaHrMoo7A_224NFlsWoOGsm7gwx0RiDENIE31vKT2paingEeG86qUw1bvNlPV12HTxEI5P0pfbUyR41MVvXxFkYsiGbX5pb8piec95SSWAbKR3d_NVRo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Git
           </p>
@@ -7605,13 +7556,6 @@ def transform_orders(data):
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">Official Git documentation</span>
             <a href="https://git-scm.com/doc?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Learn How to Develop, Deploy, and Run Your Application with Docker | by Neeraj Kushwaha | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/vpeCahKUt8HLTzNJcfyZuraqvPe4DYkQcZ6H_bYFxktcjGE9IzKNCy_2wzufjFg1CV4gCPUSKqyNqOP1LsjwqsGi_Ptm9bXovNu4KVQgDh00UrSckl0PXpeQz3Fy185kJss3Wgjsqi7965WWyoiWi3LAsk2u_qRKHUOJ4rIUl0s?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
               <ExternalLink size={12} />
             </a>
@@ -7629,13 +7573,6 @@ def transform_orders(data):
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">¿Qué es GitHub Actions?. La clave para automatizar tu flujo de… | by María Claudia Pérez Escalante | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/xg-DO-ZEEBnTj4eHiAO5xQWhqgvPR1RoAxLD46SpujyPGsJEF8kZcclnniBAt7V-Jrt9c64Vr0mA9a6D111LzlZS3NjuLKAx2OIIgf-H5H8x7gl3YbR1r9oPEu72toeARKpJIt_OMsO1SiQL1aOzBaE9qj-zmVBso0FgusAwZDw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             GitHub Actions
           </p>
@@ -7645,13 +7582,6 @@ def transform_orders(data):
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">Official GitHub Actions documentation</span>
             <a href="https://docs.github.com/en/actions?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Terraform Import Blocks: Simplify Your Infrastructure Management | by Amaresh Pelleti | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/GQxANqPTR9FX1D86Igdva3B64t1UTqC5Mx250ujtO-NecxVrHFZVoZN2GnbXBvHbcRc-eg_0ZC8WIA9JuzeTXGdfRaeesZP6P1MI7O8cb0eDHdDo6sKXpT1_6_I2xUw0BmGUhVUM4sS2k0dEqLs34rKKOEINudNqKoCxIy4mudQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
               <ExternalLink size={12} />
             </a>
@@ -7669,13 +7599,6 @@ def transform_orders(data):
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Download Kubernetes Icon Logo Vector Online | Logowik</span>
-            <a href="https://images.openai.com/static-rsc-4/r_DRTwB4WNPzF-eAhFmzLxQAqu6QCewrKIYIIyiudjw9gROc5PkeO3jHM9lm5F8bJtZaQjBysZpWLRZFJjhV6EVM3EHyUd7358tfRtowcoY7adQ98hlBVqI6EDRNpSHsf2PhxVt-Yr72FsZFbfk5iBkxpd8FcUXzfhNFO8X81BU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Kubernetes
           </p>
@@ -7685,13 +7608,6 @@ def transform_orders(data):
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">Official Kubernetes documentation</span>
             <a href="https://kubernetes.io/docs/home/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">File:Pytest logo.svg - Wikimedia Commons</span>
-            <a href="https://images.openai.com/static-rsc-4/HAbymyVnhv5o_ebIXc4fnTb7BKnDLOAg3IrHBMGLugeZsZ_DD95aCJk4cpoukhHgjWexEl-IOVbGA5l3qKyXdAj0qMQXNlCzY74ZBmVs5WPSVuHPR36dWmFW_-eW8gEefy3f3SVBx_uRc8c7yqGtSO9oWud3HFuw-W6-Eoy29bk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
               <ExternalLink size={12} />
             </a>

@@ -48,27 +48,6 @@ export const SystemDesignSection = memo(function SystemDesignSection({ sectionId
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Module 23 — Data Engineering System Design and Final Capstone
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Databricks Pipeline Architecture on AWS: Data Flow from Source to BI | Sukhen Tiwari posted on the topic | LinkedIn</span>
-            <a href="https://images.openai.com/static-rsc-4/5-1BfanbPD9uIaa7He7WmClhVsdTpqvN1HTwhBY1qQ1uM1u7uTE0JEll8muHLd8JG-GV7SS-zp6b2jeC_u6qQ33ynwTXi845EvpH_hfH0F4IDMM5E6J0RP-c8wO4h6rh6ElxuLcyTQXhS-V-Va5w8RAL3TTuyKtKGl95jzeoyUw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Sessionization in Real-time Using Structured Streaming</span>
-            <a href="https://images.openai.com/static-rsc-4/_5bVzUwPq4CiwK6L8XZxJ5mBxscjPSF-Ensz91rhSsxe5q5KzLiVa3-WtXKdMiCREkTY4dMp7lSw0qy-kqG9E0X7MaI7QyIAmZOOdkEJiNsRGUgdXNXHN8DtSDJzrDsq3vq8fpviO4oKyuwNChLkiTpOBlryG3JFomyJJ2e70W4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Data Engineering System Design: Clickstream Data Into a Modern Lakehouse | by Sarath Sagi | itversity | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/iHBkyaqMubA6fRriEKe0hFzceBmKN7XmftsihuT5DBKJjj40rRmXK7jkU5ZaVJnunPya9mxbOgGaezQrRECA1mWCQ3qBZfqggxz14Fl_MAqVyDe9DPWZFZf8Os9xk06DUthSj8Xjt1i1VGavGQJVRvOHu-hYfT7hGYMVXTyhQBY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="mt-6 mb-2 p-3 rounded-xl bg-stone-100 border border-stone-200 flex items-center gap-3">
             <span className="px-2.5 py-1 rounded-lg bg-orange-600 text-white font-mono font-bold text-xs shadow-xs">11</span>
             <h4 className="text-sm font-bold text-stone-900 font-mono tracking-tight">This is the final module of the Data Engineering course. Its purpose is to teach students how to design, build, evaluate, and explain a complete production-style data platform.</h4>
@@ -308,13 +287,6 @@ Reliability:     Automated retry, monitoring, and recovery.`}</code>
             A data platform usually receives information from multiple systems and serves different users.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">🎯Ultimate cheatsheet for Data Engineering System Design interview.</span>
-            <a href="https://images.openai.com/static-rsc-4/xoiT1ooaspPU76hp9f4WHpxgk52_FozPEofp8JNR-Xs0cTC2MVafuXOLmqXm7TwnHWBynmWfeYCy3fWGs06PP710_NcWfNalYBfV-gJ3LBpJtMe5wgSK7HR-zMYEANrOJCZOxyH6AF7t0Wqb7T6_DMxkCZueT6rG7c9aVq-knMA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">blog.surfalytics.com</span>
             <a href="https://blog.surfalytics.com/p/ultimate-cheatsheet-for-data-engineering?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -500,27 +472,6 @@ Reliability:     Automated retry, monitoring, and recovery.`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Data engineers must determine whether data should be processed periodically or continuously.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">How Drop used the Amazon EMR runtime for Apache Spark to halve costs and get results 5.4 times faster | AWS Big Data Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/A6tX55u-uw811cBjLbggiEdrKMi6i0LoAeNHMlamrQUn0PL4aIQiLhirXtLRZWhXfZxQvGWmNrmDrmHSBj1B7eZbsLow_JIa4UaZphuA-Uq4osNyWTZ76VCtn0aNEjUklmbRPmQd5GgRXkUpneMdxKgkXQFxAA6QTg7YrxW0KPU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">How to Build Real-Time Apache Kafka® Dashboards That Drive Action</span>
-            <a href="https://images.openai.com/static-rsc-4/5wjDLmL8tOyxifQ7qIeUZ2DmDgJS4Z4gvtCaKlhI3Ludzg6_4_VHCC6JqdPKZG8-sbLzNJ49EUkUhy17BMLVy8iBjtn3F7J57NRQ98sLYRcy5BMRJjuMAtBAnOfKvc-ebhG4HzB1Wny5i62DDf5EuTbzt6NvJ9fyW51aMzehcfY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Batch vs stream data processing: a comprehensive guide for developers - About Amazon India</span>
-            <a href="https://images.openai.com/static-rsc-4/TUxP4XiOJvMBHUPdjmAZXZPA90KdVFO7ToxQHlreqL-XTk3n-6EMEe2kw0Q58JTema0w40wqFdHEo1kAncR0MmGsmFXEkN0chlhaMsj3gLNleA3-Xr--K8ARcx3sc7IBrJ-HEIgfiCsoIad9Bdi50diuyDRmz3vbmNJSEAOAyKo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             8
           </p>
@@ -766,13 +717,6 @@ Reliability:     Automated retry, monitoring, and recovery.`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Lambda architecture combines batch and streaming processing.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Examples of the modern data architecture | Theory</span>
-            <a href="https://images.openai.com/static-rsc-4/V6amFkdEFFNZJD9QAKxvq0dVsfGjaEDUMxrd3ByuZWA4JD0IRmekKy-KiIk5IrT_0oj-9CfN9g_AzLRbooC7kU5tZApes9LkcsRhJx7NPsBPSHGpH8-sqiLK9fPWNmk7AnTW_zIoXXP_nR2UWTnkT1yJhM1ZE6Tjn_-NhvE6Fd8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">campus.datacamp.com</span>
             <a href="https://campus.datacamp.com/courses/understanding-modern-data-architecture/introduction-to-modern-data-architecture?ex=4&utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1123,13 +1067,6 @@ Reliability:     Automated retry, monitoring, and recovery.`}</code>
             Data ingestion is the process of collecting data from source systems and bringing it into the data platform.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Data Engineering System Design: Building a CDC-Based Pipeline from OLTP to a Lakehouse | by Sarath Sagi | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/cJW4YDppML1YQu5mEBDeGTcoVA4_eDC_i39SmtnkgWYWrHbfG0q9FRdrOlwzPVA4sJ2evbfdXT2T8HkFcOKjhor6eyjA1Aj_wD7P1j36_PjlqwoQKoz_eFB8g1pDriWqeu8xbKviQUlawTOKTIjzkwTEdNrRzC_guRWh6Pth85o?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/itversity/data-engineering-system-design-building-a-cdc-based-pipeline-from-oltp-to-a-lakehouse-e705c9be7ea6?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -1363,13 +1300,6 @@ print(orders)`}</code>
             </h3>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Spark Architecture Explained: Understanding the Difference Between Driver, Executors, and Cluster Manager</span>
-            <a href="https://images.openai.com/static-rsc-4/DKh1CKAVmyJSwhfN7Vl388a-1HtBdxQiJl1smfr-YYF4v0eay8qp4yxY1qa0zOk5OsHJovGf0weJTE8BQZkRK9l-7neZwER7Z_QdMeM7qtvyVqFst_CEovET25lmoGR9yeoGDzPvk3r-Hqrklg3lFDAvj0jqrd5gfKTtl0F2BYM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">deeplearningnerds.com</span>
             <a href="https://www.deeplearningnerds.com/spark-architecture-explained-understanding-the-difference-between-driver-executors-and-cluster-manager/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -1444,27 +1374,6 @@ print(df.groupby("product_id")["amount"].sum())`}</code>
             <h2 className="text-lg sm:text-2xl font-bold text-stone-900 mt-2 tracking-tight">
               8. Warehouse vs Lakehouse Decisions
             </h2>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Data Architecture Modernization: Strategic Guide (2026)</span>
-            <a href="https://images.openai.com/static-rsc-4/i59pt00AgnTh5b1sF7wXVhEKuEIUceK2sA8pmEH5S27ZE8bOZbOYq8GgxTwMhb-XL2Ub2nOzVQlDwt-Gt9E5cYv7P81Igg1IjxOA7BGIx7zf4Qq7vwQ_phi9rORraWwnRFny2Lx_2BGe_rp-NvTWu8TGr8_FIYAG66dcmTPRRuo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Azure Synapse Analytics: Data Virtualization and PolyBase | by Ayşegül Yiğit | Nerd For Tech | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/LT1jlz0K1W-_-PbgaLDfBMPouqldrJYLZ8ItSFaU_O54K7D8S7r3-cfgp7_KfCR_EDrS3VJ2BfS-uiBZ0aH83nPcsDfg0WHI_zb1iWethL2mAox8xp01RvBqqECty16jMMIEH9vX4UQk60YNTAnJDVMFMFOvawVDSvdcR5yAa_I?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">The Unstructured Data Problem | Felicis</span>
-            <a href="https://images.openai.com/static-rsc-4/9Y0MVJbx7jFqxQk2gP-kgpotL4VmhEucyQ0XUhILNjr5PxXShIQ2At8WCExNQpdNutdlHsuas1A3cEloL0vRddRUz10j4JE2_D-ssGh-r0lObmwrkZv0Msc9kP30UWZMcOC7cY_zbEct9rUQqG8LbHRClVzq9cHG8mOF1RmCiCE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             7
@@ -1910,13 +1819,6 @@ print(df.groupby("product_id")["amount"].sum())`}</code>
             </h3>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">RTO and RPO in Cloud Disaster Recovery as a Service (DRaaS)</span>
-            <a href="https://images.openai.com/static-rsc-4/_9rH4J3tIbQBKngQrzQWzONZ1vQboAefMUESMoeXwFXtRp08enw0OsQcKgXdzYpD4pcD44aEMnlTpmahXWA7mdjZ7N5S9Cx-Y-gI04RwEY7QY-l4uQPM8PpZH6IS9-wAGykMj5J3xG81rQyShq9AevnuVMsDc5kjrodraXFhsiU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">exabytes.my</span>
             <a href="https://www.exabytes.my/blog/rto-and-rpo-for-disaster-recovery/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -2331,13 +2233,6 @@ print(df.groupby("product_id")["amount"].sum())`}</code>
             An end-to-end data platform includes the entire lifecycle of data.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">From Billions of Events to Milliseconds of Insight: Architecting Swiggy’s Real-Time AI Data Platform | by Viktor K | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/1qLGE-56mc4wAjv5aqumOd8Zv3NRozXIZXXwDiuCSeh_xLms9vzEHqr5Q5wFxvqtCRkxe5PiiVi1qIDZ8ax4qOnJa6UV2d43xmAr_xoVEh_w20fShV9ZazU4huSnp7dXp3kTNSPOnTZqyl0mHj_jjR9w-OHWMTIRQFhPEBigPjw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40vsanmed/from-billions-of-events-to-milliseconds-of-insight-architecting-swiggys-real-time-ai-data-a43a2697cdee?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -2642,27 +2537,6 @@ Consequences:  The team must manage catalog integration and compatible query eng
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Real-Time E-Commerce Data Engineering Platform
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Building a Real-Time E-Commerce Analytics Pipeline | by Srujan Krishna | Feb, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/uSpeS2B4mdC1X-6woZuTkpLuUrdX4IjOPBZOkE1vIyOoqacIy9UlCnqHeGZpuFyEuMVxoY4nxbJDnWP92DmhrbXRuCepEoNBApuCEjfBeAUBuSqr-dU6G9JZyGgHpzyFzIQ8YeSRn_76giAwO8JRT6VT1tbRPCG7nCFG4kzO9s0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Building a Cost-Effective Data Lake with MinIO + Iceberg Multi-Tier Storage | by Soumen Ghosh | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/-h14VHlDHSMLzifZID0FilGoKfYbvb2dLKewTlayDRbvKQt0noaNNxHgSa4Q8O9qOwc6NiMkOMGNLiKrIF7IbSXRc7N1B8ocRUzDh4SmstVQQQqgrWCHcEZcVtwXAuvBJEOEliQ_ZqG63Cp0kNE8CdpBzF7shwNZEfjkXTHUlcE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">大促店铺数据更新慢？店小秘ERP【实时大屏】实现秒级更新</span>
-            <a href="https://images.openai.com/static-rsc-4/qypeZlpdKxx9j3oDxI48LM50kJnnjt1xqSainvk9k54e_f6GSG7YKmGyxOyKPPExNydM90Vok7yX8WzPgZdh5-FgONt28hZ6ZuMpfKe_ya1So4HhToY9Dfb3JNH8M15bDIGw4XHQiWgGflsUxOSchqS3ITk21mMv3IMGRKhupws?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             10
           </p>
@@ -2766,13 +2640,6 @@ Consequences:  The team must manage catalog integration and compatible query eng
             <h2 className="text-lg sm:text-2xl font-bold text-stone-900 mt-2 tracking-tight">
               16. Capstone Architecture
             </h2>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Building a Cost-Effective Data Lake with MinIO + Iceberg Multi-Tier Storage | by Soumen Ghosh | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/-h14VHlDHSMLzifZID0FilGoKfYbvb2dLKewTlayDRbvKQt0noaNNxHgSa4Q8O9qOwc6NiMkOMGNLiKrIF7IbSXRc7N1B8ocRUzDh4SmstVQQQqgrWCHcEZcVtwXAuvBJEOEliQ_ZqG63Cp0kNE8CdpBzF7shwNZEfjkXTHUlcE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
@@ -3501,13 +3368,6 @@ daily_sales.show()`}</code>
             Airflow manages the execution of data pipelines.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">ELT with Snowflake and Apache Airflow® for eCommerce | Astronomer Documentation</span>
-            <a href="https://images.openai.com/static-rsc-4/0jZcJNpGux7IGoLomqNA8eV2MswQuDCsaT6oXXmZ3S_zAm_3CqssbJoppy4iMSvnhtg3zjJyGR-XCh-LTw9ZUoCTzEuI11jeCyAr_-m7zg-pY4sWCkgWeFRg9UE2s5ApVoclztjBZeKpsQrfId98ciUgv6UKDD6R6xCoSxhLHGw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">astronomer.io</span>
             <a href="https://www.astronomer.io/docs/learn/2.x/reference-architecture-elt-snowflake/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -3717,27 +3577,6 @@ GROUP BY order_date;`}</code>
               <Zap size={16} className="text-orange-600" />
               <span>Step 12 — Build BI dashboards</span>
             </h3>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Omni, éditeur de BI, lève 20 millions de dollars auprès de Theory Ventures</span>
-            <a href="https://images.openai.com/static-rsc-4/PsODNpx8MaWb1hNk9ULp1mAmHlxjGBBOF6opehIcwdhsHr1fSd_VOUX0-xUtjnvN4kKrQ1q5uXj3NdG0E1q2HrPqMmZ76HsPRNfnmLkR-qmIYzWP9Bne-8hZpt6noij532kQGLc0mr2pmqEYhI9qhj6KxzMy8nFlLpQgEW7g6Hs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Grow . Com</span>
-            <a href="https://images.openai.com/static-rsc-4/6kSnXM-JKD-4LmwOX_hpAOL-Fl6pVosltyv3CYdZ_ghg3JkVcCXwb39QQlS_RCQY8CO6guxdxOgLv8tDlRcuaP-mV_As8cN6TXfKxRBOFFIt47qSQ1J8N0J6fKyjiMj8ch7yEMkaBX0o9vBQk04CzUwhhIT8XpPMwGE6pfd4s2g?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">E-Commerce Analytics</span>
-            <a href="https://images.openai.com/static-rsc-4/NNp50dkatwLRqs4uoo9k8coA-eJhVE-y9664DKowVLngv6V39BonlNpOwQKzL0KRVIfGm4SPy5SOUwNdKQNX2iUV0XQVE8TzcZB-TzXxV6OjKnKcDltdTs6-YJ91K1Z34AdL0bM6SN88JJ-PB_qpVxFJ1Jgtn0qdi4TKhSH6lIM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             9
@@ -3990,13 +3829,6 @@ GROUP BY order_date;`}</code>
             </h2>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Data Architecture Modernization: Strategic Guide (2026)</span>
-            <a href="https://images.openai.com/static-rsc-4/i59pt00AgnTh5b1sF7wXVhEKuEIUceK2sA8pmEH5S27ZE8bOZbOYq8GgxTwMhb-XL2Ub2nOzVQlDwt-Gt9E5cYv7P81Igg1IjxOA7BGIx7zf4Qq7vwQ_phi9rORraWwnRFny2Lx_2BGe_rp-NvTWu8TGr8_FIYAG66dcmTPRRuo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">dataforest.ai</span>
             <a href="https://dataforest.ai/blog/data-architecture-modernization?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -4110,13 +3942,6 @@ GROUP BY order_date;`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Each phase of the course should produce a demonstrable project. These projects progressively build the skills needed for the final capstone.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">01-Introduction | THE DATA ENGINEERING COOKBOOK</span>
-            <a href="https://images.openai.com/static-rsc-4/Jn1jHC4N81Mxe1_WhmgEN40X3DbhSxgdDihWujTyBZu3fCLKegPh4M98iviBGbsn5lpIdYJuwYeGhpofsuDjqPKvZb8BvkMupiCbUkZ_n6C74gUd12PLU6QcQdsBmvMAre1VUb0-I58Zd4dtJKm8Gv9wIYiN3rUDLu-U9vSyKSo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">cookbook.learndataengineering.com</span>
             <a href="https://cookbook.learndataengineering.com/docs/01-Introduction/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4644,13 +4469,6 @@ GROUP BY order_date;`}</code>
             The foundational learning path should be runnable locally with open-source software.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Build a Complete Data Engineering Ecosystem with Docker (PostgreSQL + Spark + Airflow + MinIO + Jupyter) | by Zile Hasnain | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/n_8oOpdcjdp67BStX1UUmO3do2VhwUC9PueYTziSq0YetmIXV0zVwD2OzL9IiD6E1jfvq460mg3EqPRLvpc0hZKBDNX8sQM74zTPJgxtN3PWuVgWp04N6D0M2XsdvytU7GOtdKrct-YtbCGYdUlBs4lB-NOwW5yNyyMBkRa65Uk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40szilehasnain/build-a-complete-data-engineering-ecosystem-with-docker-postgresql-spark-airflow-minio-f3ca1657e57e?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -5021,27 +4839,6 @@ GROUP BY order_date;`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             After completing the program, students should be prepared for entry-level roles and have a foundation for progressively advanced data engineering roles.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Why Data Engineers Must Think Beyond Coding in the AI Era | by Abhishek Kumar Gupta | Tech with Abhishek | Mar, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/vl2qlTgMu8NPx93P3MJIeEJpwUcUc-N8NG3VmDdUlPC7rkj2flLjZUsJ7AqX6pS2ofV8xwYh19lfwgVSfpxHjTz77QIcfG996AGDBfFcPoSaH1YPm5K4-_cfgdIb3oUK5NLtLzRFC3uAinAzCuWSxfjP61zDGah3Mw6PDhj3Pmw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Mastering dbt Deployment: Multi-Environment, CI/CD, and Promotion Strategies | by Abhishek Kumar Gupta | Tech with Abhishek | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/FnMc2ITqJRZ11GH0qhxVIhwb2mrGMSs9GObfxSSN2_aDzwcowEbI5EYRSRLpwS79c2HVOgiHf9XbUndovb4MEw8GHA2Hb3oinbkT3CgRE0QFXTz6I1kdhv3UCa8u_XJ-i8HVNgMSoNqShM9OcWvVwtumXrS3zwHawb5rdVePZzY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">DataHub Lineage From Scratch. A practical guide for engineers who… | by Jithin K J | Mar, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/w842iz_yGLeO2dwmR8-yVlnHMNSdZVJh-eWjWHEZDqc_0B6-MssjZL1qiM72VvXVuN0Lk0nRSXfmsEWUvyGArhFFag-vjRUwkmDRjsSoKmsdA8mUng3ev89x6Vm5E2wkn6sjeEOZhVWTnn5yNjMZBus4-Xq5LUXmC19r6MbO1kY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             10
           </p>

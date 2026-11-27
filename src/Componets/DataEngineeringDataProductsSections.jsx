@@ -51,27 +51,6 @@ export const DataProductsSection = memo(function DataProductsSection({ sectionId
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Module 22 — Data Products, Serving Architectures and AI Data Engineering
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Data Mesh Architecture — Architecture Diagram | Diagrams.so</span>
-            <a href="https://images.openai.com/static-rsc-4/20iaNM-ttVluUbGKc_ds_f4Na6Es49kMctYkM3A1nGfI-VAnDnbii57TojwaxHsHoOLRxmIpn90byaJ7f_BPT7SubVUfq9Jq2hWViLyZFH1Y-VAKVitrvjLDPgutd8LqzFmtoDV_q8LuE38yuAr16n4dRRaLC5--XlJJmN0oL5Q?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Abacus.AI - The World's First Super Assistant For Professionals And Enterprises.</span>
-            <a href="https://images.openai.com/static-rsc-4/nyVDS0QIulH4DrqBvheip3mayo7y3u9tqVHKvRNLACM72SDoTTlnIcsnyJb_7DC3cp4YVbdRCWvsG7hnrOt84NrFgO7J4jmm8Jhx48gG-QM2FoKC2q-OOtxlnlL62feRMWMbHDYQiA0alBUpHrqUKENCHq3zlQSeRyNksC9OwBs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">What is a Vector Database? Essential Guide for GenAI Developers</span>
-            <a href="https://images.openai.com/static-rsc-4/QsI9v0agV3kw3yj4VD6cOLujOjf_o2E76xc0HFHWKi_DdlOMXSpzyWe6FtsVuTXezWWIz9tJZs1MJ_swuUgNRSWi_ZjbbzOkWyUmoe19I4tSAADQZjM6pmA92s_xNwn6pfECQPt4HJ4zHoBpGztakyd5EVNr96h4WeuO6q0FFqQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             10
           </p>
@@ -308,13 +287,6 @@ export const DataProductsSection = memo(function DataProductsSection({ sectionId
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             An organization stores customer data across multiple systems.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Customer 360 Data Platform – Real-Time Unified Customer Profiles</span>
-            <a href="https://images.openai.com/static-rsc-4/ol6CqDjBmr27pI0WcQgMcMxTvfIKycQMwSQLg3TgEhLtebHpW-qf7Gadc6jM68pkbDHHVOgtoRbYvGlS93ITQkDlRjWspciNfYvcHxLmElBTYCPTHnQWy-liYHXSr-fvQpBHD6WB1mKBSfDxcncQ05z9iHUMiP1sTtAfs-FZhps?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">tapdata.io</span>
             <a href="https://tapdata.io/solutions-customer360?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -753,13 +725,6 @@ export const DataProductsSection = memo(function DataProductsSection({ sectionId
             A data product architecture organizes data pipelines, storage, transformation, governance, and serving around business value.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Meet the modern data stack | Thoughtworks Australia</span>
-            <a href="https://images.openai.com/static-rsc-4/Xk_SwDh0zqGz3iI7see-CKV1_J-4WOQIuFhFoLnBlAT2JXwk8GkG1OSkbichqTXgIKPG-O_vVovKLoZTZkVzxfmT3rIZ9McSlN991hrMEZr_IyCoerxzE5wfBlkRiki6UxBDddYH9feOvWdh1z45LLtG1sIV_x3JJlc2Cco-q_4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">thoughtworks.com</span>
             <a href="https://www.thoughtworks.com/en-au/insights/blog/data-engineering/meet-the-modern-data-stack?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -940,20 +905,6 @@ export const DataProductsSection = memo(function DataProductsSection({ sectionId
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Data Mesh distributes data ownership across business domains while maintaining shared platform capabilities and governance.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Deconstructing Data Mesh Principles | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/RN4kRNr06dseiuXiHHrLYb1H9UAlCFaAKUlKalHJ_hO8reGshjCQ5_ZnUnQSCwnmi11aqmfMAvhRLIK113doRZ1_1fNKW-5ioKh6ZQClpZM1BTuCt1NTeafxlvEUoSz8zDme4FgkQaR8BegB1WYEpkR3pWGI3wUUoeAvB9b96co?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Data Mesh Architecture — Architecture Diagram | Diagrams.so</span>
-            <a href="https://images.openai.com/static-rsc-4/20iaNM-ttVluUbGKc_ds_f4Na6Es49kMctYkM3A1nGfI-VAnDnbii57TojwaxHsHoOLRxmIpn90byaJ7f_BPT7SubVUfq9Jq2hWViLyZFH1Y-VAKVitrvjLDPgutd8LqzFmtoDV_q8LuE38yuAr16n4dRRaLC5--XlJJmN0oL5Q?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             9
           </p>
@@ -1237,13 +1188,6 @@ export const DataProductsSection = memo(function DataProductsSection({ sectionId
             </h3>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Dremio and Modern Data Architecture: Data Lakes, Data Lakehouses and Data Mesh - DEV Community</span>
-            <a href="https://images.openai.com/static-rsc-4/tIqh3lBS9p90GkOU19a_QVjQGy3n-Rr_Nh_RjaZ2FSB_P1R4FmSmDyevbPumfNmKMSYQIohPw_TriRZBGu7xCwPMCifDQTnr0jXCJ7Dui9-YJhtquOGOZbLOWnMnN8-pCZ5fXFW5XYFCLqEbrfP3eKw6VNRQUi2w9Z5t4lwahCg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">dev.to</span>
             <a href="https://dev.to/alexmercedcoder/dremio-and-modern-data-architecture-data-lakes-data-lakehouses-and-data-mesh-5a92?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -1484,13 +1428,6 @@ export const DataProductsSection = memo(function DataProductsSection({ sectionId
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Inventory data mart
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">What is a Data Warehouse? Definition, Example &amp; Benefits (A Complete Guide) | Astera Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/pu3vbnrCuumh2avPhenIf2XH29RihsqI4YhKTm8geHrsTcPEDFPj3bjbTsLCQmPtbvfC-uk0QFMGh5nScpr9lYKUCA_P3XWvIUoSkVEmVJjKQeb4ck1bNeqci1rERMPdPJUgOmEmE-JOg081vl5gkpCvo0jArU0yTPWlOR1gF5w?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">astera.com</span>
             <a href="https://www.astera.com/type/blog/data-warehouse-definition?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1937,13 +1874,6 @@ export const DataProductsSection = memo(function DataProductsSection({ sectionId
             </h3>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Enterprise Data Warehouse</span>
-            <a href="https://images.openai.com/static-rsc-4/XIeohY_q00h-2E9Pzg7XcU6rg6wZl6FBqaET6x8OTFpamQ-BiIkCVE1TjfxLyep8YR6AyySka6J4nHXAtXYEJBnNDkAmlnKrQ74ZpracV-m297gflp3tP4sepXDHEBEltx3AOrBTjllM4M7T_-YfDDrL50GqYVz1bdEX-DAEyjg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">capellasolutions.com</span>
             <a href="https://www.capellasolutions.com/blog/enterprise-data-warehouse?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -2101,13 +2031,6 @@ def get_product(product_id: int):
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             A cache can store frequently requested product data.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Software Architecture Diagram Generator Online | SciFig</span>
-            <a href="https://images.openai.com/static-rsc-4/2Mzg6yqneSYYwCDSzhwVsQ2hoh3HjWGhpDH_DFVuFlhkn0pPAV7xXR6mWsQZQmyLa9nam2-ZtM3VNQQHYFvX8PlhNUsRQrSQTc6I73f-DTuz7Z88Rr_zQR-8rIQKIQkm0g6lEbR5wIcsArpqcxy4R-EgXDNSdlTSwqhbdG7vBuY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">scifig.ai</span>
             <a href="https://scifig.ai/tools/software-architecture-diagram-generator?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2397,13 +2320,6 @@ def get_product(product_id: int):
             </div>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Data Catalog and Reverse ETL: Enabling Data Activation at Scale - Catalog Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/ZC0oMc6ObJSJAauc9o-AUyNufq_IlvvHqD6lGN0uE70Al5TijhOaZmCGaFo9WpxZqB3ff6W-ZkZdcXU8I9IKzJl86Vq2E-ozsVQOqPu5sy42_aqxwD2rLW2mj2SHm8drmg3KWiMhOwPTk7vKWr6BxAdVN9CqghibPZrnfJTENW8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">castordoc.com</span>
             <a href="https://www.castordoc.com/blog/data-catalog-and-reverse-etl-enabling-data-activation-at-scale?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -2616,13 +2532,6 @@ def get_product(product_id: int):
             </h3>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Enterprise Integration Patterns Every Architect Should Know - DEV Community</span>
-            <a href="https://images.openai.com/static-rsc-4/NOMhvVRiJMUXBN4X8mvTiwvaeFE-FNJGyFW7wyhPbqipTfOegAHELRcamSiUWC4m_c49N8XhqvZYhSKl0wAfga3DWogE8OqDyAEpCU4fn4975yXacq4cBoLj--EjFttlqJ92AfOW9Z5LHLeKXScjgS1wZNxZFwO0LhOXxpvnC5Y?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">dev.to</span>
             <a href="https://dev.to/kancherla_venkatadileep/enterprise-integration-patterns-every-architect-should-know-1h5p?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -2787,13 +2696,6 @@ def get_product(product_id: int):
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Properties
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Does your marketing need a customer graph? | by Ian Thomas | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/hXANGlKhbWJdI8j-gXZKhbEGhU28ctUsNbwiv1n8vt6q44bqz-Z6yPmKBDbGcYmbRvPQiS3i4tqkRh3Nlt88pwLg06PGUAndXA_wD6iSSmscLLXZAXupaDfjvdKavK3nUFsnKodu0ktKIyhZ8pKIpt9Q1C-wZqg3Xlqin4C7CTs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40ian_thomas/does-your-marketing-need-a-customer-graph-23376d3dc767?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2988,27 +2890,6 @@ def get_product(product_id: int):
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Major categories:
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">What Is Unstructured Data: Uses &amp; Examples | Airbyte</span>
-            <a href="https://images.openai.com/static-rsc-4/-Vc9Va0mnFM023YQM5Jmnb1_8ddMSkDMUaWxdqJm-Enh3pv9rsdk2IDTm4V1oxkea_Hve9oOwN2h50ei2IRobrIkOQ_9QCmq7GHb_5W1UU4anMyLXkP7zIwF1CKFnvTYyfxb8x8DGMW-ECohA7GkmReDJnr56bXifqQ1YtGD91o?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">How MongoDB Works: NoSQL Database with JSON Documents | Omer Karacam posted on the topic | LinkedIn</span>
-            <a href="https://images.openai.com/static-rsc-4/Qb5AWs4mqToxbfnIHrVYh9LYT7ERpdj4SQ0ahKDESWEkcmuzmZWBewt_YJ94hlaHRwW47wr4C9cT6YKIT3n8iNzUucoyd-iPuRaDOg9cBZ7D5Xdu-sfpq0zjtLokIsrIjOA-wpZ18FDS1NNPG5bG95hkWv5-DW8gB1dkvaCPgVo?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Database 101: Data Consistency for Beginners - DEV Community</span>
-            <a href="https://images.openai.com/static-rsc-4/TUdp6HCWfzDzVMoZOd3cerHJxulgtQEhtlGE0s7hiLNxFUMlnXqv33nmtMa1pXDFof0iC6zmOdLKzglOagLyZacD8VHTpeZLxT_fuUxkaM_Zj1f8vl-i8NsPVjIqdxXsvycYHE5zoEGN-ROwTY5cBHO0Z8j8h8qJJPTFZsLFI70?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             7
           </p>
@@ -3215,13 +3096,6 @@ def get_product(product_id: int):
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             ML data engineering focuses on preparing data that machine learning models can learn from and use during inference.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">3 Steps To Transform An ML Prototype Into A Real-World ML App</span>
-            <a href="https://images.openai.com/static-rsc-4/_GtxUkHmr8Mi53ByBhbZKVT8WKZoHWKKNCa9WBgsa0wjepxLYAsiID4hFX6ZRY75bEtKM3PrkYIxzhINPb06WyTgCNEY04Y3aZDXUvN9qo3j49HYRg9DdEOjrDaJShGamrqyMlfJQ3iLqgoYxnmPP5SoHhUeUTqkjthTGcO3jZ8?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">realworldml.net</span>
             <a href="https://www.realworldml.net/blog/3-steps-to-transform-an-ml-prototype-into-a-real-world-ml-app?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3617,13 +3491,6 @@ print(df)`}</code>
             Feature monitoring
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Abacus.AI - The World's First Super Assistant For Professionals And Enterprises.</span>
-            <a href="https://images.openai.com/static-rsc-4/nyVDS0QIulH4DrqBvheip3mayo7y3u9tqVHKvRNLACM72SDoTTlnIcsnyJb_7DC3cp4YVbdRCWvsG7hnrOt84NrFgO7J4jmm8Jhx48gG-QM2FoKC2q-OOtxlnlL62feRMWMbHDYQiA0alBUpHrqUKENCHq3zlQSeRyNksC9OwBs?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">abacus.ai</span>
             <a href="https://abacus.ai/featurestore?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -3965,13 +3832,6 @@ print(df)`}</code>
             This can cause poor model performance.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Train-Serving Skew: Why Your ML Model Fails in Production</span>
-            <a href="https://images.openai.com/static-rsc-4/Gxwahl9WR1FrQu2MMJ-elaY93wKvjjHO_wcRB3NZhgfgTPqbAPKxgGohknf9TQvhpxiOjzR2So59bHx-6gv3bVWesgbJkAxHvCgUYf_46W9PKOK-CHe_qBI06px8_EbhlFv6-_TUEuoudycvPvdnjxvG1NjpoNm28UdHEhh2TeA?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">linkedin.com</span>
             <a href="https://www.linkedin.com/pulse/train-serving-skew-mismatch-breaks-real-world-models-fahim-ahamed-hhole?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -4276,13 +4136,6 @@ print(df)`}</code>
             </h3>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Building a RAG Pipeline from Scratch: A Visual Guide to Ingestion &amp; Retrieval | by Abhishek Galfade | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/eek7hFofXTvmXfFFSGRZhjSt9JIY-TI8-J-eW7WUD65LckZt77jqOiwv_GrIAdxfO224zQtqVNHPAmAoCwSvrCrsz-VqQd6GBTXfaefa7BeX0SFyl-WscXbwSNAESp5w-wEW7Frif9N_Ggz7JWI9WWOJdZJ2J08-9QZb4vQVFLM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">thisabhi.medium.com</span>
             <a href="https://thisabhi.medium.com/building-a-rag-pipeline-from-scratch-a-visual-guide-to-ingestion-retrieval-e9c80ade0246?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -4561,13 +4414,6 @@ print(df)`}</code>
             The vector may contain hundreds or thousands of dimensions, depending on the embedding model.
           </p>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">What Are Vector Embeddings? | Endee Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/h9JZREwhP3X-9eMnF_r7Z6SMcRxlObYNuREEA10nTea556BNQx28zKn-BsdqQuHMtcFTlgQBPxJo1bV9Sh4Yw7Is-RDZv8PuVdMZnB8gnIHtUCpykswtPdZqvA1koA9aItR4wPPDom9jcx562XKpzOOuVgi2qMSrbMJwBrjpvtM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">endee.io</span>
             <a href="https://endee.io/blog/vector-embeddings?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -4717,13 +4563,6 @@ print("Embedding dimension shape:", embedding.shape)`}</code>
             </h3>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">What is a vector database? | Ubuntu</span>
-            <a href="https://images.openai.com/static-rsc-4/xyJtMiMjKZntVSUiodkeQ3BYcMY0W4Npc-8wgPBopgAXIEdhKoLSEVNVcS4FwBcw1Wgg6TefP1Yxp2l-PlLLqSalgxa9FYgD5Z8ImAzMAtAkzeMV9v63mLUX6UWVV0G1jSkp2inChoTSatSWR8I-jRqU7lakU5GN0YbfMnsqDbg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">ubuntu.com</span>
             <a href="https://ubuntu.com/blog/what-is-a-vector-database?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Documentation</span>
@@ -4862,13 +4701,6 @@ print("Embedding dimension shape:", embedding.shape)`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Frequently updated information
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">What Is RAG and Why Your LLM Needs It (Part 1 of 3)</span>
-            <a href="https://images.openai.com/static-rsc-4/i5BRg1gzJ82-Zp4O_CtTLF3ftJqyPBbeHWhQOdiHfxNqln9Uf44gex7PAXeF_FIY1zyP9QxbiF0tZrENNC6T7adZJnESCWiFNtqdfa3SRrEiraqhbGnIZ3vHPblVI6xffLI1-zU62cEfiEVm-dll9OwfnkvVDCu8rRgctblhQHk?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">blog.stratoslouvaris.gr</span>
             <a href="https://blog.stratoslouvaris.gr/what-is-rag-part-1/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -5145,13 +4977,6 @@ print("Embedding dimension shape:", embedding.shape)`}</code>
               <span className="text-orange-600 font-mono text-sm">25.2</span>
               <span>Knowledge Index Architecture</span>
             </h3>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Elasticsearch in Action: Introducing Java API Client (1/2) | by Madhusudhan Konda | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/uLIDR3OZy4hXRqfivPDG0RkjDxOIR2cKTzqYIS1X9YUomfltb-rC6dLUFYElCGb7pNyPXnIVsYGo5QRF7Yuj6B5POTbueE8CY6Pxtt6w8wuSY1YNWczKzSQdSJ9b8LYet3byBy4mNbeMJlZcprNPmR4V8rEk-iPLjj7XTsN-v2E?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">mkonda007.medium.com</span>
@@ -5474,27 +5299,6 @@ print("Embedding dimension shape:", embedding.shape)`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             AI data quality also includes documents, embeddings, metadata, retrieval relevance, and training data characteristics.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Open-Source Data Governance Frameworks: A Strategic Analysis of OpenMetadata, DataHub, Apache Atlas, and Amundsen | TheDataGuy</span>
-            <a href="https://images.openai.com/static-rsc-4/z_DXwaleZryI9sJWsLErEFvEUrMgTqBNloiKhmQHVyaQSdqAf5U--L-zkkg5aoI2cBAtBI15bUDL2KxKfHbV7R9QMgYpPJpqqTkDJx4nvtUKW3-HxUvzu0CacliNYDgR6zn57d0LcCgHMSJI6v-71jex1YLilI9VbEHW5TN0Rxg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Retrieval-Augmented Generation (RAG) Dashboard Metrics Explained</span>
-            <a href="https://images.openai.com/static-rsc-4/K4l5X3HbbkYUEz9n2fGn5oiPOF2XxkyeLrxHXiwM-51Jn0WH8mPcoNI-FBMes0mTHZMd7V2bXiVHPztgt4mkR90odTOLdfpm575xXQeaJ6HCAjRxhoA23PjfyzfURDoUSwTkWgUCxIzIyBOcV7hjnmW44qLb7shf7CRZwp9zUX0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">The Hidden Art of RAG Evaluation: Why 90% of AI Teams Get It Wrong (And How to Be in the Top 10%) | by Abhishek Pan | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/Kf5OJ7SwkuzhpFT6T5xs65O6gFLlwJpUUS7iFOAVAbguYQrRMvf9sZrfMUiBpDEjvzwqK7QG_LZ2AyJ2yZ7WUgWM_IxbKGjZyWS_LEgTCfJdbNZKOeyMWA3ZA4L2wSBbV-cHTszf7bRuTiyo1Pn3a4QY5TDZllLEZhfo-1uV3q4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             10
           </p>
@@ -5734,27 +5538,6 @@ print("Embedding dimension shape:", embedding.shape)`}</code>
               27. Practical Labs — Module 22
             </h2>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Understanding the Feature Store with Feast | VISIONHONG | VISIONHONG</span>
-            <a href="https://images.openai.com/static-rsc-4/Q1k1h0cBhKs1kfCcammXNR2WZC0kjbdNCyQaWlTzaJJkCNMCO1dxaGpGQB8xXJLzsSgIDfLar8u0v0hF6a25e-XrT6ZSCRWsg7eLwqXM1Dp-uYhsdAFRfm9Ze0O-Tq6HGlO37O5J029Kj7jLC7utpur1ES0WjuIxenWEbITbGqI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Best AI Diagram Animation Tools: Tested &amp; Ranked</span>
-            <a href="https://images.openai.com/static-rsc-4/UsFz17vu15xzwRqU6msA1OyqrBTd4sO3OE1LT9EgDvwT0UPqOQRa-KIh8ktlcwa6Ss98tB5fBMQL7U6WZL-xqCCebAMMZqkWuuEkGDHT1yelGRV1t5iS1HReowVHVwell2wNv3BQYTOlRLM__fY7RRRTO47fmLqEx1VrAdHRpHY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">A Knowledge Graph of Music Brand Partnerships with Neo4j — Shep Bryan</span>
-            <a href="https://images.openai.com/static-rsc-4/ZAvk-3TTU4Aw4xpUeSpvrKJO7h8WnesVw4lYlMT9sqHfQabUN8Fu5DfCx9nSaqmj0BNR1Sw7WnaZR5HgAn7d5Vh4iSKc1Unxza12MpzDYQUfI1dH4gDQre0PhfwBdNjxo3A-V5BRF8pm_XKNAA9xqWPFHSHvqf6OisqQ1eqcsvM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             10
           </p>
@@ -5974,13 +5757,6 @@ print("Embedding dimension shape:", embedding.shape)`}</code>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed my-2">
             Objective: Create a searchable AI knowledge base using documents.
           </p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">AI Context Engineering Workshop | Vizuara AI Labs</span>
-            <a href="https://images.openai.com/static-rsc-4/w8N6O8YyMcu9XRBlH_6lGxwiNGGljLcPY_lQz78emO1X8vjnkoIxUTxolorYXTHYbcikB8VCJ-Ae8rYl3yrFkZZ7sWfrsi5EYkEaieewthVdc-vUBx_YHmbMg9MT6qtdNlPbbkZMaXgCfPR8V9SzFIoPcrGi5rqEj8QsvCTnlpE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">context-engineering.vizuara.ai</span>
             <a href="https://context-engineering.vizuara.ai/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6226,13 +6002,6 @@ print("Embedding dimension shape:", embedding.shape)`}</code>
             <h2 className="text-lg sm:text-2xl font-bold text-stone-900 mt-2 tracking-tight">
               29. Final Capstone Project &amp; Key Takeaways
             </h2>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
-            <span className="font-semibold text-stone-800 truncate">Modern Data Stack for AI</span>
-            <a href="https://images.openai.com/static-rsc-4/qgYfTiXwkAwkTh_tt4t5tDsNv0liSxrP0mYrO1kL2YqanxH37co05sQvMv_5btjYO9yxmyhSVKUGc5cVc0GD3BF4hmVA4SCLd_Y0rCDpsji39O0VUspnVClaCYkwqrtDTqNjQapj04tA0GM_QGfaAFtYnRW7sX7bbhl2479qNqI?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Documentation</span>
-              <ExternalLink size={12} />
-            </a>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm hover:border-orange-300 transition-colors">
             <span className="font-semibold text-stone-800 truncate">linkedin.com</span>

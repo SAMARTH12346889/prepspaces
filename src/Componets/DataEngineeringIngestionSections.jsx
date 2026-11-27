@@ -50,13 +50,6 @@ export default function DataEngineeringIngestionSections() {
             <span>DATA ENGINEERING MASTER COURSE · MODULE 9</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Boost ROI with Essential Data Engineering Patterns: A Hands-on Guide | Informatica</span>
-            <a href="https://images.openai.com/static-rsc-4/9h5Fns6DvC2kYynrfLCBsqShxjQNEFF3oPa2FbwP_vXBSXGb3w9ZAZz9UbrExuYsgUxSBHZz1GDp3XosS25cZ7KwREitZQZpmVnmA0zIkOkwtY_09bnRLmZ4QrXq_XkUkeD4qtan-8MK1YM1CGudnfBUwrJgTgUikTKj3LQhq4k?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">informatica.com</span>
             <a href="https://www.informatica.com/blogs/boost-roi-with-essential-data-engineering-patterns-a-hands-on-guide.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -416,13 +409,6 @@ export default function DataEngineeringIngestionSections() {
             <span>How records are delivered to destination systems.</span>
           </h3>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">A basic architecture looks like:</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Modern Data Architecture: An Overview of Lambda and Kappa Architectures | Credera</span>
-            <a href="https://images.openai.com/static-rsc-4/ArOvqH7vIWJmEeLA-bpAHOrnk27PbP4rNxoQPTFlMUsPKGDJIpZHYnN7bsAnMGFcxbpwpi451NL4hNcP31vt8p-N32vOF7T5ybmOfVmPBQjkqjzsIDjD9VpntfSdA9Tf3uqujEkK6tMybrIRtGqIazqKryvL1xdsJ0Jak9QA0eg?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">credera.com</span>
             <a href="https://www.credera.com/en-us/insights/modern-data-architecture-an-overview-of-lambda-and-kappa-architectures?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1017,13 +1003,6 @@ export default function DataEngineeringIngestionSections() {
             <span>A full extraction would read all 10 million records again.</span>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">An incremental extraction can focus on the 100,000 new records, assuming the extraction mechanism reliably identifies them.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">💡 Databricks Pricing Explained (DBU vs VM) — in plain English One of the… | Vignesh Murali</span>
-            <a href="https://images.openai.com/static-rsc-4/iywVt8qutDpuagXHxTjfYwHXZFAL8OjELx7WzY-tPRUWzqIF8qYKPeTcGKqd1rPOdTpSzKJwBO-w_XeaLz5AQ8jdP--y9XZOEBCzf9iCZKqJxy2ofSHf_Ya5D8GeCumf3-obRBOR6OtJ7VzyiLZCHp9cmDnu_EWqQQ0WC3zRmB4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">linkedin.com</span>
             <a href="https://www.linkedin.com/posts/vignesh-murali-310a49ba_databricks-pricing-explained-dbu-vs-activity-7414684847308386304-a2qL?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -1752,13 +1731,6 @@ Here:`}</code>
             <span>7.2 How API Ingestion Works</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Engineering System Design: Ingesting External APIs Into a Modern Data Warehouse | by Sarath Sagi | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/reqfoGIVekQyYqI17v66om9RdDqofN9uC-gqhkAlvPA9avAWR7j4PhrxsohuXoBiXyjVby6Y65tHUjFm5dkNKels8lmBoy-1M4fcuchINfa2EmxoEVi2SxdlkPJXaGHihe04VSVZD54_0XuDMuXzRK_XUPapKMICCoz1d_GMP5M?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/itversity/data-engineering-system-design-ingesting-external-apis-into-a-modern-data-warehouse-eecb715da1b2?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -2150,13 +2122,6 @@ GET /orders?cursor=cursor_abc123`}</code>
             <span>8.2 File-Based Ingestion Architecture</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">AWS Glue ETL Job, S3, PySpark -Bank Customers Dataset | by Yunus Gurguz | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/PFXGyRjNX5T2nKFQMBjzJKr1alDZ6tS6LyRgacVnYV6YaKKsStgaWSCNnlOrDCSWs1kn424ys5OXdbtPNlnrWiLA_b9tHKvqtwWBbnL07VFK_b-AdBMrT74PcShGk79lAfDW-KtOa5n-ijxWWz5r8MhCOFxrrRxQDxbufR9yjA4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40yunusgurguz11/aws-glue-etl-job-s3-pyspark-bank-customers-dataset-cc70695aff86?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -2341,13 +2306,6 @@ GET /orders?cursor=cursor_abc123`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Common cloud storage services include:</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Amazon S3 Logo PNG Vector (SVG) Free Download</span>
-            <a href="https://images.openai.com/static-rsc-4/lKxa-5KUbNNtkaZJEW_OHeJjzNDAezGUH3PnGxfAxXjvOAzpm5V_UaxaIWwuhIVqNsote193_k9A7GOWLokSquXNQAbwf6AnkOOeYCvQLipCN1mCPw-NUaGQoHrNWfS7f01T3J3yf-iqjn80ZsSXILHJ_rYlvWIk9cKZW6dkO8s?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Amazon S3</span>
@@ -2356,13 +2314,6 @@ GET /orders?cursor=cursor_abc123`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>AWS object storage</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Home - Madhu Cloud Academy</span>
-            <a href="https://images.openai.com/static-rsc-4/mTZLI2fo9429bnO_SfcoIQQ1ZlO5dFBv3umYIM-mgaj5y1QIVoiUIInWuit8pkq5Hp2tYkWhguM4KqJKxBelcxvW7T7joGVwF0J4T82D-Fr2APo0M2DAqrD2G69U584vLbB2OznJzxTSOWXGdHVaJe-Lt3KSXNEBqN6hQVCxWws?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Azure Data Lake Storage</span>
@@ -2371,13 +2322,6 @@ GET /orders?cursor=cursor_abc123`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Azure storage</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What is Google Storage Bucket? Docs, Demo and How to Deploy | Shakudo</span>
-            <a href="https://images.openai.com/static-rsc-4/ixpt4sQ78F1KBmaVlgN9mHGPJ_STDhY7RqIkKphCgILMOel_1e3W0bi85BotaSayFYYsu7ZG2vmhxC6McAQZ4kiMWOykp4v8Zg9uiREhAyEu9pEM9ipx0QPRlUA_v18-sQA6OdrwNWPHu8yfWLaXSVa1P9COIDgcFi9XtGqte58?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Google Cloud Storage</span>
@@ -2390,13 +2334,6 @@ GET /orders?cursor=cursor_abc123`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>9.2 Cloud Storage Ingestion Architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Why Traditional Data Engineering Is Dead (And What Comes Next) | by Ravish Kumar | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/c8YYYxUfXUAbY1Ap2QPHPb1tGWwHgkEw1HwG4oXYhmDxE3sNHbdBsK5UfYHHGuF4_52MDv_w7yO366GoTF1-kjC98YunZrk-8tkb_KFgbzkKwyCkGu0F2ILl1clkgPXPG3jkIkQZx0eARc_YpHg5jkYErPqmqwxKMYM_-RQGu48?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40datazen.pro/why-traditional-data-engineering-is-dead-and-what-comes-next-b17e8d1fe866?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2540,13 +2477,6 @@ GET /orders?cursor=cursor_abc123`}</code>
           10. Change Data Capture (CDC)
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">What Is Change Data Capture (CDC)? Benefits, Architecture &amp; Examples | Weld Blog</span>
-            <a href="https://images.openai.com/static-rsc-4/p3sfhG_tVFOtvraOVKhRQNfZBZs5WS3WyZTKruL5OhLD0KvRrLKincJ889WGi1n-LtXnK_EdXK1tk7VgqTSDsi5tem8V8OkU4RdgenqzrxnS8-7kYxyCVAZ03Kabgf03RvwQL_7U9yMbiM6I7_1e93yWthaPwMU7pXCVMSyOJw4?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">weld.app</span>
             <a href="https://weld.app/blog/what-is-change-data-capture?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -2857,13 +2787,6 @@ CDC event:
             <span>10.5 CDC Architecture Overview</span>
           </h3>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Implementing CDC with Debezium | Conduktor</span>
-            <a href="https://images.openai.com/static-rsc-4/rBYuKwqOToga9BRXN9qWI-888xx4RieqigyfJJtIzsQAGDoWwNhShGx_jramcmsZu6jRM4d_f31OEBfqzyI7RGUEbSDlqsnzI-zHiCZxqFLYWde8T_Gj1S2qe0cxzLZsFH95D4GUxHVMvEWxWl8fDNZNqBka9325Y1AyoMTOwKM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">conduktor.io</span>
             <a href="https://conduktor.io/glossary/implementing-cdc-with-debezium?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -3035,13 +2958,6 @@ The change event can contain:
             <span>This supports database crash recovery and other database reliability mechanisms.</span>
           </div>
           <p className="text-stone-700 leading-relaxed text-sm sm:text-base">PostgreSQL also supports logical decoding, which translates relevant WAL changes into a logical change stream that CDC consumers can understand.</p>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">The Hidden Complexity of PostgreSQL Logical Replication | by Vahid Negahdari | Jan, 2026 | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/euxa-1LJgK2uT82mtWug-Jks8pBebDCc3oA11miK9xqYxbifXXdo7XnRjpD4_AVskA6CmYFy7gmLP20SEjhw53EVMQDJyboXVK-mmsFTFO5DZcfqbT2DgaUTqHOUlhRIbhPskAund3KBRJ3jzHlXwcgCSylKwA26V4L3xXY0GGQ?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40vahidne/the-hidden-complexity-of-postgresql-logical-replication-35441a292de9?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -3892,13 +3808,6 @@ Example record:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>14.6 Kafka Consumer Groups and Offsets</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Kafka Topics, Partitions &amp; Replication Factor — A Beginner-Friendly Guide | by Rajat Gupta | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/VE515cwveGSb2TgD3iUSE75jdKHMF8x3ZrUoBIVsSgqgy4sKmMkUTd5FXd1YaoqK8yR0Y3nXqxaV8aySV0iz4elu5upIswo8dv96rt7vuS_kNKXkvUZIQ_dfsOdfJeMieTblQRuecExv1oJlneUy_cvW-Gw1USTdyuerjMXGypU?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40rajatgupta_35998/kafka-topics-partitions-replication-factor-a-beginner-friendly-guide-f1db08ded0a6?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -4903,13 +4812,6 @@ Example record:`}</code>
             <span>Instead of stopping the entire pipeline, the failed messages can be routed to a DLQ.</span>
           </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Mirth Connect Message Replay &amp; Dead Letter Queue Guide</span>
-            <a href="https://images.openai.com/static-rsc-4/cjlHH3iEGWiDtACCeKZiCC3TJafwk9Q5PU-zXq_VSSK7Jo23THfVHwr9Uc-iXXvrA4Y5I5yxL6EOCE9oi76ZMhzTECRvwXXkzFmivjUG_rIsqbhvsTq6DVAaFABtKS5PSs4SAoPxVXHKglh7prVLD5y0-7doI_ARXvAc7M0CN2k?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">nirmitee.io</span>
             <a href="https://nirmitee.io/blog/mirth-connect-message-replay-dead-letter-queue-failed-messages/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
@@ -5076,13 +4978,6 @@ Expected data type:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>20.2 Scalable Ingestion Architecture</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Data Engineering System Design: Building a CDC-Based Pipeline from OLTP to a Lakehouse | by Sarath Sagi | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/cJW4YDppML1YQu5mEBDeGTcoVA4_eDC_i39SmtnkgWYWrHbfG0q9FRdrOlwzPVA4sJ2evbfdXT2T8HkFcOKjhor6eyjA1Aj_wD7P1j36_PjlqwoQKoz_eFB8g1pDriWqeu8xbKviQUlawTOKTIjzkwTEdNrRzC_guRWh6Pth85o?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/itversity/data-engineering-system-design-building-a-cdc-based-pipeline-from-oltp-to-a-lakehouse-e705c9be7ea6?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -5432,13 +5327,6 @@ Expected data type:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>20.6 Tools Used in Modern Data Ingestion</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Running Kafka on Production. Apache Kafka is an open-source… | by Pradyumna Khawas | WorkIndia.in | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/IdgpctULbez35q_RTbMO09b-y6gGSwj0M361O82eRjmf4iacIuOlU2NJe7tJ5nG3ML_-Ramx8HPhw_f2BkJ4-7fTax9B_pG2F5mYYn7fI3Wkxu6lEMjmv6TQdRCI7p2vkYr-RROSNxhp8BCekHH4j-k8olCh620FHns5GrtDyDM?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Apache Kafka</span>
@@ -5450,13 +5338,6 @@ Expected data type:`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Official documentation</span>
             <a href="https://kafka.apache.org/documentation/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Debezium Logo PNG Vector (PDF) Free Download</span>
-            <a href="https://images.openai.com/static-rsc-4/AhQR45BW2Kb3qteh6XNqk_NwdvFNH-B-YsG1lbuAhln7tpfbFcchutxw1daqli_EVj8G6hYOnhGoAhl2Tdfaj-G4Mxe9fVSEetgdbB1CZDhYVnC69g_XTv-a_txNlypp4P0RhD_LZzdOIAQKXrMSYh9zHXUhYUoibUqu3nI7PYY?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -5476,13 +5357,6 @@ Expected data type:`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">首页 | TiDB 社区</span>
-            <a href="https://images.openai.com/static-rsc-4/l52FXMj2z_iPj1E_BucES1wr4PPdvp7InajNZ0LENV7mqDjM7VTLxXmO92DCFQhEdmA0bnPBa3SlHS4iOvczLPMFxxSQLRcXmIkm_lJ0e1FdXeG5fEcVpmDjuIrWhWNuYOEWsuzEC9YKatUYudj899776UsLpt6Gw4m0pZRc6Vc?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Apache Flink</span>
@@ -5494,13 +5368,6 @@ Expected data type:`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Official website</span>
             <a href="https://flink.apache.org/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Airflow Logo PNG Vector (SVG) Free Download</span>
-            <a href="https://images.openai.com/static-rsc-4/wmlr9q0CgACz0slILfHbyTZyciJR2tqRqq5fFVle7QJZiey2KXpbWelVUlZlL4llzTMDsghfUJwcHviSDnnayw5_sBbh_6TGNT26ja21hXxwPi0tv6OJaOnIt0fWoscxksMFW32iGnxaw3vrchxIiWJOv24PwikUkPAkvsn9CJE?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -5520,13 +5387,6 @@ Expected data type:`}</code>
               <ExternalLink size={12} />
             </a>
           </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Apache Spark Architecture Explained</span>
-            <a href="https://images.openai.com/static-rsc-4/Ld1ujnd0gwlrmHmfMddqGJT3iUmZm3HK6IK33JsUkpqhTv8T9KgDuQqOLTuuuVdIaHryf-i4yTgMcxgNT1eqiNzXq0lPnVwGV3Qy7zy0U9drLCcgu0ztvn2A0S2DVV_pyVlWV0SCrbHklN7mFoec3OGrNtDuNTCldS8RGkh3y3M?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-5 mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Apache Spark</span>
@@ -5538,13 +5398,6 @@ Expected data type:`}</code>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">Official documentation</span>
             <a href="https://spark.apache.org/docs/latest/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">DMS エラー Test connection for replication instance の解決法 | DevelopersIO</span>
-            <a href="https://images.openai.com/static-rsc-4/WAqhQa9NyPH06c-WWS1zeqY6UHPQo2--4h-zQ2deeS64tc_I9lHlVZfQ1wDdL3KvR8HiaCG9AaAjD78JvlzPAW-VVk2f5VBBIj5JzRO_9r1IRZoCh60epu_jpz-rapCFrYIxEIibJaehDZDXozwPSsBPxHbUZ4M8nBnX4nKbXkw?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
               <span>Reference Link</span>
               <ExternalLink size={12} />
             </a>
@@ -5587,13 +5440,6 @@ Expected data type:`}</code>
             <span className="w-2 h-2 rounded-full bg-[#f97316]" />
             <span>Project: MySQL to Kafka to Delta Lake</span>
           </h3>
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">Real-time CDC from SQL Server to Delta Lake using Debezium &amp; Spark Structured Streaming in Kubernetes | by OSDS | Medium</span>
-            <a href="https://images.openai.com/static-rsc-4/UR3z1QtJZlLJX-T8aUJokSTo59xkAHUQ0ggQKbkl638ZEiCIsDCweMPp3d5QBJipmogmpoeSoEyevHCETFwwRbwatov_wkk_HlZDGQilLTadlb-eyokXqwxRfiQBM7F-5o_kY2skyp6ky5TshU88-E69CTQMJ_Lkm6Pf0FRYy5A?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">medium.com</span>
             <a href="https://medium.com/%40howdyservices9/real-time-cdc-from-sql-server-to-delta-lake-using-debezium-spark-structured-streaming-in-3b9db6550d83?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
@@ -6753,13 +6599,6 @@ DELETE FROM silver_customers WHERE customer_id IN ( SELECT customer_id FROM inco
           26. Final Understanding — Module 9
         </h2>
         <div className="space-y-3">
-          <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="font-semibold text-stone-800 truncate">How to Build a Near Real-Time Data Pipeline with Debezium CDC and Kafka Connect | Talentica.com</span>
-            <a href="https://images.openai.com/static-rsc-4/3QY8I_WDW15bkj9wetHDzq0Cy2LnTwZwY_3NT6vhs5GRYcaFp3xhzeAhe4KlaNkhgYq4jFMDRmI09DdeC6pLfvMZBXXxMdF1RueSFFkaz8m-K6E0mwYeWo2FwQ1EymnIp3IfJR9pv5PC5jgfZz_417jMuXXJUNL3XFFTx8x1_M0?purpose=inline" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">
-              <span>Reference Link</span>
-              <ExternalLink size={12} />
-            </a>
-          </div>
           <div className="my-2.5 p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-semibold text-stone-800 truncate">talentica.com</span>
             <a href="https://www.talentica.com/blogs/real-time-data-pipeline-with-debezium-cdc-and-kafka-connect/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium">

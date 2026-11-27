@@ -53,19 +53,11 @@
     },
     {
       "type": "p",
-      "text": "[Software Hosting - Run Any Application | HidenCloud](https://images.openai.com/static-rsc-4/mKzcaCJP3O1QjLIvF2eqF3u0HEiJ3FLZVwFdd0kHduW77YIaPaAYtg6sh6MjNxcDK2QXsC6PaK7VoyAyoqdCv8zodVdt-AovKbP6jt1KJdztocJt-_gKxjK3DgiKGIIQ9qshqPbuHa1-hZkn6gbUM5gsZKcmBuQSfEpCpmx3NMg?purpose=inline)"
-    },
-    {
-      "type": "p",
       "text": "Java 21"
     },
     {
       "type": "p",
       "text": "Programming language and runtime platform"
-    },
-    {
-      "type": "p",
-      "text": "[INSY2S | Dev Factory](https://images.openai.com/static-rsc-4/LoU7hNSApE8qO_OQiMC3kdQObRC47VP7DUns-CW4ZwAFTlcRM6cvEQ-N1_0604RQd0OIWauLuIaE5_6aH0xNpfXiq68Irq4YNwv54WclgP_4t--d6o-4AeHExjzPnKcjUBgl8Tl9N7t2yO4BlLqbQo0FW-FRozl_WjfnZmz1WZg?purpose=inline)"
     },
     {
       "type": "p",
@@ -77,19 +69,11 @@
     },
     {
       "type": "p",
-      "text": "[Maven Logo PNG Vector (SVG) Free Download](https://images.openai.com/static-rsc-4/6_gSkGwLscFsAostKNueu_pKJzgRjMa6sN-9lovKILvH9Ab9QzepDLFQ_eVAPve3XxfSsPVm1FZZDRqo0W-rK5upB3rmspsn5CbMoQGlJb-sj2xRICDvSA7LvGrODF1hbAO8GbB-s4rAQPy4s75nApjQDC5HbD7SZpkhMFtFHbM?purpose=inline)"
-    },
-    {
-      "type": "p",
       "text": "Maven"
     },
     {
       "type": "p",
       "text": "Build and dependency management"
-    },
-    {
-      "type": "p",
-      "text": "[Testing with Go and PostgreSQL: ephemeral DBs (2024) - Michael Stapelberg](https://images.openai.com/static-rsc-4/020dIPNvTO35mCwnGysHl1CUVe1zwuUkwAL_tmxIJ9dYdNivpz_64P9oMx1aTwegA3sWkwBBw2-WVTb70KPLaJczWI4_JHku4_fwNWSwLRG5biF8KvTaYWx2CGYHSv6nVRKRO45LO01enVXfFi4J9lauFUPN1IlBr7pp3HyB8ww?purpose=inline)"
     },
     {
       "type": "p",
@@ -101,19 +85,11 @@
     },
     {
       "type": "p",
-      "text": "[GitHub - hibernate/hibernate-orm: Idiomatic persistence for Java and relational databases · GitHub](https://images.openai.com/static-rsc-4/fxs4WZXFDL6-M-alr-PAaViWwp7SnEdUpRu2UGN54Sf8MSArBQnTYjWpcrROOhLiF_fQ1t9RMpz2mXPQ1rf-0qCnrK3q7GhtArL_cNL_oJe4Iv_cXN2QYD0zS9MPAYjKDN3tRywzUq5TSNR-gBKSQVkbqo-RaK4-TZwnM7NoWMg?purpose=inline)"
-    },
-    {
-      "type": "p",
       "text": "Spring Data JPA"
     },
     {
       "type": "p",
       "text": "Database persistence abstraction"
-    },
-    {
-      "type": "p",
-      "text": "[JUnit](https://images.openai.com/static-rsc-4/0DRF3XmKeGmupqgQp1Bmh01FOqnKMjRtpGok13k8VgO8n7_0HI266ywfd-Z1yQo2gqqjMbxxkWSMBi442jEKDSAPFvuz99NZlqmJw37RrpqnmIHs0ukpzbVA8LHDlMlYjYzYKwP6hpBy0gT1BMlRzTCDr8X0SKf9OV1WTa7NuXw?purpose=inline)"
     },
     {
       "type": "p",
@@ -937,10 +913,6 @@
         {
           "type": "p",
           "text": "The recommended starting point is Spring Initializr."
-        },
-        {
-          "type": "p",
-          "text": "[Create and Initialize a new Spring Boot project with Spring Initializr](https://images.openai.com/static-rsc-4/M8a7p89ab5wjBmJVoT_Jh4b7HTqOuYfSsjym-CheRrGbUAVf4BJcqfUZFnaUYM0bjosD_usDzoToaVKBqinP75Z_qdHRSZZ9KRNXa6BnYlpoDBGunHqLRqTSAU96ZZf1lsepiWy0t0ImosuSxduP5oqcEehs8uHLEkgJ_VSttbg?purpose=inline)"
         },
         {
           "type": "p",
