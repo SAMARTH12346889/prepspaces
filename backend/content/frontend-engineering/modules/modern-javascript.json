@@ -1,0 +1,130 @@
+{
+  "id": "modern-javascript",
+  "courseId": "frontend-engineering",
+  "index": 5,
+  "name": "5. Modern JavaScript for Web Applications",
+  "route": "/learning/frontend-engineering/modern-javascript",
+  "componentName": "FrontendModernJs",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "In the browser event loop, what order will `console.log('Start')`, `setTimeout(..., 0)`, `Promise.resolve().then(...)`, and `console.log('End')` log?",
+      "options": [
+        "Start -> Timer -> Promise -> End",
+        "Start -> End -> Promise -> Timer",
+        "Start -> End -> Timer -> Promise",
+        "Promise -> Start -> End -> Timer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Synchronous code runs first (Start, End), then pending microtasks (Promise) run before the next macrotask/timer callback."
+    },
+    {
+      "id": 2,
+      "question": "Why does `const student = { name: 'Alex' }; student.name = 'Sam';` succeed, while `student = {}` throws an error?",
+      "options": [
+        "`const` prevents reassigning the variable binding, not mutating properties of the referenced object",
+        "`const` only applies to numbers and strings",
+        "`const` makes all nested properties deeply frozen",
+        "Objects cannot be reassigned in JavaScript"
+      ],
+      "correctIndex": 0,
+      "explanation": "`const` locks the binding reference; object mutation requires `Object.freeze()` or immutable patterns."
+    },
+    {
+      "id": 3,
+      "question": "What is the key difference between the nullish coalescing operator (`??`) and logical OR (`||`)?",
+      "options": [
+        "`??` falls back only for `null` and `undefined`, whereas `||` falls back for all falsy values (`0`, `false`, `\"\"`, `NaN`, `null`, `undefined`)",
+        "`||` only works with numbers",
+        "`??` converts strings to numbers",
+        "They are identical"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nullish coalescing preserves valid falsy values like `0`, `false`, and empty strings `\"\"`."
+    },
+    {
+      "id": 4,
+      "question": "What is a JavaScript closure?",
+      "options": [
+        "A syntax error caused by a missing brace",
+        "A function that retains access to its surrounding lexical environment even after the outer function has finished executing",
+        "A method for closing browser tabs",
+        "A type of `for...in` loop"
+      ],
+      "correctIndex": 1,
+      "explanation": "Closures enable private state, function factories, memoization, and event-handler encapsulation."
+    },
+    {
+      "id": 5,
+      "question": "Why is `fetch('/api/courses')` followed by `if (!response.ok) throw new Error(...)` important?",
+      "options": [
+        "`fetch()` rejects automatically on 404 and 500 responses",
+        "`fetch()` only rejects on network/abort failures; HTTP 404 or 500 responses still resolve with `response.ok === false`",
+        "`response.json()` throws before checking headers",
+        "`async/await` disables `try...catch`"
+      ],
+      "correctIndex": 1,
+      "explanation": "Always inspect `response.ok` or `response.status` because HTTP error status codes do not reject a `fetch()` Promise."
+    },
+    {
+      "id": 6,
+      "question": "Why should you prefer `element.textContent` over `element.innerHTML` when rendering untrusted user input?",
+      "options": [
+        "`textContent` treats the value as plain text rather than parsing HTML, preventing Cross-Site Scripting (XSS)",
+        "`innerHTML` cannot render strings",
+        "`textContent` automatically calls `JSON.parse()`",
+        "`innerHTML` only works on `<button>` elements"
+      ],
+      "correctIndex": 0,
+      "explanation": "Inserting untrusted strings into `innerHTML` can execute injected scripts (XSS); `textContent` safely escapes text."
+    },
+    {
+      "id": 7,
+      "question": "In event delegation, what is the difference between `event.target` and `event.currentTarget`?",
+      "options": [
+        "`event.target` is the element where the event originated, while `event.currentTarget` is the ancestor element whose listener is currently executing",
+        "`event.currentTarget` is always `window`",
+        "They are always identical",
+        "`event.target` only works during the capturing phase"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using `event.target.closest(...)` inside a persistent ancestor's listener lets one handler manage dynamic child elements."
+    },
+    {
+      "id": 8,
+      "question": "What is the difference between `Array.prototype.slice()` and `Array.prototype.splice()`?",
+      "options": [
+        "`slice()` returns a shallow copy of a portion without mutating the original array; `splice()` mutates the original array in place",
+        "`splice()` is immutable; `slice()` mutates",
+        "`slice()` only works on strings",
+        "Both mutate the original array"
+      ],
+      "correctIndex": 0,
+      "explanation": "`slice()` is non-mutating, whereas `splice()` inserts, replaces, or removes elements directly in the original array."
+    },
+    {
+      "id": 9,
+      "question": "How do `WeakMap` and `WeakSet` differ from `Map` and `Set` regarding garbage collection?",
+      "options": [
+        "They hold weak references to object keys/values so those objects can still be garbage-collected when no other references remain",
+        "They store data in `localStorage` automatically",
+        "They are faster versions of `JSON.stringify`",
+        "They prevent all garbage collection"
+      ],
+      "correctIndex": 0,
+      "explanation": "Weak references allow metadata to be attached to DOM nodes or objects without causing memory leaks."
+    },
+    {
+      "id": 10,
+      "question": "When should you use `debounce` vs. `throttle`?",
+      "options": [
+        "Debounce runs after a period of inactivity (ideal for search inputs); throttle limits execution to at most once per interval (ideal for scroll/resize handlers)",
+        "Throttle waits until the user stops scrolling completely; debounce fires on every pixel",
+        "Both block the main thread synchronously",
+        "Debounce is only for `Promise.all`"
+      ],
+      "correctIndex": 0,
+      "explanation": "Debouncing groups rapid bursts into one trailing call; throttling caps execution frequency during continuous events."
+    }
+  ]
+}

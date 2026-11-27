@@ -293,6 +293,7 @@ export const FRONTEND_ENGINEERING_MODULES = [
   { id: "semantic-html", name: "2. Semantic HTML and Modern Document Engineering", route: "/learning/frontend-engineering/semantic-html" },
   { id: "css-engineering-layout", name: "3. CSS Engineering and Modern Layout Systems", route: "/learning/frontend-engineering/css-engineering-layout" },
   { id: "responsive-accessibility-ui", name: "4. Responsive Design, Accessibility and UI Engineering", route: "/learning/frontend-engineering/responsive-accessibility-ui" },
+  { id: "modern-javascript", name: "5. Modern JavaScript for Web Applications", route: "/learning/frontend-engineering/modern-javascript" },
 ];
 
 export default function ModuleNav({

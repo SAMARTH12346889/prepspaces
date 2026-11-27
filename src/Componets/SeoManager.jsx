@@ -331,6 +331,18 @@ const routeMeta = {
     keywords: "Responsive Design, Mobile-First, Container Queries, WCAG 2.2, Keyboard Accessibility, ARIA, Design Systems, Design Tokens, Reusable UI Components, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/responsive-accessibility-ui`,
   },
+  "/learning/frontend-engineering/modern-javascript": {
+    title: "Module 05: Modern JavaScript for Web Applications | PrepSpaces",
+    description: "Master JavaScript engines, event loop, closures, arrays/objects/ES modules, DOM manipulation, event delegation, error handling, OOP & functional patterns, memory management, and vanilla JS apps.",
+    keywords: "Modern JavaScript, ECMAScript, Event Loop, Closures, DOM Manipulation, Event Delegation, ES Modules, Functional Programming, Memory Management, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/modern-javascript`,
+  },
+  "/courses/frontend-engineering/modern-javascript": {
+    title: "Module 05: Modern JavaScript for Web Applications | PrepSpaces",
+    description: "Master JavaScript engines, event loop, closures, arrays/objects/ES modules, DOM manipulation, event delegation, error handling, OOP & functional patterns, memory management, and vanilla JS apps.",
+    keywords: "Modern JavaScript, ECMAScript, Event Loop, Closures, DOM Manipulation, Event Delegation, ES Modules, Functional Programming, Memory Management, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/modern-javascript`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",
