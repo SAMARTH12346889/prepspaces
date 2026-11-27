@@ -1,0 +1,166 @@
+{
+  "generatedAt": "2026-11-27T13:41:46.792Z",
+  "totals": {
+    "courses": 12,
+    "modules": 241,
+    "lessonsScanned": 241,
+    "conceptCategories": 13,
+    "uniqueConcepts": 72,
+    "totalConceptHubAndDetailUrls": 86
+  },
+  "courses": [
+    {
+      "id": "ai-engineering",
+      "title": "AI Engineering & Generative AI",
+      "moduleCount": 24,
+      "lessonCount": 24
+    },
+    {
+      "id": "operating-systems",
+      "title": "Operating Systems Masterclass",
+      "moduleCount": 24,
+      "lessonCount": 24
+    },
+    {
+      "id": "computer-networks",
+      "title": "Computer Networks Masterclass",
+      "moduleCount": 24,
+      "lessonCount": 24
+    },
+    {
+      "id": "cybersecurity",
+      "title": "Cybersecurity Masterclass",
+      "moduleCount": 24,
+      "lessonCount": 24
+    },
+    {
+      "id": "system-design",
+      "title": "System Design Masterclass",
+      "moduleCount": 24,
+      "lessonCount": 24
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud Computing Track",
+      "moduleCount": 13,
+      "lessonCount": 13
+    },
+    {
+      "id": "devops",
+      "title": "DevOps & SRE Track",
+      "moduleCount": 12,
+      "lessonCount": 12
+    },
+    {
+      "id": "blockchain",
+      "title": "Blockchain Technology & Decentralized Systems",
+      "moduleCount": 24,
+      "lessonCount": 24
+    },
+    {
+      "id": "data-engineering",
+      "title": "Data Engineering Master Course",
+      "moduleCount": 23,
+      "lessonCount": 23
+    },
+    {
+      "id": "machine-learning",
+      "title": "Machine Learning Master Course",
+      "moduleCount": 24,
+      "lessonCount": 24
+    },
+    {
+      "id": "backend-engineering",
+      "title": "Backend Engineering Master Course",
+      "moduleCount": 11,
+      "lessonCount": 11
+    },
+    {
+      "id": "frontend-engineering",
+      "title": "Frontend Engineering Master Course",
+      "moduleCount": 14,
+      "lessonCount": 14
+    }
+  ],
+  "conceptCategories": [
+    {
+      "id": "java",
+      "title": "Java & JVM Internals",
+      "companionCourse": "/learning/os",
+      "conceptCount": 5
+    },
+    {
+      "id": "os",
+      "title": "Operating Systems Concepts",
+      "companionCourse": "/learning/os",
+      "conceptCount": 5
+    },
+    {
+      "id": "networks",
+      "title": "Computer Networks Concepts",
+      "companionCourse": "/learning/networks",
+      "conceptCount": 5
+    },
+    {
+      "id": "cybersecurity",
+      "title": "Cybersecurity Concepts",
+      "companionCourse": "/learning/cybersecurity",
+      "conceptCount": 5
+    },
+    {
+      "id": "ai",
+      "title": "AI Engineering & LLM Concepts",
+      "companionCourse": "/learning/ai",
+      "conceptCount": 5
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud Computing Concepts",
+      "companionCourse": "/learning/cloud",
+      "conceptCount": 5
+    },
+    {
+      "id": "devops",
+      "title": "DevOps & SRE Concepts",
+      "companionCourse": "/learning/devops/linux",
+      "conceptCount": 5
+    },
+    {
+      "id": "system-design",
+      "title": "System Design Concepts",
+      "companionCourse": "/learning/system-design",
+      "conceptCount": 5
+    },
+    {
+      "id": "frontend",
+      "title": "Modern Web & Frontend Engineering",
+      "companionCourse": "/learning/frontend-engineering",
+      "conceptCount": 10
+    },
+    {
+      "id": "backend",
+      "title": "Backend Engineering & APIs",
+      "companionCourse": "/learning/backend-engineering",
+      "conceptCount": 6
+    },
+    {
+      "id": "data-engineering",
+      "title": "Data Engineering & Pipelines",
+      "companionCourse": "/learning/data-engineering",
+      "conceptCount": 6
+    },
+    {
+      "id": "machine-learning",
+      "title": "Machine Learning & Modeling",
+      "companionCourse": "/learning/machine-learning",
+      "conceptCount": 5
+    },
+    {
+      "id": "blockchain",
+      "title": "Blockchain & Web3 Engineering",
+      "companionCourse": "/learning/blockchain",
+      "conceptCount": 5
+    }
+  ],
+  "validationErrors": []
+}

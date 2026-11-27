@@ -6,6 +6,9 @@ import { CONCEPTS_JAVA_OS } from "./concepts/conceptsJavaOs.js";
 import { CONCEPTS_NET_SEC } from "./concepts/conceptsNetSec.js";
 import { CONCEPTS_AI_CLOUD } from "./concepts/conceptsAiCloud.js";
 import { CONCEPTS_DEVOPS_SYSDESIGN } from "./concepts/conceptsDevopsSysDesign.js";
+import { CONCEPTS_FRONTEND } from "./concepts/conceptsFrontend.js";
+import { CONCEPTS_BACKEND_DATA } from "./concepts/conceptsBackendData.js";
+import { CONCEPTS_ML_BLOCKCHAIN } from "./concepts/conceptsMlBlockchain.js";
 
 export const CONCEPT_CATEGORIES = [
   {
@@ -112,6 +115,71 @@ export const CONCEPT_CATEGORIES = [
       "Internalize horizontal partitioning, replication quorums, distributed consensus, caching stampede protection, and traffic shaping for scale.",
     companionCourse: { title: "System Design Masterclass (24 Modules)", route: "/learning/system-design" },
   },
+  {
+    id: "frontend",
+    route: "/concepts/frontend",
+    title: "Modern Web & Frontend Engineering",
+    shortTitle: "Frontend",
+    metaTitle: "Frontend Engineering Concepts — React, Next.js, TypeScript & Web Vitals | PrepSpaces",
+    description:
+      "Master the critical rendering path, semantic HTML accessibility, CSS Flexbox & Grid, JavaScript closures, TypeScript, React hooks, TanStack Query, Next.js App Router, and Core Web Vitals.",
+    keywords: "Frontend engineering concepts, Critical Rendering Path, React reconciliation, TypeScript, Next.js App Router, Core Web Vitals, TanStack Query",
+    overview:
+      "Deep-dive web platform and React architecture concepts covering browser rendering, type safety, state management, and production performance.",
+    companionCourse: { title: "Modern Web & Frontend Engineering (14 Modules)", route: "/learning/frontend-engineering" },
+  },
+  {
+    id: "backend",
+    route: "/concepts/backend",
+    title: "Backend Engineering & APIs",
+    shortTitle: "Backend",
+    metaTitle: "Backend Engineering Concepts — REST APIs, ACID Indexing, Redis & OpenTelemetry | PrepSpaces",
+    description:
+      "Design production REST APIs, clean layered MVC architectures, ACID database indexing, Redis caching patterns, rate limiting resilience, and OpenTelemetry observability.",
+    keywords: "Backend engineering concepts, REST API design, Clean Architecture, ACID transactions, B-Tree indexing, Redis caching, OpenTelemetry",
+    overview:
+      "Production server engineering concepts covering HTTP semantics, database internals, caching strategies, resilience patterns, and distributed tracing.",
+    companionCourse: { title: "Backend Engineering (10 Modules)", route: "/learning/backend-engineering" },
+  },
+  {
+    id: "data-engineering",
+    route: "/concepts/data-engineering",
+    title: "Data Engineering & Pipelines",
+    shortTitle: "Data Eng",
+    metaTitle: "Data Engineering Concepts — Kafka, Spark, Lakehouse, Airflow & dbt | PrepSpaces",
+    description:
+      "Build scalable ETL/ELT pipelines, Apache Kafka event streams, Apache Spark distributed jobs, dimensional star schemas, open Lakehouse tables, and Airflow + dbt orchestration.",
+    keywords: "Data engineering concepts, ETL vs ELT, Apache Kafka, Apache Spark, dimensional modeling, Data Lakehouse, Apache Airflow, dbt",
+    overview:
+      "Modern batch and streaming data platform fundamentals from event ingestion and distributed compute to warehouse modeling and orchestration.",
+    companionCourse: { title: "Data Engineering (15 Modules)", route: "/learning/data-engineering" },
+  },
+  {
+    id: "machine-learning",
+    route: "/concepts/machine-learning",
+    title: "Machine Learning & Modeling",
+    shortTitle: "ML",
+    metaTitle: "Machine Learning Concepts — Regression, Regularization, XGBoost & Pipelines | PrepSpaces",
+    description:
+      "Understand linear regression, Ridge/Lasso regularization, classification precision-recall/ROC-AUC metrics, gradient-boosted trees, and leak-free Scikit-Learn pipelines.",
+    keywords: "Machine learning concepts, linear regression, Ridge Lasso regularization, precision recall ROC AUC, gradient boosted trees, Scikit-Learn pipelines",
+    overview:
+      "Core supervised learning algorithms, bias-variance tradeoffs, evaluation metrics, and leakage-free production ML workflows.",
+    companionCourse: { title: "Machine Learning (14 Modules)", route: "/learning/machine-learning" },
+  },
+  {
+    id: "blockchain",
+    route: "/concepts/blockchain",
+    title: "Blockchain & Web3 Engineering",
+    shortTitle: "Blockchain",
+    metaTitle: "Blockchain & Web3 Concepts — Consensus, EVM Gas, Solidity & Rollups | PrepSpaces",
+    description:
+      "Learn consensus mechanisms (PoW vs PoS), Ethereum EVM gas mechanics, Solidity smart contract security, Layer 2 rollups, and DeFi AMM & oracle architectures.",
+    keywords: "Blockchain concepts, Proof of Work vs Proof of Stake, Ethereum EVM gas, Solidity security, Layer 2 rollups, DeFi AMM oracles",
+    overview:
+      "Decentralized protocol internals spanning consensus, EVM execution, smart contract security, Layer 2 scaling, and DeFi primitives.",
+    companionCourse: { title: "Blockchain Development (14 Modules)", route: "/learning/blockchain" },
+  },
 ];
 
 export const ALL_CONCEPTS = [
@@ -119,6 +187,9 @@ export const ALL_CONCEPTS = [
   ...CONCEPTS_NET_SEC,
   ...CONCEPTS_AI_CLOUD,
   ...CONCEPTS_DEVOPS_SYSDESIGN,
+  ...CONCEPTS_FRONTEND,
+  ...CONCEPTS_BACKEND_DATA,
+  ...CONCEPTS_ML_BLOCKCHAIN,
 ].map((c) => ({
   ...c,
   route: `/concepts/${c.category}/${c.slug}`,

@@ -14,7 +14,9 @@ import {
   ShieldCheck,
   Award,
   X,
+  BookOpen,
 } from "lucide-react";
+import { ALL_CONCEPTS } from "../data/conceptsIndex";
 import { getLocalProgress, PROGRESS_UPDATED_EVENT } from "../services/progressService";
 import {
   getCourseAccess,
@@ -375,6 +377,41 @@ export default function ModuleNav({
     frontend: "frontend-engineering",
   };
   const resolvedCourseId = courseIdMap[track] || track;
+
+  const conceptCategoryMap = {
+    os: "os",
+    networks: "networks",
+    cybersecurity: "cybersecurity",
+    "system-design": "system-design",
+    cloud: "cloud",
+    devops: "devops",
+    ai: "ai",
+    "ai-engineering": "ai",
+    blockchain: "blockchain",
+    "data-engineering": "data-engineering",
+    "machine-learning": "machine-learning",
+    ml: "machine-learning",
+    "backend-engineering": "backend",
+    backend: "backend",
+    "frontend-engineering": "frontend",
+    frontend: "frontend",
+  };
+  const conceptCategoryId = conceptCategoryMap[track];
+
+  const relatedConceptLinks = useMemo(() => {
+    if (!conceptCategoryId) return [];
+    const currentPath = (location?.pathname || "").replace(/\/+$/, "").toLowerCase();
+    const directMatches = ALL_CONCEPTS.filter((c) =>
+      (c.relatedModules || []).some((m) => {
+        const modRoute = (m.route || "").replace(/\/+$/, "").toLowerCase();
+        return modRoute && currentPath && (currentPath === modRoute || currentPath.endsWith(`/${currentModuleId}`.toLowerCase()) && modRoute.endsWith(`/${currentModuleId}`.toLowerCase()));
+      })
+    );
+    if (directMatches.length > 0) {
+      return directMatches.slice(0, 4);
+    }
+    return ALL_CONCEPTS.filter((c) => c.category === conceptCategoryId).slice(0, 4);
+  }, [conceptCategoryId, location?.pathname, currentModuleId]);
 
   const getModulesForTrack = useCallback((t) => {
     switch (t) {
@@ -846,6 +883,33 @@ export default function ModuleNav({
           <ChevronRight size={16} />
         </button>
       </div>
+
+      {relatedConceptLinks.length > 0 && (
+        <div className="mt-2 flex flex-wrap items-center gap-1.5 px-1 text-[11px] text-stone-600">
+          <span className="inline-flex items-center gap-1 font-semibold uppercase tracking-wider text-stone-500 mr-1">
+            <BookOpen size={12} className="text-[#f97316]" />
+            <span>Concept Deep Dives:</span>
+          </span>
+          {relatedConceptLinks.map((concept) => (
+            <Link
+              key={concept.route}
+              to={concept.route}
+              className="inline-flex items-center rounded-lg border border-[#e7e3da] bg-white/90 px-2.5 py-1 font-medium text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition"
+            >
+              {concept.title}
+            </Link>
+          ))}
+          {conceptCategoryId && (
+            <Link
+              to={`/concepts/${conceptCategoryId}`}
+              className="inline-flex items-center gap-0.5 rounded-lg px-2 py-1 font-semibold text-[#f97316] hover:underline"
+            >
+              <span>All {conceptCategoryId.replace("-", " ")} concepts</span>
+              <ArrowRight size={11} />
+            </Link>
+          )}
+        </div>
+      )}
 
       </div>
   );

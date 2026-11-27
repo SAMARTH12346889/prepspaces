@@ -75,8 +75,8 @@ for (const file of htmlFiles) {
   }
 }
 
-check("Prerendered HTML bundle contains 286 pages (237 core/course + 49 Concept Library)", () => {
-  assert.strictEqual(htmlFiles.length, 286);
+check("Prerendered HTML bundle contains 350 pages (264 core/course + 86 Concept Library)", () => {
+  assert.strictEqual(htmlFiles.length, 350);
 });
 
 check("Every HTML file has valid JSON-LD syntax", () => {
@@ -154,14 +154,14 @@ check("Utility routes (/login, /register, /dashboard, /interview) are noindex an
   assert.ok(!intHtml.includes("Coming soon"), "/interview prerender must not claim Coming soon");
 });
 
-check("Concept Library hub, 8 category hubs, and 40 concept lessons emit valid crawlable HTML & Article schemas", () => {
+check("Concept Library hub, 13 category hubs, and 72 concept lessons emit valid crawlable HTML & Article schemas", () => {
   const hubHtml = fs.readFileSync(path.join(distDir, "concepts.html"), "utf8");
   const hubSchemas = [...hubHtml.matchAll(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) =>
     JSON.parse(m[1])
   );
   const coll = hubSchemas.find((s) => s["@type"] === "CollectionPage");
   assert.ok(coll);
-  assert.strictEqual(coll.mainEntity.itemListElement.length, 8);
+  assert.strictEqual(coll.mainEntity.itemListElement.length, 13);
 
   let checkedConcepts = 0;
   for (const catItem of coll.mainEntity.itemListElement) {
@@ -172,7 +172,7 @@ check("Concept Library hub, 8 category hubs, and 40 concept lessons emit valid c
     );
     const catColl = catSchemas.find((s) => s["@type"] === "CollectionPage");
     assert.ok(catColl, `Missing CollectionPage schema on ${catFile}`);
-    assert.strictEqual(catColl.mainEntity.itemListElement.length, 5, `Expected 5 concepts on ${catFile}`);
+    assert.ok(catColl.mainEntity.itemListElement.length >= 5, `Expected >= 5 concepts on ${catFile}`);
 
     for (const cItem of catColl.mainEntity.itemListElement) {
       const cFile = cItem.url.replace("https://prepspaces.com/", "") + ".html";
@@ -189,13 +189,13 @@ check("Concept Library hub, 8 category hubs, and 40 concept lessons emit valid c
       checkedConcepts++;
     }
   }
-  assert.strictEqual(checkedConcepts, 40);
+  assert.strictEqual(checkedConcepts, 72);
 });
 
-check("sitemap.xml URLs match existing dist files, contain zero noindex/dead/dupes, and include 282 URLs", () => {
+check("sitemap.xml URLs match existing dist files, contain zero noindex/dead/dupes, and include 346 URLs", () => {
   const sm = fs.readFileSync(path.join(distDir, "sitemap.xml"), "utf8");
   const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  assert.strictEqual(locs.length, 282);
+  assert.strictEqual(locs.length, 346);
   assert.strictEqual(new Set(locs).size, locs.length);
   assert.ok(locs.includes("https://prepspaces.com/ai-interview"));
   assert.ok(locs.includes("https://prepspaces.com/about"));
@@ -205,6 +205,11 @@ check("sitemap.xml URLs match existing dist files, contain zero noindex/dead/dup
   assert.ok(locs.includes("https://prepspaces.com/concepts/ai/rag"));
   assert.ok(locs.includes("https://prepspaces.com/concepts/networks/tcp-vs-udp"));
   assert.ok(locs.includes("https://prepspaces.com/concepts/cybersecurity/sql-injection"));
+  assert.ok(locs.includes("https://prepspaces.com/concepts/frontend/react-reconciliation-hooks"));
+  assert.ok(locs.includes("https://prepspaces.com/concepts/backend/rest-api-design"));
+  assert.ok(locs.includes("https://prepspaces.com/concepts/data-engineering/apache-kafka"));
+  assert.ok(locs.includes("https://prepspaces.com/concepts/machine-learning/linear-regression"));
+  assert.ok(locs.includes("https://prepspaces.com/concepts/blockchain/ethereum-evm-gas"));
   assert.ok(!locs.some((u) => u.includes("/learning/java") || u.includes("/courses/java")), "Dead /java course URLs leaked into sitemap");
   assert.ok(!locs.some((u) => u.endsWith("/login") || u.endsWith("/dashboard") || u.endsWith("/interview")), "Utility noindex routes leaked into sitemap");
 
