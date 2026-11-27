@@ -292,6 +292,7 @@ export const FRONTEND_ENGINEERING_MODULES = [
   { id: "web-architecture-foundations", name: "1. Web Architecture and Frontend Engineering Foundations", route: "/learning/frontend-engineering" },
   { id: "semantic-html", name: "2. Semantic HTML and Modern Document Engineering", route: "/learning/frontend-engineering/semantic-html" },
   { id: "css-engineering-layout", name: "3. CSS Engineering and Modern Layout Systems", route: "/learning/frontend-engineering/css-engineering-layout" },
+  { id: "responsive-accessibility-ui", name: "4. Responsive Design, Accessibility and UI Engineering", route: "/learning/frontend-engineering/responsive-accessibility-ui" },
 ];
 
 export default function ModuleNav({

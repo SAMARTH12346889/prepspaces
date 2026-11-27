@@ -31,5 +31,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "responsive-accessibility-ui",
+    "courseId": "frontend-engineering",
+    "index": 4,
+    "name": "4. Responsive Design, Accessibility and UI Engineering",
+    "route": "/learning/frontend-engineering/responsive-accessibility-ui",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

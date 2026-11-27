@@ -319,6 +319,18 @@ const routeMeta = {
     keywords: "CSS3 Engineering, Flexbox, CSS Grid, Cascade Layers, Box Model, Stacking Context, Container Queries, Design Tokens, CSS Modules, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/css-engineering-layout`,
   },
+  "/learning/frontend-engineering/responsive-accessibility-ui": {
+    title: "Module 04: Responsive Design, Accessibility and UI Engineering | PrepSpaces",
+    description: "Engineer mobile-first & adaptive interfaces, media & container queries, WCAG 2.2 accessibility, keyboard focus management, ARIA patterns, design tokens, and reusable UI components.",
+    keywords: "Responsive Design, Mobile-First, Container Queries, WCAG 2.2, Keyboard Accessibility, ARIA, Design Systems, Design Tokens, Reusable UI Components, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/responsive-accessibility-ui`,
+  },
+  "/courses/frontend-engineering/responsive-accessibility-ui": {
+    title: "Module 04: Responsive Design, Accessibility and UI Engineering | PrepSpaces",
+    description: "Engineer mobile-first & adaptive interfaces, media & container queries, WCAG 2.2 accessibility, keyboard focus management, ARIA patterns, design tokens, and reusable UI components.",
+    keywords: "Responsive Design, Mobile-First, Container Queries, WCAG 2.2, Keyboard Accessibility, ARIA, Design Systems, Design Tokens, Reusable UI Components, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/responsive-accessibility-ui`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

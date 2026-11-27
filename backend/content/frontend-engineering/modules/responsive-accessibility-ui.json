@@ -1,0 +1,130 @@
+{
+  "id": "responsive-accessibility-ui",
+  "courseId": "frontend-engineering",
+  "index": 4,
+  "name": "4. Responsive Design, Accessibility and UI Engineering",
+  "route": "/learning/frontend-engineering/responsive-accessibility-ui",
+  "componentName": "FrontendResponsiveUi",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "How should responsive breakpoints be chosen in a modern frontend interface?",
+      "options": [
+        "Only using fixed device widths like 320px and 768px regardless of content",
+        "Based on where the actual content and layout stop working comfortably (content-driven breakpoints)",
+        "By hiding navigation links on mobile without an accessible alternative",
+        "By setting fixed pixel widths on every container"
+      ],
+      "correctIndex": 1,
+      "explanation": "Content-driven breakpoints adapt the layout whenever the actual content requires more or less room."
+    },
+    {
+      "id": 2,
+      "question": "What is the WCAG 2.2 Level AA minimum contrast ratio for normal text vs. large text and non-text UI components?",
+      "options": [
+        "2:1 for normal text; 1.5:1 for large text",
+        "4.5:1 for normal text; 3:1 for large text and relevant UI components/graphical objects",
+        "7:1 for all elements",
+        "Contrast ratios only apply to dark mode"
+      ],
+      "correctIndex": 1,
+      "explanation": "WCAG 2.2 Level AA requires 4.5:1 for normal text and 3:1 for large text and relevant non-text UI components."
+    },
+    {
+      "id": 3,
+      "question": "Under WCAG 2.2, what are the Target Size minimums for Level AA vs. Level AAA?",
+      "options": [
+        "12x12px for AA; 24x24px for AAA",
+        "24x24 CSS pixels for Level AA (with defined exceptions); 44x44 CSS pixels for enhanced Level AAA",
+        "44x44px is forbidden in Level AA",
+        "Target size only applies to desktop mouse pointers"
+      ],
+      "correctIndex": 1,
+      "explanation": "WCAG 2.2 Level AA specifies 24x24 CSS px minimum target size (with exceptions), while 44x44 CSS px is the enhanced Level AAA criterion."
+    },
+    {
+      "id": 4,
+      "question": "Why is `@media (hover: hover) and (pointer: fine)` useful, and why should hover never be the ONLY way to reveal an action?",
+      "options": [
+        "Because touch devices may lack hover and keyboard users need explicit interactive controls such as buttons",
+        "Because CSS animations disable hover on desktop",
+        "Because hover disables `aria-expanded`",
+        "Because fine pointers cannot click buttons"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hover is an enhancement for fine-pointer devices; essential actions must remain reachable via explicit touch and keyboard controls."
+    },
+    {
+      "id": 5,
+      "question": "How does a CSS Container Query (`@container`) solve a problem that a viewport `@media` query cannot?",
+      "options": [
+        "It lets a reusable component adapt to the size of its own parent container (e.g., narrow sidebar vs. wide main column) regardless of viewport width",
+        "It replaces the need for HTML semantic tags",
+        "It forces `100vh` on mobile",
+        "It bypasses WCAG reflow rules"
+      ],
+      "correctIndex": 0,
+      "explanation": "Container queries respond to the inline size of a component's query container rather than the entire browser viewport."
+    },
+    {
+      "id": 6,
+      "question": "What is the difference between `tabindex=\"0\"`, `tabindex=\"-1\"`, and positive `tabindex` values?",
+      "options": [
+        "`0` puts an element in sequential Tab order; `-1` allows programmatic focus only; positive values create an artificial order and should be avoided",
+        "`-1` makes an element permanently invisible",
+        "Positive `tabindex` is required on every `<button>`",
+        "`0` disables keyboard focus"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sequential Tab order should follow logical DOM order (`0` when needed on custom widgets, `-1` for programmatic focus targets like headings/dialogs)."
+    },
+    {
+      "id": 7,
+      "question": "What should happen when a modal `<dialog>` opens and then closes?",
+      "options": [
+        "Focus stays on the background page while the dialog is open",
+        "Focus moves into the dialog, background content is inert/non-interactable, Escape dismisses where appropriate, and focus returns to the triggering control on close",
+        "The page reloads automatically",
+        "All buttons inside the dialog get `aria-hidden=\"true\"`"
+      ],
+      "correctIndex": 1,
+      "explanation": "Accessible modals manage focus entry, prevent background interaction, support Escape, and restore focus to the opener."
+    },
+    {
+      "id": 8,
+      "question": "What is the difference between primitive, semantic, and component design tokens?",
+      "options": [
+        "Primitive tokens hold raw values (`--orange-500`), semantic tokens express purpose (`--color-action-primary`), and component tokens bind to specific UI parts (`--button-primary-background`)",
+        "Semantic tokens are only for JavaScript",
+        "Primitive tokens cannot use CSS custom properties",
+        "Component tokens disable dark mode"
+      ],
+      "correctIndex": 0,
+      "explanation": "Layering primitive -> semantic -> component tokens keeps themes and design updates centralized and maintainable."
+    },
+    {
+      "id": 9,
+      "question": "Why should a disabled button use the native `disabled` attribute rather than only changing its CSS opacity?",
+      "options": [
+        "Changing CSS opacity alone does not prevent keyboard or click activation; the native `disabled` attribute enforces the disabled state in logic and semantics",
+        "CSS opacity is unsupported in modern browsers",
+        "Native `disabled` turns a button into an `<a>` link",
+        "Opacity triggers `aria-live=\"polite\"`"
+      ],
+      "correctIndex": 0,
+      "explanation": "Component state must be enforced in markup/logic, not visually faked with CSS alone."
+    },
+    {
+      "id": 10,
+      "question": "Why should `aria-hidden=\"true\"` NEVER be placed on an element that contains focusable interactive controls?",
+      "options": [
+        "It hides the element from the accessibility tree while keyboard users can still focus it, creating a confusing silent focus state",
+        "It deletes the element from the DOM",
+        "It forces `display: grid`",
+        "It breaks `clamp()` typography"
+      ],
+      "correctIndex": 0,
+      "explanation": "`aria-hidden=\"true\"` should only hide purely decorative content (such as decorative SVG icons), never focusable controls."
+    }
+  ]
+}
