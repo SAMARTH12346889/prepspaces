@@ -288,6 +288,10 @@ export const BACKEND_ENGINEERING_MODULES = [
   { id: "capstone-project", name: "11. Capstone: Production-Ready Learning Platform API", route: "/learning/backend-engineering/capstone-project" },
 ];
 
+export const FRONTEND_ENGINEERING_MODULES = [
+  { id: "web-architecture-foundations", name: "1. Web Architecture and Frontend Engineering Foundations", route: "/learning/frontend-engineering" },
+];
+
 export default function ModuleNav({
   track: propTrack,
   trackId,
@@ -379,6 +383,9 @@ export default function ModuleNav({
       case "backend-engineering":
       case "backend":
         return BACKEND_ENGINEERING_MODULES;
+      case "frontend-engineering":
+      case "frontend":
+        return FRONTEND_ENGINEERING_MODULES;
       case "cloud":
         return CLOUD_MODULES;
       default:
@@ -552,11 +559,14 @@ export default function ModuleNav({
       track === "data-engineering" ? "intro" :
       track === "machine-learning" || track === "ml" ? "environment-workflow" :
       track === "backend-engineering" || track === "backend" ? "foundations" :
+      track === "frontend-engineering" || track === "frontend" ? "web-architecture-foundations" :
       "intro"
     )
       ? "/learning"
       : track === "backend-engineering" || track === "backend"
       ? "/learning/backend-engineering"
+      : track === "frontend-engineering" || track === "frontend"
+      ? "/learning/frontend-engineering"
       : track === "devops"
       ? "/learning/devops/linux"
       : track === "system-design"
@@ -749,6 +759,8 @@ export default function ModuleNav({
                   ? "Blockchain"
                   : track === "backend-engineering" || track === "backend"
                   ? "Backend Engineering"
+                  : track === "frontend-engineering" || track === "frontend"
+                  ? "Frontend Engineering"
                   : ""
               }
             />

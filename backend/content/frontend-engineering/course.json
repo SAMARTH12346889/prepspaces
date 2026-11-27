@@ -1,0 +1,20 @@
+{
+  "id": "frontend-engineering",
+  "title": "Frontend Engineering Master Course",
+  "tagline": "Web Architecture, Browsers, HTML5, CSS, JavaScript & Modern UI Systems",
+  "description": "Master frontend engineering from web architecture, HTTP/HTTPS, DNS, and browser rendering pipelines (DOM, CSSOM, Render Tree, Layout, Paint) to developer tools, Git workflows, and modern web application development.",
+  "icon": "Layout",
+  "route": "/learning/frontend-engineering",
+  "tag": "Web & Frontend Engineering",
+  "modulesCount": "1 Comprehensive Module",
+  "totalModules": 1,
+  "color": "from-stone-900 via-orange-950 to-orange-600",
+  "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
+  "highlights": [
+    "Web Architecture & Client-Server Communication",
+    "HTTP, HTTPS, TLS & Complete Request-Response Lifecycle",
+    "DNS Resolution, Hosting Models & CDNs",
+    "Browser Internals: DOM, CSSOM, Render Tree, Reflow & Repaint",
+    "DevTools Debugging, Git Workflows & Website Inspection Lab"
+  ]
+}

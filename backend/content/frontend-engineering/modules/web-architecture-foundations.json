@@ -1,0 +1,130 @@
+{
+  "id": "web-architecture-foundations",
+  "courseId": "frontend-engineering",
+  "index": 1,
+  "name": "1. Web Architecture and Frontend Engineering Foundations",
+  "route": "/learning/frontend-engineering/web-architecture-foundations",
+  "componentName": "FrontendWebArchitecture",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the key difference between the Internet and the World Wide Web?",
+      "options": [
+        "They are two names for the exact same protocol",
+        "The Internet is the global network infrastructure, while the World Wide Web is a service operating on top of it using browsers and HTTP/HTTPS",
+        "The World Wide Web only handles email, while the Internet handles HTML",
+        "The Internet requires HTML, whereas the Web does not"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Internet is the underlying global network infrastructure; the Web is one application-level service running over it via HTTP/HTTPS."
+    },
+    {
+      "id": 2,
+      "question": "Which URL component is generally processed by the browser locally rather than sent in the HTTP request to the server?",
+      "options": [
+        "Scheme (https)",
+        "Path (/courses/frontend)",
+        "Query string (?level=beginner)",
+        "Fragment (#lessons)"
+      ],
+      "correctIndex": 3,
+      "explanation": "URL fragments (#lessons) identify a section within the resource and are handled client-side by the browser."
+    },
+    {
+      "id": 3,
+      "question": "Which DNS record type maps a hostname to an IPv6 address?",
+      "options": [
+        "A Record",
+        "AAAA Record",
+        "CNAME Record",
+        "MX Record"
+      ],
+      "correctIndex": 1,
+      "explanation": "A maps to IPv4, AAAA maps to 128-bit IPv6, CNAME aliases to another hostname, and MX identifies mail servers."
+    },
+    {
+      "id": 4,
+      "question": "What is the difference between HTTP 401 Unauthorized and HTTP 403 Forbidden?",
+      "options": [
+        "401 means authentication is required or has failed; 403 means the server refuses the requested operation even if authenticated",
+        "401 is a server crash; 403 is a DNS timeout",
+        "401 is for GET requests; 403 is for POST requests",
+        "They are identical"
+      ],
+      "correctIndex": 0,
+      "explanation": "401 indicates missing or invalid authentication credentials; 403 indicates insufficient permission to perform the action."
+    },
+    {
+      "id": 5,
+      "question": "In Client-Side Rendering (CSR), how is the user interface primarily constructed?",
+      "options": [
+        "The database sends pre-rendered PNG images to the browser",
+        "The browser downloads JavaScript, executes it, and constructs/updates the interface dynamically",
+        "The DNS server compiles CSS into HTML",
+        "No JavaScript is ever executed in the browser"
+      ],
+      "correctIndex": 1,
+      "explanation": "CSR ships an HTML entry point and JavaScript bundles that build and update the DOM in the browser."
+    },
+    {
+      "id": 6,
+      "question": "What happens to an element styled with `display: none` in the DOM vs. the Render Tree?",
+      "options": [
+        "It is deleted from the HTML file on the server",
+        "It remains in the DOM, but does not generate a normal visual box in the Render Tree",
+        "It is removed from the DOM and kept in the Render Tree",
+        "It causes a 500 Internal Server Error"
+      ],
+      "correctIndex": 1,
+      "explanation": "The DOM represents all document nodes, whereas the Render Tree only includes visual objects that need to be laid out and painted."
+    },
+    {
+      "id": 7,
+      "question": "What is the difference between Reflow (Layout) and Repaint in browser rendering?",
+      "options": [
+        "Reflow recalculates element geometry/positions; Repaint redraws visual pixels (like colors) without necessarily changing layout geometry",
+        "Repaint recalculates element widths; Reflow only changes background color",
+        "Reflow only runs on mobile devices",
+        "They are identical operations"
+      ],
+      "correctIndex": 0,
+      "explanation": "Changing dimensions or positions triggers layout/reflow, while color-only changes may only trigger repaint."
+    },
+    {
+      "id": 8,
+      "question": "Which two CSS properties are often efficiently handled by the compositor without triggering expensive layout recalculations?",
+      "options": [
+        "width and margin",
+        "padding and font-size",
+        "transform and opacity",
+        "border-width and height"
+      ],
+      "correctIndex": 2,
+      "explanation": "Animating transform and opacity can often be composited directly on the GPU without triggering reflow."
+    },
+    {
+      "id": 9,
+      "question": "Which Browser DevTools panel is best suited for inspecting HTTP methods, status codes, headers, transfer sizes, and request timings?",
+      "options": [
+        "Elements",
+        "Console",
+        "Network",
+        "Application"
+      ],
+      "correctIndex": 2,
+      "explanation": "The Network panel records all HTTP requests, headers, status codes, payloads, and timing phases (DNS, TLS, TTFB)."
+    },
+    {
+      "id": 10,
+      "question": "When collaborating with Git across two computers, what should you do on Computer B before continuing work after pushing from Computer A?",
+      "options": [
+        "Force-push main from Computer B",
+        "Run `git fetch origin` and `git pull --rebase origin main` to integrate the latest remote changes",
+        "Delete the .git folder",
+        "Copy node_modules manually"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fetching and pulling remote updates keeps local history synchronized and prevents avoidable merge conflicts."
+    }
+  ]
+}

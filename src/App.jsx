@@ -201,6 +201,7 @@ const BackendTestingQuality = React.lazy(() => import("./Componets/BackendTestin
 const BackendApiSecurity = React.lazy(() => import("./Componets/BackendApiSecurity"));
 const BackendProductionObservability = React.lazy(() => import("./Componets/BackendProductionObservability"));
 const BackendCapstone = React.lazy(() => import("./Componets/BackendCapstone"));
+const FrontendWebArchitecture = React.lazy(() => import("./Componets/FrontendWebArchitecture"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2040,6 +2041,14 @@ function App() {
             <Route path="/courses/backend-engineering/capstone-project" element={<BackendCapstone />} />
             <Route path="/learning/backend/capstone-project" element={<BackendCapstone />} />
             <Route path="/learning/backend/module-11" element={<BackendCapstone />} />
+
+            {/* FRONTEND ENGINEERING ROUTES */}
+            <Route path="/learning/frontend-engineering" element={<FrontendWebArchitecture />} />
+            <Route path="/learning/frontend-engineering/web-architecture-foundations" element={<FrontendWebArchitecture />} />
+            <Route path="/learning/frontend-engineering/module-1" element={<FrontendWebArchitecture />} />
+            <Route path="/courses/frontend-engineering" element={<FrontendWebArchitecture />} />
+            <Route path="/learning/frontend" element={<FrontendWebArchitecture />} />
+            <Route path="/learning/frontend/module-1" element={<FrontendWebArchitecture />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

@@ -1,0 +1,4729 @@
+{
+  "moduleNumber": "01",
+  "title": "MODULE 01 — Web Architecture and Frontend Engineering Foundations",
+  "badges": [
+    "Foundation Module",
+    "Web & Frontend Engineering"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "This module establishes the technical foundation required to become a frontend engineer. Before learning HTML, CSS, JavaScript, React, or frontend frameworks, you need to understand what happens when someone enters a website address, how the browser communicates with servers, how web pages are constructed, and how frontend applications are developed and maintained."
+    },
+    {
+      "type": "p",
+      "text": "The objective is not simply to learn terminology. It is to understand the complete journey from a user's browser request to the webpage appearing on the screen."
+    },
+    {
+      "type": "h3",
+      "text": "Module Overview"
+    },
+    {
+      "type": "p",
+      "text": "Understand how the web works before building applications."
+    },
+    {
+      "type": "p",
+      "text": "Modern frontend engineering involves much more than writing HTML, CSS, and JavaScript. A frontend engineer must understand how browsers communicate with servers, how web applications are delivered over the internet, how the browser processes resources, and how development tools help engineers build, inspect, debug, and maintain applications."
+    },
+    {
+      "type": "p",
+      "text": "This module introduces the architecture behind modern websites and establishes the foundation for advanced frontend development."
+    },
+    {
+      "type": "h3",
+      "text": "Learning Outcomes"
+    },
+    {
+      "type": "p",
+      "text": "By the end of this module, you should be able to:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Explain the evolution and fundamental architecture of the World Wide Web.",
+        "Describe how the internet connects computers and how web applications use that infrastructure.",
+        "Understand client-server architecture and the responsibilities of each component.",
+        "Explain HTTP, HTTPS, headers, methods, status codes, and the request-response lifecycle.",
+        "Describe DNS resolution, domain names, hosting, and how websites become accessible.",
+        "Explain how browsers download, parse, render, and display web pages.",
+        "Understand the DOM, CSSOM, render tree, layout, painting, and compositing.",
+        "Configure a frontend development environment and use browser developer tools.",
+        "Use Git and GitHub to manage frontend projects and collaborate with other developers.",
+        "Inspect network activity and rendering behavior in an actual website."
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Lesson 01",
+      "title": "LESSON 01 — Evolution of the World Wide Web",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 What Is the World Wide Web?"
+        },
+        {
+          "type": "p",
+          "text": "The World Wide Web (WWW) is a system of interconnected documents, applications, and resources that people access through the internet."
+        },
+        {
+          "type": "p",
+          "text": "It allows users to navigate between websites, read information, view images, watch videos, interact with applications, and communicate with remote servers."
+        },
+        {
+          "type": "p",
+          "text": "The web primarily relies on three foundational technologies:"
+        },
+        {
+          "type": "p",
+          "text": "**1. HTML (HyperText Markup Language)**"
+        },
+        {
+          "type": "p",
+          "text": "HTML defines the structure and meaning of content on a webpage."
+        },
+        {
+          "type": "p",
+          "text": "For example, HTML describes:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Headings and paragraphs.",
+            "Images and links.",
+            "Forms and buttons.",
+            "Tables and lists.",
+            "Sections and navigation."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**2. CSS (Cascading Style Sheets)**"
+        },
+        {
+          "type": "p",
+          "text": "CSS controls how HTML elements look and how they are arranged."
+        },
+        {
+          "type": "p",
+          "text": "It is responsible for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Colors and typography.",
+            "Spacing and sizing.",
+            "Layout systems such as Flexbox and Grid.",
+            "Responsive design.",
+            "Animations and transitions."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**3. JavaScript**"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript makes web pages interactive and dynamic."
+        },
+        {
+          "type": "p",
+          "text": "It allows developers to:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Respond to button clicks.",
+            "Validate forms.",
+            "Update page content without a full reload.",
+            "Fetch information from APIs.",
+            "Manage application state.",
+            "Build sophisticated frontend applications."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Together, these technologies form the foundation of frontend development."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Difference Between the Internet and the Web"
+        },
+        {
+          "type": "p",
+          "text": "The internet and the World Wide Web are related, but they are not the same thing."
+        },
+        {
+          "type": "p",
+          "text": "**The internet** is the global network infrastructure that connects computers, servers, mobile devices, and other systems."
+        },
+        {
+          "type": "p",
+          "text": "**The World Wide Web** is one of the services that operates on top of this network."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Email can operate through internet protocols without using the web.",
+            "Online gaming uses the internet to exchange information.",
+            "File transfers can use internet protocols.",
+            "Websites use the web through browsers and technologies such as HTTP and HTTPS."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Think of the internet as the transportation infrastructure and the web as one service that uses it."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Evolution of the Web"
+        },
+        {
+          "type": "p",
+          "text": "The web has changed significantly since its creation."
+        },
+        {
+          "type": "h3",
+          "text": "Web 1.0 — The Read-Only Web"
+        },
+        {
+          "type": "p",
+          "text": "The earliest generation of websites was mainly designed to distribute information."
+        },
+        {
+          "type": "p",
+          "text": "Characteristics:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Mostly static HTML pages.",
+            "Limited user interaction.",
+            "Little or no personalized content.",
+            "Content primarily published by website owners.",
+            "Simple navigation through hyperlinks."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "An early company website might contain its history, address, contact information, and product descriptions. Visitors could read the information but had few ways to interact with the website."
+        },
+        {
+          "type": "h3",
+          "text": "Web 2.0 — The Interactive and Social Web"
+        },
+        {
+          "type": "p",
+          "text": "Web 2.0 describes the transition toward highly interactive websites and platforms where users actively create and exchange content."
+        },
+        {
+          "type": "p",
+          "text": "Characteristics:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "User-generated content.",
+            "Social networking.",
+            "Online collaboration.",
+            "Dynamic interfaces.",
+            "Rich JavaScript interactions.",
+            "API-driven applications.",
+            "Cloud-based services."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Social media platforms.",
+            "Online marketplaces.",
+            "Video-sharing platforms.",
+            "Collaborative document editors.",
+            "Modern learning platforms."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A user can now upload videos, publish articles, write comments, send messages, and interact with other users through a browser."
+        },
+        {
+          "type": "h3",
+          "text": "Web 3.0 — A Term With Multiple Interpretations"
+        },
+        {
+          "type": "p",
+          "text": "Web 3.0 has been used to describe different ideas."
+        },
+        {
+          "type": "p",
+          "text": "One interpretation focuses on the Semantic Web: making information more understandable and connected through structured data and machine-readable relationships."
+        },
+        {
+          "type": "p",
+          "text": "Another popular interpretation describes decentralized applications built using blockchain technologies, smart contracts, and distributed networks."
+        },
+        {
+          "type": "p",
+          "text": "These interpretations are not identical, and the term does not have one universally accepted technical definition."
+        },
+        {
+          "type": "p",
+          "text": "Frontend engineers may encounter Web 3.0 technologies when building decentralized application interfaces, connecting wallets, or interacting with smart contracts."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 How Modern Websites Have Evolved"
+        },
+        {
+          "type": "p",
+          "text": "Modern websites are no longer simply collections of static documents."
+        },
+        {
+          "type": "p",
+          "text": "They can include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Frontend applications running inside browsers.",
+            "Backend services handling business logic.",
+            "Databases storing application data.",
+            "Authentication systems managing user accounts.",
+            "APIs exchanging information.",
+            "Content delivery networks distributing static resources.",
+            "Cloud infrastructure hosting application components."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Consider an online learning platform."
+        },
+        {
+          "type": "p",
+          "text": "A student opens the platform and:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Views the homepage.",
+            "Signs into an account.",
+            "Searches for a course.",
+            "Enrols in a course.",
+            "Watches lessons.",
+            "Completes an assessment.",
+            "Views learning progress."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Each action may involve communication between frontend code, backend APIs, databases, authentication services, and external systems."
+        },
+        {
+          "type": "p",
+          "text": "The frontend provides the user experience, but the complete application depends on several interconnected technologies."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 Why This Matters for Frontend Engineers"
+        },
+        {
+          "type": "p",
+          "text": "Understanding the evolution of the web helps developers understand why modern frontend development requires more than writing markup and styles."
+        },
+        {
+          "type": "p",
+          "text": "A frontend engineer must understand:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Where application data comes from.",
+            "How browsers communicate with servers.",
+            "How JavaScript executes.",
+            "How APIs supply information.",
+            "How websites load and render.",
+            "How performance affects user experience.",
+            "How different frontend architectures solve different problems."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Practical example:**"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a course dashboard displaying a student's progress."
+        },
+        {
+          "type": "p",
+          "text": "The frontend may request information from an API:"
+        },
+        {
+          "type": "p",
+          "text": "`GET /api/students/123/progress`"
+        },
+        {
+          "type": "p",
+          "text": "The backend retrieves progress information and returns a response. JavaScript then updates the interface to display completed lessons and remaining modules."
+        },
+        {
+          "type": "p",
+          "text": "This is a modern web application in action."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Lesson 02",
+      "title": "LESSON 02 — How the Internet and Web Applications Work",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 Understanding the Internet"
+        },
+        {
+          "type": "p",
+          "text": "The internet is a worldwide system of interconnected networks."
+        },
+        {
+          "type": "p",
+          "text": "Computers and other devices communicate through standardized networking protocols that define how information should be addressed, transmitted, and received."
+        },
+        {
+          "type": "p",
+          "text": "A device connected to the internet may communicate with:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Another computer.",
+            "A web server.",
+            "A database service.",
+            "A cloud platform.",
+            "An application programming interface.",
+            "A content delivery network."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The communication is not based on physical proximity. Two devices on opposite sides of the world can exchange information through interconnected networks."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 What Is an IP Address?"
+        },
+        {
+          "type": "p",
+          "text": "An Internet Protocol (IP) address is a network address used to identify an interface on an IP network."
+        },
+        {
+          "type": "p",
+          "text": "When a device communicates over an IP network, IP addressing helps information reach the intended destination."
+        },
+        {
+          "type": "p",
+          "text": "There are two widely used IP versions."
+        },
+        {
+          "type": "p",
+          "text": "**IPv4**"
+        },
+        {
+          "type": "p",
+          "text": "An IPv4 address contains 32 bits and is commonly written as four decimal numbers separated by periods."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "`192.168.1.10`"
+        },
+        {
+          "type": "p",
+          "text": "Each section represents an 8-bit value."
+        },
+        {
+          "type": "p",
+          "text": "**IPv6**"
+        },
+        {
+          "type": "p",
+          "text": "IPv6 uses 128-bit addresses and provides a substantially larger address space."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "`2001:db8:85a3::8a2e:370:7334`"
+        },
+        {
+          "type": "p",
+          "text": "IPv6 was developed partly to address the limited address availability of IPv4."
+        },
+        {
+          "type": "p",
+          "text": "Not every device needs a unique public IPv4 address. Private addressing and network address translation (NAT) allow multiple devices to share a public address."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 How Data Travels Across the Internet"
+        },
+        {
+          "type": "p",
+          "text": "When your computer sends information to a remote server, that information travels through multiple networking components."
+        },
+        {
+          "type": "p",
+          "text": "A simplified communication path may include:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Your device.",
+            "Your local router or network gateway.",
+            "Your internet service provider.",
+            "Intermediate network routers.",
+            "The destination network.",
+            "The target server."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Routers examine packet destination addresses and forward packets toward their destinations."
+        },
+        {
+          "type": "p",
+          "text": "Information is generally transmitted in packets rather than as one uninterrupted physical message."
+        },
+        {
+          "type": "p",
+          "text": "Protocols define how packets are addressed, delivered, checked, and reassembled."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 Important Networking Protocols"
+        },
+        {
+          "type": "p",
+          "text": "Different protocols handle different responsibilities."
+        },
+        {
+          "type": "h3",
+          "text": "IP — Internet Protocol"
+        },
+        {
+          "type": "p",
+          "text": "IP provides addressing and packet-routing functionality."
+        },
+        {
+          "type": "p",
+          "text": "It helps packets travel from their source toward their destination."
+        },
+        {
+          "type": "p",
+          "text": "IP itself does not guarantee that every packet arrives successfully or in the correct order."
+        },
+        {
+          "type": "h3",
+          "text": "TCP — Transmission Control Protocol"
+        },
+        {
+          "type": "p",
+          "text": "TCP provides reliable, ordered byte-stream communication."
+        },
+        {
+          "type": "p",
+          "text": "Its responsibilities include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Establishing a connection.",
+            "Sequencing transmitted data.",
+            "Detecting lost data.",
+            "Retransmitting missing data.",
+            "Managing transmission flow.",
+            "Handling congestion."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "TCP is widely used by applications that need reliable communication."
+        },
+        {
+          "type": "h3",
+          "text": "UDP — User Datagram Protocol"
+        },
+        {
+          "type": "p",
+          "text": "UDP provides a simpler datagram-based communication mechanism."
+        },
+        {
+          "type": "p",
+          "text": "It does not provide TCP-style guarantees for delivery or ordering."
+        },
+        {
+          "type": "p",
+          "text": "Applications that use UDP may implement additional reliability mechanisms themselves."
+        },
+        {
+          "type": "p",
+          "text": "It is useful in systems where low communication overhead or application-controlled delivery behavior is important."
+        },
+        {
+          "type": "h3",
+          "text": "QUIC"
+        },
+        {
+          "type": "p",
+          "text": "QUIC is a modern transport protocol built over UDP."
+        },
+        {
+          "type": "p",
+          "text": "It provides features such as encrypted communication, multiplexed streams, and faster connection establishment in appropriate circumstances."
+        },
+        {
+          "type": "p",
+          "text": "HTTP/3 uses QUIC."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Understanding Ports"
+        },
+        {
+          "type": "p",
+          "text": "An IP address identifies a network destination, while a port number helps identify the application or service receiving the communication."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Port 80 is the default port associated with HTTP.",
+            "Port 443 is the default port associated with HTTPS.",
+            "Port 22 is commonly used by SSH.",
+            "Port 53 is commonly used by DNS."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A server can run several network services using different ports."
+        },
+        {
+          "type": "p",
+          "text": "For example, one server may provide a website over HTTPS while also accepting administrative SSH connections."
+        },
+        {
+          "type": "h3",
+          "text": "2.6 What Happens When You Open a Website?"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a user enters:"
+        },
+        {
+          "type": "p",
+          "text": "`https://example.com`"
+        },
+        {
+          "type": "p",
+          "text": "A simplified sequence is:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "The browser interprets the URL.",
+            "It determines the destination hostname and required protocol.",
+            "It obtains the destination IP address through DNS resolution if needed.",
+            "It establishes the required network connection.",
+            "For HTTPS, it establishes secure communication using TLS.",
+            "It sends an HTTP request.",
+            "The server processes the request.",
+            "The server returns an HTTP response.",
+            "The browser processes the returned content.",
+            "The browser renders the webpage."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "In real applications, this sequence may involve redirects, proxies, caching, service workers, CDNs, multiple server requests, and additional browser processes."
+        },
+        {
+          "type": "h3",
+          "text": "2.7 Anatomy of a Web Application"
+        },
+        {
+          "type": "p",
+          "text": "A typical web application contains several components."
+        },
+        {
+          "type": "h3",
+          "text": "Frontend"
+        },
+        {
+          "type": "p",
+          "text": "The frontend is the part of the application that users interact with."
+        },
+        {
+          "type": "p",
+          "text": "It is responsible for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Rendering user interfaces.",
+            "Handling user interactions.",
+            "Displaying data.",
+            "Performing client-side validation.",
+            "Communicating with backend services."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Technologies include HTML, CSS, JavaScript, React, and other frontend frameworks."
+        },
+        {
+          "type": "h3",
+          "text": "Backend"
+        },
+        {
+          "type": "p",
+          "text": "The backend handles application functionality that runs outside the browser."
+        },
+        {
+          "type": "p",
+          "text": "It may handle:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Authentication.",
+            "Authorization.",
+            "Business logic.",
+            "Data processing.",
+            "API requests.",
+            "Database communication.",
+            "Payment processing."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Database"
+        },
+        {
+          "type": "p",
+          "text": "A database stores application information."
+        },
+        {
+          "type": "p",
+          "text": "Examples of stored information include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "User profiles.",
+            "Course details.",
+            "Enrolments.",
+            "Orders.",
+            "Application settings.",
+            "Learning progress."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "API Layer"
+        },
+        {
+          "type": "p",
+          "text": "An API provides a defined way for different software components to communicate."
+        },
+        {
+          "type": "p",
+          "text": "For example, a frontend might request a user's course list from a backend API."
+        },
+        {
+          "type": "p",
+          "text": "The API defines the request structure, response format, authentication requirements, and expected behavior."
+        },
+        {
+          "type": "h3",
+          "text": "2.8 Example: Loading a Course Dashboard"
+        },
+        {
+          "type": "p",
+          "text": "Consider a student visiting a learning platform."
+        },
+        {
+          "type": "p",
+          "text": "**Step 1 — Browser opens the page**"
+        },
+        {
+          "type": "p",
+          "text": "The browser requests the frontend application."
+        },
+        {
+          "type": "p",
+          "text": "**Step 2 — Frontend application loads**"
+        },
+        {
+          "type": "p",
+          "text": "The browser downloads the required HTML, CSS, JavaScript, images, and other resources."
+        },
+        {
+          "type": "p",
+          "text": "**Step 3 — User authentication is checked**"
+        },
+        {
+          "type": "p",
+          "text": "The frontend uses the available authentication mechanism to determine whether the user has an active session."
+        },
+        {
+          "type": "p",
+          "text": "**Step 4 — Frontend requests course information**"
+        },
+        {
+          "type": "p",
+          "text": "The application sends a request to the backend:"
+        },
+        {
+          "type": "p",
+          "text": "`GET /api/courses`"
+        },
+        {
+          "type": "p",
+          "text": "**Step 5 — Backend processes the request**"
+        },
+        {
+          "type": "p",
+          "text": "The backend validates the request and retrieves the relevant course information."
+        },
+        {
+          "type": "p",
+          "text": "**Step 6 — Backend returns data**"
+        },
+        {
+          "type": "p",
+          "text": "The response might contain JSON:"
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"courses\": [\n    {\n      \"id\": 1,\n      \"title\": \"Frontend Engineering\",\n      \"progress\": 65\n    }\n  ]\n}"
+        },
+        {
+          "type": "p",
+          "text": "**Step 7 — Frontend updates the interface**"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript processes the response and displays the course information."
+        },
+        {
+          "type": "p",
+          "text": "This demonstrates how internet infrastructure, frontend code, backend services, and databases work together."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Lesson 03",
+      "title": "LESSON 03 — Client-Server Architecture",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 What Is Client-Server Architecture?"
+        },
+        {
+          "type": "p",
+          "text": "Client-server architecture is a computing model in which one system requests services or resources from another system."
+        },
+        {
+          "type": "p",
+          "text": "The requesting system is called the client."
+        },
+        {
+          "type": "p",
+          "text": "The system providing the requested service is called the server."
+        },
+        {
+          "type": "p",
+          "text": "In a web application:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A browser commonly acts as the client.",
+            "A web server receives and processes requests.",
+            "Backend application code performs business operations.",
+            "A database stores and retrieves information."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The client-server model is one of the central foundations of web application architecture."
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Understanding the Client"
+        },
+        {
+          "type": "p",
+          "text": "A client is an application or device that requests services from another system."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Google Chrome.",
+            "Mozilla Firefox.",
+            "Safari.",
+            "Mobile applications.",
+            "Desktop applications.",
+            "Command-line HTTP clients."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "In frontend development, the browser is usually the primary client."
+        },
+        {
+          "type": "p",
+          "text": "It is responsible for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Sending HTTP requests.",
+            "Receiving server responses.",
+            "Processing HTML, CSS, and JavaScript.",
+            "Displaying application interfaces.",
+            "Handling user interactions."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The client may also maintain temporary state, cache resources, and perform certain calculations."
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Understanding the Server"
+        },
+        {
+          "type": "p",
+          "text": "A server is a system that provides services or resources to clients."
+        },
+        {
+          "type": "p",
+          "text": "A web server can receive HTTP requests and return responses."
+        },
+        {
+          "type": "p",
+          "text": "Server-side application code may:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Verify credentials.",
+            "Validate input.",
+            "Apply business rules.",
+            "Retrieve database records.",
+            "Process uploaded files.",
+            "Communicate with external APIs.",
+            "Return results."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A server may run on a physical machine, a virtual machine, a container, or a serverless platform."
+        },
+        {
+          "type": "p",
+          "text": "The term server describes the role of the system; it does not necessarily mean a single physical computer."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 How Client-Server Communication Works"
+        },
+        {
+          "type": "p",
+          "text": "Consider a user attempting to sign in."
+        },
+        {
+          "type": "p",
+          "text": "The flow is:"
+        },
+        {
+          "type": "p",
+          "text": "**1. User enters credentials**"
+        },
+        {
+          "type": "p",
+          "text": "The user enters an email address and password in the frontend interface."
+        },
+        {
+          "type": "p",
+          "text": "**2. Frontend creates a request**"
+        },
+        {
+          "type": "p",
+          "text": "The application sends the credentials to an authentication endpoint using HTTPS."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "`POST /api/auth/login`"
+        },
+        {
+          "type": "p",
+          "text": "**3. Server receives the request**"
+        },
+        {
+          "type": "p",
+          "text": "The backend receives the submitted information."
+        },
+        {
+          "type": "p",
+          "text": "**4. Server validates the information**"
+        },
+        {
+          "type": "p",
+          "text": "The server checks the input and verifies the credentials using its authentication system."
+        },
+        {
+          "type": "p",
+          "text": "**5. Server generates a response**"
+        },
+        {
+          "type": "p",
+          "text": "The backend returns an appropriate success or failure response."
+        },
+        {
+          "type": "p",
+          "text": "**6. Frontend processes the response**"
+        },
+        {
+          "type": "p",
+          "text": "The frontend updates the interface depending on the result."
+        },
+        {
+          "type": "p",
+          "text": "For example, the user may be redirected to the dashboard after successful authentication."
+        },
+        {
+          "type": "p",
+          "text": "Importantly, the frontend must never be treated as the final authority for authentication or authorization. Security-sensitive decisions must be enforced by trusted server-side systems."
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Two-Tier, Three-Tier, and Multi-Tier Architectures"
+        },
+        {
+          "type": "h3",
+          "text": "Two-Tier Architecture"
+        },
+        {
+          "type": "p",
+          "text": "A basic two-tier architecture separates the client and the server."
+        },
+        {
+          "type": "p",
+          "text": "The client communicates directly with the server responsible for processing requests and providing data or functionality."
+        },
+        {
+          "type": "p",
+          "text": "This model is straightforward but may become difficult to maintain as application complexity increases."
+        },
+        {
+          "type": "h3",
+          "text": "Three-Tier Architecture"
+        },
+        {
+          "type": "p",
+          "text": "A common web application architecture separates the system into three logical layers."
+        },
+        {
+          "type": "p",
+          "text": "**Presentation Layer**"
+        },
+        {
+          "type": "p",
+          "text": "Handles what users see and interact with."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Browser interface.",
+            "Navigation.",
+            "Forms.",
+            "Dashboard components."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Application Layer**"
+        },
+        {
+          "type": "p",
+          "text": "Handles business logic and application processing."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Authentication.",
+            "Course enrolment.",
+            "Order processing.",
+            "Request validation."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Data Layer**"
+        },
+        {
+          "type": "p",
+          "text": "Handles persistent data storage and retrieval."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "PostgreSQL.",
+            "MySQL.",
+            "MongoDB."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "This separation improves maintainability, testing, and independent development."
+        },
+        {
+          "type": "h3",
+          "text": "Multi-Tier Architecture"
+        },
+        {
+          "type": "p",
+          "text": "Larger applications may introduce additional services and infrastructure components."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Frontend application.",
+            "API gateway.",
+            "Authentication service.",
+            "Course service.",
+            "Payment service.",
+            "Database.",
+            "Cache.",
+            "Message queue.",
+            "Search service."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "These components can be developed and deployed independently, depending on the architecture."
+        },
+        {
+          "type": "h3",
+          "text": "3.6 Frontend Rendering Approaches"
+        },
+        {
+          "type": "p",
+          "text": "Client-server architecture also helps explain how frontend applications are rendered."
+        },
+        {
+          "type": "h3",
+          "text": "Client-Side Rendering (CSR)"
+        },
+        {
+          "type": "p",
+          "text": "With client-side rendering, the browser downloads JavaScript and uses it to construct much of the user interface."
+        },
+        {
+          "type": "p",
+          "text": "Typical flow:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Browser requests the application.",
+            "Server returns the HTML entry point and associated resources.",
+            "Browser downloads JavaScript.",
+            "JavaScript executes.",
+            "The application constructs and updates the interface."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Advantages:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Rich interactive experiences.",
+            "Smooth client-side navigation.",
+            "Application logic can run in the browser."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Challenges:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Initial rendering may depend heavily on JavaScript.",
+            "Search engine visibility and initial loading behavior require careful implementation.",
+            "Large JavaScript bundles can affect performance."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Server-Side Rendering (SSR)"
+        },
+        {
+          "type": "p",
+          "text": "With server-side rendering, the server generates HTML for a page and sends it to the browser."
+        },
+        {
+          "type": "p",
+          "text": "The browser can display the returned HTML before the complete client-side application becomes interactive."
+        },
+        {
+          "type": "p",
+          "text": "Advantages:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Faster initial content display in suitable scenarios.",
+            "Useful for content-heavy pages.",
+            "Can improve search engine accessibility when correctly implemented."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Challenges:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Requires server-side rendering infrastructure.",
+            "Server rendering introduces additional architectural complexity.",
+            "Interactive features may still require client-side JavaScript."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Static Site Generation (SSG)"
+        },
+        {
+          "type": "p",
+          "text": "With static site generation, HTML pages are generated ahead of time, often during a build process."
+        },
+        {
+          "type": "p",
+          "text": "The generated files can then be delivered through a static hosting platform or CDN."
+        },
+        {
+          "type": "p",
+          "text": "Advantages:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Fast delivery of prebuilt pages.",
+            "Reduced server-side processing for static content.",
+            "Useful for documentation, blogs, and course content."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Hybrid Rendering"
+        },
+        {
+          "type": "p",
+          "text": "Modern frameworks can combine these approaches."
+        },
+        {
+          "type": "p",
+          "text": "Different pages or parts of an application may use static generation, server rendering, or client-side rendering depending on the requirements."
+        },
+        {
+          "type": "h3",
+          "text": "3.7 Why Frontend Engineers Must Understand Architecture"
+        },
+        {
+          "type": "p",
+          "text": "A frontend developer may encounter problems that cannot be solved by changing CSS or JavaScript alone."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "An API returns incorrect data.",
+            "Authentication expires unexpectedly.",
+            "A server responds slowly.",
+            "A database request fails.",
+            "An application has a CORS error.",
+            "A route returns a server-side 404.",
+            "A page works locally but fails after deployment."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Understanding architecture helps identify which component is responsible for a problem."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Lesson 04",
+      "title": "LESSON 04 — HTTP, HTTPS and the Request-Response Lifecycle",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 What Is HTTP?"
+        },
+        {
+          "type": "p",
+          "text": "HTTP stands for HyperText Transfer Protocol."
+        },
+        {
+          "type": "p",
+          "text": "It is an application-layer protocol used for communication between clients and servers."
+        },
+        {
+          "type": "p",
+          "text": "Browsers use HTTP to request resources such as:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "HTML documents.",
+            "CSS stylesheets.",
+            "JavaScript files.",
+            "Images.",
+            "Videos.",
+            "API data.",
+            "Fonts."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "HTTP defines how requests and responses should be structured and interpreted."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 Understanding a URL"
+        },
+        {
+          "type": "p",
+          "text": "A URL (Uniform Resource Locator) identifies a resource and describes how to access it."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "p",
+          "text": "`https://www.example.com:443/courses/frontend?level=beginner#lessons`"
+        },
+        {
+          "type": "p",
+          "text": "Its components are:"
+        },
+        {
+          "type": "p",
+          "text": "**Scheme:** `https`"
+        },
+        {
+          "type": "p",
+          "text": "Identifies the protocol or access mechanism."
+        },
+        {
+          "type": "p",
+          "text": "**Subdomain:** `www`"
+        },
+        {
+          "type": "p",
+          "text": "Identifies a subdomain."
+        },
+        {
+          "type": "p",
+          "text": "**Domain:** `example.com`"
+        },
+        {
+          "type": "p",
+          "text": "Identifies the registered domain name."
+        },
+        {
+          "type": "p",
+          "text": "**Port:** `443`"
+        },
+        {
+          "type": "p",
+          "text": "Identifies the destination port. The default HTTPS port is normally omitted from displayed URLs."
+        },
+        {
+          "type": "p",
+          "text": "**Path:** `/courses/frontend`"
+        },
+        {
+          "type": "p",
+          "text": "Identifies the requested resource or route."
+        },
+        {
+          "type": "p",
+          "text": "**Query string:** `?level=beginner`"
+        },
+        {
+          "type": "p",
+          "text": "Provides additional parameters."
+        },
+        {
+          "type": "p",
+          "text": "**Fragment:** `#lessons`"
+        },
+        {
+          "type": "p",
+          "text": "Identifies a location or section within the resource. The fragment is generally processed by the browser rather than sent as part of the HTTP request to the server."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Understanding HTTP Requests"
+        },
+        {
+          "type": "p",
+          "text": "An HTTP request contains information describing what the client wants from the server."
+        },
+        {
+          "type": "p",
+          "text": "A request commonly includes:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "HTTP method.",
+            "Request target.",
+            "HTTP version.",
+            "Headers.",
+            "Optional body."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses HTTP/1.1\nHost: example.com\nAccept: application/json\nUser-Agent: ExampleBrowser"
+        },
+        {
+          "type": "p",
+          "text": "The request asks the server to retrieve the course information."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 HTTP Methods"
+        },
+        {
+          "type": "p",
+          "text": "HTTP methods describe the intended action for a request."
+        },
+        {
+          "type": "h3",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Used to retrieve information."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses"
+        },
+        {
+          "type": "p",
+          "text": "The client requests the course list."
+        },
+        {
+          "type": "h3",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Used to submit data or request an operation that may create a resource."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/courses\nContent-Type: application/json"
+        },
+        {
+          "type": "p",
+          "text": "The body may contain:"
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"title\": \"Frontend Engineering\",\n  \"level\": \"Beginner\"\n}"
+        },
+        {
+          "type": "h3",
+          "text": "PUT"
+        },
+        {
+          "type": "p",
+          "text": "Generally used to create or replace the state of a resource at a specified URI."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "`PUT /api/courses/10`"
+        },
+        {
+          "type": "h3",
+          "text": "PATCH"
+        },
+        {
+          "type": "p",
+          "text": "Used to apply a partial update to an existing resource."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "`PATCH /api/courses/10`"
+        },
+        {
+          "type": "h3",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "Used to request the removal of a resource."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "`DELETE /api/courses/10`"
+        },
+        {
+          "type": "p",
+          "text": "Other methods include HEAD, OPTIONS, CONNECT, and TRACE. Their behavior depends on the HTTP specification and application context."
+        },
+        {
+          "type": "h3",
+          "text": "4.5 Understanding HTTP Headers"
+        },
+        {
+          "type": "p",
+          "text": "Headers provide additional information about requests and responses."
+        },
+        {
+          "type": "p",
+          "text": "Common request headers include:"
+        },
+        {
+          "type": "p",
+          "text": "**Accept**"
+        },
+        {
+          "type": "p",
+          "text": "Describes the media types the client can accept."
+        },
+        {
+          "type": "p",
+          "text": "**Content-Type**"
+        },
+        {
+          "type": "p",
+          "text": "Describes the media type of the request body."
+        },
+        {
+          "type": "p",
+          "text": "**Authorization**"
+        },
+        {
+          "type": "p",
+          "text": "Carries authentication credentials or tokens according to the authentication scheme."
+        },
+        {
+          "type": "p",
+          "text": "**User-Agent**"
+        },
+        {
+          "type": "p",
+          "text": "Identifies the client software in a format defined by the implementation."
+        },
+        {
+          "type": "p",
+          "text": "**Cookie**"
+        },
+        {
+          "type": "p",
+          "text": "Carries applicable cookies to the server."
+        },
+        {
+          "type": "p",
+          "text": "Common response headers include:"
+        },
+        {
+          "type": "p",
+          "text": "**Content-Type**"
+        },
+        {
+          "type": "p",
+          "text": "Describes the returned resource format."
+        },
+        {
+          "type": "p",
+          "text": "**Cache-Control**"
+        },
+        {
+          "type": "p",
+          "text": "Provides caching instructions."
+        },
+        {
+          "type": "p",
+          "text": "**Set-Cookie**"
+        },
+        {
+          "type": "p",
+          "text": "Allows the server to set cookies."
+        },
+        {
+          "type": "p",
+          "text": "**Location**"
+        },
+        {
+          "type": "p",
+          "text": "Identifies another resource, commonly used during redirects."
+        },
+        {
+          "type": "p",
+          "text": "**Access-Control-Allow-Origin**"
+        },
+        {
+          "type": "p",
+          "text": "Participates in controlling cross-origin access through CORS."
+        },
+        {
+          "type": "h3",
+          "text": "4.6 Understanding HTTP Status Codes"
+        },
+        {
+          "type": "p",
+          "text": "HTTP status codes communicate the outcome of a request."
+        },
+        {
+          "type": "h3",
+          "text": "1xx — Informational"
+        },
+        {
+          "type": "p",
+          "text": "Indicates that the request has been received and processing is continuing."
+        },
+        {
+          "type": "h3",
+          "text": "2xx — Success"
+        },
+        {
+          "type": "p",
+          "text": "Common examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`200 OK` — Request completed successfully.",
+            "`201 Created` — A resource was successfully created.",
+            "`202 Accepted` — Request was accepted for processing.",
+            "`204 No Content` — Request completed successfully without a response body."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "3xx — Redirection"
+        },
+        {
+          "type": "p",
+          "text": "Common examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`301 Moved Permanently` — Resource has been assigned a new permanent URL.",
+            "`302 Found` — Temporary redirection.",
+            "`304 Not Modified` — The resource has not changed relative to the relevant cache validator."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "4xx — Client Errors"
+        },
+        {
+          "type": "p",
+          "text": "Common examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`400 Bad Request` — The request cannot be processed because of a client-side request problem.",
+            "`401 Unauthorized` — Authentication is required or has failed.",
+            "`403 Forbidden` — The server refuses the requested operation.",
+            "`404 Not Found` — The requested resource could not be found.",
+            "`405 Method Not Allowed` — The method is not supported for that resource.",
+            "`429 Too Many Requests` — The client has exceeded a request limit."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "5xx — Server Errors"
+        },
+        {
+          "type": "p",
+          "text": "Common examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`500 Internal Server Error` — An unexpected server failure occurred.",
+            "`502 Bad Gateway` — A gateway received an invalid response from an upstream server.",
+            "`503 Service Unavailable` — The server cannot currently handle the request.",
+            "`504 Gateway Timeout` — A gateway did not receive a timely upstream response."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Understanding status codes is essential when debugging frontend applications."
+        },
+        {
+          "type": "h3",
+          "text": "4.7 What Is HTTPS?"
+        },
+        {
+          "type": "p",
+          "text": "HTTPS is HTTP communication protected by Transport Layer Security (TLS)."
+        },
+        {
+          "type": "p",
+          "text": "It provides three important security properties:"
+        },
+        {
+          "type": "p",
+          "text": "**Encryption**"
+        },
+        {
+          "type": "p",
+          "text": "Helps prevent unauthorized parties from reading information transmitted over the connection."
+        },
+        {
+          "type": "p",
+          "text": "**Integrity**"
+        },
+        {
+          "type": "p",
+          "text": "Helps detect unauthorized modification of information during transmission."
+        },
+        {
+          "type": "p",
+          "text": "**Authentication**"
+        },
+        {
+          "type": "p",
+          "text": "Allows the browser to verify the server's identity using its digital certificate and the certificate validation process."
+        },
+        {
+          "type": "p",
+          "text": "HTTPS is particularly important for login forms, personal information, payments, and authenticated API communication."
+        },
+        {
+          "type": "p",
+          "text": "HTTPS does not automatically make an application secure. Developers must still prevent application-level vulnerabilities, validate input, enforce authorization, and protect sensitive data."
+        },
+        {
+          "type": "h3",
+          "text": "4.8 Understanding TLS at a High Level"
+        },
+        {
+          "type": "p",
+          "text": "When a browser connects to an HTTPS website, it performs a TLS handshake."
+        },
+        {
+          "type": "p",
+          "text": "The handshake allows the client and server to establish secure communication parameters and session keys."
+        },
+        {
+          "type": "p",
+          "text": "A simplified explanation:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "The client initiates the connection and negotiates supported TLS options.",
+            "The server presents its certificate.",
+            "The browser validates the certificate chain, hostname, validity, and other relevant requirements.",
+            "The client and server establish shared cryptographic keys.",
+            "Encrypted application communication begins."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The exact handshake sequence differs depending on the TLS version and connection circumstances."
+        },
+        {
+          "type": "h3",
+          "text": "4.9 The Complete HTTP Request-Response Lifecycle"
+        },
+        {
+          "type": "p",
+          "text": "Consider a user visiting:"
+        },
+        {
+          "type": "p",
+          "text": "`https://example.com/courses`"
+        },
+        {
+          "type": "p",
+          "text": "A typical lifecycle involves the following stages."
+        },
+        {
+          "type": "p",
+          "text": "**Stage 1 — URL Processing**"
+        },
+        {
+          "type": "p",
+          "text": "The browser interprets the entered URL and determines the destination hostname, scheme, and resource path."
+        },
+        {
+          "type": "p",
+          "text": "**Stage 2 — DNS Resolution**"
+        },
+        {
+          "type": "p",
+          "text": "The browser obtains an IP address for the domain, using cached information or DNS resolution."
+        },
+        {
+          "type": "p",
+          "text": "**Stage 3 — Connection Establishment**"
+        },
+        {
+          "type": "p",
+          "text": "The browser establishes the required transport connection."
+        },
+        {
+          "type": "p",
+          "text": "For HTTP/1.1 and HTTP/2 over TCP, this normally involves establishing a TCP connection."
+        },
+        {
+          "type": "p",
+          "text": "For HTTP/3, QUIC is used instead."
+        },
+        {
+          "type": "p",
+          "text": "**Stage 4 — TLS Handshake**"
+        },
+        {
+          "type": "p",
+          "text": "For HTTPS, secure communication is established."
+        },
+        {
+          "type": "p",
+          "text": "**Stage 5 — HTTP Request**"
+        },
+        {
+          "type": "p",
+          "text": "The browser sends a request containing the method, target, headers, and any applicable body."
+        },
+        {
+          "type": "p",
+          "text": "**Stage 6 — Server Processing**"
+        },
+        {
+          "type": "p",
+          "text": "The server receives the request and may perform several operations:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Validate the request.",
+            "Authenticate the user.",
+            "Execute application logic.",
+            "Retrieve information from a database.",
+            "Communicate with other services.",
+            "Generate the response."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Stage 7 — HTTP Response**"
+        },
+        {
+          "type": "p",
+          "text": "The server sends a response containing a status code, headers, and possibly a response body."
+        },
+        {
+          "type": "p",
+          "text": "**Stage 8 — Browser Processing**"
+        },
+        {
+          "type": "p",
+          "text": "The browser interprets the returned content."
+        },
+        {
+          "type": "p",
+          "text": "For an HTML document, it begins parsing the document and discovering additional resources."
+        },
+        {
+          "type": "p",
+          "text": "**Stage 9 — Additional Resource Requests**"
+        },
+        {
+          "type": "p",
+          "text": "The browser may request stylesheets, JavaScript files, images, fonts, and other resources."
+        },
+        {
+          "type": "p",
+          "text": "**Stage 10 — Rendering**"
+        },
+        {
+          "type": "p",
+          "text": "The browser processes the document and styles, performs layout and painting, and displays the result."
+        },
+        {
+          "type": "p",
+          "text": "This process is repeated as the user navigates or the application requests more information."
+        },
+        {
+          "type": "h3",
+          "text": "4.10 HTTP Caching"
+        },
+        {
+          "type": "p",
+          "text": "Caching stores copies of resources so they can be reused instead of repeatedly downloading them."
+        },
+        {
+          "type": "p",
+          "text": "HTTP caching can reduce:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Network requests.",
+            "Server load.",
+            "Data transfer.",
+            "Page-loading time."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Important caching headers include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`Cache-Control`",
+            "`ETag`",
+            "`Last-Modified`",
+            "`Expires`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "For example, a server can tell a browser that a particular static image may be reused for a specified period."
+        },
+        {
+          "type": "p",
+          "text": "A browser may also send conditional requests to determine whether a cached resource has changed."
+        },
+        {
+          "type": "p",
+          "text": "Understanding caching becomes especially important when deploying updated JavaScript, CSS, and frontend assets."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Lesson 05",
+      "title": "LESSON 05 — DNS, Domains and Web Hosting Fundamentals",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 What Is DNS?"
+        },
+        {
+          "type": "p",
+          "text": "DNS stands for Domain Name System."
+        },
+        {
+          "type": "p",
+          "text": "It translates human-readable domain names into information used by network clients, including IP addresses."
+        },
+        {
+          "type": "p",
+          "text": "For example, users can type:"
+        },
+        {
+          "type": "p",
+          "text": "`example.com`"
+        },
+        {
+          "type": "p",
+          "text": "instead of remembering a numerical IP address."
+        },
+        {
+          "type": "p",
+          "text": "DNS functions as a distributed naming system used across the internet."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 Why DNS Is Necessary"
+        },
+        {
+          "type": "p",
+          "text": "Computers use network addresses to communicate, but remembering numerical addresses for every website would be inconvenient."
+        },
+        {
+          "type": "p",
+          "text": "DNS provides a convenient mapping between domain names and network information."
+        },
+        {
+          "type": "p",
+          "text": "It also allows an organization to change its hosting infrastructure without necessarily changing the domain name used by visitors."
+        },
+        {
+          "type": "p",
+          "text": "The same domain name can resolve to different addresses depending on DNS configuration, resolver location, record type, and other circumstances."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 How DNS Resolution Works"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a user enters:"
+        },
+        {
+          "type": "p",
+          "text": "`www.example.com`"
+        },
+        {
+          "type": "p",
+          "text": "The browser or operating system checks available cached DNS information."
+        },
+        {
+          "type": "p",
+          "text": "If an appropriate result is not available, the configured DNS resolver may need to perform additional lookups."
+        },
+        {
+          "type": "p",
+          "text": "A simplified process is:"
+        },
+        {
+          "type": "p",
+          "text": "**Step 1 — Browser and Operating System Caches**"
+        },
+        {
+          "type": "p",
+          "text": "The system checks whether it already knows the required DNS information."
+        },
+        {
+          "type": "p",
+          "text": "**Step 2 — Recursive DNS Resolver**"
+        },
+        {
+          "type": "p",
+          "text": "The resolver attempts to obtain an answer for the requested hostname."
+        },
+        {
+          "type": "p",
+          "text": "**Step 3 — Root DNS Servers**"
+        },
+        {
+          "type": "p",
+          "text": "If necessary, the resolver asks the DNS root system where to find information about the relevant top-level domain."
+        },
+        {
+          "type": "p",
+          "text": "**Step 4 — TLD DNS Servers**"
+        },
+        {
+          "type": "p",
+          "text": "The resolver follows the referral to the appropriate top-level domain DNS servers, such as those responsible for `.com`."
+        },
+        {
+          "type": "p",
+          "text": "**Step 5 — Authoritative DNS Servers**"
+        },
+        {
+          "type": "p",
+          "text": "The resolver queries the authoritative DNS infrastructure for the domain."
+        },
+        {
+          "type": "p",
+          "text": "**Step 6 — DNS Response**"
+        },
+        {
+          "type": "p",
+          "text": "The resolver returns the result to the client and may cache it according to its time-to-live rules."
+        },
+        {
+          "type": "p",
+          "text": "This process is simplified. Actual resolution may involve caching, DNS forwarding, encrypted DNS, and other optimizations."
+        },
+        {
+          "type": "h3",
+          "text": "5.4 DNS Record Types"
+        },
+        {
+          "type": "p",
+          "text": "DNS supports multiple record types."
+        },
+        {
+          "type": "h3",
+          "text": "A Record"
+        },
+        {
+          "type": "p",
+          "text": "Maps a hostname to an IPv4 address."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "`example.com → 192.0.2.10`"
+        },
+        {
+          "type": "h3",
+          "text": "AAAA Record"
+        },
+        {
+          "type": "p",
+          "text": "Maps a hostname to an IPv6 address."
+        },
+        {
+          "type": "h3",
+          "text": "CNAME Record"
+        },
+        {
+          "type": "p",
+          "text": "Creates an alias that points to another hostname."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "`www.example.com → example-host.example.net`"
+        },
+        {
+          "type": "p",
+          "text": "A CNAME points to a hostname, not directly to an IP address."
+        },
+        {
+          "type": "h3",
+          "text": "MX Record"
+        },
+        {
+          "type": "p",
+          "text": "Identifies mail servers responsible for receiving email for a domain."
+        },
+        {
+          "type": "h3",
+          "text": "TXT Record"
+        },
+        {
+          "type": "p",
+          "text": "Stores text-based information."
+        },
+        {
+          "type": "p",
+          "text": "It is commonly used for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Domain ownership verification.",
+            "Email authentication.",
+            "SPF configuration.",
+            "DKIM-related information."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "NS Record"
+        },
+        {
+          "type": "p",
+          "text": "Identifies authoritative name servers for a DNS zone."
+        },
+        {
+          "type": "h3",
+          "text": "5.5 What Is a Domain Name?"
+        },
+        {
+          "type": "p",
+          "text": "A domain name is a human-readable name used to identify an internet resource or organization."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "`prepspaces.com`"
+        },
+        {
+          "type": "p",
+          "text": "A domain can have multiple subdomains."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`www.prepspaces.com`",
+            "`api.prepspaces.com`",
+            "`docs.prepspaces.com`",
+            "`blog.prepspaces.com`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Different subdomains can point to different services or infrastructure."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Domain Registration"
+        },
+        {
+          "type": "p",
+          "text": "Domain registration is the process of registering a domain name through a registrar."
+        },
+        {
+          "type": "p",
+          "text": "The registrar provides the administrative service that allows the registrant to manage the registered domain."
+        },
+        {
+          "type": "p",
+          "text": "Domain ownership and DNS hosting are related but separate responsibilities."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A registrar manages the domain registration.",
+            "A DNS provider manages DNS records.",
+            "A hosting provider runs the website or application."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "One company may provide all three services, but they do not have to be operated by the same company."
+        },
+        {
+          "type": "h3",
+          "text": "5.7 What Is Web Hosting?"
+        },
+        {
+          "type": "p",
+          "text": "Web hosting provides the infrastructure required to make website files or application services accessible over a network."
+        },
+        {
+          "type": "p",
+          "text": "Different hosting approaches serve different needs."
+        },
+        {
+          "type": "h3",
+          "text": "Shared Hosting"
+        },
+        {
+          "type": "p",
+          "text": "Multiple websites share resources on a hosting server."
+        },
+        {
+          "type": "p",
+          "text": "Advantages:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Affordable.",
+            "Straightforward setup.",
+            "Useful for basic websites."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Limitations:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Shared resource constraints.",
+            "Less infrastructure control.",
+            "Performance may vary depending on other hosted workloads."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Virtual Private Server (VPS)"
+        },
+        {
+          "type": "p",
+          "text": "A VPS provides an isolated virtual server environment."
+        },
+        {
+          "type": "p",
+          "text": "Advantages:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Greater configuration control.",
+            "Dedicated virtual resources.",
+            "Suitable for custom application stacks."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Limitations:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Requires more system administration.",
+            "Security updates and server configuration may become the user's responsibility."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Dedicated Servers"
+        },
+        {
+          "type": "p",
+          "text": "A dedicated server provides an entire physical server for a particular customer or workload."
+        },
+        {
+          "type": "p",
+          "text": "Advantages:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Greater resource control.",
+            "Predictable dedicated hardware.",
+            "Useful for certain demanding workloads."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Limitations:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Higher cost.",
+            "More infrastructure management."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Cloud Hosting"
+        },
+        {
+          "type": "p",
+          "text": "Cloud hosting uses virtualized and distributed infrastructure to run applications."
+        },
+        {
+          "type": "p",
+          "text": "It can provide:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Flexible resource allocation.",
+            "Managed databases.",
+            "Object storage.",
+            "Autoscaling options.",
+            "Monitoring and deployment services."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Static Hosting"
+        },
+        {
+          "type": "p",
+          "text": "Static hosting serves prebuilt files such as:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "HTML.",
+            "CSS.",
+            "JavaScript.",
+            "Images.",
+            "Fonts."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "It is commonly used for frontend applications and static websites."
+        },
+        {
+          "type": "h3",
+          "text": "Serverless Hosting"
+        },
+        {
+          "type": "p",
+          "text": "Serverless platforms execute application code without requiring developers to manage traditional server infrastructure directly."
+        },
+        {
+          "type": "p",
+          "text": "They commonly support event-driven or request-driven workloads."
+        },
+        {
+          "type": "p",
+          "text": "Serverless does not mean that servers do not exist. It means that the hosting provider manages much of the underlying infrastructure."
+        },
+        {
+          "type": "h3",
+          "text": "5.8 Understanding a CDN"
+        },
+        {
+          "type": "p",
+          "text": "A Content Delivery Network (CDN) distributes content through a network of geographically distributed locations."
+        },
+        {
+          "type": "p",
+          "text": "Instead of every visitor downloading resources from one distant origin server, a CDN may serve cached resources from a location closer to the visitor."
+        },
+        {
+          "type": "p",
+          "text": "CDNs are commonly used for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Images.",
+            "JavaScript bundles.",
+            "CSS files.",
+            "Fonts.",
+            "Videos.",
+            "Other cacheable static content."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Benefits include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Reduced latency.",
+            "Improved resource delivery.",
+            "Reduced origin server traffic.",
+            "Better handling of distributed user traffic."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A CDN may also provide additional services such as TLS termination, DDoS protection, and traffic routing."
+        },
+        {
+          "type": "h3",
+          "text": "5.9 Putting Domains, DNS, Hosting, and CDNs Together"
+        },
+        {
+          "type": "p",
+          "text": "Consider a frontend application hosted through a cloud platform."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A user enters the domain name.",
+            "DNS resolves the domain to the appropriate network destination.",
+            "The visitor connects to the hosting or edge infrastructure.",
+            "The hosting platform returns the application files.",
+            "A CDN may deliver cached static assets.",
+            "The browser loads the application.",
+            "The frontend communicates with backend APIs when needed."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A well-designed application may use one provider for domain registration, another for DNS, another for frontend hosting, and a separate platform for backend services."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Lesson 06",
+      "title": "LESSON 06 — How Browsers Load and Render Web Pages",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 What Is a Web Browser?"
+        },
+        {
+          "type": "p",
+          "text": "A web browser is a software application that retrieves, processes, and displays web content."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Google Chrome.",
+            "Mozilla Firefox.",
+            "Safari.",
+            "Microsoft Edge."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A browser is much more than a window that displays websites."
+        },
+        {
+          "type": "p",
+          "text": "It contains multiple internal systems responsible for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Networking.",
+            "HTML parsing.",
+            "CSS processing.",
+            "JavaScript execution.",
+            "Layout.",
+            "Painting.",
+            "Compositing.",
+            "Storage.",
+            "Security.",
+            "Resource management."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Different browsers use different internal implementations, but they follow common web platform standards."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Major Browser Components"
+        },
+        {
+          "type": "p",
+          "text": "A simplified browser architecture includes the following components."
+        },
+        {
+          "type": "h3",
+          "text": "User Interface"
+        },
+        {
+          "type": "p",
+          "text": "The visible browser controls."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Address bar.",
+            "Back and forward buttons.",
+            "Tabs.",
+            "Bookmarks.",
+            "Browser menus."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Browser Process"
+        },
+        {
+          "type": "p",
+          "text": "The browser's main process coordinates browser-level functionality."
+        },
+        {
+          "type": "p",
+          "text": "It manages activities such as tabs, navigation, permissions, and communication with other processes."
+        },
+        {
+          "type": "h3",
+          "text": "Network Layer"
+        },
+        {
+          "type": "p",
+          "text": "Responsible for retrieving resources from the internet."
+        },
+        {
+          "type": "p",
+          "text": "It handles HTTP communication, caching, connections, and network-related behavior."
+        },
+        {
+          "type": "h3",
+          "text": "Rendering Engine"
+        },
+        {
+          "type": "p",
+          "text": "Processes HTML and CSS and participates in converting documents into visible content."
+        },
+        {
+          "type": "p",
+          "text": "For example, Chromium-based browsers use Blink, while Firefox uses Gecko."
+        },
+        {
+          "type": "h3",
+          "text": "JavaScript Engine"
+        },
+        {
+          "type": "p",
+          "text": "Executes JavaScript code."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "V8 is used by Chromium-based browsers.",
+            "SpiderMonkey is used by Firefox.",
+            "JavaScriptCore is used by Safari."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "GPU and Compositor Components"
+        },
+        {
+          "type": "p",
+          "text": "These components help combine rendered content into the final displayed image."
+        },
+        {
+          "type": "p",
+          "text": "They may use GPU acceleration for supported operations."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 The Browser Loading Process"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a user visits a webpage containing HTML, CSS, JavaScript, and images."
+        },
+        {
+          "type": "p",
+          "text": "The browser typically performs the following work."
+        },
+        {
+          "type": "p",
+          "text": "**Step 1 — Navigation**"
+        },
+        {
+          "type": "p",
+          "text": "The browser begins navigating to the requested URL."
+        },
+        {
+          "type": "p",
+          "text": "**Step 2 — Resource Retrieval**"
+        },
+        {
+          "type": "p",
+          "text": "The browser obtains the HTML document and discovers additional resources."
+        },
+        {
+          "type": "p",
+          "text": "**Step 3 — HTML Parsing**"
+        },
+        {
+          "type": "p",
+          "text": "The browser parses HTML and constructs the Document Object Model (DOM)."
+        },
+        {
+          "type": "p",
+          "text": "**Step 4 — CSS Processing**"
+        },
+        {
+          "type": "p",
+          "text": "The browser downloads and parses CSS and constructs the CSS Object Model (CSSOM)."
+        },
+        {
+          "type": "p",
+          "text": "**Step 5 — JavaScript Processing**"
+        },
+        {
+          "type": "p",
+          "text": "The browser processes and executes JavaScript according to script loading and execution rules."
+        },
+        {
+          "type": "p",
+          "text": "JavaScript can modify the DOM and styles, and certain scripts can affect how HTML parsing progresses."
+        },
+        {
+          "type": "p",
+          "text": "**Step 6 — Render Tree Construction**"
+        },
+        {
+          "type": "p",
+          "text": "The browser combines relevant document and style information to determine what needs to be rendered."
+        },
+        {
+          "type": "p",
+          "text": "**Step 7 — Layout**"
+        },
+        {
+          "type": "p",
+          "text": "The browser calculates the geometry and position of rendered elements."
+        },
+        {
+          "type": "p",
+          "text": "**Step 8 — Painting**"
+        },
+        {
+          "type": "p",
+          "text": "The browser determines how visual content should be drawn."
+        },
+        {
+          "type": "p",
+          "text": "**Step 9 — Compositing**"
+        },
+        {
+          "type": "p",
+          "text": "The browser combines the appropriate visual layers to produce the final display."
+        },
+        {
+          "type": "p",
+          "text": "These activities can overlap and repeat. A page is not necessarily processed in one simple, strictly sequential pass."
+        },
+        {
+          "type": "h3",
+          "text": "6.4 HTML Parsing"
+        },
+        {
+          "type": "p",
+          "text": "The browser parses HTML and builds a structured representation of the document."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Frontend Engineering</title>\n  </head>\n  <body>\n    <h1>Welcome to the Web</h1>\n    <p>Learn how browsers work.</p>\n  </body>\n</html>"
+        },
+        {
+          "type": "p",
+          "text": "The browser identifies elements, attributes, text nodes, and their relationships."
+        },
+        {
+          "type": "p",
+          "text": "It uses this structure to construct the DOM."
+        },
+        {
+          "type": "h3",
+          "text": "6.5 CSS Parsing"
+        },
+        {
+          "type": "p",
+          "text": "CSS describes the presentation of HTML elements."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "body {\n  font-family: Arial, sans-serif;\n}\n\nh1 {\n  color: black;\n  font-size: 32px;\n}\n\np {\n  color: #555;\n}"
+        },
+        {
+          "type": "p",
+          "text": "The browser parses CSS and determines which declarations apply to which elements."
+        },
+        {
+          "type": "p",
+          "text": "It considers:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Selectors.",
+            "Specificity.",
+            "Inheritance.",
+            "The cascade.",
+            "Media queries.",
+            "Supported styles and values."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The CSS Object Model (CSSOM) represents the browser's parsed CSS rules and related style information."
+        },
+        {
+          "type": "h3",
+          "text": "6.6 JavaScript Execution"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript can add behavior and modify the webpage."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "const heading = document.querySelector(\"h1\");\n\nheading.textContent = \"Understanding Browser Rendering\";"
+        },
+        {
+          "type": "p",
+          "text": "This code selects the heading and changes its text."
+        },
+        {
+          "type": "p",
+          "text": "The browser detects the DOM change and updates the relevant visual output."
+        },
+        {
+          "type": "p",
+          "text": "JavaScript can also:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Respond to user events.",
+            "Request data from servers.",
+            "Add and remove elements.",
+            "Modify styles.",
+            "Control application navigation.",
+            "Update application state."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "JavaScript execution and browser rendering interact closely, so inefficient scripts or excessive DOM changes can affect responsiveness."
+        },
+        {
+          "type": "h3",
+          "text": "6.7 Layout, Painting, and Compositing"
+        },
+        {
+          "type": "p",
+          "text": "These are important stages of browser rendering."
+        },
+        {
+          "type": "h3",
+          "text": "Layout"
+        },
+        {
+          "type": "p",
+          "text": "The browser calculates the dimensions and positions of elements."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "How wide is a content container?",
+            "Where should a navigation bar appear?",
+            "How much space should a heading occupy?",
+            "How should grid columns be distributed?"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Layout is sometimes called reflow."
+        },
+        {
+          "type": "h3",
+          "text": "Painting"
+        },
+        {
+          "type": "p",
+          "text": "Painting determines how visual properties are drawn."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Text.",
+            "Background colors.",
+            "Borders.",
+            "Shadows.",
+            "Images."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Compositing"
+        },
+        {
+          "type": "p",
+          "text": "The browser combines visual layers into the final display."
+        },
+        {
+          "type": "p",
+          "text": "Some visual operations can be handled efficiently through compositing, depending on the browser and the properties being animated."
+        },
+        {
+          "type": "h3",
+          "text": "6.8 Why Browser Rendering Matters"
+        },
+        {
+          "type": "p",
+          "text": "Poorly designed frontend code can force the browser to perform unnecessary work."
+        },
+        {
+          "type": "p",
+          "text": "For example, repeatedly changing the dimensions of many elements can cause expensive layout calculations."
+        },
+        {
+          "type": "p",
+          "text": "Large images can increase download time and memory use."
+        },
+        {
+          "type": "p",
+          "text": "Excessive JavaScript can delay interaction."
+        },
+        {
+          "type": "p",
+          "text": "A frontend engineer should understand browser rendering to build websites that are responsive and efficient."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Lesson 07",
+      "title": "LESSON 07 — Understanding the DOM, CSSOM and Render Tree",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 What Is the DOM?"
+        },
+        {
+          "type": "p",
+          "text": "DOM stands for Document Object Model."
+        },
+        {
+          "type": "p",
+          "text": "It is a programming interface that represents a document as a tree of objects."
+        },
+        {
+          "type": "p",
+          "text": "The browser constructs the DOM when it parses HTML."
+        },
+        {
+          "type": "p",
+          "text": "JavaScript can access and modify it."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "<body>\n  <main>\n    <h1>Frontend Engineering</h1>\n    <p>Build modern web applications.</p>\n  </main>\n</body>"
+        },
+        {
+          "type": "p",
+          "text": "A simplified tree representation is:"
+        },
+        {
+          "type": "code",
+          "text": "Document\n└── html\n    └── body\n        └── main\n            ├── h1\n            │   └── \"Frontend Engineering\"\n            └── p\n                └── \"Build modern web applications.\""
+        },
+        {
+          "type": "p",
+          "text": "Each element represents a node in the document tree."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Types of DOM Nodes"
+        },
+        {
+          "type": "p",
+          "text": "Common DOM node types include:"
+        },
+        {
+          "type": "p",
+          "text": "**Document Node**"
+        },
+        {
+          "type": "p",
+          "text": "Represents the entire document."
+        },
+        {
+          "type": "p",
+          "text": "**Element Node**"
+        },
+        {
+          "type": "p",
+          "text": "Represents an HTML element such as `div`, `p`, or `button`."
+        },
+        {
+          "type": "p",
+          "text": "**Text Node**"
+        },
+        {
+          "type": "p",
+          "text": "Represents text within an element."
+        },
+        {
+          "type": "p",
+          "text": "**Comment Node**"
+        },
+        {
+          "type": "p",
+          "text": "Represents an HTML comment."
+        },
+        {
+          "type": "p",
+          "text": "**Attribute Information**"
+        },
+        {
+          "type": "p",
+          "text": "Elements also expose their attributes through DOM interfaces."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Accessing the DOM With JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript provides several ways to select and manipulate elements."
+        },
+        {
+          "type": "h3",
+          "text": "Selecting an Element"
+        },
+        {
+          "type": "code",
+          "text": "const heading = document.querySelector(\"h1\");"
+        },
+        {
+          "type": "p",
+          "text": "This selects the first matching heading."
+        },
+        {
+          "type": "h3",
+          "text": "Selecting Multiple Elements"
+        },
+        {
+          "type": "code",
+          "text": "const cards = document.querySelectorAll(\".course-card\");"
+        },
+        {
+          "type": "p",
+          "text": "This selects all elements matching the class."
+        },
+        {
+          "type": "h3",
+          "text": "Changing Text"
+        },
+        {
+          "type": "code",
+          "text": "heading.textContent = \"Learn Frontend Engineering\";"
+        },
+        {
+          "type": "h3",
+          "text": "Changing Attributes"
+        },
+        {
+          "type": "code",
+          "text": "const image = document.querySelector(\"img\");\n\nimage.setAttribute(\"alt\", \"Frontend course illustration\");"
+        },
+        {
+          "type": "h3",
+          "text": "Changing Classes"
+        },
+        {
+          "type": "code",
+          "text": "const card = document.querySelector(\".course-card\");\n\ncard.classList.add(\"active\");"
+        },
+        {
+          "type": "h3",
+          "text": "Creating an Element"
+        },
+        {
+          "type": "code",
+          "text": "const button = document.createElement(\"button\");\n\nbutton.textContent = \"Start Learning\";\ndocument.body.appendChild(button);"
+        },
+        {
+          "type": "p",
+          "text": "These operations demonstrate how JavaScript can change the document dynamically."
+        },
+        {
+          "type": "h3",
+          "text": "7.4 DOM Events"
+        },
+        {
+          "type": "p",
+          "text": "Events allow JavaScript to respond to user actions and browser activity."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`click`",
+            "`input`",
+            "`change`",
+            "`submit`",
+            "`keydown`",
+            "`mouseover`",
+            "`load`"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "const button = document.querySelector(\"button\");\n\nbutton.addEventListener(\"click\", () => {\n  console.log(\"Button clicked\");\n});"
+        },
+        {
+          "type": "p",
+          "text": "The browser detects the click and invokes the registered callback."
+        },
+        {
+          "type": "p",
+          "text": "Understanding events is essential for building interactive frontend applications."
+        },
+        {
+          "type": "h3",
+          "text": "7.5 What Is the CSSOM?"
+        },
+        {
+          "type": "p",
+          "text": "CSSOM stands for CSS Object Model."
+        },
+        {
+          "type": "p",
+          "text": "It represents parsed CSS rules and provides interfaces for accessing and manipulating CSS information."
+        },
+        {
+          "type": "p",
+          "text": "The browser uses CSS information to determine how elements should be styled."
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": ".card {\n  background-color: white;\n  padding: 20px;\n  border-radius: 8px;\n}"
+        },
+        {
+          "type": "p",
+          "text": "The browser parses these declarations and determines their applicable styles."
+        },
+        {
+          "type": "p",
+          "text": "JavaScript can also interact with the CSSOM."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "const card = document.querySelector(\".card\");\n\ncard.style.backgroundColor = \"lightgray\";"
+        },
+        {
+          "type": "p",
+          "text": "This changes the element's inline style."
+        },
+        {
+          "type": "p",
+          "text": "The browser then updates its rendering as required."
+        },
+        {
+          "type": "h3",
+          "text": "7.6 What Is the Render Tree?"
+        },
+        {
+          "type": "p",
+          "text": "The render tree is an internal representation used during browser rendering."
+        },
+        {
+          "type": "p",
+          "text": "It combines relevant document structure and computed styling information to determine the visual objects that need to be displayed."
+        },
+        {
+          "type": "p",
+          "text": "The render tree is related to, but not identical to, the DOM."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "<div>\n  <h1>Hello</h1>\n  <p style=\"display: none;\">Hidden content</p>\n</div>"
+        },
+        {
+          "type": "p",
+          "text": "The hidden paragraph remains part of the DOM."
+        },
+        {
+          "type": "p",
+          "text": "However, an element with `display: none` does not generate a normal visual box in the render tree."
+        },
+        {
+          "type": "p",
+          "text": "This illustrates why the DOM and rendered output are not identical."
+        },
+        {
+          "type": "h3",
+          "text": "7.7 DOM vs CSSOM vs Render Tree"
+        },
+        {
+          "type": "p",
+          "text": "| Concept | Responsibility |"
+        },
+        {
+          "type": "p",
+          "text": "|---|---|"
+        },
+        {
+          "type": "p",
+          "text": "| DOM | Represents document structure and content |"
+        },
+        {
+          "type": "p",
+          "text": "| CSSOM | Represents parsed CSS rules and style information |"
+        },
+        {
+          "type": "p",
+          "text": "| Render tree | Represents visual content needed for rendering |"
+        },
+        {
+          "type": "p",
+          "text": "All three concepts contribute to the browser's rendering process, but they represent different information."
+        },
+        {
+          "type": "h3",
+          "text": "7.8 Understanding Reflow and Repaint"
+        },
+        {
+          "type": "p",
+          "text": "Changing an element can cause the browser to perform additional rendering work."
+        },
+        {
+          "type": "h3",
+          "text": "Reflow (Layout)"
+        },
+        {
+          "type": "p",
+          "text": "Reflow refers to recalculating layout information."
+        },
+        {
+          "type": "p",
+          "text": "Changes that may cause layout include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Changing width or height.",
+            "Changing font size.",
+            "Adding or removing elements.",
+            "Changing margins or padding.",
+            "Changing positioning properties."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Repaint"
+        },
+        {
+          "type": "p",
+          "text": "Repainting refers to redrawing visual content."
+        },
+        {
+          "type": "p",
+          "text": "Certain changes can require painting without changing the layout geometry."
+        },
+        {
+          "type": "p",
+          "text": "Examples may include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Changing text color.",
+            "Changing background color.",
+            "Changing border color."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The exact rendering work depends on the property, implementation, and other affected elements."
+        },
+        {
+          "type": "h3",
+          "text": "7.9 DOM Performance Best Practices"
+        },
+        {
+          "type": "p",
+          "text": "Frontend developers should avoid unnecessary rendering work."
+        },
+        {
+          "type": "p",
+          "text": "Good practices include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Avoid repeated unnecessary DOM updates.",
+            "Use efficient selectors.",
+            "Batch related DOM modifications when appropriate.",
+            "Avoid excessive layout reads and writes that can force synchronous layout.",
+            "Use CSS transitions and animations thoughtfully.",
+            "Prefer animating properties that can often be efficiently composited, such as `transform` and `opacity`.",
+            "Use event delegation when many similar elements require event handling.",
+            "Remove event listeners and clean up resources when they are no longer needed."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "These techniques become increasingly important when developing large applications."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Lesson 08",
+      "title": "LESSON 08 — Frontend Development Environments and Developer Tools",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 What Is a Development Environment?"
+        },
+        {
+          "type": "p",
+          "text": "A frontend development environment is the collection of software and tools used to build, run, test, debug, and maintain web applications."
+        },
+        {
+          "type": "p",
+          "text": "A typical environment includes:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Code editor.",
+            "Web browser.",
+            "JavaScript runtime.",
+            "Package manager.",
+            "Version-control system.",
+            "Development server.",
+            "Browser developer tools.",
+            "Terminal."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Setting up a consistent environment improves productivity and reduces avoidable development problems."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Code Editors"
+        },
+        {
+          "type": "p",
+          "text": "A code editor provides an environment for writing and organizing source code."
+        },
+        {
+          "type": "p",
+          "text": "Popular options include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Visual Studio Code.",
+            "WebStorm.",
+            "Sublime Text."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Common features include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Syntax highlighting.",
+            "Code completion.",
+            "Error detection.",
+            "Formatting.",
+            "Integrated terminals.",
+            "Git integration.",
+            "Extension support."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Frontend developers should become comfortable navigating codebases, searching files, reading errors, and using keyboard shortcuts."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 JavaScript Runtime"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript was originally designed to run inside web browsers."
+        },
+        {
+          "type": "p",
+          "text": "Runtime environments also allow JavaScript to execute outside browsers."
+        },
+        {
+          "type": "p",
+          "text": "Node.js is a widely used JavaScript runtime."
+        },
+        {
+          "type": "p",
+          "text": "Frontend development tools often depend on Node.js to run:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Build tools.",
+            "Development servers.",
+            "Package scripts.",
+            "Testing tools.",
+            "Asset processing systems."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A runtime is not the same thing as a frontend framework."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Package Managers"
+        },
+        {
+          "type": "p",
+          "text": "A package manager helps developers install, update, remove, and manage project dependencies."
+        },
+        {
+          "type": "p",
+          "text": "Common JavaScript package managers include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "npm.",
+            "pnpm.",
+            "Yarn."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "npm install"
+        },
+        {
+          "type": "p",
+          "text": "Installs the dependencies declared by the project."
+        },
+        {
+          "type": "code",
+          "text": "npm run dev"
+        },
+        {
+          "type": "p",
+          "text": "Runs the development script configured in `package.json`, when such a script exists."
+        },
+        {
+          "type": "code",
+          "text": "npm run build"
+        },
+        {
+          "type": "p",
+          "text": "Runs the project's production build script."
+        },
+        {
+          "type": "code",
+          "text": "npm run test"
+        },
+        {
+          "type": "p",
+          "text": "Runs the configured test script, when available."
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Understanding package.json"
+        },
+        {
+          "type": "p",
+          "text": "A typical `package.json` file describes a JavaScript project."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"name\": \"frontend-project\",\n  \"version\": \"1.0.0\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\"\n  },\n  \"dependencies\": {\n    \"react\": \"^19.0.0\",\n    \"react-dom\": \"^19.0.0\"\n  },\n  \"devDependencies\": {\n    \"vite\": \"^6.0.0\"\n  }\n}"
+        },
+        {
+          "type": "p",
+          "text": "The file may define:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Project metadata.",
+            "Scripts.",
+            "Runtime dependencies.",
+            "Development dependencies.",
+            "Package configuration."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The actual package versions and scripts depend on the project."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Understanding a Frontend Project Structure"
+        },
+        {
+          "type": "p",
+          "text": "A frontend project may use a structure such as:"
+        },
+        {
+          "type": "code",
+          "text": "frontend-project/\n│\n├── public/\n│   └── favicon.ico\n│\n├── src/\n│   ├── assets/\n│   ├── components/\n│   ├── pages/\n│   ├── services/\n│   ├── styles/\n│   ├── App.jsx\n│   └── main.jsx\n│\n├── package.json\n├── index.html\n└── vite.config.js"
+        },
+        {
+          "type": "p",
+          "text": "This is an example, not a mandatory structure."
+        },
+        {
+          "type": "p",
+          "text": "Common responsibilities:"
+        },
+        {
+          "type": "p",
+          "text": "**public/**"
+        },
+        {
+          "type": "p",
+          "text": "Contains files served as static assets."
+        },
+        {
+          "type": "p",
+          "text": "**src/**"
+        },
+        {
+          "type": "p",
+          "text": "Contains application source code."
+        },
+        {
+          "type": "p",
+          "text": "**components/**"
+        },
+        {
+          "type": "p",
+          "text": "Contains reusable interface components."
+        },
+        {
+          "type": "p",
+          "text": "**pages/**"
+        },
+        {
+          "type": "p",
+          "text": "Contains page-level components."
+        },
+        {
+          "type": "p",
+          "text": "**services/**"
+        },
+        {
+          "type": "p",
+          "text": "May contain API communication and other service logic."
+        },
+        {
+          "type": "p",
+          "text": "**styles/**"
+        },
+        {
+          "type": "p",
+          "text": "Contains CSS and related styling files."
+        },
+        {
+          "type": "p",
+          "text": "**package.json**"
+        },
+        {
+          "type": "p",
+          "text": "Defines project dependencies and scripts."
+        },
+        {
+          "type": "p",
+          "text": "**index.html**"
+        },
+        {
+          "type": "p",
+          "text": "Provides the HTML entry point for many frontend build tools."
+        },
+        {
+          "type": "h3",
+          "text": "8.7 Browser Developer Tools"
+        },
+        {
+          "type": "p",
+          "text": "Browser developer tools are among the most important tools for frontend engineers."
+        },
+        {
+          "type": "p",
+          "text": "They allow developers to inspect and debug applications directly in the browser."
+        },
+        {
+          "type": "p",
+          "text": "Common panels include:"
+        },
+        {
+          "type": "h3",
+          "text": "Elements"
+        },
+        {
+          "type": "p",
+          "text": "Inspect and modify the DOM and CSS."
+        },
+        {
+          "type": "p",
+          "text": "Useful for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Checking element structure.",
+            "Finding CSS rules.",
+            "Understanding inherited styles.",
+            "Debugging layout issues.",
+            "Inspecting responsive components."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Console"
+        },
+        {
+          "type": "p",
+          "text": "Displays JavaScript messages, warnings, and errors."
+        },
+        {
+          "type": "p",
+          "text": "It can also execute JavaScript expressions."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "console.log(\"Frontend application loaded\");"
+        },
+        {
+          "type": "h3",
+          "text": "Network"
+        },
+        {
+          "type": "p",
+          "text": "Displays network requests and responses."
+        },
+        {
+          "type": "p",
+          "text": "Useful for examining:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "HTTP methods.",
+            "Request URLs.",
+            "Status codes.",
+            "Request headers.",
+            "Response headers.",
+            "Response bodies.",
+            "Resource size.",
+            "Loading duration.",
+            "Failed requests."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Sources"
+        },
+        {
+          "type": "p",
+          "text": "Allows developers to inspect and debug JavaScript source files."
+        },
+        {
+          "type": "p",
+          "text": "Useful features include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Breakpoints.",
+            "Step-by-step execution.",
+            "Variable inspection.",
+            "Call stacks.",
+            "Source maps."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Performance"
+        },
+        {
+          "type": "p",
+          "text": "Helps investigate runtime performance and rendering behavior."
+        },
+        {
+          "type": "p",
+          "text": "Developers can examine:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Long-running JavaScript tasks.",
+            "Layout activity.",
+            "Painting work.",
+            "Rendering bottlenecks.",
+            "Main-thread activity."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Application"
+        },
+        {
+          "type": "p",
+          "text": "Provides information about browser-side application storage and related features."
+        },
+        {
+          "type": "p",
+          "text": "Depending on the browser, this may include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Local storage.",
+            "Session storage.",
+            "Cookies.",
+            "IndexedDB.",
+            "Cache storage.",
+            "Service workers."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "8.8 Responsive Design and Device Emulation"
+        },
+        {
+          "type": "p",
+          "text": "Developer tools can emulate different screen sizes and device conditions."
+        },
+        {
+          "type": "p",
+          "text": "Frontend developers should test:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Desktop screens.",
+            "Laptops.",
+            "Tablets.",
+            "Mobile phones.",
+            "Different viewport widths.",
+            "Different network conditions."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Responsive design is not simply shrinking a desktop interface. It involves arranging content so that it remains usable across screen sizes."
+        },
+        {
+          "type": "h3",
+          "text": "8.9 Debugging a Frontend Application"
+        },
+        {
+          "type": "p",
+          "text": "A systematic debugging process is more effective than changing random lines of code."
+        },
+        {
+          "type": "p",
+          "text": "For example, suppose a course list does not appear."
+        },
+        {
+          "type": "p",
+          "text": "Investigate:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Check whether the page loads.",
+            "Open the Console and inspect JavaScript errors.",
+            "Open the Network panel.",
+            "Find the course API request.",
+            "Check the request URL and method.",
+            "Examine the response status.",
+            "Inspect the response body.",
+            "Check whether the frontend receives the expected data.",
+            "Inspect the relevant DOM elements.",
+            "Check whether CSS is hiding or incorrectly positioning the content."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "This process helps identify whether the issue exists in the frontend, backend, network, or rendering layer."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Lesson 09",
+      "title": "LESSON 09 — Git, GitHub and Frontend Project Workflows",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 What Is Version Control?"
+        },
+        {
+          "type": "p",
+          "text": "Version control is a system for recording and managing changes to files over time."
+        },
+        {
+          "type": "p",
+          "text": "It helps developers:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Track modifications.",
+            "Restore previous versions.",
+            "Work on separate features.",
+            "Collaborate with other developers.",
+            "Review changes.",
+            "Identify when a bug was introduced."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Version control is essential for modern software development."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 What Is Git?"
+        },
+        {
+          "type": "p",
+          "text": "Git is a distributed version-control system."
+        },
+        {
+          "type": "p",
+          "text": "Each Git repository contains project history and version-control information."
+        },
+        {
+          "type": "p",
+          "text": "Developers can work locally, create branches, commit changes, and exchange repository updates with other repositories."
+        },
+        {
+          "type": "p",
+          "text": "Important advantages include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Local development without requiring continuous network access.",
+            "Branch-based development.",
+            "Change tracking.",
+            "Collaboration.",
+            "History inspection.",
+            "Recovery from many types of mistakes."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "9.3 What Is GitHub?"
+        },
+        {
+          "type": "p",
+          "text": "GitHub is a platform for hosting Git repositories and collaborating on software projects."
+        },
+        {
+          "type": "p",
+          "text": "It provides features such as:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Remote repositories.",
+            "Pull requests.",
+            "Issue tracking.",
+            "Code reviews.",
+            "Branch protection.",
+            "Actions and automation.",
+            "Project collaboration."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Git and GitHub are not the same."
+        },
+        {
+          "type": "p",
+          "text": "Git is the version-control system. GitHub is one platform that hosts Git repositories and adds collaboration features."
+        },
+        {
+          "type": "h3",
+          "text": "9.4 Important Git Concepts"
+        },
+        {
+          "type": "h3",
+          "text": "Repository"
+        },
+        {
+          "type": "p",
+          "text": "A repository contains project files and version-control history."
+        },
+        {
+          "type": "h3",
+          "text": "Working Directory"
+        },
+        {
+          "type": "p",
+          "text": "The working directory contains the files you are currently modifying."
+        },
+        {
+          "type": "h3",
+          "text": "Staging Area"
+        },
+        {
+          "type": "p",
+          "text": "The staging area contains changes selected for the next commit."
+        },
+        {
+          "type": "h3",
+          "text": "Commit"
+        },
+        {
+          "type": "p",
+          "text": "A commit records a snapshot of selected changes."
+        },
+        {
+          "type": "h3",
+          "text": "Branch"
+        },
+        {
+          "type": "p",
+          "text": "A branch provides an independent line of development."
+        },
+        {
+          "type": "h3",
+          "text": "Merge"
+        },
+        {
+          "type": "p",
+          "text": "A merge integrates changes from different development histories."
+        },
+        {
+          "type": "h3",
+          "text": "Remote"
+        },
+        {
+          "type": "p",
+          "text": "A remote is a reference to another repository, often hosted on GitHub."
+        },
+        {
+          "type": "h3",
+          "text": "Pull Request"
+        },
+        {
+          "type": "p",
+          "text": "A pull request is a collaboration mechanism used to propose changes and request review before merging them into a target branch."
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Basic Git Workflow"
+        },
+        {
+          "type": "p",
+          "text": "Start by checking the repository state:"
+        },
+        {
+          "type": "code",
+          "text": "git status"
+        },
+        {
+          "type": "p",
+          "text": "Stage the intended files:"
+        },
+        {
+          "type": "code",
+          "text": "git add ."
+        },
+        {
+          "type": "p",
+          "text": "Create a commit:"
+        },
+        {
+          "type": "code",
+          "text": "git commit -m \"Add frontend course foundation\""
+        },
+        {
+          "type": "p",
+          "text": "Push changes to a remote branch:"
+        },
+        {
+          "type": "code",
+          "text": "git push origin main"
+        },
+        {
+          "type": "p",
+          "text": "This example assumes the remote is named `origin` and the branch is named `main`."
+        },
+        {
+          "type": "p",
+          "text": "In shared projects, developers should review their staged changes before committing rather than automatically staging every modified file."
+        },
+        {
+          "type": "h3",
+          "text": "9.6 Cloning a Repository"
+        },
+        {
+          "type": "p",
+          "text": "Cloning creates a local copy of a remote repository."
+        },
+        {
+          "type": "code",
+          "text": "git clone https://github.com/example/frontend-project.git"
+        },
+        {
+          "type": "p",
+          "text": "Move into the repository:"
+        },
+        {
+          "type": "code",
+          "text": "cd frontend-project"
+        },
+        {
+          "type": "p",
+          "text": "Install its dependencies using the project's documented package manager:"
+        },
+        {
+          "type": "code",
+          "text": "npm install"
+        },
+        {
+          "type": "p",
+          "text": "Start the development server using the available project script:"
+        },
+        {
+          "type": "code",
+          "text": "npm run dev"
+        },
+        {
+          "type": "h3",
+          "text": "9.7 Working With Branches"
+        },
+        {
+          "type": "p",
+          "text": "Branches allow developers to work on features independently."
+        },
+        {
+          "type": "p",
+          "text": "Create a feature branch:"
+        },
+        {
+          "type": "code",
+          "text": "git switch -c feature/course-dashboard"
+        },
+        {
+          "type": "p",
+          "text": "Check existing branches:"
+        },
+        {
+          "type": "code",
+          "text": "git branch"
+        },
+        {
+          "type": "p",
+          "text": "Switch to another branch:"
+        },
+        {
+          "type": "code",
+          "text": "git switch main"
+        },
+        {
+          "type": "p",
+          "text": "When feature development is complete, changes can be pushed and reviewed through a pull request."
+        },
+        {
+          "type": "h3",
+          "text": "9.8 Understanding Git Conflicts"
+        },
+        {
+          "type": "p",
+          "text": "A merge conflict occurs when Git cannot automatically combine competing changes."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Developer A modifies a component's rendering logic.",
+            "Developer B modifies the same section of the same component.",
+            "Both branches are developed independently.",
+            "Their changes are later merged."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Git may require a developer to decide how those changes should be combined."
+        },
+        {
+          "type": "p",
+          "text": "A conflict does not automatically mean that code has been lost."
+        },
+        {
+          "type": "p",
+          "text": "A typical resolution process is:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Inspect the conflicted files.",
+            "Understand the purpose of both changes.",
+            "Decide which changes to retain.",
+            "Combine the changes correctly.",
+            "Remove conflict markers.",
+            "Run tests and build checks.",
+            "Stage the resolved files.",
+            "Complete the merge or rebase."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Never resolve conflicts by blindly accepting all changes from one side without reviewing what will be lost."
+        },
+        {
+          "type": "h3",
+          "text": "9.9 Working From Two Computers"
+        },
+        {
+          "type": "p",
+          "text": "When the same developer works on one project from two different computers, the machines have separate local repositories."
+        },
+        {
+          "type": "p",
+          "text": "A safe workflow is:"
+        },
+        {
+          "type": "p",
+          "text": "**On Computer A:**"
+        },
+        {
+          "type": "code",
+          "text": "git status\ngit add .\ngit commit -m \"Add course content\"\ngit push"
+        },
+        {
+          "type": "p",
+          "text": "**On Computer B:**"
+        },
+        {
+          "type": "code",
+          "text": "git fetch origin\ngit pull --rebase origin main"
+        },
+        {
+          "type": "p",
+          "text": "Then continue working."
+        },
+        {
+          "type": "p",
+          "text": "Before pushing from either computer, integrate the latest remote changes."
+        },
+        {
+          "type": "p",
+          "text": "Important practices:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Avoid editing the same files independently when possible.",
+            "Commit logical, focused changes.",
+            "Pull or fetch remote updates regularly.",
+            "Review conflicts carefully.",
+            "Test the application after merging changes.",
+            "Avoid force-pushing shared branches unless there is a clear and coordinated reason."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "9.10 Frontend Team Workflow"
+        },
+        {
+          "type": "p",
+          "text": "A typical team workflow looks like this:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Product requirements are defined.",
+            "A developer creates a feature branch.",
+            "The developer implements the feature.",
+            "The developer tests the feature locally.",
+            "Changes are committed and pushed.",
+            "A pull request is opened.",
+            "Other developers review the changes.",
+            "Automated checks and tests run.",
+            "Approved changes are merged.",
+            "The application is deployed."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "This workflow improves collaboration and helps maintain code quality."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Lab",
+      "title": "PRACTICAL LAB — Inspect Browser Network Requests, Rendering Behavior and the Structure of a Real Website",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Lab Objective"
+        },
+        {
+          "type": "p",
+          "text": "Investigate how a real website works internally by using browser developer tools."
+        },
+        {
+          "type": "p",
+          "text": "You will inspect its document structure, styles, network communication, resource loading, and rendering behavior."
+        },
+        {
+          "type": "p",
+          "text": "This lab connects the theoretical concepts from all nine lessons."
+        },
+        {
+          "type": "h3",
+          "text": "Requirements"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A desktop or laptop.",
+            "Google Chrome, Microsoft Edge, or another browser with developer tools.",
+            "Internet access.",
+            "A code editor for recording observations."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Use a website you are permitted to inspect. Do not attempt to access restricted endpoints, private information, or systems without authorization."
+        },
+        {
+          "type": "h3",
+          "text": "Experiment 1 — Inspect the Website Structure"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Open a website in your browser.",
+            "Right-click the page.",
+            "Select Inspect.",
+            "Open the Elements panel.",
+            "Expand the HTML document.",
+            "Find the `head` and `body` sections.",
+            "Identify headings, paragraphs, links, images, buttons, and navigation elements."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Observe:**"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "How the document is structured.",
+            "Which elements contain other elements.",
+            "How semantic HTML is used.",
+            "How reusable sections are organized."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Expected understanding:** The visible webpage is represented by a structured DOM rather than being one flat image."
+        },
+        {
+          "type": "h3",
+          "text": "Experiment 2 — Inspect CSS and Computed Styles"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Select a heading inside the Elements panel.",
+            "Inspect its applied CSS rules.",
+            "Open the Computed section.",
+            "Examine its final font size, color, dimensions, and spacing.",
+            "Temporarily modify one CSS value.",
+            "Observe how the appearance changes."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Observe:**"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Which stylesheet defines the element's appearance.",
+            "Whether styles are inherited.",
+            "How the browser applies the cascade.",
+            "How changing CSS affects visual output."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Expected understanding:** The browser combines multiple CSS declarations to determine the computed appearance of an element."
+        },
+        {
+          "type": "h3",
+          "text": "Experiment 3 — Inspect Network Requests"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Open the Network panel.",
+            "Enable Preserve log if you want to retain requests during navigation.",
+            "Reload the webpage.",
+            "Observe the requests generated by the browser.",
+            "Filter requests by resource type.",
+            "Select an HTML document request.",
+            "Examine its Headers and Response sections.",
+            "Select a stylesheet or JavaScript file.",
+            "Compare its request and response information."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Record:**"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Request URL.",
+            "HTTP method.",
+            "Status code.",
+            "Resource type.",
+            "Response content type.",
+            "Transfer size.",
+            "Loading duration."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Expected understanding:** A webpage is usually assembled from multiple resources downloaded through network requests."
+        },
+        {
+          "type": "h3",
+          "text": "Experiment 4 — Inspect HTTP Response Information"
+        },
+        {
+          "type": "p",
+          "text": "Choose an appropriate network request and inspect its response headers."
+        },
+        {
+          "type": "p",
+          "text": "Look for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`Content-Type`",
+            "`Cache-Control`",
+            "`Content-Encoding`",
+            "`ETag`",
+            "`Last-Modified`",
+            "`Location`, when applicable"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Not every response will contain every header."
+        },
+        {
+          "type": "p",
+          "text": "Compare response headers with the content returned by the server."
+        },
+        {
+          "type": "p",
+          "text": "**Expected understanding:** HTTP headers provide additional information about how a resource should be interpreted, cached, or handled."
+        },
+        {
+          "type": "h3",
+          "text": "Experiment 5 — Observe DOM Manipulation"
+        },
+        {
+          "type": "p",
+          "text": "Open the Console panel."
+        },
+        {
+          "type": "p",
+          "text": "Run:"
+        },
+        {
+          "type": "code",
+          "text": "document.querySelector(\"h1\")"
+        },
+        {
+          "type": "p",
+          "text": "Inspect the returned element."
+        },
+        {
+          "type": "p",
+          "text": "Then run:"
+        },
+        {
+          "type": "code",
+          "text": "const heading = document.querySelector(\"h1\");\n\nif (heading) {\n  heading.textContent = \"My Browser Inspection Lab\";\n}"
+        },
+        {
+          "type": "p",
+          "text": "Observe the page."
+        },
+        {
+          "type": "p",
+          "text": "**Expected understanding:** JavaScript can interact with the DOM and change the webpage without downloading an entirely new HTML document."
+        },
+        {
+          "type": "h3",
+          "text": "Experiment 6 — Observe Responsive Layout"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Open the Device Toolbar in developer tools.",
+            "Test a desktop-sized viewport.",
+            "Change to a tablet-sized viewport.",
+            "Change to a mobile-sized viewport.",
+            "Observe how navigation, text, images, and columns change."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Expected understanding:** Responsive web design uses flexible layouts and CSS rules to adapt interfaces to different viewport sizes."
+        },
+        {
+          "type": "h3",
+          "text": "Experiment 7 — Investigate Rendering and Performance"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Open the Performance panel.",
+            "Start a recording.",
+            "Reload the webpage.",
+            "Stop the recording after the initial load.",
+            "Inspect the recorded timeline.",
+            "Examine JavaScript activity and rendering-related events.",
+            "Look for long-running main-thread tasks."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Expected understanding:** Browser performance depends on more than downloading files. Parsing, scripting, layout, painting, and other activities contribute to the user experience."
+        },
+        {
+          "type": "h3",
+          "text": "Experiment 8 — Inspect DNS and Connection Information"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Open the Network panel.",
+            "Select the main document request.",
+            "Inspect the Timing section.",
+            "Observe available phases such as DNS lookup, connection establishment, SSL/TLS negotiation, request sending, and waiting.",
+            "Compare these timings with the overall request duration."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Some phases may be absent or reused because the browser may already have cached DNS information or an existing network connection."
+        },
+        {
+          "type": "p",
+          "text": "**Expected understanding:** Website access depends on name resolution, connection establishment, secure communication, and server response."
+        },
+        {
+          "type": "h3",
+          "text": "Lab Deliverables"
+        },
+        {
+          "type": "p",
+          "text": "Prepare a short technical report containing:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "The website inspected and the date of inspection.",
+            "A screenshot of the page's DOM structure.",
+            "A screenshot of the computed CSS for one selected element.",
+            "Five network requests with their methods, status codes, and resource types.",
+            "The response headers of the main HTML document.",
+            "An example of a DOM modification using JavaScript.",
+            "Observations from three different viewport sizes.",
+            "A brief explanation of the performance recording.",
+            "A description of the request-response lifecycle observed during the experiment."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Do not include private information, authentication tokens, session cookies, or other sensitive request data in the report."
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Module 01",
+      "title": "MODULE 01 — KEY TAKEAWAYS",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "By completing this module, you should understand the complete foundation behind a modern web application."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "The internet provides the networking infrastructure used by the web.",
+            "The World Wide Web uses technologies such as HTTP, HTML, CSS, and JavaScript.",
+            "Client-server architecture defines how browsers and servers communicate.",
+            "HTTP structures requests and responses.",
+            "HTTPS protects HTTP communication using TLS.",
+            "DNS resolves domain names into network information.",
+            "Hosting infrastructure makes applications accessible.",
+            "CDNs distribute resources closer to users.",
+            "Browsers parse documents and styles and execute JavaScript.",
+            "The DOM represents document structure.",
+            "The CSSOM represents parsed CSS information.",
+            "The render tree contributes to the browser's visual rendering process.",
+            "Developer tools help engineers inspect network requests, DOM structure, styles, and performance.",
+            "Git and GitHub support version control and collaborative development."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "badge": "Module 01",
+      "title": "MODULE 01 — KNOWLEDGE ASSESSMENT",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Conceptual Questions"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "What is the difference between the internet and the World Wide Web?",
+            "Explain the evolution of Web 1.0, Web 2.0, and Web 3.0.",
+            "How does an IP address help devices communicate?",
+            "What is the difference between TCP and UDP?",
+            "What is the difference between a client and a server?",
+            "Explain the responsibilities of the presentation, application, and data layers.",
+            "What happens when a user enters an HTTPS URL into a browser?",
+            "What is the difference between HTTP and HTTPS?",
+            "Explain the purpose of HTTP methods such as GET, POST, PUT, PATCH, and DELETE.",
+            "What is the difference between HTTP 401, 403, and 404?",
+            "What is DNS, and why is it required?",
+            "Explain how DNS resolution works.",
+            "What are A, AAAA, CNAME, MX, TXT, and NS records?",
+            "What is the difference between a domain registrar, DNS provider, and hosting provider?",
+            "What is a CDN, and how does it improve resource delivery?",
+            "Explain the major components of a web browser.",
+            "What is the difference between DOM and CSSOM?",
+            "What is a render tree?",
+            "Explain the difference between layout, painting, and compositing.",
+            "What is the difference between reflow and repaint?",
+            "What is the difference between Git and GitHub?",
+            "What is a merge conflict, and how should a developer resolve it?"
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Applied Engineering Questions"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A website returns HTTP 500. Which component or components would you investigate first, and why?",
+            "A webpage loads its HTML but its CSS is missing. How would you investigate the issue using developer tools?",
+            "A website works on a desktop but its navigation overlaps on mobile. What browser tools and CSS concepts would you investigate?",
+            "A frontend application cannot retrieve its course list from an API. Describe a systematic debugging process.",
+            "Two developers modify the same frontend component from different computers. Explain how Git can help integrate their work safely.",
+            "A website is slow even though its HTML document downloads quickly. What additional browser activities could contribute to the delay?"
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Practical Assignment"
+        },
+        {
+          "type": "p",
+          "text": "**Assignment: Website Architecture Investigation**"
+        },
+        {
+          "type": "p",
+          "text": "Choose one real public website and create a technical architecture investigation."
+        },
+        {
+          "type": "p",
+          "text": "Your report must explain:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "How its URL is structured.",
+            "How its domain is resolved.",
+            "How the browser retrieves its main document.",
+            "What frontend resources are requested.",
+            "How its HTML is represented in the DOM.",
+            "How its CSS determines the appearance of the page.",
+            "How JavaScript contributes to page behavior.",
+            "How the website adapts to different screen sizes.",
+            "Which network or rendering problems you discovered, if any."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Support your observations with screenshots from browser developer tools."
+        },
+        {
+          "type": "h3",
+          "text": "Completion Standard"
+        },
+        {
+          "type": "p",
+          "text": "You should be able to explain how a browser retrieves a website, how the server responds, how the browser processes the returned resources, and how the resulting interface appears on the screen."
+        },
+        {
+          "type": "p",
+          "text": "You should also be able to independently inspect a real website using browser developer tools and explain the major steps involved in its loading and rendering process."
+        },
+        {
+          "type": "p",
+          "text": "**Next Module:** HTML5 — Semantic Structure, Forms and Modern Web Document Engineering."
+        },
+        {
+          "type": "p",
+          "text": "**Important course-design note:** This module deliberately establishes the web architecture foundation before moving into HTML5, CSS, JavaScript, and modern frontend frameworks. It gives students the context needed to understand not just *how to write frontend code*, but *how that code works inside a real browser and web application*."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T13:56:45+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

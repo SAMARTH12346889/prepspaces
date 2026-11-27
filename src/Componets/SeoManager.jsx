@@ -277,6 +277,24 @@ const routeMeta = {
     keywords: "Backend Engineering Capstone, Spring Boot Modular Monolith, Transactional Outbox, Redis Cache-Aside, Distributed Rate Limiting, Testcontainers, OpenAPI Swagger, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/capstone-project`,
   },
+  "/courses/frontend-engineering": {
+    title: "Frontend Engineering Master Course | Web Architecture, Browsers & Modern UI – PrepSpaces",
+    description: "Master frontend engineering from web architecture, HTTP/HTTPS, DNS, and browser rendering pipelines (DOM, CSSOM, Render Tree, Layout, Paint) to developer tools and Git workflows.",
+    keywords: "Frontend Engineering Course, Web Architecture, HTTP Request Lifecycle, DNS, Browser Rendering, DOM, CSSOM, Render Tree, DevTools, PrepSpaces",
+    canonical: `${BASE_URL}/courses/frontend-engineering`,
+  },
+  "/learning/frontend-engineering": {
+    title: "Frontend Engineering Master Course | Web Architecture, Browsers & Modern UI – PrepSpaces",
+    description: "Master frontend engineering from web architecture, HTTP/HTTPS, DNS, and browser rendering pipelines (DOM, CSSOM, Render Tree, Layout, Paint) to developer tools and Git workflows.",
+    keywords: "Frontend Engineering Course, Web Architecture, HTTP Request Lifecycle, DNS, Browser Rendering, DOM, CSSOM, Render Tree, DevTools, PrepSpaces",
+    canonical: `${BASE_URL}/courses/frontend-engineering`,
+  },
+  "/learning/frontend-engineering/web-architecture-foundations": {
+    title: "Module 01: Web Architecture and Frontend Engineering Foundations | PrepSpaces",
+    description: "Understand the complete journey from a browser request to the rendered webpage: internet protocols, client-server architecture, HTTP/HTTPS, DNS, CDNs, DOM, CSSOM, Render Tree, DevTools, and Git.",
+    keywords: "Web Architecture, Frontend Engineering Foundations, DOM, CSSOM, Render Tree, Reflow, Repaint, HTTP HTTPS, DNS, Browser DevTools, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/web-architecture-foundations`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "web-architecture-foundations",
+    "courseId": "frontend-engineering",
+    "index": 1,
+    "name": "1. Web Architecture and Frontend Engineering Foundations",
+    "route": "/learning/frontend-engineering/web-architecture-foundations",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  }
+]
