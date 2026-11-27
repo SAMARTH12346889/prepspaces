@@ -1,0 +1,130 @@
+{
+  "id": "frontend-performance-security-seo",
+  "courseId": "frontend-engineering",
+  "index": 13,
+  "name": "13. Frontend Performance, Web Security and Technical SEO",
+  "route": "/learning/frontend-engineering/frontend-performance-security-seo",
+  "componentName": "FrontendPerfSecuritySeo",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does the browser combine to construct the Render Tree during the Critical Rendering Path?",
+      "options": [
+        "LocalStorage and Cookies",
+        "DOM and CSSOM",
+        "Service Workers and WebSockets",
+        "Sitemap and robots.txt"
+      ],
+      "correctIndex": 1,
+      "explanation": "The browser parses HTML into the DOM and CSS into the CSSOM, then combines them into the Render Tree before calculating layout and painting."
+    },
+    {
+      "id": 2,
+      "question": "Why should you avoid adding loading=\"lazy\" to the main above-the-fold hero image?",
+      "options": [
+        "Lazy loading disables image alt text",
+        "It can delay the page's Largest Contentful Paint (LCP) element",
+        "Browsers cannot decode lazy-loaded JPEG files",
+        "It breaks CORS headers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deferring the primary above-the-fold hero image delays its discovery and download, hurting Largest Contentful Paint (LCP)."
+    },
+    {
+      "id": 3,
+      "question": "What are the target 'Good' thresholds for Core Web Vitals (LCP, INP, CLS)?",
+      "options": [
+        "LCP <= 5.0 s, INP <= 500 ms, CLS <= 0.5",
+        "LCP <= 2.5 s, INP <= 200 ms, CLS <= 0.1",
+        "LCP <= 1.0 s, INP <= 50 ms, CLS <= 0.01",
+        "LCP <= 4.0 s, INP <= 300 ms, CLS <= 0.25"
+      ],
+      "correctIndex": 1,
+      "explanation": "Google's Core Web Vitals 'Good' thresholds at the 75th percentile are LCP <= 2.5 s, INP <= 200 ms, and CLS <= 0.1."
+    },
+    {
+      "id": 4,
+      "question": "What is the key difference between Cache-Control: no-cache and no-store?",
+      "options": [
+        "no-cache deletes browser cookies",
+        "no-cache allows storage but requires revalidation before reuse, while no-store forbids storing the response",
+        "no-store is only for CSS files",
+        "They behave identically"
+      ],
+      "correctIndex": 1,
+      "explanation": "no-cache permits caching with mandatory server revalidation before reuse, whereas no-store instructs caches not to store the response at all."
+    },
+    {
+      "id": 5,
+      "question": "When an application genuinely needs to render user-authored HTML via dangerouslySetInnerHTML, what should be used?",
+      "options": [
+        "JSON.stringify()",
+        "An updated HTML sanitizer such as DOMPurify",
+        "localStorage.getItem()",
+        "eval()"
+      ],
+      "correctIndex": 1,
+      "explanation": "Raw untrusted HTML passed to dangerouslySetInnerHTML creates XSS risks; sanitize it first with an HTML sanitizer like DOMPurify."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary difference between XSS and CSRF?",
+      "options": [
+        "XSS runs malicious script in the application's origin; CSRF tricks an authenticated browser into sending an unwanted request",
+        "CSRF only affects CSS styling",
+        "XSS is prevented by robots.txt",
+        "They are two names for the same vulnerability"
+      ],
+      "correctIndex": 0,
+      "explanation": "XSS executes attacker script inside the trusted origin, while CSRF exploits automatically attached credentials to trigger unwanted state-changing requests."
+    },
+    {
+      "id": 7,
+      "question": "Why is Access-Control-Allow-Origin: * invalid when sending credentialed CORS requests (credentials: \"include\")?",
+      "options": [
+        "Browsers require an explicit allowed origin when Access-Control-Allow-Credentials: true is used",
+        "Wildcard origins disable HTTPS",
+        "CORS only supports GET requests",
+        "Fetch cannot send cookies"
+      ],
+      "correctIndex": 0,
+      "explanation": "For security, browsers reject wildcard `*` in Access-Control-Allow-Origin when Access-Control-Allow-Credentials is true; the exact origin must be echoed."
+    },
+    {
+      "id": 8,
+      "question": "Why should you NOT block a page in robots.txt if your goal is to have Google process its noindex directive?",
+      "options": [
+        "robots.txt disables HTTPS",
+        "If Googlebot is blocked from crawling the page, it cannot read the page's meta noindex directive",
+        "noindex only works in CSS",
+        "robots.txt deletes the sitemap"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crawlers must be allowed to fetch the page (or its HTTP headers) to observe a `noindex` directive; blocking in robots.txt prevents crawling, not necessarily indexing."
+    },
+    {
+      "id": 9,
+      "question": "Which structured data format does Google generally recommend for describing entities like Course and Article?",
+      "options": [
+        "YAML",
+        "JSON-LD",
+        "CSV",
+        "INI"
+      ],
+      "correctIndex": 1,
+      "explanation": "Google recommends JSON-LD (`<script type=\"application/ld+json\">`) because it separates Schema.org metadata cleanly from visible HTML."
+    },
+    {
+      "id": 10,
+      "question": "Why can Pure Client-Side Rendering (CSR) create challenges for Technical SEO?",
+      "options": [
+        "Browsers cannot execute JavaScript",
+        "Initial HTML has minimal content, delaying content discovery until JavaScript renders (and some crawlers have limited JS support)",
+        "CSR blocks canonical tags",
+        "CSR disables HTTP status codes"
+      ],
+      "correctIndex": 1,
+      "explanation": "With pure CSR, meaningful content depends on a later JS rendering stage; SSR or SSG delivers complete HTML immediately to both users and crawlers."
+    }
+  ]
+}

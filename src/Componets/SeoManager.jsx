@@ -427,6 +427,18 @@ const routeMeta = {
     keywords: "Frontend Testing, Vitest, React Testing Library, MSW, Playwright, Cross-Browser Testing, Accessibility Testing, axe-core, Visual Regression, Coverage, CI, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/frontend-testing-quality`,
   },
+  "/learning/frontend-engineering/frontend-performance-security-seo": {
+    title: "Module 13: Frontend Performance, Web Security and Technical SEO | PrepSpaces",
+    description: "Master Critical Rendering Path, bundle optimization, code splitting, Core Web Vitals (LCP, INP, CLS), RUM, STRIDE threat modeling, XSS, CSRF, CSP, HttpOnly sessions, CORS, dependency security, and Technical & JavaScript SEO.",
+    keywords: "Frontend Performance, Core Web Vitals, LCP, INP, CLS, Web Security, XSS, CSRF, CSP, CORS, Technical SEO, JSON-LD, JavaScript SEO, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/frontend-performance-security-seo`,
+  },
+  "/courses/frontend-engineering/frontend-performance-security-seo": {
+    title: "Module 13: Frontend Performance, Web Security and Technical SEO | PrepSpaces",
+    description: "Master Critical Rendering Path, bundle optimization, code splitting, Core Web Vitals (LCP, INP, CLS), RUM, STRIDE threat modeling, XSS, CSRF, CSP, HttpOnly sessions, CORS, dependency security, and Technical & JavaScript SEO.",
+    keywords: "Frontend Performance, Core Web Vitals, LCP, INP, CLS, Web Security, XSS, CSRF, CSP, CORS, Technical SEO, JSON-LD, JavaScript SEO, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/frontend-performance-security-seo`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

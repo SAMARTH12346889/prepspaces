@@ -1,0 +1,2756 @@
+{
+  "moduleNumber": "13",
+  "title": "MODULE 13 — Frontend Performance, Web Security and Technical SEO",
+  "badges": [
+    "Advanced Frontend Engineering",
+    "24 Lessons",
+    "Core Web Vitals",
+    "XSS, CSRF, CSP & Technical SEO"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module overview"
+    },
+    {
+      "type": "p",
+      "text": "A frontend application must do more than display information and respond to user interactions. It must also load quickly, protect users from common security threats, and make its public content discoverable by search engines."
+    },
+    {
+      "type": "p",
+      "text": "This module brings together three important areas of production frontend engineering:"
+    },
+    {
+      "type": "p",
+      "text": "Performance engineering: Make applications faster, reduce unnecessary resource usage and improve the user experience."
+    },
+    {
+      "type": "p",
+      "text": "Frontend security: Understand browser security, prevent common web vulnerabilities and protect sensitive information."
+    },
+    {
+      "type": "p",
+      "text": "Technical SEO: Make application pages crawlable, indexable, understandable and shareable."
+    },
+    {
+      "type": "p",
+      "text": "Consider a platform like PrepSpaces. It may have hundreds of public course and lesson pages, interactive student dashboards, authentication, external APIs and a large amount of educational content."
+    },
+    {
+      "type": "p",
+      "text": "You must be able to answer questions such as:"
+    },
+    {
+      "type": "p",
+      "text": "Why does the homepage take several seconds to load?"
+    },
+    {
+      "type": "p",
+      "text": "Why is a large JavaScript bundle slowing down mobile devices?"
+    },
+    {
+      "type": "p",
+      "text": "How can malicious scripts steal information from users?"
+    },
+    {
+      "type": "p",
+      "text": "Why should authentication tokens not be exposed to frontend JavaScript?"
+    },
+    {
+      "type": "p",
+      "text": "How should browsers be instructed to handle cross-origin requests?"
+    },
+    {
+      "type": "p",
+      "text": "Why are some dynamically generated pages missing from Google?"
+    },
+    {
+      "type": "p",
+      "text": "How can you measure actual performance experienced by visitors?"
+    },
+    {
+      "type": "p",
+      "text": "This module teaches you to investigate and solve these problems."
+    },
+    {
+      "type": "h3",
+      "text": "What you will learn"
+    },
+    {
+      "type": "p",
+      "text": "By the end of this module, you should be able to:"
+    },
+    {
+      "type": "p",
+      "text": "Understand browser rendering and the critical rendering path."
+    },
+    {
+      "type": "p",
+      "text": "Analyze JavaScript bundles and reduce unnecessary JavaScript."
+    },
+    {
+      "type": "p",
+      "text": "Implement code splitting, dynamic imports and lazy loading."
+    },
+    {
+      "type": "p",
+      "text": "Optimize images, fonts, scripts and other assets."
+    },
+    {
+      "type": "p",
+      "text": "Understand browser caching, CDN delivery and React rendering performance."
+    },
+    {
+      "type": "p",
+      "text": "Measure and improve Core Web Vitals."
+    },
+    {
+      "type": "p",
+      "text": "Diagnose real-world performance problems."
+    },
+    {
+      "type": "p",
+      "text": "Understand frontend security principles and threat models."
+    },
+    {
+      "type": "p",
+      "text": "Prevent XSS and understand CSRF protection."
+    },
+    {
+      "type": "p",
+      "text": "Implement and understand Content Security Policy."
+    },
+    {
+      "type": "p",
+      "text": "Understand secure session, token and CORS architecture."
+    },
+    {
+      "type": "p",
+      "text": "Manage dependencies and sensitive information securely."
+    },
+    {
+      "type": "p",
+      "text": "Understand search-engine crawling, rendering and indexing."
+    },
+    {
+      "type": "p",
+      "text": "Implement metadata, structured data and canonical URLs."
+    },
+    {
+      "type": "p",
+      "text": "Configure sitemaps, robots directives and internal linking."
+    },
+    {
+      "type": "p",
+      "text": "Optimize JavaScript-rendered applications for search engines."
+    },
+    {
+      "type": "h3",
+      "text": "Module structure"
+    },
+    {
+      "type": "p",
+      "text": "Section A — Frontend Performance (Lessons 1–10): Browser rendering, JavaScript optimization, caching, React performance, Core Web Vitals and performance monitoring."
+    },
+    {
+      "type": "p",
+      "text": "Section B — Frontend Security (Lessons 11–18): Threat modelling, XSS, CSRF, CSP, authentication, CORS, dependency security and protection of sensitive information."
+    },
+    {
+      "type": "p",
+      "text": "Section C — Technical SEO (Lessons 19–24): Crawling, rendering, metadata, structured data, canonical URLs, sitemaps and JavaScript SEO."
+    }
+  ],
+  "sections": [
+    {
+      "id": "lesson-01",
+      "badge": "Lesson 01",
+      "title": "Browser Rendering and Critical Rendering Path",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 How does a browser display a website?"
+        },
+        {
+          "type": "p",
+          "text": "When a user enters a URL, the browser must process several resources and convert HTML, CSS and JavaScript into pixels on the screen:"
+        },
+        {
+          "type": "p",
+          "text": "Request the website -> Receive HTML -> Parse HTML and construct the DOM -> Download and process CSS -> Construct the CSSOM -> Combine relevant document and style information -> Calculate layout -> Paint visual elements -> Composite rendered layers -> Display result."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Understanding the DOM"
+        },
+        {
+          "type": "p",
+          "text": "DOM stands for Document Object Model. It represents the HTML document as a structured tree of elements."
+        },
+        {
+          "type": "code",
+          "text": "<html>\n  <body>\n    <header><h1>PrepSpaces</h1></header>\n    <main>\n      <h2>Available Courses</h2>\n      <p>Explore technology courses.</p>\n    </main>\n  </body>\n</html>"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript can interact with this structure by selecting, creating, updating or removing elements."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Understanding CSSOM"
+        },
+        {
+          "type": "p",
+          "text": "CSSOM stands for CSS Object Model. It represents the styles applied to document elements."
+        },
+        {
+          "type": "code",
+          "text": "h1 { color: black; font-size: 32px; }\nmain { padding: 24px; }"
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Understanding the render tree"
+        },
+        {
+          "type": "p",
+          "text": "The browser combines the relevant DOM and CSS information to construct a render tree, omitting non-visual elements such as display: none."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 Understanding layout, paint and compositing"
+        },
+        {
+          "type": "p",
+          "text": "Layout (reflow): Calculates dimensions and positions of elements."
+        },
+        {
+          "type": "p",
+          "text": "Paint: Draws backgrounds, text, borders, shadows, and colors."
+        },
+        {
+          "type": "p",
+          "text": "Compositing: Combines rendered layers to produce the final visible result."
+        },
+        {
+          "type": "p",
+          "text": "Critical Rendering Path: HTML parsing (DOM) -> CSS processing (CSSOM) -> Render tree construction -> Layout -> Paint -> Compositing. Render-blocking CSS and synchronous scripts can delay initial rendering. (web.dev)"
+        },
+        {
+          "type": "h3",
+          "text": "1.6 Understanding render-blocking resources"
+        },
+        {
+          "type": "code",
+          "text": "<head>\n  <script src=\"/large-library.js\"></script>\n  <link rel=\"stylesheet\" href=\"/styles.css\">\n</head>"
+        },
+        {
+          "type": "p",
+          "text": "Use deferred script loading when appropriate:"
+        },
+        {
+          "type": "code",
+          "text": "<script src=\"/application.js\" defer></script>"
+        },
+        {
+          "type": "p",
+          "text": "For JavaScript modules, deferred execution is the default behavior."
+        },
+        {
+          "type": "h3",
+          "text": "1.7 Understanding reflow and repaint"
+        },
+        {
+          "type": "p",
+          "text": "Changing width triggers layout recalculation (reflow), whereas changing backgroundColor typically triggers paint without full layout recalculation. Repeated layout reads and writes can cause layout thrashing."
+        },
+        {
+          "type": "h3",
+          "text": "1.8 How to optimize the critical rendering path"
+        },
+        {
+          "type": "p",
+          "text": "Reduce unnecessary render-blocking CSS, avoid large synchronous JS files, minimize unnecessary DOM complexity, load important resources early, defer non-critical scripts, avoid layout thrashing, and prioritize above-the-fold content."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand how browsers process HTML, CSS and JavaScript, construct the render tree, calculate layout, paint pixels and determine when important resources delay rendering."
+        }
+      ]
+    },
+    {
+      "id": "lesson-02",
+      "badge": "Lesson 02",
+      "title": "JavaScript Bundle Analysis and Optimization",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 What is a JavaScript bundle?"
+        },
+        {
+          "type": "p",
+          "text": "The build system processes application modules, libraries, routing, UI, and API clients into JavaScript output files called bundles or chunks."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Why can large JavaScript bundles be problematic?"
+        },
+        {
+          "type": "p",
+          "text": "Downloading unnecessary code (e.g. admin editors on the homepage) increases download size, parsing time, compilation time, execution time, memory usage, and main-thread work, especially on mobile devices."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Understanding bundle analysis"
+        },
+        {
+          "type": "p",
+          "text": "Identify large dependencies, duplicate packages, unused code, unexpectedly large modules, excessive imports, and route-mismatched dependencies."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 Measuring bundle sizes"
+        },
+        {
+          "type": "code",
+          "text": "npm install -D rollup-plugin-visualizer"
+        },
+        {
+          "type": "code",
+          "text": "import { defineConfig } from \"vite\";\nimport react from \"@vitejs/plugin-react\";\nimport { visualizer } from \"rollup-plugin-visualizer\";\n\nexport default defineConfig({\n  plugins: [\n    react(),\n    visualizer({\n      filename: \"dist/stats.html\",\n      open: true,\n      gzipSize: true,\n      brotliSize: true\n    })\n  ]\n});"
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Understanding tree shaking"
+        },
+        {
+          "type": "p",
+          "text": "Tree shaking removes unused exports when module structure and side-effect configuration allow it."
+        },
+        {
+          "type": "h3",
+          "text": "2.6 Avoiding unnecessary dependencies"
+        },
+        {
+          "type": "p",
+          "text": "Evaluate whether a smaller modular import, native JS API, or browser capability can replace a large dependency, weighing maintenance and compatibility costs."
+        },
+        {
+          "type": "h3",
+          "text": "2.7 Understanding production vs development bundles"
+        },
+        {
+          "type": "p",
+          "text": "Always measure bundle size and runtime performance using production builds rather than development builds."
+        },
+        {
+          "type": "h3",
+          "text": "2.8 Bundle optimization checklist"
+        },
+        {
+          "type": "p",
+          "text": "Analyze bundle composition, identify large libraries, remove unused dependencies, avoid duplicates, prefer smaller imports, use tree-shakable packages, split by route, load rarely used features on demand, and measure the production build."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand JavaScript bundles, build analysis, tree shaking, dependency optimization and how to identify unnecessary JavaScript."
+        }
+      ]
+    },
+    {
+      "id": "lesson-03",
+      "badge": "Lesson 03",
+      "title": "Code Splitting and Dynamic Imports",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 What is code splitting?"
+        },
+        {
+          "type": "p",
+          "text": "Code splitting divides a large application into smaller chunks so browsers download only what is needed for the current page and load additional features on demand."
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Understanding traditional loading vs code splitting"
+        },
+        {
+          "type": "p",
+          "text": "Without code splitting, Home, Courses, Dashboard, Video, Analytics, and Admin are bundled together. With code splitting, the initial bundle contains only the Homepage and other chunks load on demand."
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Understanding dynamic imports"
+        },
+        {
+          "type": "code",
+          "text": "async function openAnalytics() {\n  const analytics = await import(\"./analytics.js\");\n  analytics.generateReport();\n}"
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Code splitting in React"
+        },
+        {
+          "type": "code",
+          "text": "import { lazy, Suspense, useState } from \"react\";\n\nconst AnalyticsDashboard = lazy(\n  () => import(\"./AnalyticsDashboard\")\n);\n\nexport default function Dashboard() {\n  const [showAnalytics, setShowAnalytics] = useState(false);\n\n  return (\n    <main>\n      <button onClick={() => setShowAnalytics(true)}>\n        Open Analytics\n      </button>\n      {showAnalytics && (\n        <Suspense fallback={<p>Loading analytics...</p>}>\n          <AnalyticsDashboard />\n        </Suspense>\n      )}\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Route-based code splitting"
+        },
+        {
+          "type": "p",
+          "text": "Separating routes into chunks avoids downloading admin or dashboard code on public landing pages. Next.js App Router provides route splitting by default."
+        },
+        {
+          "type": "h3",
+          "text": "3.6 Dynamic imports in Next.js"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport dynamic from \"next/dynamic\";\n\nconst VideoEditor = dynamic(\n  () => import(\"@/components/VideoEditor\"),\n  { loading: () => <p>Loading editor...</p> }\n);"
+        },
+        {
+          "type": "p",
+          "text": "For browser-only modules in a Client Component:"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport dynamic from \"next/dynamic\";\n\nconst BrowserChart = dynamic(() => import(\"./BrowserChart\"), {\n  ssr: false,\n  loading: () => <p>Loading chart...</p>\n});"
+        },
+        {
+          "type": "h3",
+          "text": "3.7 When should code splitting be used?"
+        },
+        {
+          "type": "p",
+          "text": "Large charting libraries, rich-text editors, video editors, complex diagrams, admin dashboards, PDF viewers, and rarely used interactive widgets. Avoid splitting tiny components."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand JavaScript dynamic imports, React lazy loading, Suspense, route-based splitting and Next.js dynamic imports."
+        }
+      ]
+    },
+    {
+      "id": "lesson-04",
+      "badge": "Lesson 04",
+      "title": "Lazy Loading and Resource Prioritization",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 What is lazy loading?"
+        },
+        {
+          "type": "p",
+          "text": "Delaying the loading of below-the-fold images or optional widgets until they are likely to be needed."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 Eager loading vs lazy loading"
+        },
+        {
+          "type": "code",
+          "text": "<img src=\"/images/course-react.jpg\" alt=\"React course\" loading=\"lazy\" />"
+        },
+        {
+          "type": "p",
+          "text": "Important: Do not lazy-load the main above-the-fold image if it is the page's likely LCP element. (web.dev)"
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Lazy loading in React"
+        },
+        {
+          "type": "p",
+          "text": "Use React.lazy() + Suspense to defer heavy components like charts until needed."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 Understanding resource prioritization"
+        },
+        {
+          "type": "p",
+          "text": "Important hero images, critical CSS, and main app code need high priority; below-the-fold images and optional analytics widgets can be low or deferred priority."
+        },
+        {
+          "type": "h3",
+          "text": "4.5 Understanding preload"
+        },
+        {
+          "type": "code",
+          "text": "<link rel=\"preload\" as=\"image\" href=\"/images/hero.jpg\" fetchpriority=\"high\" />"
+        },
+        {
+          "type": "h3",
+          "text": "4.6 Understanding prefetch"
+        },
+        {
+          "type": "p",
+          "text": "Preload fetches resources needed for the current page; prefetch fetches resources likely needed for a future navigation."
+        },
+        {
+          "type": "h3",
+          "text": "4.7 Understanding preconnect"
+        },
+        {
+          "type": "code",
+          "text": "<link rel=\"preconnect\" href=\"https://api.example.com\" />"
+        },
+        {
+          "type": "h3",
+          "text": "4.8 Resource prioritization example"
+        },
+        {
+          "type": "code",
+          "text": "<head>\n  <link rel=\"preconnect\" href=\"https://api.example.com\" />\n  <link rel=\"preload\" href=\"/fonts/brand.woff2\" as=\"font\" type=\"font/woff2\" crossorigin />\n</head>"
+        },
+        {
+          "type": "p",
+          "text": "Use resource hints selectively so they do not compete with critical resources. (web.dev)"
+        },
+        {
+          "type": "h3",
+          "text": "4.9 Understanding Intersection Observer"
+        },
+        {
+          "type": "code",
+          "text": "import { useEffect, useRef, useState } from \"react\";\n\nexport default function LazySection() {\n  const sectionRef = useRef<HTMLDivElement>(null);\n  const [visible, setVisible] = useState(false);\n\n  useEffect(() => {\n    const element = sectionRef.current;\n    if (!element) return;\n\n    const observer = new IntersectionObserver(\n      ([entry]) => {\n        if (entry.isIntersecting) {\n          setVisible(true);\n          observer.disconnect();\n        }\n      },\n      { rootMargin: \"200px\" }\n    );\n\n    observer.observe(element);\n    return () => observer.disconnect();\n  }, []);\n\n  return (\n    <div ref={sectionRef}>\n      {visible ? <HeavyContent /> : <p>Content loading area</p>}\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand native lazy loading, React lazy loading, preload, prefetch, preconnect, resource priorities and viewport-based loading."
+        }
+      ]
+    },
+    {
+      "id": "lesson-05",
+      "badge": "Lesson 05",
+      "title": "Image, Font and Asset Optimization",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 Why does asset optimization matter?"
+        },
+        {
+          "type": "p",
+          "text": "Images, fonts, CSS, icons, videos, and SVGs can slow down a page even when JavaScript is fast."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 Image optimization"
+        },
+        {
+          "type": "p",
+          "text": "Use appropriate dimensions, compression, modern formats, responsive sources, lazy loading where suitable, and explicit width/height."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Understanding image formats"
+        },
+        {
+          "type": "p",
+          "text": "Format | Main characteristics"
+        },
+        {
+          "type": "p",
+          "text": "JPEG | Common for photographs"
+        },
+        {
+          "type": "p",
+          "text": "PNG | Supports transparency and lossless compression"
+        },
+        {
+          "type": "p",
+          "text": "WebP | Efficient compressed web images"
+        },
+        {
+          "type": "p",
+          "text": "AVIF | Modern format with strong compression"
+        },
+        {
+          "type": "p",
+          "text": "SVG | Vector images and icons"
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Responsive images"
+        },
+        {
+          "type": "code",
+          "text": "<img\n  src=\"/images/course-800.jpg\"\n  srcset=\"/images/course-400.jpg 400w, /images/course-800.jpg 800w, /images/course-1200.jpg 1200w\"\n  sizes=\"(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw\"\n  alt=\"Modern frontend engineering course\"\n/>"
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Image optimization in Next.js"
+        },
+        {
+          "type": "p",
+          "text": "Use next/image with width, height, and sizes, plus remotePatterns in next.config.ts for remote images."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Understanding font optimization"
+        },
+        {
+          "type": "p",
+          "text": "Load only the font weights actually needed and prefer WOFF2."
+        },
+        {
+          "type": "h3",
+          "text": "5.7 Understanding font-display"
+        },
+        {
+          "type": "code",
+          "text": "@font-face {\n  font-family: \"BrandFont\";\n  src: url(\"/fonts/brand.woff2\") format(\"woff2\");\n  font-display: swap;\n}"
+        },
+        {
+          "type": "h3",
+          "text": "5.8 Understanding asset compression"
+        },
+        {
+          "type": "p",
+          "text": "Minify JS/CSS, compress images, use Brotli or Gzip for text assets, remove unused font variants, and use content-hashed filenames."
+        },
+        {
+          "type": "h3",
+          "text": "5.9 Optimizing video and other media"
+        },
+        {
+          "type": "p",
+          "text": "Avoid downloading full videos on catalogue pages; use lightweight previews and on-demand players."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand image formats, responsive images, font loading, compression, video loading and asset optimization in React and Next.js."
+        }
+      ]
+    },
+    {
+      "id": "lesson-06",
+      "badge": "Lesson 06",
+      "title": "Browser Caching and CDN Fundamentals",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 What is caching?"
+        },
+        {
+          "type": "p",
+          "text": "Storing reusable resources or responses so browsers and edges do not repeatedly download or regenerate them."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Understanding browser caching"
+        },
+        {
+          "type": "p",
+          "text": "First Visit -> Request CSS/JS/Images -> Download -> Store Eligible Resources -> Second Visit -> Reuse Cached Resources."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Understanding Cache-Control"
+        },
+        {
+          "type": "code",
+          "text": "Cache-Control: public, max-age=31536000, immutable"
+        },
+        {
+          "type": "p",
+          "text": "Directive | Meaning"
+        },
+        {
+          "type": "p",
+          "text": "public | Allows shared caches to store the response"
+        },
+        {
+          "type": "p",
+          "text": "private | Restricts storage to private caches"
+        },
+        {
+          "type": "p",
+          "text": "no-cache | Allows storage but requires revalidation before reuse"
+        },
+        {
+          "type": "p",
+          "text": "no-store | Instructs caches not to store the response"
+        },
+        {
+          "type": "p",
+          "text": "max-age | Defines freshness lifetime in seconds"
+        },
+        {
+          "type": "p",
+          "text": "immutable | Indicates that a fresh response will not change"
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Why content hashing matters"
+        },
+        {
+          "type": "p",
+          "text": "Fingerprinted filenames (app.a72f91.js -> app.c83b62.js) allow long-lived immutable caching without serving stale code after deployment. (MDN)"
+        },
+        {
+          "type": "h3",
+          "text": "6.5 What is a CDN?"
+        },
+        {
+          "type": "p",
+          "text": "A Content Delivery Network (CDN) delivers eligible static resources from geographically distributed edge locations closer to users."
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Understanding CDN architecture"
+        },
+        {
+          "type": "p",
+          "text": "Student -> Internet -> CDN Edge -> Cache Hit (Return File) or Cache Miss (Origin Server -> Store Result -> Return)."
+        },
+        {
+          "type": "h3",
+          "text": "6.7 CDN caching vs browser caching"
+        },
+        {
+          "type": "p",
+          "text": "Browser cache is stored on the user's device for repeat visits; CDN cache is stored at edge PoPs to benefit many users and reduce origin load."
+        },
+        {
+          "type": "h3",
+          "text": "6.8 What should not be publicly cached?"
+        },
+        {
+          "type": "p",
+          "text": "Never publicly cache private student dashboards, personal account info, auth responses, personalized progress, or sensitive data. Use private or no-store."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand HTTP caching, Cache-Control, fingerprinted assets, browser caching, CDN delivery, cache misses and the risks of caching personalized content."
+        }
+      ]
+    },
+    {
+      "id": "lesson-07",
+      "badge": "Lesson 07",
+      "title": "Reducing Unnecessary React Renders",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 What is a React render?"
+        },
+        {
+          "type": "p",
+          "text": "React calculates the UI description and commits only necessary DOM updates, though excessive component calculations still consume CPU."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Understanding unnecessary renders"
+        },
+        {
+          "type": "p",
+          "text": "When parent state changes, child components may re-render even if their props did not meaningfully change."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Understanding React.memo"
+        },
+        {
+          "type": "code",
+          "text": "import { memo } from \"react\";\n\nconst CourseCard = memo(function CourseCard({ title }: { title: string }) {\n  console.log(\"CourseCard rendered\");\n  return <h2>{title}</h2>;\n});\n\nexport default CourseCard;"
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Understanding useMemo"
+        },
+        {
+          "type": "p",
+          "text": "Caches the result of an expensive calculation between renders while its dependencies remain unchanged."
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Understanding useCallback"
+        },
+        {
+          "type": "p",
+          "text": "Caches a function reference between renders when passing callbacks to memoized children or hook dependencies."
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Common causes of unnecessary renders"
+        },
+        {
+          "type": "p",
+          "text": "State placed too high, repeated effect state updates, expensive synchronous calculations, unstable object/function props, oversized context providers, unvirtualized huge lists."
+        },
+        {
+          "type": "h3",
+          "text": "7.7 Better React performance practices"
+        },
+        {
+          "type": "p",
+          "text": "Keep local state close to consumers, avoid state duplication, derive values during render instead of effects, paginate/virtualize large lists, and profile before memoizing. (React)"
+        },
+        {
+          "type": "h3",
+          "text": "7.8 Understanding React Profiler"
+        },
+        {
+          "type": "p",
+          "text": "Use React DevTools Profiler to identify which components rendered, how often, how long they took, and whether memoization actually helps."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand React rendering, component memoization, useMemo, useCallback, state placement and performance profiling."
+        }
+      ]
+    },
+    {
+      "id": "lesson-08",
+      "badge": "Lesson 08",
+      "title": "Core Web Vitals: LCP, INP and CLS",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 What are Core Web Vitals?"
+        },
+        {
+          "type": "p",
+          "text": "Metrics measuring loading performance (LCP), interaction responsiveness (INP), and visual stability (CLS) at the 75th percentile of real-user visits. (web.dev)"
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Understanding LCP — Largest Contentful Paint"
+        },
+        {
+          "type": "p",
+          "text": "Measures how quickly the largest meaningful content element becomes visible. Thresholds: <= 2.5 s (Good), 2.5–4 s (Needs improvement), > 4 s (Poor). Improve by optimizing hero images, server response time, and eliminating render-blocking JS/CSS."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 Understanding INP — Interaction to Next Paint"
+        },
+        {
+          "type": "p",
+          "text": "Measures delay between user interaction and next visual update. Thresholds: <= 200 ms (Good), 200–500 ms (Needs improvement), > 500 ms (Poor). Improve by breaking up long JS tasks, reducing main-thread work, and minimizing heavy re-renders."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Understanding CLS — Cumulative Layout Shift"
+        },
+        {
+          "type": "p",
+          "text": "Measures unexpected layout movement. Thresholds: <= 0.1 (Good), 0.1–0.25 (Needs improvement), > 0.25 (Poor). Improve by specifying image dimensions, reserving space for async content/ads, and optimizing font loading."
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Understanding the three metrics together"
+        },
+        {
+          "type": "p",
+          "text": "Metric | Measures | Main concern"
+        },
+        {
+          "type": "p",
+          "text": "LCP | Loading | How quickly important content appears"
+        },
+        {
+          "type": "p",
+          "text": "INP | Responsiveness | How quickly the interface responds"
+        },
+        {
+          "type": "p",
+          "text": "CLS | Stability | How much unexpected layout movement occurs"
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Practical example"
+        },
+        {
+          "type": "p",
+          "text": "Optimizing LCP alone is insufficient if INP (650 ms) or CLS (0.30) remain poor."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand the definitions, thresholds, measurement principles and optimization techniques for LCP, INP and CLS."
+        }
+      ]
+    },
+    {
+      "id": "lesson-09",
+      "badge": "Lesson 09",
+      "title": "Lighthouse, PageSpeed Insights and Performance Profiling",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 Why do we need performance audits?"
+        },
+        {
+          "type": "p",
+          "text": "Lab and field audits reveal bottlenecks on low-end smartphones, slow networks, and constrained CPUs."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 What is Lighthouse?"
+        },
+        {
+          "type": "p",
+          "text": "Automated auditing tool in Chrome DevTools evaluating Performance, Accessibility, Best Practices, and SEO."
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Running a Lighthouse audit"
+        },
+        {
+          "type": "p",
+          "text": "Open Chrome DevTools -> Lighthouse -> select categories & mobile/desktop -> Run audit -> inspect diagnostics and opportunities."
+        },
+        {
+          "type": "h3",
+          "text": "9.4 What is PageSpeed Insights?"
+        },
+        {
+          "type": "p",
+          "text": "Combines Lab data (controlled Lighthouse test) and Field data (real-user Chrome UX Report / CrUX where available). (developer.chrome.com)"
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Understanding performance reports"
+        },
+        {
+          "type": "p",
+          "text": "Finding | Possible action"
+        },
+        {
+          "type": "p",
+          "text": "Large JavaScript files | Code split and reduce dependencies"
+        },
+        {
+          "type": "p",
+          "text": "Render-blocking CSS | Optimize critical CSS delivery"
+        },
+        {
+          "type": "p",
+          "text": "Oversized images | Resize and compress images"
+        },
+        {
+          "type": "p",
+          "text": "Unused JavaScript | Remove or defer unnecessary code"
+        },
+        {
+          "type": "p",
+          "text": "Long main-thread tasks | Break up or relocate work"
+        },
+        {
+          "type": "p",
+          "text": "Layout shifts | Reserve content space"
+        },
+        {
+          "type": "p",
+          "text": "Slow server response | Investigate backend and caching"
+        },
+        {
+          "type": "h3",
+          "text": "9.6 What is Chrome DevTools Performance panel?"
+        },
+        {
+          "type": "p",
+          "text": "Record interactions with optional CPU/network throttling to inspect JS execution, main-thread long tasks, layout, paint, and frame rendering. (developer.chrome.com)"
+        },
+        {
+          "type": "h3",
+          "text": "9.7 Understanding performance budgets"
+        },
+        {
+          "type": "p",
+          "text": "Illustrative targets: Initial JS < 200 KB compressed, above-the-fold images < 300 KB, LCP <= 2.5 s, INP <= 200 ms, CLS <= 0.1."
+        },
+        {
+          "type": "h3",
+          "text": "9.8 Building an optimization workflow"
+        },
+        {
+          "type": "p",
+          "text": "Record baseline -> identify largest bottleneck -> inspect bundle/images/main-thread -> apply targeted fix -> rebuild production -> re-measure and compare."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Use Lighthouse, PageSpeed Insights and Chrome DevTools to measure performance, interpret audit findings and investigate real bottlenecks."
+        }
+      ]
+    },
+    {
+      "id": "lesson-10",
+      "badge": "Lesson 10",
+      "title": "Real User Monitoring and Performance Diagnostics",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "10.1 What is Real User Monitoring?"
+        },
+        {
+          "type": "p",
+          "text": "RUM measures performance from actual production visitors across real devices, networks, browsers, and regions."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 RUM vs synthetic monitoring"
+        },
+        {
+          "type": "p",
+          "text": "RUM measures real visitor experience and real-world variation; synthetic monitoring runs controlled predefined tests to reproduce and diagnose issues."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Understanding the web-vitals library"
+        },
+        {
+          "type": "code",
+          "text": "npm install web-vitals"
+        },
+        {
+          "type": "code",
+          "text": "import { onLCP, onINP, onCLS } from \"web-vitals\";\n\nfunction sendMetric(metric: { name: string; value: number; id: string }) {\n  const body = JSON.stringify(metric);\n  navigator.sendBeacon(\n    \"/api/performance\",\n    new Blob([body], { type: \"application/json\" })\n  );\n}\n\nonLCP(sendMetric);\nonINP(sendMetric);\nonCLS(sendMetric);"
+        },
+        {
+          "type": "p",
+          "text": "Handle measurement errors, sampling, consent, and privacy in production."
+        },
+        {
+          "type": "h3",
+          "text": "10.4 What is PerformanceObserver?"
+        },
+        {
+          "type": "code",
+          "text": "const observer = new PerformanceObserver(list => {\n  for (const entry of list.getEntries()) {\n    console.log(\n      entry.entryType,\n      entry.name,\n      entry.startTime,\n      entry.duration\n    );\n  }\n});\n\nobserver.observe({ entryTypes: [\"resource\", \"navigation\"] });"
+        },
+        {
+          "type": "h3",
+          "text": "10.5 Understanding production diagnostics"
+        },
+        {
+          "type": "p",
+          "text": "Segment metrics by route, resource, browser, mobile vs desktop, server response time, main-thread blocking, and release version."
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Understanding performance observability"
+        },
+        {
+          "type": "p",
+          "text": "Visitors -> Frontend App -> Collect Metrics -> Monitoring API -> Data Storage -> Dashboard & Alerts."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand RUM, synthetic monitoring, web-vitals measurements, PerformanceObserver, production performance diagnostics and performance observability."
+        }
+      ]
+    },
+    {
+      "id": "lesson-11",
+      "badge": "Lesson 11",
+      "title": "Frontend Security Principles and Threat Models",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "11.1 What is frontend security?"
+        },
+        {
+          "type": "p",
+          "text": "Protecting users, browser applications, and client-server communication from threats across untrusted inputs (user input, URL params, API responses, browser storage, third-party scripts, cookies)."
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Understanding the security boundary"
+        },
+        {
+          "type": "p",
+          "text": "The browser is controlled by the user. Hiding a button in React does not secure an action — the backend must independently authenticate, authorize, and validate every request."
+        },
+        {
+          "type": "h3",
+          "text": "11.3 Authentication vs authorization"
+        },
+        {
+          "type": "p",
+          "text": "Authentication determines who the user is; authorization determines what the authenticated user is allowed to do."
+        },
+        {
+          "type": "h3",
+          "text": "11.4 What is a threat model?"
+        },
+        {
+          "type": "p",
+          "text": "A structured approach to identify what we are protecting, who might attack, how attacks happen, potential damage, and mitigations."
+        },
+        {
+          "type": "h3",
+          "text": "11.5 Understanding STRIDE"
+        },
+        {
+          "type": "p",
+          "text": "Threat | Meaning | Frontend example"
+        },
+        {
+          "type": "p",
+          "text": "Spoofing | Pretending to be someone else | Attempting to impersonate a student"
+        },
+        {
+          "type": "p",
+          "text": "Tampering | Modifying information | Altering course or request parameters"
+        },
+        {
+          "type": "p",
+          "text": "Repudiation | Denying an action | Disputing an account operation"
+        },
+        {
+          "type": "p",
+          "text": "Information disclosure | Exposing private data | Sensitive data leaked in browser logs"
+        },
+        {
+          "type": "p",
+          "text": "Denial of service | Disrupting availability | Excessive expensive requests"
+        },
+        {
+          "type": "p",
+          "text": "Elevation of privilege | Gaining unauthorized permissions | Student attempting administrator actions"
+        },
+        {
+          "type": "h3",
+          "text": "11.6 Common frontend security risks"
+        },
+        {
+          "type": "p",
+          "text": "XSS, CSRF, insecure token storage, unsafe third-party scripts, exposed API secrets, insecure URL handling, vulnerable dependencies, incorrect CORS, weak CSP, sensitive UI data exposure."
+        },
+        {
+          "type": "h3",
+          "text": "11.7 Applying a threat model to PrepSpaces"
+        },
+        {
+          "type": "p",
+          "text": "Protect student accounts, progress, admin tools, sessions, APIs, and student PII with layered controls."
+        },
+        {
+          "type": "h3",
+          "text": "11.8 Defence in depth"
+        },
+        {
+          "type": "p",
+          "text": "Combine secure session cookies, HTTPS, server-side auth/authorization, CSRF protection, XSS prevention, rate limiting, expiration, and monitoring."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand browser security boundaries, authentication, authorization, threat modeling, STRIDE and defence in depth."
+        }
+      ]
+    },
+    {
+      "id": "lesson-12",
+      "badge": "Lesson 12",
+      "title": "Cross-Site Scripting (XSS) Prevention",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "12.1 What is XSS?"
+        },
+        {
+          "type": "p",
+          "text": "XSS occurs when an attacker causes malicious JavaScript or active content to execute in a user's browser through a vulnerable application."
+        },
+        {
+          "type": "h3",
+          "text": "12.2 Understanding how XSS happens"
+        },
+        {
+          "type": "p",
+          "text": "Inserting untrusted input as raw executable HTML instead of plain escaped text."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 Types of XSS"
+        },
+        {
+          "type": "h3",
+          "text": "1. Stored XSS: Malicious content saved in a database and rendered to other users."
+        },
+        {
+          "type": "h3",
+          "text": "2. Reflected XSS: Untrusted input reflected immediately in a response."
+        },
+        {
+          "type": "h3",
+          "text": "3. DOM-based XSS: Unsafe client-side DOM sink (e.g. assigning location.hash directly to innerHTML)."
+        },
+        {
+          "type": "h3",
+          "text": "12.4 React's default protection"
+        },
+        {
+          "type": "p",
+          "text": "React escapes ordinary string values rendered in JSX text nodes."
+        },
+        {
+          "type": "h3",
+          "text": "12.5 Understanding dangerouslySetInnerHTML"
+        },
+        {
+          "type": "p",
+          "text": "Never pass arbitrary untrusted HTML into dangerouslySetInnerHTML."
+        },
+        {
+          "type": "h3",
+          "text": "12.6 HTML sanitization with DOMPurify"
+        },
+        {
+          "type": "code",
+          "text": "npm install dompurify"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport DOMPurify from \"dompurify\";\n\nexport default function SafeArticle({ html }: { html: string }) {\n  const safeHTML = DOMPurify.sanitize(html);\n  return (\n    <article dangerouslySetInnerHTML={{ __html: safeHTML }} />\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "OWASP recommends context-aware output encoding for ordinary text and HTML sanitization when user-authored HTML must be rendered. (OWASP Cheat Sheet Series)"
+        },
+        {
+          "type": "h3",
+          "text": "12.7 Understanding context-aware output encoding"
+        },
+        {
+          "type": "p",
+          "text": "Use framework escaping, textContent instead of innerHTML, and explicit URL validation (e.g. rejecting javascript: URLs)."
+        },
+        {
+          "type": "h3",
+          "text": "12.8 Common XSS prevention techniques"
+        },
+        {
+          "type": "p",
+          "text": "Use framework escaping, avoid raw HTML insertion, sanitize user-authored HTML, validate URLs, avoid eval(), avoid inline event-handler strings, add CSP, and treat API responses as untrusted."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand stored, reflected and DOM-based XSS, React's default escaping, unsafe HTML insertion, output encoding and HTML sanitization."
+        }
+      ]
+    },
+    {
+      "id": "lesson-13",
+      "badge": "Lesson 13",
+      "title": "Cross-Site Request Forgery (CSRF) Awareness and Mitigation",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "13.1 What is CSRF?"
+        },
+        {
+          "type": "p",
+          "text": "CSRF tricks an authenticated user's browser into sending an unwanted state-changing request to another site where the user holds an active session cookie."
+        },
+        {
+          "type": "h3",
+          "text": "13.2 Understanding the CSRF attack flow"
+        },
+        {
+          "type": "p",
+          "text": "Student Logs In -> Browser Stores Cookie -> Student Opens Malicious Site -> Malicious Site Initiates Request -> Cookie May Be Attached -> Backend Validates and Rejects Forged Request."
+        },
+        {
+          "type": "h3",
+          "text": "13.3 Why cookies can create CSRF risks"
+        },
+        {
+          "type": "p",
+          "text": "Browsers automatically attach eligible cookies to matching domain requests, so cookie presence alone does not prove user intent."
+        },
+        {
+          "type": "h3",
+          "text": "13.4 Understanding CSRF tokens"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/profile\nContent-Type: application/json\nX-CSRF-Token: server-generated-token"
+        },
+        {
+          "type": "h3",
+          "text": "13.5 Common CSRF mitigation techniques"
+        },
+        {
+          "type": "p",
+          "text": "Synchronizer token pattern, signed double-submit cookie, SameSite cookies (Strict/Lax/None), Origin/Referer validation, and Fetch Metadata headers (Sec-Fetch-Site). OWASP warns against relying on SameSite alone for every application. (OWASP Cheat Sheet Series)"
+        },
+        {
+          "type": "h3",
+          "text": "13.6 Important distinction: CSRF vs XSS"
+        },
+        {
+          "type": "p",
+          "text": "XSS executes malicious script inside the application's origin; CSRF tricks an authenticated browser into sending an unwanted request."
+        },
+        {
+          "type": "h3",
+          "text": "13.7 Important CSRF design rules"
+        },
+        {
+          "type": "p",
+          "text": "Never use GET for state-changing operations, validate CSRF tokens on the backend, set cookie attributes explicitly, never put CSRF tokens in URLs, and do not treat CORS as a complete CSRF defence."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand CSRF attack mechanics, authenticated browser requests, CSRF tokens, SameSite cookies and server-side request validation."
+        }
+      ]
+    },
+    {
+      "id": "lesson-14",
+      "badge": "Lesson 14",
+      "title": "Content Security Policy (CSP)",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "14.1 What is CSP?"
+        },
+        {
+          "type": "p",
+          "text": "CSP is a browser security mechanism defining permitted sources for scripts, styles, images, fonts, connections, and frames as an additional defence against XSS and unauthorized resource loading."
+        },
+        {
+          "type": "h3",
+          "text": "14.2 Why do we need CSP?"
+        },
+        {
+          "type": "p",
+          "text": "A strict CSP can block injected scripts from executing, acting as defence-in-depth alongside output escaping and sanitization. (MDN)"
+        },
+        {
+          "type": "h3",
+          "text": "14.3 Understanding CSP directives"
+        },
+        {
+          "type": "p",
+          "text": "Directive | Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "default-src | Default allowed resource sources"
+        },
+        {
+          "type": "p",
+          "text": "script-src | JavaScript sources"
+        },
+        {
+          "type": "p",
+          "text": "style-src | CSS sources"
+        },
+        {
+          "type": "p",
+          "text": "img-src | Image sources"
+        },
+        {
+          "type": "p",
+          "text": "font-src | Font sources"
+        },
+        {
+          "type": "p",
+          "text": "connect-src | Fetch, XHR and related connections"
+        },
+        {
+          "type": "p",
+          "text": "media-src | Audio and video sources"
+        },
+        {
+          "type": "p",
+          "text": "object-src | Embedded object resources"
+        },
+        {
+          "type": "p",
+          "text": "frame-src | Sources permitted inside frames"
+        },
+        {
+          "type": "p",
+          "text": "base-uri | Permitted document base URL sources"
+        },
+        {
+          "type": "p",
+          "text": "frame-ancestors | Sites allowed to embed the page"
+        },
+        {
+          "type": "h3",
+          "text": "14.4 A basic CSP example"
+        },
+        {
+          "type": "code",
+          "text": "Content-Security-Policy: default-src 'self'; script-src 'self'; img-src 'self' https://images.example.com; style-src 'self'; connect-src 'self' https://api.example.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
+        },
+        {
+          "type": "h3",
+          "text": "14.5 Understanding nonce-based CSP"
+        },
+        {
+          "type": "p",
+          "text": "Use a cryptographically unpredictable per-response nonce on script-src and approved script tags; never reuse nonces across responses."
+        },
+        {
+          "type": "h3",
+          "text": "14.6 Understanding CSP Report-Only"
+        },
+        {
+          "type": "p",
+          "text": "Use Content-Security-Policy-Report-Only header to monitor violations without breaking legitimate scripts before enforcing. (OWASP Cheat Sheet Series)"
+        },
+        {
+          "type": "h3",
+          "text": "14.7 CSP in Next.js applications"
+        },
+        {
+          "type": "p",
+          "text": "Account for server-rendered inline scripts, nonce propagation, and client navigation so hydration is not broken."
+        },
+        {
+          "type": "h3",
+          "text": "14.8 Security headers related to CSP"
+        },
+        {
+          "type": "p",
+          "text": "Strict-Transport-Security (HSTS), X-Content-Type-Options, Referrer-Policy, Permissions-Policy, and frame-ancestors."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand CSP directives, resource restrictions, nonce-based policies, report-only mode and deployment considerations for React and Next.js."
+        }
+      ]
+    },
+    {
+      "id": "lesson-15",
+      "badge": "Lesson 15",
+      "title": "Secure Token and Session Handling",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "15.1 What is a session?"
+        },
+        {
+          "type": "p",
+          "text": "An authenticated interaction establishing identity, validity, expiration, permissions, and revocation."
+        },
+        {
+          "type": "h3",
+          "text": "15.2 Understanding authentication tokens"
+        },
+        {
+          "type": "p",
+          "text": "Access tokens grant resource access; refresh tokens obtain new access tokens according to the auth protocol."
+        },
+        {
+          "type": "h3",
+          "text": "15.3 Understanding JWT"
+        },
+        {
+          "type": "p",
+          "text": "Header.Payload.Signature — signed JWT payloads can be decoded by anyone holding the token, so never store passwords or secrets inside them."
+        },
+        {
+          "type": "h3",
+          "text": "15.4 Where should authentication tokens be stored?"
+        },
+        {
+          "type": "p",
+          "text": "Avoid localStorage/sessionStorage for auth credentials because XSS can read them. Prefer HttpOnly, Secure, SameSite cookies or a Backend-for-Frontend (BFF). (OWASP Cheat Sheet Series)"
+        },
+        {
+          "type": "code",
+          "text": "Set-Cookie: session=SESSION_ID; HttpOnly; Secure; SameSite=Lax; Path=/"
+        },
+        {
+          "type": "h3",
+          "text": "15.5 Understanding the Backend-for-Frontend pattern"
+        },
+        {
+          "type": "p",
+          "text": "Browser <--(Secure session cookie)--> BFF Server <--(Private access token)--> Protected Backend API."
+        },
+        {
+          "type": "h3",
+          "text": "15.6 Understanding session lifecycle"
+        },
+        {
+          "type": "p",
+          "text": "Login -> Create Session -> Issue Cookie -> Authenticated Requests -> Validate Server-Side -> Refresh/Expire -> Explicit Logout & Revocation."
+        },
+        {
+          "type": "h3",
+          "text": "15.7 Session security requirements"
+        },
+        {
+          "type": "p",
+          "text": "Unpredictable IDs, HTTPS-only, proper cookie attributes, expiration, rotation on login, server revocation, fixation protection, rate limiting, and reauthentication for sensitive actions."
+        },
+        {
+          "type": "h3",
+          "text": "15.8 Protecting cookies from subdomain risks"
+        },
+        {
+          "type": "p",
+          "text": "Prefer host-only cookies and the __Host- prefix where supported rather than overly broad parent-domain cookies."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand JWT structure, access and refresh tokens, browser token storage, HttpOnly cookies, BFF architecture and secure session lifecycle management."
+        }
+      ]
+    },
+    {
+      "id": "lesson-16",
+      "badge": "Lesson 16",
+      "title": "CORS and Browser Security Boundaries",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "16.1 What is an origin?"
+        },
+        {
+          "type": "p",
+          "text": "Origin = Scheme + Host + Port (e.g. https://example.com:443). Different hostnames (example.com vs api.example.com) are different origins."
+        },
+        {
+          "type": "h3",
+          "text": "16.2 What is Same-Origin Policy?"
+        },
+        {
+          "type": "p",
+          "text": "Browser security policy restricting how scripts on one origin can read resources from another origin. (MDN)"
+        },
+        {
+          "type": "h3",
+          "text": "16.3 What is CORS?"
+        },
+        {
+          "type": "p",
+          "text": "Cross-Origin Resource Sharing lets servers explicitly declare which origins, methods, and headers may access cross-origin responses."
+        },
+        {
+          "type": "h3",
+          "text": "16.4 Understanding CORS response headers"
+        },
+        {
+          "type": "code",
+          "text": "Access-Control-Allow-Origin: https://prepspaces.com\nAccess-Control-Allow-Methods: GET, POST, PUT, DELETE\nAccess-Control-Allow-Headers: Content-Type, Authorization"
+        },
+        {
+          "type": "h3",
+          "text": "16.5 Understanding preflight requests"
+        },
+        {
+          "type": "p",
+          "text": "Browser sends an OPTIONS preflight request before certain cross-origin requests to verify server permission."
+        },
+        {
+          "type": "h3",
+          "text": "16.6 CORS with credentials"
+        },
+        {
+          "type": "p",
+          "text": "When using credentials: \"include\", the server must return Access-Control-Allow-Credentials: true and an explicit origin (never wildcard *)."
+        },
+        {
+          "type": "h3",
+          "text": "16.7 Common CORS mistakes"
+        },
+        {
+          "type": "p",
+          "text": "Wildcard origins with credentials, missing preflight handling, overly broad origins, or treating CORS as authentication/authorization. (MDN)"
+        },
+        {
+          "type": "h3",
+          "text": "16.8 CORS vs Same-Origin Policy"
+        },
+        {
+          "type": "p",
+          "text": "Same-Origin Policy defines the default browser restriction; CORS is the server-configured, browser-enforced relaxation for permitted origins."
+        },
+        {
+          "type": "h3",
+          "text": "16.9 Practical architecture exercise"
+        },
+        {
+          "type": "p",
+          "text": "Design CORS, credential, and authorization rules for https://prepspaces.com calling https://api.prepspaces.com."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand origins, Same-Origin Policy, CORS, preflight requests, credentialed requests and secure cross-origin API architecture."
+        }
+      ]
+    },
+    {
+      "id": "lesson-17",
+      "badge": "Lesson 17",
+      "title": "Secure Dependency Management",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "17.1 What is a frontend dependency?"
+        },
+        {
+          "type": "p",
+          "text": "External npm packages introduce software supply-chain risks."
+        },
+        {
+          "type": "h3",
+          "text": "17.2 What is a vulnerable dependency?"
+        },
+        {
+          "type": "p",
+          "text": "Known CVEs, unsafe input handling, RCE, data exposure, malicious install scripts, or compromised releases."
+        },
+        {
+          "type": "h3",
+          "text": "17.3 Understanding dependency trees"
+        },
+        {
+          "type": "p",
+          "text": "Direct dependencies pull in transitive dependencies, which can still introduce vulnerabilities."
+        },
+        {
+          "type": "h3",
+          "text": "17.4 Understanding package-lock.json"
+        },
+        {
+          "type": "p",
+          "text": "Commit package-lock.json and use npm ci in CI for reproducible installations. (OWASP DevSecOps Guideline)"
+        },
+        {
+          "type": "h3",
+          "text": "17.5 Scanning dependencies with npm audit"
+        },
+        {
+          "type": "code",
+          "text": "npm audit\nnpm audit --omit=dev"
+        },
+        {
+          "type": "h3",
+          "text": "17.6 Understanding automated dependency updates"
+        },
+        {
+          "type": "p",
+          "text": "Use Dependabot, Renovate, or security scanners to track outdated or vulnerable packages."
+        },
+        {
+          "type": "h3",
+          "text": "17.7 Secure dependency management workflow"
+        },
+        {
+          "type": "p",
+          "text": "Identify -> Inspect Tree -> Scan Vulnerabilities -> Review Risk -> Update/Replace -> Run Tests -> Deploy."
+        },
+        {
+          "type": "h3",
+          "text": "17.8 Important dependency-security practices"
+        },
+        {
+          "type": "p",
+          "text": "Use maintained libraries, commit lockfiles, use npm ci, review updates, remove unused packages, inspect lifecycle scripts, and test fixes before deploying."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand direct and transitive dependencies, vulnerability scanning, npm audit, lockfiles, dependency maintenance and supply-chain security."
+        }
+      ]
+    },
+    {
+      "id": "lesson-18",
+      "badge": "Lesson 18",
+      "title": "Protecting Sensitive Information in Frontend Applications",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "18.1 What is sensitive information?"
+        },
+        {
+          "type": "p",
+          "text": "API secrets, DB passwords, private tokens, payment credentials, user PII, internal configs, and admin secrets."
+        },
+        {
+          "type": "h3",
+          "text": "18.2 Why is frontend code public?"
+        },
+        {
+          "type": "p",
+          "text": "Anyone can inspect browser JS bundles, HTML, CSS, network traffic, and storage; secrets in frontend code are exposed."
+        },
+        {
+          "type": "h3",
+          "text": "18.3 Understanding environment variables"
+        },
+        {
+          "type": "p",
+          "text": "Server-only env vars stay on the server; NEXT_PUBLIC_ variables are exposed to client bundles and must never hold private credentials."
+        },
+        {
+          "type": "h3",
+          "text": "18.4 What not to do"
+        },
+        {
+          "type": "p",
+          "text": "Never hardcode private API keys or privileged bearer tokens in frontend code — minification and obfuscation do not hide secrets."
+        },
+        {
+          "type": "h3",
+          "text": "18.5 Correct architecture"
+        },
+        {
+          "type": "p",
+          "text": "Browser sends public request -> Backend/Worker authenticates, authorizes, uses server-side credentials -> External Service."
+        },
+        {
+          "type": "h3",
+          "text": "18.6 Understanding data minimization"
+        },
+        {
+          "type": "p",
+          "text": "Return only the fields the UI actually needs, excluding internal IDs, secrets, or other users' private records."
+        },
+        {
+          "type": "h3",
+          "text": "18.7 Secure error handling and logging"
+        },
+        {
+          "type": "p",
+          "text": "Never expose DB connection strings, internal stack traces, tokens, or passwords in UI errors, browser consoles, or analytics."
+        },
+        {
+          "type": "h3",
+          "text": "18.8 Frontend security checklist"
+        },
+        {
+          "type": "p",
+          "text": "Store secrets server-side, protect sessions properly, minimize returned user data, validate on both frontend and backend, and separate public/private env vars."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand why frontend secrets cannot be hidden, how to separate browser and server responsibilities, environment variables, secure API architecture and data minimization."
+        }
+      ]
+    },
+    {
+      "id": "lesson-19",
+      "badge": "Lesson 19",
+      "title": "Search Engine Rendering and Indexability",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "19.1 What is technical SEO?"
+        },
+        {
+          "type": "p",
+          "text": "Making a website discoverable, crawlable, renderable, and indexable by search engines."
+        },
+        {
+          "type": "h3",
+          "text": "19.2 Understanding how Google discovers a website"
+        },
+        {
+          "type": "p",
+          "text": "Three stages: Crawling (discover & fetch) -> Rendering (process HTML & JS) -> Indexing (analyze & store)."
+        },
+        {
+          "type": "h3",
+          "text": "19.3 What is crawlability?"
+        },
+        {
+          "type": "p",
+          "text": "Broken internal links, wrong robots.txt rules, server errors, or blocked JS/CSS resources hurt crawlability."
+        },
+        {
+          "type": "h3",
+          "text": "19.4 What is indexability?"
+        },
+        {
+          "type": "p",
+          "text": "Controlled by directives such as <meta name=\"robots\" content=\"noindex\">."
+        },
+        {
+          "type": "h3",
+          "text": "19.5 What is search-engine rendering?"
+        },
+        {
+          "type": "p",
+          "text": "Pure CSR sends an empty root shell and delays content until JS executes; Google recommends SSR or prerendering where appropriate. (Google for Developers)"
+        },
+        {
+          "type": "h3",
+          "text": "19.6 Understanding HTTP status codes for SEO"
+        },
+        {
+          "type": "p",
+          "text": "Status | Meaning | Typical SEO implication"
+        },
+        {
+          "type": "p",
+          "text": "200 | Successful response | Page can be processed"
+        },
+        {
+          "type": "p",
+          "text": "301 | Permanent redirect | Indicates a permanent URL move"
+        },
+        {
+          "type": "p",
+          "text": "302 | Temporary redirect | Indicates a temporary move"
+        },
+        {
+          "type": "p",
+          "text": "404 | Page not found | Resource does not exist (avoid soft-404 200s)"
+        },
+        {
+          "type": "p",
+          "text": "410 | Gone | Resource has been permanently removed"
+        },
+        {
+          "type": "p",
+          "text": "500 | Server error | Retrieval failed"
+        },
+        {
+          "type": "h3",
+          "text": "19.7 Understanding Google Search Console"
+        },
+        {
+          "type": "p",
+          "text": "Use URL Inspection, Page Indexing reports, Sitemap submission, Crawl stats, Search performance, and Rich Results testing."
+        },
+        {
+          "type": "h3",
+          "text": "19.8 Common indexability problems"
+        },
+        {
+          "type": "p",
+          "text": "Unintentional noindex, wrong canonicals, robots.txt blocks, missing SSR content, broken routes, duplicate URLs, soft-404s, and 5xx errors."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand crawling, rendering, indexing, crawlability, indexability, status codes and search-engine inspection tools."
+        }
+      ]
+    },
+    {
+      "id": "lesson-20",
+      "badge": "Lesson 20",
+      "title": "Metadata and Structured Data",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "20.1 What is metadata?"
+        },
+        {
+          "type": "p",
+          "text": "Page title, meta description, canonical URL, robots directives, Open Graph properties, and structured data."
+        },
+        {
+          "type": "h3",
+          "text": "20.2 Understanding the title tag"
+        },
+        {
+          "type": "p",
+          "text": "Keep titles descriptive, unique, and matched to page content."
+        },
+        {
+          "type": "h3",
+          "text": "20.3 Understanding meta descriptions"
+        },
+        {
+          "type": "p",
+          "text": "Summarize page content clearly; Google may use it or generate snippets from page text. (Google for Developers)"
+        },
+        {
+          "type": "h3",
+          "text": "20.4 Structured data"
+        },
+        {
+          "type": "p",
+          "text": "Machine-readable descriptions of entities (Course, Article, Organization, BreadcrumbList)."
+        },
+        {
+          "type": "h3",
+          "text": "20.5 Understanding Schema.org"
+        },
+        {
+          "type": "p",
+          "text": "Standardized vocabulary for entities; structured data must match visible page content."
+        },
+        {
+          "type": "h3",
+          "text": "20.6 Understanding JSON-LD"
+        },
+        {
+          "type": "p",
+          "text": "Google recommends JSON-LD inside <script type=\"application/ld+json\">. (Google for Developers)"
+        },
+        {
+          "type": "h3",
+          "text": "20.7 Course structured data"
+        },
+        {
+          "type": "p",
+          "text": "Describe verified courses with @type: \"Course\", name, description, and provider Organization."
+        },
+        {
+          "type": "h3",
+          "text": "20.8 Article structured data"
+        },
+        {
+          "type": "p",
+          "text": "Describe articles with @type: \"Article\", headline, description, datePublished, and author."
+        },
+        {
+          "type": "h3",
+          "text": "20.9 Testing structured data"
+        },
+        {
+          "type": "p",
+          "text": "Validate syntax, required properties, and visible-content parity using Google Rich Results Test and Schema Markup Validator."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand page metadata, title tags, descriptions, Schema.org, JSON-LD, course markup, article markup and structured-data validation."
+        }
+      ]
+    },
+    {
+      "id": "lesson-21",
+      "badge": "Lesson 21",
+      "title": "Canonical URLs, Sitemaps and Robots Directives",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "21.1 What is a canonical URL?"
+        },
+        {
+          "type": "p",
+          "text": "Identifies the preferred URL when duplicate or tracking-parameter variants exist."
+        },
+        {
+          "type": "h3",
+          "text": "21.2 Understanding canonical tags"
+        },
+        {
+          "type": "code",
+          "text": "<link rel=\"canonical\" href=\"https://example.com/courses/react\" />"
+        },
+        {
+          "type": "p",
+          "text": "Use absolute URLs, consistent internal links, and matching sitemap URLs. (Google for Developers)"
+        },
+        {
+          "type": "h3",
+          "text": "21.3 What is a sitemap?"
+        },
+        {
+          "type": "p",
+          "text": "XML file listing preferred canonical URLs for discovery."
+        },
+        {
+          "type": "h3",
+          "text": "21.4 Understanding dynamic sitemaps"
+        },
+        {
+          "type": "p",
+          "text": "Generate sitemaps dynamically from published database/content records (max 50,000 URLs or 50 MB uncompressed per sitemap file). (Google for Developers)"
+        },
+        {
+          "type": "h3",
+          "text": "21.5 What is robots.txt?"
+        },
+        {
+          "type": "p",
+          "text": "Provides crawling instructions (User-agent, Disallow, Sitemap); it is not an access-control mechanism."
+        },
+        {
+          "type": "h3",
+          "text": "21.6 Understanding robots directives"
+        },
+        {
+          "type": "p",
+          "text": "robots.txt controls crawling; meta robots and X-Robots-Tag control indexing and link following."
+        },
+        {
+          "type": "h3",
+          "text": "21.7 Robots.txt vs noindex"
+        },
+        {
+          "type": "p",
+          "text": "Do not block a page in robots.txt if you need Google to crawl it and read its noindex directive. (Google for Developers)"
+        },
+        {
+          "type": "h3",
+          "text": "21.8 SEO URL architecture"
+        },
+        {
+          "type": "p",
+          "text": "Keep public pages crawlable, protect private pages (/dashboard, /admin) with real auth/authorization, and expose /robots.txt and /sitemap.xml."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand canonical URLs, duplicate-content handling, sitemap generation, robots.txt, noindex directives and URL management."
+        }
+      ]
+    },
+    {
+      "id": "lesson-22",
+      "badge": "Lesson 22",
+      "title": "Semantic Structure and Internal Linking",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "22.1 What is semantic HTML?"
+        },
+        {
+          "type": "p",
+          "text": "Use <header>, <nav>, <main>, <article>, <section>, and <footer> instead of generic <div> wrappers."
+        },
+        {
+          "type": "h3",
+          "text": "22.2 Important semantic elements"
+        },
+        {
+          "type": "p",
+          "text": "Semantic tags and ordered/unordered lists help browsers, screen readers, and search engines parse document hierarchy."
+        },
+        {
+          "type": "h3",
+          "text": "22.3 Understanding heading hierarchy"
+        },
+        {
+          "type": "p",
+          "text": "Use one logical H1 followed by nested H2/H3 sections; use CSS for visual sizing, not heading levels."
+        },
+        {
+          "type": "h3",
+          "text": "22.4 What is internal linking?"
+        },
+        {
+          "type": "p",
+          "text": "Connect related pages on the same site via standard crawlable <a href=\"...\"> links."
+        },
+        {
+          "type": "h3",
+          "text": "22.5 Why are internal links important?"
+        },
+        {
+          "type": "p",
+          "text": "Help users and crawlers discover pages and understand site hierarchy (Homepage -> Catalogue -> Track -> Course)."
+        },
+        {
+          "type": "h3",
+          "text": "22.6 Understanding anchor text"
+        },
+        {
+          "type": "p",
+          "text": "Use descriptive anchor text (\"Explore the React Development course\") instead of \"Click here\". (Google for Developers)"
+        },
+        {
+          "type": "h3",
+          "text": "22.7 Breadcrumb navigation"
+        },
+        {
+          "type": "p",
+          "text": "Display hierarchical navigation paths and pair with BreadcrumbList structured data."
+        },
+        {
+          "type": "h3",
+          "text": "22.8 Understanding image accessibility and SEO"
+        },
+        {
+          "type": "p",
+          "text": "Write descriptive alt text for informative images and empty alt=\"\" for decorative images; avoid keyword stuffing."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand semantic HTML, document hierarchy, internal linking, anchor text, breadcrumbs and image descriptions."
+        }
+      ]
+    },
+    {
+      "id": "lesson-23",
+      "badge": "Lesson 23",
+      "title": "Social Sharing Metadata and Open Graph",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "23.1 Why does social metadata matter?"
+        },
+        {
+          "type": "p",
+          "text": "Controls link preview title, description, thumbnail image, site name, and URL when shared."
+        },
+        {
+          "type": "h3",
+          "text": "23.2 What is Open Graph?"
+        },
+        {
+          "type": "p",
+          "text": "og:title, og:description, og:image, og:url, og:type, og:site_name."
+        },
+        {
+          "type": "h3",
+          "text": "23.3 Implementing Open Graph metadata"
+        },
+        {
+          "type": "p",
+          "text": "Use absolute image and page URLs in Open Graph meta tags."
+        },
+        {
+          "type": "h3",
+          "text": "23.4 Understanding Twitter/X Card metadata"
+        },
+        {
+          "type": "p",
+          "text": "twitter:card (\"summary_large_image\"), twitter:title, twitter:description, twitter:image."
+        },
+        {
+          "type": "h3",
+          "text": "23.5 Dynamic social metadata in Next.js"
+        },
+        {
+          "type": "p",
+          "text": "Use async generateMetadata() with awaited params to return page-specific openGraph and twitter metadata."
+        },
+        {
+          "type": "h3",
+          "text": "23.6 How to test sharing previews"
+        },
+        {
+          "type": "p",
+          "text": "Verify title, description, public image accessibility, URL, and dimensions across platform preview tools."
+        },
+        {
+          "type": "h3",
+          "text": "23.7 Open Graph vs SEO metadata"
+        },
+        {
+          "type": "p",
+          "text": "SEO metadata targets search engines (title, description, canonical, robots, JSON-LD); social metadata targets sharing previews (og:*, twitter:*)."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand Open Graph, X Cards, dynamic social previews and how to test sharing metadata."
+        }
+      ]
+    },
+    {
+      "id": "lesson-24",
+      "badge": "Lesson 24",
+      "title": "SEO for JavaScript-Rendered Applications",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "24.1 Why is JavaScript SEO important?"
+        },
+        {
+          "type": "p",
+          "text": "SPAs that ship minimal initial HTML depend on search engines executing JavaScript to discover content."
+        },
+        {
+          "type": "h3",
+          "text": "24.2 Understanding Client-Side Rendering and SEO"
+        },
+        {
+          "type": "p",
+          "text": "Google renders JS in a secondary wave, and other crawlers may have limited JS support. (Google for Developers)"
+        },
+        {
+          "type": "h3",
+          "text": "24.3 Understanding Server-Side Rendering for SEO"
+        },
+        {
+          "type": "p",
+          "text": "SSR sends meaningful HTML immediately in the initial HTTP response."
+        },
+        {
+          "type": "h3",
+          "text": "24.4 Understanding Static Generation for SEO"
+        },
+        {
+          "type": "p",
+          "text": "SSG/ISR prerenders stable public pages ahead of time for fast delivery and immediate crawlability."
+        },
+        {
+          "type": "h3",
+          "text": "24.5 Choosing the correct rendering strategy"
+        },
+        {
+          "type": "p",
+          "text": "Rendering approach | SEO consideration"
+        },
+        {
+          "type": "p",
+          "text": "CSR | Requires successful JavaScript rendering for content discovery"
+        },
+        {
+          "type": "p",
+          "text": "SSR | Delivers request-rendered HTML"
+        },
+        {
+          "type": "p",
+          "text": "SSG | Delivers prerendered HTML"
+        },
+        {
+          "type": "p",
+          "text": "ISR | Combines generated pages with subsequent revalidation"
+        },
+        {
+          "type": "p",
+          "text": "Hybrid rendering | Allows different strategies for different routes"
+        },
+        {
+          "type": "h3",
+          "text": "24.6 Using crawlable links"
+        },
+        {
+          "type": "p",
+          "text": "Always render standard <a href=\"...\"> elements (or Next.js <Link>) rather than div onClick handlers or hash-fragment routes."
+        },
+        {
+          "type": "h3",
+          "text": "24.7 Handling infinite scrolling"
+        },
+        {
+          "type": "p",
+          "text": "Provide crawlable paginated URLs (/articles?page=1, ?page=2) alongside infinite scroll."
+        },
+        {
+          "type": "h3",
+          "text": "24.8 Handling JavaScript-rendered metadata"
+        },
+        {
+          "type": "p",
+          "text": "Generate metadata server-side (metadata / generateMetadata) and avoid conflicting canonical tags."
+        },
+        {
+          "type": "h3",
+          "text": "24.9 How to audit JavaScript SEO"
+        },
+        {
+          "type": "p",
+          "text": "Inspect raw HTML vs rendered DOM, titles, descriptions, canonicals, robots directives, crawlable links, status codes, and Google Search Console URL Inspection."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand JavaScript SEO, CSR limitations, SSR, SSG, ISR, crawlable navigation, pagination, server-generated metadata and search-engine rendering diagnostics."
+        }
+      ]
+    },
+    {
+      "id": "practical-project",
+      "badge": "Practical Project",
+      "title": "Performance, Security and Technical SEO Audit",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Major practical project"
+        },
+        {
+          "type": "h3",
+          "text": "Project objective"
+        },
+        {
+          "type": "p",
+          "text": "Take an existing React or Next.js application (such as the educational platform built in previous modules) and perform a complete production-readiness audit covering frontend performance, browser and application security, technical SEO, accessibility, and production reliability, documenting before-and-after metrics."
+        },
+        {
+          "type": "h3",
+          "text": "1. Application audit scope"
+        },
+        {
+          "type": "p",
+          "text": "Area | What you will audit"
+        },
+        {
+          "type": "p",
+          "text": "Homepage | Rendering, assets, JavaScript and metadata"
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue | Bundle size, images, navigation and filtering"
+        },
+        {
+          "type": "p",
+          "text": "Course details | Rendering strategy, SEO and structured data"
+        },
+        {
+          "type": "p",
+          "text": "Article pages | Content visibility, metadata and internal links"
+        },
+        {
+          "type": "p",
+          "text": "Login and registration | Session handling, form security and validation"
+        },
+        {
+          "type": "p",
+          "text": "Student dashboard | Authentication, authorization and private caching"
+        },
+        {
+          "type": "p",
+          "text": "API integration | CORS, request handling and sensitive information"
+        },
+        {
+          "type": "p",
+          "text": "Mobile interface | Performance, layout stability and responsiveness"
+        },
+        {
+          "type": "h3",
+          "text": "2. Section A — Performance engineering tasks"
+        },
+        {
+          "type": "h3",
+          "text": "Task 1: Browser rendering audit (render-blocking resources, DOM size, long main-thread tasks, layout thrashing)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 2: JavaScript bundle optimization (bundle report, large/duplicate/unused deps, dynamic imports)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 3: Code splitting and lazy loading (route splitting, dynamic components, below-the-fold lazy images, loading UI)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 4: Image and asset optimization (thumbnails, hero images, fonts, icons, video previews)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 5: Caching and CDN (Cache-Control, fingerprinted filenames, public vs private cache isolation)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 6: React performance (React Profiler, unnecessary renders, justified memoization)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 7: Core Web Vitals (measure and document LCP <= 2.5 s, INP <= 200 ms, CLS <= 0.1)."
+        },
+        {
+          "type": "h3",
+          "text": "3. Section B — Security audit tasks"
+        },
+        {
+          "type": "h3",
+          "text": "Task 8: Security threat assessment (endpoints, auth, authorization, storage, threat model)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 9: XSS prevention (UGC, search, rich text, URL params, dangerouslySetInnerHTML, DOMPurify)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 10: CSRF protection (cookies, state-changing requests, CSRF tokens, SameSite, Origin validation)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 11: Content Security Policy (Report-Only rollout, violation review, production CSP)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 12: Session and token security (no secrets in frontend, HttpOnly/Secure/SameSite cookies, logout/expiry)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 13: CORS and dependency security (explicit origins, credentials, npm audit, lockfiles)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 14: Sensitive information audit (scan repo and built bundles for keys, credentials, PII)."
+        },
+        {
+          "type": "h3",
+          "text": "4. Section C — Technical SEO audit tasks"
+        },
+        {
+          "type": "h3",
+          "text": "Task 15: Crawling and indexability (status codes, crawlable URLs, no unintentional noindex, 404 handling)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 16: Metadata and structured data (unique titles, descriptions, canonicals, Open Graph, JSON-LD)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 17: URL and sitemap architecture (dynamic sitemap, robots.txt, canonical consistency, redirects)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 18: Semantic structure and internal linking (headings, semantic tags, breadcrumbs, alt text)."
+        },
+        {
+          "type": "h3",
+          "text": "Task 19: JavaScript SEO (HTML content presence, crawlable links, server-generated metadata, pagination)."
+        },
+        {
+          "type": "h3",
+          "text": "5. Section D — Accessibility and quality verification"
+        },
+        {
+          "type": "p",
+          "text": "Verify keyboard navigation, accessible form labels, alt text, color contrast, screen-reader names, focus visibility, responsive layouts, and modal/dialog behavior via automated audits and manual checks."
+        },
+        {
+          "type": "h3",
+          "text": "6. Project tools"
+        },
+        {
+          "type": "p",
+          "text": "Performance tools: PageSpeed Insights, Lighthouse, Chrome DevTools Performance panel."
+        },
+        {
+          "type": "p",
+          "text": "Security tools: OWASP Top Ten, Mozilla Observatory."
+        },
+        {
+          "type": "p",
+          "text": "SEO tools: Google Search Console, Rich Results Test, Schema.org."
+        },
+        {
+          "type": "h3",
+          "text": "7. Project implementation checklist"
+        },
+        {
+          "type": "h3",
+          "text": "1. Record the initial performance baseline — Capture Lighthouse, PageSpeed and initial loading metrics."
+        },
+        {
+          "type": "h3",
+          "text": "2. Analyze production JavaScript bundles — Find large dependencies, duplicate code and optimization opportunities."
+        },
+        {
+          "type": "h3",
+          "text": "3. Implement code splitting and lazy loading — Reduce unnecessary initial downloads."
+        },
+        {
+          "type": "h3",
+          "text": "4. Optimize images, fonts and assets — Improve asset delivery and layout stability."
+        },
+        {
+          "type": "h3",
+          "text": "5. Configure browser caching and CDN — Review cache headers and private-response handling."
+        },
+        {
+          "type": "h3",
+          "text": "6. Optimize React rendering — Profile expensive components and fix unnecessary work."
+        },
+        {
+          "type": "h3",
+          "text": "7. Measure and improve Core Web Vitals — Document LCP, INP and CLS before and after optimization."
+        },
+        {
+          "type": "h3",
+          "text": "8. Create a frontend security threat model — Identify sensitive assets, entry points and trust boundaries."
+        },
+        {
+          "type": "h3",
+          "text": "9. Audit and prevent XSS — Review dynamic HTML, URL handling and untrusted data."
+        },
+        {
+          "type": "h3",
+          "text": "10. Review CSRF and session security — Verify cookie attributes, tokens and server-side validation."
+        },
+        {
+          "type": "h3",
+          "text": "11. Configure and test CSP — Introduce an appropriate policy and review violations."
+        },
+        {
+          "type": "h3",
+          "text": "12. Audit CORS and sensitive information — Check browser origins, frontend bundles and API permissions."
+        },
+        {
+          "type": "h3",
+          "text": "13. Scan and secure dependencies — Review lockfiles, known vulnerabilities and updates."
+        },
+        {
+          "type": "h3",
+          "text": "14. Audit technical SEO — Review crawlability, metadata, indexing and canonical URLs."
+        },
+        {
+          "type": "h3",
+          "text": "15. Implement structured data and sitemaps — Add accurate JSON-LD, sitemap and robots configuration."
+        },
+        {
+          "type": "h3",
+          "text": "16. Improve semantic structure and internal links — Check headings, navigation, breadcrumbs and images."
+        },
+        {
+          "type": "h3",
+          "text": "17. Run accessibility audits — Verify keyboard operation, labels, contrast and assistive technology support."
+        },
+        {
+          "type": "h3",
+          "text": "18. Prepare the final technical audit report — Document improvements, remaining risks and production recommendations."
+        },
+        {
+          "type": "h3",
+          "text": "8. Required final deliverables"
+        },
+        {
+          "type": "h3",
+          "text": "1. Initial audit report."
+        },
+        {
+          "type": "h3",
+          "text": "2. Optimized application source code."
+        },
+        {
+          "type": "h3",
+          "text": "3. Performance report (before/after bundle size, images, LCP, INP, CLS, Lighthouse)."
+        },
+        {
+          "type": "h3",
+          "text": "4. Security report (findings, severity, remediation, remaining risks)."
+        },
+        {
+          "type": "h3",
+          "text": "5. SEO report (crawlability, indexability, metadata, canonicals, sitemap, robots, structured data)."
+        },
+        {
+          "type": "h3",
+          "text": "6. Accessibility report (automated + manual findings)."
+        },
+        {
+          "type": "h3",
+          "text": "7. Deployment verification (production build, security headers, public URL accessibility)."
+        },
+        {
+          "type": "h3",
+          "text": "9. Final project evaluation"
+        },
+        {
+          "type": "p",
+          "text": "Evaluation area | Expected result"
+        },
+        {
+          "type": "p",
+          "text": "Performance | Measured and optimized"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript | Unnecessary code reduced"
+        },
+        {
+          "type": "p",
+          "text": "Assets | Images and fonts optimized"
+        },
+        {
+          "type": "p",
+          "text": "React | Rendering bottlenecks investigated"
+        },
+        {
+          "type": "p",
+          "text": "Core Web Vitals | Targets measured and addressed"
+        },
+        {
+          "type": "p",
+          "text": "Security | Common frontend risks mitigated"
+        },
+        {
+          "type": "p",
+          "text": "Authentication | Secure session architecture"
+        },
+        {
+          "type": "p",
+          "text": "Dependencies | Vulnerabilities reviewed"
+        },
+        {
+          "type": "p",
+          "text": "SEO | Public pages discoverable"
+        },
+        {
+          "type": "p",
+          "text": "Metadata | Correct and page-specific"
+        },
+        {
+          "type": "p",
+          "text": "Structured data | Accurate and validated"
+        },
+        {
+          "type": "p",
+          "text": "Accessibility | Important barriers investigated"
+        },
+        {
+          "type": "p",
+          "text": "Documentation | Complete before-and-after audit"
+        }
+      ]
+    },
+    {
+      "id": "summary-resources",
+      "badge": "Summary & Resources",
+      "title": "Advanced Engineering Concepts, Resources & Completion Standard",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Additional advanced concepts to master"
+        },
+        {
+          "type": "p",
+          "text": "Concept | Why it matters"
+        },
+        {
+          "type": "p",
+          "text": "Web Workers | Move suitable heavy computations off the main thread"
+        },
+        {
+          "type": "p",
+          "text": "Service Workers | Implement caching and offline capabilities"
+        },
+        {
+          "type": "p",
+          "text": "HTTP/2 and HTTP/3 | Understand modern network delivery"
+        },
+        {
+          "type": "p",
+          "text": "Brotli Compression | Reduce transferred text-resource sizes"
+        },
+        {
+          "type": "p",
+          "text": "Resource Hints | Prioritize critical resources"
+        },
+        {
+          "type": "p",
+          "text": "Trusted Types | Restrict dangerous DOM injection sinks"
+        },
+        {
+          "type": "p",
+          "text": "Subresource Integrity (SRI) | Verify integrity of supported externally loaded resources"
+        },
+        {
+          "type": "p",
+          "text": "Security Headers | Strengthen browser security behavior"
+        },
+        {
+          "type": "p",
+          "text": "OAuth 2.0 and OpenID Connect | Understand modern authentication architecture"
+        },
+        {
+          "type": "p",
+          "text": "Supply Chain Security | Understand malicious package and release risks"
+        },
+        {
+          "type": "p",
+          "text": "Structured Data Validation | Maintain accurate machine-readable content"
+        },
+        {
+          "type": "p",
+          "text": "International SEO | Manage language and regional URL variants"
+        },
+        {
+          "type": "p",
+          "text": "Performance Budgets | Establish measurable application constraints"
+        },
+        {
+          "type": "p",
+          "text": "Edge Rendering | Understand geographically distributed rendering"
+        },
+        {
+          "type": "p",
+          "text": "Security Monitoring | Detect and investigate security events"
+        },
+        {
+          "type": "h3",
+          "text": "Recommended learning resources"
+        },
+        {
+          "type": "p",
+          "text": "Frontend performance:"
+        },
+        {
+          "type": "p",
+          "text": "[web.dev Performance Learning Path](https://web.dev/learn/performance/)"
+        },
+        {
+          "type": "p",
+          "text": "[Core Web Vitals](https://web.dev/articles/vitals)"
+        },
+        {
+          "type": "p",
+          "text": "[Chrome Performance Profiling](https://developer.chrome.com/docs/devtools/performance/overview)"
+        },
+        {
+          "type": "p",
+          "text": "[React Profiler](https://react.dev/reference/react/Profiler)"
+        },
+        {
+          "type": "p",
+          "text": "Frontend security:"
+        },
+        {
+          "type": "p",
+          "text": "[OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)"
+        },
+        {
+          "type": "p",
+          "text": "[XSS Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)"
+        },
+        {
+          "type": "p",
+          "text": "[CSRF Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Request_Forgery_Prevention_Cheat_Sheet.html)"
+        },
+        {
+          "type": "p",
+          "text": "[Content Security Policy](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)"
+        },
+        {
+          "type": "p",
+          "text": "[Session Management](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)"
+        },
+        {
+          "type": "p",
+          "text": "Technical SEO:"
+        },
+        {
+          "type": "p",
+          "text": "[Google Search Central Documentation](https://developers.google.com/search/docs)"
+        },
+        {
+          "type": "p",
+          "text": "[JavaScript SEO Basics](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics)"
+        },
+        {
+          "type": "p",
+          "text": "[Building and Submitting Sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)"
+        },
+        {
+          "type": "p",
+          "text": "[Structured Data Introduction](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)"
+        },
+        {
+          "type": "p",
+          "text": "[Google Link Best Practices](https://developers.google.com/search/docs/crawling-indexing/links-crawlable)"
+        },
+        {
+          "type": "h3",
+          "text": "What students should be able to engineer after this module"
+        },
+        {
+          "type": "p",
+          "text": "High-performance applications: Efficient assets, optimized rendering and measurable web performance."
+        },
+        {
+          "type": "p",
+          "text": "Secure frontend systems: Secure browser interactions, session handling and protected APIs."
+        },
+        {
+          "type": "p",
+          "text": "Search-optimized websites: Crawlability, structured metadata and discoverable content."
+        },
+        {
+          "type": "p",
+          "text": "Production-ready engineering: Monitoring, quality auditing and continuous optimization."
+        },
+        {
+          "type": "p",
+          "text": "Module completion standard: Students should be able to take an existing React or Next.js application, measure its performance, identify browser-side security risks, improve its technical SEO, verify accessibility and document whether the application is ready for production."
+        },
+        {
+          "type": "p",
+          "text": "Important connection with previous modules: Module 11 teaches Next.js architecture, Module 12 teaches how to test frontend applications, and Module 13 teaches how to make those applications performant, secure and discoverable. Together, these modules establish the engineering foundation for production-grade frontend development."
+        }
+      ]
+    }
+  ]
+}

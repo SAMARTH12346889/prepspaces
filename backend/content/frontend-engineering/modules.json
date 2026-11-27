@@ -130,5 +130,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "frontend-performance-security-seo",
+    "courseId": "frontend-engineering",
+    "index": 13,
+    "name": "13. Frontend Performance, Web Security and Technical SEO",
+    "route": "/learning/frontend-engineering/frontend-performance-security-seo",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
