@@ -415,6 +415,18 @@ const routeMeta = {
     keywords: "Next.js, App Router, Server Components, Client Components, SSR, SSG, ISR, Hydration, Streaming, Suspense, Metadata API, Deployment, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/nextjs-architecture`,
   },
+  "/learning/frontend-engineering/frontend-testing-quality": {
+    title: "Module 12: Frontend Testing and Quality Engineering | PrepSpaces",
+    description: "Master Vitest unit testing, React Testing Library, hooks & form testing, MSW API mocking, Playwright E2E & cross-browser testing, axe-core accessibility audits, visual regression snapshots, coverage thresholds, and GitHub Actions CI.",
+    keywords: "Frontend Testing, Vitest, React Testing Library, MSW, Playwright, Cross-Browser Testing, Accessibility Testing, axe-core, Visual Regression, Coverage, CI, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/frontend-testing-quality`,
+  },
+  "/courses/frontend-engineering/frontend-testing-quality": {
+    title: "Module 12: Frontend Testing and Quality Engineering | PrepSpaces",
+    description: "Master Vitest unit testing, React Testing Library, hooks & form testing, MSW API mocking, Playwright E2E & cross-browser testing, axe-core accessibility audits, visual regression snapshots, coverage thresholds, and GitHub Actions CI.",
+    keywords: "Frontend Testing, Vitest, React Testing Library, MSW, Playwright, Cross-Browser Testing, Accessibility Testing, axe-core, Visual Regression, Coverage, CI, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/frontend-testing-quality`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

@@ -212,6 +212,7 @@ const FrontendReactFundamentals = React.lazy(() => import("./Componets/FrontendR
 const FrontendAdvancedReact = React.lazy(() => import("./Componets/FrontendAdvancedReact"));
 const FrontendDataEngineering = React.lazy(() => import("./Componets/FrontendDataEngineering"));
 const FrontendNextjsArchitecture = React.lazy(() => import("./Componets/FrontendNextjsArchitecture"));
+const FrontendTestingQuality = React.lazy(() => import("./Componets/FrontendTestingQuality"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2109,6 +2110,11 @@ function App() {
             <Route path="/courses/frontend-engineering/nextjs-architecture" element={<FrontendNextjsArchitecture />} />
             <Route path="/learning/frontend/nextjs-architecture" element={<FrontendNextjsArchitecture />} />
             <Route path="/learning/frontend/module-11" element={<FrontendNextjsArchitecture />} />
+            <Route path="/learning/frontend-engineering/frontend-testing-quality" element={<FrontendTestingQuality />} />
+            <Route path="/learning/frontend-engineering/module-12" element={<FrontendTestingQuality />} />
+            <Route path="/courses/frontend-engineering/frontend-testing-quality" element={<FrontendTestingQuality />} />
+            <Route path="/learning/frontend/frontend-testing-quality" element={<FrontendTestingQuality />} />
+            <Route path="/learning/frontend/module-12" element={<FrontendTestingQuality />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

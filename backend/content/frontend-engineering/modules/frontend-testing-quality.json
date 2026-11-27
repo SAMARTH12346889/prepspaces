@@ -1,0 +1,130 @@
+{
+  "id": "frontend-testing-quality",
+  "courseId": "frontend-engineering",
+  "index": 12,
+  "name": "12. Frontend Testing and Quality Engineering",
+  "route": "/learning/frontend-engineering/frontend-testing-quality",
+  "componentName": "FrontendTestingQuality",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does the AAA pattern stand for in structured unit testing?",
+      "options": [
+        "Analyze, Assemble, Archive",
+        "Arrange, Act, Assert",
+        "Authenticate, Authorize, Audit",
+        "Async, Await, Abort"
+      ],
+      "correctIndex": 1,
+      "explanation": "AAA structures tests into three clear phases: Arrange (setup inputs), Act (execute the code), and Assert (verify the expected result)."
+    },
+    {
+      "id": 2,
+      "question": "What is the key difference between Vitest's toBe() and toEqual() assertions?",
+      "options": [
+        "toBe() is only for async functions",
+        "toBe() checks primitive/reference identity, while toEqual() checks deep object equality",
+        "toEqual() only works with numbers",
+        "There is no difference"
+      ],
+      "correctIndex": 1,
+      "explanation": "toBe() uses strict identity/primitive equality, whereas toEqual() recursively compares object and array structures."
+    },
+    {
+      "id": 3,
+      "question": "Which React Testing Library query should generally be preferred first when locating interactive elements?",
+      "options": [
+        "getByTestId()",
+        "getByRole() or getByLabelText()",
+        "document.querySelector()",
+        "getByClassName()"
+      ],
+      "correctIndex": 1,
+      "explanation": "Accessible queries like getByRole() and getByLabelText() test the UI the same way users and assistive technologies interact with it."
+    },
+    {
+      "id": 4,
+      "question": "Why is @testing-library/user-event preferred over low-level event dispatch for form interaction tests?",
+      "options": [
+        "It skips React state updates",
+        "It simulates realistic browser interaction sequences like typing, focus, and clicks",
+        "It automatically deploys to production",
+        "It replaces Vitest"
+      ],
+      "correctIndex": 1,
+      "explanation": "user-event reproduces realistic multi-event browser interactions (focus, keydown, input, keyup, click) rather than firing a single synthetic event."
+    },
+    {
+      "id": 5,
+      "question": "How does Mock Service Worker (MSW) differ from mocking an imported API module with vi.mock()?",
+      "options": [
+        "MSW intercepts requests at the network level while keeping application fetch logic intact",
+        "MSW only works in CSS files",
+        "vi.mock() starts a real PostgreSQL database",
+        "MSW cannot return error status codes"
+      ],
+      "correctIndex": 0,
+      "explanation": "MSW intercepts HTTP requests at the network layer so your real fetch/client code, headers, and error handling are exercised during tests."
+    },
+    {
+      "id": 6,
+      "question": "What does Playwright's Trace Viewer help debug?",
+      "options": [
+        "SQL schema migrations",
+        "Test timelines, DOM snapshots, browser state, and network activity for CI failures",
+        "CSS minification",
+        "NPM package versions"
+      ],
+      "correctIndex": 1,
+      "explanation": "Playwright Trace Viewer records step-by-step DOM snapshots, console logs, and network requests so you can diagnose flaky or failing E2E tests."
+    },
+    {
+      "id": 7,
+      "question": "What do the four WCAG POUR principles stand for?",
+      "options": [
+        "Portable, Open, Unified, Reactive",
+        "Perceivable, Operable, Understandable, Robust",
+        "Private, Optimized, Usable, Responsive",
+        "Parsed, Ordered, Updated, Rendered"
+      ],
+      "correctIndex": 1,
+      "explanation": "WCAG is built on Perceivable, Operable, Understandable, and Robust (POUR) principles."
+    },
+    {
+      "id": 8,
+      "question": "When should you run `npx playwright test --update-snapshots`?",
+      "options": [
+        "Automatically on every CI failure",
+        "Only after reviewing screenshot diffs and confirming the visual change is intentional",
+        "To disable accessibility checks",
+        "Before installing Playwright"
+      ],
+      "correctIndex": 1,
+      "explanation": "Blindly updating snapshots hides real visual regressions; only update baselines after verifying an intentional UI change."
+    },
+    {
+      "id": 9,
+      "question": "Why is 100% line coverage not a guarantee of bug-free code?",
+      "options": [
+        "Coverage tools cannot run on TypeScript",
+        "Line coverage shows code was executed, not that edge cases, branches, or assertions were thoroughly verified",
+        "100% coverage disables Vitest",
+        "Coverage only measures HTML files"
+      ],
+      "correctIndex": 1,
+      "explanation": "Executing a line does not prove boundary values, error paths, or business requirements were properly asserted."
+    },
+    {
+      "id": 10,
+      "question": "What is a current limitation when testing Next.js App Router components with Vitest?",
+      "options": [
+        "Vitest cannot test Client Components",
+        "Vitest does not yet support testing asynchronous Server Components directly; E2E testing is recommended for them",
+        "Vitest cannot run in GitHub Actions",
+        "Vitest does not support TypeScript"
+      ],
+      "correctIndex": 1,
+      "explanation": "Next.js recommends E2E testing (e.g. Playwright) for async Server Components, while synchronous Server Components and Client Components can be unit/component tested."
+    }
+  ]
+}

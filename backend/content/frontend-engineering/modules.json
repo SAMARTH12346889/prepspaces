@@ -119,5 +119,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "frontend-testing-quality",
+    "courseId": "frontend-engineering",
+    "index": 12,
+    "name": "12. Frontend Testing and Quality Engineering",
+    "route": "/learning/frontend-engineering/frontend-testing-quality",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

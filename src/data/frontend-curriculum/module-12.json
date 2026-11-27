@@ -1,0 +1,2126 @@
+{
+  "moduleNumber": "12",
+  "title": "MODULE 12 — Frontend Testing and Quality Engineering",
+  "badges": [
+    "Advanced Frontend Engineering",
+    "14 Lessons",
+    "Vitest & Testing Library",
+    "Playwright, A11y & CI"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module overview"
+    },
+    {
+      "type": "p",
+      "text": "Building a frontend application is not enough. You must also prove that it works correctly, behaves consistently across browsers, handles unexpected situations and remains stable when developers introduce new changes."
+    },
+    {
+      "type": "p",
+      "text": "Frontend Testing and Quality Engineering teaches you how professional engineering teams verify application quality before releasing software to users."
+    },
+    {
+      "type": "p",
+      "text": "Consider a learning platform like PrepSpaces."
+    },
+    {
+      "type": "p",
+      "text": "A student might:"
+    },
+    {
+      "type": "p",
+      "text": "Register an account."
+    },
+    {
+      "type": "p",
+      "text": "Log in."
+    },
+    {
+      "type": "p",
+      "text": "Browse available courses."
+    },
+    {
+      "type": "p",
+      "text": "Open a course."
+    },
+    {
+      "type": "p",
+      "text": "Complete lessons."
+    },
+    {
+      "type": "p",
+      "text": "Track learning progress."
+    },
+    {
+      "type": "p",
+      "text": "Submit forms."
+    },
+    {
+      "type": "p",
+      "text": "Navigate between different pages."
+    },
+    {
+      "type": "p",
+      "text": "Every one of these interactions can contain defects."
+    },
+    {
+      "type": "p",
+      "text": "For example, a student might successfully complete a lesson, but the progress indicator may not update. A login form might work in Chrome but fail in Safari. A mobile navigation menu might overlap the course content after a UI change."
+    },
+    {
+      "type": "p",
+      "text": "Testing helps identify these problems before they reach users."
+    },
+    {
+      "type": "h3",
+      "text": "What you will learn"
+    },
+    {
+      "type": "p",
+      "text": "By the end of this module, you should be able to:"
+    },
+    {
+      "type": "p",
+      "text": "Understand why frontend testing is necessary."
+    },
+    {
+      "type": "p",
+      "text": "Design a complete testing strategy."
+    },
+    {
+      "type": "p",
+      "text": "Write unit tests using Vitest."
+    },
+    {
+      "type": "p",
+      "text": "Test React components using React Testing Library."
+    },
+    {
+      "type": "p",
+      "text": "Test React hooks and custom hooks."
+    },
+    {
+      "type": "p",
+      "text": "Verify forms, validations and user interactions."
+    },
+    {
+      "type": "p",
+      "text": "Mock APIs and external dependencies."
+    },
+    {
+      "type": "p",
+      "text": "Test integrated frontend features."
+    },
+    {
+      "type": "p",
+      "text": "Automate complete user journeys with Playwright."
+    },
+    {
+      "type": "p",
+      "text": "Verify compatibility across browsers."
+    },
+    {
+      "type": "p",
+      "text": "Perform accessibility testing."
+    },
+    {
+      "type": "p",
+      "text": "Detect unintended visual changes."
+    },
+    {
+      "type": "p",
+      "text": "Measure test coverage and software quality."
+    },
+    {
+      "type": "p",
+      "text": "Automate testing through Continuous Integration."
+    },
+    {
+      "type": "h3",
+      "text": "How the lessons fit together"
+    },
+    {
+      "type": "p",
+      "text": "Testing foundations — Lessons 1–2: Understand testing principles, testing levels and the testing pyramid."
+    },
+    {
+      "type": "p",
+      "text": "Unit and component testing — Lessons 3–7: Test JavaScript logic, React components, hooks, forms and external dependencies."
+    },
+    {
+      "type": "p",
+      "text": "Application-level testing — Lessons 8–10: Test integrated features, browser journeys and cross-browser compatibility."
+    },
+    {
+      "type": "p",
+      "text": "Quality assurance — Lessons 11–13: Verify accessibility, visual consistency and testing coverage."
+    },
+    {
+      "type": "p",
+      "text": "Automated engineering workflows — Lesson 14: Integrate tests into CI pipelines and release processes."
+    }
+  ],
+  "sections": [
+    {
+      "id": "lesson-01",
+      "badge": "Lesson 01",
+      "title": "Why Frontend Testing Matters",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 What is frontend testing?"
+        },
+        {
+          "type": "p",
+          "text": "Frontend testing is the process of verifying that a web application's interface, functionality, interactions and expected behavior work correctly."
+        },
+        {
+          "type": "p",
+          "text": "You write test cases to verify whether the application produces the expected results under different conditions."
+        },
+        {
+          "type": "p",
+          "text": "Consider a simple login form. A user enters an email address and password and clicks Login."
+        },
+        {
+          "type": "p",
+          "text": "You should verify:"
+        },
+        {
+          "type": "p",
+          "text": "Whether valid credentials are accepted."
+        },
+        {
+          "type": "p",
+          "text": "Whether incorrect credentials are rejected."
+        },
+        {
+          "type": "p",
+          "text": "Whether an error message appears."
+        },
+        {
+          "type": "p",
+          "text": "Whether empty fields are handled."
+        },
+        {
+          "type": "p",
+          "text": "Whether the loading indicator works."
+        },
+        {
+          "type": "p",
+          "text": "Whether the user is redirected after successful authentication."
+        },
+        {
+          "type": "p",
+          "text": "Whether the form behaves correctly on mobile devices."
+        },
+        {
+          "type": "p",
+          "text": "Testing ensures that these requirements are satisfied."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Why is frontend testing important?"
+        },
+        {
+          "type": "p",
+          "text": "Imagine you update a navigation component. The updated navigation works correctly on the homepage, but accidentally breaks the dashboard."
+        },
+        {
+          "type": "p",
+          "text": "Without testing, you may discover the problem only after users report it."
+        },
+        {
+          "type": "h3",
+          "text": "1. Bug detection: Find errors before they reach production."
+        },
+        {
+          "type": "h3",
+          "text": "2. Regression prevention: Ensure that previously working functionality does not break after new changes."
+        },
+        {
+          "type": "h3",
+          "text": "3. Application reliability: Make sure important application features behave consistently."
+        },
+        {
+          "type": "h3",
+          "text": "4. Better code maintenance: Allow developers to modify existing components with greater confidence."
+        },
+        {
+          "type": "h3",
+          "text": "5. Improved user experience: Identify interaction problems, navigation errors and interface inconsistencies."
+        },
+        {
+          "type": "h3",
+          "text": "6. Faster development: Automated tests can repeatedly verify application behavior without requiring developers to manually check every feature after every change."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Understanding real-world frontend defects"
+        },
+        {
+          "type": "p",
+          "text": "Feature | Possible defect"
+        },
+        {
+          "type": "p",
+          "text": "Login | Valid users cannot log in"
+        },
+        {
+          "type": "p",
+          "text": "Registration | Duplicate account creation"
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue | Incorrect courses displayed"
+        },
+        {
+          "type": "p",
+          "text": "Search | Search results do not update"
+        },
+        {
+          "type": "p",
+          "text": "Progress tracking | Completed lessons are not saved"
+        },
+        {
+          "type": "p",
+          "text": "Navigation | Broken links"
+        },
+        {
+          "type": "p",
+          "text": "Dashboard | Incorrect student information"
+        },
+        {
+          "type": "p",
+          "text": "Forms | Invalid input accepted"
+        },
+        {
+          "type": "p",
+          "text": "Mobile interface | Buttons overlap content"
+        },
+        {
+          "type": "p",
+          "text": "API integration | Loading screen never disappears"
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Manual testing vs automated testing"
+        },
+        {
+          "type": "p",
+          "text": "Manual testing: A human tester opens the application and performs actions. Useful for exploratory testing, usability problems, human judgement, and visual review, but repetitive, time-consuming, and difficult to repeat consistently."
+        },
+        {
+          "type": "p",
+          "text": "Automated testing: Developers write code that automatically performs actions and verifies results."
+        },
+        {
+          "type": "code",
+          "text": "import { test, expect } from \"@playwright/test\";\n\ntest(\"student can open the dashboard\", async ({ page }) => {\n  await page.goto(\"/login\");\n  await page.getByLabel(\"Email\").fill(\"student@example.com\");\n  await page.getByLabel(\"Password\").fill(\"password123\");\n  await page.getByRole(\"button\", { name: \"Login\" }).click();\n  await expect(page).toHaveURL(/dashboard/);\n});"
+        },
+        {
+          "type": "p",
+          "text": "This test can be executed repeatedly."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 What is regression testing?"
+        },
+        {
+          "type": "p",
+          "text": "Regression testing verifies that modifications to an application have not broken existing functionality. It is particularly important in large applications because a change in one component can affect other parts of the system."
+        },
+        {
+          "type": "h3",
+          "text": "1.6 When should frontend testing happen?"
+        },
+        {
+          "type": "code",
+          "text": "Requirement -> Development -> Unit Testing -> Component Testing -> Integration Testing -> End-to-End Testing -> Quality Verification -> Production Release"
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand the importance of frontend testing, the difference between manual and automated testing, regression testing and how testing improves software reliability."
+        }
+      ]
+    },
+    {
+      "id": "lesson-02",
+      "badge": "Lesson 02",
+      "title": "Testing Strategies and the Testing Pyramid",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 Understanding types of frontend tests"
+        },
+        {
+          "type": "h3",
+          "text": "1. Unit testing: Tests a small independent piece of logic (e.g. course completion percentage calculation)."
+        },
+        {
+          "type": "h3",
+          "text": "2. Component testing: Tests an individual React component (e.g. CourseCard title and button click)."
+        },
+        {
+          "type": "h3",
+          "text": "3. Integration testing: Tests multiple components or services working together (e.g. search input + API service + results list)."
+        },
+        {
+          "type": "h3",
+          "text": "4. End-to-End testing: Tests an entire user journey inside a real browser."
+        },
+        {
+          "type": "h3",
+          "text": "5. Visual regression testing: Checks whether a new application version has introduced unintended visual differences."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Understanding the testing pyramid"
+        },
+        {
+          "type": "p",
+          "text": "Testing pyramid (illustrative distribution, not a mandatory test-count ratio):"
+        },
+        {
+          "type": "p",
+          "text": "E2E tests — Few · Expensive"
+        },
+        {
+          "type": "p",
+          "text": "Integration tests — Moderate · Combined features"
+        },
+        {
+          "type": "p",
+          "text": "Unit and component tests — Many · Faster feedback"
+        },
+        {
+          "type": "p",
+          "text": "Bottom layer — Unit tests: Utility functions, data transformations, validation functions, calculations, reusable logic."
+        },
+        {
+          "type": "p",
+          "text": "Middle layer — Integration tests: Form and validation, search and API, course card and navigation, auth state and dashboard."
+        },
+        {
+          "type": "p",
+          "text": "Top layer — End-to-End tests: User registration, login and logout, course enrolment, lesson completion, search and filtering."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Understanding the AAA testing pattern"
+        },
+        {
+          "type": "p",
+          "text": "Arrange: Prepare the test environment and input."
+        },
+        {
+          "type": "p",
+          "text": "Act: Perform the action being tested."
+        },
+        {
+          "type": "p",
+          "text": "Assert: Verify the expected result."
+        },
+        {
+          "type": "code",
+          "text": "import { describe, it, expect } from \"vitest\";\n\nfunction calculateProgress(completed: number, total: number) {\n  if (total <= 0) return 0;\n  return Math.round((completed / total) * 100);\n}\n\ndescribe(\"calculateProgress\", () => {\n  it(\"calculates course completion\", () => {\n    // Arrange\n    const completed = 6;\n    const total = 10;\n\n    // Act\n    const result = calculateProgress(completed, total);\n\n    // Assert\n    expect(result).toBe(60);\n  });\n});"
+        },
+        {
+          "type": "h3",
+          "text": "2.4 Understanding test isolation"
+        },
+        {
+          "type": "p",
+          "text": "Every test should ideally be independent. Tests that depend on execution order are difficult to maintain and can produce inconsistent results. Playwright also recommends independently isolated tests so that state from one test does not affect another. (Playwright)"
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Choosing the correct testing level"
+        },
+        {
+          "type": "p",
+          "text": "Requirement | Best testing approach"
+        },
+        {
+          "type": "p",
+          "text": "Calculate progress percentage | Unit"
+        },
+        {
+          "type": "p",
+          "text": "Display course information | Component"
+        },
+        {
+          "type": "p",
+          "text": "Search and filter courses | Integration"
+        },
+        {
+          "type": "p",
+          "text": "Complete student enrolment | End-to-end"
+        },
+        {
+          "type": "p",
+          "text": "Detect broken mobile layout | Visual regression"
+        },
+        {
+          "type": "p",
+          "text": "Check keyboard navigation | Accessibility"
+        },
+        {
+          "type": "p",
+          "text": "Verify Chrome and Firefox behavior | Cross-browser"
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand the main types of testing, the testing pyramid, the AAA pattern, test isolation and how to choose the appropriate testing level."
+        }
+      ]
+    },
+    {
+      "id": "lesson-03",
+      "badge": "Lesson 03",
+      "title": "Unit Testing with Vitest",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 What is unit testing?"
+        },
+        {
+          "type": "p",
+          "text": "Unit testing verifies that individual pieces of application logic (functions, TypeScript utilities, calculations, validations, transformations) produce the expected results."
+        },
+        {
+          "type": "h3",
+          "text": "3.2 What is Vitest?"
+        },
+        {
+          "type": "p",
+          "text": "Vitest is a testing framework designed for modern JavaScript and TypeScript projects. It provides test execution, assertions, grouping, mocking, spying, fake timers, code coverage, and watch mode. Vitest integrates naturally with Vite-based applications and can be used for suitable Next.js unit tests. (Vitest)"
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Installing Vitest"
+        },
+        {
+          "type": "code",
+          "text": "npm install -D vitest\nnpx vitest"
+        },
+        {
+          "type": "p",
+          "text": "Vitest discovers test files such as calculateProgress.test.ts or calculateProgress.spec.ts."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Writing your first unit test"
+        },
+        {
+          "type": "p",
+          "text": "src/utils/calculateProgress.ts"
+        },
+        {
+          "type": "code",
+          "text": "export function calculateProgress(\n  completed: number,\n  total: number\n): number {\n  if (total <= 0) {\n    return 0;\n  }\n  return Math.round((completed / total) * 100);\n}"
+        },
+        {
+          "type": "p",
+          "text": "src/utils/calculateProgress.test.ts"
+        },
+        {
+          "type": "code",
+          "text": "import { describe, it, expect } from \"vitest\";\nimport { calculateProgress } from \"./calculateProgress\";\n\ndescribe(\"calculateProgress\", () => {\n  it(\"calculates progress correctly\", () => {\n    expect(calculateProgress(5, 10)).toBe(50);\n  });\n\n  it(\"returns 100 for completed courses\", () => {\n    expect(calculateProgress(10, 10)).toBe(100);\n  });\n\n  it(\"returns 0 for zero lessons\", () => {\n    expect(calculateProgress(0, 0)).toBe(0);\n  });\n});"
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Understanding important Vitest functions"
+        },
+        {
+          "type": "p",
+          "text": "Function | Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "describe() | Groups related tests"
+        },
+        {
+          "type": "p",
+          "text": "it() | Defines a test case"
+        },
+        {
+          "type": "p",
+          "text": "test() | Alternative to it()"
+        },
+        {
+          "type": "p",
+          "text": "expect() | Checks expected results"
+        },
+        {
+          "type": "p",
+          "text": "beforeEach() | Runs before every test"
+        },
+        {
+          "type": "p",
+          "text": "afterEach() | Runs after every test"
+        },
+        {
+          "type": "p",
+          "text": "beforeAll() | Runs before a test group"
+        },
+        {
+          "type": "p",
+          "text": "afterAll() | Runs after a test group"
+        },
+        {
+          "type": "p",
+          "text": "vi.fn() | Creates a mock function"
+        },
+        {
+          "type": "p",
+          "text": "vi.spyOn() | Tracks or replaces an existing method"
+        },
+        {
+          "type": "p",
+          "text": "vi.mock() | Replaces module dependencies"
+        },
+        {
+          "type": "h3",
+          "text": "3.6 Understanding assertions"
+        },
+        {
+          "type": "code",
+          "text": "expect(10).toBe(10);\nexpect(\"React\").toContain(\"Re\");\nexpect([1, 2, 3]).toHaveLength(3);\nexpect(true).toBeTruthy();\nexpect(null).toBeNull();\nexpect({ id: 1 }).toEqual({ id: 1 });"
+        },
+        {
+          "type": "p",
+          "text": "toBe() checks identity or primitive equality; toEqual() checks deep equality of object structures."
+        },
+        {
+          "type": "h3",
+          "text": "3.7 Testing boundary conditions"
+        },
+        {
+          "type": "p",
+          "text": "Test zero completed lessons, zero total lessons, one completed lesson, all lessons completed, invalid negative values, and more completed lessons than total lessons."
+        },
+        {
+          "type": "h3",
+          "text": "3.8 Configuring Vitest for React projects"
+        },
+        {
+          "type": "code",
+          "text": "npm install -D vitest @vitejs/plugin-react jsdom @testing-library/react @testing-library/user-event @testing-library/jest-dom"
+        },
+        {
+          "type": "p",
+          "text": "vitest.config.ts"
+        },
+        {
+          "type": "code",
+          "text": "import { defineConfig } from \"vitest/config\";\nimport react from \"@vitejs/plugin-react\";\nimport { fileURLToPath, URL } from \"node:url\";\n\nexport default defineConfig({\n  plugins: [react()],\n  resolve: {\n    alias: {\n      \"@\": fileURLToPath(new URL(\"./src\", import.meta.url))\n    }\n  },\n  test: {\n    environment: \"jsdom\",\n    setupFiles: [\"./src/test/setup.ts\"],\n    clearMocks: true\n  }\n});"
+        },
+        {
+          "type": "p",
+          "text": "src/test/setup.ts"
+        },
+        {
+          "type": "code",
+          "text": "import \"@testing-library/jest-dom/vitest\";\nimport { cleanup } from \"@testing-library/react\";\nimport { afterEach, vi } from \"vitest\";\n\nafterEach(() => {\n  cleanup();\n  vi.restoreAllMocks();\n});"
+        },
+        {
+          "type": "h3",
+          "text": "3.9 Understanding test scripts"
+        },
+        {
+          "type": "p",
+          "text": "Command | Purpose"
+        },
+        {
+          "type": "p",
+          "text": "npm run test | Runs tests in development watch mode (`vitest`)"
+        },
+        {
+          "type": "p",
+          "text": "npm run test:run | Runs tests once (`vitest run`)"
+        },
+        {
+          "type": "p",
+          "text": "npm run test:coverage | Runs tests and generates coverage reports (`vitest run --coverage`)"
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to install Vitest, create unit tests, use assertions, test boundary conditions and configure a React testing environment."
+        }
+      ]
+    },
+    {
+      "id": "lesson-04",
+      "badge": "Lesson 04",
+      "title": "Component Testing with React Testing Library",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 What is component testing?"
+        },
+        {
+          "type": "p",
+          "text": "Component testing verifies the behavior of individual UI components (title, description, level, accessible controls, and click behavior)."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 What is React Testing Library?"
+        },
+        {
+          "type": "p",
+          "text": "React Testing Library tests React components through their rendered DOM. Its central philosophy is that tests should resemble how users interact with applications, testing visible output and user interactions rather than private component state. (Testing Library)"
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Understanding the render function"
+        },
+        {
+          "type": "code",
+          "text": "import { render, screen } from \"@testing-library/react\";\nimport CourseCard from \"./CourseCard\";\n\nrender(<CourseCard title=\"React Development\" />);\nexpect(screen.getByText(\"React Development\")).toBeInTheDocument();"
+        },
+        {
+          "type": "h3",
+          "text": "4.4 Understanding screen queries"
+        },
+        {
+          "type": "p",
+          "text": "Query | Purpose"
+        },
+        {
+          "type": "p",
+          "text": "getByRole() | Finds an element by accessible role"
+        },
+        {
+          "type": "p",
+          "text": "getByLabelText() | Finds an input using its label"
+        },
+        {
+          "type": "p",
+          "text": "getByText() | Finds visible text"
+        },
+        {
+          "type": "p",
+          "text": "getByPlaceholderText() | Finds an input using its placeholder"
+        },
+        {
+          "type": "p",
+          "text": "getByTestId() | Finds an element using a test ID"
+        },
+        {
+          "type": "p",
+          "text": "queryByText() | Useful when checking that something is absent"
+        },
+        {
+          "type": "p",
+          "text": "findByRole() | Waits asynchronously for an element"
+        },
+        {
+          "type": "p",
+          "text": "Prefer accessible queries such as getByRole() and getByLabelText() whenever possible. (Testing Library)"
+        },
+        {
+          "type": "h3",
+          "text": "4.5 Building a testable React component"
+        },
+        {
+          "type": "p",
+          "text": "CourseCard.tsx"
+        },
+        {
+          "type": "code",
+          "text": "interface CourseCardProps {\n  title: string;\n  description: string;\n}\n\nexport default function CourseCard({\n  title,\n  description\n}: CourseCardProps) {\n  return (\n    <article>\n      <h2>{title}</h2>\n      <p>{description}</p>\n      <a href=\"/courses/react\">View Course</a>\n    </article>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "CourseCard.test.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import { render, screen } from \"@testing-library/react\";\nimport { expect, it } from \"vitest\";\nimport CourseCard from \"./CourseCard\";\n\nit(\"renders course information\", () => {\n  render(\n    <CourseCard\n      title=\"React Development\"\n      description=\"Learn modern React.\"\n    />\n  );\n\n  expect(\n    screen.getByRole(\"heading\", { name: \"React Development\" })\n  ).toBeInTheDocument();\n\n  expect(\n    screen.getByText(\"Learn modern React.\")\n  ).toBeInTheDocument();\n\n  expect(\n    screen.getByRole(\"link\", { name: \"View Course\" })\n  ).toHaveAttribute(\"href\", \"/courses/react\");\n});"
+        },
+        {
+          "type": "h3",
+          "text": "4.6 Testing conditional rendering"
+        },
+        {
+          "type": "code",
+          "text": "interface Props {\n  enrolled: boolean;\n}\n\nexport default function EnrolmentStatus({ enrolled }: Props) {\n  return (\n    <p>{enrolled ? \"You are enrolled\" : \"Not enrolled\"}</p>\n  );\n}"
+        },
+        {
+          "type": "code",
+          "text": "import { render, screen } from \"@testing-library/react\";\nimport { it, expect } from \"vitest\";\nimport EnrolmentStatus from \"./EnrolmentStatus\";\n\nit(\"shows enrolled status\", () => {\n  render(<EnrolmentStatus enrolled={true} />);\n  expect(screen.getByText(\"You are enrolled\")).toBeInTheDocument();\n});\n\nit(\"shows non-enrolled status\", () => {\n  render(<EnrolmentStatus enrolled={false} />);\n  expect(screen.getByText(\"Not enrolled\")).toBeInTheDocument();\n});"
+        },
+        {
+          "type": "h3",
+          "text": "4.7 Testing component behavior instead of implementation details"
+        },
+        {
+          "type": "p",
+          "text": "Avoid checking private React state directly, internal function names, implementation-specific CSS classes, or internals users never interact with. Tests should continue passing when internals are refactored."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand React Testing Library, component rendering, accessible DOM queries, conditional rendering and user-oriented component testing."
+        }
+      ]
+    },
+    {
+      "id": "lesson-05",
+      "badge": "Lesson 05",
+      "title": "Testing React Hooks and Custom Hooks",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 What is a custom hook?"
+        },
+        {
+          "type": "code",
+          "text": "import { useState } from \"react\";\n\nexport function useCounter(initialValue = 0) {\n  const [count, setCount] = useState(initialValue);\n\n  function increment() {\n    setCount(value => value + 1);\n  }\n\n  function decrement() {\n    setCount(value => value - 1);\n  }\n\n  return { count, increment, decrement };\n}"
+        },
+        {
+          "type": "h3",
+          "text": "5.2 Why test custom hooks?"
+        },
+        {
+          "type": "p",
+          "text": "A defect inside a shared custom hook (like course progress tracking) can affect every component that uses it."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Understanding renderHook"
+        },
+        {
+          "type": "code",
+          "text": "import { renderHook, act } from \"@testing-library/react\";\nimport { expect, it } from \"vitest\";\nimport { useCounter } from \"./useCounter\";\n\nit(\"increments counter\", () => {\n  const { result } = renderHook(() => useCounter(0));\n\n  act(() => {\n    result.current.increment();\n  });\n\n  expect(result.current.count).toBe(1);\n});"
+        },
+        {
+          "type": "p",
+          "text": "act() ensures React updates are applied before assertions are made. Testing behavior through an actual component is often preferable when that produces a clearer test. (Testing Library)"
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Testing initial values"
+        },
+        {
+          "type": "code",
+          "text": "it(\"uses the supplied initial value\", () => {\n  const { result } = renderHook(() => useCounter(10));\n  expect(result.current.count).toBe(10);\n});"
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Testing decrement behavior"
+        },
+        {
+          "type": "code",
+          "text": "it(\"decrements counter\", () => {\n  const { result } = renderHook(() => useCounter(5));\n\n  act(() => {\n    result.current.decrement();\n  });\n\n  expect(result.current.count).toBe(4);\n});"
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Testing hooks with asynchronous behavior"
+        },
+        {
+          "type": "p",
+          "text": "Verify initial loading state, successful data retrieval, empty responses, API failures, retry behavior, and cleanup on unmount using waitFor() or findBy... queries."
+        },
+        {
+          "type": "h3",
+          "text": "5.7 Testing hooks with providers"
+        },
+        {
+          "type": "p",
+          "text": "When custom hooks depend on React Context (Auth, Theme, QueryClient, Global state), supply the required context wrapper using the `wrapper` option in renderHook() or render()."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to test built-in hook behavior, custom hooks, state updates, asynchronous logic and hooks that depend on React Context."
+        }
+      ]
+    },
+    {
+      "id": "lesson-06",
+      "badge": "Lesson 06",
+      "title": "Testing Forms and User Interactions",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 What should be tested in a form?"
+        },
+        {
+          "type": "p",
+          "text": "Initial form state, required-field validation, incorrect input, valid input, submission behavior, error messages, loading state, success message, disabled controls, and duplicate submission prevention."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Understanding user-event"
+        },
+        {
+          "type": "p",
+          "text": "Testing Library user-event simulates real user actions (clicking, typing, selecting options, uploading files, keyboard interactions, clearing inputs) and is generally preferable to low-level event dispatch. (Testing Library)"
+        },
+        {
+          "type": "code",
+          "text": "npm install -D @testing-library/user-event"
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Building a simple registration form"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport { useState } from \"react\";\n\nexport default function RegistrationForm() {\n  const [email, setEmail] = useState(\"\");\n  const [error, setError] = useState(\"\");\n  const [submitted, setSubmitted] = useState(false);\n\n  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {\n    event.preventDefault();\n    if (!email.includes(\"@\")) {\n      setError(\"Enter a valid email address\");\n      return;\n    }\n    setError(\"\");\n    setSubmitted(true);\n  }\n\n  return (\n    <form onSubmit={handleSubmit}>\n      <label htmlFor=\"email\">Email</label>\n      <input\n        id=\"email\"\n        type=\"text\"\n        value={email}\n        onChange={event => setEmail(event.target.value)}\n      />\n      {error && <p role=\"alert\">{error}</p>}\n      <button type=\"submit\">Register</button>\n      {submitted && <p role=\"status\">Registration submitted</p>}\n    </form>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Testing successful form submission"
+        },
+        {
+          "type": "code",
+          "text": "import { render, screen } from \"@testing-library/react\";\nimport userEvent from \"@testing-library/user-event\";\nimport { it, expect } from \"vitest\";\nimport RegistrationForm from \"./RegistrationForm\";\n\nit(\"submits valid email\", async () => {\n  const user = userEvent.setup();\n  render(<RegistrationForm />);\n\n  const email = screen.getByLabelText(\"Email\");\n  await user.type(email, \"student@example.com\");\n  await user.click(screen.getByRole(\"button\", { name: \"Register\" }));\n\n  expect(screen.getByRole(\"status\")).toHaveTextContent(\n    \"Registration submitted\"\n  );\n});"
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Testing validation errors"
+        },
+        {
+          "type": "code",
+          "text": "it(\"displays invalid email error\", async () => {\n  const user = userEvent.setup();\n  render(<RegistrationForm />);\n\n  await user.type(screen.getByLabelText(\"Email\"), \"invalid-email\");\n  await user.click(screen.getByRole(\"button\", { name: \"Register\" }));\n\n  expect(screen.getByRole(\"alert\")).toHaveTextContent(\n    \"Enter a valid email address\"\n  );\n});"
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Testing keyboard interactions"
+        },
+        {
+          "type": "p",
+          "text": "Verify Tab, Shift + Tab, Enter, Space, Arrow keys, and Escape for accessibility and real-world usability."
+        },
+        {
+          "type": "h3",
+          "text": "6.7 Testing asynchronous form behavior"
+        },
+        {
+          "type": "p",
+          "text": "Verify all three states (Submitting loading state, Success confirmation, Failure error) and ensure accidental duplicate submissions are prevented while pending."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to test form validation, user interactions, keyboard behavior, submission states, error handling and success states."
+        }
+      ]
+    },
+    {
+      "id": "lesson-07",
+      "badge": "Lesson 07",
+      "title": "Mocking API Requests and External Dependencies",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 What is mocking?"
+        },
+        {
+          "type": "p",
+          "text": "Mocking replaces a real dependency (backend API, auth provider, payment service, browser API) with a controlled substitute during testing."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Understanding different test doubles"
+        },
+        {
+          "type": "p",
+          "text": "Type | Meaning"
+        },
+        {
+          "type": "p",
+          "text": "Mock | Controlled replacement used to verify interactions or behavior"
+        },
+        {
+          "type": "p",
+          "text": "Stub | Supplies predefined responses"
+        },
+        {
+          "type": "p",
+          "text": "Fake | Lightweight working implementation of a dependency"
+        },
+        {
+          "type": "p",
+          "text": "Spy | Observes calls to an existing function or method"
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Using Vitest mock functions"
+        },
+        {
+          "type": "code",
+          "text": "import { vi, it, expect } from \"vitest\";\n\nit(\"calls enrolment function\", () => {\n  const enrol = vi.fn();\n  enrol(\"react-course\");\n  expect(enrol).toHaveBeenCalled();\n  expect(enrol).toHaveBeenCalledWith(\"react-course\");\n});"
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Mocking a module"
+        },
+        {
+          "type": "code",
+          "text": "import { vi, it, expect } from \"vitest\";\nimport { getCourses } from \"./courseService\";\n\nvi.mock(\"./courseService\", () => ({\n  getCourses: vi.fn()\n}));\n\nit(\"uses the mocked course service\", async () => {\n  vi.mocked(getCourses).mockResolvedValue([\n    { id: 1, title: \"React\" }\n  ]);\n\n  const courses = await getCourses();\n  expect(courses).toHaveLength(1);\n  expect(courses[0].title).toBe(\"React\");\n});"
+        },
+        {
+          "type": "p",
+          "text": "Vitest provides vi.mock() for module mocking and vi.spyOn() for spying on existing methods. (Vitest)"
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Understanding network-level mocking with MSW"
+        },
+        {
+          "type": "p",
+          "text": "Mock Service Worker (MSW) intercepts network requests at the network level so normal fetch logic remains intact."
+        },
+        {
+          "type": "code",
+          "text": "import { http, HttpResponse } from \"msw\";\nimport { setupServer } from \"msw/node\";\n\nexport const server = setupServer(\n  http.get(\"http://localhost/api/courses\", () => {\n    return HttpResponse.json([\n      { id: 1, title: \"React Development\" }\n    ]);\n  })\n);"
+        },
+        {
+          "type": "code",
+          "text": "import { beforeAll, afterAll, afterEach } from \"vitest\";\nimport { server } from \"./server\";\n\nbeforeAll(() => {\n  server.listen({ onUnhandledRequest: \"error\" });\n});\n\nafterEach(() => {\n  server.resetHandlers();\n});\n\nafterAll(() => {\n  server.close();\n});"
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Testing API failure scenarios"
+        },
+        {
+          "type": "p",
+          "text": "API response | Expected frontend behavior"
+        },
+        {
+          "type": "p",
+          "text": "200 OK | Display data"
+        },
+        {
+          "type": "p",
+          "text": "201 Created | Display successful creation"
+        },
+        {
+          "type": "p",
+          "text": "400 Bad Request | Show validation feedback"
+        },
+        {
+          "type": "p",
+          "text": "401 Unauthorized | Handle authentication failure"
+        },
+        {
+          "type": "p",
+          "text": "403 Forbidden | Show access-denied state"
+        },
+        {
+          "type": "p",
+          "text": "404 Not Found | Display missing-resource interface"
+        },
+        {
+          "type": "p",
+          "text": "500 Server Error | Show a recoverable error"
+        },
+        {
+          "type": "p",
+          "text": "Network failure | Display connection error"
+        },
+        {
+          "type": "p",
+          "text": "Also test empty arrays, missing fields, malformed responses, slow API responses, request cancellation, and retry behavior."
+        },
+        {
+          "type": "h3",
+          "text": "7.7 Playwright API mocking"
+        },
+        {
+          "type": "code",
+          "text": "import { test, expect } from \"@playwright/test\";\n\ntest(\"displays mocked courses\", async ({ page }) => {\n  await page.route(\"**/api/courses\", async route => {\n    await route.fulfill({\n      status: 200,\n      contentType: \"application/json\",\n      body: JSON.stringify([\n        { id: 1, title: \"React Development\" }\n      ])\n    });\n  });\n\n  await page.goto(\"/courses\");\n  await expect(\n    page.getByRole(\"heading\", { name: \"React Development\" })\n  ).toBeVisible();\n});"
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand mocking, stubs, spies, fake dependencies, API testing, Vitest mocking and network-level mocking."
+        }
+      ]
+    },
+    {
+      "id": "lesson-08",
+      "badge": "Lesson 08",
+      "title": "Integration Testing for Frontend Features",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 What is integration testing?"
+        },
+        {
+          "type": "p",
+          "text": "Integration testing evaluates the interaction between multiple application components, services or modules (e.g. search input + API service + results list)."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Understanding an integrated feature"
+        },
+        {
+          "type": "p",
+          "text": "User -> Search Input -> Search Logic -> Course API -> Returned Data -> Course List -> Course Cards."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 What should be tested?"
+        },
+        {
+          "type": "p",
+          "text": "Initial course loading, search query submission, category filtering, combined search and filtering, empty search results, API error handling, updating displayed results, and course navigation."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Example integration test"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport { useEffect, useState } from \"react\";\n\ninterface Course {\n  id: number;\n  title: string;\n}\n\nexport default function CourseCatalogue() {\n  const [courses, setCourses] = useState<Course[]>([]);\n  const [query, setQuery] = useState(\"\");\n\n  useEffect(() => {\n    fetch(\"http://localhost/api/courses\")\n      .then(response => {\n        if (!response.ok) {\n          throw new Error(\"Request failed\");\n        }\n        return response.json();\n      })\n      .then(setCourses)\n      .catch(() => setCourses([]));\n  }, []);\n\n  const filtered = courses.filter(course =>\n    course.title.toLowerCase().includes(query.toLowerCase())\n  );\n\n  return (\n    <main>\n      <label htmlFor=\"search\">Search courses</label>\n      <input\n        id=\"search\"\n        value={query}\n        onChange={event => setQuery(event.target.value)}\n      />\n      {filtered.length === 0 ? (\n        <p>No courses found</p>\n      ) : (\n        filtered.map(course => (\n          <article key={course.id}>{course.title}</article>\n        ))\n      )}\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Integration testing vs unit testing"
+        },
+        {
+          "type": "p",
+          "text": "Unit testing tests individual logic with fewer dependencies and fast execution (e.g. search function). Integration testing tests combined functionality across dependencies with more realistic feature behavior (e.g. search input plus results)."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Common integration failures"
+        },
+        {
+          "type": "p",
+          "text": "Test for incorrect data passed between components, unmapped API responses, stale search results, broken loading transitions, unpropagated errors, and race conditions where an older slower request overwrites newer results."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to test combined frontend features, data flow, API integration, search behavior, loading states and failure scenarios."
+        }
+      ]
+    },
+    {
+      "id": "lesson-09",
+      "badge": "Lesson 09",
+      "title": "End-to-End Testing with Playwright",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 What is End-to-End testing?"
+        },
+        {
+          "type": "p",
+          "text": "End-to-End testing verifies whether an entire application workflow functions correctly from a user's perspective inside a real browser."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 What is Playwright?"
+        },
+        {
+          "type": "p",
+          "text": "Playwright is a browser automation and testing framework supporting Chromium, Firefox, WebKit, assertions, network interception, screenshots, mobile emulation, test isolation, parallel execution, and trace-based debugging. (Playwright)"
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Installing Playwright"
+        },
+        {
+          "type": "code",
+          "text": "npm init playwright@latest"
+        },
+        {
+          "type": "h3",
+          "text": "9.4 Understanding Playwright architecture"
+        },
+        {
+          "type": "p",
+          "text": "Test Specification -> Playwright Runner -> Browser (Chromium / Firefox / WebKit) -> React Application -> Assertions -> Test Results."
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Your first Playwright test"
+        },
+        {
+          "type": "p",
+          "text": "tests/homepage.spec.ts"
+        },
+        {
+          "type": "code",
+          "text": "import { test, expect } from \"@playwright/test\";\n\ntest(\"homepage loads correctly\", async ({ page }) => {\n  await page.goto(\"/\");\n  await expect(page).toHaveTitle(/PrepSpaces/);\n  await expect(\n    page.getByRole(\"heading\", { name: /welcome/i })\n  ).toBeVisible();\n});"
+        },
+        {
+          "type": "h3",
+          "text": "9.6 Understanding browser locators"
+        },
+        {
+          "type": "code",
+          "text": "page.getByRole(\"button\", { name: \"Login\" });\npage.getByLabel(\"Email\");\npage.getByText(\"Welcome\");\npage.getByPlaceholder(\"Search courses\");\npage.getByTestId(\"course-card\");"
+        },
+        {
+          "type": "p",
+          "text": "Prefer locators based on accessible roles and labels rather than fragile CSS selectors."
+        },
+        {
+          "type": "h3",
+          "text": "9.7 Understanding browser interactions"
+        },
+        {
+          "type": "p",
+          "text": "Method | Purpose"
+        },
+        {
+          "type": "p",
+          "text": "click() | Click an element"
+        },
+        {
+          "type": "p",
+          "text": "fill() | Enter text into an input"
+        },
+        {
+          "type": "p",
+          "text": "check() | Check a checkbox"
+        },
+        {
+          "type": "p",
+          "text": "uncheck() | Uncheck a checkbox"
+        },
+        {
+          "type": "p",
+          "text": "selectOption() | Select an option"
+        },
+        {
+          "type": "p",
+          "text": "hover() | Hover over an element"
+        },
+        {
+          "type": "p",
+          "text": "press() | Perform keyboard actions"
+        },
+        {
+          "type": "p",
+          "text": "screenshot() | Capture a screenshot"
+        },
+        {
+          "type": "p",
+          "text": "goto() | Navigate to a URL"
+        },
+        {
+          "type": "h3",
+          "text": "9.8 Understanding web-first assertions"
+        },
+        {
+          "type": "code",
+          "text": "await expect(\n  page.getByRole(\"button\", { name: \"Continue\" })\n).toBeVisible();"
+        },
+        {
+          "type": "p",
+          "text": "Playwright automatically retries assertions and performs actionability checks before actions. (Playwright)"
+        },
+        {
+          "type": "h3",
+          "text": "9.9 Building a complete student journey"
+        },
+        {
+          "type": "code",
+          "text": "import { test, expect } from \"@playwright/test\";\n\ntest(\"student can browse courses\", async ({ page }) => {\n  await page.goto(\"/\");\n  await page.getByRole(\"link\", { name: \"Courses\" }).click();\n  await expect(page).toHaveURL(/courses/);\n  await page.getByRole(\"link\", { name: \"React Development\" }).click();\n  await expect(\n    page.getByRole(\"heading\", { name: \"React Development\" })\n  ).toBeVisible();\n});"
+        },
+        {
+          "type": "h3",
+          "text": "9.10 Understanding Playwright configuration"
+        },
+        {
+          "type": "p",
+          "text": "playwright.config.ts"
+        },
+        {
+          "type": "code",
+          "text": "import { defineConfig, devices } from \"@playwright/test\";\n\nexport default defineConfig({\n  testDir: \"./tests\",\n  fullyParallel: true,\n  reporter: [[\"html\", { open: \"never\" }]],\n  use: {\n    baseURL: \"http://127.0.0.1:3000\",\n    trace: \"on-first-retry\"\n  },\n  projects: [\n    {\n      name: \"chromium\",\n      use: { ...devices[\"Desktop Chrome\"] }\n    }\n  ],\n  webServer: {\n    command: \"npm run dev\",\n    url: \"http://127.0.0.1:3000\",\n    reuseExistingServer: !process.env.CI\n  }\n});"
+        },
+        {
+          "type": "h3",
+          "text": "9.11 Understanding test reports and debugging"
+        },
+        {
+          "type": "p",
+          "text": "Playwright provides HTML reports, screenshots on failure, video recording, Trace Viewer, browser logs, network information, and DOM snapshots. (Playwright)"
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to install Playwright, write browser tests, use locators and assertions, automate user journeys and investigate failures."
+        }
+      ]
+    },
+    {
+      "id": "lesson-10",
+      "badge": "Lesson 10",
+      "title": "Cross-Browser Testing",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "10.1 What is cross-browser testing?"
+        },
+        {
+          "type": "p",
+          "text": "Cross-browser testing verifies that an application behaves consistently across supported browsers (Chrome, Firefox, Safari) and browser environments."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 Why does cross-browser testing matter?"
+        },
+        {
+          "type": "p",
+          "text": "Different browsers can render Flexbox/grid, unsupported CSS, dropdowns, form validation, animations, storage, and mobile menus differently."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Understanding browser engines"
+        },
+        {
+          "type": "p",
+          "text": "Browser | Main rendering engine"
+        },
+        {
+          "type": "p",
+          "text": "Google Chrome | Blink"
+        },
+        {
+          "type": "p",
+          "text": "Microsoft Edge | Blink"
+        },
+        {
+          "type": "p",
+          "text": "Mozilla Firefox | Gecko"
+        },
+        {
+          "type": "p",
+          "text": "Apple Safari | WebKit"
+        },
+        {
+          "type": "h3",
+          "text": "10.4 Cross-browser testing with Playwright"
+        },
+        {
+          "type": "code",
+          "text": "import { defineConfig, devices } from \"@playwright/test\";\n\nexport default defineConfig({\n  projects: [\n    { name: \"chromium\", use: { ...devices[\"Desktop Chrome\"] } },\n    { name: \"firefox\", use: { ...devices[\"Desktop Firefox\"] } },\n    { name: \"webkit\", use: { ...devices[\"Desktop Safari\"] } }\n  ]\n});"
+        },
+        {
+          "type": "h3",
+          "text": "10.5 Mobile and responsive testing"
+        },
+        {
+          "type": "p",
+          "text": "Device category | Example width"
+        },
+        {
+          "type": "p",
+          "text": "Small mobile | 360 px"
+        },
+        {
+          "type": "p",
+          "text": "Large mobile | 430 px"
+        },
+        {
+          "type": "p",
+          "text": "Tablet | 768 px"
+        },
+        {
+          "type": "p",
+          "text": "Laptop | 1366 px"
+        },
+        {
+          "type": "p",
+          "text": "Desktop | 1920 px"
+        },
+        {
+          "type": "p",
+          "text": "Test navigation menus, responsive cards, tables, forms, modals, sidebars, text wrapping, scroll behavior, and touch interactions."
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Device emulation vs real-device testing"
+        },
+        {
+          "type": "p",
+          "text": "Browser emulation is useful for viewport/touch testing, while real devices reveal hardware-specific issues, OS differences, real keyboard behavior, and device performance limits."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand browser rendering differences, cross-browser automation and responsive testing using Chromium, Firefox, WebKit and device emulation."
+        }
+      ]
+    },
+    {
+      "id": "lesson-11",
+      "badge": "Lesson 11",
+      "title": "Accessibility Testing and Automated Audits",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "11.1 What is web accessibility?"
+        },
+        {
+          "type": "p",
+          "text": "Web accessibility means designing and developing applications so people with disabilities (screen reader users, keyboard users, limited vision, hearing, motor, or cognitive disabilities) can perceive, understand, navigate, and interact with them."
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Understanding WCAG"
+        },
+        {
+          "type": "p",
+          "text": "POUR principles: Perceivable, Operable, Understandable, Robust."
+        },
+        {
+          "type": "h3",
+          "text": "11.3 Common accessibility problems"
+        },
+        {
+          "type": "p",
+          "text": "Problem | Possible consequence"
+        },
+        {
+          "type": "p",
+          "text": "Missing image alt text | Screen readers cannot communicate image meaning"
+        },
+        {
+          "type": "p",
+          "text": "Missing form labels | Users cannot identify inputs"
+        },
+        {
+          "type": "p",
+          "text": "Poor color contrast | Text becomes difficult to read"
+        },
+        {
+          "type": "p",
+          "text": "Keyboard-inaccessible menu | Keyboard users cannot navigate"
+        },
+        {
+          "type": "p",
+          "text": "Missing button names | Screen reader users cannot identify controls"
+        },
+        {
+          "type": "p",
+          "text": "Improper heading structure | Page structure becomes difficult to understand"
+        },
+        {
+          "type": "p",
+          "text": "Missing focus indicators | Keyboard position is unclear"
+        },
+        {
+          "type": "h3",
+          "text": "11.4 Understanding semantic HTML"
+        },
+        {
+          "type": "p",
+          "text": "Prefer native elements such as <button>, <header>, <nav>, <main>, <section>, <form>, <label>, and <a> over clickable <div> elements."
+        },
+        {
+          "type": "h3",
+          "text": "11.5 Testing keyboard accessibility"
+        },
+        {
+          "type": "p",
+          "text": "Verify Tab reachability, visible focus, keyboard button activation, menu keyboard controls, no focus traps, and modal focus management."
+        },
+        {
+          "type": "h3",
+          "text": "11.6 Understanding automated accessibility testing"
+        },
+        {
+          "type": "code",
+          "text": "npm install -D @axe-core/playwright"
+        },
+        {
+          "type": "code",
+          "text": "import { test, expect } from \"@playwright/test\";\nimport AxeBuilder from \"@axe-core/playwright\";\n\ntest(\"homepage accessibility audit\", async ({ page }) => {\n  await page.goto(\"/\");\n  const results = await new AxeBuilder({ page }).analyze();\n  expect(results.violations).toEqual([]);\n});"
+        },
+        {
+          "type": "p",
+          "text": "Combine automated checks with manual accessibility assessments and inclusive user testing. (Playwright)"
+        },
+        {
+          "type": "h3",
+          "text": "11.7 Accessibility testing checklist"
+        },
+        {
+          "type": "p",
+          "text": "Verify alt text, form labels, color contrast, accessible button names, heading hierarchy, keyboard navigation, focus indicators, dialog focus management, zoom usability, and error announcements."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand WCAG principles, semantic HTML, keyboard accessibility, screen-reader considerations and automated audits using axe-core."
+        }
+      ]
+    },
+    {
+      "id": "lesson-12",
+      "badge": "Lesson 12",
+      "title": "Visual Regression Testing",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "12.1 What is visual regression testing?"
+        },
+        {
+          "type": "p",
+          "text": "Visual regression testing compares the current appearance of an application against previously approved baseline screenshots."
+        },
+        {
+          "type": "h3",
+          "text": "12.2 Understanding screenshot comparison"
+        },
+        {
+          "type": "p",
+          "text": "Even when functional tests pass, CSS changes can break padding, typography, alignment, or responsive layouts. Visual regression tests detect these differences."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 Visual testing with Playwright"
+        },
+        {
+          "type": "code",
+          "text": "import { test, expect } from \"@playwright/test\";\n\ntest(\"course page looks correct\", async ({ page }) => {\n  await page.goto(\"/courses/react\");\n  await expect(page).toHaveScreenshot(\"react-course.png\");\n});"
+        },
+        {
+          "type": "h3",
+          "text": "12.4 What should you visually test?"
+        },
+        {
+          "type": "p",
+          "text": "UI element | What to verify"
+        },
+        {
+          "type": "p",
+          "text": "Navbar | Height, alignment and responsive menu"
+        },
+        {
+          "type": "p",
+          "text": "Course cards | Dimensions, text wrapping and spacing"
+        },
+        {
+          "type": "p",
+          "text": "Sidebar | Position and width"
+        },
+        {
+          "type": "p",
+          "text": "Dashboard | Layout consistency"
+        },
+        {
+          "type": "p",
+          "text": "Buttons | Size, placement and color"
+        },
+        {
+          "type": "p",
+          "text": "Forms | Input alignment and validation display"
+        },
+        {
+          "type": "p",
+          "text": "Mobile pages | Overflow and overlapping elements"
+        },
+        {
+          "type": "p",
+          "text": "Modals | Position and dimensions"
+        },
+        {
+          "type": "h3",
+          "text": "12.5 Testing different viewport sizes"
+        },
+        {
+          "type": "code",
+          "text": "test(\"mobile course layout\", async ({ page }) => {\n  await page.setViewportSize({ width: 390, height: 844 });\n  await page.goto(\"/courses\");\n  await expect(page).toHaveScreenshot(\"courses-mobile.png\");\n});"
+        },
+        {
+          "type": "h3",
+          "text": "12.6 Understanding false positives"
+        },
+        {
+          "type": "p",
+          "text": "Font rendering differences, time-dependent content, animations, OS differences, and browser versions can cause false positives. Generate baselines in consistent environments, disable animations, and mask dynamic regions where appropriate."
+        },
+        {
+          "type": "h3",
+          "text": "12.7 Updating reference screenshots"
+        },
+        {
+          "type": "code",
+          "text": "npx playwright test --update-snapshots"
+        },
+        {
+          "type": "p",
+          "text": "Only update baselines after reviewing diffs and confirming intentional design changes."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to create screenshot baselines, compare visual changes, test responsive layouts and identify unintended UI regressions."
+        }
+      ]
+    },
+    {
+      "id": "lesson-13",
+      "badge": "Lesson 13",
+      "title": "Test Coverage and Quality Metrics",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "13.1 What is test coverage?"
+        },
+        {
+          "type": "p",
+          "text": "Test coverage measures which parts of your application code are executed during testing, though it does not by itself prove every behavior was correctly verified."
+        },
+        {
+          "type": "h3",
+          "text": "13.2 Types of code coverage"
+        },
+        {
+          "type": "h3",
+          "text": "1. Statement coverage: Proportion of executable statements executed."
+        },
+        {
+          "type": "h3",
+          "text": "2. Branch coverage: Whether different decision paths (e.g. if/else) were executed."
+        },
+        {
+          "type": "h3",
+          "text": "3. Function coverage: How many functions were called."
+        },
+        {
+          "type": "h3",
+          "text": "4. Line coverage: How many executable lines were executed."
+        },
+        {
+          "type": "h3",
+          "text": "13.3 Understanding coverage metrics"
+        },
+        {
+          "type": "p",
+          "text": "Illustrative report: Statements 90%, Branches 75%, Functions 95%, Lines 88%."
+        },
+        {
+          "type": "h3",
+          "text": "13.4 Generating coverage reports in Vitest"
+        },
+        {
+          "type": "code",
+          "text": "npm install -D @vitest/coverage-v8"
+        },
+        {
+          "type": "code",
+          "text": "import { defineConfig } from \"vitest/config\";\n\nexport default defineConfig({\n  test: {\n    coverage: {\n      provider: \"v8\",\n      reporter: [\"text\", \"html\", \"lcov\"],\n      include: [\"src/**/*.{ts,tsx}\"]\n    }\n  }\n});"
+        },
+        {
+          "type": "p",
+          "text": "Run: npm run test:coverage (Vitest)"
+        },
+        {
+          "type": "h3",
+          "text": "13.5 Understanding coverage thresholds"
+        },
+        {
+          "type": "code",
+          "text": "coverage: {\n  provider: \"v8\",\n  thresholds: {\n    statements: 80,\n    branches: 70,\n    functions: 80,\n    lines: 80\n  }\n}"
+        },
+        {
+          "type": "h3",
+          "text": "13.6 Why 100% coverage is not always enough"
+        },
+        {
+          "type": "p",
+          "text": "Executing a function achieves line coverage even if boundary conditions (zero, negative, invalid values) were never asserted. Focus on meaningful scenarios rather than percentages alone."
+        },
+        {
+          "type": "h3",
+          "text": "13.7 Understanding other quality metrics"
+        },
+        {
+          "type": "p",
+          "text": "Metric | What it measures"
+        },
+        {
+          "type": "p",
+          "text": "Test coverage | Code executed during testing"
+        },
+        {
+          "type": "p",
+          "text": "Test pass rate | Proportion of tests passing"
+        },
+        {
+          "type": "p",
+          "text": "Defect rate | Frequency of discovered defects"
+        },
+        {
+          "type": "p",
+          "text": "Regression rate | Frequency of previously fixed defects returning"
+        },
+        {
+          "type": "p",
+          "text": "Flaky test rate | Tests that produce inconsistent outcomes"
+        },
+        {
+          "type": "p",
+          "text": "Mean time to repair | Time required to diagnose and fix failures"
+        },
+        {
+          "type": "p",
+          "text": "Build success rate | Frequency of successful builds"
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand statement, branch, function and line coverage, generate reports using Vitest, establish coverage thresholds and evaluate quality beyond percentages."
+        }
+      ]
+    },
+    {
+      "id": "lesson-14",
+      "badge": "Lesson 14",
+      "title": "Continuous Integration for Frontend Testing",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "14.1 What is Continuous Integration?"
+        },
+        {
+          "type": "p",
+          "text": "Continuous Integration (CI) automatically checks code changes through an automated build and testing workflow on push or pull request."
+        },
+        {
+          "type": "h3",
+          "text": "14.2 Why is CI important?"
+        },
+        {
+          "type": "p",
+          "text": "CI detects integration conflicts and regressions automatically when multiple developers merge changes."
+        },
+        {
+          "type": "h3",
+          "text": "14.3 Understanding a CI pipeline"
+        },
+        {
+          "type": "p",
+          "text": "Developer Changes Code -> Git Push -> GitHub Repository -> CI Workflow Starts -> (Linting, Tests, Type Check) -> Production Build -> E2E Testing -> All Checks Passed? -> Ready for Code Review / Release."
+        },
+        {
+          "type": "h3",
+          "text": "14.4 Understanding GitHub Actions"
+        },
+        {
+          "type": "p",
+          "text": "GitHub Actions automates installing dependencies, linting, unit tests, coverage reports, TypeScript checks, production builds, Playwright tests, and artifact preservation. (GitHub Docs)"
+        },
+        {
+          "type": "h3",
+          "text": "14.5 Creating a CI workflow"
+        },
+        {
+          "type": "p",
+          "text": ".github/workflows/frontend-tests.yml"
+        },
+        {
+          "type": "code",
+          "text": "name: Frontend Quality Checks\n\non:\n  push:\n    branches: [main]\n  pull_request:\n    branches: [main]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v6\n\n      - name: Setup Node.js\n        uses: actions/setup-node@v7\n        with:\n          node-version: 22\n          cache: npm\n\n      - name: Install dependencies\n        run: npm ci\n\n      - name: Run lint\n        run: npm run lint\n\n      - name: Run unit tests\n        run: npm run test:run\n\n      - name: Run coverage\n        run: npm run test:coverage\n\n      - name: Build application\n        run: npm run build"
+        },
+        {
+          "type": "h3",
+          "text": "14.6 Adding Playwright to CI"
+        },
+        {
+          "type": "code",
+          "text": "      - name: Install Playwright browsers\n        run: npx playwright install --with-deps\n\n      - name: Run end-to-end tests\n        run: npx playwright test"
+        },
+        {
+          "type": "h3",
+          "text": "14.7 Understanding testing before deployment"
+        },
+        {
+          "type": "p",
+          "text": "Code Changes -> Pull Request -> Lint + Type Check -> Unit + Component Tests -> Integration Tests -> Production Build -> End-to-End Tests -> Code Review -> Merge -> Deployment."
+        },
+        {
+          "type": "h3",
+          "text": "14.8 Understanding failed CI checks"
+        },
+        {
+          "type": "p",
+          "text": "Inspect failed reports and screenshot diffs, fix unintended issues, and update approved baselines only when visual changes are deliberate."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand CI, GitHub Actions, automated quality gates, testing workflows, CI failure diagnosis and how to integrate testing before production deployment."
+        }
+      ]
+    },
+    {
+      "id": "practical-project",
+      "badge": "Practical Project",
+      "title": "Build an Automated Testing Suite for a React Application",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Major practical project"
+        },
+        {
+          "type": "h3",
+          "text": "Project objective"
+        },
+        {
+          "type": "p",
+          "text": "Build a complete automated testing system for a React application (such as the learning platform developed in previous modules) that detects functional defects, integration failures, browser compatibility issues, accessibility problems, and unintended visual changes."
+        },
+        {
+          "type": "h3",
+          "text": "1. Application under test"
+        },
+        {
+          "type": "p",
+          "text": "Feature | Application responsibility"
+        },
+        {
+          "type": "p",
+          "text": "Registration | Create a student account"
+        },
+        {
+          "type": "p",
+          "text": "Login | Authenticate a user"
+        },
+        {
+          "type": "p",
+          "text": "Homepage | Display platform information"
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue | Show available courses"
+        },
+        {
+          "type": "p",
+          "text": "Course details | Display course descriptions"
+        },
+        {
+          "type": "p",
+          "text": "Search | Retrieve matching courses"
+        },
+        {
+          "type": "p",
+          "text": "Filtering | Filter by category or level"
+        },
+        {
+          "type": "p",
+          "text": "Student dashboard | Display progress"
+        },
+        {
+          "type": "p",
+          "text": "Lesson interface | Display lesson information"
+        },
+        {
+          "type": "p",
+          "text": "Progress tracking | Save completed lessons"
+        },
+        {
+          "type": "p",
+          "text": "Settings | Manage user preferences"
+        },
+        {
+          "type": "h3",
+          "text": "2. Testing architecture"
+        },
+        {
+          "type": "code",
+          "text": "project/\n├── src/\n│   ├── components/\n│   │   ├── CourseCard.tsx\n│   │   ├── Navbar.tsx\n│   │   └── LoginForm.tsx\n│   ├── hooks/\n│   │   └── useProgress.ts\n│   ├── services/\n│   │   └── courseService.ts\n│   ├── utils/\n│   │   └── calculateProgress.ts\n│   └── test/\n│       ├── setup.ts\n│       └── server.ts\n├── tests/\n│   ├── unit/\n│   ├── components/\n│   ├── integration/\n│   └── mocks/\n├── e2e/\n│   ├── authentication.spec.ts\n│   ├── courses.spec.ts\n│   ├── progress.spec.ts\n│   └── navigation.spec.ts\n├── playwright.config.ts\n├── vitest.config.ts\n└── package.json"
+        },
+        {
+          "type": "h3",
+          "text": "3. Required testing scenarios"
+        },
+        {
+          "type": "p",
+          "text": "A. Unit testing: Course completion calculations, progress percentage, input validation, search filtering logic, sorting, data formatting, utilities, error-handling logic."
+        },
+        {
+          "type": "p",
+          "text": "B. Component testing: Navbar, login form, registration form, course card, search input, course filters, progress indicator, modal dialogs, loading skeletons, error interfaces."
+        },
+        {
+          "type": "p",
+          "text": "C. Hook testing: Custom progress hook, authentication state hook, search hook, theme preference hook, data-fetching hook."
+        },
+        {
+          "type": "p",
+          "text": "D. API mocking: Successful API responses, empty responses, invalid responses, server errors, network failures, delayed responses, unauthorized requests."
+        },
+        {
+          "type": "p",
+          "text": "E. Integration testing: Search input + course results, category filters + course lists, login form + auth service, progress updates + course interface, API responses + error messages."
+        },
+        {
+          "type": "p",
+          "text": "F. End-to-End testing:"
+        },
+        {
+          "type": "p",
+          "text": "Journey 1 — Student registration: Open Registration -> Enter Student Details -> Submit Form -> Validate Input -> Account Created -> Confirmation Displayed."
+        },
+        {
+          "type": "p",
+          "text": "Journey 2 — Student learning: Open Website -> Login -> Open Course Catalogue -> Select Course -> Open Lesson -> Complete Lesson -> Verify Progress Updated."
+        },
+        {
+          "type": "p",
+          "text": "Journey 3 — Search and filtering: Open Courses -> Enter Search Query -> Select Category -> Display Matching Courses -> Open Selected Course."
+        },
+        {
+          "type": "p",
+          "text": "G. Accessibility testing: Keyboard navigation, accessible names, form labels, alt text, color contrast, heading hierarchy, dialog focus behavior, automated axe-core reports."
+        },
+        {
+          "type": "p",
+          "text": "H. Visual regression testing: Approved screenshots of Homepage (desktop/mobile), Course catalogue (desktop/mobile), Course details, Student dashboard, Login and registration pages."
+        },
+        {
+          "type": "p",
+          "text": "I. Cross-browser testing: Run critical user journeys in Chromium, Firefox, and WebKit, plus mobile and tablet viewports."
+        },
+        {
+          "type": "h3",
+          "text": "4. Project implementation checklist"
+        },
+        {
+          "type": "h3",
+          "text": "1. Configure Vitest and React Testing Library — Install testing dependencies and configure the DOM environment."
+        },
+        {
+          "type": "h3",
+          "text": "2. Create unit tests — Test calculations, utilities, validations and boundary conditions."
+        },
+        {
+          "type": "h3",
+          "text": "3. Create component tests — Verify rendering, accessible elements and component behavior."
+        },
+        {
+          "type": "h3",
+          "text": "4. Test custom hooks — Verify state changes, asynchronous behavior and context dependencies."
+        },
+        {
+          "type": "h3",
+          "text": "5. Test forms and user interactions — Cover validation, submission, loading and error states."
+        },
+        {
+          "type": "h3",
+          "text": "6. Configure API mocking — Use controlled responses for successful and failed requests."
+        },
+        {
+          "type": "h3",
+          "text": "7. Create integration tests — Test search, filtering, API integration and application features."
+        },
+        {
+          "type": "h3",
+          "text": "8. Configure Playwright — Set up browser automation, test configuration and reports."
+        },
+        {
+          "type": "h3",
+          "text": "9. Automate user journeys — Test registration, login, course navigation and progress tracking."
+        },
+        {
+          "type": "h3",
+          "text": "10. Configure cross-browser testing — Run the suite in Chromium, Firefox and WebKit."
+        },
+        {
+          "type": "h3",
+          "text": "11. Implement accessibility audits — Run automated accessibility scans and keyboard checks."
+        },
+        {
+          "type": "h3",
+          "text": "12. Implement visual regression tests — Establish screenshot baselines for desktop and mobile."
+        },
+        {
+          "type": "h3",
+          "text": "13. Generate coverage reports — Measure statements, functions, branches and lines."
+        },
+        {
+          "type": "h3",
+          "text": "14. Configure GitHub Actions — Automate tests, coverage checks and production builds."
+        },
+        {
+          "type": "h3",
+          "text": "5. Final project evaluation"
+        },
+        {
+          "type": "p",
+          "text": "Evaluation area | Expected result"
+        },
+        {
+          "type": "p",
+          "text": "Unit testing | Important application logic covered"
+        },
+        {
+          "type": "p",
+          "text": "Component testing | UI components behave correctly"
+        },
+        {
+          "type": "p",
+          "text": "Hook testing | Reusable stateful logic verified"
+        },
+        {
+          "type": "p",
+          "text": "Form testing | Valid and invalid submissions tested"
+        },
+        {
+          "type": "p",
+          "text": "API mocking | Success and failure scenarios covered"
+        },
+        {
+          "type": "p",
+          "text": "Integration | Combined features work correctly"
+        },
+        {
+          "type": "p",
+          "text": "E2E testing | Critical user journeys pass"
+        },
+        {
+          "type": "p",
+          "text": "Cross-browser | Supported browser projects pass"
+        },
+        {
+          "type": "p",
+          "text": "Accessibility | Automated audits and manual checks"
+        },
+        {
+          "type": "p",
+          "text": "Visual testing | Unintended visual changes detected"
+        },
+        {
+          "type": "p",
+          "text": "Coverage | Meaningful reports and thresholds"
+        },
+        {
+          "type": "p",
+          "text": "CI | Automated checks execute on code changes"
+        },
+        {
+          "type": "p",
+          "text": "Final deliverable: A reusable automated frontend testing suite that can be executed locally and through a CI pipeline, with test reports and documented testing decisions."
+        }
+      ]
+    },
+    {
+      "id": "summary-resources",
+      "badge": "Summary & Resources",
+      "title": "Advanced Testing Concepts, Resources & Completion Standard",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Additional advanced concepts to master"
+        },
+        {
+          "type": "p",
+          "text": "Concept | Why it matters"
+        },
+        {
+          "type": "p",
+          "text": "Property-Based Testing | Tests many generated inputs against defined properties"
+        },
+        {
+          "type": "p",
+          "text": "Mutation Testing | Checks whether tests detect deliberately introduced defects"
+        },
+        {
+          "type": "p",
+          "text": "Contract Testing | Verifies expectations between frontend and backend"
+        },
+        {
+          "type": "p",
+          "text": "Performance Testing | Measures application responsiveness and resource usage"
+        },
+        {
+          "type": "p",
+          "text": "Load Testing | Evaluates application behavior under traffic"
+        },
+        {
+          "type": "p",
+          "text": "Flaky Test Management | Identifies inconsistent automated tests"
+        },
+        {
+          "type": "p",
+          "text": "Test Data Management | Creates predictable and isolated test data"
+        },
+        {
+          "type": "p",
+          "text": "Visual Test Management | Manages screenshot baselines and approvals"
+        },
+        {
+          "type": "p",
+          "text": "Test-Driven Development | Develops functionality through a test-first workflow"
+        },
+        {
+          "type": "p",
+          "text": "Exploratory Testing | Finds unexpected defects through human investigation"
+        },
+        {
+          "type": "h3",
+          "text": "Recommended learning resources"
+        },
+        {
+          "type": "p",
+          "text": "[Playwright documentation](https://playwright.dev/docs/intro) — E2E, browser automation, assertions and visual testing."
+        },
+        {
+          "type": "p",
+          "text": "[Vitest documentation](https://vitest.dev/guide/) — unit testing, mocking, assertions and coverage."
+        },
+        {
+          "type": "p",
+          "text": "[React Testing Library documentation](https://testing-library.com/docs/react-testing-library/intro/) — component testing and user-centered interactions."
+        },
+        {
+          "type": "p",
+          "text": "[Playwright accessibility guide](https://playwright.dev/docs/accessibility-testing) — automated accessibility auditing with axe and Playwright."
+        },
+        {
+          "type": "p",
+          "text": "[Visual regression testing](https://playwright.dev/docs/test-snapshots)"
+        },
+        {
+          "type": "p",
+          "text": "[Network and API mocking](https://playwright.dev/docs/network)"
+        },
+        {
+          "type": "p",
+          "text": "[Vitest coverage](https://vitest.dev/guide/coverage.html)"
+        },
+        {
+          "type": "p",
+          "text": "[Next.js testing guide](https://nextjs.org/docs/app/guides/testing)"
+        },
+        {
+          "type": "p",
+          "text": "[GitHub Actions and Node.js testing](https://docs.github.com/en/actions/tutorials/build-and-test-code/nodejs)"
+        },
+        {
+          "type": "p",
+          "text": "Important connection with Module 11: Apply these testing techniques to Next.js App Router applications as well. One current limitation to understand is that Vitest does not yet support testing asynchronous Server Components directly; Next.js recommends End-to-End testing for those components. Synchronous Server Components and Client Components can still be unit tested. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "What students should be able to build after this module"
+        },
+        {
+          "type": "p",
+          "text": "Automated test suites: Unit, component and integration tests."
+        },
+        {
+          "type": "p",
+          "text": "Browser automation: Automated user journeys and regression checks."
+        },
+        {
+          "type": "p",
+          "text": "Visual quality assurance: Screenshot comparisons and responsive UI verification."
+        },
+        {
+          "type": "p",
+          "text": "CI testing pipelines: Automated quality gates before deployment."
+        },
+        {
+          "type": "p",
+          "text": "Module completion standard: Students should not merely know how to write test cases. They should be able to decide what needs testing, select the right testing strategy, simulate realistic user behavior, reproduce failure scenarios, measure meaningful coverage and prevent unverified code from reaching production."
+        }
+      ]
+    }
+  ]
+}
