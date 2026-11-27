@@ -1,0 +1,6572 @@
+{
+  "moduleNumber": "11",
+  "title": "MODULE 11 — Capstone: Production-Ready Learning Platform API",
+  "badges": [
+    "Final Capstone Project",
+    "Backend Engineering",
+    "End-to-End System Development"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module objective: Design, build, test, secure, deploy and document a complete backend system by combining all the engineering skills learned throughout the backend development course."
+    },
+    {
+      "type": "p",
+      "text": "This is not another isolated backend programming exercise."
+    },
+    {
+      "type": "p",
+      "text": "You will build one complete application that demonstrates your ability to work as a backend engineer: designing architecture, managing data, developing APIs, implementing authentication, handling transactions, optimizing performance, preventing security vulnerabilities, automating testing and operating the application in production."
+    },
+    {
+      "type": "p",
+      "text": "By the end of this capstone, you should have a working backend application that another developer can understand, test, deploy and maintain."
+    }
+  ],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Section 1",
+      "title": "1. Understanding the Capstone Project",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 What are you building?"
+        },
+        {
+          "type": "p",
+          "text": "You will build a Learning Platform Backend API."
+        },
+        {
+          "type": "p",
+          "text": "The application will provide the backend functionality for an online learning platform where:"
+        },
+        {
+          "type": "p",
+          "text": "Students can register and log in."
+        },
+        {
+          "type": "p",
+          "text": "Administrators can create and manage courses."
+        },
+        {
+          "type": "p",
+          "text": "Students can browse available courses."
+        },
+        {
+          "type": "p",
+          "text": "Students can enroll in courses."
+        },
+        {
+          "type": "p",
+          "text": "Students can track their learning progress."
+        },
+        {
+          "type": "p",
+          "text": "The system can send enrollment and learning notifications."
+        },
+        {
+          "type": "p",
+          "text": "APIs can handle multiple requests efficiently."
+        },
+        {
+          "type": "p",
+          "text": "Administrators can monitor application health and operations."
+        },
+        {
+          "type": "p",
+          "text": "The frontend is not the main focus of this capstone. You are building the backend that a web application, mobile application or another authorized client could consume."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Real-world use case"
+        },
+        {
+          "type": "p",
+          "text": "Imagine an organization launches a learning platform with:"
+        },
+        {
+          "type": "p",
+          "text": "100 courses."
+        },
+        {
+          "type": "p",
+          "text": "1,000 students."
+        },
+        {
+          "type": "p",
+          "text": "20 administrators."
+        },
+        {
+          "type": "p",
+          "text": "10,000 lessons."
+        },
+        {
+          "type": "p",
+          "text": "Thousands of enrollment records."
+        },
+        {
+          "type": "p",
+          "text": "Continuous student progress updates."
+        },
+        {
+          "type": "p",
+          "text": "A student visits the platform and performs the following actions:"
+        },
+        {
+          "type": "p",
+          "text": "Creates an account."
+        },
+        {
+          "type": "p",
+          "text": "Logs in."
+        },
+        {
+          "type": "p",
+          "text": "Browses available courses."
+        },
+        {
+          "type": "p",
+          "text": "Searches for a Java course."
+        },
+        {
+          "type": "p",
+          "text": "Opens a course description."
+        },
+        {
+          "type": "p",
+          "text": "Enrolls in the course."
+        },
+        {
+          "type": "p",
+          "text": "Receives an enrollment confirmation."
+        },
+        {
+          "type": "p",
+          "text": "Opens a lesson."
+        },
+        {
+          "type": "p",
+          "text": "Completes the lesson."
+        },
+        {
+          "type": "p",
+          "text": "Checks their course progress."
+        },
+        {
+          "type": "p",
+          "text": "An administrator performs different operations:"
+        },
+        {
+          "type": "p",
+          "text": "Logs into the administrative system."
+        },
+        {
+          "type": "p",
+          "text": "Creates a course."
+        },
+        {
+          "type": "p",
+          "text": "Updates the course description."
+        },
+        {
+          "type": "p",
+          "text": "Adds lessons."
+        },
+        {
+          "type": "p",
+          "text": "Publishes the course."
+        },
+        {
+          "type": "p",
+          "text": "Monitors enrollments."
+        },
+        {
+          "type": "p",
+          "text": "Reviews application activity."
+        },
+        {
+          "type": "p",
+          "text": "Every action communicates with the backend API."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Functional scope"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "STUDENT"
+        },
+        {
+          "type": "p",
+          "text": "The primary learning-platform user."
+        },
+        {
+          "type": "p",
+          "text": "Register and log in"
+        },
+        {
+          "type": "p",
+          "text": "Browse courses"
+        },
+        {
+          "type": "p",
+          "text": "Search and filter"
+        },
+        {
+          "type": "p",
+          "text": "Enroll in courses"
+        },
+        {
+          "type": "p",
+          "text": "Access lessons"
+        },
+        {
+          "type": "p",
+          "text": "Track progress"
+        },
+        {
+          "type": "p",
+          "text": "View notifications"
+        },
+        {
+          "type": "p",
+          "text": "Administrator"
+        },
+        {
+          "type": "p",
+          "text": "ADMIN"
+        },
+        {
+          "type": "p",
+          "text": "Manages the learning-platform content and operations."
+        },
+        {
+          "type": "p",
+          "text": "Manage courses"
+        },
+        {
+          "type": "p",
+          "text": "Manage lessons"
+        },
+        {
+          "type": "p",
+          "text": "Publish courses"
+        },
+        {
+          "type": "p",
+          "text": "View enrollments"
+        },
+        {
+          "type": "p",
+          "text": "Manage users"
+        },
+        {
+          "type": "p",
+          "text": "Review system activity"
+        },
+        {
+          "type": "p",
+          "text": "You can add an instructor role as an extension, but the required capstone scope only needs students and administrators. Keep the first implementation focused."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Technologies used"
+        },
+        {
+          "type": "p",
+          "text": "Layer"
+        },
+        {
+          "type": "p",
+          "text": "Recommended technology"
+        },
+        {
+          "type": "p",
+          "text": "Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "Language"
+        },
+        {
+          "type": "p",
+          "text": "Java 21"
+        },
+        {
+          "type": "p",
+          "text": "Backend programming"
+        },
+        {
+          "type": "p",
+          "text": "Framework"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Application development"
+        },
+        {
+          "type": "p",
+          "text": "API"
+        },
+        {
+          "type": "p",
+          "text": "Spring MVC / REST"
+        },
+        {
+          "type": "p",
+          "text": "Client communication"
+        },
+        {
+          "type": "p",
+          "text": "Security"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "Authentication and authorization"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "JWT / OAuth 2.0 Resource Server"
+        },
+        {
+          "type": "p",
+          "text": "Token-based access"
+        },
+        {
+          "type": "p",
+          "text": "Database"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Persistent data"
+        },
+        {
+          "type": "p",
+          "text": "ORM"
+        },
+        {
+          "type": "p",
+          "text": "Spring Data JPA / Hibernate"
+        },
+        {
+          "type": "p",
+          "text": "Database operations"
+        },
+        {
+          "type": "p",
+          "text": "Migrations"
+        },
+        {
+          "type": "p",
+          "text": "Flyway"
+        },
+        {
+          "type": "p",
+          "text": "Schema versioning"
+        },
+        {
+          "type": "p",
+          "text": "Cache"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "Faster read operations"
+        },
+        {
+          "type": "p",
+          "text": "Messaging"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous processing"
+        },
+        {
+          "type": "p",
+          "text": "Validation"
+        },
+        {
+          "type": "p",
+          "text": "Jakarta Bean Validation"
+        },
+        {
+          "type": "p",
+          "text": "Input validation"
+        },
+        {
+          "type": "p",
+          "text": "Testing"
+        },
+        {
+          "type": "p",
+          "text": "JUnit 5, Mockito, Testcontainers"
+        },
+        {
+          "type": "p",
+          "text": "Automated verification"
+        },
+        {
+          "type": "p",
+          "text": "API documentation"
+        },
+        {
+          "type": "p",
+          "text": "OpenAPI / Swagger UI"
+        },
+        {
+          "type": "p",
+          "text": "API specifications"
+        },
+        {
+          "type": "p",
+          "text": "Containers"
+        },
+        {
+          "type": "p",
+          "text": "Docker"
+        },
+        {
+          "type": "p",
+          "text": "Application packaging"
+        },
+        {
+          "type": "p",
+          "text": "Monitoring"
+        },
+        {
+          "type": "p",
+          "text": "Actuator, Micrometer, Prometheus, Grafana"
+        },
+        {
+          "type": "p",
+          "text": "Observability"
+        },
+        {
+          "type": "p",
+          "text": "Tracing"
+        },
+        {
+          "type": "p",
+          "text": "OpenTelemetry"
+        },
+        {
+          "type": "p",
+          "text": "Request tracing"
+        },
+        {
+          "type": "p",
+          "text": "Architecture recommendation: Build this as a modular monolith first, not as 10 separate microservices."
+        },
+        {
+          "type": "p",
+          "text": "A modular monolith means the application is deployed as one backend service but has clearly separated business modules."
+        },
+        {
+          "type": "p",
+          "text": "This is appropriate for the capstone because you can demonstrate transactions, security, caching and asynchronous processing without introducing unnecessary distributed-system complexity."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Section 2",
+      "title": "2. Complete System Architecture",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 High-level architecture"
+        },
+        {
+          "type": "p",
+          "text": "Understand how all components communicate."
+        },
+        {
+          "type": "p",
+          "text": "Frontend / Mobile Applications"
+        },
+        {
+          "type": "p",
+          "text": "Students and administrators"
+        },
+        {
+          "type": "p",
+          "text": "HTTPS / Reverse Proxy"
+        },
+        {
+          "type": "p",
+          "text": "TLS, request routing and traffic controls"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot Backend API"
+        },
+        {
+          "type": "p",
+          "text": "Application and business logic"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Course Management"
+        },
+        {
+          "type": "p",
+          "text": "User Management"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment"
+        },
+        {
+          "type": "p",
+          "text": "Progress Tracking"
+        },
+        {
+          "type": "p",
+          "text": "Search and Pagination"
+        },
+        {
+          "type": "p",
+          "text": "Notifications"
+        },
+        {
+          "type": "p",
+          "text": "Security and Validation"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Primary database"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "Cache and rate limiting"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "Message processing"
+        },
+        {
+          "type": "p",
+          "text": "Notification Worker"
+        },
+        {
+          "type": "p",
+          "text": "Email and in-app events"
+        },
+        {
+          "type": "p",
+          "text": "Observability Infrastructure"
+        },
+        {
+          "type": "p",
+          "text": "Logs · Metrics · Traces · Alerts"
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Understanding the responsibility of each component"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "This is the central application."
+        },
+        {
+          "type": "p",
+          "text": "It receives requests, validates data, authenticates users, checks permissions and executes business operations."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "This is the primary source of truth."
+        },
+        {
+          "type": "p",
+          "text": "It stores:"
+        },
+        {
+          "type": "p",
+          "text": "Accounts."
+        },
+        {
+          "type": "p",
+          "text": "Courses."
+        },
+        {
+          "type": "p",
+          "text": "Lessons."
+        },
+        {
+          "type": "p",
+          "text": "Enrollments."
+        },
+        {
+          "type": "p",
+          "text": "Learning progress."
+        },
+        {
+          "type": "p",
+          "text": "Notification records."
+        },
+        {
+          "type": "p",
+          "text": "Background processing events."
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "Redis stores frequently accessed information so the backend does not need to execute every read query against PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "When 500 students request the same published course description, Redis can serve repeated reads from its cache."
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ handles asynchronous events."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "When a student enrolls, the backend should not need to wait for an email notification provider to complete before returning the enrollment response."
+        },
+        {
+          "type": "p",
+          "text": "Instead, a notification event can be processed separately."
+        },
+        {
+          "type": "p",
+          "text": "Notification worker"
+        },
+        {
+          "type": "p",
+          "text": "The worker consumes notification messages and performs the required work."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Send enrollment confirmation."
+        },
+        {
+          "type": "p",
+          "text": "Notify an administrator."
+        },
+        {
+          "type": "p",
+          "text": "Send course publication updates."
+        },
+        {
+          "type": "p",
+          "text": "Deliver learning reminders."
+        },
+        {
+          "type": "p",
+          "text": "Observability"
+        },
+        {
+          "type": "p",
+          "text": "This tracks the performance and health of the application."
+        },
+        {
+          "type": "p",
+          "text": "It helps engineers answer:"
+        },
+        {
+          "type": "p",
+          "text": "Is the backend working?"
+        },
+        {
+          "type": "p",
+          "text": "Are requests slow?"
+        },
+        {
+          "type": "p",
+          "text": "Are database connections exhausted?"
+        },
+        {
+          "type": "p",
+          "text": "Are notification messages failing?"
+        },
+        {
+          "type": "p",
+          "text": "Which operation caused a production error?"
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Section 3",
+      "title": "3. Requirement 01 — User Registration and Authentication",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 What are you building?"
+        },
+        {
+          "type": "p",
+          "text": "You must implement an account system allowing students to register and authenticate."
+        },
+        {
+          "type": "p",
+          "text": "A student should be able to create an account using information such as:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"name\": \"Sam Student\", \"email\": \"student@example.com\", \"password\": \"UserProvidedPassword\" }"
+        },
+        {
+          "type": "p",
+          "text": "The backend should:"
+        },
+        {
+          "type": "p",
+          "text": "Validate the request."
+        },
+        {
+          "type": "p",
+          "text": "Check email uniqueness."
+        },
+        {
+          "type": "p",
+          "text": "Hash the password."
+        },
+        {
+          "type": "p",
+          "text": "Assign the default STUDENT role."
+        },
+        {
+          "type": "p",
+          "text": "Save the account."
+        },
+        {
+          "type": "p",
+          "text": "Return an appropriate response."
+        },
+        {
+          "type": "p",
+          "text": "Important: The client must not be allowed to choose its own role during public registration."
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Registration flow"
+        },
+        {
+          "type": "p",
+          "text": "User submits registration"
+        },
+        {
+          "type": "p",
+          "text": "Validate email and password"
+        },
+        {
+          "type": "p",
+          "text": "Check email uniqueness"
+        },
+        {
+          "type": "p",
+          "text": "Hash password and assign STUDENT"
+        },
+        {
+          "type": "p",
+          "text": "Save user to PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Registration successful — 201 Created"
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Password security"
+        },
+        {
+          "type": "p",
+          "text": "Never store raw passwords."
+        },
+        {
+          "type": "p",
+          "text": "Use an appropriate password-hashing algorithm such as Argon2id or BCrypt."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "@Bean PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }"
+        },
+        {
+          "type": "p",
+          "text": "Store only the resulting password hash."
+        },
+        {
+          "type": "p",
+          "text": "The same password should not produce an identical stored hash each time when a randomly generated salt is used."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Authentication using JWT"
+        },
+        {
+          "type": "p",
+          "text": "A common implementation uses bearer access tokens."
+        },
+        {
+          "type": "p",
+          "text": "Login:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/v1/auth/login"
+        },
+        {
+          "type": "p",
+          "text": "Request:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"email\": \"student@example.com\", \"password\": \"UserProvidedPassword\" }"
+        },
+        {
+          "type": "p",
+          "text": "Response:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"accessToken\": \"SIGNED_ACCESS_TOKEN\", \"tokenType\": \"Bearer\", \"expiresIn\": 900 }"
+        },
+        {
+          "type": "p",
+          "text": "The client then sends:"
+        },
+        {
+          "type": "code",
+          "text": "Authorization: Bearer SIGNED_ACCESS_TOKEN"
+        },
+        {
+          "type": "p",
+          "text": "on protected API requests."
+        },
+        {
+          "type": "p",
+          "text": "Spring Security supports JWT validation through OAuth 2.0 Resource Server and a configured JwtDecoder. It validates token signatures and supports issuer-based configuration."
+        },
+        {
+          "type": "p",
+          "text": "Home+1"
+        },
+        {
+          "type": "p",
+          "text": "For the project, your authentication implementation should also address:"
+        },
+        {
+          "type": "p",
+          "text": "Token expiry."
+        },
+        {
+          "type": "p",
+          "text": "Secure signing keys."
+        },
+        {
+          "type": "p",
+          "text": "Invalid token handling."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token rotation or another carefully designed renewal mechanism, if implemented."
+        },
+        {
+          "type": "p",
+          "text": "Login abuse protection."
+        },
+        {
+          "type": "p",
+          "text": "Password reset security."
+        },
+        {
+          "type": "p",
+          "text": "Account status."
+        },
+        {
+          "type": "p",
+          "text": "Logout and token revocation requirements."
+        },
+        {
+          "type": "p",
+          "text": "Do not assume that deleting a JWT from the frontend immediately invalidates a copied token on the server."
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Authentication endpoints"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/auth/register"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Register student"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/auth/login"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Authenticate"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/auth/refresh"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Renew access token, if implemented"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/auth/logout"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Invalidate refresh session, if implemented"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/auth/me"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve current user"
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Students can register, log in and access protected endpoints, while passwords and roles remain under backend control."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Section 4",
+      "title": "4. Requirement 02 — Role-Based Access for Students and Administrators",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 What are roles?"
+        },
+        {
+          "type": "p",
+          "text": "Roles define groups of permissions."
+        },
+        {
+          "type": "p",
+          "text": "The capstone has two required roles:"
+        },
+        {
+          "type": "p",
+          "text": "STUDENT ADMIN"
+        },
+        {
+          "type": "p",
+          "text": "Students use learning features."
+        },
+        {
+          "type": "p",
+          "text": "Administrators manage platform content and authorized administrative operations."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 Permission matrix"
+        },
+        {
+          "type": "p",
+          "text": "Operation"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "Register account"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Controlled provisioning"
+        },
+        {
+          "type": "p",
+          "text": "Log in"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "View published courses"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Search courses"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Create course"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Edit course"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Delete/archive course"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Enroll in course"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "According to policy"
+        },
+        {
+          "type": "p",
+          "text": "View own progress"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Administrative access if authorized"
+        },
+        {
+          "type": "p",
+          "text": "Modify own progress"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "According to policy"
+        },
+        {
+          "type": "p",
+          "text": "View all enrollments"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Notice that role authorization alone is insufficient."
+        },
+        {
+          "type": "p",
+          "text": "For instance, a student should not view another student's progress just because both users share the STUDENT role."
+        },
+        {
+          "type": "p",
+          "text": "You must implement object ownership checks from Module 09."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Spring Security implementation"
+        },
+        {
+          "type": "p",
+          "text": "Enable method-level security:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableMethodSecurity public class SecurityConfig { }"
+        },
+        {
+          "type": "p",
+          "text": "Protect administrative operations:"
+        },
+        {
+          "type": "code",
+          "text": "@PreAuthorize(\"hasRole('ADMIN')\") @PostMapping(\"/api/v1/admin/courses\") public CourseResponse createCourse( @Valid @RequestBody CreateCourseRequest request) { return courseService.createCourse(request); }"
+        },
+        {
+          "type": "p",
+          "text": "Protect student operations:"
+        },
+        {
+          "type": "code",
+          "text": "@PreAuthorize(\"hasRole('STUDENT')\") @PostMapping(\"/api/v1/courses/{courseId}/enroll\") public EnrollmentResponse enroll( @PathVariable Long courseId, @AuthenticationPrincipal AppUserPrincipal user) { return enrollmentService.enroll( user.getUserId(), courseId ); }"
+        },
+        {
+          "type": "p",
+          "text": "For actual ownership, derive the current user from the authenticated principal rather than allowing the client to choose the student ID."
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Every protected endpoint has a documented permission policy and automated tests for the student and administrator roles."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Section 5",
+      "title": "5. Requirement 03 — Course Creation, Editing and Retrieval",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 Course management"
+        },
+        {
+          "type": "p",
+          "text": "Administrators must be able to create and manage learning content."
+        },
+        {
+          "type": "p",
+          "text": "A course might contain:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"title\": \"Backend Engineering\", \"description\": \"Learn production backend development\", \"level\": \"ADVANCED\", \"category\": \"BACKEND\", \"published\": true }"
+        },
+        {
+          "type": "p",
+          "text": "The database should store this information in the courses table."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 Course API endpoints"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Access"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/courses"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Public or authenticated according to policy"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Published course access"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/admin/courses"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/admin/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "PATCH"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/admin/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "For the initial capstone, a soft-delete or archive operation is generally safer than permanently deleting a course with historical student records."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Why use DTOs?"
+        },
+        {
+          "type": "p",
+          "text": "Do not accept and return database entities directly."
+        },
+        {
+          "type": "p",
+          "text": "Create request DTOs:"
+        },
+        {
+          "type": "code",
+          "text": "public record CreateCourseRequest( @NotBlank @Size(max = 200) String title, @Size(max = 5000) String description, @NotNull CourseLevel level, @NotBlank String category ) {}"
+        },
+        {
+          "type": "p",
+          "text": "And response DTOs:"
+        },
+        {
+          "type": "code",
+          "text": "public record CourseResponse( Long id, String title, String description, CourseLevel level, String category, boolean published ) {}"
+        },
+        {
+          "type": "p",
+          "text": "This prevents clients from automatically controlling internal properties such as database IDs, administrative metadata or protected ownership fields."
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Course retrieval workflow"
+        },
+        {
+          "type": "p",
+          "text": "A typical retrieval operation:"
+        },
+        {
+          "type": "p",
+          "text": "Receive course ID."
+        },
+        {
+          "type": "p",
+          "text": "Check whether the course exists."
+        },
+        {
+          "type": "p",
+          "text": "Check whether it is published or whether the requester has administrative permission."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve the required response data."
+        },
+        {
+          "type": "p",
+          "text": "Return the course."
+        },
+        {
+          "type": "p",
+          "text": "A course-management API should also have clear rules for draft courses and archived courses."
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Admin can create, update and manage courses. Students can retrieve only courses that the application's access policy permits."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Section 6",
+      "title": "6. Requirement 04 — Student Enrollment and Progress Tracking",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This is one of the most important business modules of the capstone."
+        },
+        {
+          "type": "h3",
+          "text": "6.1 What is enrollment?"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment represents the relationship between a student and a course."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Student 201 | v Course 10 — Backend Engineering | v Enrollment 500"
+        },
+        {
+          "type": "p",
+          "text": "The same student can enroll in multiple courses, and each course can have multiple students."
+        },
+        {
+          "type": "p",
+          "text": "This is a many-to-many relationship represented through an enrollment table."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Enrollment database design"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "CREATE TABLE enrollments ( id BIGSERIAL PRIMARY KEY, student_id BIGINT NOT NULL REFERENCES users(id), course_id BIGINT NOT NULL REFERENCES courses(id), enrolled_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, status VARCHAR(30) NOT NULL DEFAULT 'ACTIVE', CONSTRAINT unique_student_course UNIQUE (student_id, course_id) );"
+        },
+        {
+          "type": "p",
+          "text": "The unique constraint prevents duplicate student-course enrollment records."
+        },
+        {
+          "type": "p",
+          "text": "This is important because application-level duplicate checks alone can fail under simultaneous requests."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL supports unique constraints and foreign keys to enforce data integrity at the database level."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Enrollment API"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/v1/courses/10/enroll"
+        },
+        {
+          "type": "p",
+          "text": "The backend should:"
+        },
+        {
+          "type": "p",
+          "text": "Obtain the authenticated student ID."
+        },
+        {
+          "type": "p",
+          "text": "Verify that the course exists."
+        },
+        {
+          "type": "p",
+          "text": "Check that enrollment is allowed."
+        },
+        {
+          "type": "p",
+          "text": "Check whether enrollment already exists."
+        },
+        {
+          "type": "p",
+          "text": "Create the enrollment record."
+        },
+        {
+          "type": "p",
+          "text": "Record the notification event."
+        },
+        {
+          "type": "p",
+          "text": "Return a successful response."
+        },
+        {
+          "type": "p",
+          "text": "Example response:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"enrollmentId\": 500, \"courseId\": 10, \"status\": \"ACTIVE\", \"message\": \"Successfully enrolled\" }"
+        },
+        {
+          "type": "p",
+          "text": "Possible results:"
+        },
+        {
+          "type": "p",
+          "text": "Situation"
+        },
+        {
+          "type": "p",
+          "text": "HTTP response"
+        },
+        {
+          "type": "p",
+          "text": "Successful enrollment"
+        },
+        {
+          "type": "p",
+          "text": "201 Created"
+        },
+        {
+          "type": "p",
+          "text": "Course not found"
+        },
+        {
+          "type": "p",
+          "text": "404"
+        },
+        {
+          "type": "p",
+          "text": "Already enrolled"
+        },
+        {
+          "type": "p",
+          "text": "409 Conflict"
+        },
+        {
+          "type": "p",
+          "text": "Not authenticated"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment not permitted"
+        },
+        {
+          "type": "p",
+          "text": "403"
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Transactional enrollment"
+        },
+        {
+          "type": "p",
+          "text": "The enrollment operation and its associated database changes should execute within an appropriate transaction."
+        },
+        {
+          "type": "code",
+          "text": "@Service public class EnrollmentService { private final CourseRepository courseRepository; private final EnrollmentRepository enrollmentRepository; public EnrollmentService( CourseRepository courseRepository, EnrollmentRepository enrollmentRepository) { this.courseRepository = courseRepository; this.enrollmentRepository = enrollmentRepository; } @Transactional public Enrollment enroll( Long studentId, Long courseId) { Course course = courseRepository .findByIdAndPublishedTrue(courseId) .orElseThrow(CourseNotFoundException::new); if (enrollmentRepository .existsByStudentIdAndCourseId( studentId, courseId)) { throw new DuplicateEnrollmentException(); } Enrollment enrollment = new Enrollment(studentId, course.getId()); return enrollmentRepository.save(enrollment); } }"
+        },
+        {
+          "type": "p",
+          "text": "The corresponding database uniqueness constraint remains essential because two concurrent requests might both pass the initial existence check."
+        },
+        {
+          "type": "p",
+          "text": "Catch and translate the resulting database conflict into a consistent API error, taking care that the failed transaction is not reused after a database exception."
+        },
+        {
+          "type": "p",
+          "text": "Spring's @Transactional provides declarative transaction management, with rollback behaviour that should be understood when defining application exceptions."
+        },
+        {
+          "type": "p",
+          "text": "Home"
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Progress tracking"
+        },
+        {
+          "type": "p",
+          "text": "An enrollment is only the beginning."
+        },
+        {
+          "type": "p",
+          "text": "You need to track how much of the course a student completes."
+        },
+        {
+          "type": "p",
+          "text": "Imagine:"
+        },
+        {
+          "type": "p",
+          "text": "Course: Backend Engineering Module 1: Lesson 1: Completed Lesson 2: Completed Lesson 3: In Progress Module 2: Lesson 1: Not Started Lesson 2: Not Started"
+        },
+        {
+          "type": "p",
+          "text": "The backend should store lesson completion records."
+        },
+        {
+          "type": "p",
+          "text": "A possible table:"
+        },
+        {
+          "type": "code",
+          "text": "CREATE TABLE lesson_progress ( id BIGSERIAL PRIMARY KEY, enrollment_id BIGINT NOT NULL REFERENCES enrollments(id), lesson_id BIGINT NOT NULL REFERENCES lessons(id), completed BOOLEAN NOT NULL DEFAULT FALSE, completed_at TIMESTAMPTZ, updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, CONSTRAINT unique_enrollment_lesson UNIQUE (enrollment_id, lesson_id) );"
+        },
+        {
+          "type": "p",
+          "text": "You should also validate that the lesson belongs to the course associated with the student's enrollment."
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Calculating course completion"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a course has 20 lessons."
+        },
+        {
+          "type": "p",
+          "text": "A student completes 12 lessons."
+        },
+        {
+          "type": "p",
+          "text": "\\[ \\text{Progress} = \\frac{\\text{Completed Lessons}} {\\text{Total Lessons}}\\times100 \\]"
+        },
+        {
+          "type": "p",
+          "text": "\\[ =\\frac{12}{20}\\times100=60\\% \\]"
+        },
+        {
+          "type": "p",
+          "text": "The API can return:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"courseId\": 10, \"totalLessons\": 20, \"completedLessons\": 12, \"progressPercentage\": 60, \"status\": \"IN_PROGRESS\" }"
+        },
+        {
+          "type": "p",
+          "text": "Think carefully about how you calculate progress when courses contain unpublished or archived lessons. Define the denominator consistently."
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Students can enroll without duplicates, mark lessons completed and retrieve accurate course-level progress."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Section 7",
+      "title": "7. Requirement 05 — Database Relationships and Transactional Operations",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 Understanding the complete database"
+        },
+        {
+          "type": "p",
+          "text": "A learning platform needs multiple related tables."
+        },
+        {
+          "type": "p",
+          "text": "You should design the database before implementing all the services."
+        },
+        {
+          "type": "p",
+          "text": "The main entities are:"
+        },
+        {
+          "type": "p",
+          "text": "Entity"
+        },
+        {
+          "type": "p",
+          "text": "Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "Users"
+        },
+        {
+          "type": "p",
+          "text": "Student and admin accounts"
+        },
+        {
+          "type": "p",
+          "text": "Courses"
+        },
+        {
+          "type": "p",
+          "text": "Course information"
+        },
+        {
+          "type": "p",
+          "text": "Modules"
+        },
+        {
+          "type": "p",
+          "text": "Course modules"
+        },
+        {
+          "type": "p",
+          "text": "Lessons"
+        },
+        {
+          "type": "p",
+          "text": "Individual learning lessons"
+        },
+        {
+          "type": "p",
+          "text": "Enrollments"
+        },
+        {
+          "type": "p",
+          "text": "Student-course relationship"
+        },
+        {
+          "type": "p",
+          "text": "Lesson Progress"
+        },
+        {
+          "type": "p",
+          "text": "Completed lessons"
+        },
+        {
+          "type": "p",
+          "text": "Notifications"
+        },
+        {
+          "type": "p",
+          "text": "Notification records"
+        },
+        {
+          "type": "p",
+          "text": "Outbox Events"
+        },
+        {
+          "type": "p",
+          "text": "Reliable asynchronous event publishing"
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Database relationship diagram"
+        },
+        {
+          "type": "p",
+          "text": "USERS"
+        },
+        {
+          "type": "p",
+          "text": "id · name · email · password_hash · role"
+        },
+        {
+          "type": "p",
+          "text": "One user can have many enrollments"
+        },
+        {
+          "type": "p",
+          "text": "ENROLLMENTS"
+        },
+        {
+          "type": "p",
+          "text": "id · student_id · course_id · status"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment records student participation"
+        },
+        {
+          "type": "p",
+          "text": "COURSES"
+        },
+        {
+          "type": "p",
+          "text": "id · title · description · published"
+        },
+        {
+          "type": "p",
+          "text": "One course contains multiple modules"
+        },
+        {
+          "type": "p",
+          "text": "MODULES"
+        },
+        {
+          "type": "p",
+          "text": "id · course_id · title · position"
+        },
+        {
+          "type": "p",
+          "text": "One module contains multiple lessons"
+        },
+        {
+          "type": "p",
+          "text": "LESSONS"
+        },
+        {
+          "type": "p",
+          "text": "id · module_id · title · content"
+        },
+        {
+          "type": "p",
+          "text": "LESSON_PROGRESS"
+        },
+        {
+          "type": "p",
+          "text": "id · enrollment_id · lesson_id · completed"
+        },
+        {
+          "type": "p",
+          "text": "Conceptual relationship diagram. Notifications and outbox events are separate supporting tables.The relationship structure is:"
+        },
+        {
+          "type": "p",
+          "text": "User 1 -------- N Enrollment Course 1 ------ N Enrollment Course 1 ------ N Module Module 1 ------ N Lesson Enrollment 1 -- N LessonProgress Lesson 1 ------ N LessonProgress User 1 -------- N Notification"
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Important database constraints"
+        },
+        {
+          "type": "p",
+          "text": "A professional database should enforce important business rules."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Unique email"
+        },
+        {
+          "type": "code",
+          "text": "ALTER TABLE users ADD CONSTRAINT unique_user_email UNIQUE(email);"
+        },
+        {
+          "type": "p",
+          "text": "Prevent duplicate enrollment"
+        },
+        {
+          "type": "code",
+          "text": "ALTER TABLE enrollments ADD CONSTRAINT unique_enrollment UNIQUE(student_id, course_id);"
+        },
+        {
+          "type": "p",
+          "text": "Prevent duplicate lesson progress"
+        },
+        {
+          "type": "code",
+          "text": "ALTER TABLE lesson_progress ADD CONSTRAINT unique_progress UNIQUE(enrollment_id, lesson_id);"
+        },
+        {
+          "type": "p",
+          "text": "Required fields"
+        },
+        {
+          "type": "p",
+          "text": "Use NOT NULL for properties that must always have values."
+        },
+        {
+          "type": "p",
+          "text": "Foreign keys"
+        },
+        {
+          "type": "p",
+          "text": "Use foreign keys to prevent records from referring to nonexistent parent records."
+        },
+        {
+          "type": "p",
+          "text": "Indexes"
+        },
+        {
+          "type": "p",
+          "text": "Create indexes based on actual query patterns."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "CREATE INDEX idx_enrollments_student ON enrollments(student_id); CREATE INDEX idx_modules_course ON modules(course_id); CREATE INDEX idx_lessons_module ON lessons(module_id);"
+        },
+        {
+          "type": "p",
+          "text": "Indexes should be supported by query analysis. Avoid adding indexes indiscriminately because they also increase storage and write costs."
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Transactional operations"
+        },
+        {
+          "type": "p",
+          "text": "Transactions are necessary when multiple database operations must succeed or fail together."
+        },
+        {
+          "type": "p",
+          "text": "Consider enrollment:"
+        },
+        {
+          "type": "code",
+          "text": "BEGIN TRANSACTION 1. Verify course 2. Create enrollment 3. Create initial progress record, if required 4. Record notification outbox event COMMIT"
+        },
+        {
+          "type": "p",
+          "text": "Suppose enrollment creation succeeds, but recording the required outbox event fails."
+        },
+        {
+          "type": "p",
+          "text": "The system should not commit a partial operation when both records are part of the same required business transaction."
+        },
+        {
+          "type": "p",
+          "text": "Use @Transactional around the appropriate service operation."
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: The schema has correct relationships and constraints, and related operations cannot leave inconsistent database state."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Section 8",
+      "title": "8. Requirement 06 — Pagination, Filtering and Search",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 Why is pagination necessary?"
+        },
+        {
+          "type": "p",
+          "text": "Imagine the platform has 100,000 courses and learning records."
+        },
+        {
+          "type": "p",
+          "text": "A frontend requests:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/v1/courses"
+        },
+        {
+          "type": "p",
+          "text": "Should the backend return all 100,000 records in one response?"
+        },
+        {
+          "type": "p",
+          "text": "No."
+        },
+        {
+          "type": "p",
+          "text": "That could consume excessive memory, increase database workload, create large network responses and slow down the application."
+        },
+        {
+          "type": "p",
+          "text": "Pagination divides the result set into smaller pages."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Offset-based pagination"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/v1/courses?page=0&size=20"
+        },
+        {
+          "type": "p",
+          "text": "This means:"
+        },
+        {
+          "type": "p",
+          "text": "Page: 0."
+        },
+        {
+          "type": "p",
+          "text": "Page size: 20."
+        },
+        {
+          "type": "p",
+          "text": "Next page:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/v1/courses?page=1&size=20"
+        },
+        {
+          "type": "p",
+          "text": "A Spring Data JPA implementation:"
+        },
+        {
+          "type": "code",
+          "text": "@GetMapping public Page<CourseResponse> getCourses( @RequestParam(defaultValue = \"0\") int page, @RequestParam(defaultValue = \"20\") int size) { if (page < 0 || size < 1 || size > 100) { throw new IllegalArgumentException( \"Invalid pagination parameters\" ); } Pageable pageable = PageRequest.of( page, size, Sort.by(\"createdAt\").descending() ); return courseService.getCourses(pageable); }"
+        },
+        {
+          "type": "p",
+          "text": "In an application with user-controlled sorting, validate the requested field against an allowlist."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 Standard pagination response"
+        },
+        {
+          "type": "p",
+          "text": "An API can return:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"content\": [ { \"id\": 10, \"title\": \"Backend Engineering\" }, { \"id\": 11, \"title\": \"Java Development\" } ], \"page\": 0, \"size\": 20, \"totalElements\": 150, \"totalPages\": 8, \"first\": true, \"last\": false }"
+        },
+        {
+          "type": "p",
+          "text": "The response gives the frontend enough information to build pagination controls."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Filtering"
+        },
+        {
+          "type": "p",
+          "text": "Filtering allows clients to retrieve records matching specific conditions."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/v1/courses?level=ADVANCED\nGET /api/v1/courses?category=BACKEND"
+        },
+        {
+          "type": "p",
+          "text": "Combined filters:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/v1/courses?level=ADVANCED&category=BACKEND"
+        },
+        {
+          "type": "p",
+          "text": "The backend should apply the filters to the database query rather than retrieving every course and filtering everything in Java memory."
+        },
+        {
+          "type": "p",
+          "text": "Spring Data Specifications or a carefully designed custom repository query can support dynamic filtering."
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Search"
+        },
+        {
+          "type": "p",
+          "text": "Search allows students to find relevant courses."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/v1/courses?search=spring+boot"
+        },
+        {
+          "type": "p",
+          "text": "The search can initially match:"
+        },
+        {
+          "type": "p",
+          "text": "Course title."
+        },
+        {
+          "type": "p",
+          "text": "Course description."
+        },
+        {
+          "type": "p",
+          "text": "Course category."
+        },
+        {
+          "type": "p",
+          "text": "Keywords."
+        },
+        {
+          "type": "p",
+          "text": "For a basic PostgreSQL implementation, you can use indexed queries and PostgreSQL full-text search as the data grows."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 When should you use cursor pagination?"
+        },
+        {
+          "type": "p",
+          "text": "Offset pagination is easy to implement but can become inefficient for very large datasets or frequently changing result sets."
+        },
+        {
+          "type": "p",
+          "text": "Cursor pagination uses an ordering key to retrieve the next set of records."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/v1/courses?limit=20&after=course_150"
+        },
+        {
+          "type": "p",
+          "text": "This approach can be useful for large, frequently changing feeds, provided that the cursor is based on a stable, indexed ordering."
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Students can retrieve courses through bounded pages, combine filters and search efficiently, and the API validates pagination parameters."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Section 9",
+      "title": "9. Requirement 07 — Redis Caching for Appropriate Read Operations",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Performance Engineering"
+        },
+        {
+          "type": "h3",
+          "text": "9.1 What is caching?"
+        },
+        {
+          "type": "p",
+          "text": "Caching stores frequently used information in a faster storage system so that the application does not need to repeat expensive database operations unnecessarily."
+        },
+        {
+          "type": "p",
+          "text": "Consider a popular course:"
+        },
+        {
+          "type": "p",
+          "text": "Course: Backend Engineering Students requesting its details: 500 per minute"
+        },
+        {
+          "type": "p",
+          "text": "Without caching:"
+        },
+        {
+          "type": "p",
+          "text": "500 API requests | v 500 database lookups"
+        },
+        {
+          "type": "p",
+          "text": "With caching:"
+        },
+        {
+          "type": "p",
+          "text": "First request | v PostgreSQL | v Store course result in Redis Following requests | v Redis | v Return cached course"
+        },
+        {
+          "type": "p",
+          "text": "Redis stores data in memory and can substantially reduce repeated read workload when caching is appropriate."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 What should be cached?"
+        },
+        {
+          "type": "p",
+          "text": "Good initial caching candidates:"
+        },
+        {
+          "type": "p",
+          "text": "Published course descriptions."
+        },
+        {
+          "type": "p",
+          "text": "Course categories."
+        },
+        {
+          "type": "p",
+          "text": "Public course listings."
+        },
+        {
+          "type": "p",
+          "text": "Static learning metadata."
+        },
+        {
+          "type": "p",
+          "text": "Frequently accessed configuration."
+        },
+        {
+          "type": "p",
+          "text": "Avoid casually caching:"
+        },
+        {
+          "type": "p",
+          "text": "Passwords."
+        },
+        {
+          "type": "p",
+          "text": "Authentication tokens."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive student records."
+        },
+        {
+          "type": "p",
+          "text": "User-specific progress without a carefully designed access and invalidation strategy."
+        },
+        {
+          "type": "p",
+          "text": "Frequently changing data with no consistency plan."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL should remain the primary source of truth."
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Cache-aside pattern"
+        },
+        {
+          "type": "p",
+          "text": "The cache-aside pattern works as follows:"
+        },
+        {
+          "type": "p",
+          "text": "Application receives a request."
+        },
+        {
+          "type": "p",
+          "text": "It looks for data in Redis."
+        },
+        {
+          "type": "p",
+          "text": "If found, return cached data."
+        },
+        {
+          "type": "p",
+          "text": "Otherwise, query PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Store the result in Redis."
+        },
+        {
+          "type": "p",
+          "text": "Return the result."
+        },
+        {
+          "type": "p",
+          "text": "API requests course data"
+        },
+        {
+          "type": "p",
+          "text": "Check Redis"
+        },
+        {
+          "type": "p",
+          "text": "Cache hit"
+        },
+        {
+          "type": "p",
+          "text": "Return cached course"
+        },
+        {
+          "type": "p",
+          "text": "Cache miss"
+        },
+        {
+          "type": "p",
+          "text": "Query PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Store retrieved data in Redis"
+        },
+        {
+          "type": "h3",
+          "text": "9.4 Configure Redis caching in Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Enable caching:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableCaching public class CacheConfig { }"
+        },
+        {
+          "type": "p",
+          "text": "A service method can use:"
+        },
+        {
+          "type": "code",
+          "text": "@Cacheable( cacheNames = \"courses\", key = \"#courseId\" ) public CourseResponse getPublishedCourse( Long courseId) { return courseRepository .findPublishedCourse(courseId) .map(courseMapper::toResponse) .orElseThrow(CourseNotFoundException::new); }"
+        },
+        {
+          "type": "p",
+          "text": "When another request uses the same cache key, the cached result can be returned instead of executing the database lookup again."
+        },
+        {
+          "type": "p",
+          "text": "Spring Data Redis integrates with Spring's cache abstraction, including @Cacheable and RedisCacheManager."
+        },
+        {
+          "type": "p",
+          "text": "Home+1"
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Cache invalidation"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an administrator updates a course title."
+        },
+        {
+          "type": "p",
+          "text": "The database contains:"
+        },
+        {
+          "type": "p",
+          "text": "Old title: Backend Basics"
+        },
+        {
+          "type": "p",
+          "text": "Redis also contains the old result."
+        },
+        {
+          "type": "p",
+          "text": "The administrator changes the title:"
+        },
+        {
+          "type": "p",
+          "text": "New title: Backend Engineering"
+        },
+        {
+          "type": "p",
+          "text": "If you do not invalidate the cache, students might continue receiving the old title."
+        },
+        {
+          "type": "p",
+          "text": "Use cache eviction after successful updates."
+        },
+        {
+          "type": "code",
+          "text": "@CacheEvict( cacheNames = \"courses\", key = \"#courseId\" ) @Transactional public void updateCourse( Long courseId, UpdateCourseRequest request) { // Load and update course. }"
+        },
+        {
+          "type": "p",
+          "text": "You must also consider cached course-list pages. Updating one course may require invalidating more than just its individual cache entry."
+        },
+        {
+          "type": "p",
+          "text": "Use appropriate TTLs and explicit invalidation policies."
+        },
+        {
+          "type": "h3",
+          "text": "9.6 Cache design requirements"
+        },
+        {
+          "type": "p",
+          "text": "For this capstone, define:"
+        },
+        {
+          "type": "p",
+          "text": "Data"
+        },
+        {
+          "type": "p",
+          "text": "Cache strategy"
+        },
+        {
+          "type": "p",
+          "text": "Course details"
+        },
+        {
+          "type": "p",
+          "text": "Cache by course ID"
+        },
+        {
+          "type": "p",
+          "text": "Course listing"
+        },
+        {
+          "type": "p",
+          "text": "Cache by filter and pagination parameters"
+        },
+        {
+          "type": "p",
+          "text": "Course categories"
+        },
+        {
+          "type": "p",
+          "text": "Longer TTL"
+        },
+        {
+          "type": "p",
+          "text": "Student progress"
+        },
+        {
+          "type": "p",
+          "text": "Initially bypass cache"
+        },
+        {
+          "type": "p",
+          "text": "Authentication information"
+        },
+        {
+          "type": "p",
+          "text": "Do not treat ordinary course cache as an auth store"
+        },
+        {
+          "type": "p",
+          "text": "Admin changes"
+        },
+        {
+          "type": "p",
+          "text": "Invalidate affected course entries and listing entries"
+        },
+        {
+          "type": "p",
+          "text": "Additional concerns:"
+        },
+        {
+          "type": "p",
+          "text": "Cache serialization format."
+        },
+        {
+          "type": "p",
+          "text": "TTL configuration."
+        },
+        {
+          "type": "p",
+          "text": "Redis connection failure."
+        },
+        {
+          "type": "p",
+          "text": "Cache stampede prevention."
+        },
+        {
+          "type": "p",
+          "text": "Stale data tolerance."
+        },
+        {
+          "type": "p",
+          "text": "Cache memory limits."
+        },
+        {
+          "type": "p",
+          "text": "Monitoring hit and miss rates."
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Redis reduces repeat database reads for selected course operations, and updates do not leave stale data indefinitely."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Section 10",
+      "title": "10. Requirement 08 — Asynchronous Notification Processing",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Distributed Backend Processing"
+        },
+        {
+          "type": "h3",
+          "text": "10.1 What is asynchronous processing?"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous processing means an application can accept a task and allow it to be executed separately from the original HTTP request."
+        },
+        {
+          "type": "p",
+          "text": "Imagine a student enrolls in a course."
+        },
+        {
+          "type": "p",
+          "text": "The backend needs to:"
+        },
+        {
+          "type": "p",
+          "text": "Save the enrollment."
+        },
+        {
+          "type": "p",
+          "text": "Create a notification."
+        },
+        {
+          "type": "p",
+          "text": "Send a confirmation email."
+        },
+        {
+          "type": "p",
+          "text": "Should the API wait until the email provider finishes?"
+        },
+        {
+          "type": "p",
+          "text": "Usually not."
+        },
+        {
+          "type": "p",
+          "text": "Email delivery may take several seconds or fail temporarily."
+        },
+        {
+          "type": "p",
+          "text": "The student should not have to wait for a non-critical email operation before the enrollment is confirmed."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 Synchronous versus asynchronous processing"
+        },
+        {
+          "type": "p",
+          "text": "Synchronous flow"
+        },
+        {
+          "type": "code",
+          "text": "Student | v Enrollment API | +---- Save enrollment | +---- Call email provider | +---- Wait for response | v Return API response"
+        },
+        {
+          "type": "p",
+          "text": "The request waits for the email operation."
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous flow"
+        },
+        {
+          "type": "code",
+          "text": "Student | v Enrollment API | +---- Save enrollment | +---- Record notification event | v Return enrollment response Background worker | v Process notification | v Send email"
+        },
+        {
+          "type": "p",
+          "text": "This makes user-facing requests less dependent on notification provider availability."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Understanding RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "[Kurs RabbitMQ | Cztery Tygodnie](https://images.openai.com/static-rsc-4/H_oeDRxHtftZzJbX6HD2c86xJ0HgoIAFw2JVfRoo17gGJ_ZKBJ0Y6sYjdRadkvnUSMLlhqBEDjTAkKE3DLZaq5aoTKOT1Au1eGCktflnXyrMHxV695Klr1GDVUGeoH04TqucmQyJrpuEOURf4Alj33XLqi33JZ8B7_XcB4276oY?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "A message broker that allows applications to communicate through queues and message exchanges."
+        },
+        {
+          "type": "p",
+          "text": "[Official documentation](https://www.rabbitmq.com/docs?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "The main concepts are:"
+        },
+        {
+          "type": "p",
+          "text": "Concept"
+        },
+        {
+          "type": "p",
+          "text": "Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "Producer"
+        },
+        {
+          "type": "p",
+          "text": "Publishes messages"
+        },
+        {
+          "type": "p",
+          "text": "Exchange"
+        },
+        {
+          "type": "p",
+          "text": "Routes messages"
+        },
+        {
+          "type": "p",
+          "text": "Queue"
+        },
+        {
+          "type": "p",
+          "text": "Stores messages awaiting processing"
+        },
+        {
+          "type": "p",
+          "text": "Consumer"
+        },
+        {
+          "type": "p",
+          "text": "Receives and processes messages"
+        },
+        {
+          "type": "p",
+          "text": "Acknowledgement"
+        },
+        {
+          "type": "p",
+          "text": "Confirms message handling"
+        },
+        {
+          "type": "p",
+          "text": "Retry"
+        },
+        {
+          "type": "p",
+          "text": "Attempts failed processing again"
+        },
+        {
+          "type": "p",
+          "text": "Dead-letter queue"
+        },
+        {
+          "type": "p",
+          "text": "Holds messages that cannot be processed successfully"
+        },
+        {
+          "type": "h3",
+          "text": "10.4 Notification architecture"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment Service"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment and event committed to PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Outbox Publisher"
+        },
+        {
+          "type": "p",
+          "text": "Reads committed notification events"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ Queue"
+        },
+        {
+          "type": "p",
+          "text": "Stores notification messages"
+        },
+        {
+          "type": "p",
+          "text": "Notification Worker"
+        },
+        {
+          "type": "p",
+          "text": "Consumes and processes events"
+        },
+        {
+          "type": "p",
+          "text": "In-app notification"
+        },
+        {
+          "type": "p",
+          "text": "Email provider"
+        },
+        {
+          "type": "h3",
+          "text": "10.5 The dual-write problem"
+        },
+        {
+          "type": "p",
+          "text": "There is an important design problem that you should understand."
+        },
+        {
+          "type": "p",
+          "text": "Suppose you do this:"
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Section 1",
+      "title": "1. Save enrollment in PostgreSQL 2. Publish notification to RabbitMQ",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "What happens if the enrollment succeeds but RabbitMQ is unavailable?"
+        },
+        {
+          "type": "p",
+          "text": "The enrollment exists, but no notification may be sent."
+        },
+        {
+          "type": "p",
+          "text": "Reversing the order is also unsafe:"
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "badge": "Section 1",
+      "title": "1. Publish notification 2. Save enrollment",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "RabbitMQ could receive an event even though the enrollment transaction subsequently fails."
+        },
+        {
+          "type": "p",
+          "text": "This is known as the dual-write problem."
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Transactional Outbox Pattern"
+        },
+        {
+          "type": "p",
+          "text": "A reliable solution is the transactional outbox pattern."
+        },
+        {
+          "type": "p",
+          "text": "Save the enrollment and the notification event inside the same PostgreSQL transaction."
+        },
+        {
+          "type": "p",
+          "text": "Example table:"
+        },
+        {
+          "type": "code",
+          "text": "CREATE TABLE outbox_events ( id UUID PRIMARY KEY, event_type VARCHAR(100) NOT NULL, aggregate_id BIGINT NOT NULL, payload JSONB NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, published_at TIMESTAMPTZ, attempts INTEGER NOT NULL DEFAULT 0 );"
+        },
+        {
+          "type": "p",
+          "text": "When enrollment succeeds:"
+        },
+        {
+          "type": "code",
+          "text": "BEGIN TRANSACTION 1. Insert enrollment 2. Insert outbox event COMMIT"
+        },
+        {
+          "type": "p",
+          "text": "A background publisher later reads pending outbox events and sends them to RabbitMQ."
+        },
+        {
+          "type": "p",
+          "text": "The publisher should mark an event published only after receiving confirmation from the broker."
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ publisher confirms help determine whether the broker accepted a published message, while consumer acknowledgements communicate successful processing."
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "h3",
+          "text": "10.7 Consumer processing and reliability"
+        },
+        {
+          "type": "p",
+          "text": "The notification worker must account for duplicate messages."
+        },
+        {
+          "type": "p",
+          "text": "A message could be delivered more than once, for example when processing succeeds but acknowledgement is lost."
+        },
+        {
+          "type": "p",
+          "text": "Therefore:"
+        },
+        {
+          "type": "p",
+          "text": "Every event should have a unique ID."
+        },
+        {
+          "type": "p",
+          "text": "Consumers should track processed event IDs."
+        },
+        {
+          "type": "p",
+          "text": "Processing should be idempotent."
+        },
+        {
+          "type": "p",
+          "text": "Retry attempts should be bounded."
+        },
+        {
+          "type": "p",
+          "text": "Repeated failures should reach a dead-letter queue."
+        },
+        {
+          "type": "p",
+          "text": "Notification status should be recorded."
+        },
+        {
+          "type": "p",
+          "text": "Do not claim exactly-once email delivery merely because the queue uses acknowledgements. Design for at-least-once delivery and duplicate-safe processing."
+        },
+        {
+          "type": "p",
+          "text": "Example event:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"eventId\": \"evt-1001\", \"eventType\": \"STUDENT_ENROLLED\", \"studentId\": 201, \"courseId\": 10, \"occurredAt\": \"2026-11-27T10:30:00Z\" }"
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Enrollment remains successful even when an email provider is slow or temporarily unavailable, and the notification is retried or tracked for recovery."
+        },
+        {
+          "type": "p",
+          "text": "11. Requirement 09 — Input Validation and Standardized Error Responses"
+        },
+        {
+          "type": "h3",
+          "text": "11.1 Why is input validation necessary?"
+        },
+        {
+          "type": "p",
+          "text": "Every API request should be treated as untrusted."
+        },
+        {
+          "type": "p",
+          "text": "A student might submit:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"name\": \"\", \"email\": \"invalid-email\", \"password\": \"123\" }"
+        },
+        {
+          "type": "p",
+          "text": "The backend must reject invalid data before it reaches sensitive business logic or the database."
+        },
+        {
+          "type": "p",
+          "text": "Validation should happen at multiple levels:"
+        },
+        {
+          "type": "p",
+          "text": "Request validation."
+        },
+        {
+          "type": "p",
+          "text": "Business-rule validation."
+        },
+        {
+          "type": "p",
+          "text": "Database constraints."
+        },
+        {
+          "type": "p",
+          "text": "Authorization checks."
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Jakarta Bean Validation"
+        },
+        {
+          "type": "p",
+          "text": "Use validation annotations in DTOs."
+        },
+        {
+          "type": "code",
+          "text": "public record RegisterRequest( @NotBlank @Size(max = 100) String name, @NotBlank @Email String email, @NotBlank @Size(min = 12, max = 128) String password ) {}"
+        },
+        {
+          "type": "p",
+          "text": "Controller:"
+        },
+        {
+          "type": "code",
+          "text": "@PostMapping(\"/register\") public ResponseEntity<UserResponse> register( @Valid @RequestBody RegisterRequest request) { UserResponse response = authService.register(request); return ResponseEntity.status(201).body(response); }"
+        },
+        {
+          "type": "p",
+          "text": "The application validates the request before executing registration logic."
+        },
+        {
+          "type": "p",
+          "text": "A production password policy should also consider breached-password screening, secure recovery, rate limiting and usability."
+        },
+        {
+          "type": "h3",
+          "text": "11.3 Business validation"
+        },
+        {
+          "type": "p",
+          "text": "Some conditions cannot be verified using simple annotations."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "A course must exist before enrollment."
+        },
+        {
+          "type": "p",
+          "text": "A student cannot enroll twice."
+        },
+        {
+          "type": "p",
+          "text": "An archived course cannot receive new enrollments."
+        },
+        {
+          "type": "p",
+          "text": "A lesson must belong to the enrolled course."
+        },
+        {
+          "type": "p",
+          "text": "A user cannot modify another user's progress."
+        },
+        {
+          "type": "p",
+          "text": "These rules belong in the appropriate business services and database constraints."
+        },
+        {
+          "type": "h3",
+          "text": "11.4 Standardized error responses"
+        },
+        {
+          "type": "p",
+          "text": "A common mistake is returning a different error format from every controller."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"error\": \"Course not found\" }"
+        },
+        {
+          "type": "p",
+          "text": "Another endpoint:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"message\": \"Invalid input\" }"
+        },
+        {
+          "type": "p",
+          "text": "Another:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"status\": 500, \"exception\": \"DatabaseException\" }"
+        },
+        {
+          "type": "p",
+          "text": "This makes frontend development and API consumption difficult."
+        },
+        {
+          "type": "p",
+          "text": "Instead, define a consistent error-response structure."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"type\": \"https://api.example.com/problems/validation-error\", \"title\": \"Validation failed\", \"status\": 400, \"detail\": \"One or more fields are invalid.\", \"code\": \"VALIDATION_ERROR\", \"instance\": \"/api/v1/auth/register\", \"fieldErrors\": { \"email\": \"Must be a valid email address\" }, \"traceId\": \"trace-abc123\" }"
+        },
+        {
+          "type": "p",
+          "text": "This example follows the general structure of HTTP Problem Details, with application-specific extension fields."
+        },
+        {
+          "type": "p",
+          "text": "Spring Framework provides ProblemDetail support for standardized HTTP API errors."
+        },
+        {
+          "type": "h3",
+          "text": "11.5 Centralized exception handling"
+        },
+        {
+          "type": "p",
+          "text": "Use @RestControllerAdvice rather than duplicating exception handling across controllers."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@RestControllerAdvice public class GlobalExceptionHandler { @ExceptionHandler(CourseNotFoundException.class) public ResponseEntity<ProblemDetail> handleNotFound( CourseNotFoundException exception) { ProblemDetail problem = ProblemDetail.forStatusAndDetail( HttpStatus.NOT_FOUND, \"The requested course does not exist.\" ); problem.setTitle(\"Course not found\"); problem.setProperty(\"code\", \"COURSE_NOT_FOUND\"); return ResponseEntity .status(HttpStatus.NOT_FOUND) .body(problem); } }"
+        },
+        {
+          "type": "p",
+          "text": "A complete implementation should also handle:"
+        },
+        {
+          "type": "p",
+          "text": "Bean validation failures."
+        },
+        {
+          "type": "p",
+          "text": "Authentication failures."
+        },
+        {
+          "type": "p",
+          "text": "Authorization failures."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate records."
+        },
+        {
+          "type": "p",
+          "text": "Database constraint violations."
+        },
+        {
+          "type": "p",
+          "text": "Unexpected internal exceptions."
+        },
+        {
+          "type": "p",
+          "text": "Never expose stack traces, SQL statements or credentials in client-facing errors."
+        },
+        {
+          "type": "h3",
+          "text": "11.6 Error status conventions"
+        },
+        {
+          "type": "p",
+          "text": "HTTP status"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "400"
+        },
+        {
+          "type": "p",
+          "text": "Invalid input"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Missing or invalid authentication"
+        },
+        {
+          "type": "p",
+          "text": "403"
+        },
+        {
+          "type": "p",
+          "text": "Insufficient permission"
+        },
+        {
+          "type": "p",
+          "text": "404"
+        },
+        {
+          "type": "p",
+          "text": "Resource not found"
+        },
+        {
+          "type": "p",
+          "text": "409"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate or conflicting operation"
+        },
+        {
+          "type": "p",
+          "text": "422"
+        },
+        {
+          "type": "p",
+          "text": "Semantically invalid request, where used by the API contract"
+        },
+        {
+          "type": "p",
+          "text": "429"
+        },
+        {
+          "type": "p",
+          "text": "Rate limit exceeded"
+        },
+        {
+          "type": "p",
+          "text": "500"
+        },
+        {
+          "type": "p",
+          "text": "Unexpected server error"
+        },
+        {
+          "type": "p",
+          "text": "503"
+        },
+        {
+          "type": "p",
+          "text": "Required service temporarily unavailable"
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Every API error follows the agreed response format and returns an appropriate status code without leaking internal implementation details."
+        },
+        {
+          "type": "p",
+          "text": "12. Requirement 10 — API Security and Rate Limiting"
+        },
+        {
+          "type": "h3",
+          "text": "12.1 Security architecture"
+        },
+        {
+          "type": "p",
+          "text": "Your final application must combine the lessons from Module 09."
+        },
+        {
+          "type": "p",
+          "text": "Implement these controls:"
+        },
+        {
+          "type": "p",
+          "text": "Security feature"
+        },
+        {
+          "type": "p",
+          "text": "Implementation"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "Password storage"
+        },
+        {
+          "type": "p",
+          "text": "Argon2id or BCrypt"
+        },
+        {
+          "type": "p",
+          "text": "Token validation"
+        },
+        {
+          "type": "p",
+          "text": "JWT validation"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Role and ownership checks"
+        },
+        {
+          "type": "p",
+          "text": "SQL injection prevention"
+        },
+        {
+          "type": "p",
+          "text": "Parameterized queries"
+        },
+        {
+          "type": "p",
+          "text": "Mass assignment prevention"
+        },
+        {
+          "type": "p",
+          "text": "DTO allowlists"
+        },
+        {
+          "type": "p",
+          "text": "CORS"
+        },
+        {
+          "type": "p",
+          "text": "Explicit origin allowlist"
+        },
+        {
+          "type": "p",
+          "text": "Sensitive-data protection"
+        },
+        {
+          "type": "p",
+          "text": "Controlled response fields"
+        },
+        {
+          "type": "p",
+          "text": "HTTPS"
+        },
+        {
+          "type": "p",
+          "text": "Reverse proxy or hosting infrastructure"
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting"
+        },
+        {
+          "type": "p",
+          "text": "Redis-backed distributed limiter"
+        },
+        {
+          "type": "p",
+          "text": "Secrets"
+        },
+        {
+          "type": "p",
+          "text": "Secure external configuration"
+        },
+        {
+          "type": "p",
+          "text": "Follow the OWASP API Security risks as an additional review checklist, especially object authorization, function authorization, resource consumption and security configuration."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Developer Guide+1"
+        },
+        {
+          "type": "h3",
+          "text": "12.2 What is rate limiting?"
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting controls how frequently a client can access an API."
+        },
+        {
+          "type": "p",
+          "text": "Imagine a public login endpoint receives:"
+        },
+        {
+          "type": "p",
+          "text": "10,000 requests from one abusive client"
+        },
+        {
+          "type": "p",
+          "text": "Without limits, attackers may repeatedly attempt logins or consume backend resources."
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting can restrict excessive requests."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 Example rate limit policies"
+        },
+        {
+          "type": "p",
+          "text": "These are sample policies for the capstone, not universal security thresholds."
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Example limit"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Login"
+        },
+        {
+          "type": "p",
+          "text": "5 attempts per minute per account"
+        },
+        {
+          "type": "p",
+          "text": "Reduce password-guessing attempts"
+        },
+        {
+          "type": "p",
+          "text": "Registration"
+        },
+        {
+          "type": "p",
+          "text": "5 per hour per trusted client identity"
+        },
+        {
+          "type": "p",
+          "text": "Limit automated registrations"
+        },
+        {
+          "type": "p",
+          "text": "Course search"
+        },
+        {
+          "type": "p",
+          "text": "60 requests per minute per user"
+        },
+        {
+          "type": "p",
+          "text": "Control request volume"
+        },
+        {
+          "type": "p",
+          "text": "Course details"
+        },
+        {
+          "type": "p",
+          "text": "120 requests per minute per user"
+        },
+        {
+          "type": "p",
+          "text": "Protect read capacity"
+        },
+        {
+          "type": "p",
+          "text": "Progress updates"
+        },
+        {
+          "type": "p",
+          "text": "30 requests per minute per user"
+        },
+        {
+          "type": "p",
+          "text": "Limit abusive writes"
+        },
+        {
+          "type": "p",
+          "text": "Expensive operations"
+        },
+        {
+          "type": "p",
+          "text": "Application-specific quota"
+        },
+        {
+          "type": "p",
+          "text": "Prevent resource exhaustion"
+        },
+        {
+          "type": "p",
+          "text": "You should account for distributed abuse rather than relying entirely on the client IP."
+        },
+        {
+          "type": "p",
+          "text": "For login, rate limits may combine account identifier, source address and other risk signals."
+        },
+        {
+          "type": "p",
+          "text": "Be careful when interpreting forwarded IP headers: trust them only when set by known, controlled proxies."
+        },
+        {
+          "type": "h3",
+          "text": "12.4 Why use Redis for rate limiting?"
+        },
+        {
+          "type": "p",
+          "text": "Suppose your application has three backend instances."
+        },
+        {
+          "type": "p",
+          "text": "Instance 1 Instance 2 Instance 3"
+        },
+        {
+          "type": "p",
+          "text": "A student sends 100 requests."
+        },
+        {
+          "type": "p",
+          "text": "If each instance maintains its own in-memory rate counter, the overall limit may be inconsistent."
+        },
+        {
+          "type": "p",
+          "text": "Redis can provide shared rate-limit state across instances."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "All backend instances | v Shared Redis rate-limit storage | v Consistent counters"
+        },
+        {
+          "type": "p",
+          "text": "Use an atomic operation or suitable distributed rate-limiting algorithm, such as token bucket or sliding window."
+        },
+        {
+          "type": "p",
+          "text": "Return a consistent response:"
+        },
+        {
+          "type": "code",
+          "text": "HTTP/1.1 429 Too Many Requests Retry-After: 30"
+        },
+        {
+          "type": "h3",
+          "text": "12.5 Security testing"
+        },
+        {
+          "type": "p",
+          "text": "Test that:"
+        },
+        {
+          "type": "p",
+          "text": "Anonymous users cannot access protected endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Students cannot call administrative operations."
+        },
+        {
+          "type": "p",
+          "text": "Users cannot access another student's records."
+        },
+        {
+          "type": "p",
+          "text": "Protected entity properties cannot be changed through requests."
+        },
+        {
+          "type": "p",
+          "text": "Expired and invalid tokens are rejected."
+        },
+        {
+          "type": "p",
+          "text": "Invalid database input does not manipulate queries."
+        },
+        {
+          "type": "p",
+          "text": "Rate limits apply across backend instances."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive information does not appear in responses or logs."
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: The backend enforces permissions independently of the frontend and applies resource-protection controls to important public and authenticated endpoints."
+        }
+      ]
+    },
+    {
+      "id": "section-13",
+      "badge": "Section 13",
+      "title": "13. Requirement 11 — Automated Unit and Integration Tests",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This requirement connects the capstone directly to Module 08."
+        },
+        {
+          "type": "p",
+          "text": "A working project must include actual automated tests—not only Postman screenshots."
+        },
+        {
+          "type": "h3",
+          "text": "13.1 Unit testing"
+        },
+        {
+          "type": "p",
+          "text": "Test business logic independently."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Password validation."
+        },
+        {
+          "type": "p",
+          "text": "Course publication rules."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate enrollment rules."
+        },
+        {
+          "type": "p",
+          "text": "Course progress calculation."
+        },
+        {
+          "type": "p",
+          "text": "Pagination parameter validation."
+        },
+        {
+          "type": "p",
+          "text": "Notification event creation."
+        },
+        {
+          "type": "p",
+          "text": "Use JUnit 5 and Mockito."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Test void shouldCalculateProgressCorrectly() { ProgressService service = new ProgressService(); double result = service.calculateProgress(12, 20); assertEquals(60.0, result); }"
+        },
+        {
+          "type": "h3",
+          "text": "13.2 Integration testing"
+        },
+        {
+          "type": "p",
+          "text": "Test connected components."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Course service and PostgreSQL repository."
+        },
+        {
+          "type": "p",
+          "text": "Enrollment service and database."
+        },
+        {
+          "type": "p",
+          "text": "Flyway migrations."
+        },
+        {
+          "type": "p",
+          "text": "Redis cache behaviour."
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ message processing."
+        },
+        {
+          "type": "p",
+          "text": "Spring Security request filters."
+        },
+        {
+          "type": "p",
+          "text": "Use Testcontainers to test against realistic PostgreSQL, Redis and RabbitMQ dependencies where practical."
+        },
+        {
+          "type": "h3",
+          "text": "13.3 API testing"
+        },
+        {
+          "type": "p",
+          "text": "Use MockMvc or REST Assured."
+        },
+        {
+          "type": "p",
+          "text": "Verify:"
+        },
+        {
+          "type": "p",
+          "text": "HTTP response codes."
+        },
+        {
+          "type": "p",
+          "text": "JSON response structures."
+        },
+        {
+          "type": "p",
+          "text": "Input validation."
+        },
+        {
+          "type": "p",
+          "text": "Authentication."
+        },
+        {
+          "type": "p",
+          "text": "Authorization."
+        },
+        {
+          "type": "p",
+          "text": "Error responses."
+        },
+        {
+          "type": "p",
+          "text": "Pagination behaviour."
+        },
+        {
+          "type": "h3",
+          "text": "13.4 Security testing"
+        },
+        {
+          "type": "p",
+          "text": "Create test identities:"
+        },
+        {
+          "type": "p",
+          "text": "Student A Student B Admin A"
+        },
+        {
+          "type": "p",
+          "text": "Verify the following:"
+        },
+        {
+          "type": "p",
+          "text": "Scenario"
+        },
+        {
+          "type": "p",
+          "text": "Expected"
+        },
+        {
+          "type": "p",
+          "text": "Student registers"
+        },
+        {
+          "type": "p",
+          "text": "Success"
+        },
+        {
+          "type": "p",
+          "text": "Student creates course"
+        },
+        {
+          "type": "p",
+          "text": "403"
+        },
+        {
+          "type": "p",
+          "text": "Admin creates course"
+        },
+        {
+          "type": "p",
+          "text": "201"
+        },
+        {
+          "type": "p",
+          "text": "Student retrieves own progress"
+        },
+        {
+          "type": "p",
+          "text": "200"
+        },
+        {
+          "type": "p",
+          "text": "Student accesses another user's progress"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate enrollment"
+        },
+        {
+          "type": "p",
+          "text": "409"
+        },
+        {
+          "type": "p",
+          "text": "Anonymous user accesses protected API"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "h3",
+          "text": "13.5 Redis testing"
+        },
+        {
+          "type": "p",
+          "text": "Verify:"
+        },
+        {
+          "type": "p",
+          "text": "First course retrieval loads from PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Second retrieval uses cache."
+        },
+        {
+          "type": "p",
+          "text": "Course update invalidates relevant cache entries."
+        },
+        {
+          "type": "p",
+          "text": "Cache expiry works."
+        },
+        {
+          "type": "p",
+          "text": "Redis outage does not corrupt primary database data."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive data is not inadvertently cached."
+        },
+        {
+          "type": "h3",
+          "text": "13.6 Asynchronous testing"
+        },
+        {
+          "type": "p",
+          "text": "Verify:"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment commits successfully."
+        },
+        {
+          "type": "p",
+          "text": "The corresponding outbox event is created."
+        },
+        {
+          "type": "p",
+          "text": "The publisher delivers the event."
+        },
+        {
+          "type": "p",
+          "text": "The worker processes it."
+        },
+        {
+          "type": "p",
+          "text": "The notification status changes."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate delivery does not create duplicate notification records."
+        },
+        {
+          "type": "p",
+          "text": "Temporary delivery failure triggers retries."
+        },
+        {
+          "type": "p",
+          "text": "Permanently failing messages are handled through a dead-letter strategy."
+        },
+        {
+          "type": "h3",
+          "text": "13.7 Concurrency testing"
+        },
+        {
+          "type": "p",
+          "text": "Test two requests trying to enroll the same student in the same course simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "Expected:"
+        },
+        {
+          "type": "p",
+          "text": "Request 1 → 201 Created Request 2 → 409 Conflict"
+        },
+        {
+          "type": "p",
+          "text": "There should be exactly one enrollment record."
+        },
+        {
+          "type": "p",
+          "text": "Also test concurrent lesson-progress updates and administrative course changes where relevant."
+        },
+        {
+          "type": "h3",
+          "text": "13.8 Recommended testing structure"
+        },
+        {
+          "type": "code",
+          "text": "src/test/java/com/example/learning/ │ ├── unit/ │ ├── CourseServiceTest.java │ ├── EnrollmentServiceTest.java │ ├── ProgressServiceTest.java │ └── AuthServiceTest.java │ ├── integration/ │ ├── CourseRepositoryTest.java │ ├── EnrollmentIntegrationTest.java │ ├── FlywayMigrationTest.java │ ├── RedisCacheTest.java │ └── NotificationIntegrationTest.java │ ├── security/ │ ├── AuthenticationTest.java │ ├── AuthorizationTest.java │ └── OwnershipTest.java │ └── api/ ├── CourseControllerTest.java ├── EnrollmentControllerTest.java └── ProgressControllerTest.java"
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Important business, database, security, cache and asynchronous behaviours can be verified automatically and repeatedly."
+        }
+      ]
+    },
+    {
+      "id": "section-14",
+      "badge": "Section 14",
+      "title": "14. Requirement 12 — OpenAPI Documentation",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "14.1 What is OpenAPI?"
+        },
+        {
+          "type": "p",
+          "text": "OpenAPI is a standard specification for describing HTTP APIs."
+        },
+        {
+          "type": "p",
+          "text": "It documents:"
+        },
+        {
+          "type": "p",
+          "text": "Available endpoints."
+        },
+        {
+          "type": "p",
+          "text": "HTTP methods."
+        },
+        {
+          "type": "p",
+          "text": "Request parameters."
+        },
+        {
+          "type": "p",
+          "text": "Request body formats."
+        },
+        {
+          "type": "p",
+          "text": "Response schemas."
+        },
+        {
+          "type": "p",
+          "text": "HTTP status codes."
+        },
+        {
+          "type": "p",
+          "text": "Authentication requirements."
+        },
+        {
+          "type": "p",
+          "text": "Error responses."
+        },
+        {
+          "type": "p",
+          "text": "Imagine another developer joins your project."
+        },
+        {
+          "type": "p",
+          "text": "They should be able to understand how to call your API without reading every Java controller."
+        },
+        {
+          "type": "p",
+          "text": "That is the purpose of API documentation."
+        },
+        {
+          "type": "h3",
+          "text": "14.2 Understanding Swagger UI"
+        },
+        {
+          "type": "p",
+          "text": "[Add Swagger to your Spring Boot 3 application to easily document and consume your REST API](https://images.openai.com/static-rsc-4/Voy6XqZ-89ci182F2gzQlxJoYi_rWzNj3ZZFJjFD37L-9PL3QTBSki_5XKYoLcuA1P8FqfwZ1MB5ZgGuiAxLu5Nl1LE2KYhQ5-Soo1-2mUzLdVxWda7GnbwNbraigl8OgbXHXdwD5HorZvPpdhO-y-srbFL4MGsU10mFwidhuxA?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Swagger UI"
+        },
+        {
+          "type": "p",
+          "text": "An interactive interface for exploring and trying documented API endpoints."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://swagger.io/tools/swagger-ui/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Developers can:"
+        },
+        {
+          "type": "p",
+          "text": "Expand an endpoint."
+        },
+        {
+          "type": "p",
+          "text": "Read request schemas."
+        },
+        {
+          "type": "p",
+          "text": "Enter parameters."
+        },
+        {
+          "type": "p",
+          "text": "Provide authentication."
+        },
+        {
+          "type": "p",
+          "text": "Execute requests."
+        },
+        {
+          "type": "p",
+          "text": "Inspect responses."
+        },
+        {
+          "type": "h3",
+          "text": "14.3 Integrating springdoc-openapi"
+        },
+        {
+          "type": "p",
+          "text": "For a Spring Boot 3 project, use a compatible springdoc 2.x dependency."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "<dependency> <groupId>org.springdoc</groupId> <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId> <version>2.x-compatible-version</version> </dependency>"
+        },
+        {
+          "type": "p",
+          "text": "For Spring Boot 4, use the compatible springdoc 3.x line."
+        },
+        {
+          "type": "p",
+          "text": "The current springdoc documentation distinguishes 2.x for Spring Boot 3 and 3.x for Spring Boot 4. Check the compatibility guide rather than mixing dependency lines."
+        },
+        {
+          "type": "p",
+          "text": "springdoc-openapi+1"
+        },
+        {
+          "type": "p",
+          "text": "Once configured, the application can expose:"
+        },
+        {
+          "type": "p",
+          "text": "/swagger-ui.html /v3/api-docs /v3/api-docs.yaml"
+        },
+        {
+          "type": "h3",
+          "text": "14.4 API documentation example"
+        },
+        {
+          "type": "p",
+          "text": "You can describe the API using annotations:"
+        },
+        {
+          "type": "code",
+          "text": "@Operation( summary = \"Retrieve published courses\", description = \"Returns a paginated list of available courses.\" ) @ApiResponses({ @ApiResponse( responseCode = \"200\", description = \"Courses retrieved successfully\" ), @ApiResponse( responseCode = \"400\", description = \"Invalid pagination parameters\" ) }) @GetMapping(\"/courses\") public Page<CourseResponse> getCourses( @Parameter(description = \"Page number\") @RequestParam(defaultValue = \"0\") int page, @Parameter(description = \"Page size\") @RequestParam(defaultValue = \"20\") int size) { return courseService.getCourses(page, size); }"
+        },
+        {
+          "type": "h3",
+          "text": "14.5 Authentication documentation"
+        },
+        {
+          "type": "p",
+          "text": "Document the bearer authentication scheme."
+        },
+        {
+          "type": "p",
+          "text": "Your OpenAPI specification should explain:"
+        },
+        {
+          "type": "code",
+          "text": "Authorization: Bearer ACCESS_TOKEN"
+        },
+        {
+          "type": "p",
+          "text": "It should also distinguish between:"
+        },
+        {
+          "type": "p",
+          "text": "Public endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Authenticated endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Student-only endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Administrator-only endpoints."
+        },
+        {
+          "type": "h3",
+          "text": "14.6 What should the documentation contain?"
+        },
+        {
+          "type": "p",
+          "text": "Documentation section"
+        },
+        {
+          "type": "p",
+          "text": "Required content"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Login and token usage"
+        },
+        {
+          "type": "p",
+          "text": "Users"
+        },
+        {
+          "type": "p",
+          "text": "Registration and profile operations"
+        },
+        {
+          "type": "p",
+          "text": "Courses"
+        },
+        {
+          "type": "p",
+          "text": "Retrieval and administration"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment workflows"
+        },
+        {
+          "type": "p",
+          "text": "Progress"
+        },
+        {
+          "type": "p",
+          "text": "Lesson and course progress"
+        },
+        {
+          "type": "p",
+          "text": "Notifications"
+        },
+        {
+          "type": "p",
+          "text": "Notification retrieval"
+        },
+        {
+          "type": "p",
+          "text": "Pagination"
+        },
+        {
+          "type": "p",
+          "text": "Parameters and response structure"
+        },
+        {
+          "type": "p",
+          "text": "Errors"
+        },
+        {
+          "type": "p",
+          "text": "Standard response schema"
+        },
+        {
+          "type": "p",
+          "text": "Security"
+        },
+        {
+          "type": "p",
+          "text": "Roles and access requirements"
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: A developer should be able to explore your API and understand its request formats, authentication requirements and expected responses without guessing."
+        }
+      ]
+    },
+    {
+      "id": "section-15",
+      "badge": "Section 15",
+      "title": "15. Requirement 13 — Docker-Based Deployment",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "15.1 Why Docker is necessary"
+        },
+        {
+          "type": "p",
+          "text": "Your application must be deployable independently of your development machine."
+        },
+        {
+          "type": "p",
+          "text": "Imagine your Java backend works locally but fails on a different server because of a Java version mismatch or missing dependencies."
+        },
+        {
+          "type": "p",
+          "text": "Docker packages the backend into a container image that can run in a compatible container environment."
+        },
+        {
+          "type": "p",
+          "text": "For this capstone, your deployment should include:"
+        },
+        {
+          "type": "p",
+          "text": "Backend application."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Redis."
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ."
+        },
+        {
+          "type": "p",
+          "text": "Notification processing."
+        },
+        {
+          "type": "p",
+          "text": "Required monitoring components."
+        },
+        {
+          "type": "h3",
+          "text": "15.2 Recommended container architecture"
+        },
+        {
+          "type": "p",
+          "text": "Reverse Proxy"
+        },
+        {
+          "type": "p",
+          "text": "HTTPS and incoming traffic"
+        },
+        {
+          "type": "p",
+          "text": "Application Containers"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot API"
+        },
+        {
+          "type": "p",
+          "text": "Notification Worker"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "Monitoring"
+        },
+        {
+          "type": "h3",
+          "text": "15.3 Build images separately"
+        },
+        {
+          "type": "p",
+          "text": "You can maintain separate container images for different application processes."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "learning-platform-api:1.0.0 learning-platform-worker:1.0.0"
+        },
+        {
+          "type": "p",
+          "text": "The API serves HTTP requests."
+        },
+        {
+          "type": "p",
+          "text": "The worker consumes asynchronous notification events."
+        },
+        {
+          "type": "p",
+          "text": "They can share business-domain code through a common application module while having different startup entry points or profiles."
+        },
+        {
+          "type": "p",
+          "text": "For a first implementation, you can run the queue consumer within the same Spring Boot application to reduce complexity. Separating it into its own deployment becomes useful when notification workload or scaling requirements justify it."
+        },
+        {
+          "type": "h3",
+          "text": "15.4 Development versus production Docker"
+        },
+        {
+          "type": "p",
+          "text": "For local development, Docker Compose is useful for starting all supporting services together."
+        },
+        {
+          "type": "p",
+          "text": "For production:"
+        },
+        {
+          "type": "p",
+          "text": "Use a versioned container image."
+        },
+        {
+          "type": "p",
+          "text": "Do not mount developer source folders into the application container."
+        },
+        {
+          "type": "p",
+          "text": "Restrict network access."
+        },
+        {
+          "type": "p",
+          "text": "Store credentials securely."
+        },
+        {
+          "type": "p",
+          "text": "Use persistent database storage or managed PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Configure backups."
+        },
+        {
+          "type": "p",
+          "text": "Monitor container health."
+        },
+        {
+          "type": "p",
+          "text": "Use controlled image upgrades."
+        },
+        {
+          "type": "p",
+          "text": "Maintain a rollback strategy."
+        },
+        {
+          "type": "p",
+          "text": "Docker's production guidance describes environment-specific Compose configuration, deployment and application update considerations."
+        },
+        {
+          "type": "p",
+          "text": "Docker Docs"
+        },
+        {
+          "type": "h3",
+          "text": "15.5 Production deployment workflow"
+        },
+        {
+          "type": "code",
+          "text": "Developer pushes code | v CI pipeline | +---- Compile +---- Unit tests +---- Integration tests +---- Security checks +---- Build Docker image | v Container registry | v Deploy to staging | v Smoke tests and verification | v Promote verified image | v Production deployment | v Health checks and monitoring"
+        },
+        {
+          "type": "p",
+          "text": "The application should not be released simply because the Docker image builds successfully."
+        },
+        {
+          "type": "h3",
+          "text": "15.6 Deployment strategies"
+        },
+        {
+          "type": "p",
+          "text": "For an advanced capstone, document how you could support:"
+        },
+        {
+          "type": "p",
+          "text": "Rolling deployment."
+        },
+        {
+          "type": "p",
+          "text": "Blue-green deployment."
+        },
+        {
+          "type": "p",
+          "text": "Rollback."
+        },
+        {
+          "type": "p",
+          "text": "Database migration compatibility."
+        },
+        {
+          "type": "p",
+          "text": "Graceful shutdown."
+        },
+        {
+          "type": "p",
+          "text": "Health-based traffic routing."
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: Another engineer can build and run your application using documented container instructions, and the release process identifies exactly which application version is deployed."
+        }
+      ]
+    },
+    {
+      "id": "section-16",
+      "badge": "Section 16",
+      "title": "16. Requirement 14 — Logging, Health Checks and Monitoring",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "16.1 What does observability mean in this project?"
+        },
+        {
+          "type": "p",
+          "text": "After deploying the application, you need to understand how it behaves."
+        },
+        {
+          "type": "p",
+          "text": "Imagine these situations:"
+        },
+        {
+          "type": "p",
+          "text": "Login requests suddenly become slow."
+        },
+        {
+          "type": "p",
+          "text": "Redis is unavailable."
+        },
+        {
+          "type": "p",
+          "text": "Notification messages are accumulating in a queue."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL connections are exhausted."
+        },
+        {
+          "type": "p",
+          "text": "The course listing API returns errors."
+        },
+        {
+          "type": "p",
+          "text": "A worker repeatedly fails to send notifications."
+        },
+        {
+          "type": "p",
+          "text": "You should be able to detect and investigate these problems."
+        },
+        {
+          "type": "p",
+          "text": "Use the three core observability signals:"
+        },
+        {
+          "type": "p",
+          "text": "Signal"
+        },
+        {
+          "type": "p",
+          "text": "Technology"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Logs"
+        },
+        {
+          "type": "p",
+          "text": "Structured JSON logging"
+        },
+        {
+          "type": "p",
+          "text": "Detailed event records"
+        },
+        {
+          "type": "p",
+          "text": "Metrics"
+        },
+        {
+          "type": "p",
+          "text": "Actuator + Micrometer + Prometheus"
+        },
+        {
+          "type": "p",
+          "text": "Performance measurements"
+        },
+        {
+          "type": "p",
+          "text": "Traces"
+        },
+        {
+          "type": "p",
+          "text": "OpenTelemetry"
+        },
+        {
+          "type": "p",
+          "text": "Request-flow investigation"
+        },
+        {
+          "type": "h3",
+          "text": "16.2 Health checks"
+        },
+        {
+          "type": "p",
+          "text": "Configure:"
+        },
+        {
+          "type": "p",
+          "text": "/actuator/health /actuator/health/liveness /actuator/health/readiness"
+        },
+        {
+          "type": "p",
+          "text": "These endpoints should provide information about application health without exposing unnecessary internal details."
+        },
+        {
+          "type": "p",
+          "text": "Restrict their accessibility appropriately."
+        },
+        {
+          "type": "h3",
+          "text": "16.3 Important metrics"
+        },
+        {
+          "type": "p",
+          "text": "Your monitoring dashboard should cover:"
+        },
+        {
+          "type": "p",
+          "text": "Category"
+        },
+        {
+          "type": "p",
+          "text": "Metric"
+        },
+        {
+          "type": "p",
+          "text": "API"
+        },
+        {
+          "type": "p",
+          "text": "Requests per second"
+        },
+        {
+          "type": "p",
+          "text": "API"
+        },
+        {
+          "type": "p",
+          "text": "HTTP 4xx and 5xx rate"
+        },
+        {
+          "type": "p",
+          "text": "API"
+        },
+        {
+          "type": "p",
+          "text": "p50, p95 and p99 latency"
+        },
+        {
+          "type": "p",
+          "text": "Database"
+        },
+        {
+          "type": "p",
+          "text": "Active and idle connections"
+        },
+        {
+          "type": "p",
+          "text": "Database"
+        },
+        {
+          "type": "p",
+          "text": "Query latency"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "Cache hits and misses"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "Queue depth"
+        },
+        {
+          "type": "p",
+          "text": "Worker"
+        },
+        {
+          "type": "p",
+          "text": "Message processing failures"
+        },
+        {
+          "type": "p",
+          "text": "JVM"
+        },
+        {
+          "type": "p",
+          "text": "Heap memory"
+        },
+        {
+          "type": "p",
+          "text": "JVM"
+        },
+        {
+          "type": "p",
+          "text": "Garbage collection"
+        },
+        {
+          "type": "p",
+          "text": "Infrastructure"
+        },
+        {
+          "type": "p",
+          "text": "CPU and memory"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot Actuator uses Micrometer to expose and export application metrics, including HTTP, JVM, data source and cache measurements. It supports Prometheus integration through /actuator/prometheus when configured."
+        },
+        {
+          "type": "p",
+          "text": "Home+1"
+        },
+        {
+          "type": "h3",
+          "text": "16.4 Example dashboard design"
+        },
+        {
+          "type": "p",
+          "text": "Your final monitoring dashboard should contain:"
+        },
+        {
+          "type": "p",
+          "text": "Learning Platform — Production Overview"
+        },
+        {
+          "type": "p",
+          "text": "API availability99.9%"
+        },
+        {
+          "type": "p",
+          "text": "API error rate0.5%"
+        },
+        {
+          "type": "p",
+          "text": "p95 latency240 ms"
+        },
+        {
+          "type": "p",
+          "text": "Notification queue12"
+        },
+        {
+          "type": "p",
+          "text": "API traffic"
+        },
+        {
+          "type": "p",
+          "text": "Illustrative request traffic during a sample monitoring window."
+        },
+        {
+          "type": "p",
+          "text": "Application health"
+        },
+        {
+          "type": "p",
+          "text": "Backend API"
+        },
+        {
+          "type": "p",
+          "text": "UP"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "UP"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "UP"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "UP"
+        },
+        {
+          "type": "p",
+          "text": "Illustrative dashboard, not a live backend connection or actual application performance report."
+        },
+        {
+          "type": "h3",
+          "text": "16.5 Logging important events"
+        },
+        {
+          "type": "p",
+          "text": "Your application should log important operations such as:"
+        },
+        {
+          "type": "p",
+          "text": "Student registered."
+        },
+        {
+          "type": "p",
+          "text": "Login succeeded or failed."
+        },
+        {
+          "type": "p",
+          "text": "Course created."
+        },
+        {
+          "type": "p",
+          "text": "Course updated."
+        },
+        {
+          "type": "p",
+          "text": "Student enrolled."
+        },
+        {
+          "type": "p",
+          "text": "Lesson completed."
+        },
+        {
+          "type": "p",
+          "text": "Notification generated."
+        },
+        {
+          "type": "p",
+          "text": "Notification delivery failed."
+        },
+        {
+          "type": "p",
+          "text": "Database connection error."
+        },
+        {
+          "type": "p",
+          "text": "Application shutdown."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"timestamp\": \"2026-11-27T10:30:00Z\", \"level\": \"INFO\", \"service\": \"learning-platform-api\", \"event\": \"STUDENT_ENROLLED\", \"studentId\": 201, \"courseId\": 10, \"traceId\": \"trace-abc123\" }"
+        },
+        {
+          "type": "p",
+          "text": "Avoid sensitive credentials and access tokens."
+        },
+        {
+          "type": "h3",
+          "text": "16.6 Production alerting"
+        },
+        {
+          "type": "p",
+          "text": "Configure example alerts:"
+        },
+        {
+          "type": "p",
+          "text": "Alert"
+        },
+        {
+          "type": "p",
+          "text": "Example condition"
+        },
+        {
+          "type": "p",
+          "text": "High API error rate"
+        },
+        {
+          "type": "p",
+          "text": "5xx exceeds 5% for 5 minutes"
+        },
+        {
+          "type": "p",
+          "text": "Slow API"
+        },
+        {
+          "type": "p",
+          "text": "p95 exceeds 1 second for 5 minutes"
+        },
+        {
+          "type": "p",
+          "text": "Database pool exhaustion"
+        },
+        {
+          "type": "p",
+          "text": "Active connections approach maximum"
+        },
+        {
+          "type": "p",
+          "text": "Queue backlog"
+        },
+        {
+          "type": "p",
+          "text": "Pending messages exceed an agreed threshold"
+        },
+        {
+          "type": "p",
+          "text": "Worker failure"
+        },
+        {
+          "type": "p",
+          "text": "Repeated notification processing failures"
+        },
+        {
+          "type": "p",
+          "text": "Application down"
+        },
+        {
+          "type": "p",
+          "text": "Health check fails repeatedly"
+        },
+        {
+          "type": "p",
+          "text": "Memory pressure"
+        },
+        {
+          "type": "p",
+          "text": "Sustained memory usage approaches the limit"
+        },
+        {
+          "type": "p",
+          "text": "Thresholds should be calibrated using load-test results and actual production behaviour."
+        },
+        {
+          "type": "p",
+          "text": "Completion criteria: You can see application health, identify performance bottlenecks and detect important operational failures through logs, metrics, traces and alerts."
+        }
+      ]
+    },
+    {
+      "id": "section-17",
+      "badge": "Section 17",
+      "title": "17. Recommended Backend Project Structure",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Now combine everything into one maintainable project."
+        },
+        {
+          "type": "p",
+          "text": "Instead of creating random folders for each lesson, organize the system by business functionality."
+        },
+        {
+          "type": "p",
+          "text": "One practical structure is:"
+        },
+        {
+          "type": "code",
+          "text": "learning-platform/ │ ├── src/ │ │ │ ├── main/ │ │ │ │ │ ├── java/com/example/learning/ │ │ │ │ │ │ │ ├── config/ │ │ │ │ ├── SecurityConfig.java │ │ │ │ ├── RedisConfig.java │ │ │ │ └── RabbitMQConfig.java │ │ │ │ │ │ │ ├── common/ │ │ │ │ ├── exception/ │ │ │ │ ├── response/ │ │ │ │ ├── validation/ │ │ │ │ └── auditing/ │ │ │ │ │ │ │ ├── auth/ │ │ │ │ ├── controller/ │ │ │ │ ├── service/ │ │ │ │ ├── dto/ │ │ │ │ └── security/ │ │ │ │ │ │ │ ├── user/ │ │ │ │ ├── controller/ │ │ │ │ ├── service/ │ │ │ │ ├── repository/ │ │ │ │ ├── entity/ │ │ │ │ └── dto/ │ │ │ │ │ │ │ ├── course/ │ │ │ │ ├── controller/ │ │ │ │ ├── service/ │ │ │ │ ├── repository/ │ │ │ │ ├── entity/ │ │ │ │ └── dto/ │ │ │ │ │ │ │ ├── enrollment/ │ │ │ │ ├── controller/ │ │ │ │ ├── service/ │ │ │ │ ├── repository/ │ │ │ │ └── entity/ │ │ │ │ │ │ │ ├── progress/ │ │ │ │ ├── controller/ │ │ │ │ ├── service/ │ │ │ │ ├── repository/ │ │ │ │ └── entity/ │ │ │ │ │ │ │ ├── notification/ │ │ │ │ ├── publisher/ │ │ │ │ ├── consumer/ │ │ │ │ ├── service/ │ │ │ │ └── entity/ │ │ │ │ │ │ │ ├── cache/ │ │ │ ├── ratelimit/ │ │ │ ├── observability/ │ │ │ └── LearningPlatformApplication.java │ │ │ │ │ └── resources/ │ │ ├── application.yml │ │ ├── application-dev.yml │ │ ├── application-staging.yml │ │ ├── application-prod.yml │ │ └── db/migration/ │ │ ├── V1__create_users.sql │ │ ├── V2__create_courses.sql │ │ ├── V3__create_modules.sql │ │ ├── V4__create_lessons.sql │ │ ├── V5__create_enrollments.sql │ │ ├── V6__create_progress.sql │ │ └── V7__create_outbox.sql │ │ │ └── test/ │ └── java/com/example/learning/ │ ├── unit/ │ ├── integration/ │ ├── api/ │ ├── security/ │ ├── cache/ │ └── messaging/ │ ├── Dockerfile ├── compose.yaml ├── pom.xml ├── README.md ├── .gitignore └── docs/ ├── architecture.md ├── database-design.md ├── api-documentation.md ├── security.md ├── deployment.md ├── testing.md └── incident-response.md"
+        },
+        {
+          "type": "p",
+          "text": "This is a suggested structure, not a requirement to create every file at the beginning."
+        },
+        {
+          "type": "p",
+          "text": "Create modules as you implement them."
+        }
+      ]
+    },
+    {
+      "id": "section-18",
+      "badge": "Section 18",
+      "title": "18. Complete Implementation Roadmap",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Do not try to implement all 14 requirements simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "Build the capstone in a sequence where every stage produces working functionality."
+        },
+        {
+          "type": "p",
+          "text": "Here is the recommended engineering workflow."
+        },
+        {
+          "type": "p",
+          "text": "Phase 1 — Project foundation"
+        },
+        {
+          "type": "p",
+          "text": "Set up Java, Spring Boot, Maven, PostgreSQL, Git and the application structure."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Running backend"
+        },
+        {
+          "type": "p",
+          "text": "Phase 2 — Database design"
+        },
+        {
+          "type": "p",
+          "text": "Create users, courses, modules, lessons, enrollments and progress tables. Configure Flyway."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Working database schema"
+        },
+        {
+          "type": "p",
+          "text": "Phase 3 — Authentication and authorization"
+        },
+        {
+          "type": "p",
+          "text": "Implement registration, login, password hashing, JWT validation and student/admin permissions."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Secure account system"
+        },
+        {
+          "type": "p",
+          "text": "Phase 4 — Course management"
+        },
+        {
+          "type": "p",
+          "text": "Implement course creation, retrieval, editing and publication."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Course management APIs"
+        },
+        {
+          "type": "p",
+          "text": "Phase 5 — Enrollment and progress"
+        },
+        {
+          "type": "p",
+          "text": "Implement student enrollment, transactions, uniqueness constraints and progress calculation."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Working learning workflow"
+        },
+        {
+          "type": "p",
+          "text": "Phase 6 — API quality"
+        },
+        {
+          "type": "p",
+          "text": "Add pagination, filtering, search, DTO validation and standardized exceptions."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Consistent API interface"
+        },
+        {
+          "type": "p",
+          "text": "Phase 7 — Performance and asynchronous processing"
+        },
+        {
+          "type": "p",
+          "text": "Integrate Redis, RabbitMQ, the outbox pattern and notification workers."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Cached and asynchronous operations"
+        },
+        {
+          "type": "p",
+          "text": "Phase 8 — Testing and documentation"
+        },
+        {
+          "type": "p",
+          "text": "Write unit, integration, security and API tests. Generate OpenAPI documentation."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Verified and documented backend"
+        },
+        {
+          "type": "p",
+          "text": "Phase 9 — Deployment"
+        },
+        {
+          "type": "p",
+          "text": "Create Docker images, configure application environments and deploy staging and production versions."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Deployable application"
+        },
+        {
+          "type": "p",
+          "text": "Phase 10 — Observability and final verification"
+        },
+        {
+          "type": "p",
+          "text": "Add structured logging, health checks, metrics, tracing, alerting and incident documentation."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: Production-ready capstone"
+        },
+        {
+          "type": "h3",
+          "text": "18.1 Recommended development sequence inside each phase"
+        },
+        {
+          "type": "p",
+          "text": "Follow this cycle:"
+        },
+        {
+          "type": "p",
+          "text": "Understand requirement | v Design database and API | v Implement backend functionality | v Add validations and permissions | v Write automated tests | v Verify the API | v Update documentation | v Move to next feature"
+        },
+        {
+          "type": "p",
+          "text": "Do not leave all testing and documentation until the end."
+        },
+        {
+          "type": "p",
+          "text": "For example, complete authentication, its tests and its API documentation before building protected course-management functionality."
+        }
+      ]
+    },
+    {
+      "id": "section-19",
+      "badge": "Section 19",
+      "title": "19. Complete API Endpoint Inventory",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Your final project should expose an organized REST API."
+        },
+        {
+          "type": "p",
+          "text": "The following is a proposed API contract for the capstone."
+        },
+        {
+          "type": "p",
+          "text": "All endpoints use the /api/v1 prefix."
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Access"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/auth/register"
+        },
+        {
+          "type": "p",
+          "text": "Register student"
+        },
+        {
+          "type": "p",
+          "text": "Public"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/auth/login"
+        },
+        {
+          "type": "p",
+          "text": "User login"
+        },
+        {
+          "type": "p",
+          "text": "Public"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/auth/refresh"
+        },
+        {
+          "type": "p",
+          "text": "Refresh access token"
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token holder"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/auth/logout"
+        },
+        {
+          "type": "p",
+          "text": "Revoke refresh session"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/auth/me"
+        },
+        {
+          "type": "p",
+          "text": "Current user information"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated"
+        },
+        {
+          "type": "p",
+          "text": "Courses"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Access"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/courses"
+        },
+        {
+          "type": "p",
+          "text": "List published courses"
+        },
+        {
+          "type": "p",
+          "text": "Public or authenticated"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve course"
+        },
+        {
+          "type": "p",
+          "text": "Policy-based"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/admin/courses"
+        },
+        {
+          "type": "p",
+          "text": "Create course"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "PATCH"
+        },
+        {
+          "type": "p",
+          "text": "/admin/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Update course"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "/admin/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Archive course"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/courses/{id}/modules"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve modules"
+        },
+        {
+          "type": "p",
+          "text": "Policy-based"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/courses/{id}/lessons"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve lessons"
+        },
+        {
+          "type": "p",
+          "text": "Policy-based"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Access"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/courses/{id}/enroll"
+        },
+        {
+          "type": "p",
+          "text": "Enroll student"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/me/enrollments"
+        },
+        {
+          "type": "p",
+          "text": "List own enrollments"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/enrollments/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve permitted enrollment"
+        },
+        {
+          "type": "p",
+          "text": "Owner or Admin"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "/enrollments/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Withdraw according to policy"
+        },
+        {
+          "type": "p",
+          "text": "Owner or Admin"
+        },
+        {
+          "type": "p",
+          "text": "Progress"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Access"
+        },
+        {
+          "type": "p",
+          "text": "PUT"
+        },
+        {
+          "type": "p",
+          "text": "/courses/{courseId}/lessons/{lessonId}/progress"
+        },
+        {
+          "type": "p",
+          "text": "Update lesson progress"
+        },
+        {
+          "type": "p",
+          "text": "Enrolled student"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/me/progress"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve own progress"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/me/progress/{courseId}"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve progress for a course"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/admin/courses/{id}/progress"
+        },
+        {
+          "type": "p",
+          "text": "Review course progress"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "Notifications"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Access"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/me/notifications"
+        },
+        {
+          "type": "p",
+          "text": "List own notifications"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "PATCH"
+        },
+        {
+          "type": "p",
+          "text": "/me/notifications/{id}/read"
+        },
+        {
+          "type": "p",
+          "text": "Mark notification read"
+        },
+        {
+          "type": "p",
+          "text": "Owner"
+        },
+        {
+          "type": "p",
+          "text": "The exact endpoint list can evolve, but document every final endpoint and enforce its access policy."
+        }
+      ]
+    },
+    {
+      "id": "section-20",
+      "badge": "Section 20",
+      "title": "20. Complete Capstone Testing Matrix",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Your final automated testing strategy should verify the entire application, not merely whether individual controllers return successful responses."
+        },
+        {
+          "type": "p",
+          "text": "Module"
+        },
+        {
+          "type": "p",
+          "text": "What to verify"
+        },
+        {
+          "type": "p",
+          "text": "Registration"
+        },
+        {
+          "type": "p",
+          "text": "Valid users, invalid email and duplicate email"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Password verification, token validation and expiration"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Student/admin access restrictions"
+        },
+        {
+          "type": "p",
+          "text": "Courses"
+        },
+        {
+          "type": "p",
+          "text": "Create, update, retrieve and archive"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment"
+        },
+        {
+          "type": "p",
+          "text": "Successful and duplicate enrollment"
+        },
+        {
+          "type": "p",
+          "text": "Progress"
+        },
+        {
+          "type": "p",
+          "text": "Correct lesson and course completion"
+        },
+        {
+          "type": "p",
+          "text": "Database"
+        },
+        {
+          "type": "p",
+          "text": "Foreign keys, constraints and transactions"
+        },
+        {
+          "type": "p",
+          "text": "Pagination"
+        },
+        {
+          "type": "p",
+          "text": "Valid pages, invalid parameters and maximum page size"
+        },
+        {
+          "type": "p",
+          "text": "Filtering"
+        },
+        {
+          "type": "p",
+          "text": "Correct filter combinations"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "Cache hits, misses, eviction and expiration"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "Message delivery, acknowledgements and retries"
+        },
+        {
+          "type": "p",
+          "text": "Outbox"
+        },
+        {
+          "type": "p",
+          "text": "Events remain recoverable after broker failure"
+        },
+        {
+          "type": "p",
+          "text": "Validation"
+        },
+        {
+          "type": "p",
+          "text": "Invalid request handling"
+        },
+        {
+          "type": "p",
+          "text": "Security"
+        },
+        {
+          "type": "p",
+          "text": "BOLA, BFLA, injection and protected properties"
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting"
+        },
+        {
+          "type": "p",
+          "text": "Excessive requests receive 429"
+        },
+        {
+          "type": "p",
+          "text": "OpenAPI"
+        },
+        {
+          "type": "p",
+          "text": "Documentation matches actual API behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Docker"
+        },
+        {
+          "type": "p",
+          "text": "Image builds, runs and shuts down properly"
+        },
+        {
+          "type": "p",
+          "text": "Health"
+        },
+        {
+          "type": "p",
+          "text": "Liveness, readiness and startup behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Monitoring"
+        },
+        {
+          "type": "p",
+          "text": "Metrics, logs and traces are available"
+        },
+        {
+          "type": "p",
+          "text": "Suggested minimum acceptance targets"
+        },
+        {
+          "type": "p",
+          "text": "These are learning targets for the capstone, not universal industry standards."
+        },
+        {
+          "type": "p",
+          "text": "Area"
+        },
+        {
+          "type": "p",
+          "text": "Suggested target"
+        },
+        {
+          "type": "p",
+          "text": "Unit tests"
+        },
+        {
+          "type": "p",
+          "text": "All core business services covered"
+        },
+        {
+          "type": "p",
+          "text": "Integration tests"
+        },
+        {
+          "type": "p",
+          "text": "All critical database workflows tested"
+        },
+        {
+          "type": "p",
+          "text": "Security tests"
+        },
+        {
+          "type": "p",
+          "text": "All privileged and owner-specific operations tested"
+        },
+        {
+          "type": "p",
+          "text": "Database"
+        },
+        {
+          "type": "p",
+          "text": "Migrations execute successfully from a clean database"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment"
+        },
+        {
+          "type": "p",
+          "text": "No duplicate records under concurrent enrollment attempts"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "Verified cache invalidation"
+        },
+        {
+          "type": "p",
+          "text": "Notifications"
+        },
+        {
+          "type": "p",
+          "text": "Failed messages are recoverable"
+        },
+        {
+          "type": "p",
+          "text": "API documentation"
+        },
+        {
+          "type": "p",
+          "text": "Every implemented public endpoint documented"
+        },
+        {
+          "type": "p",
+          "text": "Docker"
+        },
+        {
+          "type": "p",
+          "text": "Backend successfully starts with documented dependencies"
+        },
+        {
+          "type": "p",
+          "text": "Observability"
+        },
+        {
+          "type": "p",
+          "text": "Health, metrics and structured logs verified"
+        }
+      ]
+    },
+    {
+      "id": "section-21",
+      "badge": "Section 21",
+      "title": "21. Final Deliverables",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The project is not complete when the code works locally."
+        },
+        {
+          "type": "p",
+          "text": "You must produce an engineering submission that demonstrates the entire system."
+        }
+      ]
+    },
+    {
+      "id": "section-22",
+      "badge": "Section 1",
+      "title": "1. Working source code",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Complete Java + Spring Boot project containing controllers, services, repositories, entities, DTOs, security, caching, messaging and supporting configuration."
+        },
+        {
+          "type": "p",
+          "text": "02. Database design"
+        },
+        {
+          "type": "p",
+          "text": "ER diagram, table definitions, relationships, constraints, indexes and Flyway migration scripts."
+        },
+        {
+          "type": "p",
+          "text": "03. API documentation"
+        },
+        {
+          "type": "p",
+          "text": "OpenAPI specification, Swagger UI, request/response schemas, authentication requirements and error documentation."
+        },
+        {
+          "type": "p",
+          "text": "04. Automated test suite"
+        },
+        {
+          "type": "p",
+          "text": "Unit tests, integration tests, API tests, database tests, authentication tests, authorization tests, cache tests and asynchronous processing tests."
+        },
+        {
+          "type": "p",
+          "text": "05. Deployment instructions"
+        },
+        {
+          "type": "p",
+          "text": "Dockerfile, Compose configuration, environment variables, deployment procedure, migration steps, health-check verification and rollback instructions."
+        },
+        {
+          "type": "p",
+          "text": "06. Observability documentation"
+        },
+        {
+          "type": "p",
+          "text": "Logging format, metrics, monitoring dashboards, trace configuration, alert rules and incident investigation procedures."
+        },
+        {
+          "type": "p",
+          "text": "07. Technical architecture report"
+        },
+        {
+          "type": "p",
+          "text": "Complete system architecture, design decisions, data model, security approach, performance considerations, known limitations and future improvements."
+        },
+        {
+          "type": "h3",
+          "text": "21.1 Recommended final repository structure"
+        },
+        {
+          "type": "code",
+          "text": "learning-platform-capstone/ │ ├── backend/ │ ├── src/ │ ├── pom.xml │ └── Dockerfile │ ├── worker/ │ └── notification-worker/ │ ├── database/ │ └── migrations/ │ ├── deployment/ │ ├── compose.yaml │ ├── prometheus/ │ └── grafana/ │ ├── tests/ │ ├── unit/ │ ├── integration/ │ ├── security/ │ └── performance/ │ ├── docs/ │ ├── architecture.md │ ├── database-design.md │ ├── API.md │ ├── security.md │ ├── testing.md │ ├── deployment.md │ ├── monitoring.md │ └── incident-response.md │ └── README.md"
+        },
+        {
+          "type": "p",
+          "text": "This structure can be adapted to a single Maven multi-module project or a single Spring Boot project with separate internal packages."
+        },
+        {
+          "type": "p",
+          "text": "22. Technical Architecture Report — What Must You Explain?"
+        },
+        {
+          "type": "p",
+          "text": "Your architecture report is especially important because it demonstrates that you understand the reasons behind your implementation."
+        },
+        {
+          "type": "p",
+          "text": "Include the following sections."
+        },
+        {
+          "type": "p",
+          "text": "Report section"
+        },
+        {
+          "type": "p",
+          "text": "Questions you should answer"
+        },
+        {
+          "type": "p",
+          "text": "Project overview"
+        },
+        {
+          "type": "p",
+          "text": "What problem does the platform solve?"
+        },
+        {
+          "type": "p",
+          "text": "Architecture"
+        },
+        {
+          "type": "p",
+          "text": "How do application components communicate?"
+        },
+        {
+          "type": "p",
+          "text": "Technology selection"
+        },
+        {
+          "type": "p",
+          "text": "Why Java, Spring Boot, PostgreSQL, Redis and RabbitMQ?"
+        },
+        {
+          "type": "p",
+          "text": "Database design"
+        },
+        {
+          "type": "p",
+          "text": "Why were these tables and relationships selected?"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "How are users authenticated?"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "How are permissions enforced?"
+        },
+        {
+          "type": "p",
+          "text": "Transactions"
+        },
+        {
+          "type": "p",
+          "text": "Which operations must be atomic?"
+        },
+        {
+          "type": "p",
+          "text": "Caching"
+        },
+        {
+          "type": "p",
+          "text": "What information is cached and how is it invalidated?"
+        },
+        {
+          "type": "p",
+          "text": "Async processing"
+        },
+        {
+          "type": "p",
+          "text": "How are notification events delivered reliably?"
+        },
+        {
+          "type": "p",
+          "text": "Validation"
+        },
+        {
+          "type": "p",
+          "text": "How are invalid requests handled?"
+        },
+        {
+          "type": "p",
+          "text": "API security"
+        },
+        {
+          "type": "p",
+          "text": "How are common vulnerabilities prevented?"
+        },
+        {
+          "type": "p",
+          "text": "Testing"
+        },
+        {
+          "type": "p",
+          "text": "How is application correctness verified?"
+        },
+        {
+          "type": "p",
+          "text": "Deployment"
+        },
+        {
+          "type": "p",
+          "text": "How is the backend packaged and released?"
+        },
+        {
+          "type": "p",
+          "text": "Observability"
+        },
+        {
+          "type": "p",
+          "text": "How are problems detected and investigated?"
+        },
+        {
+          "type": "p",
+          "text": "Scalability"
+        },
+        {
+          "type": "p",
+          "text": "Which components can scale independently?"
+        },
+        {
+          "type": "p",
+          "text": "Limitations"
+        },
+        {
+          "type": "p",
+          "text": "What does the system not yet support?"
+        },
+        {
+          "type": "p",
+          "text": "Example architecture decision"
+        },
+        {
+          "type": "p",
+          "text": "Suppose someone asks:"
+        },
+        {
+          "type": "p",
+          "text": "\"Why did you use PostgreSQL instead of storing all application information in Redis?\""
+        },
+        {
+          "type": "p",
+          "text": "Your answer should explain:"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL is the primary persistent relational database. It provides relationships, constraints and transactional operations suitable for users, courses, enrollments and progress. Redis is used selectively to accelerate repeat reads and maintain shared rate-limiting state. Redis is not the authoritative database for learning records."
+        },
+        {
+          "type": "p",
+          "text": "That is the sort of engineering reasoning your architecture report should demonstrate."
+        }
+      ]
+    },
+    {
+      "id": "section-23",
+      "badge": "Section 23",
+      "title": "23. Suggested Capstone Evaluation Criteria",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Your final project can be evaluated using the following structure."
+        },
+        {
+          "type": "p",
+          "text": "Assessment area"
+        },
+        {
+          "type": "p",
+          "text": "Weight"
+        },
+        {
+          "type": "p",
+          "text": "Architecture and project structure"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Database design and transactional operations"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Authentication and authorization"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Course management and enrollment"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Progress tracking"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Pagination, filtering and search"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Redis caching"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous notifications"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Validation and standardized errors"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "API security and rate limiting"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Automated testing"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "OpenAPI documentation"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Docker deployment and observability"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Technical documentation"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Total"
+        },
+        {
+          "type": "p",
+          "text": "100%"
+        },
+        {
+          "type": "h3",
+          "text": "23.1 Final project demonstration"
+        },
+        {
+          "type": "p",
+          "text": "During the final demonstration, you should be able to perform this complete workflow:"
+        },
+        {
+          "type": "p",
+          "text": "Student learning journey"
+        },
+        {
+          "type": "p",
+          "text": "Register a new student."
+        },
+        {
+          "type": "p",
+          "text": "Authenticate and receive an access token."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve available courses using pagination."
+        },
+        {
+          "type": "p",
+          "text": "Search and filter courses."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve course details from Redis on repeated requests."
+        },
+        {
+          "type": "p",
+          "text": "Enroll in a course."
+        },
+        {
+          "type": "p",
+          "text": "Verify the enrollment in PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Verify the asynchronous notification is processed."
+        },
+        {
+          "type": "p",
+          "text": "Complete a lesson."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve updated learning progress."
+        },
+        {
+          "type": "p",
+          "text": "Administrator journey"
+        },
+        {
+          "type": "p",
+          "text": "Log in as administrator."
+        },
+        {
+          "type": "p",
+          "text": "Create and publish a course."
+        },
+        {
+          "type": "p",
+          "text": "Edit the course information."
+        },
+        {
+          "type": "p",
+          "text": "Verify that the Redis cache is invalidated correctly."
+        },
+        {
+          "type": "p",
+          "text": "Review course enrollments."
+        },
+        {
+          "type": "p",
+          "text": "Verify that students cannot perform administrative operations."
+        },
+        {
+          "type": "p",
+          "text": "Production demonstration"
+        },
+        {
+          "type": "p",
+          "text": "Build and run the Docker containers."
+        },
+        {
+          "type": "p",
+          "text": "Verify database migrations."
+        },
+        {
+          "type": "p",
+          "text": "Check application readiness."
+        },
+        {
+          "type": "p",
+          "text": "Inspect structured logs and request traces."
+        },
+        {
+          "type": "p",
+          "text": "View monitoring dashboards."
+        },
+        {
+          "type": "p",
+          "text": "Simulate a failure and demonstrate recovery."
+        }
+      ]
+    },
+    {
+      "id": "section-24",
+      "badge": "Section 24",
+      "title": "24. Recommended Learning Resources",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Use these official resources while implementing the capstone."
+        },
+        {
+          "type": "p",
+          "text": "Technology"
+        },
+        {
+          "type": "p",
+          "text": "Resource"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "[Spring Boot documentation](https://docs.spring.io/spring-boot/reference/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "[Spring Security](https://docs.spring.io/spring-security/reference/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "[PostgreSQL documentation](https://www.postgresql.org/docs/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Spring Data JPA"
+        },
+        {
+          "type": "p",
+          "text": "[Spring Data JPA](https://docs.spring.io/spring-data/jpa/reference/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "[Redis documentation](https://redis.io/docs/latest/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Spring Redis Cache"
+        },
+        {
+          "type": "p",
+          "text": "[Redis cache integration](https://docs.spring.io/spring-data/redis/reference/redis/redis-cache.html?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "[RabbitMQ documentation](https://www.rabbitmq.com/docs?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Docker"
+        },
+        {
+          "type": "p",
+          "text": "[Docker documentation](https://docs.docker.com/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Flyway"
+        },
+        {
+          "type": "p",
+          "text": "[Flyway documentation](https://documentation.red-gate.com/flyway?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "OpenAPI"
+        },
+        {
+          "type": "p",
+          "text": "[OpenAPI specification](https://www.openapis.org/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Springdoc"
+        },
+        {
+          "type": "p",
+          "text": "[Springdoc documentation](https://springdoc.org/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Testcontainers"
+        },
+        {
+          "type": "p",
+          "text": "[Testcontainers](https://testcontainers.com/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "OpenTelemetry"
+        },
+        {
+          "type": "p",
+          "text": "[OpenTelemetry](https://opentelemetry.io/docs/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Prometheus"
+        },
+        {
+          "type": "p",
+          "text": "[Prometheus](https://prometheus.io/docs/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "OWASP"
+        },
+        {
+          "type": "p",
+          "text": "[OWASP API Security](https://owasp.org/www-project-api-security/?utm_source=chatgpt.com)"
+        }
+      ]
+    },
+    {
+      "id": "section-25",
+      "badge": "Section 25",
+      "title": "25. How the Entire Backend Course Comes Together",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The capstone combines all the engineering concepts learned throughout the backend course."
+        },
+        {
+          "type": "p",
+          "text": "Earlier module"
+        },
+        {
+          "type": "p",
+          "text": "Skills used in the capstone"
+        },
+        {
+          "type": "p",
+          "text": "Java and object-oriented programming"
+        },
+        {
+          "type": "p",
+          "text": "Classes, interfaces, abstraction and application design"
+        },
+        {
+          "type": "p",
+          "text": "Database engineering"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL, entity relationships, indexes and transactions"
+        },
+        {
+          "type": "p",
+          "text": "Backend architecture"
+        },
+        {
+          "type": "p",
+          "text": "Controllers, services, repositories and DTOs"
+        },
+        {
+          "type": "p",
+          "text": "REST API development"
+        },
+        {
+          "type": "p",
+          "text": "HTTP methods, endpoints and response design"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Registration, login and JWT"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Student/admin permission controls"
+        },
+        {
+          "type": "p",
+          "text": "Backend testing"
+        },
+        {
+          "type": "p",
+          "text": "JUnit, Mockito and integration testing"
+        },
+        {
+          "type": "p",
+          "text": "API security"
+        },
+        {
+          "type": "p",
+          "text": "BOLA, BFLA, injection prevention and rate limiting"
+        },
+        {
+          "type": "p",
+          "text": "Production deployment"
+        },
+        {
+          "type": "p",
+          "text": "Docker, configuration and migrations"
+        },
+        {
+          "type": "p",
+          "text": "Observability"
+        },
+        {
+          "type": "p",
+          "text": "Logs, metrics, traces and incident investigation"
+        },
+        {
+          "type": "p",
+          "text": "The difference is that earlier modules taught each concept separately. The capstone makes you combine them into one functioning system."
+        },
+        {
+          "type": "p",
+          "text": "What makes this a professional-level capstone?"
+        },
+        {
+          "type": "p",
+          "text": "You can build"
+        },
+        {
+          "type": "p",
+          "text": "Design a complete backend with clear architecture, business logic and database relationships."
+        },
+        {
+          "type": "p",
+          "text": "You can secure"
+        },
+        {
+          "type": "p",
+          "text": "Protect authentication, authorization, private information and application resources."
+        },
+        {
+          "type": "p",
+          "text": "You can optimize"
+        },
+        {
+          "type": "p",
+          "text": "Use database indexing, caching, pagination and asynchronous processing appropriately."
+        },
+        {
+          "type": "p",
+          "text": "You can verify"
+        },
+        {
+          "type": "p",
+          "text": "Write automated tests that verify business behaviour, database consistency, security and integrations."
+        },
+        {
+          "type": "p",
+          "text": "You can deploy"
+        },
+        {
+          "type": "p",
+          "text": "Package the application, deploy containers and configure production environments."
+        },
+        {
+          "type": "p",
+          "text": "You can operate"
+        },
+        {
+          "type": "p",
+          "text": "Monitor performance, investigate failures and maintain the application in production."
+        },
+        {
+          "type": "p",
+          "text": "The central engineering principle of Module 11:"
+        },
+        {
+          "type": "p",
+          "text": "A production-ready learning platform is not simply a collection of API endpoints. It is a complete software system in which authentication, authorization, business logic, database consistency, caching, asynchronous processing, automated testing, deployment and observability work together."
+        },
+        {
+          "type": "p",
+          "text": "Your final objective is to deliver an application that another engineer can run, understand, test, deploy and maintain—not merely a project that works on your own computer."
+        },
+        {
+          "type": "p",
+          "text": "This capstone is the final demonstration that you can take backend engineering concepts and turn them into a complete, production-oriented application."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T10:37:02+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

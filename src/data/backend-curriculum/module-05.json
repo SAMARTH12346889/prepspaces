@@ -1,0 +1,4474 @@
+{
+  "moduleNumber": "05",
+  "title": "MODULE 05 — Authentication and Authorization Engineering",
+  "badges": [
+    "Core Module",
+    "12 Lessons",
+    "Practical Lab + Assignment"
+  ],
+  "overview": [],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Section 1",
+      "title": "1. Module Overview",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Every modern backend application needs a reliable way to identify users and control what they are allowed to access."
+        },
+        {
+          "type": "p",
+          "text": "Imagine PrepSpaces has three types of users:"
+        },
+        {
+          "type": "p",
+          "text": "Students: Can access courses, enrol in programs and track learning progress."
+        },
+        {
+          "type": "p",
+          "text": "Instructors: Can create courses, manage lessons and monitor student progress."
+        },
+        {
+          "type": "p",
+          "text": "Administrators: Can manage users, courses and platform-level settings."
+        },
+        {
+          "type": "p",
+          "text": "When a student logs in, the backend must identify that student. When the student attempts to access an administrator endpoint, the backend must reject the request."
+        },
+        {
+          "type": "p",
+          "text": "This introduces two fundamental security questions:"
+        },
+        {
+          "type": "p",
+          "text": "Authentication: Who are you?"
+        },
+        {
+          "type": "p",
+          "text": "Authorization: What are you allowed to do?"
+        },
+        {
+          "type": "p",
+          "text": "In this module, you will learn how professional backend systems implement registration, login, password security, sessions, JWT authentication, refresh tokens, OAuth 2.0, OpenID Connect, role-based access control and protected API endpoints."
+        },
+        {
+          "type": "p",
+          "text": "The module primarily uses Java, Spring Boot, Spring Security, PostgreSQL and JWT."
+        },
+        {
+          "type": "p",
+          "text": "What you will build"
+        },
+        {
+          "type": "p",
+          "text": "By the end of this module, you will be able to build a secure authentication system in which:"
+        },
+        {
+          "type": "p",
+          "text": "Users can register and log in."
+        },
+        {
+          "type": "p",
+          "text": "Passwords are securely hashed before storage."
+        },
+        {
+          "type": "p",
+          "text": "Authenticated users receive appropriate credentials or sessions."
+        },
+        {
+          "type": "p",
+          "text": "Protected APIs reject unauthenticated requests."
+        },
+        {
+          "type": "p",
+          "text": "Students cannot access administrator-only operations."
+        },
+        {
+          "type": "p",
+          "text": "Access tokens expire."
+        },
+        {
+          "type": "p",
+          "text": "Refresh tokens can be rotated and revoked."
+        },
+        {
+          "type": "p",
+          "text": "Logout invalidates the appropriate authentication credentials."
+        },
+        {
+          "type": "p",
+          "text": "Authorization rules are enforced at the backend, not merely hidden in the frontend."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Section 2",
+      "title": "2. What You Will Learn",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "By completing this module, you should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Explain authentication and authorization with real-world examples."
+        },
+        {
+          "type": "p",
+          "text": "Design secure user registration and login workflows."
+        },
+        {
+          "type": "p",
+          "text": "Store passwords using appropriate password-hashing algorithms."
+        },
+        {
+          "type": "p",
+          "text": "Implement session-based authentication."
+        },
+        {
+          "type": "p",
+          "text": "Understand stateless token-based authentication."
+        },
+        {
+          "type": "p",
+          "text": "Generate and validate JSON Web Tokens."
+        },
+        {
+          "type": "p",
+          "text": "Manage access tokens and refresh tokens securely."
+        },
+        {
+          "type": "p",
+          "text": "Understand OAuth 2.0 and OpenID Connect."
+        },
+        {
+          "type": "p",
+          "text": "Implement Role-Based Access Control (RBAC)."
+        },
+        {
+          "type": "p",
+          "text": "Build permission-based authorization."
+        },
+        {
+          "type": "p",
+          "text": "Secure REST APIs using Spring Security."
+        },
+        {
+          "type": "p",
+          "text": "Handle logout, expiration, revocation and token reuse."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Section 3",
+      "title": "3. Detailed Lesson Explanations",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Lesson 1 — Authentication vs Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Authentication and authorization are two different security processes. They work together, but they solve different problems."
+        },
+        {
+          "type": "p",
+          "text": "A. What is authentication?"
+        },
+        {
+          "type": "p",
+          "text": "Authentication is the process of verifying the identity of a user."
+        },
+        {
+          "type": "p",
+          "text": "Suppose a student visits PrepSpaces and enters:"
+        },
+        {
+          "type": "p",
+          "text": "Email: student@example.com Password: ********"
+        },
+        {
+          "type": "p",
+          "text": "The backend checks whether the supplied credentials match the account."
+        },
+        {
+          "type": "p",
+          "text": "If they are valid, the backend establishes an authenticated identity for that user."
+        },
+        {
+          "type": "p",
+          "text": "Authentication answers:"
+        },
+        {
+          "type": "p",
+          "text": "Who is making this request?"
+        },
+        {
+          "type": "p",
+          "text": "Common authentication methods include:"
+        },
+        {
+          "type": "p",
+          "text": "Email and password."
+        },
+        {
+          "type": "p",
+          "text": "Username and password."
+        },
+        {
+          "type": "p",
+          "text": "Multi-factor authentication."
+        },
+        {
+          "type": "p",
+          "text": "Social login."
+        },
+        {
+          "type": "p",
+          "text": "Passkeys."
+        },
+        {
+          "type": "p",
+          "text": "Client certificates."
+        },
+        {
+          "type": "p",
+          "text": "B. What is authorization?"
+        },
+        {
+          "type": "p",
+          "text": "Authorization determines whether an authenticated user has permission to perform a particular action or access a resource."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Action"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "Instructor"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "View public courses"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Enrol in a course"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Create a course"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Delete a course"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Own courses, subject to policy"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Manage users"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Authorization answers:"
+        },
+        {
+          "type": "p",
+          "text": "What is this user allowed to do?"
+        },
+        {
+          "type": "p",
+          "text": "C. Understanding the complete workflow"
+        },
+        {
+          "type": "p",
+          "text": "User sends login credentials"
+        },
+        {
+          "type": "p",
+          "text": "Email and password"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Backend verifies the user's identity"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated identity established"
+        },
+        {
+          "type": "p",
+          "text": "Session or authentication token"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Checks the user's roles and permissions"
+        },
+        {
+          "type": "p",
+          "text": "Access granted"
+        },
+        {
+          "type": "p",
+          "text": "User has permission"
+        },
+        {
+          "type": "p",
+          "text": "Access denied"
+        },
+        {
+          "type": "p",
+          "text": "User lacks permission"
+        },
+        {
+          "type": "p",
+          "text": "D. Important HTTP status codes"
+        },
+        {
+          "type": "p",
+          "text": "Status"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "200"
+        },
+        {
+          "type": "p",
+          "text": "Successful request"
+        },
+        {
+          "type": "p",
+          "text": "User profile retrieved"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Unauthenticated"
+        },
+        {
+          "type": "p",
+          "text": "Missing or invalid credentials"
+        },
+        {
+          "type": "p",
+          "text": "403"
+        },
+        {
+          "type": "p",
+          "text": "Forbidden"
+        },
+        {
+          "type": "p",
+          "text": "Student attempts admin operation"
+        },
+        {
+          "type": "p",
+          "text": "404"
+        },
+        {
+          "type": "p",
+          "text": "Not found"
+        },
+        {
+          "type": "p",
+          "text": "Requested resource does not exist"
+        },
+        {
+          "type": "p",
+          "text": "A 401 Unauthorized response generally means valid authentication was not established. A 403 Forbidden response means the request is understood, but the authenticated identity does not have the required access."
+        },
+        {
+          "type": "p",
+          "text": "E. Real-world example"
+        },
+        {
+          "type": "p",
+          "text": "A student logs in successfully and receives access to their dashboard."
+        },
+        {
+          "type": "p",
+          "text": "They then try to access:"
+        },
+        {
+          "type": "code",
+          "text": "DELETE /api/admin/users/25"
+        },
+        {
+          "type": "p",
+          "text": "The authentication system recognises the student, but the authorization system checks their permissions and denies the operation."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Without authentication, a backend cannot reliably identify its users. Without authorization, authenticated users could access operations that should be restricted."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 2 — User Registration and Login Workflows"
+        },
+        {
+          "type": "p",
+          "text": "Registration and login are usually the entry points into an application's authentication system."
+        },
+        {
+          "type": "p",
+          "text": "You will learn how to implement both workflows using Spring Boot."
+        },
+        {
+          "type": "p",
+          "text": "A. User registration workflow"
+        },
+        {
+          "type": "p",
+          "text": "A new user submits a registration form."
+        },
+        {
+          "type": "p",
+          "text": "Example request:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/auth/register Content-Type: application/json\n{ \"name\": \"Rahul Sharma\", \"email\": \"rahul@example.com\", \"password\": \"StrongPassword123!\" }"
+        },
+        {
+          "type": "p",
+          "text": "The backend should perform these operations:"
+        },
+        {
+          "type": "p",
+          "text": "Receive the registration request."
+        },
+        {
+          "type": "p",
+          "text": "Validate required fields."
+        },
+        {
+          "type": "p",
+          "text": "Validate email format and password policy."
+        },
+        {
+          "type": "p",
+          "text": "Check whether the email already exists."
+        },
+        {
+          "type": "p",
+          "text": "Hash the password."
+        },
+        {
+          "type": "p",
+          "text": "Create the user record."
+        },
+        {
+          "type": "p",
+          "text": "Assign an allowed default role."
+        },
+        {
+          "type": "p",
+          "text": "Store the user in PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Return a safe response."
+        },
+        {
+          "type": "p",
+          "text": "The backend should never trust a role supplied directly by a public registration request. Otherwise, someone could register themselves as an administrator."
+        },
+        {
+          "type": "p",
+          "text": "B. Registration API structure"
+        },
+        {
+          "type": "p",
+          "text": "A professional application separates request data from database entities."
+        },
+        {
+          "type": "p",
+          "text": "Example request DTO:"
+        },
+        {
+          "type": "code",
+          "text": "public record RegisterRequest( String name, String email, String password ) {}"
+        },
+        {
+          "type": "p",
+          "text": "Example controller:"
+        },
+        {
+          "type": "code",
+          "text": "@RestController @RequestMapping(\"/api/auth\") public class AuthController { private final AuthService authService; public AuthController(AuthService authService) { this.authService = authService; } @PostMapping(\"/register\") public ResponseEntity<?> register( @RequestBody @Valid RegisterRequest request) { authService.register(request); return ResponseEntity .status(HttpStatus.CREATED) .body(\"Registration successful\"); } }"
+        },
+        {
+          "type": "p",
+          "text": "The service layer handles validation, password hashing, default role assignment and persistence."
+        },
+        {
+          "type": "p",
+          "text": "C. User login workflow"
+        },
+        {
+          "type": "p",
+          "text": "After registration, the user submits their credentials."
+        },
+        {
+          "type": "code",
+          "text": "POST /api/auth/login Content-Type: application/json\n{ \"email\": \"rahul@example.com\", \"password\": \"StrongPassword123!\" }"
+        },
+        {
+          "type": "p",
+          "text": "The backend:"
+        },
+        {
+          "type": "p",
+          "text": "Finds the user by email."
+        },
+        {
+          "type": "p",
+          "text": "Checks whether the account is allowed to log in."
+        },
+        {
+          "type": "p",
+          "text": "Compares the submitted password against the stored password hash."
+        },
+        {
+          "type": "p",
+          "text": "Establishes an authenticated identity."
+        },
+        {
+          "type": "p",
+          "text": "Creates a session or issues tokens, depending on the architecture."
+        },
+        {
+          "type": "p",
+          "text": "Returns the appropriate authentication response."
+        },
+        {
+          "type": "p",
+          "text": "D. Login response"
+        },
+        {
+          "type": "p",
+          "text": "A token-based system may return:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"accessToken\": \"example-access-token\", \"tokenType\": \"Bearer\", \"expiresIn\": 900 }"
+        },
+        {
+          "type": "p",
+          "text": "This is an illustrative response, not a real credential."
+        },
+        {
+          "type": "p",
+          "text": "The response must not contain the user's password or password hash."
+        },
+        {
+          "type": "p",
+          "text": "E. Important security considerations"
+        },
+        {
+          "type": "p",
+          "text": "Use generic login error messages to avoid revealing whether an email address exists."
+        },
+        {
+          "type": "p",
+          "text": "Apply rate limiting to login attempts."
+        },
+        {
+          "type": "p",
+          "text": "Consider account lockout or progressive delay policies."
+        },
+        {
+          "type": "p",
+          "text": "Validate every request on the backend."
+        },
+        {
+          "type": "p",
+          "text": "Do not accept privileged roles during ordinary registration."
+        },
+        {
+          "type": "p",
+          "text": "Use HTTPS for transmitting credentials."
+        },
+        {
+          "type": "p",
+          "text": "Consider email verification and account recovery workflows."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Registration and login establish the foundation on which every other authentication feature depends."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 3 — Password Hashing and Secure Credential Storage"
+        },
+        {
+          "type": "p",
+          "text": "Passwords are among the most sensitive pieces of information an application stores."
+        },
+        {
+          "type": "p",
+          "text": "A backend must never store passwords as ordinary readable text."
+        },
+        {
+          "type": "p",
+          "text": "A. Why plain-text password storage is dangerous"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a database contains:"
+        },
+        {
+          "type": "p",
+          "text": "User"
+        },
+        {
+          "type": "p",
+          "text": "Email"
+        },
+        {
+          "type": "p",
+          "text": "Password"
+        },
+        {
+          "type": "p",
+          "text": "Rahul"
+        },
+        {
+          "type": "p",
+          "text": "rahul@example.com"
+        },
+        {
+          "type": "p",
+          "text": "rahul123"
+        },
+        {
+          "type": "p",
+          "text": "Priya"
+        },
+        {
+          "type": "p",
+          "text": "priya@example.com"
+        },
+        {
+          "type": "p",
+          "text": "password123"
+        },
+        {
+          "type": "p",
+          "text": "If an attacker gains access to the database, they immediately obtain the users' actual passwords."
+        },
+        {
+          "type": "p",
+          "text": "This could also expose accounts on other websites where users reused their passwords."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding hashing"
+        },
+        {
+          "type": "p",
+          "text": "Password hashing converts a password into a one-way derived value."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Original password: StrongPassword123! Password hash: $2a$12$exampleIllustrativeHashValue"
+        },
+        {
+          "type": "p",
+          "text": "When the user logs in, the backend verifies the submitted password against the stored hash."
+        },
+        {
+          "type": "p",
+          "text": "It does not need to decrypt or recover the original password."
+        },
+        {
+          "type": "p",
+          "text": "C. Hashing vs encryption"
+        },
+        {
+          "type": "p",
+          "text": "Hashing"
+        },
+        {
+          "type": "p",
+          "text": "Encryption"
+        },
+        {
+          "type": "p",
+          "text": "Designed as a one-way operation"
+        },
+        {
+          "type": "p",
+          "text": "Designed to be reversible with a key"
+        },
+        {
+          "type": "p",
+          "text": "Used for password verification"
+        },
+        {
+          "type": "p",
+          "text": "Used for protecting data that must be recovered"
+        },
+        {
+          "type": "p",
+          "text": "No decryption operation"
+        },
+        {
+          "type": "p",
+          "text": "Decryption is possible with the appropriate key"
+        },
+        {
+          "type": "p",
+          "text": "Passwords should generally be hashed, not reversibly encrypted."
+        },
+        {
+          "type": "p",
+          "text": "D. Important password-hashing algorithms"
+        },
+        {
+          "type": "p",
+          "text": "1. BCrypt"
+        },
+        {
+          "type": "p",
+          "text": "A password-hashing algorithm designed to make brute-force attacks expensive."
+        },
+        {
+          "type": "p",
+          "text": "2. Argon2id"
+        },
+        {
+          "type": "p",
+          "text": "A memory-hard password-hashing algorithm that is a strong modern choice for new systems."
+        },
+        {
+          "type": "p",
+          "text": "3. PBKDF2"
+        },
+        {
+          "type": "p",
+          "text": "A password-based key derivation function that applies repeated processing to make guessing more expensive."
+        },
+        {
+          "type": "p",
+          "text": "For new applications, prefer Argon2id when your environment supports it and is configured appropriately. BCrypt is also widely supported by Spring Security."
+        },
+        {
+          "type": "p",
+          "text": "Avoid using MD5, SHA-1 or a single ordinary SHA-256 operation for password storage."
+        },
+        {
+          "type": "p",
+          "text": "E. Implementing password hashing in Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "Example using BCrypt:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration public class PasswordConfig { @Bean public PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(12); } }"
+        },
+        {
+          "type": "p",
+          "text": "The value 12 is an illustrative BCrypt work factor. Choose and benchmark the work factor for your actual deployment."
+        },
+        {
+          "type": "p",
+          "text": "When registering a user:"
+        },
+        {
+          "type": "p",
+          "text": "String hashedPassword = passwordEncoder.encode(request.password());"
+        },
+        {
+          "type": "p",
+          "text": "Save only the resulting hash in the database."
+        },
+        {
+          "type": "p",
+          "text": "When verifying credentials:"
+        },
+        {
+          "type": "p",
+          "text": "boolean valid = passwordEncoder.matches( request.password(), user.getPasswordHash() );"
+        },
+        {
+          "type": "p",
+          "text": "Notice that the backend compares the supplied password with the hash. It does not decrypt the stored hash."
+        },
+        {
+          "type": "p",
+          "text": "F. Additional security considerations"
+        },
+        {
+          "type": "p",
+          "text": "You will also learn about:"
+        },
+        {
+          "type": "p",
+          "text": "Unique salts."
+        },
+        {
+          "type": "p",
+          "text": "Adaptive work factors."
+        },
+        {
+          "type": "p",
+          "text": "Password length and strength policies."
+        },
+        {
+          "type": "p",
+          "text": "Preventing credential stuffing."
+        },
+        {
+          "type": "p",
+          "text": "Password reset tokens."
+        },
+        {
+          "type": "p",
+          "text": "Secure password recovery."
+        },
+        {
+          "type": "p",
+          "text": "Credential exposure and breach response."
+        },
+        {
+          "type": "p",
+          "text": "A password reset token must be random, short-lived, single-use and stored safely. Avoid logging passwords, hashes or reset tokens."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Even if your database is compromised, proper password hashing makes it significantly harder for attackers to recover users' original passwords."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 4 — Session-Based Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Session-based authentication is one of the traditional ways of managing authenticated users in web applications."
+        },
+        {
+          "type": "p",
+          "text": "Instead of sending the user's email and password with every request, the backend creates a session after successful login."
+        },
+        {
+          "type": "p",
+          "text": "A. What is a session?"
+        },
+        {
+          "type": "p",
+          "text": "A session is a server-managed record that represents an authenticated user's interaction with an application."
+        },
+        {
+          "type": "p",
+          "text": "Suppose Rahul logs into PrepSpaces."
+        },
+        {
+          "type": "p",
+          "text": "The backend:"
+        },
+        {
+          "type": "p",
+          "text": "Verifies Rahul's credentials."
+        },
+        {
+          "type": "p",
+          "text": "Creates a session."
+        },
+        {
+          "type": "p",
+          "text": "Generates a unique session identifier."
+        },
+        {
+          "type": "p",
+          "text": "Stores the session information on the server."
+        },
+        {
+          "type": "p",
+          "text": "Sends the session identifier to the browser using a cookie."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Set-Cookie: JSESSIONID=abc123example; HttpOnly; Secure; SameSite=Lax"
+        },
+        {
+          "type": "p",
+          "text": "The browser automatically sends the cookie with subsequent requests when its cookie rules permit."
+        },
+        {
+          "type": "p",
+          "text": "B. How session authentication works"
+        },
+        {
+          "type": "p",
+          "text": "1. User logs in"
+        },
+        {
+          "type": "p",
+          "text": "Email and password"
+        },
+        {
+          "type": "p",
+          "text": "2. Backend verifies credentials"
+        },
+        {
+          "type": "p",
+          "text": "3. Server creates a session"
+        },
+        {
+          "type": "p",
+          "text": "Session information stored server-side"
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Section 4",
+      "title": "4. Browser receives session cookie",
+      "blocks": []
+    },
+    {
+      "id": "section-5",
+      "badge": "Section 5",
+      "title": "5. Browser sends cookie with requests",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Server finds the associated session"
+        },
+        {
+          "type": "p",
+          "text": "User is authenticated"
+        },
+        {
+          "type": "p",
+          "text": "C. Understanding session management"
+        },
+        {
+          "type": "p",
+          "text": "You will learn:"
+        },
+        {
+          "type": "p",
+          "text": "Session creation and storage."
+        },
+        {
+          "type": "p",
+          "text": "Session identifiers."
+        },
+        {
+          "type": "p",
+          "text": "Session expiration."
+        },
+        {
+          "type": "p",
+          "text": "Session invalidation."
+        },
+        {
+          "type": "p",
+          "text": "Session fixation attacks."
+        },
+        {
+          "type": "p",
+          "text": "Session management across multiple servers."
+        },
+        {
+          "type": "p",
+          "text": "Distributed session storage using Redis."
+        },
+        {
+          "type": "p",
+          "text": "Concurrent login sessions."
+        },
+        {
+          "type": "p",
+          "text": "D. Session security"
+        },
+        {
+          "type": "p",
+          "text": "A secure session cookie should generally use:"
+        },
+        {
+          "type": "p",
+          "text": "Attribute"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "HttpOnly"
+        },
+        {
+          "type": "p",
+          "text": "Prevents JavaScript from reading the cookie"
+        },
+        {
+          "type": "p",
+          "text": "Secure"
+        },
+        {
+          "type": "p",
+          "text": "Restricts cookie transmission to HTTPS"
+        },
+        {
+          "type": "p",
+          "text": "SameSite"
+        },
+        {
+          "type": "p",
+          "text": "Controls cross-site cookie sending"
+        },
+        {
+          "type": "p",
+          "text": "Expiration"
+        },
+        {
+          "type": "p",
+          "text": "Controls cookie lifetime"
+        },
+        {
+          "type": "p",
+          "text": "You will also understand CSRF (Cross-Site Request Forgery)."
+        },
+        {
+          "type": "p",
+          "text": "Since browsers automatically send cookies, a malicious website may attempt to trigger authenticated requests. CSRF protection is therefore important for cookie-based authentication."
+        },
+        {
+          "type": "p",
+          "text": "Spring Security provides CSRF protection mechanisms that you must configure appropriately for your application."
+        },
+        {
+          "type": "p",
+          "text": "E. Session-based authentication in Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security supports session management without requiring you to build an entire session system yourself."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableWebSecurity public class SecurityConfig { @Bean public SecurityFilterChain securityFilterChain( HttpSecurity http) throws Exception { http .authorizeHttpRequests(auth -> auth .requestMatchers(\"/api/auth/**\").permitAll() .anyRequest().authenticated() ) .formLogin(Customizer.withDefaults()) .sessionManagement(session -> session .sessionCreationPolicy( SessionCreationPolicy.IF_REQUIRED ) ); return http.build(); } }"
+        },
+        {
+          "type": "p",
+          "text": "This is a simplified session-oriented configuration. Production API applications generally require an appropriately designed login endpoint and CSRF configuration."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Session authentication is particularly useful in traditional web applications and remains an important approach even when modern systems use token-based authentication."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 5 — Token-Based Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Token-based authentication allows a user to authenticate using a digital token issued after successful login."
+        },
+        {
+          "type": "p",
+          "text": "Instead of looking up a traditional server-side session for every request, the backend verifies the token presented by the client."
+        },
+        {
+          "type": "p",
+          "text": "A. What is an authentication token?"
+        },
+        {
+          "type": "p",
+          "text": "A token is a credential that represents an authenticated identity or an authorised capability."
+        },
+        {
+          "type": "p",
+          "text": "For example, after login, a backend might issue:"
+        },
+        {
+          "type": "p",
+          "text": "eyJhbGciOiJIUzI1NiJ9.example.signature"
+        },
+        {
+          "type": "p",
+          "text": "This is an illustrative token format."
+        },
+        {
+          "type": "p",
+          "text": "The client sends the token when accessing protected APIs."
+        },
+        {
+          "type": "code",
+          "text": "GET /api/users/profile Authorization: Bearer YOUR_ACCESS_TOKEN"
+        },
+        {
+          "type": "p",
+          "text": "The backend validates the token and determines whether the request is authorised."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding token-based authentication"
+        },
+        {
+          "type": "p",
+          "text": "User logs in"
+        },
+        {
+          "type": "p",
+          "text": "Backend verifies credentials"
+        },
+        {
+          "type": "p",
+          "text": "Authentication token issued"
+        },
+        {
+          "type": "p",
+          "text": "Client requests a protected API"
+        },
+        {
+          "type": "code",
+          "text": "Authorization: Bearer token"
+        },
+        {
+          "type": "p",
+          "text": "Backend validates token"
+        },
+        {
+          "type": "p",
+          "text": "Access decision"
+        },
+        {
+          "type": "p",
+          "text": "C. Session-based vs token-based authentication"
+        },
+        {
+          "type": "p",
+          "text": "Comparison"
+        },
+        {
+          "type": "p",
+          "text": "Session-based"
+        },
+        {
+          "type": "p",
+          "text": "Token-based"
+        },
+        {
+          "type": "p",
+          "text": "Authentication state"
+        },
+        {
+          "type": "p",
+          "text": "Generally server-side"
+        },
+        {
+          "type": "p",
+          "text": "Represented by a token"
+        },
+        {
+          "type": "p",
+          "text": "Client credential"
+        },
+        {
+          "type": "p",
+          "text": "Session cookie"
+        },
+        {
+          "type": "p",
+          "text": "Access token"
+        },
+        {
+          "type": "p",
+          "text": "Server storage"
+        },
+        {
+          "type": "p",
+          "text": "Session state"
+        },
+        {
+          "type": "p",
+          "text": "Depends on token architecture"
+        },
+        {
+          "type": "p",
+          "text": "Scaling"
+        },
+        {
+          "type": "p",
+          "text": "Shared session storage may be required"
+        },
+        {
+          "type": "p",
+          "text": "Can simplify distributed verification"
+        },
+        {
+          "type": "p",
+          "text": "Revocation"
+        },
+        {
+          "type": "p",
+          "text": "Invalidate session"
+        },
+        {
+          "type": "p",
+          "text": "Depends on token design"
+        },
+        {
+          "type": "p",
+          "text": "Common use"
+        },
+        {
+          "type": "p",
+          "text": "Traditional web applications"
+        },
+        {
+          "type": "p",
+          "text": "APIs and distributed systems"
+        },
+        {
+          "type": "p",
+          "text": "An important distinction: token-based authentication is a broad category. Not every token is a JWT, and some token systems still require server-side state."
+        },
+        {
+          "type": "p",
+          "text": "D. Stateless authentication"
+        },
+        {
+          "type": "p",
+          "text": "A signed JWT can often be verified without retrieving a session from a database for every request."
+        },
+        {
+          "type": "p",
+          "text": "This is commonly described as stateless authentication."
+        },
+        {
+          "type": "p",
+          "text": "However, that does not mean the entire authentication architecture has no server-side state. Refresh-token records, revocation lists and account status checks may still require storage."
+        },
+        {
+          "type": "p",
+          "text": "E. Security considerations"
+        },
+        {
+          "type": "p",
+          "text": "You will study:"
+        },
+        {
+          "type": "p",
+          "text": "Secure token transmission."
+        },
+        {
+          "type": "p",
+          "text": "Token theft."
+        },
+        {
+          "type": "p",
+          "text": "Replay attacks."
+        },
+        {
+          "type": "p",
+          "text": "Token expiration."
+        },
+        {
+          "type": "p",
+          "text": "Token storage."
+        },
+        {
+          "type": "p",
+          "text": "HTTPS enforcement."
+        },
+        {
+          "type": "p",
+          "text": "Token signature verification."
+        },
+        {
+          "type": "p",
+          "text": "Stateless authentication trade-offs."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Token-based authentication is widely used in modern REST APIs, mobile applications and distributed backend architectures."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 6 — JSON Web Tokens (JWT)"
+        },
+        {
+          "type": "p",
+          "text": "JSON Web Token (JWT) is a widely used format for representing claims between systems."
+        },
+        {
+          "type": "p",
+          "text": "JWT is especially useful when a backend needs to issue signed credentials that another component can validate."
+        },
+        {
+          "type": "p",
+          "text": "A. JWT structure"
+        },
+        {
+          "type": "p",
+          "text": "A typical signed JWT contains three components:"
+        },
+        {
+          "type": "p",
+          "text": "HEADER.PAYLOAD.SIGNATURE"
+        },
+        {
+          "type": "p",
+          "text": "1. Header"
+        },
+        {
+          "type": "p",
+          "text": "Describes the token type and signing algorithm."
+        },
+        {
+          "type": "code",
+          "text": "{ \"alg\": \"HS256\", \"typ\": \"JWT\" }"
+        },
+        {
+          "type": "p",
+          "text": "2. Payload"
+        },
+        {
+          "type": "p",
+          "text": "Contains claims about the authenticated user and token."
+        },
+        {
+          "type": "code",
+          "text": "{ \"sub\": \"user-101\", \"role\": \"STUDENT\", \"iss\": \"prepspaces\", \"aud\": \"prepspaces-api\", \"exp\": 1790000900 }"
+        },
+        {
+          "type": "p",
+          "text": "3. Signature"
+        },
+        {
+          "type": "p",
+          "text": "The signature protects the token's integrity. The backend verifies it using the appropriate cryptographic key."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding JWT claims"
+        },
+        {
+          "type": "p",
+          "text": "Claim"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "sub"
+        },
+        {
+          "type": "p",
+          "text": "Subject, usually the user identifier"
+        },
+        {
+          "type": "p",
+          "text": "iss"
+        },
+        {
+          "type": "p",
+          "text": "Token issuer"
+        },
+        {
+          "type": "p",
+          "text": "aud"
+        },
+        {
+          "type": "p",
+          "text": "Intended token audience"
+        },
+        {
+          "type": "p",
+          "text": "exp"
+        },
+        {
+          "type": "p",
+          "text": "Expiration timestamp"
+        },
+        {
+          "type": "p",
+          "text": "iat"
+        },
+        {
+          "type": "p",
+          "text": "Issued-at timestamp"
+        },
+        {
+          "type": "p",
+          "text": "nbf"
+        },
+        {
+          "type": "p",
+          "text": "Not-before timestamp"
+        },
+        {
+          "type": "p",
+          "text": "jti"
+        },
+        {
+          "type": "p",
+          "text": "Unique token identifier"
+        },
+        {
+          "type": "p",
+          "text": "C. JWT signing algorithms"
+        },
+        {
+          "type": "p",
+          "text": "You will understand the differences between:"
+        },
+        {
+          "type": "p",
+          "text": "HS256: Symmetric signing. The same secret is used for signing and verification."
+        },
+        {
+          "type": "p",
+          "text": "RS256: Asymmetric signing. A private key signs the token, while a public key verifies it."
+        },
+        {
+          "type": "p",
+          "text": "ES256: Uses elliptic-curve cryptography for digital signatures."
+        },
+        {
+          "type": "p",
+          "text": "Asymmetric signing can be especially useful when multiple backend services need to verify tokens without possessing the signing private key."
+        },
+        {
+          "type": "p",
+          "text": "D. Important JWT security principle"
+        },
+        {
+          "type": "p",
+          "text": "Important"
+        },
+        {
+          "type": "p",
+          "text": "A signed JWT is not automatically encrypted."
+        },
+        {
+          "type": "p",
+          "text": "Its header and payload are generally Base64URL-encoded and can be decoded by someone who obtains the token."
+        },
+        {
+          "type": "p",
+          "text": "Therefore, never put sensitive information such as:"
+        },
+        {
+          "type": "p",
+          "text": "Passwords."
+        },
+        {
+          "type": "p",
+          "text": "Password hashes."
+        },
+        {
+          "type": "p",
+          "text": "Payment credentials."
+        },
+        {
+          "type": "p",
+          "text": "Private personal data."
+        },
+        {
+          "type": "p",
+          "text": "Secret API keys."
+        },
+        {
+          "type": "p",
+          "text": "in an ordinary signed JWT payload."
+        },
+        {
+          "type": "p",
+          "text": "The signature prevents undetected modification, not reading."
+        },
+        {
+          "type": "p",
+          "text": "E. JWT authentication in Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "For production applications, prefer established security libraries rather than writing your own JWT cryptography and validation logic."
+        },
+        {
+          "type": "p",
+          "text": "Spring Security supports JWT-based API authentication through its OAuth2 Resource Server functionality."
+        },
+        {
+          "type": "p",
+          "text": "Example Maven dependency:"
+        },
+        {
+          "type": "code",
+          "text": "<dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-oauth2-resource-server</artifactId> </dependency>"
+        },
+        {
+          "type": "p",
+          "text": "A simplified configuration for an issuer-backed JWT system:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableWebSecurity public class ApiSecurityConfig { @Bean public SecurityFilterChain securityFilterChain( HttpSecurity http) throws Exception { http .csrf(csrf -> csrf.disable()) .sessionManagement(session -> session .sessionCreationPolicy( SessionCreationPolicy.STATELESS ) ) .authorizeHttpRequests(auth -> auth .requestMatchers(\"/api/auth/**\").permitAll() .anyRequest().authenticated() ) .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()) ); return http.build(); } }"
+        },
+        {
+          "type": "p",
+          "text": "For this configuration, you must also configure a trusted JWT issuer or decoder, for example through an appropriate issuer-uri configuration."
+        },
+        {
+          "type": "p",
+          "text": "The CSRF setting above assumes that this API authenticates using bearer tokens supplied in the Authorization header rather than automatically attached authentication cookies. Do not blindly disable CSRF when using cookie-based authentication."
+        },
+        {
+          "type": "p",
+          "text": "F. JWT validation"
+        },
+        {
+          "type": "p",
+          "text": "The backend should verify:"
+        },
+        {
+          "type": "p",
+          "text": "The cryptographic signature."
+        },
+        {
+          "type": "p",
+          "text": "The allowed signing algorithm."
+        },
+        {
+          "type": "p",
+          "text": "Token expiration."
+        },
+        {
+          "type": "p",
+          "text": "Token issuer."
+        },
+        {
+          "type": "p",
+          "text": "Token audience."
+        },
+        {
+          "type": "p",
+          "text": "Not-before time, when present."
+        },
+        {
+          "type": "p",
+          "text": "Required claims."
+        },
+        {
+          "type": "p",
+          "text": "Any application-specific account or token restrictions."
+        },
+        {
+          "type": "p",
+          "text": "Do not trust a token simply because it has three JWT-looking sections."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: JWT is a common authentication mechanism, but secure JWT implementation requires understanding signatures, claims, validation and key management."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 7 — Access Tokens and Refresh Tokens"
+        },
+        {
+          "type": "p",
+          "text": "Modern authentication systems often use two different credentials: access tokens and refresh tokens."
+        },
+        {
+          "type": "p",
+          "text": "They serve different purposes."
+        },
+        {
+          "type": "p",
+          "text": "A. What is an access token?"
+        },
+        {
+          "type": "p",
+          "text": "An access token is a credential used to access protected APIs."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses Authorization: Bearer ACCESS_TOKEN"
+        },
+        {
+          "type": "p",
+          "text": "Access tokens should have a relatively short lifetime to reduce the consequences of theft."
+        },
+        {
+          "type": "p",
+          "text": "B. What is a refresh token?"
+        },
+        {
+          "type": "p",
+          "text": "A refresh token is a longer-lived credential used to obtain a new access token without requiring the user to enter their password again."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "User logs in."
+        },
+        {
+          "type": "p",
+          "text": "Backend issues an access token."
+        },
+        {
+          "type": "p",
+          "text": "Backend issues a refresh token."
+        },
+        {
+          "type": "p",
+          "text": "Access token expires."
+        },
+        {
+          "type": "p",
+          "text": "Client sends the refresh token to the refresh endpoint."
+        },
+        {
+          "type": "p",
+          "text": "Backend validates the refresh token."
+        },
+        {
+          "type": "p",
+          "text": "Backend issues a new access token."
+        },
+        {
+          "type": "p",
+          "text": "C. Access token vs refresh token"
+        },
+        {
+          "type": "p",
+          "text": "Feature"
+        },
+        {
+          "type": "p",
+          "text": "Access Token"
+        },
+        {
+          "type": "p",
+          "text": "Refresh Token"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Access protected APIs"
+        },
+        {
+          "type": "p",
+          "text": "Obtain new access tokens"
+        },
+        {
+          "type": "p",
+          "text": "Lifetime"
+        },
+        {
+          "type": "p",
+          "text": "Short"
+        },
+        {
+          "type": "p",
+          "text": "Longer, policy dependent"
+        },
+        {
+          "type": "p",
+          "text": "Usage"
+        },
+        {
+          "type": "p",
+          "text": "Frequently"
+        },
+        {
+          "type": "p",
+          "text": "Only when refreshing"
+        },
+        {
+          "type": "p",
+          "text": "Exposure impact"
+        },
+        {
+          "type": "p",
+          "text": "Attacker may access APIs until invalidation/expiry"
+        },
+        {
+          "type": "p",
+          "text": "Attacker may maintain or renew access"
+        },
+        {
+          "type": "p",
+          "text": "Revocation"
+        },
+        {
+          "type": "p",
+          "text": "Architecture dependent"
+        },
+        {
+          "type": "p",
+          "text": "Commonly tracked server-side"
+        },
+        {
+          "type": "p",
+          "text": "D. Understanding token rotation"
+        },
+        {
+          "type": "p",
+          "text": "A secure refresh-token system should consider refresh-token rotation."
+        },
+        {
+          "type": "p",
+          "text": "Suppose Rahul has refresh token R1."
+        },
+        {
+          "type": "p",
+          "text": "After a successful refresh:"
+        },
+        {
+          "type": "p",
+          "text": "R1 is invalidated."
+        },
+        {
+          "type": "p",
+          "text": "A new access token is issued."
+        },
+        {
+          "type": "p",
+          "text": "A new refresh token R2 is issued."
+        },
+        {
+          "type": "p",
+          "text": "The old refresh token cannot simply be reused."
+        },
+        {
+          "type": "p",
+          "text": "If the backend detects that R1 is reused after rotation, it can identify possible credential theft and revoke the affected token family."
+        },
+        {
+          "type": "p",
+          "text": "E. Secure refresh-token storage"
+        },
+        {
+          "type": "p",
+          "text": "You will learn why refresh tokens should be:"
+        },
+        {
+          "type": "p",
+          "text": "Generated using a cryptographically secure random generator."
+        },
+        {
+          "type": "p",
+          "text": "Stored securely by the client."
+        },
+        {
+          "type": "p",
+          "text": "Transmitted only through HTTPS."
+        },
+        {
+          "type": "p",
+          "text": "Stored server-side as hashes or protected identifiers when maintaining revocation records."
+        },
+        {
+          "type": "p",
+          "text": "Rotated after successful use."
+        },
+        {
+          "type": "p",
+          "text": "Revoked during logout or detected reuse."
+        },
+        {
+          "type": "p",
+          "text": "Associated with the correct user, device or session."
+        },
+        {
+          "type": "p",
+          "text": "For browser applications, an HttpOnly, Secure cookie may be a suitable refresh-token delivery mechanism when paired with appropriate CSRF protection. Avoid automatically assuming that browser localStorage is a safe place for long-lived credentials."
+        },
+        {
+          "type": "p",
+          "text": "F. Refresh API design"
+        },
+        {
+          "type": "p",
+          "text": "Example endpoint:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/auth/refresh"
+        },
+        {
+          "type": "p",
+          "text": "Example response:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"accessToken\": \"new-access-token\", \"tokenType\": \"Bearer\", \"expiresIn\": 900 }"
+        },
+        {
+          "type": "p",
+          "text": "The new refresh token may be delivered through a secure cookie or another carefully designed response mechanism."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Access and refresh tokens allow applications to balance API security with a smooth user login experience."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 8 — OAuth 2.0 and OpenID Connect Fundamentals"
+        },
+        {
+          "type": "p",
+          "text": "Modern applications frequently allow users to sign in through external identity providers."
+        },
+        {
+          "type": "p",
+          "text": "For example, a student might use Google to sign in to PrepSpaces instead of creating another password."
+        },
+        {
+          "type": "p",
+          "text": "Two important standards make these integrations possible: OAuth 2.0 and OpenID Connect."
+        },
+        {
+          "type": "p",
+          "text": "A. What is OAuth 2.0?"
+        },
+        {
+          "type": "p",
+          "text": "OAuth 2.0 is an authorization framework."
+        },
+        {
+          "type": "p",
+          "text": "It allows an application to obtain limited access to resources on behalf of a user, subject to the user's consent and the granted permissions."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "A student connects an application to their Google account and authorizes limited access to certain information."
+        },
+        {
+          "type": "p",
+          "text": "The application receives an access token that allows it to perform the approved operations."
+        },
+        {
+          "type": "p",
+          "text": "B. What is OpenID Connect?"
+        },
+        {
+          "type": "p",
+          "text": "OpenID Connect (OIDC) is an identity layer built on top of OAuth 2.0."
+        },
+        {
+          "type": "p",
+          "text": "It adds standardized authentication capabilities."
+        },
+        {
+          "type": "p",
+          "text": "OIDC introduces the ID token, which communicates information about the authenticated user to the client."
+        },
+        {
+          "type": "p",
+          "text": "C. OAuth 2.0 vs OpenID Connect"
+        },
+        {
+          "type": "p",
+          "text": "OAuth 2.0"
+        },
+        {
+          "type": "p",
+          "text": "OpenID Connect"
+        },
+        {
+          "type": "p",
+          "text": "Authorization framework"
+        },
+        {
+          "type": "p",
+          "text": "Authentication and identity layer"
+        },
+        {
+          "type": "p",
+          "text": "Focuses on delegated access"
+        },
+        {
+          "type": "p",
+          "text": "Focuses on user authentication"
+        },
+        {
+          "type": "p",
+          "text": "Uses access tokens"
+        },
+        {
+          "type": "p",
+          "text": "Uses access tokens and ID tokens"
+        },
+        {
+          "type": "p",
+          "text": "Does not itself standardize user identity claims in an ID token"
+        },
+        {
+          "type": "p",
+          "text": "Defines standard identity claims"
+        },
+        {
+          "type": "p",
+          "text": "Used for accessing protected resources"
+        },
+        {
+          "type": "p",
+          "text": "Used for sign-in and identity"
+        },
+        {
+          "type": "p",
+          "text": "Remember: an OAuth access token is not automatically an identity token."
+        },
+        {
+          "type": "p",
+          "text": "D. Understanding Authorization Code Flow with PKCE"
+        },
+        {
+          "type": "p",
+          "text": "This is an important flow for modern browser-based applications, mobile applications and public clients."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Section 1",
+      "title": "1. User clicks Sign in with Google",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Your application initiates authentication"
+        },
+        {
+          "type": "p",
+          "text": "2. Browser redirects to identity provider"
+        },
+        {
+          "type": "p",
+          "text": "Authorization request with PKCE"
+        },
+        {
+          "type": "p",
+          "text": "3. User authenticates and grants consent"
+        },
+        {
+          "type": "p",
+          "text": "Identity provider verifies the user"
+        },
+        {
+          "type": "p",
+          "text": "4. Authorization code returned"
+        },
+        {
+          "type": "p",
+          "text": "Redirect URI receives the code"
+        },
+        {
+          "type": "p",
+          "text": "5. Code exchanged for tokens"
+        },
+        {
+          "type": "p",
+          "text": "PKCE verifier is validated"
+        },
+        {
+          "type": "p",
+          "text": "6. Application establishes user identity"
+        },
+        {
+          "type": "p",
+          "text": "E. Important OAuth/OIDC concepts"
+        },
+        {
+          "type": "p",
+          "text": "Client ID: Identifies the application registered with the identity provider."
+        },
+        {
+          "type": "p",
+          "text": "Client Secret: A credential used by confidential clients to authenticate themselves. Public clients such as browser-based SPAs cannot reliably keep a client secret."
+        },
+        {
+          "type": "p",
+          "text": "Redirect URI: The approved destination to which the identity provider redirects the user."
+        },
+        {
+          "type": "p",
+          "text": "Authorization Code: A temporary code exchanged for tokens."
+        },
+        {
+          "type": "p",
+          "text": "PKCE: Proof Key for Code Exchange, which protects the authorization code flow against interception and misuse."
+        },
+        {
+          "type": "p",
+          "text": "ID Token: An OIDC token containing identity claims."
+        },
+        {
+          "type": "p",
+          "text": "Scope: Defines the requested access or identity information, such as openid, profile and email."
+        },
+        {
+          "type": "p",
+          "text": "Issuer: The identity provider that issued the token."
+        },
+        {
+          "type": "p",
+          "text": "F. Implementing Google login"
+        },
+        {
+          "type": "p",
+          "text": "You will understand how to:"
+        },
+        {
+          "type": "p",
+          "text": "Register an application with an identity provider."
+        },
+        {
+          "type": "p",
+          "text": "Configure approved redirect URIs."
+        },
+        {
+          "type": "p",
+          "text": "Configure OAuth/OIDC client settings in Spring Boot."
+        },
+        {
+          "type": "p",
+          "text": "Initiate the authentication flow."
+        },
+        {
+          "type": "p",
+          "text": "Validate the returned identity information."
+        },
+        {
+          "type": "p",
+          "text": "Map the external identity to a local application user."
+        },
+        {
+          "type": "p",
+          "text": "Create the application's own authenticated session or appropriate application credentials."
+        },
+        {
+          "type": "p",
+          "text": "A useful Spring Boot dependency is:"
+        },
+        {
+          "type": "code",
+          "text": "<dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-oauth2-client</artifactId> </dependency>"
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Social login reduces password-management friction and helps applications integrate with trusted identity providers."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 9 — Role-Based Access Control (RBAC)"
+        },
+        {
+          "type": "p",
+          "text": "A backend needs a structured way to manage what different categories of users can access."
+        },
+        {
+          "type": "p",
+          "text": "Role-Based Access Control assigns roles to users and associates permissions with those roles."
+        },
+        {
+          "type": "p",
+          "text": "A. What is RBAC?"
+        },
+        {
+          "type": "p",
+          "text": "Suppose PrepSpaces supports three roles:"
+        },
+        {
+          "type": "p",
+          "text": "STUDENT"
+        },
+        {
+          "type": "p",
+          "text": "INSTRUCTOR"
+        },
+        {
+          "type": "p",
+          "text": "ADMIN"
+        },
+        {
+          "type": "p",
+          "text": "Each role receives access to particular operations."
+        },
+        {
+          "type": "p",
+          "text": "Role"
+        },
+        {
+          "type": "p",
+          "text": "Permissions"
+        },
+        {
+          "type": "p",
+          "text": "STUDENT"
+        },
+        {
+          "type": "p",
+          "text": "View courses, enrol, track progress"
+        },
+        {
+          "type": "p",
+          "text": "INSTRUCTOR"
+        },
+        {
+          "type": "p",
+          "text": "Create courses, manage assigned courses"
+        },
+        {
+          "type": "p",
+          "text": "ADMIN"
+        },
+        {
+          "type": "p",
+          "text": "Manage users, courses and platform settings"
+        },
+        {
+          "type": "p",
+          "text": "Instead of manually checking every user individually, the backend checks their assigned roles."
+        },
+        {
+          "type": "p",
+          "text": "B. Database design for RBAC"
+        },
+        {
+          "type": "p",
+          "text": "A scalable RBAC implementation may use these tables:"
+        },
+        {
+          "type": "p",
+          "text": "Users"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "name"
+        },
+        {
+          "type": "p",
+          "text": "email"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "Rahul"
+        },
+        {
+          "type": "p",
+          "text": "rahul@example.com"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "admin@example.com"
+        },
+        {
+          "type": "p",
+          "text": "Roles"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "role_name"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "STUDENT"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "INSTRUCTOR"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "ADMIN"
+        },
+        {
+          "type": "p",
+          "text": "User_Roles"
+        },
+        {
+          "type": "p",
+          "text": "user_id"
+        },
+        {
+          "type": "p",
+          "text": "role_id"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "The junction table allows a user to have multiple roles when the application's policy requires it."
+        },
+        {
+          "type": "p",
+          "text": "C. Implementing roles in Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@PreAuthorize(\"hasRole('ADMIN')\") @DeleteMapping(\"/api/admin/users/{id}\") public ResponseEntity<Void> deleteUser( @PathVariable Long id) { userService.deleteUser(id); return ResponseEntity.noContent().build(); }"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security's hasRole(\"ADMIN\") convention checks for the authority ROLE_ADMIN."
+        },
+        {
+          "type": "p",
+          "text": "You must enable method-level security:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableMethodSecurity public class MethodSecurityConfig { }"
+        },
+        {
+          "type": "p",
+          "text": "D. URL-level role protection"
+        },
+        {
+          "type": "p",
+          "text": "You can also protect API paths:"
+        },
+        {
+          "type": "p",
+          "text": ".authorizeHttpRequests(auth -> auth .requestMatchers(\"/api/auth/**\").permitAll() .requestMatchers(\"/api/admin/**\") .hasRole(\"ADMIN\") .requestMatchers(\"/api/instructor/**\") .hasAnyRole(\"INSTRUCTOR\", \"ADMIN\") .requestMatchers(\"/api/student/**\") .hasAnyRole(\"STUDENT\", \"ADMIN\") .anyRequest().authenticated() )"
+        },
+        {
+          "type": "p",
+          "text": "E. Understanding role hierarchy"
+        },
+        {
+          "type": "p",
+          "text": "In some systems, roles have hierarchical relationships."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "An administrator may perform instructor operations."
+        },
+        {
+          "type": "p",
+          "text": "An instructor may access certain general learning operations."
+        },
+        {
+          "type": "p",
+          "text": "Spring Security supports role hierarchies, but these should be defined deliberately rather than assumed."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: RBAC gives backend applications a manageable way to control access as the number of users and features increases."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 10 — Permission-Based Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Roles are useful, but larger applications may need more detailed access control."
+        },
+        {
+          "type": "p",
+          "text": "For example, two instructors may have the same INSTRUCTOR role, but one should not be allowed to modify the other's course."
+        },
+        {
+          "type": "p",
+          "text": "This is where permissions become important."
+        },
+        {
+          "type": "p",
+          "text": "A. What is permission-based authorization?"
+        },
+        {
+          "type": "p",
+          "text": "A permission represents a specific operation that a user is allowed to perform."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "course:read course:create course:update course:delete user:read user:create user:update user:delete enrollment:create enrollment:cancel progress:update"
+        },
+        {
+          "type": "p",
+          "text": "Instead of checking only whether someone is an instructor, the backend checks whether that person has the required permission."
+        },
+        {
+          "type": "p",
+          "text": "B. Roles vs permissions"
+        },
+        {
+          "type": "p",
+          "text": "Roles"
+        },
+        {
+          "type": "p",
+          "text": "Permissions"
+        },
+        {
+          "type": "p",
+          "text": "Define a user's security category"
+        },
+        {
+          "type": "p",
+          "text": "Define individual capabilities"
+        },
+        {
+          "type": "p",
+          "text": "Broad access grouping"
+        },
+        {
+          "type": "p",
+          "text": "Fine-grained access control"
+        },
+        {
+          "type": "p",
+          "text": "Example: ADMIN"
+        },
+        {
+          "type": "p",
+          "text": "Example: user:delete"
+        },
+        {
+          "type": "p",
+          "text": "Can contain multiple permissions"
+        },
+        {
+          "type": "p",
+          "text": "Can be assigned through roles or other policy mechanisms"
+        },
+        {
+          "type": "p",
+          "text": "C. Role-permission relationship"
+        },
+        {
+          "type": "p",
+          "text": "A typical design is:"
+        },
+        {
+          "type": "code",
+          "text": "USER | v USER_ROLES | v ROLES | v ROLE_PERMISSIONS | v PERMISSIONS"
+        },
+        {
+          "type": "p",
+          "text": "An administrator role might have:"
+        },
+        {
+          "type": "p",
+          "text": "user:read user:update user:delete course:create course:update course:delete"
+        },
+        {
+          "type": "p",
+          "text": "A student role might have:"
+        },
+        {
+          "type": "p",
+          "text": "course:read enrollment:create progress:update"
+        },
+        {
+          "type": "p",
+          "text": "D. Implementing permissions in Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@PreAuthorize(\"hasAuthority('course:create')\") @PostMapping(\"/api/courses\") public ResponseEntity<?> createCourse( @RequestBody CourseRequest request) { return ResponseEntity.ok( courseService.create(request) ); }"
+        },
+        {
+          "type": "p",
+          "text": "The authority must be supplied through a trusted authentication process, such as loading permissions from the database or validating a trusted identity provider's claims."
+        },
+        {
+          "type": "p",
+          "text": "Never accept permissions simply because the frontend sends them."
+        },
+        {
+          "type": "p",
+          "text": "E. Resource-level authorization"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an instructor attempts to edit a course."
+        },
+        {
+          "type": "p",
+          "text": "The backend must check:"
+        },
+        {
+          "type": "p",
+          "text": "Is the user authenticated?"
+        },
+        {
+          "type": "p",
+          "text": "Does the user have course-editing permission?"
+        },
+        {
+          "type": "p",
+          "text": "Does the course exist?"
+        },
+        {
+          "type": "p",
+          "text": "Is this instructor authorised to modify this particular course?"
+        },
+        {
+          "type": "p",
+          "text": "This last check is especially important."
+        },
+        {
+          "type": "p",
+          "text": "Having course:update does not necessarily mean that an instructor can update every course."
+        },
+        {
+          "type": "p",
+          "text": "You will explore:"
+        },
+        {
+          "type": "p",
+          "text": "Resource ownership."
+        },
+        {
+          "type": "p",
+          "text": "Object-level authorization."
+        },
+        {
+          "type": "p",
+          "text": "Attribute-based access control (ABAC) fundamentals."
+        },
+        {
+          "type": "p",
+          "text": "Multi-tenant authorization."
+        },
+        {
+          "type": "p",
+          "text": "Avoiding insecure direct object references (IDOR/Broken Object Level Authorization)."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Permissions protect individual operations and resources, not just broad categories of users."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 11 — Securing Private API Endpoints"
+        },
+        {
+          "type": "p",
+          "text": "A backend API may contain public, authenticated and restricted endpoints."
+        },
+        {
+          "type": "p",
+          "text": "You need to ensure that access rules are enforced at the backend for every relevant request."
+        },
+        {
+          "type": "p",
+          "text": "A. Public vs protected endpoints"
+        },
+        {
+          "type": "p",
+          "text": "Public endpoints:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/auth/register POST /api/auth/login GET /api/courses"
+        },
+        {
+          "type": "p",
+          "text": "These endpoints may be accessible without an authenticated user, depending on the application's requirements."
+        },
+        {
+          "type": "p",
+          "text": "Protected endpoints:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/users/profile GET /api/users/enrollments POST /api/enrollments PUT /api/progress"
+        },
+        {
+          "type": "p",
+          "text": "These require an authenticated identity."
+        },
+        {
+          "type": "p",
+          "text": "Administrator endpoints:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/admin/users DELETE /api/admin/users/{id} PUT /api/admin/settings"
+        },
+        {
+          "type": "p",
+          "text": "These require appropriate administrator privileges."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding the Spring Security filter chain"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security processes incoming HTTP requests through a series of security filters."
+        },
+        {
+          "type": "p",
+          "text": "These filters can handle:"
+        },
+        {
+          "type": "p",
+          "text": "Security context management."
+        },
+        {
+          "type": "p",
+          "text": "Authentication."
+        },
+        {
+          "type": "p",
+          "text": "Authorization."
+        },
+        {
+          "type": "p",
+          "text": "CSRF protection."
+        },
+        {
+          "type": "p",
+          "text": "Session management."
+        },
+        {
+          "type": "p",
+          "text": "Exception handling."
+        },
+        {
+          "type": "p",
+          "text": "Security headers."
+        },
+        {
+          "type": "p",
+          "text": "A simplified request flow:"
+        },
+        {
+          "type": "p",
+          "text": "Incoming HTTP Request"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security Filter Chain"
+        },
+        {
+          "type": "p",
+          "text": "Process security-related filters"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Verify session or token credentials"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Check roles and permissions"
+        },
+        {
+          "type": "p",
+          "text": "Controller and Business Logic"
+        },
+        {
+          "type": "p",
+          "text": "Request proceeds if access is permitted"
+        },
+        {
+          "type": "p",
+          "text": "C. Security configuration"
+        },
+        {
+          "type": "p",
+          "text": "A simplified Spring Security configuration for a stateless bearer-token API:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableWebSecurity @EnableMethodSecurity public class SecurityConfig { @Bean public SecurityFilterChain filterChain( HttpSecurity http) throws Exception { http .csrf(csrf -> csrf.disable()) .sessionManagement(session -> session .sessionCreationPolicy( SessionCreationPolicy.STATELESS ) ) .authorizeHttpRequests(auth -> auth .requestMatchers(\"/api/auth/**\") .permitAll() .requestMatchers(\"/api/admin/**\") .hasRole(\"ADMIN\") .requestMatchers(\"/api/student/**\") .hasRole(\"STUDENT\") .anyRequest() .authenticated() ) .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()) ); return http.build(); } }"
+        },
+        {
+          "type": "p",
+          "text": "This configuration is an example of the authorization structure. It requires a properly configured JWT decoder and trusted token issuer. The CSRF setting is suitable only when the authentication mechanism does not rely on automatically attached browser cookies."
+        },
+        {
+          "type": "p",
+          "text": "D. Additional API security concepts"
+        },
+        {
+          "type": "p",
+          "text": "You will learn about:"
+        },
+        {
+          "type": "p",
+          "text": "CORS: Controls which browser origins can make cross-origin requests. CORS is not a replacement for authentication or authorization."
+        },
+        {
+          "type": "p",
+          "text": "CSRF: Protects against unauthorised cross-site requests when browsers automatically attach credentials."
+        },
+        {
+          "type": "p",
+          "text": "XSS: Cross-Site Scripting can allow malicious scripts to steal accessible credentials or perform actions as a user."
+        },
+        {
+          "type": "p",
+          "text": "HTTPS: Protects data in transit."
+        },
+        {
+          "type": "p",
+          "text": "Rate Limiting: Controls excessive requests and helps protect login and other sensitive endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Security Headers: Headers such as Content-Security-Policy, X-Content-Type-Options and frame restrictions reduce certain browser-based risks."
+        },
+        {
+          "type": "p",
+          "text": "Input Validation: Ensures that incoming data meets the application's requirements."
+        },
+        {
+          "type": "p",
+          "text": "IDOR/BOLA: Prevents users from accessing resources belonging to other users simply by changing resource identifiers."
+        },
+        {
+          "type": "p",
+          "text": "E. Example: Protecting student data"
+        },
+        {
+          "type": "p",
+          "text": "Suppose Rahul requests:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/users/25/enrollments"
+        },
+        {
+          "type": "p",
+          "text": "The backend must not assume that Rahul can access user ID 25 simply because he is logged in."
+        },
+        {
+          "type": "p",
+          "text": "It must verify that:"
+        },
+        {
+          "type": "p",
+          "text": "Rahul is requesting his own enrolments, or"
+        },
+        {
+          "type": "p",
+          "text": "Rahul has another explicitly authorised reason to access that user's information."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Security must be enforced at the API and business-logic layers. Hiding buttons in the frontend does not secure backend operations."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 12 — Logout, Token Expiration and Revocation"
+        },
+        {
+          "type": "p",
+          "text": "Authentication does not end when the user logs in. A complete system must manage logout, expiration and credential revocation."
+        },
+        {
+          "type": "p",
+          "text": "A. What is logout?"
+        },
+        {
+          "type": "p",
+          "text": "Logout ends the user's authenticated session or invalidates the applicable credentials."
+        },
+        {
+          "type": "p",
+          "text": "For session-based authentication:"
+        },
+        {
+          "type": "p",
+          "text": "User requests logout."
+        },
+        {
+          "type": "p",
+          "text": "Backend invalidates the session."
+        },
+        {
+          "type": "p",
+          "text": "Session cookie is cleared or expired."
+        },
+        {
+          "type": "p",
+          "text": "Subsequent requests using that session are rejected."
+        },
+        {
+          "type": "p",
+          "text": "B. JWT logout"
+        },
+        {
+          "type": "p",
+          "text": "JWT authentication introduces a different problem."
+        },
+        {
+          "type": "p",
+          "text": "A signed JWT can remain valid until its expiration time, even when the user has clicked logout."
+        },
+        {
+          "type": "p",
+          "text": "Simply deleting a token from the browser does not invalidate a copy that an attacker may already have stolen."
+        },
+        {
+          "type": "p",
+          "text": "Therefore, a JWT system needs a deliberate revocation strategy."
+        },
+        {
+          "type": "p",
+          "text": "C. Token expiration"
+        },
+        {
+          "type": "p",
+          "text": "Every token intended to expire should have an appropriate expiration claim."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"sub\": \"user-101\", \"exp\": 1790000900 }"
+        },
+        {
+          "type": "p",
+          "text": "When the expiration time is reached, the backend should reject the token."
+        },
+        {
+          "type": "p",
+          "text": "Short-lived access tokens help limit how long a stolen token can be misused."
+        },
+        {
+          "type": "p",
+          "text": "D. Token revocation strategies"
+        },
+        {
+          "type": "p",
+          "text": "You will learn several approaches."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Section 1",
+      "title": "1. Short-lived access tokens",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Allow access tokens to expire relatively quickly."
+        },
+        {
+          "type": "p",
+          "text": "2. Refresh-token revocation"
+        },
+        {
+          "type": "p",
+          "text": "Revoke refresh tokens or their token families when the user logs out, resets credentials or a compromise is detected."
+        },
+        {
+          "type": "p",
+          "text": "3. Token denylist"
+        },
+        {
+          "type": "p",
+          "text": "Store identifiers of revoked tokens, such as JWT IDs, and reject them during validation until they expire."
+        },
+        {
+          "type": "p",
+          "text": "4. Token-version strategy"
+        },
+        {
+          "type": "p",
+          "text": "Maintain a user-level token version or authentication version that can be checked to invalidate older credentials."
+        },
+        {
+          "type": "p",
+          "text": "5. Signing-key rotation"
+        },
+        {
+          "type": "p",
+          "text": "Replace compromised signing keys and ensure verifiers stop trusting the old keys."
+        },
+        {
+          "type": "p",
+          "text": "Each approach has different performance, storage and operational trade-offs."
+        },
+        {
+          "type": "p",
+          "text": "E. Refresh-token rotation and reuse detection"
+        },
+        {
+          "type": "p",
+          "text": "Consider this flow:"
+        },
+        {
+          "type": "code",
+          "text": "Login | v Refresh Token R1 | v Refresh request | +---- R1 invalidated | v New Refresh Token R2 | v R1 is reused | v Possible token theft detected | v Revoke affected token family"
+        },
+        {
+          "type": "p",
+          "text": "This helps protect long-lived authentication credentials."
+        },
+        {
+          "type": "p",
+          "text": "F. Implementing logout"
+        },
+        {
+          "type": "p",
+          "text": "For a stateful refresh-token system:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/auth/logout Authorization: Bearer ACCESS_TOKEN"
+        },
+        {
+          "type": "p",
+          "text": "The backend should:"
+        },
+        {
+          "type": "p",
+          "text": "Identify the authenticated user and relevant token family."
+        },
+        {
+          "type": "p",
+          "text": "Revoke the stored refresh-token records."
+        },
+        {
+          "type": "p",
+          "text": "Clear authentication cookies if used."
+        },
+        {
+          "type": "p",
+          "text": "Return a successful logout response."
+        },
+        {
+          "type": "p",
+          "text": "If immediate access-token invalidation is required, an additional revocation mechanism must be implemented."
+        },
+        {
+          "type": "p",
+          "text": "G. Other important concepts"
+        },
+        {
+          "type": "p",
+          "text": "Session timeout."
+        },
+        {
+          "type": "p",
+          "text": "Inactivity timeout."
+        },
+        {
+          "type": "p",
+          "text": "Absolute authentication lifetime."
+        },
+        {
+          "type": "p",
+          "text": "Concurrent sessions."
+        },
+        {
+          "type": "p",
+          "text": "Device-specific logout."
+        },
+        {
+          "type": "p",
+          "text": "Password-change invalidation."
+        },
+        {
+          "type": "p",
+          "text": "Account suspension."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token reuse detection."
+        },
+        {
+          "type": "p",
+          "text": "Signing-key compromise and rotation."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Authentication security must continue throughout the entire account lifecycle, including after credentials have been issued."
+        },
+        {
+          "type": "p",
+          "text": "4. Practical Lab — Build a Secure Authentication and Authorization System"
+        },
+        {
+          "type": "p",
+          "text": "Major Practical Project"
+        },
+        {
+          "type": "p",
+          "text": "In this lab, you will implement a production-oriented authentication foundation for a learning platform."
+        },
+        {
+          "type": "p",
+          "text": "The system will support student and administrator accounts, registration, login, JWT validation, refresh-token rotation and protected API endpoints."
+        },
+        {
+          "type": "p",
+          "text": "A. Technology Stack"
+        },
+        {
+          "type": "p",
+          "text": "Technology"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Java"
+        },
+        {
+          "type": "p",
+          "text": "Programming language"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Backend framework"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "Authentication and authorization"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "User and credential storage"
+        },
+        {
+          "type": "p",
+          "text": "Spring Data JPA"
+        },
+        {
+          "type": "p",
+          "text": "Database persistence"
+        },
+        {
+          "type": "p",
+          "text": "JWT"
+        },
+        {
+          "type": "p",
+          "text": "Signed access tokens"
+        },
+        {
+          "type": "p",
+          "text": "BCrypt or Argon2id"
+        },
+        {
+          "type": "p",
+          "text": "Password hashing"
+        },
+        {
+          "type": "p",
+          "text": "Flyway"
+        },
+        {
+          "type": "p",
+          "text": "Database migrations"
+        },
+        {
+          "type": "p",
+          "text": "Postman"
+        },
+        {
+          "type": "p",
+          "text": "API testing"
+        },
+        {
+          "type": "p",
+          "text": "Maven"
+        },
+        {
+          "type": "p",
+          "text": "Dependency management"
+        },
+        {
+          "type": "p",
+          "text": "B. Application Architecture"
+        },
+        {
+          "type": "p",
+          "text": "Frontend"
+        },
+        {
+          "type": "p",
+          "text": "Registration · Login · Logout · Protected pages"
+        },
+        {
+          "type": "p",
+          "text": "Authentication Controller"
+        },
+        {
+          "type": "p",
+          "text": "Register · Login · Refresh · Logout"
+        },
+        {
+          "type": "p",
+          "text": "Authentication Service"
+        },
+        {
+          "type": "p",
+          "text": "Credential verification · Password hashing · Token issuance"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "JWT validation · Authentication context · Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Protected API Endpoints"
+        },
+        {
+          "type": "p",
+          "text": "Student · Instructor · Admin operations"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Users · Roles · Permissions · Refresh-token records"
+        },
+        {
+          "type": "p",
+          "text": "C. Step 1 — Design the Database"
+        },
+        {
+          "type": "p",
+          "text": "Create the following tables."
+        },
+        {
+          "type": "p",
+          "text": "Users"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "name"
+        },
+        {
+          "type": "p",
+          "text": "User name"
+        },
+        {
+          "type": "p",
+          "text": "email"
+        },
+        {
+          "type": "p",
+          "text": "Unique email"
+        },
+        {
+          "type": "p",
+          "text": "password_hash"
+        },
+        {
+          "type": "p",
+          "text": "Hashed password"
+        },
+        {
+          "type": "p",
+          "text": "status"
+        },
+        {
+          "type": "p",
+          "text": "Account status"
+        },
+        {
+          "type": "p",
+          "text": "created_at"
+        },
+        {
+          "type": "p",
+          "text": "Registration timestamp"
+        },
+        {
+          "type": "p",
+          "text": "Roles"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "name"
+        },
+        {
+          "type": "p",
+          "text": "STUDENT, INSTRUCTOR or ADMIN"
+        },
+        {
+          "type": "p",
+          "text": "User_Roles"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "user_id"
+        },
+        {
+          "type": "p",
+          "text": "Foreign key to users"
+        },
+        {
+          "type": "p",
+          "text": "role_id"
+        },
+        {
+          "type": "p",
+          "text": "Foreign key to roles"
+        },
+        {
+          "type": "p",
+          "text": "Permissions"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "name"
+        },
+        {
+          "type": "p",
+          "text": "Permission identifier"
+        },
+        {
+          "type": "p",
+          "text": "Role_Permissions"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "role_id"
+        },
+        {
+          "type": "p",
+          "text": "Foreign key to roles"
+        },
+        {
+          "type": "p",
+          "text": "permission_id"
+        },
+        {
+          "type": "p",
+          "text": "Foreign key to permissions"
+        },
+        {
+          "type": "p",
+          "text": "Refresh_Tokens"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "user_id"
+        },
+        {
+          "type": "p",
+          "text": "Associated user"
+        },
+        {
+          "type": "p",
+          "text": "token_hash"
+        },
+        {
+          "type": "p",
+          "text": "Stored token hash"
+        },
+        {
+          "type": "p",
+          "text": "family_id"
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token family"
+        },
+        {
+          "type": "p",
+          "text": "expires_at"
+        },
+        {
+          "type": "p",
+          "text": "Expiration timestamp"
+        },
+        {
+          "type": "p",
+          "text": "revoked_at"
+        },
+        {
+          "type": "p",
+          "text": "Revocation timestamp"
+        },
+        {
+          "type": "p",
+          "text": "created_at"
+        },
+        {
+          "type": "p",
+          "text": "Creation timestamp"
+        },
+        {
+          "type": "p",
+          "text": "The refresh-token table should support rotation, revocation and reuse detection."
+        },
+        {
+          "type": "p",
+          "text": "D. Step 2 — Implement Registration"
+        },
+        {
+          "type": "p",
+          "text": "Create:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/auth/register"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "p",
+          "text": "Validate user information."
+        },
+        {
+          "type": "p",
+          "text": "Reject duplicate email addresses."
+        },
+        {
+          "type": "p",
+          "text": "Hash passwords."
+        },
+        {
+          "type": "p",
+          "text": "Assign STUDENT as the default role."
+        },
+        {
+          "type": "p",
+          "text": "Never allow public registration to assign ADMIN."
+        },
+        {
+          "type": "p",
+          "text": "Save the user in PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Return a safe response without the password hash."
+        },
+        {
+          "type": "p",
+          "text": "E. Step 3 — Implement Login"
+        },
+        {
+          "type": "p",
+          "text": "Create:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/auth/login"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "p",
+          "text": "Verify the supplied credentials."
+        },
+        {
+          "type": "p",
+          "text": "Load the user's roles."
+        },
+        {
+          "type": "p",
+          "text": "Reject disabled accounts."
+        },
+        {
+          "type": "p",
+          "text": "Generate a short-lived signed access token."
+        },
+        {
+          "type": "p",
+          "text": "Generate a secure refresh token."
+        },
+        {
+          "type": "p",
+          "text": "Store the refresh-token hash."
+        },
+        {
+          "type": "p",
+          "text": "Return the appropriate credentials securely."
+        },
+        {
+          "type": "p",
+          "text": "F. Step 4 — Implement JWT Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Create token validation using Spring Security."
+        },
+        {
+          "type": "p",
+          "text": "Your application must:"
+        },
+        {
+          "type": "p",
+          "text": "Verify the JWT signature."
+        },
+        {
+          "type": "p",
+          "text": "Check expiration."
+        },
+        {
+          "type": "p",
+          "text": "Verify issuer and audience."
+        },
+        {
+          "type": "p",
+          "text": "Reject malformed tokens."
+        },
+        {
+          "type": "p",
+          "text": "Reject tokens signed using untrusted algorithms or keys."
+        },
+        {
+          "type": "p",
+          "text": "Establish an authenticated security context."
+        },
+        {
+          "type": "p",
+          "text": "Extract the authenticated user's identity and authorities."
+        },
+        {
+          "type": "p",
+          "text": "G. Step 5 — Implement Protected APIs"
+        },
+        {
+          "type": "p",
+          "text": "Create these endpoints:"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Access"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/api/auth/register"
+        },
+        {
+          "type": "p",
+          "text": "Public"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/api/auth/login"
+        },
+        {
+          "type": "p",
+          "text": "Public"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/api/auth/refresh"
+        },
+        {
+          "type": "p",
+          "text": "Valid refresh credential"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/api/auth/logout"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated user"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/api/student/profile"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/api/student/courses"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/api/admin/users"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "/api/admin/users/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/api/instructor/courses"
+        },
+        {
+          "type": "p",
+          "text": "Instructor or Admin"
+        },
+        {
+          "type": "p",
+          "text": "The backend must validate access rights for every protected operation."
+        },
+        {
+          "type": "p",
+          "text": "H. Step 6 — Implement Refresh and Logout"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "Access-token expiration."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token validation."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token rotation."
+        },
+        {
+          "type": "p",
+          "text": "Previous refresh-token invalidation."
+        },
+        {
+          "type": "p",
+          "text": "Reuse detection."
+        },
+        {
+          "type": "p",
+          "text": "Token-family revocation."
+        },
+        {
+          "type": "p",
+          "text": "Logout."
+        },
+        {
+          "type": "p",
+          "text": "Appropriate cookie clearing if cookies are used."
+        },
+        {
+          "type": "p",
+          "text": "I. Step 7 — Test Security Scenarios"
+        },
+        {
+          "type": "p",
+          "text": "Test scenario"
+        },
+        {
+          "type": "p",
+          "text": "Expected result"
+        },
+        {
+          "type": "p",
+          "text": "Register a new student"
+        },
+        {
+          "type": "p",
+          "text": "Success"
+        },
+        {
+          "type": "p",
+          "text": "Register using duplicate email"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Login with correct password"
+        },
+        {
+          "type": "p",
+          "text": "Success"
+        },
+        {
+          "type": "p",
+          "text": "Login with incorrect password"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Access profile without authentication"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Student accesses admin endpoint"
+        },
+        {
+          "type": "p",
+          "text": "403"
+        },
+        {
+          "type": "p",
+          "text": "Admin accesses admin endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Success"
+        },
+        {
+          "type": "p",
+          "text": "Submit expired access token"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Submit tampered JWT"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Use refresh token successfully"
+        },
+        {
+          "type": "p",
+          "text": "New credentials issued"
+        },
+        {
+          "type": "p",
+          "text": "Reuse rotated refresh token"
+        },
+        {
+          "type": "p",
+          "text": "Reuse detected and affected token family revoked"
+        },
+        {
+          "type": "p",
+          "text": "Logout and reuse refresh token"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Disabled account attempts login"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "J. Final Lab Deliverables"
+        },
+        {
+          "type": "p",
+          "text": "By completing this practical lab, you should have:"
+        },
+        {
+          "type": "p",
+          "text": "A working registration system."
+        },
+        {
+          "type": "p",
+          "text": "Secure password hashing."
+        },
+        {
+          "type": "p",
+          "text": "A login system."
+        },
+        {
+          "type": "p",
+          "text": "JWT generation and validation."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token rotation."
+        },
+        {
+          "type": "p",
+          "text": "Logout and revocation logic."
+        },
+        {
+          "type": "p",
+          "text": "Student and administrator roles."
+        },
+        {
+          "type": "p",
+          "text": "Permission-protected endpoints."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL integration."
+        },
+        {
+          "type": "p",
+          "text": "Security configuration."
+        },
+        {
+          "type": "p",
+          "text": "Automated authentication and authorization tests."
+        },
+        {
+          "type": "p",
+          "text": "5. Assignment — Build a Complete Authentication System"
+        },
+        {
+          "type": "p",
+          "text": "Independent Engineering Assignment"
+        },
+        {
+          "type": "p",
+          "text": "Problem Statement"
+        },
+        {
+          "type": "p",
+          "text": "Build an authentication and authorization system for an online learning platform."
+        },
+        {
+          "type": "p",
+          "text": "The platform supports students, instructors and administrators."
+        },
+        {
+          "type": "p",
+          "text": "Your implementation must identify users, securely store credentials, authenticate requests and enforce access policies."
+        },
+        {
+          "type": "p",
+          "text": "Part A — Authentication Design"
+        },
+        {
+          "type": "p",
+          "text": "Design a complete authentication workflow covering:"
+        },
+        {
+          "type": "p",
+          "text": "User registration."
+        },
+        {
+          "type": "p",
+          "text": "Email verification."
+        },
+        {
+          "type": "p",
+          "text": "Login."
+        },
+        {
+          "type": "p",
+          "text": "Password hashing."
+        },
+        {
+          "type": "p",
+          "text": "Authentication token generation."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token handling."
+        },
+        {
+          "type": "p",
+          "text": "Logout."
+        },
+        {
+          "type": "p",
+          "text": "Password reset."
+        },
+        {
+          "type": "p",
+          "text": "Explain how every stage works and how failures are handled."
+        },
+        {
+          "type": "p",
+          "text": "Part B — Database Design"
+        },
+        {
+          "type": "p",
+          "text": "Create database entities for:"
+        },
+        {
+          "type": "p",
+          "text": "User."
+        },
+        {
+          "type": "p",
+          "text": "Role."
+        },
+        {
+          "type": "p",
+          "text": "Permission."
+        },
+        {
+          "type": "p",
+          "text": "UserRole."
+        },
+        {
+          "type": "p",
+          "text": "RolePermission."
+        },
+        {
+          "type": "p",
+          "text": "RefreshToken."
+        },
+        {
+          "type": "p",
+          "text": "Define all primary keys, foreign keys, constraints and relationships."
+        },
+        {
+          "type": "p",
+          "text": "Part C — Role-Based Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Implement at least three roles:"
+        },
+        {
+          "type": "p",
+          "text": "STUDENT"
+        },
+        {
+          "type": "p",
+          "text": "INSTRUCTOR"
+        },
+        {
+          "type": "p",
+          "text": "ADMIN"
+        },
+        {
+          "type": "p",
+          "text": "Define what each role can and cannot access."
+        },
+        {
+          "type": "p",
+          "text": "Part D — Permission-Based Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Create fine-grained permissions such as:"
+        },
+        {
+          "type": "p",
+          "text": "course:read course:create course:update course:delete user:read user:update user:delete enrollment:create enrollment:cancel progress:update"
+        },
+        {
+          "type": "p",
+          "text": "Implement endpoint-level and resource-level permission checks."
+        },
+        {
+          "type": "p",
+          "text": "Part E — JWT and Refresh Tokens"
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate:"
+        },
+        {
+          "type": "p",
+          "text": "JWT generation and signature validation."
+        },
+        {
+          "type": "p",
+          "text": "Access-token expiration."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token storage."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token rotation."
+        },
+        {
+          "type": "p",
+          "text": "Token revocation."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token reuse detection."
+        },
+        {
+          "type": "p",
+          "text": "Explain how your system behaves when a token is stolen or compromised."
+        },
+        {
+          "type": "p",
+          "text": "Part F — API Security"
+        },
+        {
+          "type": "p",
+          "text": "Secure all endpoints against:"
+        },
+        {
+          "type": "p",
+          "text": "Unauthenticated access."
+        },
+        {
+          "type": "p",
+          "text": "Privilege escalation."
+        },
+        {
+          "type": "p",
+          "text": "Broken object-level authorization."
+        },
+        {
+          "type": "p",
+          "text": "Brute-force login attempts."
+        },
+        {
+          "type": "p",
+          "text": "Token tampering."
+        },
+        {
+          "type": "p",
+          "text": "Expired credentials."
+        },
+        {
+          "type": "p",
+          "text": "Credential exposure."
+        },
+        {
+          "type": "p",
+          "text": "CSRF where relevant."
+        },
+        {
+          "type": "p",
+          "text": "Cross-origin configuration mistakes."
+        },
+        {
+          "type": "p",
+          "text": "Part G — Testing"
+        },
+        {
+          "type": "p",
+          "text": "Write automated tests demonstrating:"
+        },
+        {
+          "type": "p",
+          "text": "Successful authentication."
+        },
+        {
+          "type": "p",
+          "text": "Failed authentication."
+        },
+        {
+          "type": "p",
+          "text": "Student access restrictions."
+        },
+        {
+          "type": "p",
+          "text": "Administrator permissions."
+        },
+        {
+          "type": "p",
+          "text": "Instructor course ownership."
+        },
+        {
+          "type": "p",
+          "text": "Token expiration."
+        },
+        {
+          "type": "p",
+          "text": "Token refresh."
+        },
+        {
+          "type": "p",
+          "text": "Logout."
+        },
+        {
+          "type": "p",
+          "text": "Revocation."
+        },
+        {
+          "type": "p",
+          "text": "Final Submission"
+        },
+        {
+          "type": "p",
+          "text": "Your assignment should include the architecture diagram, database schema, Java entity classes, authentication services, security configuration, JWT validation, refresh-token management, authorization rules, REST APIs, automated tests and project documentation."
+        },
+        {
+          "type": "p",
+          "text": "6. Suggested Evaluation Criteria"
+        },
+        {
+          "type": "p",
+          "text": "Evaluation area"
+        },
+        {
+          "type": "p",
+          "text": "Weight"
+        },
+        {
+          "type": "p",
+          "text": "Authentication workflow"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Password security and credential storage"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "JWT and refresh-token implementation"
+        },
+        {
+          "type": "p",
+          "text": "20%"
+        },
+        {
+          "type": "p",
+          "text": "RBAC and permission-based authorization"
+        },
+        {
+          "type": "p",
+          "text": "20%"
+        },
+        {
+          "type": "p",
+          "text": "API security and access control"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Logout, expiration and revocation"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Testing and documentation"
+        },
+        {
+          "type": "p",
+          "text": "5%"
+        },
+        {
+          "type": "p",
+          "text": "Total"
+        },
+        {
+          "type": "p",
+          "text": "100%"
+        },
+        {
+          "type": "p",
+          "text": "7. Real-World Engineering Challenges"
+        },
+        {
+          "type": "p",
+          "text": "After completing the lab and assignment, you should be able to reason about these practical security scenarios."
+        },
+        {
+          "type": "p",
+          "text": "Challenge 1 — Privilege escalation"
+        },
+        {
+          "type": "p",
+          "text": "A student modifies a request and sends \"role\": \"ADMIN\" during registration. How will your backend prevent this?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 2 — Stolen JWT"
+        },
+        {
+          "type": "p",
+          "text": "An attacker obtains a student's access token. How can you limit the damage and prevent continued access after expiration or revocation?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 3 — Refresh-token theft"
+        },
+        {
+          "type": "p",
+          "text": "A refresh token is stolen and used by an attacker. How can rotation and reuse detection help identify the compromise?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 4 — Instructor access"
+        },
+        {
+          "type": "p",
+          "text": "An instructor changes a course ID in an API request and attempts to modify another instructor's course. How will resource-level authorization prevent this?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 5 — Multiple devices"
+        },
+        {
+          "type": "p",
+          "text": "A student logs in from a laptop, phone and another computer. How will your system manage separate sessions and allow logout from one or all devices?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 6 — Google login"
+        },
+        {
+          "type": "p",
+          "text": "A student signs in using Google. How will you validate the external identity, associate it with an existing PrepSpaces account and establish the correct application permissions?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 7 — Account compromise"
+        },
+        {
+          "type": "p",
+          "text": "An administrator's credentials are compromised. How will you revoke existing credentials, disable the account and prevent further access?"
+        },
+        {
+          "type": "p",
+          "text": "These challenges connect authentication theory to actual security engineering decisions."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Section 8",
+      "title": "8. Important Engineering Principles",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Throughout this module, follow these principles:"
+        },
+        {
+          "type": "p",
+          "text": "Never store plain-text passwords."
+        },
+        {
+          "type": "p",
+          "text": "Never trust user roles or permissions supplied by the frontend."
+        },
+        {
+          "type": "p",
+          "text": "Never treat a decoded JWT as automatically valid."
+        },
+        {
+          "type": "p",
+          "text": "Never assume that deleting a JWT from the browser revokes it."
+        },
+        {
+          "type": "p",
+          "text": "Never expose refresh tokens or secrets in application logs."
+        },
+        {
+          "type": "p",
+          "text": "Never rely on frontend route protection as backend security."
+        },
+        {
+          "type": "p",
+          "text": "Always validate resource ownership where necessary."
+        },
+        {
+          "type": "p",
+          "text": "Always use HTTPS for authentication traffic."
+        },
+        {
+          "type": "p",
+          "text": "Use established cryptographic and security libraries."
+        },
+        {
+          "type": "p",
+          "text": "Test both successful and rejected authorization scenarios."
+        },
+        {
+          "type": "p",
+          "text": "For additional depth, study the OWASP guidance on [Authentication](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html?utm_source=chatgpt.com), [Password Storage](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html?utm_source=chatgpt.com), and [JWT Security](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html?utm_source=chatgpt.com)."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Section 9",
+      "title": "9. Final Learning Outcome",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "By the end of Module 05, you should understand how to build an authentication system that does much more than simply provide a login button."
+        },
+        {
+          "type": "p",
+          "text": "You will understand how to identify users, protect credentials, issue and validate tokens, manage sessions, integrate external identity providers, assign permissions and prevent unauthorised access to sensitive resources."
+        },
+        {
+          "type": "p",
+          "text": "Most importantly, you will understand the distinction between proving who someone is and deciding what they are allowed to do."
+        },
+        {
+          "type": "p",
+          "text": "Your final objective: Be able to design and implement a secure, scalable authentication and authorization architecture for a real-world Spring Boot application, including a learning platform such as PrepSpaces."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T09:30:49+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

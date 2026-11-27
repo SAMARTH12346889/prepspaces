@@ -1,0 +1,4665 @@
+{
+  "moduleNumber": "06",
+  "title": "MODULE 06 — API Validation, Error Handling and Reliability",
+  "badges": [
+    "Core Module",
+    "12 Lessons",
+    "Practical Lab + Assignment"
+  ],
+  "overview": [],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Section 1",
+      "title": "1. Module Overview",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Building an API that works under normal conditions is not enough. A professional backend must also behave predictably when users submit incorrect information, database operations fail, external services become unavailable, or multiple requests arrive simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "Imagine PrepSpaces has thousands of students accessing its learning platform."
+        },
+        {
+          "type": "p",
+          "text": "Consider these situations:"
+        },
+        {
+          "type": "p",
+          "text": "A student submits an enrolment request without a course ID."
+        },
+        {
+          "type": "p",
+          "text": "A user submits an email address in an invalid format."
+        },
+        {
+          "type": "p",
+          "text": "A student accidentally clicks the Enrol button five times."
+        },
+        {
+          "type": "p",
+          "text": "An external AI service stops responding."
+        },
+        {
+          "type": "p",
+          "text": "An API receives thousands of requests within a few seconds."
+        },
+        {
+          "type": "p",
+          "text": "A database operation succeeds, but another operation in the same workflow fails."
+        },
+        {
+          "type": "p",
+          "text": "An API response changes and breaks an older frontend version."
+        },
+        {
+          "type": "p",
+          "text": "These are not unusual situations. They are normal challenges in backend engineering."
+        },
+        {
+          "type": "p",
+          "text": "A reliable API must know how to validate requests, communicate errors consistently, prevent duplicate operations, control traffic, handle failures and maintain compatibility as the application evolves."
+        },
+        {
+          "type": "p",
+          "text": "In this module, you will learn how to develop APIs that remain predictable and maintainable under both normal and unexpected conditions."
+        },
+        {
+          "type": "p",
+          "text": "The module primarily uses Java, Spring Boot, Spring Validation, Spring Security, PostgreSQL, Redis and Resilience4j."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Section 2",
+      "title": "2. What You Will Learn",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "By the end of this module, you should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Validate incoming API requests."
+        },
+        {
+          "type": "p",
+          "text": "Perform input validation and safe data handling."
+        },
+        {
+          "type": "p",
+          "text": "Validate request DTOs using Jakarta Bean Validation."
+        },
+        {
+          "type": "p",
+          "text": "Implement centralized exception handling."
+        },
+        {
+          "type": "p",
+          "text": "Design standardized API error responses."
+        },
+        {
+          "type": "p",
+          "text": "Separate business validation from request validation."
+        },
+        {
+          "type": "p",
+          "text": "Prevent duplicate operations using idempotency."
+        },
+        {
+          "type": "p",
+          "text": "Implement API rate limiting."
+        },
+        {
+          "type": "p",
+          "text": "Configure connection and request timeouts."
+        },
+        {
+          "type": "p",
+          "text": "Implement safe retry strategies."
+        },
+        {
+          "type": "p",
+          "text": "Use circuit breakers for unreliable services."
+        },
+        {
+          "type": "p",
+          "text": "Handle partial failures in distributed workflows."
+        },
+        {
+          "type": "p",
+          "text": "Maintain backward compatibility when changing APIs."
+        },
+        {
+          "type": "p",
+          "text": "Design APIs that communicate failures clearly and consistently."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Section 3",
+      "title": "3. Detailed Lesson Explanations",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Lesson 1 — Request Validation Fundamentals"
+        },
+        {
+          "type": "p",
+          "text": "Every API receives input from external clients."
+        },
+        {
+          "type": "p",
+          "text": "That input may be correct, incomplete, unexpected or deliberately manipulated."
+        },
+        {
+          "type": "p",
+          "text": "Request validation checks whether incoming data satisfies the requirements of an API before the application processes it."
+        },
+        {
+          "type": "p",
+          "text": "A. Why is request validation necessary?"
+        },
+        {
+          "type": "p",
+          "text": "Imagine PrepSpaces provides this endpoint:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/courses Content-Type: application/json"
+        },
+        {
+          "type": "p",
+          "text": "A valid request might look like:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"title\": \"Backend Engineering\", \"description\": \"Complete backend development course\", \"availableSeats\": 100 }"
+        },
+        {
+          "type": "p",
+          "text": "But what happens when a user submits:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"title\": \"\", \"description\": null, \"availableSeats\": -50 }"
+        },
+        {
+          "type": "p",
+          "text": "Without validation, the application might attempt to store invalid information."
+        },
+        {
+          "type": "p",
+          "text": "This can lead to:"
+        },
+        {
+          "type": "p",
+          "text": "Invalid database records."
+        },
+        {
+          "type": "p",
+          "text": "Unexpected application errors."
+        },
+        {
+          "type": "p",
+          "text": "Incorrect business operations."
+        },
+        {
+          "type": "p",
+          "text": "Security vulnerabilities."
+        },
+        {
+          "type": "p",
+          "text": "Difficult debugging."
+        },
+        {
+          "type": "p",
+          "text": "Inconsistent API behaviour."
+        },
+        {
+          "type": "p",
+          "text": "B. Types of request validation"
+        },
+        {
+          "type": "p",
+          "text": "1. Required Field Validation"
+        },
+        {
+          "type": "p",
+          "text": "Checks whether required fields are present."
+        },
+        {
+          "type": "p",
+          "text": "Example: A course must have a title."
+        },
+        {
+          "type": "p",
+          "text": "2. Format Validation"
+        },
+        {
+          "type": "p",
+          "text": "Checks whether information follows the expected format."
+        },
+        {
+          "type": "p",
+          "text": "Example: An email address must have a valid format."
+        },
+        {
+          "type": "p",
+          "text": "3. Length Validation"
+        },
+        {
+          "type": "p",
+          "text": "Checks minimum and maximum field lengths."
+        },
+        {
+          "type": "p",
+          "text": "Example: A course title cannot be longer than 150 characters."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Section 4",
+      "title": "4. Range Validation",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Checks whether numerical values fall within acceptable boundaries."
+        },
+        {
+          "type": "p",
+          "text": "Example: Course capacity cannot be negative."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Section 5",
+      "title": "5. Type Validation",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Checks whether the supplied data has the expected type."
+        },
+        {
+          "type": "p",
+          "text": "Example: availableSeats should be an integer, not an arbitrary text value."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Section 6",
+      "title": "6. Structural Validation",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Checks whether the request body contains the expected structure."
+        },
+        {
+          "type": "p",
+          "text": "C. Understanding the validation pipeline"
+        },
+        {
+          "type": "p",
+          "text": "Incoming API Request"
+        },
+        {
+          "type": "p",
+          "text": "JSON or other request data"
+        },
+        {
+          "type": "p",
+          "text": "Request Parsing"
+        },
+        {
+          "type": "p",
+          "text": "Convert incoming data into expected types"
+        },
+        {
+          "type": "p",
+          "text": "Input Validation"
+        },
+        {
+          "type": "p",
+          "text": "Check required fields, format and ranges"
+        },
+        {
+          "type": "p",
+          "text": "Valid"
+        },
+        {
+          "type": "p",
+          "text": "Proceed to controller and service"
+        },
+        {
+          "type": "p",
+          "text": "Invalid"
+        },
+        {
+          "type": "p",
+          "text": "Return structured error response"
+        },
+        {
+          "type": "p",
+          "text": "D. Validation at different layers"
+        },
+        {
+          "type": "p",
+          "text": "Validation should not be limited to the controller."
+        },
+        {
+          "type": "p",
+          "text": "Layer"
+        },
+        {
+          "type": "p",
+          "text": "Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "API layer"
+        },
+        {
+          "type": "p",
+          "text": "Validate incoming request structure"
+        },
+        {
+          "type": "p",
+          "text": "DTO layer"
+        },
+        {
+          "type": "p",
+          "text": "Validate fields and formats"
+        },
+        {
+          "type": "p",
+          "text": "Service layer"
+        },
+        {
+          "type": "p",
+          "text": "Validate business rules"
+        },
+        {
+          "type": "p",
+          "text": "Database layer"
+        },
+        {
+          "type": "p",
+          "text": "Enforce data integrity constraints"
+        },
+        {
+          "type": "p",
+          "text": "For example, a student submitting an enrolment request may provide a valid course ID, but that course may be full."
+        },
+        {
+          "type": "p",
+          "text": "The request is structurally valid, but the operation is not valid according to the business rules."
+        },
+        {
+          "type": "p",
+          "text": "You will learn why these different validation layers should work together."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Request validation prevents invalid information from entering your application's business logic and database."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 2 — Input Validation and Sanitization"
+        },
+        {
+          "type": "p",
+          "text": "Validation and sanitization are related concepts, but they are not the same."
+        },
+        {
+          "type": "p",
+          "text": "Validation determines whether an input is acceptable."
+        },
+        {
+          "type": "p",
+          "text": "Sanitization transforms input into a safe or acceptable representation when transformation is appropriate."
+        },
+        {
+          "type": "p",
+          "text": "A. Understanding input validation"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an API accepts a student's email address."
+        },
+        {
+          "type": "code",
+          "text": "{ \"email\": \"rahul@example.com\" }"
+        },
+        {
+          "type": "p",
+          "text": "You can validate the email format."
+        },
+        {
+          "type": "p",
+          "text": "But consider:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"email\": \"<script>alert('test')</script>\" }"
+        },
+        {
+          "type": "p",
+          "text": "This does not satisfy the expected email format and should be rejected."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding sanitization"
+        },
+        {
+          "type": "p",
+          "text": "Sanitization is the controlled transformation of input."
+        },
+        {
+          "type": "p",
+          "text": "For example, a platform that allows instructors to submit rich HTML course descriptions may need an HTML sanitizer to remove unsafe markup while retaining permitted formatting."
+        },
+        {
+          "type": "p",
+          "text": "However, indiscriminately deleting special characters from every input is not a good security strategy."
+        },
+        {
+          "type": "p",
+          "text": "It can corrupt legitimate information, such as names, languages, code examples or mathematical expressions."
+        },
+        {
+          "type": "p",
+          "text": "C. Important security techniques"
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Section 1",
+      "title": "1. Allowlist Validation",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Define exactly which input formats are permitted."
+        },
+        {
+          "type": "p",
+          "text": "Example: A course status may only accept:"
+        },
+        {
+          "type": "p",
+          "text": "DRAFT PUBLISHED ARCHIVED"
+        },
+        {
+          "type": "p",
+          "text": "2. Length Restrictions"
+        },
+        {
+          "type": "p",
+          "text": "Limit strings, arrays, files and request sizes to reasonable values."
+        },
+        {
+          "type": "p",
+          "text": "3. Context-Specific Output Encoding"
+        },
+        {
+          "type": "p",
+          "text": "Encode output according to where it will be displayed, such as HTML, JavaScript, URLs or CSS."
+        },
+        {
+          "type": "p",
+          "text": "This is an important defence against cross-site scripting (XSS)."
+        },
+        {
+          "type": "p",
+          "text": "4. Parameterized SQL Queries"
+        },
+        {
+          "type": "p",
+          "text": "Never construct SQL queries by directly concatenating untrusted input."
+        },
+        {
+          "type": "p",
+          "text": "Unsafe example:"
+        },
+        {
+          "type": "p",
+          "text": "String sql = \"SELECT * FROM users WHERE email = '\" + email + \"'\";"
+        },
+        {
+          "type": "p",
+          "text": "Safer approach:"
+        },
+        {
+          "type": "p",
+          "text": "@Query(\"SELECT u FROM User u WHERE u.email = :email\") Optional<User> findByEmail( @Param(\"email\") String email );"
+        },
+        {
+          "type": "p",
+          "text": "5. File Validation"
+        },
+        {
+          "type": "p",
+          "text": "For file uploads, validate:"
+        },
+        {
+          "type": "p",
+          "text": "File size."
+        },
+        {
+          "type": "p",
+          "text": "Allowed formats."
+        },
+        {
+          "type": "p",
+          "text": "Actual file content and file signatures."
+        },
+        {
+          "type": "p",
+          "text": "File names."
+        },
+        {
+          "type": "p",
+          "text": "Storage location."
+        },
+        {
+          "type": "p",
+          "text": "Whether executable content is allowed."
+        },
+        {
+          "type": "p",
+          "text": "Do not rely only on the filename extension or the browser-provided MIME type."
+        },
+        {
+          "type": "p",
+          "text": "6. Request Size Limits"
+        },
+        {
+          "type": "p",
+          "text": "Prevent unnecessarily large requests from consuming excessive memory or processing resources."
+        },
+        {
+          "type": "p",
+          "text": "D. Understanding SQL injection"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an application creates SQL using raw user input."
+        },
+        {
+          "type": "p",
+          "text": "An attacker may submit malicious SQL fragments in an input field."
+        },
+        {
+          "type": "p",
+          "text": "This can change the intended meaning of a database query."
+        },
+        {
+          "type": "p",
+          "text": "Parameterized queries and ORM query binding help protect against this class of injection."
+        },
+        {
+          "type": "p",
+          "text": "E. Understanding XSS"
+        },
+        {
+          "type": "p",
+          "text": "An attacker may attempt to submit malicious HTML or JavaScript that executes when another user opens a page."
+        },
+        {
+          "type": "p",
+          "text": "For applications displaying user-generated content, you must understand HTML sanitization, contextual output encoding and Content Security Policy."
+        },
+        {
+          "type": "p",
+          "text": "F. Practical example"
+        },
+        {
+          "type": "p",
+          "text": "A course description may allow ordinary text and limited formatting but reject executable JavaScript."
+        },
+        {
+          "type": "p",
+          "text": "You will learn how to:"
+        },
+        {
+          "type": "p",
+          "text": "Validate the incoming content."
+        },
+        {
+          "type": "p",
+          "text": "Apply an appropriate HTML sanitization policy if rich HTML is supported."
+        },
+        {
+          "type": "p",
+          "text": "Store the allowed representation."
+        },
+        {
+          "type": "p",
+          "text": "Encode output correctly when displaying it."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Good input handling protects databases, APIs and users without unnecessarily destroying legitimate application data."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 3 — DTO Validation"
+        },
+        {
+          "type": "p",
+          "text": "In Spring Boot applications, Data Transfer Objects (DTOs) define the data accepted from clients and returned by APIs."
+        },
+        {
+          "type": "p",
+          "text": "DTO validation allows you to define validation rules directly on request objects."
+        },
+        {
+          "type": "p",
+          "text": "A. What is a DTO?"
+        },
+        {
+          "type": "p",
+          "text": "A DTO represents the information exchanged between application components or across an API boundary."
+        },
+        {
+          "type": "p",
+          "text": "For example, a user registration request may need:"
+        },
+        {
+          "type": "p",
+          "text": "Name."
+        },
+        {
+          "type": "p",
+          "text": "Email."
+        },
+        {
+          "type": "p",
+          "text": "Password."
+        },
+        {
+          "type": "p",
+          "text": "It should not expose internal database fields such as user ID, account creation timestamp or password hash for the client to control."
+        },
+        {
+          "type": "p",
+          "text": "B. Adding the validation dependency"
+        },
+        {
+          "type": "p",
+          "text": "For a Maven-based Spring Boot application:"
+        },
+        {
+          "type": "code",
+          "text": "<dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-validation</artifactId> </dependency>"
+        },
+        {
+          "type": "p",
+          "text": "This provides Jakarta Bean Validation integration."
+        },
+        {
+          "type": "p",
+          "text": "C. Creating a validated request DTO"
+        },
+        {
+          "type": "code",
+          "text": "import jakarta.validation.constraints.*; public record RegisterRequest( @NotBlank(message = \"Name is required\") @Size(max = 100, message = \"Name is too long\") String name, @NotBlank(message = \"Email is required\") @Email(message = \"Invalid email format\") String email, @NotBlank(message = \"Password is required\") @Size(min = 12, max = 128, message = \"Password length must be between 12 and 128\") String password ) {}"
+        },
+        {
+          "type": "p",
+          "text": "D. Understanding validation annotations"
+        },
+        {
+          "type": "p",
+          "text": "Annotation"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "code",
+          "text": "@NotNull"
+        },
+        {
+          "type": "p",
+          "text": "Value cannot be null"
+        },
+        {
+          "type": "code",
+          "text": "@NotBlank"
+        },
+        {
+          "type": "p",
+          "text": "String cannot be null, empty or whitespace"
+        },
+        {
+          "type": "p",
+          "text": "@NotEmpty"
+        },
+        {
+          "type": "p",
+          "text": "String or collection cannot be empty"
+        },
+        {
+          "type": "code",
+          "text": "@Size"
+        },
+        {
+          "type": "p",
+          "text": "Restricts minimum and maximum size"
+        },
+        {
+          "type": "code",
+          "text": "@Email"
+        },
+        {
+          "type": "p",
+          "text": "Checks email format"
+        },
+        {
+          "type": "p",
+          "text": "@Min"
+        },
+        {
+          "type": "p",
+          "text": "Sets minimum numerical value"
+        },
+        {
+          "type": "p",
+          "text": "@Max"
+        },
+        {
+          "type": "p",
+          "text": "Sets maximum numerical value"
+        },
+        {
+          "type": "p",
+          "text": "@Positive"
+        },
+        {
+          "type": "p",
+          "text": "Requires a positive number"
+        },
+        {
+          "type": "p",
+          "text": "@Pattern"
+        },
+        {
+          "type": "p",
+          "text": "Validates against a regular expression"
+        },
+        {
+          "type": "p",
+          "text": "@Past"
+        },
+        {
+          "type": "p",
+          "text": "Requires a past date"
+        },
+        {
+          "type": "p",
+          "text": "@Future"
+        },
+        {
+          "type": "p",
+          "text": "Requires a future date"
+        },
+        {
+          "type": "p",
+          "text": "E. Applying validation in the controller"
+        },
+        {
+          "type": "code",
+          "text": "@RestController @RequestMapping(\"/api/auth\") public class RegistrationController { private final AuthService authService; public RegistrationController(AuthService authService) { this.authService = authService; } @PostMapping(\"/register\") public ResponseEntity<?> register( @Valid @RequestBody RegisterRequest request) { authService.register(request); return ResponseEntity .status(HttpStatus.CREATED) .body(\"Registration successful\"); } }"
+        },
+        {
+          "type": "p",
+          "text": "The @Valid annotation triggers the validation rules."
+        },
+        {
+          "type": "p",
+          "text": "If the request violates the constraints, Spring MVC raises a validation exception instead of allowing the controller operation to proceed normally."
+        },
+        {
+          "type": "p",
+          "text": "F. Advanced DTO validation"
+        },
+        {
+          "type": "p",
+          "text": "You will also learn:"
+        },
+        {
+          "type": "p",
+          "text": "Nested Validation: Validate objects inside other DTOs using @Valid."
+        },
+        {
+          "type": "p",
+          "text": "Collection Validation: Validate lists of objects and their individual elements."
+        },
+        {
+          "type": "p",
+          "text": "Custom Validation: Create custom annotations for application-specific rules."
+        },
+        {
+          "type": "p",
+          "text": "Validation Groups: Apply different validation rules for create and update operations."
+        },
+        {
+          "type": "p",
+          "text": "Cross-Field Validation: Validate relationships between multiple fields."
+        },
+        {
+          "type": "p",
+          "text": "Example: An event's ending date must be later than its starting date."
+        },
+        {
+          "type": "p",
+          "text": "You may implement this with a custom class-level constraint."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: DTO validation makes API contracts clearer, reduces repetitive validation code and produces consistent input requirements."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 4 — Global Exception Handling"
+        },
+        {
+          "type": "p",
+          "text": "An API must handle errors gracefully."
+        },
+        {
+          "type": "p",
+          "text": "Without centralized exception handling, different controllers may return different error formats for similar failures."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "One controller returns a plain text error."
+        },
+        {
+          "type": "p",
+          "text": "Another returns a JSON message."
+        },
+        {
+          "type": "p",
+          "text": "Another exposes a Java exception name."
+        },
+        {
+          "type": "p",
+          "text": "Another accidentally returns an internal stack trace."
+        },
+        {
+          "type": "p",
+          "text": "This creates an unpredictable API."
+        },
+        {
+          "type": "p",
+          "text": "A. What is exception handling?"
+        },
+        {
+          "type": "p",
+          "text": "Exception handling is the mechanism through which an application detects and manages unexpected conditions during execution."
+        },
+        {
+          "type": "p",
+          "text": "Consider a request:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses/9999"
+        },
+        {
+          "type": "p",
+          "text": "If the course does not exist, the backend should not return an uncontrolled exception."
+        },
+        {
+          "type": "p",
+          "text": "It should return an appropriate HTTP response."
+        },
+        {
+          "type": "p",
+          "text": "B. Common exception categories"
+        },
+        {
+          "type": "p",
+          "text": "Exception category"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "Validation exception"
+        },
+        {
+          "type": "p",
+          "text": "Invalid course title"
+        },
+        {
+          "type": "p",
+          "text": "Not-found exception"
+        },
+        {
+          "type": "p",
+          "text": "Course does not exist"
+        },
+        {
+          "type": "p",
+          "text": "Conflict exception"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate enrolment"
+        },
+        {
+          "type": "p",
+          "text": "Authentication exception"
+        },
+        {
+          "type": "p",
+          "text": "Invalid credentials"
+        },
+        {
+          "type": "p",
+          "text": "Authorization exception"
+        },
+        {
+          "type": "p",
+          "text": "Insufficient permissions"
+        },
+        {
+          "type": "p",
+          "text": "Database exception"
+        },
+        {
+          "type": "p",
+          "text": "Persistence failure"
+        },
+        {
+          "type": "p",
+          "text": "External service exception"
+        },
+        {
+          "type": "p",
+          "text": "AI provider unavailable"
+        },
+        {
+          "type": "p",
+          "text": "Unexpected exception"
+        },
+        {
+          "type": "p",
+          "text": "Unhandled application failure"
+        },
+        {
+          "type": "p",
+          "text": "C. Local vs global exception handling"
+        },
+        {
+          "type": "p",
+          "text": "Local exception handling handles an error in a specific method using try-catch."
+        },
+        {
+          "type": "p",
+          "text": "Global exception handling provides centralized handling for exceptions across controllers."
+        },
+        {
+          "type": "p",
+          "text": "In Spring Boot, you commonly implement global handling using @RestControllerAdvice and @ExceptionHandler."
+        },
+        {
+          "type": "p",
+          "text": "D. Implementing global exception handling"
+        },
+        {
+          "type": "p",
+          "text": "First, create a custom exception:"
+        },
+        {
+          "type": "code",
+          "text": "public class ResourceNotFoundException extends RuntimeException { public ResourceNotFoundException(String message) { super(message); } }"
+        },
+        {
+          "type": "p",
+          "text": "Then define a global exception handler:"
+        },
+        {
+          "type": "code",
+          "text": "@RestControllerAdvice public class GlobalExceptionHandler { @ExceptionHandler(ResourceNotFoundException.class) public ResponseEntity<?> handleNotFound( ResourceNotFoundException ex) { return ResponseEntity .status(HttpStatus.NOT_FOUND) .body(Map.of( \"error\", \"RESOURCE_NOT_FOUND\", \"message\", ex.getMessage() )); } @ExceptionHandler(Exception.class) public ResponseEntity<?> handleUnexpected( Exception ex) { return ResponseEntity .status(HttpStatus.INTERNAL_SERVER_ERROR) .body(Map.of( \"error\", \"INTERNAL_SERVER_ERROR\", \"message\", \"An unexpected error occurred\" )); } }"
+        },
+        {
+          "type": "p",
+          "text": "This is a simplified starting point. A production implementation should also handle framework exceptions such as validation errors and ensure that sensitive exception details are not exposed."
+        },
+        {
+          "type": "p",
+          "text": "E. Important exception-handling principles"
+        },
+        {
+          "type": "p",
+          "text": "Do not expose internal stack traces to clients."
+        },
+        {
+          "type": "p",
+          "text": "Do not return database credentials or SQL details."
+        },
+        {
+          "type": "p",
+          "text": "Preserve appropriate HTTP status codes."
+        },
+        {
+          "type": "p",
+          "text": "Log errors using an appropriate logging framework."
+        },
+        {
+          "type": "p",
+          "text": "Include a trace or correlation ID for debugging."
+        },
+        {
+          "type": "p",
+          "text": "Avoid catching every exception and pretending the operation succeeded."
+        },
+        {
+          "type": "p",
+          "text": "Do not silently ignore important failures."
+        },
+        {
+          "type": "p",
+          "text": "F. Understanding exception propagation"
+        },
+        {
+          "type": "p",
+          "text": "You will learn how exceptions travel through:"
+        },
+        {
+          "type": "p",
+          "text": "Controller ↓ Service ↓ Repository ↓ Database"
+        },
+        {
+          "type": "p",
+          "text": "You will understand when an exception should be handled, when it should be translated into a domain-specific exception, and when it should propagate to a central handler."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Global exception handling makes API failures consistent and prevents internal implementation details from leaking to users."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 5 — Designing Consistent API Error Responses"
+        },
+        {
+          "type": "p",
+          "text": "A professional API should communicate failures through a predictable response structure."
+        },
+        {
+          "type": "p",
+          "text": "Frontend applications should not need to understand a different error format for every endpoint."
+        },
+        {
+          "type": "p",
+          "text": "A. Why standard error responses matter"
+        },
+        {
+          "type": "p",
+          "text": "Imagine two requests fail."
+        },
+        {
+          "type": "p",
+          "text": "The first endpoint returns:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"message\": \"Course not found\" }"
+        },
+        {
+          "type": "p",
+          "text": "The second returns:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"error\": \"Invalid operation\", \"status\": 400 }"
+        },
+        {
+          "type": "p",
+          "text": "The frontend must implement different error-handling logic."
+        },
+        {
+          "type": "p",
+          "text": "A standardized error format solves this problem."
+        },
+        {
+          "type": "p",
+          "text": "B. Designing a common error structure"
+        },
+        {
+          "type": "p",
+          "text": "A useful error response might look like:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"type\": \"https://prepspaces.com/errors/validation\", \"title\": \"Validation Failed\", \"status\": 400, \"detail\": \"One or more fields contain invalid values\", \"instance\": \"/api/courses\", \"errorCode\": \"VALIDATION_ERROR\", \"traceId\": \"req-abc123\", \"fieldErrors\": [ { \"field\": \"title\", \"message\": \"Title is required\" }, { \"field\": \"availableSeats\", \"message\": \"Must be greater than zero\" } ] }"
+        },
+        {
+          "type": "p",
+          "text": "C. Understanding the fields"
+        },
+        {
+          "type": "p",
+          "text": "Field"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "type"
+        },
+        {
+          "type": "p",
+          "text": "Identifies the category of problem"
+        },
+        {
+          "type": "p",
+          "text": "title"
+        },
+        {
+          "type": "p",
+          "text": "Short human-readable error title"
+        },
+        {
+          "type": "p",
+          "text": "status"
+        },
+        {
+          "type": "p",
+          "text": "HTTP status code"
+        },
+        {
+          "type": "p",
+          "text": "detail"
+        },
+        {
+          "type": "p",
+          "text": "Explanation of the failure"
+        },
+        {
+          "type": "p",
+          "text": "instance"
+        },
+        {
+          "type": "p",
+          "text": "Request path associated with the failure"
+        },
+        {
+          "type": "p",
+          "text": "errorCode"
+        },
+        {
+          "type": "p",
+          "text": "Stable application-specific error identifier"
+        },
+        {
+          "type": "p",
+          "text": "traceId"
+        },
+        {
+          "type": "p",
+          "text": "Helps locate the error in application logs"
+        },
+        {
+          "type": "p",
+          "text": "fieldErrors"
+        },
+        {
+          "type": "p",
+          "text": "Provides individual validation failures"
+        },
+        {
+          "type": "p",
+          "text": "D. RFC 9457 — Problem Details for HTTP APIs"
+        },
+        {
+          "type": "p",
+          "text": "You will study the standard Problem Details format defined by RFC 9457."
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot and Spring Framework support ProblemDetail, which can be used to build standardized error responses."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@ExceptionHandler(ResourceNotFoundException.class) public ResponseEntity<ProblemDetail> handleNotFound( ResourceNotFoundException ex) { ProblemDetail problem = ProblemDetail.forStatusAndDetail( HttpStatus.NOT_FOUND, ex.getMessage() ); problem.setTitle(\"Resource Not Found\"); problem.setProperty( \"errorCode\", \"RESOURCE_NOT_FOUND\" ); return ResponseEntity .status(HttpStatus.NOT_FOUND) .body(problem); }"
+        },
+        {
+          "type": "p",
+          "text": "E. Validation error responses"
+        },
+        {
+          "type": "p",
+          "text": "Suppose the user submits:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"title\": \"\", \"availableSeats\": -10 }"
+        },
+        {
+          "type": "p",
+          "text": "Your API should return a clear list of validation failures."
+        },
+        {
+          "type": "p",
+          "text": "You will learn to extract field errors from MethodArgumentNotValidException and include them in the standardized response."
+        },
+        {
+          "type": "p",
+          "text": "F. Important API error design principles"
+        },
+        {
+          "type": "p",
+          "text": "Keep error codes stable."
+        },
+        {
+          "type": "p",
+          "text": "Use correct HTTP status codes."
+        },
+        {
+          "type": "p",
+          "text": "Never expose internal exception messages indiscriminately."
+        },
+        {
+          "type": "p",
+          "text": "Provide enough detail to help clients correct their requests."
+        },
+        {
+          "type": "p",
+          "text": "Include a trace ID for support and debugging."
+        },
+        {
+          "type": "p",
+          "text": "Keep error structures consistent across endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Avoid exposing sensitive data in error responses."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Standardized errors make APIs easier to integrate, debug, test and maintain."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 6 — Business Logic Validation"
+        },
+        {
+          "type": "p",
+          "text": "Request validation checks whether input is structurally correct."
+        },
+        {
+          "type": "p",
+          "text": "Business logic validation checks whether an operation is allowed according to application rules."
+        },
+        {
+          "type": "p",
+          "text": "This distinction is especially important in real-world backend systems."
+        },
+        {
+          "type": "p",
+          "text": "A. Understanding the difference"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a student sends:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"courseId\": 101 }"
+        },
+        {
+          "type": "p",
+          "text": "The course ID is present and has the correct data type."
+        },
+        {
+          "type": "p",
+          "text": "The DTO validation succeeds."
+        },
+        {
+          "type": "p",
+          "text": "However:"
+        },
+        {
+          "type": "p",
+          "text": "The course may not exist."
+        },
+        {
+          "type": "p",
+          "text": "The course may be archived."
+        },
+        {
+          "type": "p",
+          "text": "The student may already be enrolled."
+        },
+        {
+          "type": "p",
+          "text": "The course may be full."
+        },
+        {
+          "type": "p",
+          "text": "The student may not have permission to enrol."
+        },
+        {
+          "type": "p",
+          "text": "These conditions require business validation."
+        },
+        {
+          "type": "p",
+          "text": "B. Example business rules"
+        },
+        {
+          "type": "p",
+          "text": "For PrepSpaces:"
+        },
+        {
+          "type": "p",
+          "text": "Operation"
+        },
+        {
+          "type": "p",
+          "text": "Business rule"
+        },
+        {
+          "type": "p",
+          "text": "Register"
+        },
+        {
+          "type": "p",
+          "text": "Email must not already exist"
+        },
+        {
+          "type": "p",
+          "text": "Enrol"
+        },
+        {
+          "type": "p",
+          "text": "Student must not already be enrolled"
+        },
+        {
+          "type": "p",
+          "text": "Enrol"
+        },
+        {
+          "type": "p",
+          "text": "Course must be available"
+        },
+        {
+          "type": "p",
+          "text": "Enrol"
+        },
+        {
+          "type": "p",
+          "text": "Available seats must be positive"
+        },
+        {
+          "type": "p",
+          "text": "Complete lesson"
+        },
+        {
+          "type": "p",
+          "text": "Student must have access to the course"
+        },
+        {
+          "type": "p",
+          "text": "Publish course"
+        },
+        {
+          "type": "p",
+          "text": "Course must satisfy publishing requirements"
+        },
+        {
+          "type": "p",
+          "text": "Cancel enrolment"
+        },
+        {
+          "type": "p",
+          "text": "Enrolment must exist and be cancellable"
+        },
+        {
+          "type": "p",
+          "text": "C. Implementing business validation"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Service public class EnrollmentService { private final UserRepository userRepository; private final CourseRepository courseRepository; private final EnrollmentRepository enrollmentRepository; public EnrollmentService( UserRepository userRepository, CourseRepository courseRepository, EnrollmentRepository enrollmentRepository) { this.userRepository = userRepository; this.courseRepository = courseRepository; this.enrollmentRepository = enrollmentRepository; } @Transactional public Enrollment enroll(Long userId, Long courseId) { User user = userRepository.findById(userId) .orElseThrow(() -> new ResourceNotFoundException(\"User not found\") ); Course course = courseRepository.findById(courseId) .orElseThrow(() -> new ResourceNotFoundException(\"Course not found\") ); if (course.getAvailableSeats() <= 0) { throw new BusinessException( \"Course has no available seats\" ); } if (enrollmentRepository .existsByUserIdAndCourseId(userId, courseId)) { throw new BusinessException( \"Student is already enrolled\" ); } // Persist enrollment and update seat count safely. return enrollmentRepository.save( new Enrollment(user, course) ); } }"
+        },
+        {
+          "type": "p",
+          "text": "This illustrates business validation. A real implementation must also address the concurrency problem between checking capacity, creating the enrolment and updating available seats. Module 04 introduced the database constraints and transaction techniques needed for that."
+        },
+        {
+          "type": "p",
+          "text": "D. Domain exceptions"
+        },
+        {
+          "type": "p",
+          "text": "You will learn to create meaningful application exceptions such as:"
+        },
+        {
+          "type": "p",
+          "text": "CourseNotFoundException StudentNotFoundException CourseFullException DuplicateEnrollmentException InvalidEnrollmentStateException"
+        },
+        {
+          "type": "p",
+          "text": "These exceptions represent business failures rather than low-level technical problems."
+        },
+        {
+          "type": "p",
+          "text": "E. Business validation vs database constraints"
+        },
+        {
+          "type": "p",
+          "text": "A business validation checks whether an operation is allowed."
+        },
+        {
+          "type": "p",
+          "text": "A database constraint ensures that invalid data cannot be committed."
+        },
+        {
+          "type": "p",
+          "text": "Both are necessary."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Service layer checks whether an email already exists."
+        },
+        {
+          "type": "p",
+          "text": "Database unique constraint prevents duplicates even when concurrent requests bypass the initial check."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Correct business validation prevents technically valid requests from performing operations that violate application rules."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 7 — Idempotency and Duplicate Request Prevention"
+        },
+        {
+          "type": "p",
+          "text": "This is one of the most important concepts in reliable API engineering."
+        },
+        {
+          "type": "p",
+          "text": "Users may accidentally submit the same request multiple times. Networks may fail after the backend has already processed a request. Mobile applications may retry operations automatically."
+        },
+        {
+          "type": "p",
+          "text": "Without duplicate-request protection, the same operation may execute multiple times."
+        },
+        {
+          "type": "p",
+          "text": "A. What is idempotency?"
+        },
+        {
+          "type": "p",
+          "text": "An operation is idempotent if repeating the same operation produces the same intended result as performing it once."
+        },
+        {
+          "type": "p",
+          "text": "For example, setting a user's course completion percentage to 50 is conceptually idempotent when repeated with the same value."
+        },
+        {
+          "type": "p",
+          "text": "Creating a payment or submitting an enrolment may not be naturally idempotent."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding duplicate requests"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a student clicks:"
+        },
+        {
+          "type": "p",
+          "text": "Enrol in Course"
+        },
+        {
+          "type": "p",
+          "text": "The frontend sends:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/enrollments"
+        },
+        {
+          "type": "p",
+          "text": "The backend successfully creates the enrolment, but the response is lost because of a network interruption."
+        },
+        {
+          "type": "p",
+          "text": "The frontend does not know whether the operation succeeded."
+        },
+        {
+          "type": "p",
+          "text": "It retries the request."
+        },
+        {
+          "type": "p",
+          "text": "Without protection, the backend might process the same operation twice."
+        },
+        {
+          "type": "p",
+          "text": "C. What is an idempotency key?"
+        },
+        {
+          "type": "p",
+          "text": "An idempotency key is a unique identifier supplied by the client to identify a logical operation."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/enrollments Idempotency-Key: 9f8a7b6c-example-key Content-Type: application/json"
+        },
+        {
+          "type": "p",
+          "text": "The backend stores the key and the result of the operation."
+        },
+        {
+          "type": "p",
+          "text": "When the same request arrives again with the same key, the backend can return the original result instead of executing the operation again."
+        },
+        {
+          "type": "p",
+          "text": "D. Idempotency workflow"
+        },
+        {
+          "type": "p",
+          "text": "Client sends request with Idempotency-Key"
+        },
+        {
+          "type": "p",
+          "text": "Backend checks stored key"
+        },
+        {
+          "type": "p",
+          "text": "New key"
+        },
+        {
+          "type": "p",
+          "text": "Process the operation and save the result"
+        },
+        {
+          "type": "p",
+          "text": "Existing key"
+        },
+        {
+          "type": "p",
+          "text": "Return the previous result"
+        },
+        {
+          "type": "p",
+          "text": "E. Database design"
+        },
+        {
+          "type": "p",
+          "text": "Create an idempotency_records table."
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "idempotency_key"
+        },
+        {
+          "type": "p",
+          "text": "Unique request key"
+        },
+        {
+          "type": "p",
+          "text": "user_id"
+        },
+        {
+          "type": "p",
+          "text": "Requesting user"
+        },
+        {
+          "type": "p",
+          "text": "request_hash"
+        },
+        {
+          "type": "p",
+          "text": "Fingerprint of request content"
+        },
+        {
+          "type": "p",
+          "text": "status"
+        },
+        {
+          "type": "p",
+          "text": "Processing or completed state"
+        },
+        {
+          "type": "p",
+          "text": "response_status"
+        },
+        {
+          "type": "p",
+          "text": "Original HTTP status"
+        },
+        {
+          "type": "p",
+          "text": "response_body"
+        },
+        {
+          "type": "p",
+          "text": "Stored result"
+        },
+        {
+          "type": "p",
+          "text": "created_at"
+        },
+        {
+          "type": "p",
+          "text": "Request time"
+        },
+        {
+          "type": "p",
+          "text": "expires_at"
+        },
+        {
+          "type": "p",
+          "text": "Record expiration"
+        },
+        {
+          "type": "p",
+          "text": "The key should be unique within the appropriate scope, such as a user or client and endpoint."
+        },
+        {
+          "type": "p",
+          "text": "F. Important implementation considerations"
+        },
+        {
+          "type": "p",
+          "text": "You must consider:"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate requests arriving simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "Requests with the same key but different payloads."
+        },
+        {
+          "type": "p",
+          "text": "Requests that fail halfway through processing."
+        },
+        {
+          "type": "p",
+          "text": "Requests whose original outcome is unknown."
+        },
+        {
+          "type": "p",
+          "text": "Idempotency-record expiration."
+        },
+        {
+          "type": "p",
+          "text": "Atomic database operations."
+        },
+        {
+          "type": "p",
+          "text": "External payment or AI provider calls."
+        },
+        {
+          "type": "p",
+          "text": "For simultaneous requests, an atomic database insert or unique constraint should determine which request owns the key."
+        },
+        {
+          "type": "p",
+          "text": "If the same key is reused with a different request body, reject it rather than treating the second operation as an identical retry."
+        },
+        {
+          "type": "p",
+          "text": "For long-running operations, you also need to manage an in-progress state and define what happens when a request becomes stuck."
+        },
+        {
+          "type": "p",
+          "text": "G. HTTP idempotency concepts"
+        },
+        {
+          "type": "p",
+          "text": "HTTP method"
+        },
+        {
+          "type": "p",
+          "text": "Typical idempotency"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "PUT"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Not guaranteed"
+        },
+        {
+          "type": "p",
+          "text": "PATCH"
+        },
+        {
+          "type": "p",
+          "text": "Depends on operation design"
+        },
+        {
+          "type": "p",
+          "text": "HTTP method semantics are a useful starting point, but the actual behaviour depends on how the endpoint is implemented."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Idempotency prevents duplicate payments, enrolments, orders and other operations when requests are retried."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 8 — API Rate Limiting"
+        },
+        {
+          "type": "p",
+          "text": "A public API can receive requests from normal users, automated scripts, bots or malicious clients."
+        },
+        {
+          "type": "p",
+          "text": "If a backend accepts unlimited requests, it may become overloaded."
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting controls how frequently clients can access an API."
+        },
+        {
+          "type": "p",
+          "text": "A. What is rate limiting?"
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting restricts the number of requests allowed within a specific period."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Login API: 5 failed attempts per minute per account/IP policy Public course API: 100 requests per minute per client Expensive AI API: 10 requests per minute per user"
+        },
+        {
+          "type": "p",
+          "text": "These are illustrative policies. Actual limits should be designed according to application capacity and user experience."
+        },
+        {
+          "type": "p",
+          "text": "B. Why is rate limiting necessary?"
+        },
+        {
+          "type": "p",
+          "text": "Without rate limiting:"
+        },
+        {
+          "type": "p",
+          "text": "Login endpoints may be attacked using brute-force attempts."
+        },
+        {
+          "type": "p",
+          "text": "Public APIs may receive excessive automated traffic."
+        },
+        {
+          "type": "p",
+          "text": "AI endpoints may consume expensive provider resources."
+        },
+        {
+          "type": "p",
+          "text": "Database connections may become exhausted."
+        },
+        {
+          "type": "p",
+          "text": "Legitimate users may experience slow responses."
+        },
+        {
+          "type": "p",
+          "text": "Infrastructure costs may increase unexpectedly."
+        },
+        {
+          "type": "p",
+          "text": "C. Important rate-limiting algorithms"
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Section 1",
+      "title": "1. Fixed Window Counter",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Counts requests within a fixed time window."
+        },
+        {
+          "type": "p",
+          "text": "Example: 100 requests per minute."
+        },
+        {
+          "type": "p",
+          "text": "Its disadvantage is that users can send a burst near the boundary between two windows."
+        },
+        {
+          "type": "p",
+          "text": "2. Sliding Window Log"
+        },
+        {
+          "type": "p",
+          "text": "Records request timestamps and calculates usage over a moving time period."
+        },
+        {
+          "type": "p",
+          "text": "It is more accurate but may require more storage."
+        },
+        {
+          "type": "p",
+          "text": "3. Sliding Window Counter"
+        },
+        {
+          "type": "p",
+          "text": "Combines information from adjacent time windows to approximate a moving limit with less storage."
+        },
+        {
+          "type": "p",
+          "text": "4. Token Bucket"
+        },
+        {
+          "type": "p",
+          "text": "A bucket contains tokens. Requests consume tokens, and tokens are replenished at a defined rate."
+        },
+        {
+          "type": "p",
+          "text": "It allows controlled bursts while maintaining an average request rate."
+        },
+        {
+          "type": "p",
+          "text": "5. Leaky Bucket"
+        },
+        {
+          "type": "p",
+          "text": "Requests enter a queue or bucket and are processed at a controlled rate."
+        },
+        {
+          "type": "p",
+          "text": "D. Understanding Token Bucket"
+        },
+        {
+          "type": "p",
+          "text": "Token Bucket"
+        },
+        {
+          "type": "p",
+          "text": "Maximum token capacity: 10"
+        },
+        {
+          "type": "p",
+          "text": "6 tokens available"
+        },
+        {
+          "type": "p",
+          "text": "Each request consumes one token"
+        },
+        {
+          "type": "p",
+          "text": "Request Processing"
+        },
+        {
+          "type": "p",
+          "text": "Allow when a token is available"
+        },
+        {
+          "type": "p",
+          "text": "Token Replenishment"
+        },
+        {
+          "type": "p",
+          "text": "Tokens return at the configured rate"
+        },
+        {
+          "type": "p",
+          "text": "E. Rate limiting in distributed systems"
+        },
+        {
+          "type": "p",
+          "text": "If your application runs on multiple backend instances, storing counters only in local memory is insufficient."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Request 1 → Backend A Request 2 → Backend B Request 3 → Backend C"
+        },
+        {
+          "type": "p",
+          "text": "Each instance might maintain a separate counter and collectively exceed the intended limit."
+        },
+        {
+          "type": "p",
+          "text": "You can use Redis for shared rate-limiting state."
+        },
+        {
+          "type": "p",
+          "text": "Common approaches include:"
+        },
+        {
+          "type": "p",
+          "text": "Redis-based counters."
+        },
+        {
+          "type": "p",
+          "text": "Token bucket implementations."
+        },
+        {
+          "type": "p",
+          "text": "Distributed atomic operations."
+        },
+        {
+          "type": "p",
+          "text": "API gateway rate limiting."
+        },
+        {
+          "type": "p",
+          "text": "Per-user and per-IP limits."
+        },
+        {
+          "type": "p",
+          "text": "F. Returning rate-limit responses"
+        },
+        {
+          "type": "p",
+          "text": "When a client exceeds the limit:"
+        },
+        {
+          "type": "code",
+          "text": "HTTP/1.1 429 Too Many Requests Retry-After: 30 Content-Type: application/json"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"errorCode\": \"RATE_LIMIT_EXCEEDED\", \"message\": \"Too many requests. Please try again later.\" }"
+        },
+        {
+          "type": "p",
+          "text": "You will also learn about standard rate-limit response headers and how to communicate reset information."
+        },
+        {
+          "type": "p",
+          "text": "G. Important design considerations"
+        },
+        {
+          "type": "p",
+          "text": "Per-user limits."
+        },
+        {
+          "type": "p",
+          "text": "Per-IP limits."
+        },
+        {
+          "type": "p",
+          "text": "API-key limits."
+        },
+        {
+          "type": "p",
+          "text": "Endpoint-specific limits."
+        },
+        {
+          "type": "p",
+          "text": "Global system limits."
+        },
+        {
+          "type": "p",
+          "text": "Trusted proxy configuration."
+        },
+        {
+          "type": "p",
+          "text": "Distributed counters."
+        },
+        {
+          "type": "p",
+          "text": "Separate controls for expensive operations."
+        },
+        {
+          "type": "p",
+          "text": "Never blindly trust a client-supplied IP address or forwarding header. Configure trusted proxies so that rate limits cannot easily be bypassed by spoofing headers."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Rate limiting protects backend resources, improves availability and helps prevent abusive API usage."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 9 — Timeouts and Retry Strategies"
+        },
+        {
+          "type": "p",
+          "text": "External services sometimes become slow or unavailable."
+        },
+        {
+          "type": "p",
+          "text": "A backend may call:"
+        },
+        {
+          "type": "p",
+          "text": "A payment provider."
+        },
+        {
+          "type": "p",
+          "text": "An AI model API."
+        },
+        {
+          "type": "p",
+          "text": "An email service."
+        },
+        {
+          "type": "p",
+          "text": "Another microservice."
+        },
+        {
+          "type": "p",
+          "text": "A database."
+        },
+        {
+          "type": "p",
+          "text": "A third-party identity provider."
+        },
+        {
+          "type": "p",
+          "text": "What happens if one of these services takes 60 seconds to respond?"
+        },
+        {
+          "type": "p",
+          "text": "Without timeouts and appropriate failure handling, backend resources can become occupied while waiting for a service that may never respond."
+        },
+        {
+          "type": "p",
+          "text": "A. Understanding timeouts"
+        },
+        {
+          "type": "p",
+          "text": "A timeout defines the maximum time an operation is allowed to wait."
+        },
+        {
+          "type": "p",
+          "text": "Common timeout categories include:"
+        },
+        {
+          "type": "p",
+          "text": "Connection Timeout: Maximum time allowed to establish a connection."
+        },
+        {
+          "type": "p",
+          "text": "Read Timeout: Maximum time allowed to wait for response data."
+        },
+        {
+          "type": "p",
+          "text": "Write Timeout: Maximum time allowed to send data, where supported by the client."
+        },
+        {
+          "type": "p",
+          "text": "Request Deadline: Total time allowed for the complete operation, including multiple downstream calls."
+        },
+        {
+          "type": "p",
+          "text": "B. Example"
+        },
+        {
+          "type": "p",
+          "text": "Suppose PrepSpaces requests an AI-generated interview evaluation."
+        },
+        {
+          "type": "p",
+          "text": "The backend calls an external AI provider."
+        },
+        {
+          "type": "p",
+          "text": "If the provider does not return within the configured time limit, the backend stops waiting and handles the failure according to its fallback policy."
+        },
+        {
+          "type": "p",
+          "text": "The user should receive a meaningful response rather than waiting indefinitely."
+        },
+        {
+          "type": "p",
+          "text": "C. What is retry?"
+        },
+        {
+          "type": "p",
+          "text": "Retry means attempting an operation again after a temporary failure."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Request 1 → Timeout Request 2 → Temporary connection failure Request 3 → Success"
+        },
+        {
+          "type": "p",
+          "text": "Retries can help when a service experiences temporary network issues."
+        },
+        {
+          "type": "p",
+          "text": "However, retrying every failed request is dangerous."
+        },
+        {
+          "type": "p",
+          "text": "D. Understanding retry strategies"
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Section 1",
+      "title": "1. Immediate Retry",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Retry the operation immediately."
+        },
+        {
+          "type": "p",
+          "text": "This can be useful for very short, temporary conditions, but repeated immediate retries can overload the service."
+        },
+        {
+          "type": "p",
+          "text": "2. Fixed Delay Retry"
+        },
+        {
+          "type": "p",
+          "text": "Wait a predefined period before retrying."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Attempt 1 → Failure Wait 2 seconds Attempt 2"
+        },
+        {
+          "type": "p",
+          "text": "3. Exponential Backoff"
+        },
+        {
+          "type": "p",
+          "text": "Increase the waiting period after every failed attempt."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Attempt"
+        },
+        {
+          "type": "p",
+          "text": "Delay"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "1 second"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "2 seconds"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "4 seconds"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "8 seconds"
+        },
+        {
+          "type": "p",
+          "text": "4. Exponential Backoff with Jitter"
+        },
+        {
+          "type": "p",
+          "text": "Add randomness to retry delays to avoid many clients retrying simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "This is especially important when a large number of clients experience the same service failure."
+        },
+        {
+          "type": "p",
+          "text": "E. When should you retry?"
+        },
+        {
+          "type": "p",
+          "text": "Generally suitable candidates include:"
+        },
+        {
+          "type": "p",
+          "text": "Temporary network failures."
+        },
+        {
+          "type": "p",
+          "text": "Certain connection failures."
+        },
+        {
+          "type": "p",
+          "text": "HTTP 503 responses."
+        },
+        {
+          "type": "p",
+          "text": "HTTP 429 responses, respecting Retry-After."
+        },
+        {
+          "type": "p",
+          "text": "Selected transient database failures."
+        },
+        {
+          "type": "p",
+          "text": "Do not blindly retry:"
+        },
+        {
+          "type": "p",
+          "text": "Invalid requests."
+        },
+        {
+          "type": "p",
+          "text": "Authentication failures."
+        },
+        {
+          "type": "p",
+          "text": "Authorization failures."
+        },
+        {
+          "type": "p",
+          "text": "Permanent validation errors."
+        },
+        {
+          "type": "p",
+          "text": "Operations where repeating the request could create another side effect."
+        },
+        {
+          "type": "p",
+          "text": "For non-idempotent operations, use a reliable idempotency mechanism before retrying."
+        },
+        {
+          "type": "p",
+          "text": "F. Implementing retry with Resilience4j"
+        },
+        {
+          "type": "p",
+          "text": "Example configuration:"
+        },
+        {
+          "type": "p",
+          "text": "RetryConfig config = RetryConfig.custom() .maxAttempts(3) .waitDuration(Duration.ofSeconds(1)) .retryExceptions(IOException.class) .build(); Retry retry = Retry.of(\"aiService\", config);"
+        },
+        {
+          "type": "p",
+          "text": "This demonstrates the basic configuration. A production retry policy should distinguish retryable from non-retryable failures and account for deadlines, backoff, jitter and the downstream provider's rules."
+        },
+        {
+          "type": "p",
+          "text": "G. Avoiding retry storms"
+        },
+        {
+          "type": "p",
+          "text": "Imagine ten backend instances simultaneously retry a failing service five times."
+        },
+        {
+          "type": "p",
+          "text": "The failing service suddenly receives fifty additional requests."
+        },
+        {
+          "type": "p",
+          "text": "This can make the outage worse."
+        },
+        {
+          "type": "p",
+          "text": "You will study:"
+        },
+        {
+          "type": "p",
+          "text": "Retry limits."
+        },
+        {
+          "type": "p",
+          "text": "Exponential backoff."
+        },
+        {
+          "type": "p",
+          "text": "Jitter."
+        },
+        {
+          "type": "p",
+          "text": "Retry budgets."
+        },
+        {
+          "type": "p",
+          "text": "End-to-end deadlines."
+        },
+        {
+          "type": "p",
+          "text": "Avoiding retries at multiple layers."
+        },
+        {
+          "type": "p",
+          "text": "Respecting downstream rate limits."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Timeouts prevent indefinite waiting, while carefully designed retries help recover from temporary failures without amplifying outages."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 10 — Circuit Breaker Fundamentals"
+        },
+        {
+          "type": "p",
+          "text": "Retries are useful when a failure is temporary."
+        },
+        {
+          "type": "p",
+          "text": "But what happens if an external service is completely unavailable?"
+        },
+        {
+          "type": "p",
+          "text": "Continuously retrying it can waste resources and make the situation worse."
+        },
+        {
+          "type": "p",
+          "text": "A circuit breaker prevents repeated calls to a service that is consistently failing."
+        },
+        {
+          "type": "p",
+          "text": "A. What is a circuit breaker?"
+        },
+        {
+          "type": "p",
+          "text": "A circuit breaker monitors calls to an external service."
+        },
+        {
+          "type": "p",
+          "text": "When the failure rate exceeds a configured threshold, the circuit opens and temporarily prevents further calls."
+        },
+        {
+          "type": "p",
+          "text": "This gives the failing service an opportunity to recover."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding the three states"
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Section 1",
+      "title": "1. Closed State",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Requests are allowed through normally."
+        },
+        {
+          "type": "p",
+          "text": "Failures are monitored."
+        },
+        {
+          "type": "p",
+          "text": "2. Open State"
+        },
+        {
+          "type": "p",
+          "text": "The circuit breaker blocks calls to the failing service."
+        },
+        {
+          "type": "p",
+          "text": "Requests fail quickly or use an explicitly designed fallback."
+        },
+        {
+          "type": "p",
+          "text": "3. Half-Open State"
+        },
+        {
+          "type": "p",
+          "text": "After a configured waiting period, the circuit breaker allows a limited number of test requests."
+        },
+        {
+          "type": "p",
+          "text": "If the service recovers, the circuit closes."
+        },
+        {
+          "type": "p",
+          "text": "If the service continues failing, it opens again."
+        },
+        {
+          "type": "p",
+          "text": "C. Circuit breaker lifecycle"
+        },
+        {
+          "type": "p",
+          "text": "Closed"
+        },
+        {
+          "type": "p",
+          "text": "Normal operations"
+        },
+        {
+          "type": "p",
+          "text": "Requests allowed; failures monitored"
+        },
+        {
+          "type": "p",
+          "text": "Failure threshold exceeded"
+        },
+        {
+          "type": "p",
+          "text": "Open"
+        },
+        {
+          "type": "p",
+          "text": "Calls temporarily blocked"
+        },
+        {
+          "type": "p",
+          "text": "Fast failure instead of repeated downstream requests"
+        },
+        {
+          "type": "p",
+          "text": "Wait duration expires"
+        },
+        {
+          "type": "p",
+          "text": "Half-Open"
+        },
+        {
+          "type": "p",
+          "text": "Limited test requests"
+        },
+        {
+          "type": "p",
+          "text": "Check whether the service has recovered"
+        },
+        {
+          "type": "p",
+          "text": "Recovered"
+        },
+        {
+          "type": "p",
+          "text": "Return to Closed"
+        },
+        {
+          "type": "p",
+          "text": "Still failing"
+        },
+        {
+          "type": "p",
+          "text": "Return to Open"
+        },
+        {
+          "type": "p",
+          "text": "D. Example: External AI service"
+        },
+        {
+          "type": "p",
+          "text": "Imagine PrepSpaces uses an external AI provider to evaluate interview answers."
+        },
+        {
+          "type": "p",
+          "text": "Normally:"
+        },
+        {
+          "type": "p",
+          "text": "PrepSpaces Backend | v AI Provider | v Interview Evaluation"
+        },
+        {
+          "type": "p",
+          "text": "But the AI provider starts returning repeated errors."
+        },
+        {
+          "type": "p",
+          "text": "The circuit breaker detects the failures and opens."
+        },
+        {
+          "type": "p",
+          "text": "Instead of repeatedly calling the unavailable provider, the backend can:"
+        },
+        {
+          "type": "p",
+          "text": "Return a temporary unavailability response."
+        },
+        {
+          "type": "p",
+          "text": "Use a suitable alternative provider when one is configured."
+        },
+        {
+          "type": "p",
+          "text": "Queue the work for later processing."
+        },
+        {
+          "type": "p",
+          "text": "Offer a retry option to the user."
+        },
+        {
+          "type": "p",
+          "text": "A fallback should never fabricate a successful evaluation."
+        },
+        {
+          "type": "p",
+          "text": "E. Implementing circuit breakers with Resilience4j"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "CircuitBreakerConfig config = CircuitBreakerConfig.custom() .failureRateThreshold(50) .slidingWindowSize(10) .minimumNumberOfCalls(5) .waitDurationInOpenState( Duration.ofSeconds(30) ) .permittedNumberOfCallsInHalfOpenState(2) .build(); CircuitBreaker circuitBreaker = CircuitBreaker.of(\"aiProvider\", config);"
+        },
+        {
+          "type": "p",
+          "text": "These are illustrative settings, not universal production defaults."
+        },
+        {
+          "type": "p",
+          "text": "F. Circuit breaker vs retry"
+        },
+        {
+          "type": "p",
+          "text": "Retry"
+        },
+        {
+          "type": "p",
+          "text": "Circuit Breaker"
+        },
+        {
+          "type": "p",
+          "text": "Attempts an operation again"
+        },
+        {
+          "type": "p",
+          "text": "Temporarily stops calls"
+        },
+        {
+          "type": "p",
+          "text": "Useful for transient failures"
+        },
+        {
+          "type": "p",
+          "text": "Useful for repeated failures"
+        },
+        {
+          "type": "p",
+          "text": "Can increase downstream traffic"
+        },
+        {
+          "type": "p",
+          "text": "Reduces traffic to failing services"
+        },
+        {
+          "type": "p",
+          "text": "Usually works over a limited number of attempts"
+        },
+        {
+          "type": "p",
+          "text": "Tracks failure behaviour over a time window"
+        },
+        {
+          "type": "p",
+          "text": "You will also study how retries, circuit breakers and timeouts work together without creating conflicting behaviour."
+        },
+        {
+          "type": "p",
+          "text": "G. Other reliability patterns"
+        },
+        {
+          "type": "p",
+          "text": "This lesson also introduces:"
+        },
+        {
+          "type": "p",
+          "text": "Bulkheads."
+        },
+        {
+          "type": "p",
+          "text": "Concurrency limits."
+        },
+        {
+          "type": "p",
+          "text": "Fallback policies."
+        },
+        {
+          "type": "p",
+          "text": "Failure thresholds."
+        },
+        {
+          "type": "p",
+          "text": "Sliding windows."
+        },
+        {
+          "type": "p",
+          "text": "Health indicators."
+        },
+        {
+          "type": "p",
+          "text": "Circuit breaker monitoring."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Circuit breakers help prevent one failing external dependency from continuously damaging the rest of your application."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 11 — Handling Partial Failures"
+        },
+        {
+          "type": "p",
+          "text": "Real backend systems frequently perform operations involving multiple services or databases."
+        },
+        {
+          "type": "p",
+          "text": "Some operations may succeed while others fail."
+        },
+        {
+          "type": "p",
+          "text": "This is known as a partial failure."
+        },
+        {
+          "type": "p",
+          "text": "A. Understanding partial failure"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a student purchases a paid course."
+        },
+        {
+          "type": "p",
+          "text": "The workflow may involve:"
+        },
+        {
+          "type": "p",
+          "text": "Creating a payment request."
+        },
+        {
+          "type": "p",
+          "text": "Communicating with a payment provider."
+        },
+        {
+          "type": "p",
+          "text": "Confirming payment."
+        },
+        {
+          "type": "p",
+          "text": "Creating a course enrolment."
+        },
+        {
+          "type": "p",
+          "text": "Sending a confirmation email."
+        },
+        {
+          "type": "p",
+          "text": "Consider this situation:"
+        },
+        {
+          "type": "p",
+          "text": "Payment succeeds."
+        },
+        {
+          "type": "p",
+          "text": "Enrolment creation fails."
+        },
+        {
+          "type": "p",
+          "text": "Email notification is never sent."
+        },
+        {
+          "type": "p",
+          "text": "The operation is partially successful."
+        },
+        {
+          "type": "p",
+          "text": "What should the backend do?"
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding distributed operations"
+        },
+        {
+          "type": "p",
+          "text": "In a monolithic application, multiple database operations may be coordinated using a single database transaction."
+        },
+        {
+          "type": "p",
+          "text": "However, once an operation spans multiple independent services, a traditional database transaction cannot usually coordinate every operation."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Payment Service | v Enrollment Service | v Notification Service"
+        },
+        {
+          "type": "p",
+          "text": "Each service may maintain its own database and have independent availability."
+        },
+        {
+          "type": "p",
+          "text": "C. Understanding the Saga Pattern"
+        },
+        {
+          "type": "p",
+          "text": "A Saga is a pattern used to coordinate a multi-step business process across multiple services."
+        },
+        {
+          "type": "p",
+          "text": "Instead of using one distributed database transaction, each step performs a local transaction."
+        },
+        {
+          "type": "p",
+          "text": "If a later step fails, the system may execute compensating actions."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Step"
+        },
+        {
+          "type": "p",
+          "text": "Operation"
+        },
+        {
+          "type": "p",
+          "text": "Compensation"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "Reserve course seat"
+        },
+        {
+          "type": "p",
+          "text": "Release reserved seat"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "Process payment"
+        },
+        {
+          "type": "p",
+          "text": "Refund payment"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "Create enrolment"
+        },
+        {
+          "type": "p",
+          "text": "Cancel enrolment"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "Send email"
+        },
+        {
+          "type": "p",
+          "text": "Retry notification"
+        },
+        {
+          "type": "p",
+          "text": "Compensation does not always mean perfectly reversing an operation. Some side effects, such as a delivered email, cannot be undone."
+        },
+        {
+          "type": "p",
+          "text": "D. Understanding the Transactional Outbox Pattern"
+        },
+        {
+          "type": "p",
+          "text": "Suppose your application updates a database record and needs to publish an event."
+        },
+        {
+          "type": "p",
+          "text": "A dangerous approach is:"
+        },
+        {
+          "type": "p",
+          "text": "Update database."
+        },
+        {
+          "type": "p",
+          "text": "Publish message."
+        },
+        {
+          "type": "p",
+          "text": "Message publishing fails."
+        },
+        {
+          "type": "p",
+          "text": "Now the database has changed, but downstream services were never notified."
+        },
+        {
+          "type": "p",
+          "text": "The Transactional Outbox Pattern addresses this."
+        },
+        {
+          "type": "p",
+          "text": "The application writes both:"
+        },
+        {
+          "type": "p",
+          "text": "The business data."
+        },
+        {
+          "type": "p",
+          "text": "An event record in an outbox table."
+        },
+        {
+          "type": "p",
+          "text": "Both writes occur in one database transaction."
+        },
+        {
+          "type": "p",
+          "text": "A separate publisher reads the outbox and delivers the events."
+        },
+        {
+          "type": "p",
+          "text": "Business Operation"
+        },
+        {
+          "type": "p",
+          "text": "Enrol a student"
+        },
+        {
+          "type": "p",
+          "text": "Single Database Transaction"
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Section 1",
+      "title": "1. Save enrolment record",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "2. Save event in outbox table"
+        },
+        {
+          "type": "p",
+          "text": "Outbox Publisher"
+        },
+        {
+          "type": "p",
+          "text": "Reads pending events and publishes them"
+        },
+        {
+          "type": "p",
+          "text": "Message Broker / Downstream Service"
+        },
+        {
+          "type": "p",
+          "text": "Processes the event"
+        },
+        {
+          "type": "p",
+          "text": "Message delivery may happen more than once, so event consumers should be idempotent."
+        },
+        {
+          "type": "p",
+          "text": "E. Important partial-failure strategies"
+        },
+        {
+          "type": "p",
+          "text": "You will learn:"
+        },
+        {
+          "type": "p",
+          "text": "Compensating Transactions: Reverse or offset a previously completed business operation."
+        },
+        {
+          "type": "p",
+          "text": "Eventual Consistency: Allow different services to become consistent over time rather than requiring every service to update simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "Dead-Letter Queues: Store messages that repeatedly fail processing for investigation or later recovery."
+        },
+        {
+          "type": "p",
+          "text": "Idempotent Consumers: Ensure that consuming the same event more than once does not duplicate its business effect."
+        },
+        {
+          "type": "p",
+          "text": "Graceful Degradation: Keep essential features operational when optional dependencies fail."
+        },
+        {
+          "type": "p",
+          "text": "Queue-Based Processing: Move long-running or unreliable work into asynchronous jobs."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Distributed systems cannot assume that every operation will succeed simultaneously. Reliable applications need recovery mechanisms for incomplete workflows."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 12 — API Compatibility and Deprecation"
+        },
+        {
+          "type": "p",
+          "text": "APIs evolve."
+        },
+        {
+          "type": "p",
+          "text": "You may add new fields, change data structures, introduce new features or remove old functionality."
+        },
+        {
+          "type": "p",
+          "text": "But changing an API can break applications that depend on its previous behaviour."
+        },
+        {
+          "type": "p",
+          "text": "Imagine PrepSpaces has a frontend deployed on multiple devices and older browser sessions are still active."
+        },
+        {
+          "type": "p",
+          "text": "You modify an API response:"
+        },
+        {
+          "type": "p",
+          "text": "Old response:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"id\": 101, \"title\": \"Java Development\" }"
+        },
+        {
+          "type": "p",
+          "text": "New response:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"courseId\": 101, \"courseName\": \"Java Development\" }"
+        },
+        {
+          "type": "p",
+          "text": "The old frontend expects id and title."
+        },
+        {
+          "type": "p",
+          "text": "It may stop working immediately."
+        },
+        {
+          "type": "p",
+          "text": "This is an API compatibility problem."
+        },
+        {
+          "type": "p",
+          "text": "A. What is backward compatibility?"
+        },
+        {
+          "type": "p",
+          "text": "Backward compatibility means newer versions of an API continue supporting existing clients and integrations to the extent promised by the API contract."
+        },
+        {
+          "type": "p",
+          "text": "B. Breaking vs non-breaking changes"
+        },
+        {
+          "type": "p",
+          "text": "Change"
+        },
+        {
+          "type": "p",
+          "text": "Typical impact"
+        },
+        {
+          "type": "p",
+          "text": "Adding an optional response field"
+        },
+        {
+          "type": "p",
+          "text": "Usually non-breaking"
+        },
+        {
+          "type": "p",
+          "text": "Adding a new endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Usually non-breaking"
+        },
+        {
+          "type": "p",
+          "text": "Removing an existing field"
+        },
+        {
+          "type": "p",
+          "text": "Breaking"
+        },
+        {
+          "type": "p",
+          "text": "Renaming a response field"
+        },
+        {
+          "type": "p",
+          "text": "Breaking"
+        },
+        {
+          "type": "p",
+          "text": "Changing a field's data type"
+        },
+        {
+          "type": "p",
+          "text": "Breaking"
+        },
+        {
+          "type": "p",
+          "text": "Making an optional field mandatory"
+        },
+        {
+          "type": "p",
+          "text": "Potentially breaking"
+        },
+        {
+          "type": "p",
+          "text": "Changing authentication requirements"
+        },
+        {
+          "type": "p",
+          "text": "Breaking"
+        },
+        {
+          "type": "p",
+          "text": "Changing error response format"
+        },
+        {
+          "type": "p",
+          "text": "Potentially breaking"
+        },
+        {
+          "type": "p",
+          "text": "Even seemingly harmless changes can be breaking if clients depend on the previous behaviour."
+        },
+        {
+          "type": "p",
+          "text": "C. API versioning"
+        },
+        {
+          "type": "p",
+          "text": "One common method is URL-based versioning."
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/courses /api/v2/courses"
+        },
+        {
+          "type": "p",
+          "text": "Version 1 remains available while clients gradually migrate to version 2."
+        },
+        {
+          "type": "p",
+          "text": "Other approaches include versioning through media types or headers."
+        },
+        {
+          "type": "p",
+          "text": "You will compare the trade-offs of different approaches."
+        },
+        {
+          "type": "p",
+          "text": "D. Understanding semantic versioning"
+        },
+        {
+          "type": "p",
+          "text": "Semantic Versioning commonly uses:"
+        },
+        {
+          "type": "p",
+          "text": "MAJOR.MINOR.PATCH"
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "2.1.3"
+        },
+        {
+          "type": "p",
+          "text": "MAJOR: Incompatible API changes."
+        },
+        {
+          "type": "p",
+          "text": "MINOR: Backward-compatible functionality."
+        },
+        {
+          "type": "p",
+          "text": "PATCH: Backward-compatible fixes."
+        },
+        {
+          "type": "p",
+          "text": "You will learn how this helps communicate release changes."
+        },
+        {
+          "type": "p",
+          "text": "E. API deprecation"
+        },
+        {
+          "type": "p",
+          "text": "Deprecation means an API feature is still supported but is scheduled for removal or replacement."
+        },
+        {
+          "type": "p",
+          "text": "A professional deprecation process should:"
+        },
+        {
+          "type": "p",
+          "text": "Announce the deprecated endpoint."
+        },
+        {
+          "type": "p",
+          "text": "Provide a replacement endpoint."
+        },
+        {
+          "type": "p",
+          "text": "Document the changes."
+        },
+        {
+          "type": "p",
+          "text": "Communicate the planned sunset date."
+        },
+        {
+          "type": "p",
+          "text": "Monitor old-client usage."
+        },
+        {
+          "type": "p",
+          "text": "Give consumers sufficient migration time."
+        },
+        {
+          "type": "p",
+          "text": "Remove the old endpoint after the transition."
+        },
+        {
+          "type": "p",
+          "text": "You will study HTTP deprecation and sunset signalling, including the relevant Deprecation and Sunset response headers."
+        },
+        {
+          "type": "p",
+          "text": "F. Contract testing"
+        },
+        {
+          "type": "p",
+          "text": "Contract testing checks whether API providers and consumers agree on the structure and behaviour of an API."
+        },
+        {
+          "type": "p",
+          "text": "You will explore:"
+        },
+        {
+          "type": "p",
+          "text": "Request and response contracts."
+        },
+        {
+          "type": "p",
+          "text": "Consumer-driven contract testing."
+        },
+        {
+          "type": "p",
+          "text": "API schema documentation."
+        },
+        {
+          "type": "p",
+          "text": "OpenAPI specifications."
+        },
+        {
+          "type": "p",
+          "text": "Compatibility testing."
+        },
+        {
+          "type": "p",
+          "text": "Integration tests across versions."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: API compatibility allows backend teams to improve their systems without unexpectedly breaking existing users and integrations."
+        },
+        {
+          "type": "p",
+          "text": "4. Practical Lab — Make an Existing API Reliable"
+        },
+        {
+          "type": "p",
+          "text": "Major Practical Project"
+        },
+        {
+          "type": "p",
+          "text": "In this lab, you will take an existing Spring Boot REST API and improve its validation, error handling, idempotency, traffic control and failure recovery."
+        },
+        {
+          "type": "p",
+          "text": "You should use the course-enrolment API developed in earlier modules as your starting application."
+        },
+        {
+          "type": "p",
+          "text": "A. Starting Application"
+        },
+        {
+          "type": "p",
+          "text": "Assume the existing API provides:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/enrollments GET /api/enrollments/{id} DELETE /api/enrollments/{id} GET /api/courses POST /api/courses"
+        },
+        {
+          "type": "p",
+          "text": "The initial API contains several deliberately introduced reliability problems."
+        },
+        {
+          "type": "p",
+          "text": "Existing problems"
+        },
+        {
+          "type": "p",
+          "text": "Invalid request data can reach service methods."
+        },
+        {
+          "type": "p",
+          "text": "Different endpoints return different error formats."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate enrolment requests create duplicate operations."
+        },
+        {
+          "type": "p",
+          "text": "No rate limiting exists."
+        },
+        {
+          "type": "p",
+          "text": "External service calls can wait indefinitely."
+        },
+        {
+          "type": "p",
+          "text": "Failed services are called repeatedly."
+        },
+        {
+          "type": "p",
+          "text": "Partial operations are not handled correctly."
+        },
+        {
+          "type": "p",
+          "text": "API changes are not documented or versioned."
+        },
+        {
+          "type": "p",
+          "text": "Your task is to fix these problems."
+        },
+        {
+          "type": "p",
+          "text": "B. Technology Stack"
+        },
+        {
+          "type": "p",
+          "text": "Technology"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Java"
+        },
+        {
+          "type": "p",
+          "text": "Programming language"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Backend framework"
+        },
+        {
+          "type": "p",
+          "text": "Jakarta Validation"
+        },
+        {
+          "type": "p",
+          "text": "Request validation"
+        },
+        {
+          "type": "p",
+          "text": "Spring Data JPA"
+        },
+        {
+          "type": "p",
+          "text": "Persistence"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Main database"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "Shared rate-limit and idempotency state, where appropriate"
+        },
+        {
+          "type": "p",
+          "text": "Resilience4j"
+        },
+        {
+          "type": "p",
+          "text": "Retry and circuit breakers"
+        },
+        {
+          "type": "p",
+          "text": "Flyway"
+        },
+        {
+          "type": "p",
+          "text": "Database migrations"
+        },
+        {
+          "type": "p",
+          "text": "JUnit"
+        },
+        {
+          "type": "p",
+          "text": "Unit testing"
+        },
+        {
+          "type": "p",
+          "text": "Mockito"
+        },
+        {
+          "type": "p",
+          "text": "Mock-based testing"
+        },
+        {
+          "type": "p",
+          "text": "Testcontainers"
+        },
+        {
+          "type": "p",
+          "text": "Integration testing"
+        },
+        {
+          "type": "p",
+          "text": "Postman"
+        },
+        {
+          "type": "p",
+          "text": "API testing"
+        },
+        {
+          "type": "p",
+          "text": "C. Step 1 — Add Request Validation"
+        },
+        {
+          "type": "p",
+          "text": "Create DTOs for course and enrolment requests."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "public record EnrollmentRequest( @NotNull(message = \"User ID is required\") @Positive(message = \"User ID must be positive\") Long userId, @NotNull(message = \"Course ID is required\") @Positive(message = \"Course ID must be positive\") Long courseId ) {}"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "Required field validation."
+        },
+        {
+          "type": "p",
+          "text": "Type validation."
+        },
+        {
+          "type": "p",
+          "text": "Range validation."
+        },
+        {
+          "type": "p",
+          "text": "String length restrictions."
+        },
+        {
+          "type": "p",
+          "text": "Custom validation where necessary."
+        },
+        {
+          "type": "p",
+          "text": "Appropriate request-size limits."
+        },
+        {
+          "type": "p",
+          "text": "D. Step 2 — Add Global Exception Handling"
+        },
+        {
+          "type": "p",
+          "text": "Implement a centralized exception handler."
+        },
+        {
+          "type": "p",
+          "text": "Handle at least:"
+        },
+        {
+          "type": "p",
+          "text": "Validation failures."
+        },
+        {
+          "type": "p",
+          "text": "Resource-not-found exceptions."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate enrolments."
+        },
+        {
+          "type": "p",
+          "text": "Business rule violations."
+        },
+        {
+          "type": "p",
+          "text": "Database integrity violations."
+        },
+        {
+          "type": "p",
+          "text": "Authentication errors."
+        },
+        {
+          "type": "p",
+          "text": "Authorization errors."
+        },
+        {
+          "type": "p",
+          "text": "Unexpected server failures."
+        },
+        {
+          "type": "p",
+          "text": "Return a consistent error structure."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"type\": \"about:blank\", \"title\": \"Conflict\", \"status\": 409, \"detail\": \"Student is already enrolled\", \"errorCode\": \"DUPLICATE_ENROLLMENT\", \"traceId\": \"req-123\" }"
+        },
+        {
+          "type": "p",
+          "text": "Include field-specific validation errors when applicable."
+        },
+        {
+          "type": "p",
+          "text": "E. Step 3 — Implement Business Validation"
+        },
+        {
+          "type": "p",
+          "text": "Implement the following business rules:"
+        },
+        {
+          "type": "p",
+          "text": "A student must exist."
+        },
+        {
+          "type": "p",
+          "text": "A course must exist."
+        },
+        {
+          "type": "p",
+          "text": "A course must be active."
+        },
+        {
+          "type": "p",
+          "text": "A student cannot enrol twice in the same course."
+        },
+        {
+          "type": "p",
+          "text": "A full course cannot accept another enrolment."
+        },
+        {
+          "type": "p",
+          "text": "A cancelled enrolment cannot be completed."
+        },
+        {
+          "type": "p",
+          "text": "Only authorised users can perform restricted operations."
+        },
+        {
+          "type": "p",
+          "text": "Use service-level validation and database constraints together."
+        },
+        {
+          "type": "p",
+          "text": "F. Step 4 — Implement Idempotency"
+        },
+        {
+          "type": "p",
+          "text": "Modify the enrolment endpoint to support:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/enrollments Idempotency-Key: unique-client-generated-key"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "p",
+          "text": "Generate or receive a unique idempotency key."
+        },
+        {
+          "type": "p",
+          "text": "Store the key and request fingerprint."
+        },
+        {
+          "type": "p",
+          "text": "Prevent duplicate processing."
+        },
+        {
+          "type": "p",
+          "text": "Return the original result for valid retries."
+        },
+        {
+          "type": "p",
+          "text": "Reject key reuse with different request data."
+        },
+        {
+          "type": "p",
+          "text": "Handle simultaneous requests."
+        },
+        {
+          "type": "p",
+          "text": "Define expiry and cleanup policies."
+        },
+        {
+          "type": "p",
+          "text": "Ensure database writes are transactionally consistent."
+        },
+        {
+          "type": "p",
+          "text": "Test the endpoint by submitting the same request multiple times."
+        },
+        {
+          "type": "p",
+          "text": "G. Step 5 — Add API Rate Limiting"
+        },
+        {
+          "type": "p",
+          "text": "Implement rate limits for:"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Example policy"
+        },
+        {
+          "type": "p",
+          "text": "Login"
+        },
+        {
+          "type": "p",
+          "text": "5 failed attempts per minute under an account/IP policy"
+        },
+        {
+          "type": "p",
+          "text": "Course listing"
+        },
+        {
+          "type": "p",
+          "text": "100 requests per minute per client"
+        },
+        {
+          "type": "p",
+          "text": "Enrolment"
+        },
+        {
+          "type": "p",
+          "text": "10 requests per minute per user"
+        },
+        {
+          "type": "p",
+          "text": "Expensive AI operation"
+        },
+        {
+          "type": "p",
+          "text": "5 requests per minute per user"
+        },
+        {
+          "type": "p",
+          "text": "These are sample policies for the exercise."
+        },
+        {
+          "type": "p",
+          "text": "Use Redis or a suitable shared rate-limiting service so that the limits work across multiple application instances."
+        },
+        {
+          "type": "p",
+          "text": "Return 429 Too Many Requests with useful retry information."
+        },
+        {
+          "type": "p",
+          "text": "H. Step 6 — Add Timeouts and Retries"
+        },
+        {
+          "type": "p",
+          "text": "Assume your application calls an external service."
+        },
+        {
+          "type": "p",
+          "text": "Configure:"
+        },
+        {
+          "type": "p",
+          "text": "Connection timeout."
+        },
+        {
+          "type": "p",
+          "text": "Response timeout."
+        },
+        {
+          "type": "p",
+          "text": "Total request deadline."
+        },
+        {
+          "type": "p",
+          "text": "Maximum retry attempts."
+        },
+        {
+          "type": "p",
+          "text": "Exponential backoff."
+        },
+        {
+          "type": "p",
+          "text": "Jitter."
+        },
+        {
+          "type": "p",
+          "text": "Retryable exception types."
+        },
+        {
+          "type": "p",
+          "text": "Test both temporary failures and permanent failures."
+        },
+        {
+          "type": "p",
+          "text": "Do not automatically retry a non-idempotent operation."
+        },
+        {
+          "type": "p",
+          "text": "I. Step 7 — Implement a Circuit Breaker"
+        },
+        {
+          "type": "p",
+          "text": "Use Resilience4j to protect calls to an unreliable external service."
+        },
+        {
+          "type": "p",
+          "text": "Your implementation should demonstrate:"
+        },
+        {
+          "type": "p",
+          "text": "Closed state."
+        },
+        {
+          "type": "p",
+          "text": "Open state."
+        },
+        {
+          "type": "p",
+          "text": "Half-open state."
+        },
+        {
+          "type": "p",
+          "text": "Failure thresholds."
+        },
+        {
+          "type": "p",
+          "text": "Recovery checks."
+        },
+        {
+          "type": "p",
+          "text": "Fallback behaviour."
+        },
+        {
+          "type": "p",
+          "text": "Circuit breaker monitoring."
+        },
+        {
+          "type": "p",
+          "text": "Test the behaviour by deliberately simulating service failures."
+        },
+        {
+          "type": "p",
+          "text": "J. Step 8 — Handle Partial Failures"
+        },
+        {
+          "type": "p",
+          "text": "Add a scenario where enrolment creation triggers a notification event."
+        },
+        {
+          "type": "p",
+          "text": "Implement a transactional outbox:"
+        },
+        {
+          "type": "p",
+          "text": "Save the enrolment."
+        },
+        {
+          "type": "p",
+          "text": "Save a notification event in the outbox."
+        },
+        {
+          "type": "p",
+          "text": "Commit the transaction."
+        },
+        {
+          "type": "p",
+          "text": "Publish pending events."
+        },
+        {
+          "type": "p",
+          "text": "Retry failed deliveries."
+        },
+        {
+          "type": "p",
+          "text": "Prevent consumers from processing the same event twice."
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate that enrolment data remains consistent even when notification delivery fails."
+        },
+        {
+          "type": "p",
+          "text": "K. Step 9 — API Documentation and Compatibility"
+        },
+        {
+          "type": "p",
+          "text": "Document all endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Include:"
+        },
+        {
+          "type": "p",
+          "text": "Request structure."
+        },
+        {
+          "type": "p",
+          "text": "Response structure."
+        },
+        {
+          "type": "p",
+          "text": "HTTP status codes."
+        },
+        {
+          "type": "p",
+          "text": "Validation rules."
+        },
+        {
+          "type": "p",
+          "text": "Authentication requirements."
+        },
+        {
+          "type": "p",
+          "text": "Error responses."
+        },
+        {
+          "type": "p",
+          "text": "Rate-limit policies."
+        },
+        {
+          "type": "p",
+          "text": "Idempotency behaviour."
+        },
+        {
+          "type": "p",
+          "text": "Introduce an API version:"
+        },
+        {
+          "type": "p",
+          "text": "/api/v1/enrollments"
+        },
+        {
+          "type": "p",
+          "text": "Then make a compatible improvement or introduce a new version without unexpectedly breaking existing clients."
+        },
+        {
+          "type": "p",
+          "text": "5. Assignment — Make a Deliberately Unreliable API Predictable"
+        },
+        {
+          "type": "p",
+          "text": "Independent Engineering Assignment"
+        },
+        {
+          "type": "p",
+          "text": "Problem Statement"
+        },
+        {
+          "type": "p",
+          "text": "You have been provided with a fictional backend API that works under normal conditions but frequently fails under unexpected conditions."
+        },
+        {
+          "type": "p",
+          "text": "The API suffers from invalid requests, duplicate operations, inconsistent errors, uncontrolled traffic, timeouts and partial failures."
+        },
+        {
+          "type": "p",
+          "text": "Your task is to transform this unreliable API into a predictable, fault-tolerant backend."
+        },
+        {
+          "type": "p",
+          "text": "Part A — Identify Existing Problems"
+        },
+        {
+          "type": "p",
+          "text": "Inspect the application and identify at least these problems:"
+        },
+        {
+          "type": "p",
+          "text": "Missing request validation."
+        },
+        {
+          "type": "p",
+          "text": "Incorrect HTTP status codes."
+        },
+        {
+          "type": "p",
+          "text": "Unhandled exceptions."
+        },
+        {
+          "type": "p",
+          "text": "Inconsistent error responses."
+        },
+        {
+          "type": "p",
+          "text": "Missing business validation."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate request processing."
+        },
+        {
+          "type": "p",
+          "text": "No rate-limiting mechanism."
+        },
+        {
+          "type": "p",
+          "text": "Missing timeouts."
+        },
+        {
+          "type": "p",
+          "text": "Unsafe retry behaviour."
+        },
+        {
+          "type": "p",
+          "text": "No circuit breaker."
+        },
+        {
+          "type": "p",
+          "text": "No partial-failure recovery."
+        },
+        {
+          "type": "p",
+          "text": "Breaking API changes."
+        },
+        {
+          "type": "p",
+          "text": "Document how each issue affects users and application reliability."
+        },
+        {
+          "type": "p",
+          "text": "Part B — Validation and Error Handling"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "DTO validation."
+        },
+        {
+          "type": "p",
+          "text": "Custom validation."
+        },
+        {
+          "type": "p",
+          "text": "Service-level business validation."
+        },
+        {
+          "type": "p",
+          "text": "Global exception handling."
+        },
+        {
+          "type": "p",
+          "text": "Standardized error responses."
+        },
+        {
+          "type": "p",
+          "text": "Trace IDs."
+        },
+        {
+          "type": "p",
+          "text": "Safe logging."
+        },
+        {
+          "type": "p",
+          "text": "Part C — Idempotency and Rate Limiting"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "Idempotency keys."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate-request detection."
+        },
+        {
+          "type": "p",
+          "text": "Payload fingerprint validation."
+        },
+        {
+          "type": "p",
+          "text": "Concurrent request handling."
+        },
+        {
+          "type": "p",
+          "text": "Request limits."
+        },
+        {
+          "type": "p",
+          "text": "HTTP 429 responses."
+        },
+        {
+          "type": "p",
+          "text": "Distributed rate limiting."
+        },
+        {
+          "type": "p",
+          "text": "Part D — Reliability Engineering"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "Connection and response timeouts."
+        },
+        {
+          "type": "p",
+          "text": "Bounded retries."
+        },
+        {
+          "type": "p",
+          "text": "Exponential backoff."
+        },
+        {
+          "type": "p",
+          "text": "Jitter."
+        },
+        {
+          "type": "p",
+          "text": "Circuit breakers."
+        },
+        {
+          "type": "p",
+          "text": "Fallback strategies."
+        },
+        {
+          "type": "p",
+          "text": "Bulkhead or concurrency limits."
+        },
+        {
+          "type": "p",
+          "text": "Part E — Partial-Failure Management"
+        },
+        {
+          "type": "p",
+          "text": "Design a workflow involving at least two services."
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate:"
+        },
+        {
+          "type": "p",
+          "text": "A successful first operation."
+        },
+        {
+          "type": "p",
+          "text": "A failure in a later operation."
+        },
+        {
+          "type": "p",
+          "text": "Appropriate compensation or recovery."
+        },
+        {
+          "type": "p",
+          "text": "Transactional outbox or another reliable event-delivery mechanism."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate-event protection."
+        },
+        {
+          "type": "p",
+          "text": "Part F — API Compatibility"
+        },
+        {
+          "type": "p",
+          "text": "Create two versions of an API."
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate:"
+        },
+        {
+          "type": "p",
+          "text": "A backward-compatible update."
+        },
+        {
+          "type": "p",
+          "text": "A breaking change."
+        },
+        {
+          "type": "p",
+          "text": "Versioning."
+        },
+        {
+          "type": "p",
+          "text": "Deprecation communication."
+        },
+        {
+          "type": "p",
+          "text": "Compatibility testing."
+        },
+        {
+          "type": "p",
+          "text": "Part G — Testing"
+        },
+        {
+          "type": "p",
+          "text": "Write automated tests for normal and failure conditions."
+        },
+        {
+          "type": "p",
+          "text": "Your tests must cover:"
+        },
+        {
+          "type": "p",
+          "text": "Invalid request data."
+        },
+        {
+          "type": "p",
+          "text": "Missing required fields."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate operations."
+        },
+        {
+          "type": "p",
+          "text": "Simultaneous requests."
+        },
+        {
+          "type": "p",
+          "text": "Excessive traffic."
+        },
+        {
+          "type": "p",
+          "text": "Connection timeout."
+        },
+        {
+          "type": "p",
+          "text": "Repeated external-service failures."
+        },
+        {
+          "type": "p",
+          "text": "Circuit breaker transitions."
+        },
+        {
+          "type": "p",
+          "text": "Event delivery failure."
+        },
+        {
+          "type": "p",
+          "text": "API compatibility."
+        },
+        {
+          "type": "p",
+          "text": "Final Submission"
+        },
+        {
+          "type": "p",
+          "text": "Your project should contain:"
+        },
+        {
+          "type": "p",
+          "text": "Source code."
+        },
+        {
+          "type": "p",
+          "text": "Database migrations."
+        },
+        {
+          "type": "p",
+          "text": "DTOs and validation annotations."
+        },
+        {
+          "type": "p",
+          "text": "Global exception handler."
+        },
+        {
+          "type": "p",
+          "text": "Error response model."
+        },
+        {
+          "type": "p",
+          "text": "Idempotency implementation."
+        },
+        {
+          "type": "p",
+          "text": "Rate-limiting implementation."
+        },
+        {
+          "type": "p",
+          "text": "Retry and timeout configuration."
+        },
+        {
+          "type": "p",
+          "text": "Circuit breaker implementation."
+        },
+        {
+          "type": "p",
+          "text": "Partial-failure handling."
+        },
+        {
+          "type": "p",
+          "text": "API documentation."
+        },
+        {
+          "type": "p",
+          "text": "Automated tests."
+        },
+        {
+          "type": "p",
+          "text": "Reliability testing report."
+        },
+        {
+          "type": "p",
+          "text": "6. Suggested Evaluation Criteria"
+        },
+        {
+          "type": "p",
+          "text": "Evaluation area"
+        },
+        {
+          "type": "p",
+          "text": "Weight"
+        },
+        {
+          "type": "p",
+          "text": "Request validation and sanitization"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Exception handling and error responses"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Business logic validation"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Idempotency and duplicate prevention"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Timeouts and retry strategies"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Circuit breaker and partial failures"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "API compatibility and testing"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Total"
+        },
+        {
+          "type": "p",
+          "text": "100%"
+        },
+        {
+          "type": "p",
+          "text": "7. Real-World Engineering Challenges"
+        },
+        {
+          "type": "p",
+          "text": "After completing the lab and assignment, you should be able to reason about these situations."
+        },
+        {
+          "type": "p",
+          "text": "Challenge 1 — Duplicate enrolment"
+        },
+        {
+          "type": "p",
+          "text": "A student clicks Enrol twice, but the first response is delayed. How will your API ensure that the student is enrolled only once?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 2 — Database failure"
+        },
+        {
+          "type": "p",
+          "text": "Your application creates a record, but the next database operation fails. How will you prevent inconsistent data?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 3 — AI provider outage"
+        },
+        {
+          "type": "p",
+          "text": "An external AI provider begins returning errors for every request. How will timeouts, retries and circuit breakers prevent your backend from becoming overloaded?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 4 — Excessive API traffic"
+        },
+        {
+          "type": "p",
+          "text": "A bot sends thousands of requests to your public course endpoint. How will you protect backend resources without blocking legitimate students?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 5 — Payment succeeds, enrolment fails"
+        },
+        {
+          "type": "p",
+          "text": "A payment provider confirms a payment, but your enrolment service is temporarily unavailable. How will you recover without charging the student again?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 6 — Duplicate event delivery"
+        },
+        {
+          "type": "p",
+          "text": "Your message broker delivers the same enrolment event three times. How will your notification service prevent duplicate emails or repeated business operations?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 7 — API update breaks the frontend"
+        },
+        {
+          "type": "p",
+          "text": "You rename an existing response field, and an older frontend version stops working. How will you introduce the change without disrupting existing clients?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 8 — Retry storm"
+        },
+        {
+          "type": "p",
+          "text": "Your backend has ten application instances, and every instance retries a failing external API. How will you prevent retries from making the outage worse?"
+        },
+        {
+          "type": "p",
+          "text": "These challenges test whether you understand reliability as a system-design responsibility rather than just writing try-catch blocks."
+        },
+        {
+          "type": "p",
+          "text": "8. Important Engineering Principles"
+        },
+        {
+          "type": "p",
+          "text": "Throughout this module, follow these principles:"
+        },
+        {
+          "type": "p",
+          "text": "Validate incoming data before processing it."
+        },
+        {
+          "type": "p",
+          "text": "Do not confuse input validation with business validation."
+        },
+        {
+          "type": "p",
+          "text": "Never rely on sanitization as a universal replacement for validation and output encoding."
+        },
+        {
+          "type": "p",
+          "text": "Keep error responses consistent across the application."
+        },
+        {
+          "type": "p",
+          "text": "Never expose internal stack traces or sensitive implementation details."
+        },
+        {
+          "type": "p",
+          "text": "Make important operations idempotent."
+        },
+        {
+          "type": "p",
+          "text": "Use database constraints to enforce critical data rules."
+        },
+        {
+          "type": "p",
+          "text": "Apply rate limits according to the cost and risk of each endpoint."
+        },
+        {
+          "type": "p",
+          "text": "Set timeouts for external dependencies."
+        },
+        {
+          "type": "p",
+          "text": "Retry only appropriate failures."
+        },
+        {
+          "type": "p",
+          "text": "Use circuit breakers to protect against sustained downstream failures."
+        },
+        {
+          "type": "p",
+          "text": "Design recovery strategies for partial failures."
+        },
+        {
+          "type": "p",
+          "text": "Preserve API compatibility wherever possible."
+        },
+        {
+          "type": "p",
+          "text": "Test the failure paths, not just successful requests."
+        },
+        {
+          "type": "p",
+          "text": "Recommended Engineering Resources"
+        },
+        {
+          "type": "p",
+          "text": "For deeper study, explore these official resources:"
+        },
+        {
+          "type": "p",
+          "text": "[Spring MVC Validation](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html?utm_source=chatgpt.com) — request validation."
+        },
+        {
+          "type": "p",
+          "text": "[Spring Exception Handling](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-advice.html?utm_source=chatgpt.com) — centralized error handling."
+        },
+        {
+          "type": "p",
+          "text": "[RFC 9457](https://www.rfc-editor.org/rfc/rfc9457?utm_source=chatgpt.com) — standard HTTP Problem Details."
+        },
+        {
+          "type": "p",
+          "text": "[Resilience4j Documentation](https://resilience4j.readme.io/?utm_source=chatgpt.com) — retry, circuit breaker and bulkhead patterns."
+        },
+        {
+          "type": "p",
+          "text": "[Redis Rate Limiting](https://redis.io/docs/latest/develop/use/patterns/rate-limiting/?utm_source=chatgpt.com) — distributed rate-limiting approaches."
+        },
+        {
+          "type": "p",
+          "text": "[Transactional Outbox Pattern](https://microservices.io/patterns/data/transactional-outbox.html?utm_source=chatgpt.com) — reliable event publishing."
+        },
+        {
+          "type": "p",
+          "text": "9. Final Learning Outcome"
+        },
+        {
+          "type": "p",
+          "text": "By the end of Module 06, you should understand that building a successful API is not simply about returning 200 OK when everything works."
+        },
+        {
+          "type": "p",
+          "text": "You will know how to handle invalid input, communicate failures, prevent duplicate operations, control excessive traffic, recover from temporary service interruptions, protect against cascading failures and evolve APIs without unexpectedly breaking their consumers."
+        },
+        {
+          "type": "p",
+          "text": "You will also understand how reliability techniques work together:"
+        },
+        {
+          "type": "p",
+          "text": "Validation prevents incorrect data."
+        },
+        {
+          "type": "p",
+          "text": "Error handling makes failures understandable."
+        },
+        {
+          "type": "p",
+          "text": "Idempotency prevents duplicate effects."
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting controls incoming load."
+        },
+        {
+          "type": "p",
+          "text": "Timeouts prevent indefinite waiting."
+        },
+        {
+          "type": "p",
+          "text": "Retries recover from temporary failures."
+        },
+        {
+          "type": "p",
+          "text": "Circuit breakers protect against unavailable services."
+        },
+        {
+          "type": "p",
+          "text": "Partial-failure strategies maintain business consistency."
+        },
+        {
+          "type": "p",
+          "text": "Compatibility practices protect existing integrations."
+        },
+        {
+          "type": "p",
+          "text": "Your final objective: Be able to transform a basic REST API into a predictable, maintainable and resilient backend service that handles both normal operations and unexpected failures reliably."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T09:37:27+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2397 @@
+{
+  "moduleNumber": "04",
+  "title": "MODULE 04 — Database Engineering and Backend Persistence",
+  "badges": [
+    "Core Module",
+    "12 Lessons",
+    "Practical Lab + Assignment"
+  ],
+  "overview": [],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Section 1",
+      "title": "1. Module Overview",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A backend application needs a reliable way to store information, retrieve it when required, and update it without corrupting existing data."
+        },
+        {
+          "type": "p",
+          "text": "Imagine PrepSpaces has thousands of students using its learning platform. Each student can register, explore courses, enrol in multiple courses, track progress and complete lessons."
+        },
+        {
+          "type": "p",
+          "text": "Where should this information be stored? How do we connect the backend to the database? What happens when two students try to enrol at the same time? How do we make sure that a student's enrolment is not accidentally duplicated?"
+        },
+        {
+          "type": "p",
+          "text": "These are the problems this module teaches you to solve."
+        },
+        {
+          "type": "p",
+          "text": "You will learn how professional backend applications communicate with relational databases, use PostgreSQL for persistent storage, manage database relationships through JPA and Hibernate, execute safe transactions, and handle concurrent updates."
+        },
+        {
+          "type": "p",
+          "text": "The module primarily uses **Java, Spring Boot, Spring Data JPA, Hibernate and PostgreSQL**."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Section 2",
+      "title": "2. What You Will Learn",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "By the end of this module, you should be able to:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Connect a Spring Boot application to PostgreSQL.",
+            "Design relational database schemas for real applications.",
+            "Understand how JPA and Hibernate work internally.",
+            "Map Java classes to database tables.",
+            "Model one-to-one, one-to-many and many-to-many relationships.",
+            "Write database queries using repositories.",
+            "Manage transactions and maintain data consistency.",
+            "Apply database constraints to protect data integrity.",
+            "Identify and solve lazy-loading and N+1 query problems.",
+            "Manage schema changes through database migrations.",
+            "Prevent data conflicts when multiple users update records simultaneously.",
+            "Build a working course-enrolment API backed by a relational database."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "# **3. Detailed Lesson Explanations**"
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Part 3",
+      "title": "Lesson 1 — How Backend Applications Interact with Databases",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Before working with database frameworks, you need to understand how information travels from a user's browser to a database and back."
+        },
+        {
+          "type": "p",
+          "text": "A frontend application does not normally communicate directly with a production database. Instead, it sends an HTTP request to a backend API. The backend validates the request, performs the required business logic, communicates with the database and returns a response."
+        },
+        {
+          "type": "h3",
+          "text": "Understanding the complete flow"
+        },
+        {
+          "type": "p",
+          "text": "**Frontend Application**"
+        },
+        {
+          "type": "p",
+          "text": "Student clicks Enrol in a course"
+        },
+        {
+          "type": "p",
+          "text": "HTTP POST request"
+        },
+        {
+          "type": "p",
+          "text": "**Backend API — Spring Boot**"
+        },
+        {
+          "type": "p",
+          "text": "Receives the request and validates the data"
+        },
+        {
+          "type": "p",
+          "text": "Business logic"
+        },
+        {
+          "type": "p",
+          "text": "**Service Layer**"
+        },
+        {
+          "type": "p",
+          "text": "Checks whether the student can enrol"
+        },
+        {
+          "type": "p",
+          "text": "Database operation"
+        },
+        {
+          "type": "p",
+          "text": "**PostgreSQL Database**"
+        },
+        {
+          "type": "p",
+          "text": "Stores the enrolment record"
+        },
+        {
+          "type": "p",
+          "text": "Result returned through backend"
+        },
+        {
+          "type": "p",
+          "text": "**Frontend Response**"
+        },
+        {
+          "type": "p",
+          "text": "Displays successful enrolment"
+        },
+        {
+          "type": "h3",
+          "text": "Important concepts"
+        },
+        {
+          "type": "p",
+          "text": "**1. Database:** A system that stores and manages application information."
+        },
+        {
+          "type": "p",
+          "text": "**2. Database connection:** A communication channel between the backend application and the database server."
+        },
+        {
+          "type": "p",
+          "text": "**3. CRUD operations:** The four fundamental operations performed on stored information."
+        },
+        {
+          "type": "p",
+          "text": "| Operation | Meaning                | Example            |"
+        },
+        {
+          "type": "p",
+          "text": "| --------- | ---------------------- | ------------------ |"
+        },
+        {
+          "type": "p",
+          "text": "| Create    | Insert new data        | Register a student |"
+        },
+        {
+          "type": "p",
+          "text": "| Read      | Retrieve existing data | Display courses    |"
+        },
+        {
+          "type": "p",
+          "text": "| Update    | Modify existing data   | Update profile     |"
+        },
+        {
+          "type": "p",
+          "text": "| Delete    | Remove data            | Delete a course    |"
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Section 4",
+      "title": "4. Database driver: Software that allows a programming application to communicate with a particular database. For example, the PostgreSQL JDBC driver allows Java applications to communicate with PostgreSQL.",
+      "blocks": []
+    },
+    {
+      "id": "section-5",
+      "badge": "Section 5",
+      "title": "5. Connection pooling: Rather than repeatedly opening and closing database connections, the application maintains a reusable pool of connections. Spring Boot commonly uses HikariCP for this.",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Practical example"
+        },
+        {
+          "type": "p",
+          "text": "A student submits a registration form."
+        },
+        {
+          "type": "p",
+          "text": "The backend:"
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Section 1",
+      "title": "1. Receives the student's name, email and password.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "2. Validates the request."
+        },
+        {
+          "type": "p",
+          "text": "3. Hashes the password."
+        },
+        {
+          "type": "p",
+          "text": "4. Checks whether the email already exists."
+        },
+        {
+          "type": "p",
+          "text": "5. Creates a new student record."
+        },
+        {
+          "type": "p",
+          "text": "6. Saves the record in PostgreSQL."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Section 7",
+      "title": "7. Returns a success response.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "**Why this lesson matters:** You must understand the complete request-to-database lifecycle before learning database frameworks."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Part 8",
+      "title": "Lesson 2 — Relational Database Integration",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A relational database stores information in structured tables. Tables contain columns and rows, and relationships connect information across multiple tables."
+        },
+        {
+          "type": "p",
+          "text": "For example, a learning platform might have separate tables for students, courses and enrolments."
+        },
+        {
+          "type": "h3",
+          "text": "Understanding tables"
+        },
+        {
+          "type": "p",
+          "text": "A `users` table:"
+        },
+        {
+          "type": "p",
+          "text": "| id | name  | email              |"
+        },
+        {
+          "type": "p",
+          "text": "| -- | ----- | ------------------ |"
+        },
+        {
+          "type": "p",
+          "text": "| 1  | Rahul | rahul\\@example.com |"
+        },
+        {
+          "type": "p",
+          "text": "| 2  | Priya | priya\\@example.com |"
+        },
+        {
+          "type": "p",
+          "text": "A `courses` table:"
+        },
+        {
+          "type": "p",
+          "text": "| id  | title             | category    |"
+        },
+        {
+          "type": "p",
+          "text": "| --- | ----------------- | ----------- |"
+        },
+        {
+          "type": "p",
+          "text": "| 101 | Java Development  | Programming |"
+        },
+        {
+          "type": "p",
+          "text": "| 102 | Cloud Engineering | Cloud       |"
+        },
+        {
+          "type": "p",
+          "text": "An `enrollments` table:"
+        },
+        {
+          "type": "p",
+          "text": "| id | user_id | course_id |"
+        },
+        {
+          "type": "p",
+          "text": "| -- | ------- | --------- |"
+        },
+        {
+          "type": "p",
+          "text": "| 1  | 1       | 101       |"
+        },
+        {
+          "type": "p",
+          "text": "| 2  | 1       | 102       |"
+        },
+        {
+          "type": "p",
+          "text": "| 3  | 2       | 101       |"
+        },
+        {
+          "type": "p",
+          "text": "Notice that student and course information is not repeatedly copied into the enrolment table. Instead, the table stores references to the relevant records."
+        },
+        {
+          "type": "h3",
+          "text": "Important concepts"
+        },
+        {
+          "type": "p",
+          "text": "**Primary Key (PK):** A column that uniquely identifies each record."
+        },
+        {
+          "type": "p",
+          "text": "**Foreign Key (FK):** A column that references a record in another table."
+        },
+        {
+          "type": "p",
+          "text": "**Relationship:** A logical connection between different tables."
+        },
+        {
+          "type": "p",
+          "text": "**Normalization:** Organising database information to reduce unnecessary duplication and improve consistency."
+        },
+        {
+          "type": "h3",
+          "text": "Understanding database normalization"
+        },
+        {
+          "type": "p",
+          "text": "Suppose you store a student's name, email, course name and course instructor in one table."
+        },
+        {
+          "type": "p",
+          "text": "If a student enrols in five courses, their personal information may be repeated five times."
+        },
+        {
+          "type": "p",
+          "text": "This creates problems:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Updating the student's email requires changing multiple records.",
+            "Deleting one course record could accidentally remove other information.",
+            "Different rows might contain inconsistent student information."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Normalization helps separate this information into appropriate tables."
+        },
+        {
+          "type": "p",
+          "text": "You should understand the purpose of First Normal Form (1NF), Second Normal Form (2NF) and Third Normal Form (3NF), along with when denormalization can be useful for performance."
+        },
+        {
+          "type": "p",
+          "text": "**Why this lesson matters:** Good database design makes applications easier to maintain, extend and scale."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Part 9",
+      "title": "Lesson 3 — PostgreSQL Connection Configuration",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "PostgreSQL is a powerful open-source relational database management system."
+        },
+        {
+          "type": "p",
+          "text": "In this lesson, you will connect a real Spring Boot backend application to PostgreSQL."
+        },
+        {
+          "type": "h3",
+          "text": "Step 1: Understand the connection requirements"
+        },
+        {
+          "type": "p",
+          "text": "A Java application generally needs:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Database hostname.",
+            "Database port.",
+            "Database name.",
+            "Database username.",
+            "Database password.",
+            "JDBC driver.",
+            "Connection configuration."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL commonly uses port `5432`."
+        },
+        {
+          "type": "h3",
+          "text": "Step 2: Add dependencies"
+        },
+        {
+          "type": "p",
+          "text": "For a Maven-based Spring Boot application:"
+        },
+        {
+          "type": "code",
+          "text": "<dependency>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-starter-data-jpa</artifactId>\n</dependency>\n\n<dependency>\n    <groupId>org.postgresql</groupId>\n    <artifactId>postgresql</artifactId>\n    <scope>runtime</scope>\n</dependency>"
+        },
+        {
+          "type": "h3",
+          "text": "Step 3: Configure the database"
+        },
+        {
+          "type": "p",
+          "text": "In `application.properties`:"
+        },
+        {
+          "type": "code",
+          "text": "spring.datasource.url=jdbc:postgresql://localhost:5432/prepspaces\n\nspring.datasource.username=${DB_USERNAME}\nspring.datasource.password=${DB_PASSWORD}\n\nspring.datasource.driver-class-name=org.postgresql.Driver\n\nspring.jpa.hibernate.ddl-auto=validate\nspring.jpa.show-sql=true"
+        },
+        {
+          "type": "p",
+          "text": "The environment variables keep database credentials out of the application source code."
+        },
+        {
+          "type": "p",
+          "text": "For local development, you can configure the variables in your development environment. In production, use your hosting platform's secret-management mechanism."
+        },
+        {
+          "type": "h3",
+          "text": "Step 4: Understand connection pooling"
+        },
+        {
+          "type": "p",
+          "text": "Opening a fresh database connection for every request is inefficient."
+        },
+        {
+          "type": "p",
+          "text": "Connection pooling manages a collection of reusable database connections."
+        },
+        {
+          "type": "p",
+          "text": "Important configuration properties include:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Maximum pool size.",
+            "Minimum idle connections.",
+            "Connection timeout.",
+            "Idle timeout.",
+            "Maximum connection lifetime."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "You will learn how to configure these values according to application workload rather than blindly increasing the pool size."
+        },
+        {
+          "type": "h3",
+          "text": "Step 5: Verify the connection"
+        },
+        {
+          "type": "p",
+          "text": "Run the Spring Boot application and confirm that it connects to PostgreSQL successfully."
+        },
+        {
+          "type": "p",
+          "text": "**Practical task:** Create a PostgreSQL database named `prepspaces`, configure your Spring Boot application and verify that it can communicate with the database."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Part 10",
+      "title": "Lesson 4 — JPA and Hibernate Fundamentals",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Writing SQL for every database operation can become repetitive, particularly in applications containing dozens of entities."
+        },
+        {
+          "type": "p",
+          "text": "Java applications commonly use Object-Relational Mapping (ORM) to map Java objects to relational database tables."
+        },
+        {
+          "type": "h3",
+          "text": "What is ORM?"
+        },
+        {
+          "type": "p",
+          "text": "ORM allows you to work with database records using Java classes and objects."
+        },
+        {
+          "type": "p",
+          "text": "For example, rather than manually inserting every student using SQL, you can create a Java `User` object and save it through a repository."
+        },
+        {
+          "type": "h3",
+          "text": "Understanding JPA"
+        },
+        {
+          "type": "p",
+          "text": "**JPA (Jakarta Persistence API)** is a specification that defines how Java applications should manage relational persistence."
+        },
+        {
+          "type": "p",
+          "text": "It provides concepts such as:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Entities.",
+            "Entity relationships.",
+            "Entity managers.",
+            "Persistence contexts.",
+            "JPQL.",
+            "Transactions."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Understanding Hibernate"
+        },
+        {
+          "type": "p",
+          "text": "**Hibernate** is an implementation of the JPA specification."
+        },
+        {
+          "type": "p",
+          "text": "It performs the actual ORM work, including translating persistence operations into SQL, tracking managed entities and synchronizing their changes with the database."
+        },
+        {
+          "type": "h3",
+          "text": "Example"
+        },
+        {
+          "type": "code",
+          "text": "import jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\nimport jakarta.persistence.GeneratedValue;\nimport jakarta.persistence.GenerationType;\n\n@Entity\npublic class User {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    private String name;\n    private String email;\n}"
+        },
+        {
+          "type": "p",
+          "text": "What does this code mean?"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`@Entity` tells JPA that this class represents a database entity.",
+            "`@Id` identifies the primary key.",
+            "`@GeneratedValue` defines how the primary key is generated.",
+            "`name` and `email` become persistent fields."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Hibernate uses the entity mapping to interact with the corresponding database table."
+        },
+        {
+          "type": "h3",
+          "text": "Important internal concepts"
+        },
+        {
+          "type": "p",
+          "text": "**Persistence Context:** An environment in which the ORM manages entity instances and tracks their changes."
+        },
+        {
+          "type": "p",
+          "text": "**Entity Lifecycle:** Entities can be transient, managed, detached or removed."
+        },
+        {
+          "type": "p",
+          "text": "**Dirty Checking:** Hibernate detects changes to managed entities and can generate the required SQL updates when the persistence context is flushed."
+        },
+        {
+          "type": "p",
+          "text": "**EntityManager:** JPA's primary interface for managing entities and interacting with the persistence context."
+        },
+        {
+          "type": "p",
+          "text": "**Why this lesson matters:** You need to understand what JPA and Hibernate actually do instead of treating them as magic tools that automatically save data."
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Part 11",
+      "title": "Lesson 5 — Entity Mapping and Relationships",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Entity mapping connects Java classes and their fields to database tables and columns."
+        },
+        {
+          "type": "p",
+          "text": "You will learn how to convert a real-world application structure into Java entities."
+        },
+        {
+          "type": "h3",
+          "text": "Example: User entity"
+        },
+        {
+          "type": "code",
+          "text": "@Entity\n@Table(name = \"users\")\npublic class User {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    @Column(nullable = false)\n    private String name;\n\n    @Column(nullable = false, unique = true)\n    private String email;\n}"
+        },
+        {
+          "type": "p",
+          "text": "Here:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "`@Table` specifies the database table name.",
+            "`@Column` configures column properties.",
+            "`nullable = false` makes a column non-nullable.",
+            "`unique = true` declares a uniqueness requirement."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Understanding entity mapping annotations"
+        },
+        {
+          "type": "p",
+          "text": "| Annotation        | Purpose                         |"
+        },
+        {
+          "type": "p",
+          "text": "| ----------------- | ------------------------------- |"
+        },
+        {
+          "type": "p",
+          "text": "| `@Entity`         | Identifies a persistent entity  |"
+        },
+        {
+          "type": "p",
+          "text": "| `@Table`          | Configures the database table   |"
+        },
+        {
+          "type": "p",
+          "text": "| `@Id`             | Defines the primary key         |"
+        },
+        {
+          "type": "p",
+          "text": "| `@GeneratedValue` | Defines primary key generation  |"
+        },
+        {
+          "type": "p",
+          "text": "| `@Column`         | Configures a database column    |"
+        },
+        {
+          "type": "p",
+          "text": "| `@Enumerated`     | Maps Java enum values           |"
+        },
+        {
+          "type": "p",
+          "text": "| `@Embedded`       | Includes an embeddable object   |"
+        },
+        {
+          "type": "p",
+          "text": "| `@EmbeddedId`     | Defines a composite primary key |"
+        },
+        {
+          "type": "h3",
+          "text": "Mapping considerations"
+        },
+        {
+          "type": "p",
+          "text": "You will learn how to handle:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Java types and database column types.",
+            "Nullable and non-nullable fields.",
+            "Unique values.",
+            "Generated identifiers.",
+            "Date and time fields.",
+            "Enum persistence.",
+            "Embedded value objects.",
+            "Composite keys."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "You will also understand why API request and response DTOs should generally be separated from database entity classes."
+        },
+        {
+          "type": "p",
+          "text": "**Example:** A user's password hash may need to be stored in the database, but it must never appear in the API response."
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "badge": "Part 12",
+      "title": "Lesson 6 — One-to-One, One-to-Many and Many-to-Many Relationships",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Real applications contain related data. JPA provides relationship annotations that represent these connections."
+        },
+        {
+          "type": "p",
+          "text": "You must understand these relationships before designing larger database systems."
+        },
+        {
+          "type": "h3",
+          "text": "A. One-to-One Relationship"
+        },
+        {
+          "type": "p",
+          "text": "One record in one table is associated with one record in another table."
+        },
+        {
+          "type": "p",
+          "text": "**Example:** One user has one student profile."
+        },
+        {
+          "type": "p",
+          "text": "**Users**"
+        },
+        {
+          "type": "p",
+          "text": "id, name, email"
+        },
+        {
+          "type": "p",
+          "text": "**Student Profiles**"
+        },
+        {
+          "type": "p",
+          "text": "id, user_id, qualification"
+        },
+        {
+          "type": "p",
+          "text": "One user ↔ one student profile"
+        },
+        {
+          "type": "p",
+          "text": "JPA annotation:"
+        },
+        {
+          "type": "code",
+          "text": "@OneToOne\n@JoinColumn(name = \"user_id\")\nprivate User user;"
+        },
+        {
+          "type": "p",
+          "text": "You will also learn how foreign keys and unique constraints enforce a true one-to-one relationship in the database."
+        },
+        {
+          "type": "h3",
+          "text": "B. One-to-Many Relationship"
+        },
+        {
+          "type": "p",
+          "text": "One record is associated with multiple records in another table."
+        },
+        {
+          "type": "p",
+          "text": "**Example:** One instructor can create multiple courses."
+        },
+        {
+          "type": "p",
+          "text": "**Instructor**"
+        },
+        {
+          "type": "p",
+          "text": "One instructor"
+        },
+        {
+          "type": "p",
+          "text": "Course 1"
+        },
+        {
+          "type": "p",
+          "text": "Course 2"
+        },
+        {
+          "type": "p",
+          "text": "Course 3"
+        },
+        {
+          "type": "p",
+          "text": "JPA annotation:"
+        },
+        {
+          "type": "code",
+          "text": "@OneToMany(mappedBy = \"instructor\")\nprivate List<Course> courses;"
+        },
+        {
+          "type": "p",
+          "text": "The many side generally owns the foreign key:"
+        },
+        {
+          "type": "code",
+          "text": "@ManyToOne\n@JoinColumn(name = \"instructor_id\")\nprivate Instructor instructor;"
+        },
+        {
+          "type": "p",
+          "text": "You will understand the difference between owning and inverse sides of a relationship."
+        },
+        {
+          "type": "h3",
+          "text": "C. Many-to-Many Relationship"
+        },
+        {
+          "type": "p",
+          "text": "Multiple records in one table can be associated with multiple records in another table."
+        },
+        {
+          "type": "p",
+          "text": "**Example:** Students can enrol in multiple courses, and each course can have multiple students."
+        },
+        {
+          "type": "p",
+          "text": "A many-to-many relationship typically uses a junction table."
+        },
+        {
+          "type": "p",
+          "text": "**Users**"
+        },
+        {
+          "type": "p",
+          "text": "Students"
+        },
+        {
+          "type": "p",
+          "text": "**Enrolments**"
+        },
+        {
+          "type": "p",
+          "text": "Junction table"
+        },
+        {
+          "type": "p",
+          "text": "**Courses**"
+        },
+        {
+          "type": "p",
+          "text": "Learning courses"
+        },
+        {
+          "type": "p",
+          "text": "Each enrolment connects one user to one course. Multiple enrolment records connect students and courses."
+        },
+        {
+          "type": "p",
+          "text": "JPA can represent a simple many-to-many relationship using `@ManyToMany`."
+        },
+        {
+          "type": "p",
+          "text": "However, in a learning platform, an enrolment usually needs additional information such as:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Enrolment date.",
+            "Enrolment status.",
+            "Course completion percentage.",
+            "Payment status.",
+            "Last accessed date."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Therefore, you should create an independent `Enrollment` entity instead of relying on a simple `@ManyToMany` mapping."
+        },
+        {
+          "type": "p",
+          "text": "**Why this lesson matters:** Correct relationships prevent duplicated information and provide a foundation for complex application data."
+        }
+      ]
+    },
+    {
+      "id": "section-13",
+      "badge": "Part 13",
+      "title": "Lesson 7 — Repository Patterns and Database Queries",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A backend needs a clean way to retrieve, insert, modify and delete database information."
+        },
+        {
+          "type": "p",
+          "text": "Spring Data JPA provides repository abstractions that reduce repetitive database-access code."
+        },
+        {
+          "type": "h3",
+          "text": "Understanding repository patterns"
+        },
+        {
+          "type": "p",
+          "text": "A repository acts as an interface between your application and its persistence layer."
+        },
+        {
+          "type": "p",
+          "text": "Instead of writing SQL for every basic operation, you can define a repository interface."
+        },
+        {
+          "type": "h3",
+          "text": "Example"
+        },
+        {
+          "type": "code",
+          "text": "import org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface UserRepository\n        extends JpaRepository<User, Long> {\n\n    Optional<User> findByEmail(String email);\n\n    boolean existsByEmail(String email);\n}"
+        },
+        {
+          "type": "p",
+          "text": "Spring Data JPA generates the implementation for supported repository methods."
+        },
+        {
+          "type": "h3",
+          "text": "Important repository operations"
+        },
+        {
+          "type": "p",
+          "text": "| Method         | Purpose                       |"
+        },
+        {
+          "type": "p",
+          "text": "| -------------- | ----------------------------- |"
+        },
+        {
+          "type": "p",
+          "text": "| `save()`       | Save or update an entity      |"
+        },
+        {
+          "type": "p",
+          "text": "| `findById()`   | Retrieve by primary key       |"
+        },
+        {
+          "type": "p",
+          "text": "| `findAll()`    | Retrieve all matching records |"
+        },
+        {
+          "type": "p",
+          "text": "| `deleteById()` | Delete by primary key         |"
+        },
+        {
+          "type": "p",
+          "text": "| `existsById()` | Check record existence        |"
+        },
+        {
+          "type": "p",
+          "text": "| `count()`      | Count records                 |"
+        },
+        {
+          "type": "h3",
+          "text": "Derived query methods"
+        },
+        {
+          "type": "p",
+          "text": "Spring Data JPA can generate queries based on method names."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "code",
+          "text": "findByName(String name);\n\nfindByEmail(String email);\n\nfindByStatus(String status);\n\nfindByNameContaining(String keyword);"
+        },
+        {
+          "type": "h3",
+          "text": "JPQL and custom queries"
+        },
+        {
+          "type": "p",
+          "text": "You will also learn when repository method naming is insufficient."
+        },
+        {
+          "type": "p",
+          "text": "JPQL example:"
+        },
+        {
+          "type": "code",
+          "text": "@Query(\"\"\"\n    SELECT e\n    FROM Enrollment e\n    WHERE e.user.id = :userId\n\"\"\")\nList<Enrollment> findByUserId(Long userId);"
+        },
+        {
+          "type": "p",
+          "text": "JPQL operates on entities and their properties, rather than directly using database table and column names."
+        },
+        {
+          "type": "p",
+          "text": "You will understand:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "JPQL.",
+            "Native SQL queries.",
+            "Query parameters.",
+            "Pagination.",
+            "Sorting.",
+            "Filtering.",
+            "Projections.",
+            "Specifications for dynamic queries."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Why this lesson matters:** A well-structured persistence layer keeps database access organised and makes backend services easier to maintain."
+        }
+      ]
+    },
+    {
+      "id": "section-14",
+      "badge": "Part 14",
+      "title": "Lesson 8 — Transactions and Transaction Boundaries",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "One of the most important topics in backend engineering is transaction management."
+        },
+        {
+          "type": "p",
+          "text": "A transaction groups multiple database operations into one logical unit of work."
+        },
+        {
+          "type": "p",
+          "text": "Consider a student enrolling in a course."
+        },
+        {
+          "type": "p",
+          "text": "The backend may need to:"
+        }
+      ]
+    },
+    {
+      "id": "section-15",
+      "badge": "Section 1",
+      "title": "1. Check whether the course exists.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "2. Check whether the student exists."
+        },
+        {
+          "type": "p",
+          "text": "3. Check whether the student is already enrolled."
+        },
+        {
+          "type": "p",
+          "text": "4. Create the enrolment record."
+        },
+        {
+          "type": "p",
+          "text": "5. Update the course's available seat count."
+        },
+        {
+          "type": "p",
+          "text": "What happens if the enrolment record is created successfully, but updating the seat count fails?"
+        },
+        {
+          "type": "p",
+          "text": "The database could end up in an inconsistent state."
+        },
+        {
+          "type": "p",
+          "text": "Transactions solve this problem."
+        },
+        {
+          "type": "h3",
+          "text": "Understanding ACID properties"
+        },
+        {
+          "type": "p",
+          "text": "ACID describes four important transaction properties."
+        },
+        {
+          "type": "p",
+          "text": "| Property    | Explanation                                                                                               |"
+        },
+        {
+          "type": "p",
+          "text": "| ----------- | --------------------------------------------------------------------------------------------------------- |"
+        },
+        {
+          "type": "p",
+          "text": "| Atomicity   | All operations succeed or the transaction is rolled back                                                  |"
+        },
+        {
+          "type": "p",
+          "text": "| Consistency | Transactions maintain database rules and integrity                                                        |"
+        },
+        {
+          "type": "p",
+          "text": "| Isolation   | Concurrent transactions are controlled to prevent invalid interference                                    |"
+        },
+        {
+          "type": "p",
+          "text": "| Durability  | Committed changes persist even after a system failure, subject to the database's durability configuration |"
+        },
+        {
+          "type": "h3",
+          "text": "Understanding transaction boundaries"
+        },
+        {
+          "type": "p",
+          "text": "A transaction boundary defines where a transaction begins and ends."
+        },
+        {
+          "type": "p",
+          "text": "In Spring Boot, you commonly use `@Transactional` at the service layer."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Service\npublic class EnrollmentService {\n\n    private final EnrollmentRepository enrollmentRepository;\n\n    public EnrollmentService(\n            EnrollmentRepository enrollmentRepository) {\n        this.enrollmentRepository = enrollmentRepository;\n    }\n\n    @Transactional\n    public Enrollment enroll(Enrollment enrollment) {\n\n        return enrollmentRepository.save(enrollment);\n    }\n}"
+        },
+        {
+          "type": "p",
+          "text": "In a real implementation, the service would also validate the student, course, duplicate enrolment and course capacity within the appropriate transactional operation."
+        },
+        {
+          "type": "h3",
+          "text": "What happens during failure?"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an operation fails before the transaction commits."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Database changes within the transaction can be rolled back.",
+            "The application can return an appropriate error response.",
+            "The database does not retain a partially completed transaction."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Important concepts"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Commit and rollback.",
+            "Transaction propagation.",
+            "Isolation levels.",
+            "Read-only transactions.",
+            "Nested service operations and transaction participation.",
+            "Transaction boundaries.",
+            "Checked and unchecked exception rollback behaviour.",
+            "Database and application transaction coordination."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "**Important:** A transaction does not automatically make an application correct. You must choose suitable boundaries, constraints and concurrency controls."
+        }
+      ]
+    },
+    {
+      "id": "section-16",
+      "badge": "Part 16",
+      "title": "Lesson 9 — Database Constraints and Data Integrity",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Data integrity means ensuring that stored information remains correct, valid and consistent."
+        },
+        {
+          "type": "p",
+          "text": "Application-level validation is important, but relying only on backend validation is not enough. The database must also protect important rules."
+        },
+        {
+          "type": "h3",
+          "text": "Understanding database constraints"
+        }
+      ]
+    },
+    {
+      "id": "section-17",
+      "badge": "Section 1",
+      "title": "1. Primary Key Constraint",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Ensures each record has a unique identifier."
+        },
+        {
+          "type": "code",
+          "text": "CREATE TABLE users (\n    id BIGINT PRIMARY KEY,\n    name VARCHAR(100)\n);"
+        },
+        {
+          "type": "p",
+          "text": "**2. Foreign Key Constraint**"
+        },
+        {
+          "type": "p",
+          "text": "Ensures that a reference points to an existing record."
+        },
+        {
+          "type": "code",
+          "text": "FOREIGN KEY (user_id) REFERENCES users(id)"
+        },
+        {
+          "type": "p",
+          "text": "**3. Unique Constraint**"
+        },
+        {
+          "type": "p",
+          "text": "Prevents duplicate values."
+        },
+        {
+          "type": "code",
+          "text": "email VARCHAR(255) UNIQUE"
+        },
+        {
+          "type": "p",
+          "text": "**4. NOT NULL Constraint**"
+        },
+        {
+          "type": "p",
+          "text": "Prevents a column from accepting null values."
+        },
+        {
+          "type": "code",
+          "text": "name VARCHAR(100) NOT NULL"
+        },
+        {
+          "type": "p",
+          "text": "**5. CHECK Constraint**"
+        },
+        {
+          "type": "p",
+          "text": "Ensures that a value satisfies a condition."
+        },
+        {
+          "type": "code",
+          "text": "CHECK (completion_percentage >= 0\n       AND completion_percentage <= 100)"
+        },
+        {
+          "type": "p",
+          "text": "**6. DEFAULT Constraint**"
+        },
+        {
+          "type": "p",
+          "text": "Provides a default value when no value is supplied."
+        },
+        {
+          "type": "code",
+          "text": "status VARCHAR(30) DEFAULT 'ACTIVE'"
+        },
+        {
+          "type": "h3",
+          "text": "Real-world example: Preventing duplicate enrolments"
+        },
+        {
+          "type": "p",
+          "text": "A student should not be able to enrol in the same course twice."
+        },
+        {
+          "type": "p",
+          "text": "You can enforce this using a composite unique constraint:"
+        },
+        {
+          "type": "code",
+          "text": "ALTER TABLE enrollments\nADD CONSTRAINT unique_user_course\nUNIQUE (user_id, course_id);"
+        },
+        {
+          "type": "p",
+          "text": "Even when two requests arrive simultaneously, the database prevents duplicate user-course combinations."
+        },
+        {
+          "type": "p",
+          "text": "**Why this lesson matters:** The database is the final enforcement layer for critical data rules, especially when multiple application requests are running concurrently."
+        }
+      ]
+    },
+    {
+      "id": "section-18",
+      "badge": "Part 18",
+      "title": "Lesson 10 — Lazy Loading, Eager Loading and the N+1 Problem",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This lesson introduces an important performance problem that frequently appears in applications using ORM frameworks."
+        },
+        {
+          "type": "p",
+          "text": "You can write perfectly valid JPA code and still create hundreds of unnecessary database queries."
+        },
+        {
+          "type": "h3",
+          "text": "Lazy Loading"
+        },
+        {
+          "type": "p",
+          "text": "Lazy loading means related data is generally retrieved only when the relationship is accessed."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@OneToMany(\n    mappedBy = \"user\",\n    fetch = FetchType.LAZY\n)\nprivate List<Enrollment> enrollments;"
+        },
+        {
+          "type": "p",
+          "text": "When the user is initially retrieved, Hibernate does not necessarily retrieve all associated enrolments."
+        },
+        {
+          "type": "p",
+          "text": "It retrieves them when they are accessed while the required persistence context is available."
+        },
+        {
+          "type": "h3",
+          "text": "Eager Loading"
+        },
+        {
+          "type": "p",
+          "text": "Eager loading means that related information is required as part of loading the entity."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@OneToOne(fetch = FetchType.EAGER)\nprivate StudentProfile profile;"
+        },
+        {
+          "type": "p",
+          "text": "The exact SQL strategy used depends on the relationship and Hibernate's loading plan. Eager loading does not necessarily mean one SQL join."
+        },
+        {
+          "type": "h3",
+          "text": "Understanding the N+1 Problem"
+        },
+        {
+          "type": "p",
+          "text": "Suppose your backend retrieves 100 students."
+        },
+        {
+          "type": "p",
+          "text": "The initial query retrieves all students:"
+        },
+        {
+          "type": "code",
+          "text": "SELECT * FROM users;"
+        },
+        {
+          "type": "p",
+          "text": "Then the application accesses the enrolments of every student."
+        },
+        {
+          "type": "p",
+          "text": "Hibernate may execute another query for each student:"
+        },
+        {
+          "type": "code",
+          "text": "SELECT * FROM enrollments WHERE user_id = 1;\nSELECT * FROM enrollments WHERE user_id = 2;\nSELECT * FROM enrollments WHERE user_id = 3;"
+        },
+        {
+          "type": "p",
+          "text": "This produces one initial query plus additional queries for each student."
+        },
+        {
+          "type": "p",
+          "text": "That is the N+1 problem."
+        },
+        {
+          "type": "p",
+          "text": "**Query count comparison**"
+        },
+        {
+          "type": "p",
+          "text": "# **101**"
+        },
+        {
+          "type": "p",
+          "text": "**N+1 queries**"
+        },
+        {
+          "type": "p",
+          "text": "1 query + 100 additional queries"
+        },
+        {
+          "type": "p",
+          "text": "# **1**"
+        },
+        {
+          "type": "p",
+          "text": "**Optimised example**"
+        },
+        {
+          "type": "p",
+          "text": "One suitable fetch query for the required data"
+        },
+        {
+          "type": "p",
+          "text": "Illustrative query counts for 100 students and their enrolments. The actual number depends on the fetching strategy."
+        },
+        {
+          "type": "h3",
+          "text": "How to solve the N+1 problem"
+        },
+        {
+          "type": "p",
+          "text": "You will learn:"
+        },
+        {
+          "type": "p",
+          "text": "**JOIN FETCH:** Retrieves related information using a JPQL fetch join."
+        },
+        {
+          "type": "code",
+          "text": "@Query(\"\"\"\n    SELECT DISTINCT u\n    FROM User u\n    LEFT JOIN FETCH u.enrollments\n\"\"\")\nList<User> findAllWithEnrollments();"
+        },
+        {
+          "type": "p",
+          "text": "**Entity Graph:** Defines which relationships should be retrieved for a particular query."
+        },
+        {
+          "type": "p",
+          "text": "**Batch Fetching:** Retrieves related records in batches rather than executing a separate query for every entity."
+        },
+        {
+          "type": "p",
+          "text": "**DTO Projections:** Retrieves only the data needed for the API response."
+        },
+        {
+          "type": "p",
+          "text": "**Database Query Analysis:** Uses SQL logs and performance monitoring to identify unnecessary queries."
+        },
+        {
+          "type": "p",
+          "text": "You will also understand the problems caused by accessing lazy relationships after the persistence context has closed, including `LazyInitializationException`."
+        },
+        {
+          "type": "p",
+          "text": "**Why this lesson matters:** Database performance becomes critical as the number of users and records increases."
+        }
+      ]
+    },
+    {
+      "id": "section-19",
+      "badge": "Part 19",
+      "title": "Lesson 11 — Database Migrations",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Application requirements change over time."
+        },
+        {
+          "type": "p",
+          "text": "Suppose your original users table contains:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "id",
+            "name",
+            "email"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Later, you decide to add:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "phone_number",
+            "profile_image",
+            "account_status"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "How do you safely update the database structure without destroying existing information?"
+        },
+        {
+          "type": "p",
+          "text": "This is where database migrations are used."
+        },
+        {
+          "type": "h3",
+          "text": "What is a database migration?"
+        },
+        {
+          "type": "p",
+          "text": "A migration is a controlled and versioned change to the database schema or data."
+        },
+        {
+          "type": "p",
+          "text": "Rather than manually changing the production database, you maintain migration files in your application repository."
+        },
+        {
+          "type": "h3",
+          "text": "Example migration"
+        },
+        {
+          "type": "p",
+          "text": "A Flyway migration file:"
+        },
+        {
+          "type": "p",
+          "text": "`V2__add_phone_number_to_users.sql`"
+        },
+        {
+          "type": "code",
+          "text": "ALTER TABLE users\nADD COLUMN phone_number VARCHAR(20);"
+        },
+        {
+          "type": "p",
+          "text": "When Flyway runs, it records which migrations have already been applied and executes pending migrations in the correct order."
+        },
+        {
+          "type": "h3",
+          "text": "Important concepts"
+        },
+        {
+          "type": "p",
+          "text": "**Versioned Migrations:** Changes are recorded using ordered migration files."
+        },
+        {
+          "type": "p",
+          "text": "**Migration History:** Tracks which changes have already been applied."
+        },
+        {
+          "type": "p",
+          "text": "**Schema Evolution:** Allows database structures to evolve as the application develops."
+        },
+        {
+          "type": "p",
+          "text": "**Rollback Strategy:** Not every migration can be safely reversed automatically. You must plan recovery or forward-fix procedures."
+        },
+        {
+          "type": "p",
+          "text": "**Data Migration:** Updates existing records when the structure or meaning of data changes."
+        },
+        {
+          "type": "h3",
+          "text": "Tools"
+        },
+        {
+          "type": "p",
+          "text": "You will learn the fundamentals of:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Flyway.",
+            "Liquibase.",
+            "Migration naming conventions.",
+            "Version control for schema changes.",
+            "Development, staging and production migration workflows."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Important production principle"
+        },
+        {
+          "type": "p",
+          "text": "Avoid allowing Hibernate to automatically modify production database schemas with `ddl-auto=update`."
+        },
+        {
+          "type": "p",
+          "text": "For controlled environments, prefer versioned migrations and validate that the application's entity mappings match the deployed schema."
+        },
+        {
+          "type": "p",
+          "text": "**Why this lesson matters:** Professional applications need predictable, reviewable database changes across multiple environments."
+        }
+      ]
+    },
+    {
+      "id": "section-20",
+      "badge": "Part 20",
+      "title": "Lesson 12 — Handling Concurrent Data Updates",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Concurrency becomes important when multiple users perform operations at the same time."
+        },
+        {
+          "type": "p",
+          "text": "Imagine a course has only one available seat."
+        },
+        {
+          "type": "p",
+          "text": "Two students click the Enrol button at nearly the same moment."
+        },
+        {
+          "type": "p",
+          "text": "Both requests check the available seat count and see one seat remaining."
+        },
+        {
+          "type": "p",
+          "text": "Without appropriate protection, both students might successfully enrol."
+        },
+        {
+          "type": "p",
+          "text": "This is a race condition."
+        },
+        {
+          "type": "h3",
+          "text": "Understanding concurrent access"
+        },
+        {
+          "type": "p",
+          "text": "You will study problems such as:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Race conditions.",
+            "Lost updates.",
+            "Dirty reads.",
+            "Non-repeatable reads.",
+            "Phantom reads.",
+            "Concurrent modification conflicts."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "A. Optimistic Locking"
+        },
+        {
+          "type": "p",
+          "text": "Optimistic locking assumes that conflicts are relatively uncommon."
+        },
+        {
+          "type": "p",
+          "text": "It uses a version field to detect whether a record has been changed since it was read."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Entity\npublic class Course {\n\n    @Id\n    private Long id;\n\n    private Integer availableSeats;\n\n    @Version\n    private Long version;\n}"
+        },
+        {
+          "type": "p",
+          "text": "When Hibernate updates the entity, it checks the version."
+        },
+        {
+          "type": "p",
+          "text": "If another transaction has already updated it, the operation can fail with an optimistic locking conflict."
+        },
+        {
+          "type": "p",
+          "text": "The application can then handle the conflict instead of silently overwriting newer data."
+        },
+        {
+          "type": "h3",
+          "text": "B. Pessimistic Locking"
+        },
+        {
+          "type": "p",
+          "text": "Pessimistic locking prevents other transactions from modifying a selected record while the lock is held."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Lock(LockModeType.PESSIMISTIC_WRITE)\n@Query(\"SELECT c FROM Course c WHERE c.id = :id\")\nOptional<Course> findByIdForUpdate(Long id);"
+        },
+        {
+          "type": "p",
+          "text": "This is useful in operations that require stronger control over shared data."
+        },
+        {
+          "type": "p",
+          "text": "However, excessive locking can reduce throughput or cause deadlocks."
+        },
+        {
+          "type": "h3",
+          "text": "C. Atomic Database Updates"
+        },
+        {
+          "type": "p",
+          "text": "Some concurrency problems can be prevented by making a condition and update part of the same SQL statement."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "UPDATE courses\nSET available_seats = available_seats - 1\nWHERE id = 101\nAND available_seats > 0;"
+        },
+        {
+          "type": "p",
+          "text": "The backend checks the number of affected rows to determine whether a seat was successfully reserved."
+        },
+        {
+          "type": "p",
+          "text": "A transaction can then create the corresponding enrolment record. Both operations must succeed together."
+        },
+        {
+          "type": "h3",
+          "text": "Choosing the right approach"
+        },
+        {
+          "type": "p",
+          "text": "| Strategy            | Best suited for                        |"
+        },
+        {
+          "type": "p",
+          "text": "| ------------------- | -------------------------------------- |"
+        },
+        {
+          "type": "p",
+          "text": "| Optimistic locking  | Low-conflict updates                   |"
+        },
+        {
+          "type": "p",
+          "text": "| Pessimistic locking | Operations requiring exclusive access  |"
+        },
+        {
+          "type": "p",
+          "text": "| Atomic SQL updates  | Conditional counters and reservations  |"
+        },
+        {
+          "type": "p",
+          "text": "| Unique constraints  | Preventing duplicate records           |"
+        },
+        {
+          "type": "p",
+          "text": "| Transactions        | Keeping multiple operations consistent |"
+        },
+        {
+          "type": "p",
+          "text": "**Why this lesson matters:** A backend must remain correct even when hundreds of users access and modify the same information simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "# **4. Practical Lab — Build a Course Enrolment API**"
+        },
+        {
+          "type": "p",
+          "text": "Major Practical Project"
+        },
+        {
+          "type": "p",
+          "text": "In this lab, you will combine all 12 lessons to build a database-backed course-enrolment system."
+        },
+        {
+          "type": "p",
+          "text": "The application will allow students to register, browse courses, enrol in courses and retrieve their enrolment information."
+        },
+        {
+          "type": "h3",
+          "text": "Application architecture"
+        },
+        {
+          "type": "p",
+          "text": "**REST API Layer**"
+        },
+        {
+          "type": "p",
+          "text": "Controllers · Request validation · Response DTOs"
+        },
+        {
+          "type": "p",
+          "text": "**Service Layer**"
+        },
+        {
+          "type": "p",
+          "text": "Business logic · Transactions · Enrolment rules"
+        },
+        {
+          "type": "p",
+          "text": "**Repository Layer**"
+        },
+        {
+          "type": "p",
+          "text": "Spring Data JPA · Query methods · Custom queries"
+        },
+        {
+          "type": "p",
+          "text": "**Hibernate / JPA**"
+        },
+        {
+          "type": "p",
+          "text": "ORM · Entity mapping · Persistence context"
+        },
+        {
+          "type": "p",
+          "text": "**PostgreSQL**"
+        },
+        {
+          "type": "p",
+          "text": "Tables · Relationships · Constraints · Transactions"
+        },
+        {
+          "type": "h3",
+          "text": "Step 1: Create the database schema"
+        },
+        {
+          "type": "p",
+          "text": "You will create three primary entities."
+        },
+        {
+          "type": "p",
+          "text": "**Users**"
+        },
+        {
+          "type": "p",
+          "text": "| Column     | Type      | Description       |"
+        },
+        {
+          "type": "p",
+          "text": "| ---------- | --------- | ----------------- |"
+        },
+        {
+          "type": "p",
+          "text": "| id         | BIGINT    | Primary key       |"
+        },
+        {
+          "type": "p",
+          "text": "| name       | VARCHAR   | Student name      |"
+        },
+        {
+          "type": "p",
+          "text": "| email      | VARCHAR   | Unique email      |"
+        },
+        {
+          "type": "p",
+          "text": "| created_at | TIMESTAMP | Registration date |"
+        },
+        {
+          "type": "p",
+          "text": "**Courses**"
+        },
+        {
+          "type": "p",
+          "text": "| Column          | Type    | Description        |"
+        },
+        {
+          "type": "p",
+          "text": "| --------------- | ------- | ------------------ |"
+        },
+        {
+          "type": "p",
+          "text": "| id              | BIGINT  | Primary key        |"
+        },
+        {
+          "type": "p",
+          "text": "| title           | VARCHAR | Course name        |"
+        },
+        {
+          "type": "p",
+          "text": "| description     | TEXT    | Course information |"
+        },
+        {
+          "type": "p",
+          "text": "| available_seats | INTEGER | Remaining seats    |"
+        },
+        {
+          "type": "p",
+          "text": "| status          | VARCHAR | Course status      |"
+        },
+        {
+          "type": "p",
+          "text": "**Enrollments**"
+        },
+        {
+          "type": "p",
+          "text": "| Column      | Type      | Description            |"
+        },
+        {
+          "type": "p",
+          "text": "| ----------- | --------- | ---------------------- |"
+        },
+        {
+          "type": "p",
+          "text": "| id          | BIGINT    | Primary key            |"
+        },
+        {
+          "type": "p",
+          "text": "| user_id     | BIGINT    | Foreign key to users   |"
+        },
+        {
+          "type": "p",
+          "text": "| course_id   | BIGINT    | Foreign key to courses |"
+        },
+        {
+          "type": "p",
+          "text": "| enrolled_at | TIMESTAMP | Enrolment date         |"
+        },
+        {
+          "type": "p",
+          "text": "| status      | VARCHAR   | Enrolment status       |"
+        },
+        {
+          "type": "p",
+          "text": "You will add the appropriate primary keys, foreign keys, unique constraints and validation rules."
+        },
+        {
+          "type": "h3",
+          "text": "Step 2: Implement the APIs"
+        },
+        {
+          "type": "p",
+          "text": "| HTTP Method | Endpoint                      | Function                     |"
+        },
+        {
+          "type": "p",
+          "text": "| ----------- | ----------------------------- | ---------------------------- |"
+        },
+        {
+          "type": "p",
+          "text": "| POST        | `/api/users`                  | Register a student           |"
+        },
+        {
+          "type": "p",
+          "text": "| GET         | `/api/users/{id}`             | Retrieve student information |"
+        },
+        {
+          "type": "p",
+          "text": "| GET         | `/api/courses`                | List available courses       |"
+        },
+        {
+          "type": "p",
+          "text": "| POST        | `/api/courses`                | Create a course              |"
+        },
+        {
+          "type": "p",
+          "text": "| GET         | `/api/courses/{id}`           | Retrieve course information  |"
+        },
+        {
+          "type": "p",
+          "text": "| POST        | `/api/enrollments`            | Enrol a student              |"
+        },
+        {
+          "type": "p",
+          "text": "| GET         | `/api/users/{id}/enrollments` | View student enrolments      |"
+        },
+        {
+          "type": "p",
+          "text": "| DELETE      | `/api/enrollments/{id}`       | Cancel an enrolment          |"
+        },
+        {
+          "type": "h3",
+          "text": "Step 3: Implement the business rules"
+        },
+        {
+          "type": "p",
+          "text": "Your application must:"
+        }
+      ]
+    },
+    {
+      "id": "section-21",
+      "badge": "Section 1",
+      "title": "1. Reject registrations using an existing email address.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "2. Reject enrolments for nonexistent students or courses."
+        },
+        {
+          "type": "p",
+          "text": "3. Prevent duplicate enrolments."
+        },
+        {
+          "type": "p",
+          "text": "4. Prevent enrolment when no seats are available."
+        },
+        {
+          "type": "p",
+          "text": "5. Update seat availability safely."
+        },
+        {
+          "type": "p",
+          "text": "6. Keep enrolment and seat-count updates within one transaction."
+        },
+        {
+          "type": "p",
+          "text": "7. Return appropriate error responses."
+        },
+        {
+          "type": "p",
+          "text": "8. Prevent conflicting concurrent updates."
+        },
+        {
+          "type": "p",
+          "text": "9. Avoid exposing sensitive user information."
+        },
+        {
+          "type": "p",
+          "text": "10. Retrieve enrolment information efficiently."
+        },
+        {
+          "type": "h3",
+          "text": "Step 4: Test the application"
+        },
+        {
+          "type": "p",
+          "text": "Test normal and failure scenarios."
+        },
+        {
+          "type": "p",
+          "text": "| Scenario                          | Expected result                |"
+        },
+        {
+          "type": "p",
+          "text": "| --------------------------------- | ------------------------------ |"
+        },
+        {
+          "type": "p",
+          "text": "| Register a new student            | Registration successful        |"
+        },
+        {
+          "type": "p",
+          "text": "| Register with duplicate email     | Conflict response              |"
+        },
+        {
+          "type": "p",
+          "text": "| Enrol in an available course      | Enrolment successful           |"
+        },
+        {
+          "type": "p",
+          "text": "| Enrol twice in the same course    | Duplicate rejected             |"
+        },
+        {
+          "type": "p",
+          "text": "| Enrol in nonexistent course       | Not found                      |"
+        },
+        {
+          "type": "p",
+          "text": "| Enrol when course is full         | Enrolment rejected             |"
+        },
+        {
+          "type": "p",
+          "text": "| Cancel an enrolment               | Cancellation handled correctly |"
+        },
+        {
+          "type": "p",
+          "text": "| Two students compete for one seat | Only one successful enrolment  |"
+        },
+        {
+          "type": "p",
+          "text": "You should also inspect the SQL queries generated by Hibernate and verify that the N+1 problem is not present in the relevant API operations."
+        },
+        {
+          "type": "h3",
+          "text": "Step 5: Deliverables"
+        },
+        {
+          "type": "p",
+          "text": "By completing the lab, you should have:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A functioning Spring Boot application.",
+            "PostgreSQL database integration.",
+            "Three correctly mapped entities.",
+            "Repository interfaces and service classes.",
+            "REST API endpoints.",
+            "Transactional enrolment logic.",
+            "Database constraints and migrations.",
+            "Concurrent-update protection.",
+            "API tests and database validation."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "# **5. Assignment — Design Database Entities for a Learning Platform**"
+        },
+        {
+          "type": "p",
+          "text": "Independent Engineering Assignment"
+        },
+        {
+          "type": "p",
+          "text": "Design a relational database and implement transactional operations for a learning platform similar to PrepSpaces."
+        },
+        {
+          "type": "h3",
+          "text": "Problem statement"
+        },
+        {
+          "type": "p",
+          "text": "A learning platform allows users to register, browse courses, enrol in courses, track learning progress and complete modules."
+        },
+        {
+          "type": "p",
+          "text": "Your task is to design a database that supports these operations while maintaining data consistency and performance."
+        },
+        {
+          "type": "h3",
+          "text": "Part A — Database Design"
+        },
+        {
+          "type": "p",
+          "text": "Design at least these entities:"
+        },
+        {
+          "type": "p",
+          "text": "1. User"
+        },
+        {
+          "type": "p",
+          "text": "2. Course"
+        },
+        {
+          "type": "p",
+          "text": "3. Enrollment"
+        },
+        {
+          "type": "p",
+          "text": "4. Module"
+        },
+        {
+          "type": "p",
+          "text": "5. Lesson"
+        },
+        {
+          "type": "p",
+          "text": "6. Learning Progress"
+        },
+        {
+          "type": "p",
+          "text": "For each entity, define:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Primary key.",
+            "Required columns.",
+            "Data types.",
+            "Nullable and non-nullable fields.",
+            "Unique constraints.",
+            "Foreign keys.",
+            "Appropriate indexes."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Part B — Relationship Design"
+        },
+        {
+          "type": "p",
+          "text": "Identify and implement:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "One-to-one relationships.",
+            "One-to-many relationships.",
+            "Many-to-one relationships.",
+            "Many-to-many relationships where appropriate."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Explain why each relationship is needed."
+        },
+        {
+          "type": "h3",
+          "text": "Part C — Backend Implementation"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "User registration.",
+            "Course creation.",
+            "Course listing.",
+            "Student enrolment.",
+            "Enrolment cancellation.",
+            "Module progress tracking.",
+            "Lesson completion."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Use Spring Data JPA repositories and a service-layer architecture."
+        },
+        {
+          "type": "h3",
+          "text": "Part D — Transaction Management"
+        },
+        {
+          "type": "p",
+          "text": "Implement transactional operations for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Enrolling a student.",
+            "Cancelling an enrolment.",
+            "Updating learning progress.",
+            "Completing a lesson."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate how your application responds when an operation fails midway."
+        },
+        {
+          "type": "h3",
+          "text": "Part E — Performance and Concurrency"
+        },
+        {
+          "type": "p",
+          "text": "Identify at least one possible N+1 query problem and fix it."
+        },
+        {
+          "type": "p",
+          "text": "Implement either optimistic or pessimistic locking for an operation that can be affected by concurrent updates."
+        },
+        {
+          "type": "p",
+          "text": "Explain why your selected strategy is appropriate."
+        },
+        {
+          "type": "h3",
+          "text": "Part F — Database Migrations"
+        },
+        {
+          "type": "p",
+          "text": "Create versioned migrations for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Initial database creation.",
+            "Adding a new column.",
+            "Adding a foreign key.",
+            "Adding a unique constraint.",
+            "Modifying an existing schema safely."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Final submission"
+        },
+        {
+          "type": "p",
+          "text": "Your assignment must contain the database schema, entity relationship diagram, Java entity classes, repository interfaces, service implementations, REST controllers, migrations and automated tests."
+        },
+        {
+          "type": "p",
+          "text": "# **6. Suggested Evaluation Criteria**"
+        },
+        {
+          "type": "p",
+          "text": "| Evaluation area                           | Weight   |"
+        },
+        {
+          "type": "p",
+          "text": "| ----------------------------------------- | -------- |"
+        },
+        {
+          "type": "p",
+          "text": "| Relational database design                | 20%      |"
+        },
+        {
+          "type": "p",
+          "text": "| JPA and entity relationships              | 20%      |"
+        },
+        {
+          "type": "p",
+          "text": "| Repository and query implementation       | 15%      |"
+        },
+        {
+          "type": "p",
+          "text": "| Transaction management and data integrity | 20%      |"
+        },
+        {
+          "type": "p",
+          "text": "| Performance and concurrency               | 15%      |"
+        },
+        {
+          "type": "p",
+          "text": "| Testing and documentation                 | 10%      |"
+        },
+        {
+          "type": "p",
+          "text": "| **Total**                                 | **100%** |"
+        },
+        {
+          "type": "p",
+          "text": "# **7. Real-World Engineering Challenges**"
+        },
+        {
+          "type": "p",
+          "text": "After completing the practical lab and assignment, you should be able to reason about problems like these:"
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 1 — Duplicate enrolment:** Two identical enrolment requests arrive simultaneously. How will you guarantee that only one enrolment is created?"
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 2 — Limited course seats:** A course has one seat remaining, but two students try to enrol. How will you prevent over-enrolment?"
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 3 — Slow API:** Your course API retrieves 500 students and their enrolments, executing hundreds of unnecessary SQL queries. How will you diagnose and optimise it?"
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 4 — Database schema change:** Your live platform has thousands of users. You need to add a new mandatory column without breaking the existing application. How will you migrate the data safely?"
+        },
+        {
+          "type": "p",
+          "text": "**Challenge 5 — Partial failure:** An enrolment record is saved, but the course seat count is not updated. How will you guarantee consistency?"
+        },
+        {
+          "type": "p",
+          "text": "These challenges connect the concepts in this module to real backend engineering work."
+        }
+      ]
+    },
+    {
+      "id": "section-22",
+      "badge": "Section 8",
+      "title": "8. Final Outcome",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "By the end of Module 04, you will understand how a professional backend application persists information and protects it from corruption, duplication, inconsistent updates and unnecessary database operations."
+        },
+        {
+          "type": "p",
+          "text": "You will move beyond simply connecting a database to an application. You will understand how to design data models, manage persistence, write efficient queries, coordinate transactions and handle concurrent users."
+        },
+        {
+          "type": "p",
+          "text": "**Your final objective:** Be able to design and implement a reliable PostgreSQL-backed persistence layer for a real-world Spring Boot application, rather than simply performing basic CRUD operations."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T09:26:10+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

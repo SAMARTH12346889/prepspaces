@@ -1,0 +1,6856 @@
+{
+  "moduleNumber": "09",
+  "title": "MODULE 09 — API Security Engineering",
+  "badges": [
+    "Core Module",
+    "Security Engineering",
+    "Advanced Backend Development"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module objective: Learn how to identify, understand, prevent and fix security vulnerabilities in backend applications and REST APIs. Build the ability to protect user data, enforce permissions, prevent malicious requests, secure files, manage credentials and harden APIs before deployment."
+    },
+    {
+      "type": "p",
+      "text": "A backend API is one of the most important security boundaries in an application."
+    },
+    {
+      "type": "p",
+      "text": "Consider PrepSpaces as an example. A student logs into the platform and can access courses, lessons, enrollment information and learning progress."
+    },
+    {
+      "type": "p",
+      "text": "Now imagine the following situations:"
+    },
+    {
+      "type": "p",
+      "text": "A student changes a URL from /users/101/progress to /users/102/progress and sees another student's learning history."
+    },
+    {
+      "type": "p",
+      "text": "An instructor modifies a request and changes their account role to ADMIN."
+    },
+    {
+      "type": "p",
+      "text": "An attacker submits specially crafted input that manipulates a database query."
+    },
+    {
+      "type": "p",
+      "text": "Someone uploads a malicious file disguised as a PDF."
+    },
+    {
+      "type": "p",
+      "text": "A developer accidentally publishes a database password on GitHub."
+    },
+    {
+      "type": "p",
+      "text": "An API allows any website to read sensitive responses through an incorrectly configured CORS policy."
+    },
+    {
+      "type": "p",
+      "text": "These are not simply programming mistakes. They are security vulnerabilities that can expose user data, compromise accounts, damage databases or interrupt application services."
+    },
+    {
+      "type": "p",
+      "text": "In this module, we will use a Java + Spring Boot + PostgreSQL course management API as our running example."
+    },
+    {
+      "type": "p",
+      "text": "The objective is not just to learn what vulnerabilities mean. You will learn how they occur, how to recognize them, how to implement fixes and how to verify that the fixes actually work."
+    }
+  ],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Section 1",
+      "title": "1. API Security Fundamentals",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 What is API security?"
+        },
+        {
+          "type": "p",
+          "text": "API security is the practice of protecting application programming interfaces against unauthorized access, data exposure, manipulation, abuse and disruption."
+        },
+        {
+          "type": "p",
+          "text": "An API provides a communication channel between applications."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "PrepSpaces Frontend | | HTTPS Request | v Backend API | +---- Authentication | +---- Authorization | +---- Input Validation | +---- Business Logic | v PostgreSQL Database"
+        },
+        {
+          "type": "p",
+          "text": "A backend API receives requests from clients, processes information and returns responses."
+        },
+        {
+          "type": "p",
+          "text": "The problem is that an API cannot assume every incoming request is legitimate simply because it came from your frontend."
+        },
+        {
+          "type": "p",
+          "text": "A user can:"
+        },
+        {
+          "type": "p",
+          "text": "Modify request parameters."
+        },
+        {
+          "type": "p",
+          "text": "Change resource identifiers."
+        },
+        {
+          "type": "p",
+          "text": "Send unexpected JSON properties."
+        },
+        {
+          "type": "p",
+          "text": "Repeat requests automatically."
+        },
+        {
+          "type": "p",
+          "text": "Call endpoints directly without using the frontend."
+        },
+        {
+          "type": "p",
+          "text": "Use a script or another HTTP client instead of a browser."
+        },
+        {
+          "type": "p",
+          "text": "Therefore, the backend must independently verify every important security requirement."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Why API security matters"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a student sends this request:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/users/101/progress Authorization: Bearer <access-token>"
+        },
+        {
+          "type": "p",
+          "text": "The application correctly authenticates the student."
+        },
+        {
+          "type": "p",
+          "text": "However, the student changes the URL:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/users/102/progress Authorization: Bearer <access-token>"
+        },
+        {
+          "type": "p",
+          "text": "Suppose the API returns Student 102's private learning progress."
+        },
+        {
+          "type": "p",
+          "text": "Authentication worked, but authorization failed."
+        },
+        {
+          "type": "p",
+          "text": "This demonstrates an important principle:"
+        },
+        {
+          "type": "p",
+          "text": "A valid login does not automatically give a user permission to access every resource."
+        },
+        {
+          "type": "p",
+          "text": "API security must verify both identity and permissions."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 The CIA security triad"
+        },
+        {
+          "type": "p",
+          "text": "A foundational security model is the CIA triad."
+        },
+        {
+          "type": "p",
+          "text": "Confidentiality"
+        },
+        {
+          "type": "p",
+          "text": "Protect information from unauthorized access"
+        },
+        {
+          "type": "p",
+          "text": "Integrity"
+        },
+        {
+          "type": "p",
+          "text": "Prevent unauthorized data modification"
+        },
+        {
+          "type": "p",
+          "text": "Availability"
+        },
+        {
+          "type": "p",
+          "text": "Keep services accessible and reliable"
+        },
+        {
+          "type": "p",
+          "text": "A. Confidentiality"
+        },
+        {
+          "type": "p",
+          "text": "Confidentiality ensures that sensitive information is accessible only to authorized users."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Students cannot see other students' private profiles."
+        },
+        {
+          "type": "p",
+          "text": "Instructors cannot access administrative credentials."
+        },
+        {
+          "type": "p",
+          "text": "API responses do not reveal password hashes or internal secrets."
+        },
+        {
+          "type": "p",
+          "text": "Private course materials are not accessible to unauthorized users."
+        },
+        {
+          "type": "p",
+          "text": "B. Integrity"
+        },
+        {
+          "type": "p",
+          "text": "Integrity ensures that data cannot be modified by people or processes without appropriate permission."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "A student cannot change their account role to administrator."
+        },
+        {
+          "type": "p",
+          "text": "A student cannot alter their course completion records."
+        },
+        {
+          "type": "p",
+          "text": "An instructor cannot modify another instructor's course without permission."
+        },
+        {
+          "type": "p",
+          "text": "An API cannot silently overwrite protected database properties."
+        },
+        {
+          "type": "p",
+          "text": "C. Availability"
+        },
+        {
+          "type": "p",
+          "text": "Availability ensures that an API remains accessible to legitimate users."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting prevents excessive requests."
+        },
+        {
+          "type": "p",
+          "text": "Request size restrictions prevent unnecessarily large uploads."
+        },
+        {
+          "type": "p",
+          "text": "Database connection pools are managed safely."
+        },
+        {
+          "type": "p",
+          "text": "Resource-intensive endpoints have appropriate limits."
+        },
+        {
+          "type": "p",
+          "text": "Infrastructure can handle expected workloads."
+        },
+        {
+          "type": "p",
+          "text": "An API that stores private data securely but becomes unavailable because of uncontrolled requests still has a security problem."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Authentication, authorization and access control"
+        },
+        {
+          "type": "p",
+          "text": "These concepts work together but solve different problems."
+        },
+        {
+          "type": "p",
+          "text": "Concept"
+        },
+        {
+          "type": "p",
+          "text": "Main question"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Who are you?"
+        },
+        {
+          "type": "p",
+          "text": "Verify the student's identity"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "What can you do?"
+        },
+        {
+          "type": "p",
+          "text": "Can the student create courses?"
+        },
+        {
+          "type": "p",
+          "text": "Access control"
+        },
+        {
+          "type": "p",
+          "text": "How is permission enforced?"
+        },
+        {
+          "type": "p",
+          "text": "Allow only authorized roles and resource owners"
+        },
+        {
+          "type": "p",
+          "text": "For a course management application:"
+        },
+        {
+          "type": "code",
+          "text": "ADMIN ├── Manage users ├── Create courses ├── Update courses └── Delete courses INSTRUCTOR ├── Create permitted courses ├── Update own courses └── Manage own modules STUDENT ├── View permitted courses ├── Enroll in courses └── View own learning progress"
+        },
+        {
+          "type": "p",
+          "text": "These are example business rules. Your actual authorization policy must be explicitly defined."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 Core API security principles"
+        },
+        {
+          "type": "p",
+          "text": "A professional backend should follow these principles."
+        },
+        {
+          "type": "p",
+          "text": "1. Least privilege"
+        },
+        {
+          "type": "p",
+          "text": "Give every user, service and database account only the permissions necessary for its tasks."
+        },
+        {
+          "type": "p",
+          "text": "A student should not receive administrator permissions just because an endpoint accepts a user ID."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Section 2",
+      "title": "2. Deny by default",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Do not assume access should be granted unless explicitly prohibited."
+        },
+        {
+          "type": "p",
+          "text": "Instead, require a defined permission before allowing a protected operation."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Section 3",
+      "title": "3. Defense in depth",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Use multiple independent security controls."
+        },
+        {
+          "type": "p",
+          "text": "For example, protect a course update operation using authentication, role checks, ownership checks, input validation and database constraints."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Section 4",
+      "title": "4. Validate all untrusted input",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Never assume that a request is safe because it came from your own frontend."
+        },
+        {
+          "type": "p",
+          "text": "Validate request bodies, query parameters, path variables, uploaded files and external API responses."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Section 5",
+      "title": "5. Secure communication",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Use HTTPS to protect data transmitted between clients and backend systems."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Section 6",
+      "title": "6. Minimize information exposure",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Return only the data necessary for the requested operation."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Section 7",
+      "title": "7. Monitor security events",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Maintain useful records of suspicious activity without storing passwords, tokens or other sensitive values."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: API security is not a single authentication feature. It is a combination of controls protecting identity, resources, data, operations and infrastructure."
+        },
+        {
+          "type": "p",
+          "text": "2. Threat Modeling for Backend Applications"
+        },
+        {
+          "type": "h3",
+          "text": "2.1 What is threat modeling?"
+        },
+        {
+          "type": "p",
+          "text": "Threat modeling is a structured process for identifying possible security threats before attackers exploit them."
+        },
+        {
+          "type": "p",
+          "text": "Instead of waiting for a vulnerability to appear, you examine the application from an attacker's perspective."
+        },
+        {
+          "type": "p",
+          "text": "You ask:"
+        },
+        {
+          "type": "p",
+          "text": "What information would an attacker want?"
+        },
+        {
+          "type": "p",
+          "text": "Which endpoints could expose that information?"
+        },
+        {
+          "type": "p",
+          "text": "Where does the application trust incoming data?"
+        },
+        {
+          "type": "p",
+          "text": "Which components communicate with each other?"
+        },
+        {
+          "type": "p",
+          "text": "What happens if authentication fails?"
+        },
+        {
+          "type": "p",
+          "text": "What happens if an authorized user behaves maliciously?"
+        },
+        {
+          "type": "p",
+          "text": "What could happen if an external service is compromised?"
+        },
+        {
+          "type": "p",
+          "text": "Threat modeling should happen during system design and continue as the application evolves. OWASP provides a structured threat-modeling approach using system diagrams, threat identification and risk prioritization."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Cheat Sheet Series"
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Understanding your application's attack surface"
+        },
+        {
+          "type": "p",
+          "text": "An attack surface is the collection of points through which an application can potentially be attacked."
+        },
+        {
+          "type": "p",
+          "text": "Consider a course platform."
+        },
+        {
+          "type": "p",
+          "text": "Component"
+        },
+        {
+          "type": "p",
+          "text": "Potential security concern"
+        },
+        {
+          "type": "p",
+          "text": "Login API"
+        },
+        {
+          "type": "p",
+          "text": "Account compromise"
+        },
+        {
+          "type": "p",
+          "text": "Registration API"
+        },
+        {
+          "type": "p",
+          "text": "Automated account creation"
+        },
+        {
+          "type": "p",
+          "text": "Course API"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized course modification"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment API"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate or unauthorized enrollment"
+        },
+        {
+          "type": "p",
+          "text": "Progress API"
+        },
+        {
+          "type": "p",
+          "text": "Private student data exposure"
+        },
+        {
+          "type": "p",
+          "text": "File upload API"
+        },
+        {
+          "type": "p",
+          "text": "Malicious file uploads"
+        },
+        {
+          "type": "p",
+          "text": "File download API"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized file access"
+        },
+        {
+          "type": "p",
+          "text": "Admin API"
+        },
+        {
+          "type": "p",
+          "text": "Privilege escalation"
+        },
+        {
+          "type": "p",
+          "text": "Database"
+        },
+        {
+          "type": "p",
+          "text": "Data extraction or manipulation"
+        },
+        {
+          "type": "p",
+          "text": "External integrations"
+        },
+        {
+          "type": "p",
+          "text": "Untrusted third-party responses"
+        },
+        {
+          "type": "p",
+          "text": "Each component creates different risks."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Draw a system architecture diagram"
+        },
+        {
+          "type": "p",
+          "text": "Before identifying threats, understand how information moves through the application."
+        },
+        {
+          "type": "p",
+          "text": "Frontend / Mobile Client"
+        },
+        {
+          "type": "p",
+          "text": "Untrusted client environment"
+        },
+        {
+          "type": "p",
+          "text": "Trust Boundary"
+        },
+        {
+          "type": "p",
+          "text": "API Gateway / Backend Security"
+        },
+        {
+          "type": "p",
+          "text": "TLS, rate limiting, authentication"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot Application"
+        },
+        {
+          "type": "p",
+          "text": "Authorization, validation and business logic"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "User and course data"
+        },
+        {
+          "type": "p",
+          "text": "File Storage"
+        },
+        {
+          "type": "p",
+          "text": "Documents and media"
+        },
+        {
+          "type": "p",
+          "text": "External Services"
+        },
+        {
+          "type": "p",
+          "text": "Email, payment, analytics and AI providers"
+        },
+        {
+          "type": "p",
+          "text": "The diagram helps identify where information crosses trust boundaries."
+        },
+        {
+          "type": "p",
+          "text": "For example, incoming frontend data is untrusted. A response from a third-party API is also untrusted, even when it comes from a familiar provider."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 STRIDE threat modeling"
+        },
+        {
+          "type": "p",
+          "text": "STRIDE is a threat-classification technique commonly used to analyze application security."
+        },
+        {
+          "type": "p",
+          "text": "It identifies six broad threat categories."
+        },
+        {
+          "type": "p",
+          "text": "Category"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "Course platform example"
+        },
+        {
+          "type": "p",
+          "text": "S — Spoofing"
+        },
+        {
+          "type": "p",
+          "text": "Pretending to be another identity"
+        },
+        {
+          "type": "p",
+          "text": "Using a stolen access token"
+        },
+        {
+          "type": "p",
+          "text": "T — Tampering"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized modification"
+        },
+        {
+          "type": "p",
+          "text": "Changing a course's ownership"
+        },
+        {
+          "type": "p",
+          "text": "R — Repudiation"
+        },
+        {
+          "type": "p",
+          "text": "Denying an action"
+        },
+        {
+          "type": "p",
+          "text": "An administrator denies deleting a course"
+        },
+        {
+          "type": "p",
+          "text": "I — Information disclosure"
+        },
+        {
+          "type": "p",
+          "text": "Exposing private information"
+        },
+        {
+          "type": "p",
+          "text": "Reading another student's progress"
+        },
+        {
+          "type": "p",
+          "text": "D — Denial of Service"
+        },
+        {
+          "type": "p",
+          "text": "Making services unavailable"
+        },
+        {
+          "type": "p",
+          "text": "Sending excessive API requests"
+        },
+        {
+          "type": "p",
+          "text": "E — Elevation of privilege"
+        },
+        {
+          "type": "p",
+          "text": "Gaining higher privileges"
+        },
+        {
+          "type": "p",
+          "text": "Student becomes administrator"
+        },
+        {
+          "type": "p",
+          "text": "Let's understand them."
+        },
+        {
+          "type": "p",
+          "text": "A. Spoofing"
+        },
+        {
+          "type": "p",
+          "text": "An attacker pretends to be a legitimate user."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "A student's access token is stolen and used by another person."
+        },
+        {
+          "type": "p",
+          "text": "Possible controls:"
+        },
+        {
+          "type": "p",
+          "text": "Strong authentication."
+        },
+        {
+          "type": "p",
+          "text": "Secure token storage."
+        },
+        {
+          "type": "p",
+          "text": "Token expiration."
+        },
+        {
+          "type": "p",
+          "text": "Token revocation strategies."
+        },
+        {
+          "type": "p",
+          "text": "Secure cookie configuration where applicable."
+        },
+        {
+          "type": "p",
+          "text": "Monitoring suspicious login behaviour."
+        },
+        {
+          "type": "p",
+          "text": "B. Tampering"
+        },
+        {
+          "type": "p",
+          "text": "An attacker modifies information without authorization."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "A student modifies a request to change the course price or completion status."
+        },
+        {
+          "type": "p",
+          "text": "Possible controls:"
+        },
+        {
+          "type": "p",
+          "text": "Authorization checks."
+        },
+        {
+          "type": "p",
+          "text": "Input validation."
+        },
+        {
+          "type": "p",
+          "text": "DTO allowlists."
+        },
+        {
+          "type": "p",
+          "text": "Database constraints."
+        },
+        {
+          "type": "p",
+          "text": "Integrity checks for sensitive operations."
+        },
+        {
+          "type": "p",
+          "text": "C. Repudiation"
+        },
+        {
+          "type": "p",
+          "text": "A user denies having performed an operation."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "An administrator deletes a course but later claims that they did not perform the operation."
+        },
+        {
+          "type": "p",
+          "text": "Possible controls:"
+        },
+        {
+          "type": "p",
+          "text": "Security audit events."
+        },
+        {
+          "type": "p",
+          "text": "Accurate timestamps."
+        },
+        {
+          "type": "p",
+          "text": "Actor identification."
+        },
+        {
+          "type": "p",
+          "text": "Restricted access to audit records."
+        },
+        {
+          "type": "p",
+          "text": "Tamper-resistant audit storage."
+        },
+        {
+          "type": "p",
+          "text": "D. Information disclosure"
+        },
+        {
+          "type": "p",
+          "text": "Sensitive information becomes accessible to unauthorized users."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "A course API accidentally includes private student email addresses in a public response."
+        },
+        {
+          "type": "p",
+          "text": "Possible controls:"
+        },
+        {
+          "type": "p",
+          "text": "Explicit response DTOs."
+        },
+        {
+          "type": "p",
+          "text": "Resource ownership checks."
+        },
+        {
+          "type": "p",
+          "text": "Data classification."
+        },
+        {
+          "type": "p",
+          "text": "Encryption where appropriate."
+        },
+        {
+          "type": "p",
+          "text": "Restricted access."
+        },
+        {
+          "type": "p",
+          "text": "E. Denial of Service"
+        },
+        {
+          "type": "p",
+          "text": "An attacker overwhelms an application or its dependent resources."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "An API allows unlimited generation of expensive AI reports or unlimited file uploads."
+        },
+        {
+          "type": "p",
+          "text": "Possible controls:"
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting."
+        },
+        {
+          "type": "p",
+          "text": "Request size limits."
+        },
+        {
+          "type": "p",
+          "text": "Timeouts."
+        },
+        {
+          "type": "p",
+          "text": "Resource quotas."
+        },
+        {
+          "type": "p",
+          "text": "Database query limits."
+        },
+        {
+          "type": "p",
+          "text": "Abuse detection."
+        },
+        {
+          "type": "p",
+          "text": "F. Elevation of privilege"
+        },
+        {
+          "type": "p",
+          "text": "A user obtains permissions beyond their authorized role."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "A student changes the request property:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"role\": \"ADMIN\" }"
+        },
+        {
+          "type": "p",
+          "text": "If the backend accepts this property without authorization, the student may gain administrator privileges."
+        },
+        {
+          "type": "p",
+          "text": "Possible controls:"
+        },
+        {
+          "type": "p",
+          "text": "Server-controlled role assignment."
+        },
+        {
+          "type": "p",
+          "text": "Explicit request DTOs."
+        },
+        {
+          "type": "p",
+          "text": "Method-level authorization."
+        },
+        {
+          "type": "p",
+          "text": "Audit logging."
+        },
+        {
+          "type": "p",
+          "text": "Security tests."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Risk assessment"
+        },
+        {
+          "type": "p",
+          "text": "Identifying a threat is only the beginning. You must also prioritize it."
+        },
+        {
+          "type": "p",
+          "text": "A simple model is:"
+        },
+        {
+          "type": "p",
+          "text": "\\[ \\text{Risk Score} = \\text{Likelihood} \\times \\text{Impact} \\]"
+        },
+        {
+          "type": "p",
+          "text": "Use a scale from 1 to 5 for each factor."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Threat"
+        },
+        {
+          "type": "p",
+          "text": "Likelihood"
+        },
+        {
+          "type": "p",
+          "text": "Impact"
+        },
+        {
+          "type": "p",
+          "text": "Risk score"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized progress access"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "5"
+        },
+        {
+          "type": "p",
+          "text": "20"
+        },
+        {
+          "type": "p",
+          "text": "SQL injection"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "5"
+        },
+        {
+          "type": "p",
+          "text": "15"
+        },
+        {
+          "type": "p",
+          "text": "Course file exposure"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "12"
+        },
+        {
+          "type": "p",
+          "text": "Excessive login requests"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "12"
+        },
+        {
+          "type": "p",
+          "text": "Verbose error message"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "2"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "High priority"
+        },
+        {
+          "type": "p",
+          "text": "BOLA affecting private student data should receive immediate attention."
+        },
+        {
+          "type": "p",
+          "text": "This is a simplified prioritization model, not a formal security risk certification."
+        },
+        {
+          "type": "h3",
+          "text": "2.6 Create a threat register"
+        },
+        {
+          "type": "p",
+          "text": "Every significant security concern should have a documented record."
+        },
+        {
+          "type": "p",
+          "text": "Field"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "Asset"
+        },
+        {
+          "type": "p",
+          "text": "Student progress"
+        },
+        {
+          "type": "p",
+          "text": "Threat"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized access"
+        },
+        {
+          "type": "p",
+          "text": "Vulnerable endpoint"
+        },
+        {
+          "type": "p",
+          "text": "/api/users/{id}/progress"
+        },
+        {
+          "type": "p",
+          "text": "Security impact"
+        },
+        {
+          "type": "p",
+          "text": "Confidentiality violation"
+        },
+        {
+          "type": "p",
+          "text": "Severity"
+        },
+        {
+          "type": "p",
+          "text": "High"
+        },
+        {
+          "type": "p",
+          "text": "Proposed fix"
+        },
+        {
+          "type": "p",
+          "text": "Enforce owner-based access"
+        },
+        {
+          "type": "p",
+          "text": "Verification"
+        },
+        {
+          "type": "p",
+          "text": "Test with two student accounts"
+        },
+        {
+          "type": "p",
+          "text": "Status"
+        },
+        {
+          "type": "p",
+          "text": "Fixed / Pending"
+        },
+        {
+          "type": "p",
+          "text": "When to use threat modeling: Before implementing a new authentication system, adding a file upload feature, designing an administrative API, integrating a payment provider or exposing new sensitive endpoints."
+        },
+        {
+          "type": "p",
+          "text": "3. OWASP API Security Risks"
+        },
+        {
+          "type": "h3",
+          "text": "3.1 What is OWASP?"
+        },
+        {
+          "type": "p",
+          "text": "[Sovereign GRC for Government, Defense, Critical Ops](https://images.openai.com/static-rsc-4/9ployqQ2arO1sNmIP7UINlJAfIlqLChMRcjZ4AsjM73qxwT18UpoLOL3OVu6ysMw98Wmi9fAmWWpSeksIn4QeOVXmtsCKd0m9N7H1NqQLj6O1xqhxbHCN3Z_7pdOFAZ3I6nxK7aM4-eZzkqmV61dwJwfyWqIDdL1tqBHLIW35dU?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "OWASP"
+        },
+        {
+          "type": "p",
+          "text": "The Open Worldwide Application Security Project is a nonprofit foundation that provides application security education, standards and resources."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://owasp.org/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "OWASP publishes security guidance for developers, security engineers and organizations."
+        },
+        {
+          "type": "p",
+          "text": "One important resource is the OWASP API Security Top 10 (2023 edition)."
+        },
+        {
+          "type": "p",
+          "text": "It identifies ten major API security risk categories."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Foundation+1"
+        },
+        {
+          "type": "h3",
+          "text": "3.2 The ten OWASP API security risks"
+        },
+        {
+          "type": "p",
+          "text": "Risk"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "API1: BOLA"
+        },
+        {
+          "type": "p",
+          "text": "Broken Object Level Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Viewing another student's progress"
+        },
+        {
+          "type": "p",
+          "text": "API2: Broken Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Weak identity verification"
+        },
+        {
+          "type": "p",
+          "text": "Compromised authentication tokens"
+        },
+        {
+          "type": "p",
+          "text": "API3: Broken Object Property Level Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized property access or modification"
+        },
+        {
+          "type": "p",
+          "text": "Changing an account role"
+        },
+        {
+          "type": "p",
+          "text": "API4: Unrestricted Resource Consumption"
+        },
+        {
+          "type": "p",
+          "text": "No sufficient resource controls"
+        },
+        {
+          "type": "p",
+          "text": "Unlimited expensive API requests"
+        },
+        {
+          "type": "p",
+          "text": "API5: BFLA"
+        },
+        {
+          "type": "p",
+          "text": "Broken Function Level Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Student accesses administrator functions"
+        },
+        {
+          "type": "p",
+          "text": "API6: Unrestricted Access to Sensitive Business Flows"
+        },
+        {
+          "type": "p",
+          "text": "Abuse of important business workflows"
+        },
+        {
+          "type": "p",
+          "text": "Automated mass enrollment abuse"
+        },
+        {
+          "type": "p",
+          "text": "API7: SSRF"
+        },
+        {
+          "type": "p",
+          "text": "Server-Side Request Forgery"
+        },
+        {
+          "type": "p",
+          "text": "Server fetches an unauthorized internal URL"
+        },
+        {
+          "type": "p",
+          "text": "API8: Security Misconfiguration"
+        },
+        {
+          "type": "p",
+          "text": "Unsafe deployment or security settings"
+        },
+        {
+          "type": "p",
+          "text": "Debug endpoint exposed publicly"
+        },
+        {
+          "type": "p",
+          "text": "API9: Improper Inventory Management"
+        },
+        {
+          "type": "p",
+          "text": "Incomplete API and version management"
+        },
+        {
+          "type": "p",
+          "text": "Old unprotected API still available"
+        },
+        {
+          "type": "p",
+          "text": "API10: Unsafe Consumption of APIs"
+        },
+        {
+          "type": "p",
+          "text": "Insufficient validation of external API responses"
+        },
+        {
+          "type": "p",
+          "text": "Trusting malicious third-party data"
+        },
+        {
+          "type": "p",
+          "text": "Source: OWASP API Security Top 10."
+        },
+        {
+          "type": "p",
+          "text": "OWASP API Security Top 10+1"
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Understanding the risks beyond the individual lessons"
+        },
+        {
+          "type": "p",
+          "text": "Although this module teaches BOLA, BFLA, SQL injection and other selected topics separately, you should understand the full API security landscape."
+        },
+        {
+          "type": "p",
+          "text": "Unrestricted resource consumption"
+        },
+        {
+          "type": "p",
+          "text": "An API should control:"
+        },
+        {
+          "type": "p",
+          "text": "Requests per user."
+        },
+        {
+          "type": "p",
+          "text": "Requests per IP, where appropriate."
+        },
+        {
+          "type": "p",
+          "text": "Maximum page sizes."
+        },
+        {
+          "type": "p",
+          "text": "Maximum upload sizes."
+        },
+        {
+          "type": "p",
+          "text": "Expensive operations."
+        },
+        {
+          "type": "p",
+          "text": "Database query time."
+        },
+        {
+          "type": "p",
+          "text": "Concurrent operations."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive business flow abuse"
+        },
+        {
+          "type": "p",
+          "text": "An enrollment API might be technically secured but still abused through automated repeated requests."
+        },
+        {
+          "type": "p",
+          "text": "You need business-level safeguards such as:"
+        },
+        {
+          "type": "p",
+          "text": "Enrollment limits."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate prevention."
+        },
+        {
+          "type": "p",
+          "text": "Idempotency."
+        },
+        {
+          "type": "p",
+          "text": "Rate limits."
+        },
+        {
+          "type": "p",
+          "text": "Suspicious activity detection."
+        },
+        {
+          "type": "p",
+          "text": "Server-Side Request Forgery (SSRF)"
+        },
+        {
+          "type": "p",
+          "text": "This occurs when the backend fetches a user-supplied URL without appropriate validation."
+        },
+        {
+          "type": "p",
+          "text": "For example, a service that imports remote course images must not blindly fetch arbitrary URLs that could point to internal infrastructure."
+        },
+        {
+          "type": "p",
+          "text": "Security misconfiguration"
+        },
+        {
+          "type": "p",
+          "text": "Common problems include:"
+        },
+        {
+          "type": "p",
+          "text": "Exposed debug endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Default passwords."
+        },
+        {
+          "type": "p",
+          "text": "Unnecessary HTTP methods."
+        },
+        {
+          "type": "p",
+          "text": "Overly permissive CORS."
+        },
+        {
+          "type": "p",
+          "text": "Verbose server errors."
+        },
+        {
+          "type": "p",
+          "text": "Public access to storage buckets."
+        },
+        {
+          "type": "p",
+          "text": "Missing security headers."
+        },
+        {
+          "type": "p",
+          "text": "Improper API inventory"
+        },
+        {
+          "type": "p",
+          "text": "Organizations should track:"
+        },
+        {
+          "type": "p",
+          "text": "Production endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Staging endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Development endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Deprecated API versions."
+        },
+        {
+          "type": "p",
+          "text": "Internal APIs."
+        },
+        {
+          "type": "p",
+          "text": "Administrative APIs."
+        },
+        {
+          "type": "p",
+          "text": "An old endpoint must not remain publicly accessible simply because the frontend no longer uses it."
+        },
+        {
+          "type": "p",
+          "text": "Unsafe consumption of APIs"
+        },
+        {
+          "type": "p",
+          "text": "Responses from payment providers, AI providers and external systems must be validated before application logic trusts them."
+        },
+        {
+          "type": "p",
+          "text": "A third-party response is data, not an instruction to bypass your security rules."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: The OWASP API Top 10 is a practical risk checklist. It helps you look beyond basic authentication and identify problems across authorization, infrastructure, business logic and external integrations."
+        },
+        {
+          "type": "p",
+          "text": "4. Broken Object Level Authorization (BOLA)"
+        },
+        {
+          "type": "p",
+          "text": "High-priority vulnerability"
+        },
+        {
+          "type": "h3",
+          "text": "4.1 What is BOLA?"
+        },
+        {
+          "type": "p",
+          "text": "BOLA stands for Broken Object Level Authorization."
+        },
+        {
+          "type": "p",
+          "text": "It occurs when an API allows a user to access or modify an object without correctly verifying that the user has permission to perform the requested operation on that particular object."
+        },
+        {
+          "type": "p",
+          "text": "An object can be:"
+        },
+        {
+          "type": "p",
+          "text": "A student profile."
+        },
+        {
+          "type": "p",
+          "text": "A course."
+        },
+        {
+          "type": "p",
+          "text": "An enrollment record."
+        },
+        {
+          "type": "p",
+          "text": "A learning progress record."
+        },
+        {
+          "type": "p",
+          "text": "An assignment."
+        },
+        {
+          "type": "p",
+          "text": "A private document."
+        },
+        {
+          "type": "p",
+          "text": "A payment record."
+        },
+        {
+          "type": "p",
+          "text": "BOLA is a major API security risk because APIs frequently retrieve database objects using identifiers provided by clients. OWASP identifies the need for object-level authorization checks in every function that accesses records using client-supplied identifiers."
+        },
+        {
+          "type": "p",
+          "text": "OWASP API Security Top 10"
+        },
+        {
+          "type": "h3",
+          "text": "4.2 How does BOLA happen?"
+        },
+        {
+          "type": "p",
+          "text": "Imagine the database contains:"
+        },
+        {
+          "type": "p",
+          "text": "Student ID"
+        },
+        {
+          "type": "p",
+          "text": "Name"
+        },
+        {
+          "type": "p",
+          "text": "Course progress"
+        },
+        {
+          "type": "p",
+          "text": "101"
+        },
+        {
+          "type": "p",
+          "text": "Student A"
+        },
+        {
+          "type": "p",
+          "text": "80%"
+        },
+        {
+          "type": "p",
+          "text": "102"
+        },
+        {
+          "type": "p",
+          "text": "Student B"
+        },
+        {
+          "type": "p",
+          "text": "45%"
+        },
+        {
+          "type": "p",
+          "text": "103"
+        },
+        {
+          "type": "p",
+          "text": "Student C"
+        },
+        {
+          "type": "p",
+          "text": "90%"
+        },
+        {
+          "type": "p",
+          "text": "The API exposes:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/students/101/progress"
+        },
+        {
+          "type": "p",
+          "text": "The authenticated user is Student A."
+        },
+        {
+          "type": "p",
+          "text": "The backend performs:"
+        },
+        {
+          "type": "code",
+          "text": "@GetMapping(\"/students/{id}/progress\") public Progress getProgress( @PathVariable Long id) { return progressRepository .findByStudentId(id); }"
+        },
+        {
+          "type": "p",
+          "text": "What is wrong?"
+        },
+        {
+          "type": "p",
+          "text": "The controller accepts an ID from the client and directly retrieves the corresponding record."
+        },
+        {
+          "type": "p",
+          "text": "It does not verify whether the authenticated user owns that record."
+        },
+        {
+          "type": "p",
+          "text": "The user can modify the requested identifier and potentially access someone else's information."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Secure implementation"
+        },
+        {
+          "type": "p",
+          "text": "The authenticated user's identity must determine which records they can access."
+        },
+        {
+          "type": "p",
+          "text": "One approach is to provide a self-service endpoint:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/me/progress"
+        },
+        {
+          "type": "p",
+          "text": "Controller:"
+        },
+        {
+          "type": "code",
+          "text": "@GetMapping(\"/me/progress\") public Progress getMyProgress( @AuthenticationPrincipal AppUserPrincipal principal) { return progressService.getProgress( principal.getUserId() ); }"
+        },
+        {
+          "type": "p",
+          "text": "The identity comes from the authenticated security context, rather than from a student ID supplied by the client."
+        },
+        {
+          "type": "p",
+          "text": "For resources identified by their own IDs, authorization must still check ownership."
+        },
+        {
+          "type": "p",
+          "text": "Repository:"
+        },
+        {
+          "type": "p",
+          "text": "Optional<Progress> findByIdAndStudentId( Long progressId, Long studentId );"
+        },
+        {
+          "type": "p",
+          "text": "Service:"
+        },
+        {
+          "type": "p",
+          "text": "public Progress getStudentProgress( Long progressId, Long currentStudentId) { return progressRepository .findByIdAndStudentId( progressId, currentStudentId ) .orElseThrow( ProgressNotFoundException::new ); }"
+        },
+        {
+          "type": "p",
+          "text": "Now the query retrieves a record only when both the requested resource ID and authenticated owner match."
+        },
+        {
+          "type": "p",
+          "text": "This is stronger than simply trusting a student ID in the request."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 BOLA in different HTTP methods"
+        },
+        {
+          "type": "p",
+          "text": "Do not check ownership only on GET endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Consider these examples:"
+        },
+        {
+          "type": "p",
+          "text": "Operation"
+        },
+        {
+          "type": "p",
+          "text": "Vulnerability"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Reading another student's progress"
+        },
+        {
+          "type": "p",
+          "text": "PUT"
+        },
+        {
+          "type": "p",
+          "text": "Modifying another student's profile"
+        },
+        {
+          "type": "p",
+          "text": "PATCH"
+        },
+        {
+          "type": "p",
+          "text": "Changing another user's enrollment status"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "Deleting another user's assignment"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Creating a record against another user's account"
+        },
+        {
+          "type": "p",
+          "text": "Every operation that accesses a protected resource needs appropriate authorization."
+        },
+        {
+          "type": "h3",
+          "text": "4.5 UUIDs do not solve BOLA"
+        },
+        {
+          "type": "p",
+          "text": "Some developers believe changing IDs from integers to UUIDs makes unauthorized access impossible."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "/api/progress/101"
+        },
+        {
+          "type": "p",
+          "text": "becomes:"
+        },
+        {
+          "type": "p",
+          "text": "/api/progress/550e8400-e29b-41d4-a716-446655440000"
+        },
+        {
+          "type": "p",
+          "text": "Random identifiers can make guessing harder, but they do not replace permission checks."
+        },
+        {
+          "type": "p",
+          "text": "If someone obtains a valid UUID, the backend must still verify ownership."
+        },
+        {
+          "type": "p",
+          "text": "OWASP explicitly warns that unpredictable identifiers alone are not sufficient to prevent BOLA."
+        },
+        {
+          "type": "p",
+          "text": "OWASP API Security Top 10"
+        },
+        {
+          "type": "h3",
+          "text": "4.6 BOLA testing"
+        },
+        {
+          "type": "p",
+          "text": "Create two accounts:"
+        },
+        {
+          "type": "p",
+          "text": "Student A = ID 101 Student B = ID 102"
+        },
+        {
+          "type": "p",
+          "text": "Use two separate authenticated sessions."
+        },
+        {
+          "type": "p",
+          "text": "Test:"
+        },
+        {
+          "type": "p",
+          "text": "Student A retrieves their own progress."
+        },
+        {
+          "type": "p",
+          "text": "Student B retrieves their own progress."
+        },
+        {
+          "type": "p",
+          "text": "Student A attempts to retrieve Student B's progress."
+        },
+        {
+          "type": "p",
+          "text": "Student A attempts to update Student B's progress."
+        },
+        {
+          "type": "p",
+          "text": "Student A attempts to delete Student B's progress."
+        },
+        {
+          "type": "p",
+          "text": "Expected result:"
+        },
+        {
+          "type": "p",
+          "text": "Only operations authorized for the authenticated user should succeed."
+        },
+        {
+          "type": "p",
+          "text": "Important: Test every relevant endpoint and HTTP method. Testing only one GET endpoint does not demonstrate that the entire application is protected."
+        },
+        {
+          "type": "p",
+          "text": "5. Broken Function Level Authorization (BFLA)"
+        },
+        {
+          "type": "p",
+          "text": "High-priority vulnerability"
+        },
+        {
+          "type": "h3",
+          "text": "5.1 What is BFLA?"
+        },
+        {
+          "type": "p",
+          "text": "BFLA stands for Broken Function Level Authorization."
+        },
+        {
+          "type": "p",
+          "text": "It occurs when a user can execute an application function that they are not authorized to use."
+        },
+        {
+          "type": "p",
+          "text": "BOLA is about accessing the wrong object."
+        },
+        {
+          "type": "p",
+          "text": "BFLA is about accessing the wrong function."
+        },
+        {
+          "type": "p",
+          "text": "Consider a platform with these endpoints:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses POST /api/courses DELETE /api/admin/courses/10 GET /api/admin/users PATCH /api/admin/users/101/role"
+        },
+        {
+          "type": "p",
+          "text": "A student should not automatically be allowed to perform administrative functions."
+        },
+        {
+          "type": "p",
+          "text": "If the backend does not enforce these restrictions, a student might access privileged operations directly."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 BOLA versus BFLA"
+        },
+        {
+          "type": "p",
+          "text": "BOLA"
+        },
+        {
+          "type": "p",
+          "text": "BFLA"
+        },
+        {
+          "type": "p",
+          "text": "Object-level permission failure"
+        },
+        {
+          "type": "p",
+          "text": "Function-level permission failure"
+        },
+        {
+          "type": "p",
+          "text": "User accesses another person's resource"
+        },
+        {
+          "type": "p",
+          "text": "User accesses an unauthorized operation"
+        },
+        {
+          "type": "p",
+          "text": "Example: another student's progress"
+        },
+        {
+          "type": "p",
+          "text": "Example: administrative user management"
+        },
+        {
+          "type": "p",
+          "text": "Fix: ownership and resource policy checks"
+        },
+        {
+          "type": "p",
+          "text": "Fix: role and function authorization"
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Vulnerable implementation"
+        },
+        {
+          "type": "p",
+          "text": "Imagine an administrative controller:"
+        },
+        {
+          "type": "code",
+          "text": "@RestController @RequestMapping(\"/api/admin\") public class AdminController { @PostMapping(\"/courses\") public Course createCourse( @RequestBody CourseRequest request) { return courseService.create(request); } }"
+        },
+        {
+          "type": "p",
+          "text": "The controller has no authorization rule."
+        },
+        {
+          "type": "p",
+          "text": "If the backend's global security configuration also allows this request, any authenticated user might be able to create a course."
+        },
+        {
+          "type": "p",
+          "text": "The UI hiding the administrator button does not solve the problem."
+        },
+        {
+          "type": "p",
+          "text": "An attacker can call the API directly."
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Secure implementation using Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "First, enable method security:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableMethodSecurity public class SecurityConfig { }"
+        },
+        {
+          "type": "p",
+          "text": "Then apply permissions:"
+        },
+        {
+          "type": "code",
+          "text": "@RestController @RequestMapping(\"/api/admin\") public class AdminController { @PreAuthorize(\"hasRole('ADMIN')\") @PostMapping(\"/courses\") public Course createCourse( @RequestBody CourseRequest request) { return courseService.create(request); } @PreAuthorize(\"hasRole('ADMIN')\") @DeleteMapping(\"/courses/{id}\") public void deleteCourse( @PathVariable Long id) { courseService.deleteCourse(id); } }"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security supports method-level authorization through annotations such as @PreAuthorize."
+        },
+        {
+          "type": "p",
+          "text": "Home"
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Role-based access control"
+        },
+        {
+          "type": "p",
+          "text": "You should define permissions centrally rather than implementing inconsistent conditions in multiple controllers."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "ADMIN ├── CREATE_COURSE ├── UPDATE_ANY_COURSE ├── DELETE_COURSE └── MANAGE_USERS INSTRUCTOR ├── CREATE_COURSE ├── UPDATE_OWN_COURSE └── MANAGE_OWN_MODULES STUDENT ├── VIEW_COURSE ├── ENROLL_COURSE └── VIEW_OWN_PROGRESS"
+        },
+        {
+          "type": "p",
+          "text": "Not all systems need the same roles. Some may use fine-grained permissions instead of fixed roles."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Testing BFLA"
+        },
+        {
+          "type": "p",
+          "text": "Create test sessions for:"
+        },
+        {
+          "type": "p",
+          "text": "Anonymous user."
+        },
+        {
+          "type": "p",
+          "text": "Student."
+        },
+        {
+          "type": "p",
+          "text": "Instructor."
+        },
+        {
+          "type": "p",
+          "text": "Administrator."
+        },
+        {
+          "type": "p",
+          "text": "Test each protected operation with every relevant role."
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Anonymous"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "Instructor"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "View public courses"
+        },
+        {
+          "type": "p",
+          "text": "Allowed"
+        },
+        {
+          "type": "p",
+          "text": "Allowed"
+        },
+        {
+          "type": "p",
+          "text": "Allowed"
+        },
+        {
+          "type": "p",
+          "text": "Allowed"
+        },
+        {
+          "type": "p",
+          "text": "Create course"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Policy-based"
+        },
+        {
+          "type": "p",
+          "text": "Allowed"
+        },
+        {
+          "type": "p",
+          "text": "Delete course"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Allowed"
+        },
+        {
+          "type": "p",
+          "text": "Change user role"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Allowed"
+        },
+        {
+          "type": "p",
+          "text": "You should also verify that a permitted instructor cannot modify another instructor's course. That becomes an object-level authorization check as well."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: Every privileged API function must enforce its permission on the backend. Never rely on frontend navigation, hidden buttons or URL obscurity."
+        },
+        {
+          "type": "p",
+          "text": "6. SQL Injection and Injection Prevention"
+        },
+        {
+          "type": "h3",
+          "text": "6.1 What is SQL injection?"
+        },
+        {
+          "type": "p",
+          "text": "SQL injection is a security vulnerability that occurs when untrusted input is incorporated into a database query in a way that changes the intended SQL structure."
+        },
+        {
+          "type": "p",
+          "text": "Imagine PrepSpaces has a course search endpoint:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses/search?title=Backend"
+        },
+        {
+          "type": "p",
+          "text": "The backend uses the supplied title to construct a database query."
+        },
+        {
+          "type": "p",
+          "text": "If the application combines raw user input with SQL strings, an attacker may be able to manipulate the query."
+        },
+        {
+          "type": "p",
+          "text": "The consequences can include:"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized database access."
+        },
+        {
+          "type": "p",
+          "text": "Exposure of private records."
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized data modification."
+        },
+        {
+          "type": "p",
+          "text": "Deletion of information."
+        },
+        {
+          "type": "p",
+          "text": "In certain configurations, further compromise of database-connected systems."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 How does SQL injection happen?"
+        },
+        {
+          "type": "p",
+          "text": "Consider this vulnerable Java code:"
+        },
+        {
+          "type": "p",
+          "text": "String title = request.getParameter(\"title\"); String sql = \"SELECT * FROM courses WHERE title = '\" + title + \"'\"; Statement statement = connection.createStatement(); ResultSet result = statement.executeQuery(sql);"
+        },
+        {
+          "type": "p",
+          "text": "What is wrong?"
+        },
+        {
+          "type": "p",
+          "text": "The SQL query structure is being created by combining a string with untrusted user input."
+        },
+        {
+          "type": "p",
+          "text": "The database cannot reliably distinguish the developer's intended query from SQL syntax introduced through the input."
+        },
+        {
+          "type": "p",
+          "text": "An attacker could supply specially crafted input intended to modify the query's meaning."
+        },
+        {
+          "type": "p",
+          "text": "The root problem is not that the input contains unusual characters. The problem is that the application treats untrusted data as part of the SQL program."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Prevent SQL injection using prepared statements"
+        },
+        {
+          "type": "p",
+          "text": "The preferred solution is parameterized queries."
+        },
+        {
+          "type": "p",
+          "text": "A parameterized query separates SQL instructions from user-provided values."
+        },
+        {
+          "type": "p",
+          "text": "Secure JDBC example:"
+        },
+        {
+          "type": "p",
+          "text": "String sql = \"SELECT * FROM courses WHERE title = ?\"; PreparedStatement statement = connection.prepareStatement(sql); statement.setString(1, title); ResultSet result = statement.executeQuery();"
+        },
+        {
+          "type": "p",
+          "text": "Here:"
+        },
+        {
+          "type": "p",
+          "text": "The SQL structure is defined by the application."
+        },
+        {
+          "type": "p",
+          "text": "The title is passed as a parameter."
+        },
+        {
+          "type": "p",
+          "text": "The database treats the supplied value as data rather than additional SQL syntax."
+        },
+        {
+          "type": "p",
+          "text": "OWASP recommends parameterized queries as the primary defense against SQL injection."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Cheat Sheet Series+1"
+        },
+        {
+          "type": "h3",
+          "text": "6.4 SQL injection prevention with Spring Data JPA"
+        },
+        {
+          "type": "p",
+          "text": "For a Spring Boot application using Spring Data JPA, derived repository methods are useful."
+        },
+        {
+          "type": "code",
+          "text": "public interface CourseRepository extends JpaRepository<Course, Long> { List<Course> findByTitleContainingIgnoreCase( String title ); }"
+        },
+        {
+          "type": "p",
+          "text": "The framework generates an appropriately parameterized query for the supplied value."
+        },
+        {
+          "type": "p",
+          "text": "You can also use named parameters:"
+        },
+        {
+          "type": "p",
+          "text": "@Query(\"\"\" SELECT c FROM Course c WHERE c.title = :title \"\"\") List<Course> findCoursesByTitle( @Param(\"title\") String title );"
+        },
+        {
+          "type": "p",
+          "text": "This separates the query structure from the supplied value."
+        },
+        {
+          "type": "p",
+          "text": "Important: Using an ORM does not automatically prevent SQL injection if you manually construct dynamic SQL or concatenate user input into native queries."
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Dynamic sorting and filtering"
+        },
+        {
+          "type": "p",
+          "text": "There is a subtle problem with queries involving sorting."
+        },
+        {
+          "type": "p",
+          "text": "Suppose an API allows:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses?sortBy=title&direction=ASC"
+        },
+        {
+          "type": "p",
+          "text": "SQL parameters generally represent data values, not table names, column names or keywords such as ASC and DESC."
+        },
+        {
+          "type": "p",
+          "text": "Therefore, do not simply append arbitrary user-supplied values to an SQL statement."
+        },
+        {
+          "type": "p",
+          "text": "Use an allowlist:"
+        },
+        {
+          "type": "p",
+          "text": "private static final Set<String> ALLOWED_SORT_FIELDS = Set.of(\"title\", \"createdAt\", \"level\"); public Sort createSort( String sortBy, String direction) { if (!ALLOWED_SORT_FIELDS.contains(sortBy)) { throw new IllegalArgumentException( \"Invalid sort field\" ); } Sort.Direction sortDirection; try { sortDirection = Sort.Direction.fromString(direction); } catch (IllegalArgumentException exception) { throw new IllegalArgumentException( \"Invalid sort direction\" ); } return Sort.by(sortDirection, sortBy); }"
+        },
+        {
+          "type": "p",
+          "text": "Here, the application controls which fields can be used."
+        },
+        {
+          "type": "p",
+          "text": "OWASP specifically recommends allowlisting dynamic SQL structural elements that cannot be parameterized."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Cheat Sheet Series"
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Other forms of injection"
+        },
+        {
+          "type": "p",
+          "text": "SQL injection is only one form of injection."
+        },
+        {
+          "type": "p",
+          "text": "Type"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "SQL injection"
+        },
+        {
+          "type": "p",
+          "text": "Manipulates database queries"
+        },
+        {
+          "type": "p",
+          "text": "Unsafe SQL construction"
+        },
+        {
+          "type": "p",
+          "text": "NoSQL injection"
+        },
+        {
+          "type": "p",
+          "text": "Manipulates NoSQL query logic"
+        },
+        {
+          "type": "p",
+          "text": "Unsafe document-query construction"
+        },
+        {
+          "type": "p",
+          "text": "Command injection"
+        },
+        {
+          "type": "p",
+          "text": "Influences operating-system commands"
+        },
+        {
+          "type": "p",
+          "text": "Passing raw input to shell commands"
+        },
+        {
+          "type": "p",
+          "text": "LDAP injection"
+        },
+        {
+          "type": "p",
+          "text": "Alters LDAP queries"
+        },
+        {
+          "type": "p",
+          "text": "Unsafe directory filters"
+        },
+        {
+          "type": "p",
+          "text": "Log injection"
+        },
+        {
+          "type": "p",
+          "text": "Alters log entries"
+        },
+        {
+          "type": "p",
+          "text": "Unvalidated newline characters"
+        },
+        {
+          "type": "p",
+          "text": "Template injection"
+        },
+        {
+          "type": "p",
+          "text": "Influences template evaluation"
+        },
+        {
+          "type": "p",
+          "text": "Untrusted input interpreted as template code"
+        },
+        {
+          "type": "p",
+          "text": "The same underlying lesson applies: data from untrusted sources must not unexpectedly become executable instructions."
+        },
+        {
+          "type": "h3",
+          "text": "6.7 Additional prevention measures"
+        },
+        {
+          "type": "p",
+          "text": "Alongside parameterized queries:"
+        },
+        {
+          "type": "p",
+          "text": "Give database accounts only the permissions they require."
+        },
+        {
+          "type": "p",
+          "text": "Avoid unnecessary raw SQL."
+        },
+        {
+          "type": "p",
+          "text": "Validate input according to business requirements."
+        },
+        {
+          "type": "p",
+          "text": "Do not reveal database error details to API clients."
+        },
+        {
+          "type": "p",
+          "text": "Monitor unusual database access."
+        },
+        {
+          "type": "p",
+          "text": "Test database operations with hostile-looking but non-destructive input in an isolated environment."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: Parameterization is the primary protection against SQL injection. Input validation is additional protection, not a replacement for safe query construction."
+        },
+        {
+          "type": "p",
+          "text": "7. Mass Assignment Vulnerabilities"
+        },
+        {
+          "type": "h3",
+          "text": "7.1 What is mass assignment?"
+        },
+        {
+          "type": "p",
+          "text": "Mass assignment occurs when an application automatically maps incoming request properties to internal objects without sufficiently restricting which properties the client is allowed to modify."
+        },
+        {
+          "type": "p",
+          "text": "This can allow a user to change fields that should be controlled by the backend."
+        },
+        {
+          "type": "p",
+          "text": "Consider a student profile."
+        },
+        {
+          "type": "p",
+          "text": "The database entity contains:"
+        },
+        {
+          "type": "p",
+          "text": "id name email passwordHash role accountEnabled createdAt"
+        },
+        {
+          "type": "p",
+          "text": "The frontend should allow a student to update:"
+        },
+        {
+          "type": "p",
+          "text": "name email"
+        },
+        {
+          "type": "p",
+          "text": "But the backend accepts the entire entity from the request."
+        },
+        {
+          "type": "p",
+          "text": "This creates a security risk."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 How does mass assignment happen?"
+        },
+        {
+          "type": "p",
+          "text": "Imagine the frontend sends:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"name\": \"Student A\", \"email\": \"student@example.com\" }"
+        },
+        {
+          "type": "p",
+          "text": "The backend uses:"
+        },
+        {
+          "type": "code",
+          "text": "@PutMapping(\"/users/{id}\") public User updateUser( @PathVariable Long id, @RequestBody User user) { user.setId(id); return userRepository.save(user); }"
+        },
+        {
+          "type": "p",
+          "text": "This directly binds incoming JSON to the database entity."
+        },
+        {
+          "type": "p",
+          "text": "A malicious client may attempt to supply additional properties, including properties the user interface never exposes."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"name\": \"Student A\", \"email\": \"student@example.com\", \"role\": \"ADMIN\", \"accountEnabled\": true }"
+        },
+        {
+          "type": "p",
+          "text": "If these properties are accepted and persisted without authorization checks, the student may modify protected account information."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Why direct entity binding is dangerous"
+        },
+        {
+          "type": "p",
+          "text": "A database entity represents internal application state."
+        },
+        {
+          "type": "p",
+          "text": "A request object represents the limited information a client is allowed to submit."
+        },
+        {
+          "type": "p",
+          "text": "These are not the same thing."
+        },
+        {
+          "type": "p",
+          "text": "Your entity might contain:"
+        },
+        {
+          "type": "p",
+          "text": "Administrative properties."
+        },
+        {
+          "type": "p",
+          "text": "Audit properties."
+        },
+        {
+          "type": "p",
+          "text": "Security properties."
+        },
+        {
+          "type": "p",
+          "text": "Internal database identifiers."
+        },
+        {
+          "type": "p",
+          "text": "Ownership information."
+        },
+        {
+          "type": "p",
+          "text": "Payment-related fields."
+        },
+        {
+          "type": "p",
+          "text": "A public API should not automatically expose all these properties for modification."
+        },
+        {
+          "type": "h3",
+          "text": "7.4 The secure solution: Data Transfer Objects"
+        },
+        {
+          "type": "p",
+          "text": "Use a DTO to define exactly which properties the client can send."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "public record UpdateProfileRequest( @NotBlank String name, @Email String email ) {}"
+        },
+        {
+          "type": "p",
+          "text": "Controller:"
+        },
+        {
+          "type": "code",
+          "text": "@PutMapping(\"/profile\") public UserResponse updateProfile( @Valid @RequestBody UpdateProfileRequest request, @AuthenticationPrincipal AppUserPrincipal principal) { return userService.updateProfile( principal.getUserId(), request ); }"
+        },
+        {
+          "type": "p",
+          "text": "Service:"
+        },
+        {
+          "type": "p",
+          "text": "public UserResponse updateProfile( Long userId, UpdateProfileRequest request) { User user = userRepository.findById(userId) .orElseThrow(UserNotFoundException::new); user.setName(request.name()); user.setEmail(request.email()); User saved = userRepository.save(user); return new UserResponse( saved.getId(), saved.getName(), saved.getEmail() ); }"
+        },
+        {
+          "type": "p",
+          "text": "Notice what is missing:"
+        },
+        {
+          "type": "p",
+          "text": "No role assignment from the request."
+        },
+        {
+          "type": "p",
+          "text": "No password hash modification."
+        },
+        {
+          "type": "p",
+          "text": "No arbitrary ownership modification."
+        },
+        {
+          "type": "p",
+          "text": "No direct modification of administrative status."
+        },
+        {
+          "type": "p",
+          "text": "The backend controls protected properties."
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Mass assignment and excessive data exposure"
+        },
+        {
+          "type": "p",
+          "text": "There are two related security problems:"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized property modification"
+        },
+        {
+          "type": "p",
+          "text": "A user modifies a field they should not be allowed to change."
+        },
+        {
+          "type": "p",
+          "text": "Example: Changing role from STUDENT to ADMIN."
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized property exposure"
+        },
+        {
+          "type": "p",
+          "text": "A backend returns more information than the client needs."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"id\": 101, \"name\": \"Student A\", \"email\": \"student@example.com\", \"passwordHash\": \"...\", \"internalAdminNotes\": \"...\" }"
+        },
+        {
+          "type": "p",
+          "text": "The response exposes internal properties unnecessarily."
+        },
+        {
+          "type": "p",
+          "text": "OWASP groups mass assignment and excessive data exposure within API3:2023, Broken Object Property Level Authorization."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Foundation+1"
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Secure response DTOs"
+        },
+        {
+          "type": "p",
+          "text": "Instead of returning database entities directly, construct explicit response objects."
+        },
+        {
+          "type": "code",
+          "text": "public record UserResponse( Long id, String name, String email ) {}"
+        },
+        {
+          "type": "p",
+          "text": "The API now returns only the properties intended for that operation."
+        },
+        {
+          "type": "h3",
+          "text": "7.7 Testing mass assignment vulnerabilities"
+        },
+        {
+          "type": "p",
+          "text": "For an ordinary student profile update endpoint, test requests containing additional properties such as:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"name\": \"Updated Name\", \"role\": \"ADMIN\", \"accountEnabled\": true }"
+        },
+        {
+          "type": "p",
+          "text": "Verify that:"
+        },
+        {
+          "type": "p",
+          "text": "The role does not change."
+        },
+        {
+          "type": "p",
+          "text": "Account permissions do not change."
+        },
+        {
+          "type": "p",
+          "text": "Ownership does not change."
+        },
+        {
+          "type": "p",
+          "text": "Internal properties are not exposed."
+        },
+        {
+          "type": "p",
+          "text": "The response follows the documented API contract."
+        },
+        {
+          "type": "p",
+          "text": "The application can either reject unexpected properties or ignore them, depending on its API policy. Regardless, protected properties must remain unchanged."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: Never let clients control the entire internal entity. Use explicit request and response DTOs, and assign protected properties through trusted backend logic."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Section 8",
+      "title": "8. Cross-Origin Resource Sharing (CORS)",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 What is CORS?"
+        },
+        {
+          "type": "p",
+          "text": "CORS stands for Cross-Origin Resource Sharing."
+        },
+        {
+          "type": "p",
+          "text": "It is a browser security mechanism that controls whether a web page from one origin is permitted to read responses from another origin."
+        },
+        {
+          "type": "p",
+          "text": "An origin consists of:"
+        },
+        {
+          "type": "p",
+          "text": "Scheme."
+        },
+        {
+          "type": "p",
+          "text": "Hostname."
+        },
+        {
+          "type": "p",
+          "text": "Port."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "https://frontend.example.com https://api.example.com"
+        },
+        {
+          "type": "p",
+          "text": "These are different origins because their hostnames are different."
+        },
+        {
+          "type": "p",
+          "text": "Consider a frontend application:"
+        },
+        {
+          "type": "p",
+          "text": "https://frontend.example.com"
+        },
+        {
+          "type": "p",
+          "text": "It communicates with:"
+        },
+        {
+          "type": "p",
+          "text": "https://api.example.com"
+        },
+        {
+          "type": "p",
+          "text": "The browser checks whether the API allows the frontend origin to access its response."
+        },
+        {
+          "type": "p",
+          "text": "That decision is communicated through HTTP CORS headers."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Understanding the same-origin policy"
+        },
+        {
+          "type": "p",
+          "text": "Browsers apply the same-origin policy to restrict how scripts from one origin interact with resources from another origin."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Frontend"
+        },
+        {
+          "type": "p",
+          "text": "API"
+        },
+        {
+          "type": "p",
+          "text": "Relationship"
+        },
+        {
+          "type": "p",
+          "text": "https://app.example.com"
+        },
+        {
+          "type": "p",
+          "text": "https://app.example.com"
+        },
+        {
+          "type": "p",
+          "text": "Same origin"
+        },
+        {
+          "type": "p",
+          "text": "https://app.example.com"
+        },
+        {
+          "type": "p",
+          "text": "https://api.example.com"
+        },
+        {
+          "type": "p",
+          "text": "Different origin"
+        },
+        {
+          "type": "p",
+          "text": "http://app.example.com"
+        },
+        {
+          "type": "p",
+          "text": "https://app.example.com"
+        },
+        {
+          "type": "p",
+          "text": "Different origin"
+        },
+        {
+          "type": "p",
+          "text": "https://app.example.com"
+        },
+        {
+          "type": "p",
+          "text": "https://app.example.com:8443"
+        },
+        {
+          "type": "p",
+          "text": "Different origin"
+        },
+        {
+          "type": "p",
+          "text": "CORS allows a server to explicitly permit certain cross-origin browser requests."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 How does CORS work?"
+        },
+        {
+          "type": "p",
+          "text": "Imagine the frontend sends:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses HTTP/1.1 Host: api.example.com Origin: https://frontend.example.com"
+        },
+        {
+          "type": "p",
+          "text": "The backend may respond with:"
+        },
+        {
+          "type": "code",
+          "text": "HTTP/1.1 200 OK Access-Control-Allow-Origin: https://frontend.example.com Content-Type: application/json"
+        },
+        {
+          "type": "p",
+          "text": "The browser sees that the requested origin is permitted and allows the frontend JavaScript to read the response."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Preflight requests"
+        },
+        {
+          "type": "p",
+          "text": "For certain cross-origin requests, the browser first sends an OPTIONS request to check whether the intended method and headers are allowed."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "OPTIONS /api/courses Origin: https://frontend.example.com Access-Control-Request-Method: POST Access-Control-Request-Headers: authorization,content-type"
+        },
+        {
+          "type": "p",
+          "text": "The API can respond:"
+        },
+        {
+          "type": "code",
+          "text": "HTTP/1.1 204 No Content Access-Control-Allow-Origin: https://frontend.example.com Access-Control-Allow-Methods: GET, POST, PUT, DELETE Access-Control-Allow-Headers: Authorization, Content-Type"
+        },
+        {
+          "type": "p",
+          "text": "The browser can then proceed with the actual request, subject to the CORS policy."
+        },
+        {
+          "type": "p",
+          "text": "Preflight handling is particularly important for requests using methods or headers that trigger the CORS preflight mechanism."
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Common CORS misconfigurations"
+        },
+        {
+          "type": "p",
+          "text": "Problem 1: Allowing every origin"
+        },
+        {
+          "type": "p",
+          "text": "Access-Control-Allow-Origin: *"
+        },
+        {
+          "type": "p",
+          "text": "This permits any origin to read responses where that header is applicable."
+        },
+        {
+          "type": "p",
+          "text": "It is acceptable for genuinely public, non-credentialed resources in appropriate circumstances, but it is usually unsuitable for private APIs."
+        },
+        {
+          "type": "p",
+          "text": "Problem 2: Reflecting arbitrary origins"
+        },
+        {
+          "type": "p",
+          "text": "An application might read the request's Origin header and automatically return it as an allowed origin without verifying it."
+        },
+        {
+          "type": "p",
+          "text": "This is dangerous because arbitrary websites may then be permitted to read sensitive browser responses, especially when credentials are also permitted."
+        },
+        {
+          "type": "p",
+          "text": "Problem 3: Allowing credentials unnecessarily"
+        },
+        {
+          "type": "p",
+          "text": "An API may enable credentialed cross-origin requests even though they are not required."
+        },
+        {
+          "type": "p",
+          "text": "Problem 4: Confusing CORS with authentication"
+        },
+        {
+          "type": "p",
+          "text": "This is particularly important:"
+        },
+        {
+          "type": "p",
+          "text": "CORS is not an authentication or authorization mechanism."
+        },
+        {
+          "type": "p",
+          "text": "A non-browser client can call an API without being constrained by browser CORS enforcement. Every API request must still be authenticated and authorized by the server."
+        },
+        {
+          "type": "p",
+          "text": "CORS does not replace CSRF protection either."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Cheat Sheet Series+1"
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Secure CORS configuration in Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Use an explicit allowlist."
+        },
+        {
+          "type": "code",
+          "text": "@Configuration public class CorsConfig { @Bean public CorsConfigurationSource corsConfigurationSource() { CorsConfiguration config = new CorsConfiguration(); config.setAllowedOrigins( List.of(\"https://frontend.example.com\") ); config.setAllowedMethods( List.of( \"GET\", \"POST\", \"PUT\", \"PATCH\", \"DELETE\", \"OPTIONS\" ) ); config.setAllowedHeaders( List.of( \"Authorization\", \"Content-Type\", \"X-Request-Id\" ) ); config.setAllowCredentials(false); config.setMaxAge(3600L); UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(); source.registerCorsConfiguration( \"/api/**\", config ); return source; } }"
+        },
+        {
+          "type": "p",
+          "text": "Then integrate CORS with the Spring Security filter chain:"
+        },
+        {
+          "type": "code",
+          "text": "@Bean public SecurityFilterChain securityFilterChain( HttpSecurity http) throws Exception { http .cors(Customizer.withDefaults()) .authorizeHttpRequests(auth -> auth .anyRequest().authenticated() ); return http.build(); }"
+        },
+        {
+          "type": "p",
+          "text": "This example uses a bearer-token style request and does not require cross-origin browser cookies."
+        },
+        {
+          "type": "p",
+          "text": "When cookie-based authentication requires cross-origin credentials, configure an exact trusted origin and enable credentials only where necessary. Also apply the appropriate CSRF protection."
+        },
+        {
+          "type": "p",
+          "text": "Spring Security requires CORS processing to happen before its authentication checks for proper preflight handling."
+        },
+        {
+          "type": "p",
+          "text": "Home+1"
+        },
+        {
+          "type": "h3",
+          "text": "8.7 How to test CORS"
+        },
+        {
+          "type": "p",
+          "text": "Test at least these cases:"
+        },
+        {
+          "type": "p",
+          "text": "Request origin"
+        },
+        {
+          "type": "p",
+          "text": "Expected behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Trusted frontend origin"
+        },
+        {
+          "type": "p",
+          "text": "Allowed"
+        },
+        {
+          "type": "p",
+          "text": "Unrecognized website origin"
+        },
+        {
+          "type": "p",
+          "text": "Not allowed"
+        },
+        {
+          "type": "p",
+          "text": "Missing origin"
+        },
+        {
+          "type": "p",
+          "text": "Normal API security rules still apply"
+        },
+        {
+          "type": "p",
+          "text": "OPTIONS preflight"
+        },
+        {
+          "type": "p",
+          "text": "Correct preflight handling"
+        },
+        {
+          "type": "p",
+          "text": "Credentialed request"
+        },
+        {
+          "type": "p",
+          "text": "Allowed only under the configured policy"
+        },
+        {
+          "type": "p",
+          "text": "Also verify that a rejected browser origin does not lead you to assume that the actual server endpoint is protected from unauthorized direct requests."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: CORS controls browser-based cross-origin response access. It does not replace backend authentication, authorization or CSRF protection."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Section 9",
+      "title": "9. Secure File Upload and Download APIs",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 Why are file APIs a security risk?"
+        },
+        {
+          "type": "p",
+          "text": "Many applications allow users to upload and download documents."
+        },
+        {
+          "type": "p",
+          "text": "A course management platform might allow:"
+        },
+        {
+          "type": "p",
+          "text": "Instructors to upload course PDFs."
+        },
+        {
+          "type": "p",
+          "text": "Students to upload assignments."
+        },
+        {
+          "type": "p",
+          "text": "Users to upload profile pictures."
+        },
+        {
+          "type": "p",
+          "text": "Administrators to upload certificates."
+        },
+        {
+          "type": "p",
+          "text": "Students to download learning materials."
+        },
+        {
+          "type": "p",
+          "text": "File handling creates security risks because the backend receives content that may not be trustworthy."
+        },
+        {
+          "type": "p",
+          "text": "A file called assignment.pdf is not necessarily a genuine PDF."
+        },
+        {
+          "type": "p",
+          "text": "Its filename, extension and declared content type can all be misleading."
+        },
+        {
+          "type": "p",
+          "text": "A malicious upload could contain:"
+        },
+        {
+          "type": "p",
+          "text": "Executable content."
+        },
+        {
+          "type": "p",
+          "text": "Malicious scripts."
+        },
+        {
+          "type": "p",
+          "text": "Unexpected file formats."
+        },
+        {
+          "type": "p",
+          "text": "Extremely large data."
+        },
+        {
+          "type": "p",
+          "text": "Archive bombs."
+        },
+        {
+          "type": "p",
+          "text": "Files designed to exploit vulnerable parsers."
+        },
+        {
+          "type": "p",
+          "text": "Content that exposes users to unsafe downloads."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 Common file upload vulnerabilities"
+        },
+        {
+          "type": "p",
+          "text": "A. Unrestricted file type uploads"
+        },
+        {
+          "type": "p",
+          "text": "Suppose your API accepts any uploaded file:"
+        },
+        {
+          "type": "code",
+          "text": "@PostMapping(\"/upload\") public String upload( @RequestParam MultipartFile file) { // Save file return \"Uploaded successfully\"; }"
+        },
+        {
+          "type": "p",
+          "text": "There is no validation of:"
+        },
+        {
+          "type": "p",
+          "text": "File extension."
+        },
+        {
+          "type": "p",
+          "text": "Actual file format."
+        },
+        {
+          "type": "p",
+          "text": "File size."
+        },
+        {
+          "type": "p",
+          "text": "User permission."
+        },
+        {
+          "type": "p",
+          "text": "File content."
+        },
+        {
+          "type": "p",
+          "text": "This is unsafe."
+        },
+        {
+          "type": "p",
+          "text": "B. Trusting the Content-Type header"
+        },
+        {
+          "type": "p",
+          "text": "A client might declare:"
+        },
+        {
+          "type": "code",
+          "text": "Content-Type: application/pdf"
+        },
+        {
+          "type": "p",
+          "text": "This does not prove that the uploaded file is actually a PDF."
+        },
+        {
+          "type": "p",
+          "text": "The Content-Type value is supplied by the client and must not be treated as authoritative."
+        },
+        {
+          "type": "p",
+          "text": "C. Unsafe filenames"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a user uploads:"
+        },
+        {
+          "type": "p",
+          "text": "../../important-config.txt"
+        },
+        {
+          "type": "p",
+          "text": "Using user-supplied filenames directly as storage paths can create path traversal vulnerabilities."
+        },
+        {
+          "type": "p",
+          "text": "The application should generate its own storage identifiers."
+        },
+        {
+          "type": "p",
+          "text": "D. Excessively large uploads"
+        },
+        {
+          "type": "p",
+          "text": "An API that accepts unlimited file sizes can consume:"
+        },
+        {
+          "type": "p",
+          "text": "Memory."
+        },
+        {
+          "type": "p",
+          "text": "Disk space."
+        },
+        {
+          "type": "p",
+          "text": "Network bandwidth."
+        },
+        {
+          "type": "p",
+          "text": "Processing resources."
+        },
+        {
+          "type": "p",
+          "text": "This can affect application availability."
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Secure file upload architecture"
+        },
+        {
+          "type": "p",
+          "text": "A secure file upload process should follow a defined workflow."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Section 1",
+      "title": "1. Receive upload request",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Authenticate the user and check upload permission"
+        },
+        {
+          "type": "p",
+          "text": "2. Validate file"
+        },
+        {
+          "type": "p",
+          "text": "Size, permitted extension and actual file format"
+        },
+        {
+          "type": "p",
+          "text": "3. Security inspection"
+        },
+        {
+          "type": "p",
+          "text": "Malware scanning and content safety checks"
+        },
+        {
+          "type": "p",
+          "text": "4. Safe storage"
+        },
+        {
+          "type": "p",
+          "text": "Generate a server-controlled filename and store privately"
+        },
+        {
+          "type": "p",
+          "text": "5. Record metadata"
+        },
+        {
+          "type": "p",
+          "text": "Store owner, generated ID, format and scan status"
+        },
+        {
+          "type": "p",
+          "text": "6. Make available after approval"
+        },
+        {
+          "type": "p",
+          "text": "Authorize downloads separately"
+        },
+        {
+          "type": "h3",
+          "text": "9.4 File validation techniques"
+        },
+        {
+          "type": "p",
+          "text": "A secure upload system should use multiple checks."
+        },
+        {
+          "type": "p",
+          "text": "Validation"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Extension allowlist"
+        },
+        {
+          "type": "p",
+          "text": "Restrict permitted filename extensions"
+        },
+        {
+          "type": "p",
+          "text": "MIME type inspection"
+        },
+        {
+          "type": "p",
+          "text": "Inspect declared and detected file formats"
+        },
+        {
+          "type": "p",
+          "text": "File signature validation"
+        },
+        {
+          "type": "p",
+          "text": "Verify actual format using file content"
+        },
+        {
+          "type": "p",
+          "text": "Size restrictions"
+        },
+        {
+          "type": "p",
+          "text": "Prevent resource exhaustion"
+        },
+        {
+          "type": "p",
+          "text": "Filename generation"
+        },
+        {
+          "type": "p",
+          "text": "Prevent unsafe path construction"
+        },
+        {
+          "type": "p",
+          "text": "Malware scanning"
+        },
+        {
+          "type": "p",
+          "text": "Identify potentially malicious files"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Restrict who may upload"
+        },
+        {
+          "type": "p",
+          "text": "Quarantine"
+        },
+        {
+          "type": "p",
+          "text": "Prevent unapproved files from being downloaded"
+        },
+        {
+          "type": "p",
+          "text": "For example, your course management platform might permit only:"
+        },
+        {
+          "type": "p",
+          "text": ".pdf .png .jpg .jpeg"
+        },
+        {
+          "type": "p",
+          "text": "The application should verify the actual file format as well as the extension."
+        },
+        {
+          "type": "p",
+          "text": "Do not rely on the extension or Content-Type header alone."
+        },
+        {
+          "type": "p",
+          "text": "OWASP's File Upload Cheat Sheet provides guidance on extension allowlists, file signatures, authorization, size limits and safe storage."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Cheat Sheet Series"
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Secure Spring Boot upload implementation"
+        },
+        {
+          "type": "p",
+          "text": "First, configure upload limits:"
+        },
+        {
+          "type": "p",
+          "text": "spring.servlet.multipart.max-file-size=10MB spring.servlet.multipart.max-request-size=12MB"
+        },
+        {
+          "type": "p",
+          "text": "These are illustrative limits. Choose values appropriate to your application and enforce limits at the infrastructure or reverse-proxy layer as well."
+        },
+        {
+          "type": "p",
+          "text": "Create an upload service:"
+        },
+        {
+          "type": "code",
+          "text": "@Service public class FileUploadService { private static final long MAX_SIZE = 10 * 1024 * 1024; private static final Set<String> ALLOWED_TYPES = Set.of( \"application/pdf\", \"image/jpeg\", \"image/png\" ); private final FileTypeInspector fileTypeInspector; private final MalwareScanner malwareScanner; private final PrivateFileStorage storage; public FileUploadService( FileTypeInspector fileTypeInspector, MalwareScanner malwareScanner, PrivateFileStorage storage) { this.fileTypeInspector = fileTypeInspector; this.malwareScanner = malwareScanner; this.storage = storage; } public String upload(MultipartFile file) throws IOException { if (file.isEmpty()) { throw new IllegalArgumentException( \"File cannot be empty\" ); } if (file.getSize() > MAX_SIZE) { throw new IllegalArgumentException( \"File size exceeds the limit\" ); } String detectedType = fileTypeInspector.detect( file.getInputStream() ); if (!ALLOWED_TYPES.contains(detectedType)) { throw new IllegalArgumentException( \"Unsupported file format\" ); } malwareScanner.scan(file); String storageKey = UUID.randomUUID().toString(); storage.store(storageKey, file); return storageKey; } }"
+        },
+        {
+          "type": "p",
+          "text": "This is an architecture example. FileTypeInspector, MalwareScanner and PrivateFileStorage must have real implementations. The scanner must fail closed when inspection cannot be completed, and uploaded content should remain quarantined until approved."
+        },
+        {
+          "type": "p",
+          "text": "Notice that the application's storage identifier is generated independently from the original filename."
+        },
+        {
+          "type": "h3",
+          "text": "9.6 Secure file storage"
+        },
+        {
+          "type": "p",
+          "text": "Do not automatically store uploaded documents inside a publicly accessible web directory."
+        },
+        {
+          "type": "p",
+          "text": "Safer approaches include:"
+        },
+        {
+          "type": "p",
+          "text": "Private object storage."
+        },
+        {
+          "type": "p",
+          "text": "Filesystem directories outside the web root."
+        },
+        {
+          "type": "p",
+          "text": "Restricted storage permissions."
+        },
+        {
+          "type": "p",
+          "text": "Separate upload and download services."
+        },
+        {
+          "type": "p",
+          "text": "Quarantine storage for files awaiting inspection."
+        },
+        {
+          "type": "p",
+          "text": "For object storage, the public should not be able to retrieve private files merely by guessing their storage paths."
+        },
+        {
+          "type": "h3",
+          "text": "9.7 Secure file downloads"
+        },
+        {
+          "type": "p",
+          "text": "File downloads require their own authorization checks."
+        },
+        {
+          "type": "p",
+          "text": "Imagine:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/files/501/download"
+        },
+        {
+          "type": "p",
+          "text": "The backend must check:"
+        },
+        {
+          "type": "p",
+          "text": "Does the file exist?"
+        },
+        {
+          "type": "p",
+          "text": "Is the requesting user authenticated?"
+        },
+        {
+          "type": "p",
+          "text": "Does the user have permission to view it?"
+        },
+        {
+          "type": "p",
+          "text": "Is the file approved for download?"
+        },
+        {
+          "type": "p",
+          "text": "Is it associated with the correct course or student?"
+        },
+        {
+          "type": "p",
+          "text": "Is the download being delivered with safe response headers?"
+        },
+        {
+          "type": "p",
+          "text": "For sensitive files, return them as attachments where appropriate, set a controlled Content-Type, and use X-Content-Type-Options: nosniff."
+        },
+        {
+          "type": "p",
+          "text": "A short-lived signed URL may be appropriate for private object storage, but remember that possession of that URL can grant access until it expires. Treat it as a temporary credential."
+        },
+        {
+          "type": "h3",
+          "text": "9.8 Additional file security considerations"
+        },
+        {
+          "type": "p",
+          "text": "Archive uploads"
+        },
+        {
+          "type": "p",
+          "text": "If ZIP files are supported, consider:"
+        },
+        {
+          "type": "p",
+          "text": "Maximum expanded size."
+        },
+        {
+          "type": "p",
+          "text": "Maximum number of files."
+        },
+        {
+          "type": "p",
+          "text": "Nested archive depth."
+        },
+        {
+          "type": "p",
+          "text": "Path traversal during extraction."
+        },
+        {
+          "type": "p",
+          "text": "CPU and memory consumption."
+        },
+        {
+          "type": "p",
+          "text": "Active content"
+        },
+        {
+          "type": "p",
+          "text": "Avoid allowing HTML, SVG or other active content to be served from an origin with sensitive application cookies or privileges unless there is a carefully designed isolation strategy."
+        },
+        {
+          "type": "p",
+          "text": "File replacement"
+        },
+        {
+          "type": "p",
+          "text": "Verify that a user cannot overwrite another user's file by changing the identifier."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: Upload security means validating the file, controlling storage, scanning content and independently authorizing downloads."
+        },
+        {
+          "type": "p",
+          "text": "10. Secrets and Credential Management"
+        },
+        {
+          "type": "h3",
+          "text": "10.1 What are secrets?"
+        },
+        {
+          "type": "p",
+          "text": "Secrets are confidential values used by applications to authenticate themselves or access protected services."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Database passwords."
+        },
+        {
+          "type": "p",
+          "text": "API keys."
+        },
+        {
+          "type": "p",
+          "text": "JWT signing keys."
+        },
+        {
+          "type": "p",
+          "text": "Encryption keys."
+        },
+        {
+          "type": "p",
+          "text": "Cloud credentials."
+        },
+        {
+          "type": "p",
+          "text": "OAuth client secrets."
+        },
+        {
+          "type": "p",
+          "text": "Payment provider credentials."
+        },
+        {
+          "type": "p",
+          "text": "SMTP passwords."
+        },
+        {
+          "type": "p",
+          "text": "Third-party AI API keys."
+        },
+        {
+          "type": "p",
+          "text": "A backend can have excellent authorization controls and still be compromised when an attacker obtains its secret credentials."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 The hardcoded secrets problem"
+        },
+        {
+          "type": "p",
+          "text": "Consider:"
+        },
+        {
+          "type": "code",
+          "text": "public class DatabaseConfig { private String username = \"admin\"; private String password = \"myDatabasePassword\"; }"
+        },
+        {
+          "type": "p",
+          "text": "This is dangerous because the credentials are embedded in application source code."
+        },
+        {
+          "type": "p",
+          "text": "Imagine a developer commits the file to a public Git repository."
+        },
+        {
+          "type": "p",
+          "text": "Anyone who obtains the source may also obtain the credentials."
+        },
+        {
+          "type": "p",
+          "text": "Removing the password from the latest version does not necessarily remove it from previous Git commits."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Secure configuration using environment variables"
+        },
+        {
+          "type": "p",
+          "text": "Instead of hardcoding credentials, reference externally provided configuration."
+        },
+        {
+          "type": "p",
+          "text": "Example application.yml:"
+        },
+        {
+          "type": "code",
+          "text": "spring: datasource: url: ${DB_URL} username: ${DB_USERNAME} password: ${DB_PASSWORD}"
+        },
+        {
+          "type": "p",
+          "text": "At runtime, the application receives the relevant configuration through its deployment environment or secret-injection mechanism."
+        },
+        {
+          "type": "p",
+          "text": "This separates application source code from sensitive configuration."
+        },
+        {
+          "type": "p",
+          "text": "However, environment variables are not automatically a complete secrets-management solution. Their access, exposure, permissions and lifecycle must also be controlled."
+        },
+        {
+          "type": "h3",
+          "text": "10.4 Use a secrets manager"
+        },
+        {
+          "type": "p",
+          "text": "A dedicated secrets-management system provides more control than manually distributing passwords."
+        },
+        {
+          "type": "p",
+          "text": "Examples include:"
+        },
+        {
+          "type": "p",
+          "text": "[HashiCorp Vault + HSM | Secure Secrets & Sealing/Unsealing](https://images.openai.com/static-rsc-4/3rJO1PZuHw6Ip0Ume_nb0xmCiD_4wwO8IcUJnpwAP6lX0eYPwD6hFEI-eBZDfEJnG01yoCw1NamIGkn1phEw-DvKoW1yLbIJAoRpzPdtWMyquP6x6-0wRtCW4jTi7oFgr0UeINfsNsNc5NXZcAgtwKNczQicFk_ztTRC3xa7n4Q?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "HashiCorp Vault"
+        },
+        {
+          "type": "p",
+          "text": "Centralized secret storage, access policies, credential management and rotation."
+        },
+        {
+          "type": "p",
+          "text": "[Documentation](https://developer.hashicorp.com/vault/docs?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "[Case Study: Store and Retrieve secrets using AWS Secrets Manager | by Rohan Mode | Medium](https://images.openai.com/static-rsc-4/PtS8R1k4Ut_VfinJDpdvdx70NrpCAImOhWcOw-VXw5SWkslKAzRVdqhbkPiHNWbx3TAtA2d3ivpE7GVCePOsG25Er31cudoAbZ4Lzp_wggm-CuPfD8OjVxx9gN5ddTR3-tw9dtM34VC0anPjAkF3OEoLLRX9lsPnvBlYQcsXthE?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "AWS Secrets Manager"
+        },
+        {
+          "type": "p",
+          "text": "Manages application secrets and supports credential rotation."
+        },
+        {
+          "type": "p",
+          "text": "[Documentation](https://docs.aws.amazon.com/secretsmanager/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "[How to Store Sensitive Data on GCP: Secret Manager | by Juan Guillermo Gómez Torres | Google Developer Experts | Medium](https://images.openai.com/static-rsc-4/UFIfeQyO1H1M3XPfPsns5s0zwA_4QtJPgCF9sGX3n8tSc3FI_rB-Cwx-lQ9Nok1Evwnhy3rj2RKaF3HuTez617UcUZD4rMhHelCcENgGJkftTomcL5u0kdHYbeU3xdCSc74OdmG-aZlkXlXhADYtChDnY_oldUO2KzwZTZ44ONQ?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Google Cloud Secret Manager"
+        },
+        {
+          "type": "p",
+          "text": "Stores and manages secrets for applications running on Google Cloud."
+        },
+        {
+          "type": "p",
+          "text": "[Official documentation](https://cloud.google.com/security/products/secret-manager?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "OWASP recommends centralized secret management, controlled provisioning, auditing, rotation and revocation."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Cheat Sheet Series"
+        },
+        {
+          "type": "h3",
+          "text": "10.5 Least privilege for secrets"
+        },
+        {
+          "type": "p",
+          "text": "A database connection does not necessarily need the database administrator account."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "Backend Application | v Course API Database User | +---- Read permitted tables +---- Insert permitted records +---- Update permitted records | X---- Cannot manage database users X---- Cannot change database security configuration"
+        },
+        {
+          "type": "p",
+          "text": "Grant only the required permissions."
+        },
+        {
+          "type": "p",
+          "text": "Also use separate credentials for:"
+        },
+        {
+          "type": "p",
+          "text": "Development."
+        },
+        {
+          "type": "p",
+          "text": "Testing."
+        },
+        {
+          "type": "p",
+          "text": "Staging."
+        },
+        {
+          "type": "p",
+          "text": "Production."
+        },
+        {
+          "type": "p",
+          "text": "Never reuse production credentials in local development or testing environments."
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Secret rotation and revocation"
+        },
+        {
+          "type": "p",
+          "text": "A secret should have a lifecycle."
+        },
+        {
+          "type": "p",
+          "text": "Creation"
+        },
+        {
+          "type": "p",
+          "text": "Generate a strong, unique secret."
+        },
+        {
+          "type": "p",
+          "text": "Secure storage"
+        },
+        {
+          "type": "p",
+          "text": "Store it in an approved secret-management system."
+        },
+        {
+          "type": "p",
+          "text": "Controlled access"
+        },
+        {
+          "type": "p",
+          "text": "Permit access only to authorized users and services."
+        },
+        {
+          "type": "p",
+          "text": "Rotation"
+        },
+        {
+          "type": "p",
+          "text": "Replace credentials according to their risk and lifecycle requirements."
+        },
+        {
+          "type": "p",
+          "text": "Revocation"
+        },
+        {
+          "type": "p",
+          "text": "Immediately invalidate a compromised secret."
+        },
+        {
+          "type": "p",
+          "text": "Imagine a production API key accidentally appears in a Git commit."
+        },
+        {
+          "type": "p",
+          "text": "Correct response:"
+        },
+        {
+          "type": "p",
+          "text": "Revoke the exposed key immediately."
+        },
+        {
+          "type": "p",
+          "text": "Generate a replacement."
+        },
+        {
+          "type": "p",
+          "text": "Update the application's secure configuration."
+        },
+        {
+          "type": "p",
+          "text": "Verify that the new credential works."
+        },
+        {
+          "type": "p",
+          "text": "Investigate whether the old key was used."
+        },
+        {
+          "type": "p",
+          "text": "Remove the exposed value from accessible source, logs and other locations."
+        },
+        {
+          "type": "p",
+          "text": "Review the incident and improve secret-scanning controls."
+        },
+        {
+          "type": "p",
+          "text": "Do not simply delete the key from the latest source file and assume that the incident is resolved."
+        },
+        {
+          "type": "h3",
+          "text": "10.7 Git repository security"
+        },
+        {
+          "type": "p",
+          "text": "Use repository controls:"
+        },
+        {
+          "type": "p",
+          "text": "Keep actual local secret files out of Git."
+        },
+        {
+          "type": "p",
+          "text": "Include only placeholder configuration examples."
+        },
+        {
+          "type": "p",
+          "text": "Never commit production .env files."
+        },
+        {
+          "type": "p",
+          "text": "Enable secret scanning where available."
+        },
+        {
+          "type": "p",
+          "text": "Review pull requests for accidental credentials."
+        },
+        {
+          "type": "p",
+          "text": "Restrict repository access."
+        },
+        {
+          "type": "p",
+          "text": "Example .gitignore:"
+        },
+        {
+          "type": "p",
+          "text": ".env .env.* !.env.example application-local-secrets.yml *.pem *.key"
+        },
+        {
+          "type": "p",
+          "text": "The exact ignore patterns should match your project structure. Also remember that .gitignore does not remove files already tracked by Git."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: A secret is a credential, not ordinary application configuration. Protect its complete lifecycle, including creation, access, rotation and revocation."
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Section 11",
+      "title": "11. API Logging and Sensitive Data Exposure",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "11.1 What is API logging?"
+        },
+        {
+          "type": "p",
+          "text": "Logging is the process of recording important events that occur inside an application."
+        },
+        {
+          "type": "p",
+          "text": "Logs help developers and security engineers understand:"
+        },
+        {
+          "type": "p",
+          "text": "What happened."
+        },
+        {
+          "type": "p",
+          "text": "When it happened."
+        },
+        {
+          "type": "p",
+          "text": "Which application component was involved."
+        },
+        {
+          "type": "p",
+          "text": "Which user or service initiated the action."
+        },
+        {
+          "type": "p",
+          "text": "Whether the action succeeded or failed."
+        },
+        {
+          "type": "p",
+          "text": "Whether suspicious behaviour occurred."
+        },
+        {
+          "type": "p",
+          "text": "For example, an administrator deletes a course."
+        },
+        {
+          "type": "p",
+          "text": "A useful security log might record:"
+        },
+        {
+          "type": "p",
+          "text": "Timestamp: 2026-11-27T10:30:00 Event: COURSE_DELETED Actor: admin-101 Resource: course-500 Result: SUCCESS Request ID: req-abc123"
+        },
+        {
+          "type": "p",
+          "text": "This helps investigate activity without exposing sensitive credentials."
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Why are logs important for security?"
+        },
+        {
+          "type": "p",
+          "text": "Imagine someone modifies a student's course progress without permission."
+        },
+        {
+          "type": "p",
+          "text": "Without appropriate logs, it may be difficult to establish:"
+        },
+        {
+          "type": "p",
+          "text": "Which account performed the operation."
+        },
+        {
+          "type": "p",
+          "text": "Which progress record changed."
+        },
+        {
+          "type": "p",
+          "text": "When the modification occurred."
+        },
+        {
+          "type": "p",
+          "text": "Whether the request came from a permitted operation."
+        },
+        {
+          "type": "p",
+          "text": "Whether similar suspicious requests occurred earlier."
+        },
+        {
+          "type": "p",
+          "text": "Logging is also important for detecting:"
+        },
+        {
+          "type": "p",
+          "text": "Repeated authentication failures."
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized administrative access attempts."
+        },
+        {
+          "type": "p",
+          "text": "Repeated validation failures."
+        },
+        {
+          "type": "p",
+          "text": "Unusual file downloads."
+        },
+        {
+          "type": "p",
+          "text": "Unexpected permission changes."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive data export."
+        },
+        {
+          "type": "p",
+          "text": "API abuse."
+        },
+        {
+          "type": "p",
+          "text": "OWASP recommends recording important security events and including logging verification in security testing."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Cheat Sheet Series+1"
+        },
+        {
+          "type": "h3",
+          "text": "11.3 What should never be logged?"
+        },
+        {
+          "type": "p",
+          "text": "A common backend security mistake is logging complete HTTP requests and responses without considering the information they contain."
+        },
+        {
+          "type": "p",
+          "text": "Never directly log:"
+        },
+        {
+          "type": "p",
+          "text": "User passwords."
+        },
+        {
+          "type": "p",
+          "text": "Access tokens."
+        },
+        {
+          "type": "p",
+          "text": "Refresh tokens."
+        },
+        {
+          "type": "p",
+          "text": "Session identifiers."
+        },
+        {
+          "type": "p",
+          "text": "Database passwords."
+        },
+        {
+          "type": "p",
+          "text": "API keys."
+        },
+        {
+          "type": "p",
+          "text": "Encryption keys."
+        },
+        {
+          "type": "p",
+          "text": "Full authentication headers."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive personal information unless there is a clearly justified and authorized need."
+        },
+        {
+          "type": "p",
+          "text": "For example, this is unsafe:"
+        },
+        {
+          "type": "p",
+          "text": "log.info(\"Request headers: {}\", requestHeaders);"
+        },
+        {
+          "type": "p",
+          "text": "It might expose an Authorization header containing a bearer token."
+        },
+        {
+          "type": "p",
+          "text": "Instead, log safe, selected metadata:"
+        },
+        {
+          "type": "p",
+          "text": "log.info( \"API request: requestId={}, method={}, path={}\", requestId, method, sanitizedPath );"
+        },
+        {
+          "type": "p",
+          "text": "OWASP specifically advises removing, masking, hashing or otherwise protecting sensitive values such as passwords, access tokens and session identifiers in logs."
+        },
+        {
+          "type": "p",
+          "text": "OWASP Cheat Sheet Series"
+        },
+        {
+          "type": "h3",
+          "text": "11.4 Types of backend logs"
+        },
+        {
+          "type": "p",
+          "text": "Log type"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "Application logs"
+        },
+        {
+          "type": "p",
+          "text": "Application behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Course service operation"
+        },
+        {
+          "type": "p",
+          "text": "Error logs"
+        },
+        {
+          "type": "p",
+          "text": "Application failures"
+        },
+        {
+          "type": "p",
+          "text": "Database exception"
+        },
+        {
+          "type": "p",
+          "text": "Security logs"
+        },
+        {
+          "type": "p",
+          "text": "Security-related events"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized request"
+        },
+        {
+          "type": "p",
+          "text": "Audit logs"
+        },
+        {
+          "type": "p",
+          "text": "Records important user actions"
+        },
+        {
+          "type": "p",
+          "text": "Administrator changes a role"
+        },
+        {
+          "type": "p",
+          "text": "Access logs"
+        },
+        {
+          "type": "p",
+          "text": "HTTP request information"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint and response status"
+        },
+        {
+          "type": "p",
+          "text": "Performance logs"
+        },
+        {
+          "type": "p",
+          "text": "Performance information"
+        },
+        {
+          "type": "p",
+          "text": "Slow database query"
+        },
+        {
+          "type": "p",
+          "text": "These categories may be implemented through shared logging infrastructure, but they should have clearly defined purposes and access restrictions."
+        },
+        {
+          "type": "h3",
+          "text": "11.5 Designing audit events"
+        },
+        {
+          "type": "p",
+          "text": "Consider a user changing a course's visibility."
+        },
+        {
+          "type": "p",
+          "text": "An audit event should capture:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"event\": \"COURSE_VISIBILITY_CHANGED\", \"actorId\": \"admin-101\", \"resourceId\": \"course-500\", \"previousValue\": \"PRIVATE\", \"newValue\": \"PUBLIC\", \"timestamp\": \"2026-11-27T10:30:00Z\", \"result\": \"SUCCESS\" }"
+        },
+        {
+          "type": "p",
+          "text": "This is an illustrative audit record. The previous and new values should only be included if they are appropriate to retain and do not reveal unnecessary sensitive information."
+        },
+        {
+          "type": "p",
+          "text": "A well-designed audit system should have:"
+        },
+        {
+          "type": "p",
+          "text": "Consistent event names."
+        },
+        {
+          "type": "p",
+          "text": "Accurate timestamps."
+        },
+        {
+          "type": "p",
+          "text": "Request or correlation IDs."
+        },
+        {
+          "type": "p",
+          "text": "Actor identification."
+        },
+        {
+          "type": "p",
+          "text": "Resource identification."
+        },
+        {
+          "type": "p",
+          "text": "Event outcome."
+        },
+        {
+          "type": "p",
+          "text": "Restricted access."
+        },
+        {
+          "type": "p",
+          "text": "Defined retention requirements."
+        },
+        {
+          "type": "p",
+          "text": "For high-value operations, consider append-only or tamper-resistant audit storage."
+        },
+        {
+          "type": "h3",
+          "text": "11.6 Log injection"
+        },
+        {
+          "type": "p",
+          "text": "Logs are also an input-handling surface."
+        },
+        {
+          "type": "p",
+          "text": "Imagine a user submits a course title containing newline characters."
+        },
+        {
+          "type": "p",
+          "text": "If the application inserts that value into a log message without sanitization, an attacker could manipulate the appearance of log entries."
+        },
+        {
+          "type": "p",
+          "text": "This is called log injection."
+        },
+        {
+          "type": "p",
+          "text": "Use structured logging where possible, validate untrusted values and encode or sanitize characters that could alter the log format."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "log.warn( \"Invalid course update: actorId={}, courseId={}, result={}\", actorId, courseId, \"REJECTED\" );"
+        },
+        {
+          "type": "p",
+          "text": "Avoid including arbitrary request bodies or unsanitized user-controlled text."
+        },
+        {
+          "type": "h3",
+          "text": "11.7 Centralized logging and monitoring"
+        },
+        {
+          "type": "p",
+          "text": "Production backend systems commonly collect application logs in centralized infrastructure."
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot API"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Authentication Service"
+        },
+        {
+          "type": "p",
+          "text": "File Storage"
+        },
+        {
+          "type": "p",
+          "text": "Centralized Logging Platform"
+        },
+        {
+          "type": "p",
+          "text": "Search, filter, correlate and investigate events"
+        },
+        {
+          "type": "p",
+          "text": "Monitoring and Security Alerts"
+        },
+        {
+          "type": "p",
+          "text": "Detect suspicious activity and application incidents"
+        },
+        {
+          "type": "p",
+          "text": "Common technologies include:"
+        },
+        {
+          "type": "p",
+          "text": "ELK Stack."
+        },
+        {
+          "type": "p",
+          "text": "Grafana Loki."
+        },
+        {
+          "type": "p",
+          "text": "OpenTelemetry."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: Security logging must provide enough evidence to investigate problems without becoming another source of sensitive data exposure."
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "badge": "Section 12",
+      "title": "12. Security Testing and API Hardening",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "12.1 What is security testing?"
+        },
+        {
+          "type": "p",
+          "text": "Security testing is the process of examining an application to identify weaknesses that could be exploited to bypass security controls."
+        },
+        {
+          "type": "p",
+          "text": "Module 08 taught you how to verify that your backend works correctly."
+        },
+        {
+          "type": "p",
+          "text": "Module 09 extends that knowledge by asking:"
+        },
+        {
+          "type": "p",
+          "text": "Can someone misuse the application even when its endpoints appear to work correctly?"
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "A course update API may correctly return 200 OK, but if a student can modify a course belonging to another instructor, the API has a security vulnerability."
+        },
+        {
+          "type": "p",
+          "text": "Functional correctness is not sufficient."
+        },
+        {
+          "type": "p",
+          "text": "You must test security requirements separately."
+        },
+        {
+          "type": "h3",
+          "text": "12.2 Types of API security testing"
+        },
+        {
+          "type": "p",
+          "text": "A. Authentication testing"
+        },
+        {
+          "type": "p",
+          "text": "Check:"
+        },
+        {
+          "type": "p",
+          "text": "Missing access tokens."
+        },
+        {
+          "type": "p",
+          "text": "Invalid tokens."
+        },
+        {
+          "type": "p",
+          "text": "Expired tokens."
+        },
+        {
+          "type": "p",
+          "text": "Invalid token signatures."
+        },
+        {
+          "type": "p",
+          "text": "Refresh-token behaviour."
+        },
+        {
+          "type": "p",
+          "text": "Authentication bypass."
+        },
+        {
+          "type": "p",
+          "text": "Improperly protected endpoints."
+        },
+        {
+          "type": "p",
+          "text": "B. Authorization testing"
+        },
+        {
+          "type": "p",
+          "text": "Check:"
+        },
+        {
+          "type": "p",
+          "text": "BOLA."
+        },
+        {
+          "type": "p",
+          "text": "BFLA."
+        },
+        {
+          "type": "p",
+          "text": "Cross-user access."
+        },
+        {
+          "type": "p",
+          "text": "Role escalation."
+        },
+        {
+          "type": "p",
+          "text": "Resource ownership."
+        },
+        {
+          "type": "p",
+          "text": "Administrative permissions."
+        },
+        {
+          "type": "p",
+          "text": "Permission enforcement across HTTP methods."
+        },
+        {
+          "type": "p",
+          "text": "C. Input validation testing"
+        },
+        {
+          "type": "p",
+          "text": "Check:"
+        },
+        {
+          "type": "p",
+          "text": "Unexpected data types."
+        },
+        {
+          "type": "p",
+          "text": "Excessively long inputs."
+        },
+        {
+          "type": "p",
+          "text": "Missing mandatory fields."
+        },
+        {
+          "type": "p",
+          "text": "Invalid identifiers."
+        },
+        {
+          "type": "p",
+          "text": "SQL injection resistance."
+        },
+        {
+          "type": "p",
+          "text": "Unexpected JSON properties."
+        },
+        {
+          "type": "p",
+          "text": "File validation."
+        },
+        {
+          "type": "p",
+          "text": "D. Configuration testing"
+        },
+        {
+          "type": "p",
+          "text": "Check:"
+        },
+        {
+          "type": "p",
+          "text": "CORS rules."
+        },
+        {
+          "type": "p",
+          "text": "HTTPS configuration."
+        },
+        {
+          "type": "p",
+          "text": "Exposed debug endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Default credentials."
+        },
+        {
+          "type": "p",
+          "text": "HTTP security headers."
+        },
+        {
+          "type": "p",
+          "text": "Unnecessary ports."
+        },
+        {
+          "type": "p",
+          "text": "Public storage access."
+        },
+        {
+          "type": "p",
+          "text": "Environment-specific settings."
+        },
+        {
+          "type": "p",
+          "text": "E. Resource abuse testing"
+        },
+        {
+          "type": "p",
+          "text": "Check:"
+        },
+        {
+          "type": "p",
+          "text": "API rate limits."
+        },
+        {
+          "type": "p",
+          "text": "Maximum request size."
+        },
+        {
+          "type": "p",
+          "text": "Maximum file size."
+        },
+        {
+          "type": "p",
+          "text": "Pagination limits."
+        },
+        {
+          "type": "p",
+          "text": "Expensive search queries."
+        },
+        {
+          "type": "p",
+          "text": "Concurrent requests."
+        },
+        {
+          "type": "p",
+          "text": "Repeated business operations."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 Manual API security testing"
+        },
+        {
+          "type": "p",
+          "text": "You can use Postman or curl to send requests directly to the backend."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "curl -i \\ http://localhost:8080/api/me/progress"
+        },
+        {
+          "type": "p",
+          "text": "Test the endpoint without authentication."
+        },
+        {
+          "type": "p",
+          "text": "Then provide a valid token:"
+        },
+        {
+          "type": "code",
+          "text": "curl -i \\ -H \"Authorization: Bearer YOUR_TEST_TOKEN\" \\ http://localhost:8080/api/me/progress"
+        },
+        {
+          "type": "p",
+          "text": "Next, test with separate student accounts and verify that one student cannot access another student's information."
+        },
+        {
+          "type": "p",
+          "text": "Use only test credentials and synthetic data in your isolated lab."
+        },
+        {
+          "type": "h3",
+          "text": "12.4 API security testing tools"
+        },
+        {
+          "type": "p",
+          "text": "[File:OWASP ZAP logo.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/3Lt-Gs86DR-wfrCgGkj7eOALVCXSWng2_hGDgJtM5S-8t1-9-q3mr8sX2wqFUiKq6bdaTiWMy82uH4hd9qHt0Lo29ZzjLG-l-v7eSJHcYz2e90MpK1itTX3Qpud6lMwmxSE5NlPm06yqO5ReoqpleuVjA2bU7gRNmbsXemi7tQQ?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "OWASP ZAP"
+        },
+        {
+          "type": "p",
+          "text": "Helps identify web and API security issues through automated and manual testing."
+        },
+        {
+          "type": "p",
+          "text": "Useful for authorized security assessments of your own test applications."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://www.zaproxy.org/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "[PortSwigger Burp Suite Professional - program do testów - Soft360.pl](https://images.openai.com/static-rsc-4/0MHxsct7bK9lc16p68KpKUyoXGJq729L9YkGOTYsnLzs3fGHBNxkkzawJ9pHqAGUWUrqAKg2xXyVBQ6sgOXHw4JVbrQCxpiVjdvy_n4xUMkU7A366EnttfsCVz2QS2yZLD6_EOlmitIrGyzjjWfNs-Q3qNKUo690aPpkouUwTH0?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Burp Suite"
+        },
+        {
+          "type": "p",
+          "text": "Intercepts and inspects HTTP requests and responses, helping security testers investigate API behaviour."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://portswigger.net/burp?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "[Интеграция Test IT с Postman | Test IT](https://images.openai.com/static-rsc-4/eDP46jptZbnrWrR7zdRQ_a47ByE88fitRbLlFI16GmDbyWlR_BUfmp8_urnDoPlziz1P5HubgTJ8AkwXok_re-iHHpe2bRuS5D-qxhT1gvg3vdHKrSMSKAxc0tqI4e_a7cf2SDfnAJsNFjtDhuUzm7Klvar4WZl8vTA6NzrdNGA?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Postman"
+        },
+        {
+          "type": "p",
+          "text": "Useful for manually verifying API authentication, request validation, role restrictions and error responses."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://www.postman.com/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "[GitHub - semgrep/semgrep: Lightweight static analysis for many languages. Find bug variants with patterns that look like source code. · GitHub](https://images.openai.com/static-rsc-4/k5NbDkA85m4xEUSTVrawpFu6GFjpjNl8SgGCk8da0WLDaf5oiKu-DR3q5nbcT3wKEVDbjE0pcSKMIabRGQ_-5tLUbosb5ntkWbX2maqah5WAyQI8_x4rwvsn15gcC_bzRVDzPhMwRlHXXDtNVLpmTJ_fHop_Sy8ML7Op7HtA39M?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Semgrep"
+        },
+        {
+          "type": "p",
+          "text": "Helps detect potentially unsafe code patterns during development."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://semgrep.dev/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "No single tool can identify every API security vulnerability. In particular, a scanner may not understand your business rules or know which student is permitted to access a particular course."
+        },
+        {
+          "type": "p",
+          "text": "Manual analysis, automated security tests, code review and threat modeling must work together."
+        },
+        {
+          "type": "h3",
+          "text": "12.5 Static and dynamic security testing"
+        },
+        {
+          "type": "p",
+          "text": "Two important security testing approaches are:"
+        },
+        {
+          "type": "p",
+          "text": "Static Application Security Testing (SAST)"
+        },
+        {
+          "type": "p",
+          "text": "Examines source code without requiring the application to be running."
+        },
+        {
+          "type": "p",
+          "text": "Examples of issues that static analysis can help identify:"
+        },
+        {
+          "type": "p",
+          "text": "Unsafe SQL construction."
+        },
+        {
+          "type": "p",
+          "text": "Hardcoded credentials."
+        },
+        {
+          "type": "p",
+          "text": "Dangerous API usage."
+        },
+        {
+          "type": "p",
+          "text": "Potential injection points."
+        },
+        {
+          "type": "p",
+          "text": "Insecure configuration patterns."
+        },
+        {
+          "type": "p",
+          "text": "Dynamic Application Security Testing (DAST)"
+        },
+        {
+          "type": "p",
+          "text": "Examines a running application by sending requests and observing responses."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Testing authentication enforcement."
+        },
+        {
+          "type": "p",
+          "text": "Checking exposed endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Testing input validation."
+        },
+        {
+          "type": "p",
+          "text": "Identifying security header problems."
+        },
+        {
+          "type": "p",
+          "text": "Finding some forms of injection vulnerability."
+        },
+        {
+          "type": "p",
+          "text": "SAST"
+        },
+        {
+          "type": "p",
+          "text": "DAST"
+        },
+        {
+          "type": "p",
+          "text": "Examines source code"
+        },
+        {
+          "type": "p",
+          "text": "Examines running applications"
+        },
+        {
+          "type": "p",
+          "text": "Can identify suspicious code patterns"
+        },
+        {
+          "type": "p",
+          "text": "Can observe actual HTTP behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Works without a deployed server for many checks"
+        },
+        {
+          "type": "p",
+          "text": "Requires an accessible test application"
+        },
+        {
+          "type": "p",
+          "text": "May report issues that are not exploitable"
+        },
+        {
+          "type": "p",
+          "text": "May miss code paths it cannot reach"
+        },
+        {
+          "type": "p",
+          "text": "Use both where appropriate."
+        },
+        {
+          "type": "h3",
+          "text": "12.6 API hardening"
+        },
+        {
+          "type": "p",
+          "text": "API hardening means applying additional security controls to reduce the application's attack surface and improve its resistance to misuse."
+        },
+        {
+          "type": "p",
+          "text": "Important practices include:"
+        }
+      ]
+    },
+    {
+      "id": "section-13",
+      "badge": "Section 1",
+      "title": "1. Enforce HTTPS",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Do not transmit credentials or sensitive application data over unencrypted HTTP."
+        },
+        {
+          "type": "p",
+          "text": "2. Apply rate limiting"
+        },
+        {
+          "type": "p",
+          "text": "Restrict repeated requests, especially on expensive or sensitive endpoints."
+        },
+        {
+          "type": "p",
+          "text": "3. Limit request sizes"
+        },
+        {
+          "type": "p",
+          "text": "Set limits for request bodies, file uploads and other resource-intensive inputs."
+        },
+        {
+          "type": "p",
+          "text": "4. Validate and normalize input"
+        },
+        {
+          "type": "p",
+          "text": "Use consistent validation rules on all externally supplied information."
+        },
+        {
+          "type": "p",
+          "text": "5. Restrict database permissions"
+        },
+        {
+          "type": "p",
+          "text": "Use dedicated database accounts with only the required privileges."
+        },
+        {
+          "type": "p",
+          "text": "6. Use secure response headers"
+        },
+        {
+          "type": "p",
+          "text": "Apply appropriate security headers, such as:"
+        },
+        {
+          "type": "p",
+          "text": "X-Content-Type-Options: nosniff Strict-Transport-Security: max-age=31536000 Cache-Control: no-store"
+        },
+        {
+          "type": "p",
+          "text": "These are examples; configure them according to the application's deployment and caching requirements. HSTS should be enabled only when the relevant HTTPS deployment is ready."
+        },
+        {
+          "type": "p",
+          "text": "7. Use secure error responses"
+        },
+        {
+          "type": "p",
+          "text": "Never return internal stack traces or database credentials to clients."
+        },
+        {
+          "type": "p",
+          "text": "8. Secure API versions"
+        },
+        {
+          "type": "p",
+          "text": "Remove or properly decommission obsolete endpoints."
+        },
+        {
+          "type": "p",
+          "text": "9. Secure external integrations"
+        },
+        {
+          "type": "p",
+          "text": "Validate responses from external services and configure appropriate timeouts and destination restrictions."
+        },
+        {
+          "type": "p",
+          "text": "10. Automate security checks"
+        },
+        {
+          "type": "p",
+          "text": "Add security tests and appropriate code and dependency scanning to your CI pipeline."
+        },
+        {
+          "type": "h3",
+          "text": "12.7 The secure backend development lifecycle"
+        },
+        {
+          "type": "p",
+          "text": "Security should not be added only after the application is built."
+        },
+        {
+          "type": "p",
+          "text": "Secure design"
+        },
+        {
+          "type": "p",
+          "text": "Perform threat modeling and identify sensitive assets."
+        },
+        {
+          "type": "p",
+          "text": "Secure development"
+        },
+        {
+          "type": "p",
+          "text": "Apply authorization, input validation, DTO boundaries and safe database access."
+        },
+        {
+          "type": "p",
+          "text": "Security testing"
+        },
+        {
+          "type": "p",
+          "text": "Test authentication, permissions, injection resistance and data protection."
+        },
+        {
+          "type": "p",
+          "text": "Secure deployment"
+        },
+        {
+          "type": "p",
+          "text": "Protect secrets, configure HTTPS, restrict access and disable unnecessary services."
+        },
+        {
+          "type": "p",
+          "text": "Security monitoring"
+        },
+        {
+          "type": "p",
+          "text": "Monitor relevant events and investigate suspicious activity."
+        },
+        {
+          "type": "p",
+          "text": "Continuous improvement"
+        },
+        {
+          "type": "p",
+          "text": "Patch dependencies, reassess threats and fix newly discovered vulnerabilities."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: Secure APIs are designed, implemented, tested, deployed and monitored with security as a continuous engineering responsibility."
+        },
+        {
+          "type": "p",
+          "text": "Practical Lab — Identify and Fix Vulnerabilities in an Intentionally Insecure API"
+        },
+        {
+          "type": "p",
+          "text": "Hands-on Security Engineering Lab"
+        },
+        {
+          "type": "p",
+          "text": "Objective: Perform a security assessment of an intentionally vulnerable course management API, identify security weaknesses, implement appropriate fixes and verify that the vulnerabilities have been eliminated."
+        },
+        {
+          "type": "p",
+          "text": "You will approach the application from two perspectives:"
+        },
+        {
+          "type": "p",
+          "text": "Security tester: Discover where the application is vulnerable."
+        },
+        {
+          "type": "p",
+          "text": "Backend security engineer: Correct the implementation and prove the fix works."
+        },
+        {
+          "type": "p",
+          "text": "All vulnerability exercises must run in your own isolated local environment, using synthetic users and database records."
+        },
+        {
+          "type": "p",
+          "text": "Lab 1. Set up the vulnerable application"
+        },
+        {
+          "type": "p",
+          "text": "Use a Java + Spring Boot + PostgreSQL application."
+        },
+        {
+          "type": "p",
+          "text": "Your initial application contains the following features:"
+        },
+        {
+          "type": "code",
+          "text": "course-management-api/ │ ├── src/main/java/ │ └── com/example/course/ │ ├── controller/ │ ├── service/ │ ├── repository/ │ ├── entity/ │ ├── security/ │ ├── storage/ │ └── config/ │ ├── src/test/java/ │ └── pom.xml"
+        },
+        {
+          "type": "p",
+          "text": "Create test accounts:"
+        },
+        {
+          "type": "p",
+          "text": "User"
+        },
+        {
+          "type": "p",
+          "text": "Role"
+        },
+        {
+          "type": "p",
+          "text": "ID"
+        },
+        {
+          "type": "p",
+          "text": "Admin A"
+        },
+        {
+          "type": "p",
+          "text": "ADMIN"
+        },
+        {
+          "type": "p",
+          "text": "1"
+        },
+        {
+          "type": "p",
+          "text": "Instructor A"
+        },
+        {
+          "type": "p",
+          "text": "INSTRUCTOR"
+        },
+        {
+          "type": "p",
+          "text": "101"
+        },
+        {
+          "type": "p",
+          "text": "Instructor B"
+        },
+        {
+          "type": "p",
+          "text": "INSTRUCTOR"
+        },
+        {
+          "type": "p",
+          "text": "102"
+        },
+        {
+          "type": "p",
+          "text": "Student A"
+        },
+        {
+          "type": "p",
+          "text": "STUDENT"
+        },
+        {
+          "type": "p",
+          "text": "201"
+        },
+        {
+          "type": "p",
+          "text": "Student B"
+        },
+        {
+          "type": "p",
+          "text": "STUDENT"
+        },
+        {
+          "type": "p",
+          "text": "202"
+        },
+        {
+          "type": "p",
+          "text": "Create sample database records:"
+        },
+        {
+          "type": "p",
+          "text": "5 courses."
+        },
+        {
+          "type": "p",
+          "text": "10 modules."
+        },
+        {
+          "type": "p",
+          "text": "20 lessons."
+        },
+        {
+          "type": "p",
+          "text": "5 student enrollments."
+        },
+        {
+          "type": "p",
+          "text": "5 progress records."
+        },
+        {
+          "type": "p",
+          "text": "5 sample documents."
+        },
+        {
+          "type": "p",
+          "text": "Do not use real student information or production credentials."
+        },
+        {
+          "type": "p",
+          "text": "Lab 2. Perform API reconnaissance and inventory"
+        },
+        {
+          "type": "p",
+          "text": "Before testing vulnerabilities, discover the available API surface."
+        },
+        {
+          "type": "p",
+          "text": "Create an endpoint inventory."
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Access requirement"
+        },
+        {
+          "type": "p",
+          "text": "/api/auth/login"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Public"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Public or authenticated according to policy"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Authorized instructor/admin"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "PUT"
+        },
+        {
+          "type": "p",
+          "text": "Owner or admin"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "/api/me/progress"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated student"
+        },
+        {
+          "type": "p",
+          "text": "/api/admin/users"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "/api/files/{id}/download"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Authorized user"
+        },
+        {
+          "type": "p",
+          "text": "Your first task is to determine whether the actual backend permissions match the intended policy."
+        },
+        {
+          "type": "p",
+          "text": "Also identify:"
+        },
+        {
+          "type": "p",
+          "text": "Deprecated endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Unused administrative endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Unnecessary HTTP methods."
+        },
+        {
+          "type": "p",
+          "text": "Exposed development endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Endpoints missing authentication."
+        },
+        {
+          "type": "p",
+          "text": "Endpoints with inconsistent response structures."
+        },
+        {
+          "type": "p",
+          "text": "Deliverable: API inventory with the intended authentication and authorization requirements."
+        },
+        {
+          "type": "p",
+          "text": "Lab 3. Identify and fix BOLA"
+        },
+        {
+          "type": "p",
+          "text": "Vulnerability scenario"
+        },
+        {
+          "type": "p",
+          "text": "An authenticated student can access another student's learning progress by changing the resource identifier in the API request."
+        },
+        {
+          "type": "p",
+          "text": "Test with Student A and Student B."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/students/202/progress"
+        },
+        {
+          "type": "p",
+          "text": "Check whether Student A can access Student B's progress."
+        },
+        {
+          "type": "p",
+          "text": "Your tasks"
+        },
+        {
+          "type": "p",
+          "text": "Identify the vulnerable controller."
+        },
+        {
+          "type": "p",
+          "text": "Locate the service method."
+        },
+        {
+          "type": "p",
+          "text": "Examine the repository query."
+        },
+        {
+          "type": "p",
+          "text": "Determine where ownership verification is missing."
+        },
+        {
+          "type": "p",
+          "text": "Implement authenticated-user-based ownership checks."
+        },
+        {
+          "type": "p",
+          "text": "Add automated security tests."
+        },
+        {
+          "type": "p",
+          "text": "Verify that unauthorized access is rejected."
+        },
+        {
+          "type": "p",
+          "text": "Expected result: A user can access only the resources permitted by the application's ownership and authorization policy."
+        },
+        {
+          "type": "p",
+          "text": "Lab 4. Identify and fix BFLA"
+        },
+        {
+          "type": "p",
+          "text": "Vulnerability scenario"
+        },
+        {
+          "type": "p",
+          "text": "A student can call an administrative API directly."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/admin/users"
+        },
+        {
+          "type": "p",
+          "text": "The frontend hides the administration page, but the backend does not enforce the required role."
+        },
+        {
+          "type": "p",
+          "text": "Your tasks"
+        },
+        {
+          "type": "p",
+          "text": "Identify protected administrative endpoints."
+        },
+        {
+          "type": "p",
+          "text": "Determine which roles should access each function."
+        },
+        {
+          "type": "p",
+          "text": "Configure method-level authorization."
+        },
+        {
+          "type": "p",
+          "text": "Enforce permissions on every relevant endpoint."
+        },
+        {
+          "type": "p",
+          "text": "Test with Student, Instructor and Admin accounts."
+        },
+        {
+          "type": "p",
+          "text": "Verify that unauthorized operations are rejected."
+        },
+        {
+          "type": "p",
+          "text": "Expected result: Only permitted roles can execute administrative operations."
+        },
+        {
+          "type": "p",
+          "text": "Lab 5. Identify and fix SQL injection"
+        },
+        {
+          "type": "p",
+          "text": "Vulnerability scenario"
+        },
+        {
+          "type": "p",
+          "text": "The application constructs database queries by directly joining SQL strings and user-provided input."
+        },
+        {
+          "type": "p",
+          "text": "Your tasks"
+        },
+        {
+          "type": "p",
+          "text": "Inspect the course search implementation."
+        },
+        {
+          "type": "p",
+          "text": "Identify dynamically constructed queries."
+        },
+        {
+          "type": "p",
+          "text": "Replace unsafe query construction with parameterized queries."
+        },
+        {
+          "type": "p",
+          "text": "Restrict dynamic sorting and filtering to an allowlist."
+        },
+        {
+          "type": "p",
+          "text": "Verify the queries using automated tests."
+        },
+        {
+          "type": "p",
+          "text": "Ensure database errors are not exposed to public responses."
+        },
+        {
+          "type": "p",
+          "text": "Expected result: User input remains data and cannot modify the intended database query structure."
+        },
+        {
+          "type": "p",
+          "text": "Lab 6. Identify and fix mass assignment"
+        },
+        {
+          "type": "p",
+          "text": "Vulnerability scenario"
+        },
+        {
+          "type": "p",
+          "text": "A student profile update endpoint accepts internal database properties through the incoming request."
+        },
+        {
+          "type": "p",
+          "text": "Your tasks"
+        },
+        {
+          "type": "p",
+          "text": "Inspect the user entity."
+        },
+        {
+          "type": "p",
+          "text": "Identify protected properties such as role and accountEnabled."
+        },
+        {
+          "type": "p",
+          "text": "Identify where request data is directly mapped to entities."
+        },
+        {
+          "type": "p",
+          "text": "Create request DTOs with explicitly permitted fields."
+        },
+        {
+          "type": "p",
+          "text": "Implement controlled property updates."
+        },
+        {
+          "type": "p",
+          "text": "Create response DTOs that exclude sensitive fields."
+        },
+        {
+          "type": "p",
+          "text": "Test attempts to change protected properties."
+        },
+        {
+          "type": "p",
+          "text": "Expected result: Ordinary users can modify only the properties authorized for their operation."
+        },
+        {
+          "type": "p",
+          "text": "Lab 7. Review CORS and file security"
+        },
+        {
+          "type": "p",
+          "text": "CORS tasks"
+        },
+        {
+          "type": "p",
+          "text": "Inspect:"
+        },
+        {
+          "type": "p",
+          "text": "Allowed origins."
+        },
+        {
+          "type": "p",
+          "text": "Allowed methods."
+        },
+        {
+          "type": "p",
+          "text": "Allowed headers."
+        },
+        {
+          "type": "p",
+          "text": "Credential settings."
+        },
+        {
+          "type": "p",
+          "text": "OPTIONS preflight handling."
+        },
+        {
+          "type": "p",
+          "text": "Authentication independent of CORS."
+        },
+        {
+          "type": "p",
+          "text": "Test an approved frontend origin and an unapproved origin."
+        },
+        {
+          "type": "p",
+          "text": "File security tasks"
+        },
+        {
+          "type": "p",
+          "text": "Review:"
+        },
+        {
+          "type": "p",
+          "text": "File extension restrictions."
+        },
+        {
+          "type": "p",
+          "text": "Actual file format validation."
+        },
+        {
+          "type": "p",
+          "text": "Upload size restrictions."
+        },
+        {
+          "type": "p",
+          "text": "Filename generation."
+        },
+        {
+          "type": "p",
+          "text": "Private storage."
+        },
+        {
+          "type": "p",
+          "text": "Malware scanning."
+        },
+        {
+          "type": "p",
+          "text": "Download authorization."
+        },
+        {
+          "type": "p",
+          "text": "File ownership."
+        },
+        {
+          "type": "p",
+          "text": "Simulate unauthorized access to a private file and verify that the backend rejects it."
+        },
+        {
+          "type": "p",
+          "text": "Expected result: Only trusted browser origins receive the intended cross-origin access, and only authorized users can upload or download permitted files."
+        },
+        {
+          "type": "p",
+          "text": "Lab 8. Review secrets and logging"
+        },
+        {
+          "type": "p",
+          "text": "Secrets tasks"
+        },
+        {
+          "type": "p",
+          "text": "Inspect the repository and configuration."
+        },
+        {
+          "type": "p",
+          "text": "Look for:"
+        },
+        {
+          "type": "p",
+          "text": "Hardcoded passwords."
+        },
+        {
+          "type": "p",
+          "text": "Database credentials."
+        },
+        {
+          "type": "p",
+          "text": "API keys."
+        },
+        {
+          "type": "p",
+          "text": "JWT signing secrets."
+        },
+        {
+          "type": "p",
+          "text": "Production configuration files."
+        },
+        {
+          "type": "p",
+          "text": "Accidentally committed environment files."
+        },
+        {
+          "type": "p",
+          "text": "Move sensitive values into approved runtime secret management."
+        },
+        {
+          "type": "p",
+          "text": "For this lab, use only temporary test credentials."
+        },
+        {
+          "type": "p",
+          "text": "Logging tasks"
+        },
+        {
+          "type": "p",
+          "text": "Inspect application logs and identify whether they contain:"
+        },
+        {
+          "type": "p",
+          "text": "Access tokens."
+        },
+        {
+          "type": "p",
+          "text": "Passwords."
+        },
+        {
+          "type": "p",
+          "text": "Database credentials."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive personal information."
+        },
+        {
+          "type": "p",
+          "text": "Internal stack traces."
+        },
+        {
+          "type": "p",
+          "text": "Replace unsafe logging with structured security events and safe diagnostic metadata."
+        },
+        {
+          "type": "p",
+          "text": "Expected result: No exposed credentials and no unnecessary sensitive information in application logs."
+        },
+        {
+          "type": "p",
+          "text": "Lab 9. Perform security verification"
+        },
+        {
+          "type": "p",
+          "text": "Run your automated tests and an authorized security scan against your local application."
+        },
+        {
+          "type": "p",
+          "text": "Test at least these scenarios:"
+        },
+        {
+          "type": "p",
+          "text": "Test"
+        },
+        {
+          "type": "p",
+          "text": "Expected result"
+        },
+        {
+          "type": "p",
+          "text": "Anonymous user accesses protected endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Student accesses another student's data"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Student invokes admin endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Student attempts to modify protected role"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "SQL injection attempt against search"
+        },
+        {
+          "type": "p",
+          "text": "No query manipulation"
+        },
+        {
+          "type": "p",
+          "text": "Unexpected upload format"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Oversized upload"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized file download"
+        },
+        {
+          "type": "p",
+          "text": "Rejected"
+        },
+        {
+          "type": "p",
+          "text": "Untrusted browser origin"
+        },
+        {
+          "type": "p",
+          "text": "Not granted CORS access"
+        },
+        {
+          "type": "p",
+          "text": "Sensitive credential appears in logs"
+        },
+        {
+          "type": "p",
+          "text": "Must not occur"
+        },
+        {
+          "type": "p",
+          "text": "Use Postman, OWASP ZAP and automated Spring Security tests where appropriate."
+        },
+        {
+          "type": "p",
+          "text": "A security scanner may produce false positives and cannot prove that all business-level authorization rules are correct. Manually verify important findings."
+        },
+        {
+          "type": "p",
+          "text": "Lab 10. Produce a security remediation report"
+        },
+        {
+          "type": "p",
+          "text": "For every vulnerability discovered, document:"
+        },
+        {
+          "type": "p",
+          "text": "Vulnerability name."
+        },
+        {
+          "type": "p",
+          "text": "Affected endpoint or component."
+        },
+        {
+          "type": "p",
+          "text": "Security impact."
+        },
+        {
+          "type": "p",
+          "text": "Evidence of the problem in the original application."
+        },
+        {
+          "type": "p",
+          "text": "Root cause."
+        },
+        {
+          "type": "p",
+          "text": "Corrective implementation."
+        },
+        {
+          "type": "p",
+          "text": "Automated test used to verify the fix."
+        },
+        {
+          "type": "p",
+          "text": "Final status."
+        },
+        {
+          "type": "p",
+          "text": "Your lab is complete when all identified high-priority vulnerabilities have been addressed and their fixes have been verified."
+        },
+        {
+          "type": "p",
+          "text": "Assignment — Security Review of the Course Management API"
+        },
+        {
+          "type": "p",
+          "text": "Individual Engineering Assignment"
+        },
+        {
+          "type": "p",
+          "text": "Security Assessment"
+        },
+        {
+          "type": "p",
+          "text": "Assignment title: Conduct a Comprehensive API Security Assessment and Remediation of a Course Management Backend."
+        },
+        {
+          "type": "p",
+          "text": "Assignment objective"
+        },
+        {
+          "type": "p",
+          "text": "Perform a complete defensive security review of a course management API."
+        },
+        {
+          "type": "p",
+          "text": "You are responsible for examining its authentication, authorization, database operations, file handling, configuration and logging systems."
+        },
+        {
+          "type": "p",
+          "text": "Your job is to identify weaknesses, implement fixes and document the security improvements."
+        },
+        {
+          "type": "p",
+          "text": "Part A — Threat modeling"
+        },
+        {
+          "type": "p",
+          "text": "Prepare a threat model for the course management API."
+        },
+        {
+          "type": "p",
+          "text": "Identify:"
+        },
+        {
+          "type": "p",
+          "text": "Important application assets."
+        },
+        {
+          "type": "p",
+          "text": "API entry points."
+        },
+        {
+          "type": "p",
+          "text": "Trust boundaries."
+        },
+        {
+          "type": "p",
+          "text": "Authentication mechanisms."
+        },
+        {
+          "type": "p",
+          "text": "External integrations."
+        },
+        {
+          "type": "p",
+          "text": "Database and file storage risks."
+        },
+        {
+          "type": "p",
+          "text": "STRIDE threat categories."
+        },
+        {
+          "type": "p",
+          "text": "Submit a threat register containing at least 10 identified threats."
+        },
+        {
+          "type": "p",
+          "text": "Part B — Access control assessment"
+        },
+        {
+          "type": "p",
+          "text": "Test:"
+        },
+        {
+          "type": "p",
+          "text": "Broken Object Level Authorization."
+        },
+        {
+          "type": "p",
+          "text": "Broken Function Level Authorization."
+        },
+        {
+          "type": "p",
+          "text": "Resource ownership enforcement."
+        },
+        {
+          "type": "p",
+          "text": "Role-based permissions."
+        },
+        {
+          "type": "p",
+          "text": "Administrative endpoint protection."
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized property modification."
+        },
+        {
+          "type": "p",
+          "text": "Prepare test cases for Student, Instructor and Admin accounts."
+        },
+        {
+          "type": "p",
+          "text": "Part C — Injection and input validation"
+        },
+        {
+          "type": "p",
+          "text": "Review:"
+        },
+        {
+          "type": "p",
+          "text": "SQL query construction."
+        },
+        {
+          "type": "p",
+          "text": "Dynamic database sorting."
+        },
+        {
+          "type": "p",
+          "text": "User-controlled query parameters."
+        },
+        {
+          "type": "p",
+          "text": "Request validation."
+        },
+        {
+          "type": "p",
+          "text": "Mass assignment."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive response properties."
+        },
+        {
+          "type": "p",
+          "text": "Implement appropriate fixes."
+        },
+        {
+          "type": "p",
+          "text": "Part D — Cross-origin and file security"
+        },
+        {
+          "type": "p",
+          "text": "Assess:"
+        },
+        {
+          "type": "p",
+          "text": "CORS configuration."
+        },
+        {
+          "type": "p",
+          "text": "Credential settings."
+        },
+        {
+          "type": "p",
+          "text": "Preflight requests."
+        },
+        {
+          "type": "p",
+          "text": "File type validation."
+        },
+        {
+          "type": "p",
+          "text": "File size restrictions."
+        },
+        {
+          "type": "p",
+          "text": "Private file storage."
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized downloads."
+        },
+        {
+          "type": "p",
+          "text": "File ownership checks."
+        },
+        {
+          "type": "p",
+          "text": "Part E — Secrets and logging"
+        },
+        {
+          "type": "p",
+          "text": "Review:"
+        },
+        {
+          "type": "p",
+          "text": "Database credentials."
+        },
+        {
+          "type": "p",
+          "text": "External API keys."
+        },
+        {
+          "type": "p",
+          "text": "JWT signing keys."
+        },
+        {
+          "type": "p",
+          "text": "Environment configuration."
+        },
+        {
+          "type": "p",
+          "text": "Secret rotation."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive logging."
+        },
+        {
+          "type": "p",
+          "text": "Audit events."
+        },
+        {
+          "type": "p",
+          "text": "Error messages."
+        },
+        {
+          "type": "p",
+          "text": "Implement secure credential handling and logging."
+        },
+        {
+          "type": "p",
+          "text": "Part F — Security testing"
+        },
+        {
+          "type": "p",
+          "text": "Perform:"
+        },
+        {
+          "type": "p",
+          "text": "Automated authorization testing."
+        },
+        {
+          "type": "p",
+          "text": "Authentication testing."
+        },
+        {
+          "type": "p",
+          "text": "Input validation testing."
+        },
+        {
+          "type": "p",
+          "text": "API security scanning."
+        },
+        {
+          "type": "p",
+          "text": "Configuration review."
+        },
+        {
+          "type": "p",
+          "text": "Dependency security checks."
+        },
+        {
+          "type": "p",
+          "text": "Document discovered vulnerabilities and their remediation status."
+        },
+        {
+          "type": "p",
+          "text": "Part G — API hardening"
+        },
+        {
+          "type": "p",
+          "text": "Implement additional controls covering:"
+        },
+        {
+          "type": "p",
+          "text": "HTTPS."
+        },
+        {
+          "type": "p",
+          "text": "Rate limiting."
+        },
+        {
+          "type": "p",
+          "text": "Request size restrictions."
+        },
+        {
+          "type": "p",
+          "text": "Secure headers."
+        },
+        {
+          "type": "p",
+          "text": "Safe exception handling."
+        },
+        {
+          "type": "p",
+          "text": "API version management."
+        },
+        {
+          "type": "p",
+          "text": "Restricted database privileges."
+        },
+        {
+          "type": "p",
+          "text": "External API response validation."
+        },
+        {
+          "type": "p",
+          "text": "Required submission"
+        },
+        {
+          "type": "p",
+          "text": "Deliverable"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Security assessment report"
+        },
+        {
+          "type": "p",
+          "text": "Complete application security review"
+        },
+        {
+          "type": "p",
+          "text": "Threat model"
+        },
+        {
+          "type": "p",
+          "text": "Architecture and STRIDE analysis"
+        },
+        {
+          "type": "p",
+          "text": "API inventory"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint and permission documentation"
+        },
+        {
+          "type": "p",
+          "text": "Vulnerability register"
+        },
+        {
+          "type": "p",
+          "text": "Identified security weaknesses"
+        },
+        {
+          "type": "p",
+          "text": "Corrected source code"
+        },
+        {
+          "type": "p",
+          "text": "Implemented security fixes"
+        },
+        {
+          "type": "p",
+          "text": "Security test suite"
+        },
+        {
+          "type": "p",
+          "text": "Automated security verification"
+        },
+        {
+          "type": "p",
+          "text": "Scan report"
+        },
+        {
+          "type": "p",
+          "text": "Results from authorized scanning"
+        },
+        {
+          "type": "p",
+          "text": "Secrets report"
+        },
+        {
+          "type": "p",
+          "text": "Credential handling improvements"
+        },
+        {
+          "type": "p",
+          "text": "Logging report"
+        },
+        {
+          "type": "p",
+          "text": "Sensitive data exposure review"
+        },
+        {
+          "type": "p",
+          "text": "Final remediation report"
+        },
+        {
+          "type": "p",
+          "text": "Before-and-after security assessment"
+        },
+        {
+          "type": "p",
+          "text": "Suggested evaluation criteria"
+        },
+        {
+          "type": "p",
+          "text": "Area"
+        },
+        {
+          "type": "p",
+          "text": "Weight"
+        },
+        {
+          "type": "p",
+          "text": "Threat modeling"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "BOLA and BFLA remediation"
+        },
+        {
+          "type": "p",
+          "text": "20%"
+        },
+        {
+          "type": "p",
+          "text": "Injection and mass assignment prevention"
+        },
+        {
+          "type": "p",
+          "text": "20%"
+        },
+        {
+          "type": "p",
+          "text": "CORS and file security"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Secrets and logging"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Security testing"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Documentation and remediation quality"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Total"
+        },
+        {
+          "type": "p",
+          "text": "100%"
+        },
+        {
+          "type": "p",
+          "text": "Recommended Learning Resources"
+        },
+        {
+          "type": "p",
+          "text": "These are authoritative references to use while studying this module."
+        },
+        {
+          "type": "p",
+          "text": "Resource"
+        },
+        {
+          "type": "p",
+          "text": "Learning purpose"
+        },
+        {
+          "type": "p",
+          "text": "[OWASP API Security Project](https://owasp.org/www-project-api-security/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "API security risks and prevention"
+        },
+        {
+          "type": "p",
+          "text": "[OWASP API Top 10](https://api-security.owasp.org/editions/2023/en/0x11-t10/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Major API vulnerability categories"
+        },
+        {
+          "type": "p",
+          "text": "[OWASP Threat Modeling](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Threat analysis and STRIDE"
+        },
+        {
+          "type": "p",
+          "text": "[SQL Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Parameterized query protection"
+        },
+        {
+          "type": "p",
+          "text": "[File Upload Security](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Safe file handling"
+        },
+        {
+          "type": "p",
+          "text": "[CORS Security](https://cheatsheetseries.owasp.org/cheatsheets/CORS_Security_Cheat_Sheet.html?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Cross-origin security"
+        },
+        {
+          "type": "p",
+          "text": "[Secrets Management](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Credential protection"
+        },
+        {
+          "type": "p",
+          "text": "[Logging Security](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Safe application logging"
+        },
+        {
+          "type": "p",
+          "text": "[Spring Security](https://docs.spring.io/spring-security/reference/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Java backend security implementation"
+        },
+        {
+          "type": "p",
+          "text": "[OWASP ZAP](https://www.zaproxy.org/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Practical API security testing"
+        },
+        {
+          "type": "p",
+          "text": "What You Should Be Able to Do After Module 09"
+        },
+        {
+          "type": "p",
+          "text": "After completing this module, you should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Understand API security architecture and common attack surfaces."
+        },
+        {
+          "type": "p",
+          "text": "Perform threat modeling using STRIDE."
+        },
+        {
+          "type": "p",
+          "text": "Understand and apply OWASP API security guidance."
+        },
+        {
+          "type": "p",
+          "text": "Identify and prevent BOLA vulnerabilities."
+        },
+        {
+          "type": "p",
+          "text": "Identify and prevent BFLA vulnerabilities."
+        },
+        {
+          "type": "p",
+          "text": "Secure Java database queries against SQL injection."
+        },
+        {
+          "type": "p",
+          "text": "Prevent mass assignment and excessive data exposure."
+        },
+        {
+          "type": "p",
+          "text": "Configure CORS securely in Spring Boot."
+        },
+        {
+          "type": "p",
+          "text": "Implement secure file upload and download APIs."
+        },
+        {
+          "type": "p",
+          "text": "Manage API keys, database credentials and signing secrets."
+        },
+        {
+          "type": "p",
+          "text": "Implement safe application and security logging."
+        },
+        {
+          "type": "p",
+          "text": "Perform API security testing using Postman and OWASP ZAP."
+        },
+        {
+          "type": "p",
+          "text": "Apply API hardening and secure development practices."
+        },
+        {
+          "type": "p",
+          "text": "Document security vulnerabilities and their remediation."
+        },
+        {
+          "type": "p",
+          "text": "How Module 08 and Module 09 work together"
+        },
+        {
+          "type": "p",
+          "text": "These modules serve different engineering purposes and should be learned together."
+        },
+        {
+          "type": "p",
+          "text": "Module 08 — Backend Testing"
+        },
+        {
+          "type": "p",
+          "text": "Module 09 — API Security"
+        },
+        {
+          "type": "p",
+          "text": "Does the API work correctly?"
+        },
+        {
+          "type": "p",
+          "text": "Can the API be abused?"
+        },
+        {
+          "type": "p",
+          "text": "Unit testing"
+        },
+        {
+          "type": "p",
+          "text": "Security testing"
+        },
+        {
+          "type": "p",
+          "text": "Integration testing"
+        },
+        {
+          "type": "p",
+          "text": "Authorization testing"
+        },
+        {
+          "type": "p",
+          "text": "API response testing"
+        },
+        {
+          "type": "p",
+          "text": "Data exposure testing"
+        },
+        {
+          "type": "p",
+          "text": "Database correctness"
+        },
+        {
+          "type": "p",
+          "text": "Database security"
+        },
+        {
+          "type": "p",
+          "text": "Error handling"
+        },
+        {
+          "type": "p",
+          "text": "Secure failure handling"
+        },
+        {
+          "type": "p",
+          "text": "Performance testing"
+        },
+        {
+          "type": "p",
+          "text": "Resource abuse protection"
+        },
+        {
+          "type": "p",
+          "text": "Code coverage"
+        },
+        {
+          "type": "p",
+          "text": "Security vulnerability verification"
+        },
+        {
+          "type": "p",
+          "text": "For example, Module 08 verifies that a student can retrieve their progress correctly. Module 09 verifies that the same student cannot retrieve someone else's progress."
+        },
+        {
+          "type": "p",
+          "text": "The central engineering principle of Module 09:"
+        },
+        {
+          "type": "p",
+          "text": "An API is not secure simply because it requires a login, uses HTTPS or hides administrative functionality in the frontend. Every request must be validated, every resource must have appropriate access controls, every sensitive operation must be protected, and every security assumption must be tested."
+        },
+        {
+          "type": "p",
+          "text": "A professional backend engineer must build APIs that remain secure even when clients send unexpected, manipulated or unauthorized requests."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T10:13:35+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

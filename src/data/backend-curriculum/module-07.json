@@ -1,0 +1,5491 @@
+{
+  "moduleNumber": "07",
+  "title": "MODULE 07 — Caching, Asynchronous Processing and Messaging",
+  "badges": [
+    "Core Module",
+    "12 Lessons",
+    "Practical Lab + Assignment"
+  ],
+  "overview": [],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Section 1",
+      "title": "1. Module Overview",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Modern backend applications must handle large amounts of data, respond quickly to user requests and perform operations that should not block the main application workflow."
+        },
+        {
+          "type": "p",
+          "text": "Imagine PrepSpaces has thousands of students accessing courses, watching lessons, enrolling in programs and using AI-powered interview features."
+        },
+        {
+          "type": "p",
+          "text": "Consider these situations:"
+        },
+        {
+          "type": "p",
+          "text": "Thousands of students request the same course information."
+        },
+        {
+          "type": "p",
+          "text": "A student enrols in a course and the backend needs to send a confirmation email."
+        },
+        {
+          "type": "p",
+          "text": "An AI interview evaluation takes 30 seconds to complete."
+        },
+        {
+          "type": "p",
+          "text": "A student updates their profile, but cached information still displays the old details."
+        },
+        {
+          "type": "p",
+          "text": "An email service becomes temporarily unavailable."
+        },
+        {
+          "type": "p",
+          "text": "A notification message is delivered twice."
+        },
+        {
+          "type": "p",
+          "text": "A large number of background jobs need to run without affecting API performance."
+        },
+        {
+          "type": "p",
+          "text": "Multiple backend instances need to process messages reliably."
+        },
+        {
+          "type": "p",
+          "text": "Performing every operation synchronously inside an HTTP request can make applications slow and difficult to scale."
+        },
+        {
+          "type": "p",
+          "text": "This is where caching, asynchronous processing and messaging become important."
+        },
+        {
+          "type": "p",
+          "text": "In this module, you will learn how to improve application performance using Redis, move time-consuming operations into background workers, communicate through message brokers, implement event-driven architecture and build reliable background processing systems."
+        },
+        {
+          "type": "p",
+          "text": "The module primarily uses Java, Spring Boot, Redis, RabbitMQ, PostgreSQL and Spring AMQP. Kafka will also be introduced for event-streaming architectures."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Section 2",
+      "title": "2. What You Will Learn",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "By completing this module, you should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Understand synchronous and asynchronous application execution."
+        },
+        {
+          "type": "p",
+          "text": "Execute background jobs without blocking API requests."
+        },
+        {
+          "type": "p",
+          "text": "Schedule recurring backend tasks."
+        },
+        {
+          "type": "p",
+          "text": "Understand message queues and message brokers."
+        },
+        {
+          "type": "p",
+          "text": "Design event-driven backend architectures."
+        },
+        {
+          "type": "p",
+          "text": "Implement producer and consumer patterns."
+        },
+        {
+          "type": "p",
+          "text": "Use Redis for caching and shared application data."
+        },
+        {
+          "type": "p",
+          "text": "Understand cache-aside, write-through and other caching strategies."
+        },
+        {
+          "type": "p",
+          "text": "Implement cache expiration and invalidation."
+        },
+        {
+          "type": "p",
+          "text": "Maintain consistency between PostgreSQL and Redis."
+        },
+        {
+          "type": "p",
+          "text": "Implement retry queues and dead-letter queues."
+        },
+        {
+          "type": "p",
+          "text": "Prevent duplicate event processing."
+        },
+        {
+          "type": "p",
+          "text": "Design reliable background workers."
+        },
+        {
+          "type": "p",
+          "text": "Build APIs that remain responsive while processing long-running operations."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Section 3",
+      "title": "3. Detailed Lesson Explanations",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Lesson 1 — Synchronous vs Asynchronous Processing"
+        },
+        {
+          "type": "p",
+          "text": "One of the first decisions in backend engineering is determining whether an operation should execute immediately as part of a request or continue independently in the background."
+        },
+        {
+          "type": "p",
+          "text": "These approaches are called synchronous and asynchronous processing."
+        },
+        {
+          "type": "p",
+          "text": "A. What is synchronous processing?"
+        },
+        {
+          "type": "p",
+          "text": "Synchronous processing means the calling operation waits for the requested work to finish before continuing."
+        },
+        {
+          "type": "p",
+          "text": "Imagine a student requests course enrolment."
+        },
+        {
+          "type": "p",
+          "text": "The backend:"
+        },
+        {
+          "type": "p",
+          "text": "Receives the request."
+        },
+        {
+          "type": "p",
+          "text": "Validates the student."
+        },
+        {
+          "type": "p",
+          "text": "Checks course availability."
+        },
+        {
+          "type": "p",
+          "text": "Creates the enrolment."
+        },
+        {
+          "type": "p",
+          "text": "Sends a confirmation email."
+        },
+        {
+          "type": "p",
+          "text": "Returns the API response."
+        },
+        {
+          "type": "p",
+          "text": "If the email service takes 10 seconds, the entire request may remain open while waiting for it."
+        },
+        {
+          "type": "p",
+          "text": "The user experiences a slow response even though the actual enrolment may have completed much earlier."
+        },
+        {
+          "type": "p",
+          "text": "B. What is asynchronous processing?"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous processing allows the backend to initiate work and continue without waiting for all the work to finish."
+        },
+        {
+          "type": "p",
+          "text": "The application can complete the enrolment and delegate email delivery to a background worker."
+        },
+        {
+          "type": "p",
+          "text": "The main API request does not need to wait for the email operation."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Student | v Enrolment API | v Save enrolment in database | v Publish notification task | v Return successful response Background Worker | v Process notification | v Send confirmation email"
+        },
+        {
+          "type": "p",
+          "text": "C. Synchronous vs asynchronous comparison"
+        },
+        {
+          "type": "p",
+          "text": "Feature"
+        },
+        {
+          "type": "p",
+          "text": "Synchronous"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous"
+        },
+        {
+          "type": "p",
+          "text": "Execution"
+        },
+        {
+          "type": "p",
+          "text": "Caller waits"
+        },
+        {
+          "type": "p",
+          "text": "Caller can continue"
+        },
+        {
+          "type": "p",
+          "text": "Response time"
+        },
+        {
+          "type": "p",
+          "text": "Depends on completed work"
+        },
+        {
+          "type": "p",
+          "text": "Can return before background work finishes"
+        },
+        {
+          "type": "p",
+          "text": "Complexity"
+        },
+        {
+          "type": "p",
+          "text": "Generally simpler"
+        },
+        {
+          "type": "p",
+          "text": "Requires task coordination"
+        },
+        {
+          "type": "p",
+          "text": "Failure handling"
+        },
+        {
+          "type": "p",
+          "text": "Often within the request"
+        },
+        {
+          "type": "p",
+          "text": "Requires background failure management"
+        },
+        {
+          "type": "p",
+          "text": "Best suited for"
+        },
+        {
+          "type": "p",
+          "text": "Immediate operations"
+        },
+        {
+          "type": "p",
+          "text": "Long-running or independent work"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve user profile"
+        },
+        {
+          "type": "p",
+          "text": "Send email"
+        },
+        {
+          "type": "p",
+          "text": "D. Real-world examples"
+        },
+        {
+          "type": "p",
+          "text": "Synchronous operations:"
+        },
+        {
+          "type": "p",
+          "text": "Validate login credentials."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve a course."
+        },
+        {
+          "type": "p",
+          "text": "Check whether a user is authorised."
+        },
+        {
+          "type": "p",
+          "text": "Return a student profile."
+        },
+        {
+          "type": "p",
+          "text": "Validate a payment request before initiating it."
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous operations:"
+        },
+        {
+          "type": "p",
+          "text": "Send confirmation emails."
+        },
+        {
+          "type": "p",
+          "text": "Generate reports."
+        },
+        {
+          "type": "p",
+          "text": "Process uploaded files."
+        },
+        {
+          "type": "p",
+          "text": "Send notifications."
+        },
+        {
+          "type": "p",
+          "text": "Generate AI evaluations."
+        },
+        {
+          "type": "p",
+          "text": "Process learning analytics."
+        },
+        {
+          "type": "p",
+          "text": "Publish events to other services."
+        },
+        {
+          "type": "p",
+          "text": "E. Understanding response codes"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an API starts a background report-generation task."
+        },
+        {
+          "type": "p",
+          "text": "Instead of waiting for the entire report, the backend may return:"
+        },
+        {
+          "type": "code",
+          "text": "HTTP/1.1 202 Accepted Content-Type: application/json\n{ \"jobId\": \"job-1001\", \"status\": \"QUEUED\", \"message\": \"Your report is being generated\" }"
+        },
+        {
+          "type": "p",
+          "text": "The client can check the job status through another endpoint."
+        },
+        {
+          "type": "code",
+          "text": "GET /api/jobs/job-1001"
+        },
+        {
+          "type": "p",
+          "text": "Possible response:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"jobId\": \"job-1001\", \"status\": \"COMPLETED\", \"downloadUrl\": \"/api/reports/1001\" }"
+        },
+        {
+          "type": "p",
+          "text": "Remember that 202 Accepted means processing has been accepted, not that the operation has already completed."
+        },
+        {
+          "type": "p",
+          "text": "F. Important distinction: Asynchronous vs parallel processing"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous and parallel processing are related but different."
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous processing: The caller does not need to wait for the operation to finish."
+        },
+        {
+          "type": "p",
+          "text": "Parallel processing: Multiple operations execute simultaneously, generally using multiple execution resources."
+        },
+        {
+          "type": "p",
+          "text": "An asynchronous task may execute later on a single worker. Parallelism is not guaranteed."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: You must understand which operations need immediate results and which can run independently before designing a scalable backend."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 2 — Background Jobs and Task Scheduling"
+        },
+        {
+          "type": "p",
+          "text": "Many backend operations do not need to be executed immediately when a user sends an API request."
+        },
+        {
+          "type": "p",
+          "text": "Some operations need to run in the background or at a predefined time."
+        },
+        {
+          "type": "p",
+          "text": "These are called background jobs."
+        },
+        {
+          "type": "p",
+          "text": "A. What is a background job?"
+        },
+        {
+          "type": "p",
+          "text": "A background job is an operation performed independently of the main request-response workflow."
+        },
+        {
+          "type": "p",
+          "text": "For example, PrepSpaces might need to:"
+        },
+        {
+          "type": "p",
+          "text": "Send course-enrolment notifications."
+        },
+        {
+          "type": "p",
+          "text": "Generate weekly learning reports."
+        },
+        {
+          "type": "p",
+          "text": "Clean up expired authentication records."
+        },
+        {
+          "type": "p",
+          "text": "Process uploaded learning materials."
+        },
+        {
+          "type": "p",
+          "text": "Send reminder emails."
+        },
+        {
+          "type": "p",
+          "text": "Recalculate course analytics."
+        },
+        {
+          "type": "p",
+          "text": "Generate downloadable certificates."
+        },
+        {
+          "type": "p",
+          "text": "These operations can be executed by background workers."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding a background worker"
+        },
+        {
+          "type": "p",
+          "text": "A worker is a process or execution component responsible for performing tasks."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Backend API | v Create Background Job | v Job Queue | v Background Worker | v Execute Job | v Update Job Status"
+        },
+        {
+          "type": "p",
+          "text": "The worker can operate independently of the API request."
+        },
+        {
+          "type": "p",
+          "text": "C. Implementing asynchronous execution in Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot supports asynchronous method execution using @Async."
+        },
+        {
+          "type": "p",
+          "text": "First, enable asynchronous processing:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableAsync public class AsyncConfig { }"
+        },
+        {
+          "type": "p",
+          "text": "Then create an asynchronous service:"
+        },
+        {
+          "type": "code",
+          "text": "@Service public class NotificationService { @Async public CompletableFuture<Void> sendEmail( String email, String message) { // Perform email delivery return CompletableFuture.completedFuture(null); } }"
+        },
+        {
+          "type": "p",
+          "text": "Another application component can invoke the method without waiting for its complete execution."
+        },
+        {
+          "type": "p",
+          "text": "However, @Async is not a complete distributed job-processing solution."
+        },
+        {
+          "type": "p",
+          "text": "It generally runs inside the same application process and requires appropriate executor configuration."
+        },
+        {
+          "type": "p",
+          "text": "D. Understanding thread pools"
+        },
+        {
+          "type": "p",
+          "text": "A thread pool manages a collection of reusable threads."
+        },
+        {
+          "type": "p",
+          "text": "Instead of creating a new thread every time a job is submitted, the application can reuse threads from the pool."
+        },
+        {
+          "type": "p",
+          "text": "Important thread-pool settings include:"
+        },
+        {
+          "type": "p",
+          "text": "Core pool size."
+        },
+        {
+          "type": "p",
+          "text": "Maximum pool size."
+        },
+        {
+          "type": "p",
+          "text": "Queue capacity."
+        },
+        {
+          "type": "p",
+          "text": "Thread naming."
+        },
+        {
+          "type": "p",
+          "text": "Rejection policy."
+        },
+        {
+          "type": "p",
+          "text": "Shutdown behaviour."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableAsync public class AsyncConfig { @Bean(\"taskExecutor\") public Executor taskExecutor() { ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor(); executor.setCorePoolSize(5); executor.setMaxPoolSize(10); executor.setQueueCapacity(100); executor.setThreadNamePrefix(\"background-\"); executor.initialize(); return executor; } }"
+        },
+        {
+          "type": "p",
+          "text": "These values are illustrative. Production values should be selected according to workload, available resources and downstream service limits."
+        },
+        {
+          "type": "p",
+          "text": "E. What is task scheduling?"
+        },
+        {
+          "type": "p",
+          "text": "Task scheduling means running a task at a predefined time or interval."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Every night at midnight, delete expired temporary records."
+        },
+        {
+          "type": "p",
+          "text": "Every morning, generate learning activity summaries."
+        },
+        {
+          "type": "p",
+          "text": "Every hour, check pending notification jobs."
+        },
+        {
+          "type": "p",
+          "text": "Every week, prepare course analytics reports."
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot supports scheduled execution through @Scheduled."
+        },
+        {
+          "type": "p",
+          "text": "Enable scheduling:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableScheduling public class SchedulingConfig { }"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "@Component public class ReportScheduler { @Scheduled(cron = \"0 0 2 * * *\") public void generateDailyReports() { System.out.println( \"Generating daily reports\" ); } }"
+        },
+        {
+          "type": "p",
+          "text": "This example runs at 2 AM according to the configured scheduler timezone."
+        },
+        {
+          "type": "p",
+          "text": "F. Types of scheduling"
+        },
+        {
+          "type": "p",
+          "text": "Type"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "Fixed Rate"
+        },
+        {
+          "type": "p",
+          "text": "Run every 10 seconds"
+        },
+        {
+          "type": "p",
+          "text": "Fixed Delay"
+        },
+        {
+          "type": "p",
+          "text": "Wait 10 seconds after the previous execution completes"
+        },
+        {
+          "type": "p",
+          "text": "Cron"
+        },
+        {
+          "type": "p",
+          "text": "Run every day at 2 AM"
+        },
+        {
+          "type": "p",
+          "text": "One-Time Job"
+        },
+        {
+          "type": "p",
+          "text": "Run once at a specified time"
+        },
+        {
+          "type": "p",
+          "text": "G. Distributed scheduling"
+        },
+        {
+          "type": "p",
+          "text": "An important problem appears when your backend runs on multiple instances."
+        },
+        {
+          "type": "p",
+          "text": "Imagine three backend servers all execute the same scheduled task:"
+        },
+        {
+          "type": "p",
+          "text": "Backend A → Generate report Backend B → Generate report Backend C → Generate report"
+        },
+        {
+          "type": "p",
+          "text": "The same job might execute three times."
+        },
+        {
+          "type": "p",
+          "text": "You will learn about:"
+        },
+        {
+          "type": "p",
+          "text": "Distributed locks."
+        },
+        {
+          "type": "p",
+          "text": "Scheduler coordination."
+        },
+        {
+          "type": "p",
+          "text": "Job ownership."
+        },
+        {
+          "type": "p",
+          "text": "Quartz Scheduler."
+        },
+        {
+          "type": "p",
+          "text": "ShedLock."
+        },
+        {
+          "type": "p",
+          "text": "Persistent job execution."
+        },
+        {
+          "type": "p",
+          "text": "For production scheduling, consider whether the job should run once globally or independently on every instance."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Background execution and scheduling allow applications to perform expensive or recurring operations without unnecessarily slowing down user-facing APIs."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 3 — Message Queues and Message Brokers"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous processing becomes more powerful when different application components can communicate without directly depending on one another."
+        },
+        {
+          "type": "p",
+          "text": "Message queues and message brokers make this possible."
+        },
+        {
+          "type": "p",
+          "text": "A. What is a message queue?"
+        },
+        {
+          "type": "p",
+          "text": "A message queue is a mechanism for storing messages until consumers are ready to process them."
+        },
+        {
+          "type": "p",
+          "text": "Suppose a student enrols in a PrepSpaces course."
+        },
+        {
+          "type": "p",
+          "text": "The backend needs to send:"
+        },
+        {
+          "type": "p",
+          "text": "A confirmation email."
+        },
+        {
+          "type": "p",
+          "text": "An in-app notification."
+        },
+        {
+          "type": "p",
+          "text": "An analytics event."
+        },
+        {
+          "type": "p",
+          "text": "Instead of executing everything inside the enrolment request, the application can publish messages for background processing."
+        },
+        {
+          "type": "p",
+          "text": "B. What is a message broker?"
+        },
+        {
+          "type": "p",
+          "text": "A message broker is software responsible for receiving, routing, storing and delivering messages between producers and consumers."
+        },
+        {
+          "type": "p",
+          "text": "Popular technologies include:"
+        },
+        {
+          "type": "p",
+          "text": "[RabbitMQ Logo & Brand Assets (SVG, PNG and vector) - Brandfetch](https://images.openai.com/static-rsc-4/dH0OOZcUHBXmCg4AeXtBX6KtUfyIG6YOYw4mrEHHnlPfqtdIWa5pQXr-QG2hQHorWkVNTA5zOvmMkbgPp8zVkeqrTYPLv4x4nVU2WQE92jTHMOyjGwrVT4hHW0k0N5MO00pz1TflQokKGGt-oJowVnS2mlQtonwHqBv6dxIGD2g?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "A message broker commonly used for task queues, routing, acknowledgements and background processing."
+        },
+        {
+          "type": "p",
+          "text": "Well suited to the notification-processing lab."
+        },
+        {
+          "type": "p",
+          "text": "[Running Kafka on Production. Apache Kafka is an open-source… | by Pradyumna Khawas | WorkIndia.in | Medium](https://images.openai.com/static-rsc-4/IdgpctULbez35q_RTbMO09b-y6gGSwj0M361O82eRjmf4iacIuOlU2NJe7tJ5nG3ML_-Ramx8HPhw_f2BkJ4-7fTax9B_pG2F5mYYn7fI3Wkxu6lEMjmv6TQdRCI7p2vkYr-RROSNxhp8BCekHH4j-k8olCh620FHns5GrtDyDM?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Apache Kafka"
+        },
+        {
+          "type": "p",
+          "text": "A distributed event-streaming platform designed for durable event streams, high-throughput processing and multiple independent consumers."
+        },
+        {
+          "type": "p",
+          "text": "Useful for event-driven systems and analytics pipelines."
+        },
+        {
+          "type": "p",
+          "text": "[Redis Logo PNG Vector (SVG) Free Download](https://images.openai.com/static-rsc-4/epIZvTJqrn11fZoyLAql3XQvzvr05WTs4k_hS-9tdnMQyi9Nak_EpGx1d16Qeud3z3mmGKrPzkfB8l4M10kTA8OEXwDm6CtTKKvBDOawlkZbKJwF8Jjm3IiHXcBUIohDPkufesDQyxMCNKXpFH79YSUkxtDVtdaR-HKvPqdpBXw?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "An in-memory data platform frequently used for caching, counters, coordination and messaging through Streams and Pub/Sub."
+        },
+        {
+          "type": "p",
+          "text": "Used primarily for caching in this module's practical lab."
+        },
+        {
+          "type": "p",
+          "text": "C. How a message queue works"
+        },
+        {
+          "type": "p",
+          "text": "Producer"
+        },
+        {
+          "type": "p",
+          "text": "Creates a notification message"
+        },
+        {
+          "type": "p",
+          "text": "Message Broker"
+        },
+        {
+          "type": "p",
+          "text": "Accepts and routes the message"
+        },
+        {
+          "type": "p",
+          "text": "Message Queue"
+        },
+        {
+          "type": "p",
+          "text": "Stores messages awaiting processing"
+        },
+        {
+          "type": "p",
+          "text": "Consumer / Worker"
+        },
+        {
+          "type": "p",
+          "text": "Receives and processes the message"
+        },
+        {
+          "type": "p",
+          "text": "Task Completed"
+        },
+        {
+          "type": "p",
+          "text": "Successful processing is acknowledged"
+        },
+        {
+          "type": "p",
+          "text": "D. Important message-broker concepts"
+        },
+        {
+          "type": "p",
+          "text": "Producer: Creates and sends messages."
+        },
+        {
+          "type": "p",
+          "text": "Consumer: Receives and processes messages."
+        },
+        {
+          "type": "p",
+          "text": "Queue: Holds messages waiting to be delivered or processed."
+        },
+        {
+          "type": "p",
+          "text": "Exchange: In RabbitMQ, routes published messages to queues based on routing rules."
+        },
+        {
+          "type": "p",
+          "text": "Routing Key: Helps determine where a message should be delivered."
+        },
+        {
+          "type": "p",
+          "text": "Acknowledgement (ACK): Indicates that a consumer has successfully processed a message."
+        },
+        {
+          "type": "p",
+          "text": "Negative Acknowledgement (NACK): Indicates that processing was unsuccessful and the message should be rejected or handled according to the configured policy."
+        },
+        {
+          "type": "p",
+          "text": "Prefetch: Controls how many unacknowledged messages a consumer can receive at a time."
+        },
+        {
+          "type": "p",
+          "text": "Persistence: Helps messages survive broker restarts when the appropriate durable queues, persistent messages and storage configuration are used."
+        },
+        {
+          "type": "p",
+          "text": "E. RabbitMQ vs Kafka"
+        },
+        {
+          "type": "p",
+          "text": "Feature"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "Kafka"
+        },
+        {
+          "type": "p",
+          "text": "Primary model"
+        },
+        {
+          "type": "p",
+          "text": "Message broker"
+        },
+        {
+          "type": "p",
+          "text": "Distributed event log"
+        },
+        {
+          "type": "p",
+          "text": "Typical use"
+        },
+        {
+          "type": "p",
+          "text": "Background task queues"
+        },
+        {
+          "type": "p",
+          "text": "Event streaming"
+        },
+        {
+          "type": "p",
+          "text": "Message consumption"
+        },
+        {
+          "type": "p",
+          "text": "Broker delivers messages to consumers"
+        },
+        {
+          "type": "p",
+          "text": "Consumers read events from partitions"
+        },
+        {
+          "type": "p",
+          "text": "Message retention"
+        },
+        {
+          "type": "p",
+          "text": "Often removed after acknowledgement"
+        },
+        {
+          "type": "p",
+          "text": "Retained according to configured policy"
+        },
+        {
+          "type": "p",
+          "text": "Routing"
+        },
+        {
+          "type": "p",
+          "text": "Exchanges and routing keys"
+        },
+        {
+          "type": "p",
+          "text": "Topics and partitions"
+        },
+        {
+          "type": "p",
+          "text": "Replay"
+        },
+        {
+          "type": "p",
+          "text": "Depends on queue and broker configuration"
+        },
+        {
+          "type": "p",
+          "text": "Supports replay within retention"
+        },
+        {
+          "type": "p",
+          "text": "Common workloads"
+        },
+        {
+          "type": "p",
+          "text": "Notifications, task processing"
+        },
+        {
+          "type": "p",
+          "text": "Analytics, event pipelines, streaming"
+        },
+        {
+          "type": "p",
+          "text": "These technologies overlap in some use cases, but they have different operating models."
+        },
+        {
+          "type": "p",
+          "text": "F. Important delivery concepts"
+        },
+        {
+          "type": "p",
+          "text": "You will understand:"
+        },
+        {
+          "type": "p",
+          "text": "At-most-once delivery."
+        },
+        {
+          "type": "p",
+          "text": "At-least-once delivery."
+        },
+        {
+          "type": "p",
+          "text": "Effectively-once business processing."
+        },
+        {
+          "type": "p",
+          "text": "Message durability."
+        },
+        {
+          "type": "p",
+          "text": "Acknowledgements."
+        },
+        {
+          "type": "p",
+          "text": "Ordering guarantees."
+        },
+        {
+          "type": "p",
+          "text": "Consumer failures."
+        },
+        {
+          "type": "p",
+          "text": "Queue backlogs."
+        },
+        {
+          "type": "p",
+          "text": "A critical principle is that successful message delivery does not automatically guarantee exactly-once business execution."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Message brokers allow backend components to communicate reliably without requiring every operation to execute inside a single HTTP request."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 4 — Event-Driven Backend Architecture"
+        },
+        {
+          "type": "p",
+          "text": "As backend applications grow, different components need to react to events without being tightly coupled to one another."
+        },
+        {
+          "type": "p",
+          "text": "Event-driven architecture provides a way to build these systems."
+        },
+        {
+          "type": "p",
+          "text": "A. What is an event?"
+        },
+        {
+          "type": "p",
+          "text": "An event represents something that has already happened in an application."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "UserRegistered CourseCreated StudentEnrolled PaymentCompleted LessonCompleted InterviewSubmitted CertificateGenerated"
+        },
+        {
+          "type": "p",
+          "text": "An event describes a completed fact, rather than simply requesting that another component perform an operation."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding event-driven architecture"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a student enrols in a course."
+        },
+        {
+          "type": "p",
+          "text": "The enrolment service publishes:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"eventId\": \"evt-1001\", \"eventType\": \"StudentEnrolled\", \"userId\": 101, \"courseId\": 501, \"occurredAt\": \"2026-11-27T09:00:00Z\" }"
+        },
+        {
+          "type": "p",
+          "text": "Different consumers can react to the same event."
+        },
+        {
+          "type": "p",
+          "text": "Notification service sends an email."
+        },
+        {
+          "type": "p",
+          "text": "Analytics service updates learning statistics."
+        },
+        {
+          "type": "p",
+          "text": "Recommendation service updates relevant activity data."
+        },
+        {
+          "type": "p",
+          "text": "Audit service records the activity."
+        },
+        {
+          "type": "p",
+          "text": "The enrolment service does not need to directly call all these components."
+        },
+        {
+          "type": "p",
+          "text": "C. Event-driven architecture diagram"
+        },
+        {
+          "type": "p",
+          "text": "Enrolment Service"
+        },
+        {
+          "type": "p",
+          "text": "Student successfully enrolled"
+        },
+        {
+          "type": "p",
+          "text": "StudentEnrolled Event"
+        },
+        {
+          "type": "p",
+          "text": "Published to message broker"
+        },
+        {
+          "type": "p",
+          "text": "Event Distribution"
+        },
+        {
+          "type": "p",
+          "text": "Multiple consumers receive relevant events"
+        },
+        {
+          "type": "p",
+          "text": "Notification"
+        },
+        {
+          "type": "p",
+          "text": "Send confirmation"
+        },
+        {
+          "type": "p",
+          "text": "Analytics"
+        },
+        {
+          "type": "p",
+          "text": "Update statistics"
+        },
+        {
+          "type": "p",
+          "text": "Recommendation"
+        },
+        {
+          "type": "p",
+          "text": "Update suggestions"
+        },
+        {
+          "type": "p",
+          "text": "Audit"
+        },
+        {
+          "type": "p",
+          "text": "Record activity"
+        },
+        {
+          "type": "p",
+          "text": "D. Event vs command"
+        },
+        {
+          "type": "p",
+          "text": "An event and a command are not the same."
+        },
+        {
+          "type": "p",
+          "text": "Command: Requests that something should happen."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "SendEnrollmentConfirmation"
+        },
+        {
+          "type": "p",
+          "text": "Event: Announces that something has already happened."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "StudentEnrolled"
+        },
+        {
+          "type": "p",
+          "text": "Commands are generally directed to a particular handler. Events can be consumed by multiple interested components."
+        },
+        {
+          "type": "p",
+          "text": "E. Event-driven architecture vs traditional request-response"
+        },
+        {
+          "type": "p",
+          "text": "Traditional approach"
+        },
+        {
+          "type": "p",
+          "text": "Event-driven approach"
+        },
+        {
+          "type": "p",
+          "text": "Services call one another directly"
+        },
+        {
+          "type": "p",
+          "text": "Services communicate through events"
+        },
+        {
+          "type": "p",
+          "text": "More direct dependencies"
+        },
+        {
+          "type": "p",
+          "text": "Reduced direct coupling"
+        },
+        {
+          "type": "p",
+          "text": "Caller may wait for downstream services"
+        },
+        {
+          "type": "p",
+          "text": "Consumers process independently"
+        },
+        {
+          "type": "p",
+          "text": "Errors can affect the request workflow"
+        },
+        {
+          "type": "p",
+          "text": "Background failures can be managed separately"
+        },
+        {
+          "type": "p",
+          "text": "Simple to understand initially"
+        },
+        {
+          "type": "p",
+          "text": "Requires event management and observability"
+        },
+        {
+          "type": "p",
+          "text": "F. Eventual consistency"
+        },
+        {
+          "type": "p",
+          "text": "Since consumers process events independently, different parts of the application may not be updated at exactly the same moment."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Enrolment is stored immediately."
+        },
+        {
+          "type": "p",
+          "text": "Analytics updates a few seconds later."
+        },
+        {
+          "type": "p",
+          "text": "Notification arrives after another few seconds."
+        },
+        {
+          "type": "p",
+          "text": "This is called eventual consistency."
+        },
+        {
+          "type": "p",
+          "text": "You will learn when eventual consistency is acceptable and when an operation requires an immediate authoritative database response."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Event-driven architecture helps backend systems grow without making every service directly dependent on every other service."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 5 — Producer and Consumer Patterns"
+        },
+        {
+          "type": "p",
+          "text": "Producer and consumer patterns are the foundation of messaging-based backend systems."
+        },
+        {
+          "type": "p",
+          "text": "A producer generates messages, while a consumer receives and processes them."
+        },
+        {
+          "type": "p",
+          "text": "A. Understanding the producer"
+        },
+        {
+          "type": "p",
+          "text": "A producer is a component that creates and publishes messages."
+        },
+        {
+          "type": "p",
+          "text": "For example, when a student completes a course, the backend may publish:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"eventId\": \"evt-2001\", \"eventType\": \"CourseCompleted\", \"userId\": 101, \"courseId\": 501 }"
+        },
+        {
+          "type": "p",
+          "text": "The producer should focus on creating the correct message rather than implementing all downstream operations itself."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding the consumer"
+        },
+        {
+          "type": "p",
+          "text": "A consumer listens to a queue or stream and processes incoming messages."
+        },
+        {
+          "type": "p",
+          "text": "A notification consumer may:"
+        },
+        {
+          "type": "p",
+          "text": "Receive the event."
+        },
+        {
+          "type": "p",
+          "text": "Validate the message."
+        },
+        {
+          "type": "p",
+          "text": "Load relevant user details."
+        },
+        {
+          "type": "p",
+          "text": "Build an email template."
+        },
+        {
+          "type": "p",
+          "text": "Send the email."
+        },
+        {
+          "type": "p",
+          "text": "Record the delivery result."
+        },
+        {
+          "type": "p",
+          "text": "Acknowledge successful processing."
+        },
+        {
+          "type": "p",
+          "text": "C. Implementing a producer with Spring AMQP"
+        },
+        {
+          "type": "p",
+          "text": "Assume RabbitMQ is configured and the application has a suitable exchange and routing configuration."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Service public class NotificationPublisher { private final RabbitTemplate rabbitTemplate; public NotificationPublisher( RabbitTemplate rabbitTemplate) { this.rabbitTemplate = rabbitTemplate; } public void publishEnrollmentEvent( EnrollmentEvent event) { rabbitTemplate.convertAndSend( \"notification.exchange\", \"notification.enrollment\", event ); } }"
+        },
+        {
+          "type": "p",
+          "text": "This sends a message to the configured RabbitMQ exchange using its routing key."
+        },
+        {
+          "type": "p",
+          "text": "D. Implementing a consumer"
+        },
+        {
+          "type": "p",
+          "text": "@Component public class NotificationConsumer { @RabbitListener( queues = \"enrollment.notifications\" ) public void processNotification( EnrollmentEvent event) { System.out.println( \"Processing notification for user: \" + event.userId() ); // Send email or create notification } }"
+        },
+        {
+          "type": "p",
+          "text": "The consumer runs separately from the request-handling controller."
+        },
+        {
+          "type": "p",
+          "text": "The actual production implementation must define acknowledgement, retry, dead-letter and idempotency policies rather than assuming every invocation succeeds exactly once."
+        },
+        {
+          "type": "p",
+          "text": "E. Understanding competing consumers"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a queue contains 1,000 notification messages."
+        },
+        {
+          "type": "p",
+          "text": "You can run several consumer instances:"
+        },
+        {
+          "type": "p",
+          "text": "Notification Queue / | \\ / | \\ v v v Worker 1 Worker 2 Worker 3"
+        },
+        {
+          "type": "p",
+          "text": "Workers can process different messages concurrently."
+        },
+        {
+          "type": "p",
+          "text": "This increases processing capacity when the downstream service can support the additional load."
+        },
+        {
+          "type": "p",
+          "text": "F. Consumer scaling"
+        },
+        {
+          "type": "p",
+          "text": "You will learn:"
+        },
+        {
+          "type": "p",
+          "text": "Multiple consumer instances."
+        },
+        {
+          "type": "p",
+          "text": "Worker concurrency."
+        },
+        {
+          "type": "p",
+          "text": "Consumer prefetch."
+        },
+        {
+          "type": "p",
+          "text": "Queue depth monitoring."
+        },
+        {
+          "type": "p",
+          "text": "Processing throughput."
+        },
+        {
+          "type": "p",
+          "text": "Backpressure."
+        },
+        {
+          "type": "p",
+          "text": "Poison-message handling."
+        },
+        {
+          "type": "p",
+          "text": "Increasing the number of consumers does not always improve performance. For example, if your email provider allows only a limited sending rate, too many workers can trigger rate limiting."
+        },
+        {
+          "type": "p",
+          "text": "G. Message contracts"
+        },
+        {
+          "type": "p",
+          "text": "A producer and consumer need an agreed message structure."
+        },
+        {
+          "type": "p",
+          "text": "You will learn to define:"
+        },
+        {
+          "type": "p",
+          "text": "Event ID."
+        },
+        {
+          "type": "p",
+          "text": "Event type."
+        },
+        {
+          "type": "p",
+          "text": "Event version."
+        },
+        {
+          "type": "p",
+          "text": "Timestamp."
+        },
+        {
+          "type": "p",
+          "text": "Payload."
+        },
+        {
+          "type": "p",
+          "text": "Correlation ID."
+        },
+        {
+          "type": "p",
+          "text": "Schema compatibility."
+        },
+        {
+          "type": "p",
+          "text": "You should avoid coupling consumers directly to the entire database entity structure."
+        },
+        {
+          "type": "p",
+          "text": "Use explicit event DTOs."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Producer and consumer separation allows different backend components to process work independently and scale according to demand."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 6 — Introduction to Redis"
+        },
+        {
+          "type": "p",
+          "text": "Redis is an in-memory data platform frequently used to improve application performance."
+        },
+        {
+          "type": "p",
+          "text": "Instead of retrieving the same information from a relational database for every request, your backend can temporarily store frequently accessed data in Redis."
+        },
+        {
+          "type": "p",
+          "text": "A. What is Redis?"
+        },
+        {
+          "type": "p",
+          "text": "Redis supports several data structures and operations, including:"
+        },
+        {
+          "type": "p",
+          "text": "Strings."
+        },
+        {
+          "type": "p",
+          "text": "Hashes."
+        },
+        {
+          "type": "p",
+          "text": "Lists."
+        },
+        {
+          "type": "p",
+          "text": "Sets."
+        },
+        {
+          "type": "p",
+          "text": "Sorted sets."
+        },
+        {
+          "type": "p",
+          "text": "Streams."
+        },
+        {
+          "type": "p",
+          "text": "Pub/Sub."
+        },
+        {
+          "type": "p",
+          "text": "It is commonly used for caching, shared counters, session storage, distributed coordination and real-time data."
+        },
+        {
+          "type": "p",
+          "text": "B. Why is Redis useful?"
+        },
+        {
+          "type": "p",
+          "text": "Imagine 5,000 students repeatedly request the same course information."
+        },
+        {
+          "type": "p",
+          "text": "Without caching:"
+        },
+        {
+          "type": "p",
+          "text": "5,000 Requests | v Backend API | v PostgreSQL | v Retrieve course data"
+        },
+        {
+          "type": "p",
+          "text": "The database may repeatedly execute identical queries."
+        },
+        {
+          "type": "p",
+          "text": "With Redis caching:"
+        },
+        {
+          "type": "code",
+          "text": "5,000 Requests | v Backend API | v Redis Cache | +---- Cache Hit → Return data | +---- Cache Miss | v PostgreSQL | v Save in Redis | v Return data"
+        },
+        {
+          "type": "p",
+          "text": "Repeated requests can be served from the cache."
+        },
+        {
+          "type": "p",
+          "text": "C. Important Redis data structures"
+        },
+        {
+          "type": "p",
+          "text": "Data structure"
+        },
+        {
+          "type": "p",
+          "text": "Typical use"
+        },
+        {
+          "type": "p",
+          "text": "String"
+        },
+        {
+          "type": "p",
+          "text": "Cache values and counters"
+        },
+        {
+          "type": "p",
+          "text": "Hash"
+        },
+        {
+          "type": "p",
+          "text": "User or object properties"
+        },
+        {
+          "type": "p",
+          "text": "List"
+        },
+        {
+          "type": "p",
+          "text": "Ordered collections and simple queues"
+        },
+        {
+          "type": "p",
+          "text": "Set"
+        },
+        {
+          "type": "p",
+          "text": "Unique values"
+        },
+        {
+          "type": "p",
+          "text": "Sorted Set"
+        },
+        {
+          "type": "p",
+          "text": "Rankings and leaderboards"
+        },
+        {
+          "type": "p",
+          "text": "Stream"
+        },
+        {
+          "type": "p",
+          "text": "Persistent event/message streams"
+        },
+        {
+          "type": "p",
+          "text": "Pub/Sub"
+        },
+        {
+          "type": "p",
+          "text": "Real-time message broadcasting"
+        },
+        {
+          "type": "p",
+          "text": "D. Basic Redis commands"
+        },
+        {
+          "type": "p",
+          "text": "Redis uses simple commands to manipulate data."
+        },
+        {
+          "type": "p",
+          "text": "SET and GET"
+        },
+        {
+          "type": "p",
+          "text": "SET course:101 \"Backend Engineering\" GET course:101"
+        },
+        {
+          "type": "p",
+          "text": "EXPIRE"
+        },
+        {
+          "type": "p",
+          "text": "EXPIRE course:101 300"
+        },
+        {
+          "type": "p",
+          "text": "This sets a 300-second expiration."
+        },
+        {
+          "type": "p",
+          "text": "TTL"
+        },
+        {
+          "type": "p",
+          "text": "TTL course:101"
+        },
+        {
+          "type": "p",
+          "text": "Returns the remaining time to live."
+        },
+        {
+          "type": "p",
+          "text": "HSET and HGET"
+        },
+        {
+          "type": "p",
+          "text": "HSET user:101 name Rahul email rahul@example.com HGET user:101 name"
+        },
+        {
+          "type": "p",
+          "text": "E. Redis expiration"
+        },
+        {
+          "type": "p",
+          "text": "One major advantage of Redis is the ability to assign expiration times to stored keys."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "SET course:101 \"Backend Engineering\" EX 300"
+        },
+        {
+          "type": "p",
+          "text": "The key expires after 300 seconds."
+        },
+        {
+          "type": "p",
+          "text": "This reduces the need to store every cached item permanently."
+        },
+        {
+          "type": "p",
+          "text": "F. Redis persistence"
+        },
+        {
+          "type": "p",
+          "text": "Although Redis is often described as an in-memory database, it supports persistence options."
+        },
+        {
+          "type": "p",
+          "text": "You will learn the basics of:"
+        },
+        {
+          "type": "p",
+          "text": "RDB: Creates point-in-time snapshots of Redis data."
+        },
+        {
+          "type": "p",
+          "text": "AOF: Records write operations so they can be replayed during recovery."
+        },
+        {
+          "type": "p",
+          "text": "The appropriate persistence configuration depends on whether Redis is being used for disposable cache data or important application state."
+        },
+        {
+          "type": "p",
+          "text": "For ordinary caching, losing the cache should not mean losing the authoritative application data."
+        },
+        {
+          "type": "p",
+          "text": "G. Important Redis limitations"
+        },
+        {
+          "type": "p",
+          "text": "Redis is not a universal replacement for PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "You must understand:"
+        },
+        {
+          "type": "p",
+          "text": "Memory limitations."
+        },
+        {
+          "type": "p",
+          "text": "Eviction policies."
+        },
+        {
+          "type": "p",
+          "text": "Cache expiration."
+        },
+        {
+          "type": "p",
+          "text": "Persistence trade-offs."
+        },
+        {
+          "type": "p",
+          "text": "Connection management."
+        },
+        {
+          "type": "p",
+          "text": "Network latency."
+        },
+        {
+          "type": "p",
+          "text": "Redis availability."
+        },
+        {
+          "type": "p",
+          "text": "Data serialization."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Redis can significantly reduce database load and response time when frequently accessed data is cached appropriately."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 7 — Cache-Aside and Other Caching Strategies"
+        },
+        {
+          "type": "p",
+          "text": "Caching is not simply storing frequently used information in Redis."
+        },
+        {
+          "type": "p",
+          "text": "You must decide how cached information is populated, updated and maintained."
+        },
+        {
+          "type": "p",
+          "text": "Different caching strategies solve different problems."
+        },
+        {
+          "type": "p",
+          "text": "A. What is caching?"
+        },
+        {
+          "type": "p",
+          "text": "Caching means storing a copy of frequently required information in a faster storage layer so that future requests can retrieve it more quickly."
+        },
+        {
+          "type": "p",
+          "text": "For example, a course page may be requested thousands of times without any change to the underlying course information."
+        },
+        {
+          "type": "p",
+          "text": "Rather than executing the same database query repeatedly, the backend can reuse the cached result."
+        },
+        {
+          "type": "p",
+          "text": "B. Cache-Aside Pattern"
+        },
+        {
+          "type": "p",
+          "text": "Cache-aside is one of the most commonly used caching strategies."
+        },
+        {
+          "type": "p",
+          "text": "The application checks the cache first."
+        },
+        {
+          "type": "p",
+          "text": "If the information is not available, it retrieves the data from the database and stores it in the cache."
+        },
+        {
+          "type": "p",
+          "text": "Workflow:"
+        },
+        {
+          "type": "p",
+          "text": "User requests course 101."
+        },
+        {
+          "type": "p",
+          "text": "Backend checks Redis."
+        },
+        {
+          "type": "p",
+          "text": "If the key exists, return cached data."
+        },
+        {
+          "type": "p",
+          "text": "If the key does not exist, query PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Store the result in Redis."
+        },
+        {
+          "type": "p",
+          "text": "Return the result."
+        },
+        {
+          "type": "p",
+          "text": "Course API Request"
+        },
+        {
+          "type": "p",
+          "text": "Check Redis"
+        },
+        {
+          "type": "p",
+          "text": "Cache Hit"
+        },
+        {
+          "type": "p",
+          "text": "Return cached data"
+        },
+        {
+          "type": "p",
+          "text": "Cache Miss"
+        },
+        {
+          "type": "p",
+          "text": "Query PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Populate Redis"
+        },
+        {
+          "type": "p",
+          "text": "C. Read-Through Caching"
+        },
+        {
+          "type": "p",
+          "text": "In read-through caching, the application requests data through a caching layer."
+        },
+        {
+          "type": "p",
+          "text": "The caching component is responsible for loading missing information from the underlying data source."
+        },
+        {
+          "type": "p",
+          "text": "This places more responsibility on the cache abstraction."
+        },
+        {
+          "type": "p",
+          "text": "D. Write-Through Caching"
+        },
+        {
+          "type": "p",
+          "text": "Write-through caching updates the cache as part of the write operation."
+        },
+        {
+          "type": "p",
+          "text": "Conceptually:"
+        },
+        {
+          "type": "code",
+          "text": "Application | v Caching Layer | +---- Update Cache | +---- Update Database"
+        },
+        {
+          "type": "p",
+          "text": "The goal is to keep the cache updated whenever data changes."
+        },
+        {
+          "type": "p",
+          "text": "However, the implementation must carefully handle partial failures between the cache and database."
+        },
+        {
+          "type": "p",
+          "text": "E. Write-Behind / Write-Back Caching"
+        },
+        {
+          "type": "p",
+          "text": "Write-behind caching stores updates in the cache first and writes them to the underlying database later."
+        },
+        {
+          "type": "p",
+          "text": "This can reduce database write pressure, but it introduces additional risks."
+        },
+        {
+          "type": "p",
+          "text": "For example, if pending writes are lost before reaching the database, important data could disappear."
+        },
+        {
+          "type": "p",
+          "text": "This is more appropriate for carefully designed workloads where delayed persistence is acceptable."
+        },
+        {
+          "type": "p",
+          "text": "It should not be used casually for critical enrolments, payments or account operations."
+        },
+        {
+          "type": "p",
+          "text": "F. Refresh-Ahead Caching"
+        },
+        {
+          "type": "p",
+          "text": "Refresh-ahead caching refreshes frequently accessed data before it expires."
+        },
+        {
+          "type": "p",
+          "text": "This can reduce cache misses for popular resources."
+        },
+        {
+          "type": "p",
+          "text": "For example, the backend may refresh frequently requested course catalogues before their expiration time."
+        },
+        {
+          "type": "p",
+          "text": "G. Comparing caching strategies"
+        },
+        {
+          "type": "p",
+          "text": "Strategy"
+        },
+        {
+          "type": "p",
+          "text": "Read behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Write behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Cache-Aside"
+        },
+        {
+          "type": "p",
+          "text": "Application checks cache, then database"
+        },
+        {
+          "type": "p",
+          "text": "Application updates database and manages cache"
+        },
+        {
+          "type": "p",
+          "text": "Read-Through"
+        },
+        {
+          "type": "p",
+          "text": "Cache layer loads missing data"
+        },
+        {
+          "type": "p",
+          "text": "Depends on write strategy"
+        },
+        {
+          "type": "p",
+          "text": "Write-Through"
+        },
+        {
+          "type": "p",
+          "text": "Read from cache"
+        },
+        {
+          "type": "p",
+          "text": "Update cache and backing store"
+        },
+        {
+          "type": "p",
+          "text": "Write-Behind"
+        },
+        {
+          "type": "p",
+          "text": "Read from cache"
+        },
+        {
+          "type": "p",
+          "text": "Persist changes asynchronously"
+        },
+        {
+          "type": "p",
+          "text": "Refresh-Ahead"
+        },
+        {
+          "type": "p",
+          "text": "Read from cache"
+        },
+        {
+          "type": "p",
+          "text": "Refresh before expiration"
+        },
+        {
+          "type": "p",
+          "text": "H. Implementing Redis caching in Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot provides caching abstractions."
+        },
+        {
+          "type": "p",
+          "text": "Example configuration:"
+        },
+        {
+          "type": "code",
+          "text": "@Configuration @EnableCaching public class CacheConfig { }"
+        },
+        {
+          "type": "p",
+          "text": "Then use @Cacheable:"
+        },
+        {
+          "type": "code",
+          "text": "@Service public class CourseService { private final CourseRepository repository; public CourseService(CourseRepository repository) { this.repository = repository; } @Cacheable( cacheNames = \"courses\", key = \"#courseId\" ) public CourseResponse getCourse(Long courseId) { return repository.findById(courseId) .map(CourseResponse::from) .orElseThrow(() -> new ResourceNotFoundException( \"Course not found\" ) ); } }"
+        },
+        {
+          "type": "p",
+          "text": "The caching abstraction checks the configured cache before invoking the method and stores the result according to its configuration."
+        },
+        {
+          "type": "p",
+          "text": "For an application using Redis, configure a Redis-backed cache manager."
+        },
+        {
+          "type": "p",
+          "text": "I. Cache key design"
+        },
+        {
+          "type": "p",
+          "text": "Good cache keys should be:"
+        },
+        {
+          "type": "p",
+          "text": "Predictable."
+        },
+        {
+          "type": "p",
+          "text": "Unique for the relevant data."
+        },
+        {
+          "type": "p",
+          "text": "Consistent."
+        },
+        {
+          "type": "p",
+          "text": "Versionable when needed."
+        },
+        {
+          "type": "p",
+          "text": "Independent of sensitive information."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "course:101 course:101:details user:25:profile course:catalog:page:1"
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Different caching strategies allow you to optimise read and write performance according to the behaviour of your application."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 8 — Cache Invalidation and Expiration"
+        },
+        {
+          "type": "p",
+          "text": "Caching creates a new problem: cached information can become outdated."
+        },
+        {
+          "type": "p",
+          "text": "Imagine an instructor updates a course title."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL contains the new title, but Redis still stores the old version."
+        },
+        {
+          "type": "p",
+          "text": "Students continue seeing outdated information."
+        },
+        {
+          "type": "p",
+          "text": "This is called a cache consistency or cache invalidation problem."
+        },
+        {
+          "type": "p",
+          "text": "A. What is cache invalidation?"
+        },
+        {
+          "type": "p",
+          "text": "Cache invalidation means removing or updating cached data when the authoritative data changes."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Old course title: Java Fundamentals New course title: Advanced Java Development"
+        },
+        {
+          "type": "p",
+          "text": "If the cache contains the old title, the backend must ensure that subsequent requests do not continue returning it indefinitely."
+        },
+        {
+          "type": "p",
+          "text": "B. Cache expiration using TTL"
+        },
+        {
+          "type": "p",
+          "text": "TTL means Time to Live."
+        },
+        {
+          "type": "p",
+          "text": "It determines how long a cached key remains valid."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "SET course:101 \"Java Fundamentals\" EX 300"
+        },
+        {
+          "type": "p",
+          "text": "The cache entry expires after five minutes."
+        },
+        {
+          "type": "p",
+          "text": "TTL is simple and useful, but a five-minute expiration does not guarantee that every request receives fresh data."
+        },
+        {
+          "type": "p",
+          "text": "A value may become outdated immediately after it is cached."
+        },
+        {
+          "type": "p",
+          "text": "C. Cache eviction"
+        },
+        {
+          "type": "p",
+          "text": "Eviction removes existing cached entries."
+        },
+        {
+          "type": "p",
+          "text": "It can happen because:"
+        },
+        {
+          "type": "p",
+          "text": "The key expires."
+        },
+        {
+          "type": "p",
+          "text": "The application explicitly removes it."
+        },
+        {
+          "type": "p",
+          "text": "Redis reaches its configured memory limit."
+        },
+        {
+          "type": "p",
+          "text": "An eviction policy selects the key."
+        },
+        {
+          "type": "p",
+          "text": "An administrator removes the data."
+        },
+        {
+          "type": "p",
+          "text": "D. Common Redis eviction policies"
+        },
+        {
+          "type": "p",
+          "text": "Policy"
+        },
+        {
+          "type": "p",
+          "text": "Behaviour"
+        },
+        {
+          "type": "p",
+          "text": "noeviction"
+        },
+        {
+          "type": "p",
+          "text": "Rejects writes that require additional memory"
+        },
+        {
+          "type": "p",
+          "text": "allkeys-lru"
+        },
+        {
+          "type": "p",
+          "text": "Evicts least recently used keys"
+        },
+        {
+          "type": "p",
+          "text": "allkeys-lfu"
+        },
+        {
+          "type": "p",
+          "text": "Evicts least frequently used keys"
+        },
+        {
+          "type": "p",
+          "text": "volatile-lru"
+        },
+        {
+          "type": "p",
+          "text": "Evicts least recently used keys with expiration"
+        },
+        {
+          "type": "p",
+          "text": "volatile-ttl"
+        },
+        {
+          "type": "p",
+          "text": "Evicts keys with the shortest remaining TTL"
+        },
+        {
+          "type": "p",
+          "text": "You will learn why eviction policies should be selected according to the application's cache workload."
+        },
+        {
+          "type": "p",
+          "text": "E. Cache invalidation after database updates"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an instructor updates a course."
+        },
+        {
+          "type": "p",
+          "text": "The service should update PostgreSQL and invalidate the corresponding cached value."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@CacheEvict( cacheNames = \"courses\", key = \"#courseId\" ) public void updateCourse( Long courseId, CourseRequest request) { // Validate and update database record }"
+        },
+        {
+          "type": "p",
+          "text": "The exact ordering of the cache operation and database commit requires attention."
+        },
+        {
+          "type": "p",
+          "text": "For reliable behaviour, cache eviction should occur after a successful database transaction commit, or through another appropriate consistency mechanism."
+        },
+        {
+          "type": "p",
+          "text": "F. Cache stampede"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a popular course's cache entry expires."
+        },
+        {
+          "type": "p",
+          "text": "Thousands of students request the same course simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "All requests discover a cache miss and query PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "This creates a sudden database workload increase."
+        },
+        {
+          "type": "p",
+          "text": "This is called a cache stampede or cache thundering herd."
+        },
+        {
+          "type": "p",
+          "text": "You will learn strategies such as:"
+        },
+        {
+          "type": "p",
+          "text": "Cache refresh with jitter."
+        },
+        {
+          "type": "p",
+          "text": "Request coalescing."
+        },
+        {
+          "type": "p",
+          "text": "Single-flight loading."
+        },
+        {
+          "type": "p",
+          "text": "Distributed locks."
+        },
+        {
+          "type": "p",
+          "text": "Stale-while-revalidate."
+        },
+        {
+          "type": "p",
+          "text": "Controlled cache warming."
+        },
+        {
+          "type": "p",
+          "text": "G. Cache penetration and hot keys"
+        },
+        {
+          "type": "p",
+          "text": "Cache Penetration: Requests repeatedly query information that does not exist in the cache or database."
+        },
+        {
+          "type": "p",
+          "text": "Hot Key: One key receives an unusually large number of requests."
+        },
+        {
+          "type": "p",
+          "text": "Both can cause performance problems."
+        },
+        {
+          "type": "p",
+          "text": "You will learn how negative caching, request validation, caching policy and traffic distribution can help."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: A poorly managed cache can return incorrect information or create even more load than the database operations it was designed to reduce."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 9 — Database and Cache Consistency"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL and Redis serve different purposes."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL is generally the authoritative store for application records, while Redis frequently stores temporary copies for faster retrieval."
+        },
+        {
+          "type": "p",
+          "text": "Keeping these systems consistent is an important backend engineering responsibility."
+        },
+        {
+          "type": "p",
+          "text": "A. Understanding the consistency problem"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a student's course progress is 60%."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL:"
+        },
+        {
+          "type": "p",
+          "text": "course_progress = 60"
+        },
+        {
+          "type": "p",
+          "text": "Redis:"
+        },
+        {
+          "type": "p",
+          "text": "course_progress = 40"
+        },
+        {
+          "type": "p",
+          "text": "The user requests their progress."
+        },
+        {
+          "type": "p",
+          "text": "If the backend reads the cache, it returns 40% even though the actual database value is 60%."
+        },
+        {
+          "type": "p",
+          "text": "This happens when a database update does not properly invalidate or update the cached information."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding write ordering"
+        },
+        {
+          "type": "p",
+          "text": "Consider this operation:"
+        },
+        {
+          "type": "p",
+          "text": "Update the database."
+        },
+        {
+          "type": "p",
+          "text": "Update or invalidate the cache."
+        },
+        {
+          "type": "p",
+          "text": "This is a common approach."
+        },
+        {
+          "type": "p",
+          "text": "But partial failure is possible."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Database update succeeds."
+        },
+        {
+          "type": "p",
+          "text": "Redis update fails."
+        },
+        {
+          "type": "p",
+          "text": "The application now has stale cached data."
+        },
+        {
+          "type": "p",
+          "text": "You need an explicit recovery strategy."
+        },
+        {
+          "type": "p",
+          "text": "C. Cache invalidation approach"
+        },
+        {
+          "type": "p",
+          "text": "A common approach is:"
+        },
+        {
+          "type": "p",
+          "text": "Update PostgreSQL | v Transaction commits | v Invalidate Redis key | v Next request reloads from PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "This reduces stale-cache risk."
+        },
+        {
+          "type": "p",
+          "text": "If invalidation fails, you may need retry mechanisms, TTL limits or event-based cache invalidation."
+        },
+        {
+          "type": "p",
+          "text": "D. The dual-write problem"
+        },
+        {
+          "type": "p",
+          "text": "Suppose the backend writes to PostgreSQL and Redis independently."
+        },
+        {
+          "type": "p",
+          "text": "Write PostgreSQL → Success Write Redis → Failure"
+        },
+        {
+          "type": "p",
+          "text": "The two stores no longer agree."
+        },
+        {
+          "type": "p",
+          "text": "This is commonly called the dual-write problem."
+        },
+        {
+          "type": "p",
+          "text": "You will understand why a successful database transaction does not automatically guarantee a successful cache update."
+        },
+        {
+          "type": "p",
+          "text": "E. Event-driven cache invalidation"
+        },
+        {
+          "type": "p",
+          "text": "A backend can publish a data-change event after a successful database update."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"eventId\": \"evt-3001\", \"eventType\": \"CourseUpdated\", \"courseId\": 101 }"
+        },
+        {
+          "type": "p",
+          "text": "A cache invalidation consumer removes the corresponding Redis key."
+        },
+        {
+          "type": "p",
+          "text": "This allows several backend instances to receive the same update and invalidate their relevant cached information."
+        },
+        {
+          "type": "p",
+          "text": "F. Understanding consistency models"
+        },
+        {
+          "type": "p",
+          "text": "Model"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "Strong consistency"
+        },
+        {
+          "type": "p",
+          "text": "Reads observe the latest committed state under the system's consistency guarantees"
+        },
+        {
+          "type": "p",
+          "text": "Eventual consistency"
+        },
+        {
+          "type": "p",
+          "text": "Replicas or dependent stores converge over time"
+        },
+        {
+          "type": "p",
+          "text": "Read-your-writes"
+        },
+        {
+          "type": "p",
+          "text": "A user sees their own successful updates"
+        },
+        {
+          "type": "p",
+          "text": "Stale-while-revalidate"
+        },
+        {
+          "type": "p",
+          "text": "Old cached data may be returned while fresh data is loaded"
+        },
+        {
+          "type": "p",
+          "text": "G. Important design principle"
+        },
+        {
+          "type": "p",
+          "text": "Not every data item should use the same caching strategy."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Data"
+        },
+        {
+          "type": "p",
+          "text": "Suitable approach"
+        },
+        {
+          "type": "p",
+          "text": "Public course description"
+        },
+        {
+          "type": "p",
+          "text": "Cache with TTL and invalidation"
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue"
+        },
+        {
+          "type": "p",
+          "text": "Cached with controlled refresh"
+        },
+        {
+          "type": "p",
+          "text": "User profile"
+        },
+        {
+          "type": "p",
+          "text": "Shorter TTL and user-specific invalidation"
+        },
+        {
+          "type": "p",
+          "text": "Payment balance"
+        },
+        {
+          "type": "p",
+          "text": "Read from authoritative transactional storage"
+        },
+        {
+          "type": "p",
+          "text": "Enrolment status"
+        },
+        {
+          "type": "p",
+          "text": "Carefully controlled caching or authoritative read"
+        },
+        {
+          "type": "p",
+          "text": "Learning progress"
+        },
+        {
+          "type": "p",
+          "text": "Cache only with an explicit write and invalidation strategy"
+        },
+        {
+          "type": "p",
+          "text": "Avoid treating Redis as the final source of truth for critical financial or enrolment operations without a specifically designed persistence and consistency model."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Performance improvements must not introduce incorrect user information or inconsistent business records."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 10 — Retry Queues and Dead-Letter Queues"
+        },
+        {
+          "type": "p",
+          "text": "Background processing introduces an important operational problem."
+        },
+        {
+          "type": "p",
+          "text": "What happens if a worker receives a message but cannot process it?"
+        },
+        {
+          "type": "p",
+          "text": "For example, an email provider may be unavailable."
+        },
+        {
+          "type": "p",
+          "text": "You should not simply discard the message."
+        },
+        {
+          "type": "p",
+          "text": "Reliable messaging systems need mechanisms for retrying failed work and isolating messages that repeatedly fail."
+        },
+        {
+          "type": "p",
+          "text": "A. What is a retry queue?"
+        },
+        {
+          "type": "p",
+          "text": "A retry queue temporarily holds messages that failed processing and need another attempt."
+        },
+        {
+          "type": "p",
+          "text": "Imagine the notification worker receives:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"eventId\": \"evt-4001\", \"eventType\": \"EnrollmentConfirmed\", \"userId\": 101 }"
+        },
+        {
+          "type": "p",
+          "text": "The email service returns a temporary error."
+        },
+        {
+          "type": "p",
+          "text": "The worker can place the message into a retry mechanism rather than permanently losing it."
+        },
+        {
+          "type": "p",
+          "text": "B. Retry strategies for messaging"
+        },
+        {
+          "type": "p",
+          "text": "Immediate Retry: Try processing again immediately."
+        },
+        {
+          "type": "p",
+          "text": "Delayed Retry: Wait before retrying."
+        },
+        {
+          "type": "p",
+          "text": "Exponential Backoff: Increase the delay after each failed attempt."
+        },
+        {
+          "type": "p",
+          "text": "Retry Queue: Move the failed message to a separate queue and return it for processing later."
+        },
+        {
+          "type": "p",
+          "text": "C. What is a Dead-Letter Queue?"
+        },
+        {
+          "type": "p",
+          "text": "A Dead-Letter Queue (DLQ) stores messages that cannot be successfully processed under the configured delivery or retry policy."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Email address data is malformed."
+        },
+        {
+          "type": "p",
+          "text": "Required event fields are missing."
+        },
+        {
+          "type": "p",
+          "text": "A message has exceeded its retry limit."
+        },
+        {
+          "type": "p",
+          "text": "A consumer repeatedly encounters an unrecoverable error."
+        },
+        {
+          "type": "p",
+          "text": "Instead of retrying forever, the message can be moved to a DLQ for investigation."
+        },
+        {
+          "type": "p",
+          "text": "D. Retry and DLQ workflow"
+        },
+        {
+          "type": "p",
+          "text": "Main Notification Queue"
+        },
+        {
+          "type": "p",
+          "text": "Notification Worker"
+        },
+        {
+          "type": "p",
+          "text": "Attempts message processing"
+        },
+        {
+          "type": "p",
+          "text": "Success"
+        },
+        {
+          "type": "p",
+          "text": "Acknowledge message"
+        },
+        {
+          "type": "p",
+          "text": "Failure"
+        },
+        {
+          "type": "p",
+          "text": "Send to retry mechanism"
+        },
+        {
+          "type": "p",
+          "text": "Maximum retries exceeded"
+        },
+        {
+          "type": "p",
+          "text": "Dead-Letter Queue"
+        },
+        {
+          "type": "p",
+          "text": "Store failed messages for investigation and controlled redelivery"
+        },
+        {
+          "type": "p",
+          "text": "E. Example retry policy"
+        },
+        {
+          "type": "p",
+          "text": "Attempt"
+        },
+        {
+          "type": "p",
+          "text": "Delay"
+        },
+        {
+          "type": "p",
+          "text": "Initial"
+        },
+        {
+          "type": "p",
+          "text": "Immediate"
+        },
+        {
+          "type": "p",
+          "text": "Retry 1"
+        },
+        {
+          "type": "p",
+          "text": "10 seconds"
+        },
+        {
+          "type": "p",
+          "text": "Retry 2"
+        },
+        {
+          "type": "p",
+          "text": "30 seconds"
+        },
+        {
+          "type": "p",
+          "text": "Retry 3"
+        },
+        {
+          "type": "p",
+          "text": "2 minutes"
+        },
+        {
+          "type": "p",
+          "text": "After failure"
+        },
+        {
+          "type": "p",
+          "text": "Move to DLQ"
+        },
+        {
+          "type": "p",
+          "text": "These are illustrative values. Different workloads need different retry schedules."
+        },
+        {
+          "type": "p",
+          "text": "F. Understanding poison messages"
+        },
+        {
+          "type": "p",
+          "text": "A poison message is a message that repeatedly causes processing to fail."
+        },
+        {
+          "type": "p",
+          "text": "For example, a notification message contains an invalid date format."
+        },
+        {
+          "type": "p",
+          "text": "If the worker retries it indefinitely, it may consume resources without ever succeeding."
+        },
+        {
+          "type": "p",
+          "text": "You will learn how to:"
+        },
+        {
+          "type": "p",
+          "text": "Identify poison messages."
+        },
+        {
+          "type": "p",
+          "text": "Limit retry attempts."
+        },
+        {
+          "type": "p",
+          "text": "Record processing errors."
+        },
+        {
+          "type": "p",
+          "text": "Preserve the original message."
+        },
+        {
+          "type": "p",
+          "text": "Inspect dead-letter messages."
+        },
+        {
+          "type": "p",
+          "text": "Correct and replay messages safely."
+        },
+        {
+          "type": "p",
+          "text": "G. RabbitMQ dead-letter handling"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ supports dead-letter exchanges and queues."
+        },
+        {
+          "type": "p",
+          "text": "You will learn how to configure:"
+        },
+        {
+          "type": "p",
+          "text": "Dead-letter exchanges."
+        },
+        {
+          "type": "p",
+          "text": "Dead-letter routing keys."
+        },
+        {
+          "type": "p",
+          "text": "Dead-letter queues."
+        },
+        {
+          "type": "p",
+          "text": "Message expiration."
+        },
+        {
+          "type": "p",
+          "text": "Retry routing."
+        },
+        {
+          "type": "p",
+          "text": "Reprocessing workflows."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: A reliable messaging system must ensure that temporary failures can be retried while permanent failures are isolated rather than silently lost."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 11 — Handling Duplicate Events"
+        },
+        {
+          "type": "p",
+          "text": "One important rule in distributed messaging is that you should not assume a message will always be delivered and processed exactly once."
+        },
+        {
+          "type": "p",
+          "text": "A consumer may receive the same event more than once."
+        },
+        {
+          "type": "p",
+          "text": "Your system must be prepared to handle this."
+        },
+        {
+          "type": "p",
+          "text": "A. Why do duplicate events happen?"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a notification consumer:"
+        },
+        {
+          "type": "p",
+          "text": "Receives an event."
+        },
+        {
+          "type": "p",
+          "text": "Sends an email."
+        },
+        {
+          "type": "p",
+          "text": "Crashes before acknowledging the message."
+        },
+        {
+          "type": "p",
+          "text": "The broker does not know that the email operation succeeded."
+        },
+        {
+          "type": "p",
+          "text": "The message may be delivered again after the consumer restarts."
+        },
+        {
+          "type": "p",
+          "text": "The result could be two identical emails."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding idempotent consumers"
+        },
+        {
+          "type": "p",
+          "text": "An idempotent consumer processes the same logical event without repeating its business effect."
+        },
+        {
+          "type": "p",
+          "text": "For example, if an event has already been processed, the consumer can identify it and avoid performing the operation again."
+        },
+        {
+          "type": "p",
+          "text": "C. Event ID"
+        },
+        {
+          "type": "p",
+          "text": "Every event should have a unique identifier."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"eventId\": \"evt-5001\", \"eventType\": \"StudentEnrolled\", \"userId\": 101, \"courseId\": 501 }"
+        },
+        {
+          "type": "p",
+          "text": "The consumer records processed event IDs."
+        },
+        {
+          "type": "p",
+          "text": "D. Database design"
+        },
+        {
+          "type": "p",
+          "text": "Create a processed_events table."
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "event_id"
+        },
+        {
+          "type": "p",
+          "text": "Unique event identifier"
+        },
+        {
+          "type": "p",
+          "text": "consumer_name"
+        },
+        {
+          "type": "p",
+          "text": "Identifies the consumer"
+        },
+        {
+          "type": "p",
+          "text": "processed_at"
+        },
+        {
+          "type": "p",
+          "text": "Processing timestamp"
+        },
+        {
+          "type": "p",
+          "text": "A unique constraint can enforce that the same consumer does not record the same event twice."
+        },
+        {
+          "type": "p",
+          "text": "E. Implementing duplicate protection"
+        },
+        {
+          "type": "p",
+          "text": "Simplified example:"
+        },
+        {
+          "type": "code",
+          "text": "@Transactional public void processEnrollmentEvent( EnrollmentEvent event) { if (processedEventRepository.existsByEventIdAndConsumerName( event.eventId(), \"notification-service\")) { return; } // Perform the business operation. processedEventRepository.save( new ProcessedEvent( event.eventId(), \"notification-service\" ) ); }"
+        },
+        {
+          "type": "p",
+          "text": "This illustrates the logic, but the exists check and insert should not be treated as a concurrency-safe guarantee by themselves."
+        },
+        {
+          "type": "p",
+          "text": "For production, use a unique database constraint and an atomic insert-or-deduplicate strategy, with the event-processing record and the relevant business change committed together where possible."
+        },
+        {
+          "type": "p",
+          "text": "F. Understanding delivery guarantees"
+        },
+        {
+          "type": "p",
+          "text": "At-most-once: A message is processed zero or one time. Duplicates are avoided, but messages may be lost."
+        },
+        {
+          "type": "p",
+          "text": "At-least-once: A message is delivered one or more times. It is less likely to be lost, but duplicates are possible."
+        },
+        {
+          "type": "p",
+          "text": "Exactly-once processing: A stronger guarantee about business effects. It requires careful coordination of message acknowledgement, state changes and external side effects."
+        },
+        {
+          "type": "p",
+          "text": "For external operations such as email delivery, genuine exactly-once delivery is generally not guaranteed by the broker alone."
+        },
+        {
+          "type": "p",
+          "text": "You will learn to design effectively-once business processing using idempotency and controlled side effects."
+        },
+        {
+          "type": "p",
+          "text": "G. Additional duplicate-prevention techniques"
+        },
+        {
+          "type": "p",
+          "text": "Unique event IDs."
+        },
+        {
+          "type": "p",
+          "text": "Database unique constraints."
+        },
+        {
+          "type": "p",
+          "text": "Idempotent API operations."
+        },
+        {
+          "type": "p",
+          "text": "Deduplication windows."
+        },
+        {
+          "type": "p",
+          "text": "Consumer-specific processing records."
+        },
+        {
+          "type": "p",
+          "text": "Transactional event handling."
+        },
+        {
+          "type": "p",
+          "text": "Provider-supported idempotency keys."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Duplicate events are a normal possibility in distributed systems. Reliable consumers must prevent repeated business effects."
+        },
+        {
+          "type": "p",
+          "text": "Lesson 12 — Designing Reliable Background Tasks"
+        },
+        {
+          "type": "p",
+          "text": "Building a background worker is relatively easy."
+        },
+        {
+          "type": "p",
+          "text": "Building one that can handle crashes, retries, duplicate messages, scaling and service outages is much more challenging."
+        },
+        {
+          "type": "p",
+          "text": "This lesson brings the previous concepts together."
+        },
+        {
+          "type": "p",
+          "text": "A. What makes a background task reliable?"
+        },
+        {
+          "type": "p",
+          "text": "A reliable background task should:"
+        },
+        {
+          "type": "p",
+          "text": "Execute independently of the main request."
+        },
+        {
+          "type": "p",
+          "text": "Have a clearly defined input contract."
+        },
+        {
+          "type": "p",
+          "text": "Be safely retryable where appropriate."
+        },
+        {
+          "type": "p",
+          "text": "Handle duplicate execution."
+        },
+        {
+          "type": "p",
+          "text": "Record processing status."
+        },
+        {
+          "type": "p",
+          "text": "Recover from temporary failures."
+        },
+        {
+          "type": "p",
+          "text": "Avoid unbounded resource consumption."
+        },
+        {
+          "type": "p",
+          "text": "Support monitoring."
+        },
+        {
+          "type": "p",
+          "text": "Provide a way to investigate permanently failed jobs."
+        },
+        {
+          "type": "p",
+          "text": "B. Understanding task states"
+        },
+        {
+          "type": "p",
+          "text": "A background job may move through several states:"
+        },
+        {
+          "type": "p",
+          "text": "State"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "QUEUED"
+        },
+        {
+          "type": "p",
+          "text": "Waiting to be processed"
+        },
+        {
+          "type": "p",
+          "text": "PROCESSING"
+        },
+        {
+          "type": "p",
+          "text": "Currently being executed"
+        },
+        {
+          "type": "p",
+          "text": "COMPLETED"
+        },
+        {
+          "type": "p",
+          "text": "Successfully completed"
+        },
+        {
+          "type": "p",
+          "text": "RETRYING"
+        },
+        {
+          "type": "p",
+          "text": "Failed temporarily and scheduled again"
+        },
+        {
+          "type": "p",
+          "text": "FAILED"
+        },
+        {
+          "type": "p",
+          "text": "Processing permanently failed"
+        },
+        {
+          "type": "p",
+          "text": "CANCELLED"
+        },
+        {
+          "type": "p",
+          "text": "Cancelled before completion"
+        },
+        {
+          "type": "p",
+          "text": "C. Job lifecycle"
+        },
+        {
+          "type": "p",
+          "text": "QUEUED"
+        },
+        {
+          "type": "p",
+          "text": "Task accepted"
+        },
+        {
+          "type": "p",
+          "text": "PROCESSING"
+        },
+        {
+          "type": "p",
+          "text": "COMPLETED"
+        },
+        {
+          "type": "p",
+          "text": "RETRYING"
+        },
+        {
+          "type": "p",
+          "text": "Further processing attempts"
+        },
+        {
+          "type": "p",
+          "text": "FAILED / DEAD-LETTERED"
+        },
+        {
+          "type": "p",
+          "text": "Requires investigation or controlled recovery"
+        },
+        {
+          "type": "p",
+          "text": "D. Database-backed job tracking"
+        },
+        {
+          "type": "p",
+          "text": "For important background tasks, you may maintain a job record."
+        },
+        {
+          "type": "p",
+          "text": "Example background_jobs table:"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Unique job identifier"
+        },
+        {
+          "type": "p",
+          "text": "job_type"
+        },
+        {
+          "type": "p",
+          "text": "Type of operation"
+        },
+        {
+          "type": "p",
+          "text": "payload"
+        },
+        {
+          "type": "p",
+          "text": "Job input"
+        },
+        {
+          "type": "p",
+          "text": "status"
+        },
+        {
+          "type": "p",
+          "text": "Current processing status"
+        },
+        {
+          "type": "p",
+          "text": "attempts"
+        },
+        {
+          "type": "p",
+          "text": "Number of attempts"
+        },
+        {
+          "type": "p",
+          "text": "scheduled_at"
+        },
+        {
+          "type": "p",
+          "text": "Intended execution time"
+        },
+        {
+          "type": "p",
+          "text": "started_at"
+        },
+        {
+          "type": "p",
+          "text": "Execution start"
+        },
+        {
+          "type": "p",
+          "text": "completed_at"
+        },
+        {
+          "type": "p",
+          "text": "Completion time"
+        },
+        {
+          "type": "p",
+          "text": "last_error"
+        },
+        {
+          "type": "p",
+          "text": "Last failure details"
+        },
+        {
+          "type": "p",
+          "text": "This is useful when the application needs to show users the state of long-running operations."
+        },
+        {
+          "type": "p",
+          "text": "The job record and message queue serve different purposes:"
+        },
+        {
+          "type": "p",
+          "text": "The database tracks application job state."
+        },
+        {
+          "type": "p",
+          "text": "The message broker transports and distributes work."
+        },
+        {
+          "type": "p",
+          "text": "E. Handling worker crashes"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a worker crashes while processing a message."
+        },
+        {
+          "type": "p",
+          "text": "A reliable architecture must consider:"
+        },
+        {
+          "type": "p",
+          "text": "Whether the broker will redeliver the message."
+        },
+        {
+          "type": "p",
+          "text": "Whether the worker acknowledged it too early."
+        },
+        {
+          "type": "p",
+          "text": "Whether the processing operation already completed."
+        },
+        {
+          "type": "p",
+          "text": "Whether the next worker will detect duplicate execution."
+        },
+        {
+          "type": "p",
+          "text": "Whether a job-processing lease or timeout is required."
+        },
+        {
+          "type": "p",
+          "text": "F. Backpressure"
+        },
+        {
+          "type": "p",
+          "text": "Imagine 10,000 notifications arrive within a minute, but your email provider can process only 100 per minute."
+        },
+        {
+          "type": "p",
+          "text": "Without backpressure, the system may overload workers or the provider."
+        },
+        {
+          "type": "p",
+          "text": "You will learn how to:"
+        },
+        {
+          "type": "p",
+          "text": "Limit consumer concurrency."
+        },
+        {
+          "type": "p",
+          "text": "Control queue depth."
+        },
+        {
+          "type": "p",
+          "text": "Apply provider-specific limits."
+        },
+        {
+          "type": "p",
+          "text": "Process messages in batches."
+        },
+        {
+          "type": "p",
+          "text": "Scale workers gradually."
+        },
+        {
+          "type": "p",
+          "text": "Pause or throttle producers when required."
+        },
+        {
+          "type": "p",
+          "text": "G. Transactional Outbox Pattern"
+        },
+        {
+          "type": "p",
+          "text": "A common reliability problem occurs when the backend commits a database transaction but fails to publish its corresponding message."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Save course enrolment."
+        },
+        {
+          "type": "p",
+          "text": "Commit PostgreSQL transaction."
+        },
+        {
+          "type": "p",
+          "text": "Publish notification message."
+        },
+        {
+          "type": "p",
+          "text": "Message broker is unavailable."
+        },
+        {
+          "type": "p",
+          "text": "The enrolment exists, but no notification message is published."
+        },
+        {
+          "type": "p",
+          "text": "The Transactional Outbox Pattern addresses this by saving both the business record and the event record inside the same database transaction."
+        },
+        {
+          "type": "p",
+          "text": "A separate publisher later sends pending events to the message broker."
+        },
+        {
+          "type": "p",
+          "text": "This pattern builds directly on the partial-failure concepts covered in Module 06."
+        },
+        {
+          "type": "p",
+          "text": "H. Monitoring and observability"
+        },
+        {
+          "type": "p",
+          "text": "You will learn to monitor:"
+        },
+        {
+          "type": "p",
+          "text": "Queue depth."
+        },
+        {
+          "type": "p",
+          "text": "Message-processing time."
+        },
+        {
+          "type": "p",
+          "text": "Failed jobs."
+        },
+        {
+          "type": "p",
+          "text": "Retry counts."
+        },
+        {
+          "type": "p",
+          "text": "Dead-letter queue size."
+        },
+        {
+          "type": "p",
+          "text": "Consumer throughput."
+        },
+        {
+          "type": "p",
+          "text": "Cache hit ratio."
+        },
+        {
+          "type": "p",
+          "text": "Cache miss ratio."
+        },
+        {
+          "type": "p",
+          "text": "Redis memory usage."
+        },
+        {
+          "type": "p",
+          "text": "Background worker health."
+        },
+        {
+          "type": "p",
+          "text": "Why this lesson matters: Reliable background processing requires more than moving work out of an API request. It requires a complete execution, recovery and monitoring strategy."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Section 4",
+      "title": "4. Practical Lab — Build an Asynchronous Notification System with a Cache-Backed API",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Major Practical Project"
+        },
+        {
+          "type": "p",
+          "text": "In this lab, you will build a notification system for a learning platform."
+        },
+        {
+          "type": "p",
+          "text": "The system will accept notification requests, publish them to RabbitMQ, process them through background workers and cache frequently accessed course information using Redis."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL will remain the authoritative database for application records."
+        },
+        {
+          "type": "p",
+          "text": "A. What You Will Build"
+        },
+        {
+          "type": "p",
+          "text": "The application should support:"
+        },
+        {
+          "type": "p",
+          "text": "Student registration."
+        },
+        {
+          "type": "p",
+          "text": "Course enrolment."
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous enrolment notifications."
+        },
+        {
+          "type": "p",
+          "text": "Background email processing."
+        },
+        {
+          "type": "p",
+          "text": "In-app notification storage."
+        },
+        {
+          "type": "p",
+          "text": "Notification delivery status."
+        },
+        {
+          "type": "p",
+          "text": "Redis-backed course caching."
+        },
+        {
+          "type": "p",
+          "text": "Cache invalidation after course updates."
+        },
+        {
+          "type": "p",
+          "text": "Automatic retry for temporary delivery failures."
+        },
+        {
+          "type": "p",
+          "text": "Dead-letter handling."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate-event prevention."
+        },
+        {
+          "type": "p",
+          "text": "B. Technology Stack"
+        },
+        {
+          "type": "p",
+          "text": "Technology"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Java"
+        },
+        {
+          "type": "p",
+          "text": "Programming language"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Backend framework"
+        },
+        {
+          "type": "p",
+          "text": "Spring Data JPA"
+        },
+        {
+          "type": "p",
+          "text": "Database persistence"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Main application database"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "Cache storage"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "Message broker"
+        },
+        {
+          "type": "p",
+          "text": "Spring AMQP"
+        },
+        {
+          "type": "p",
+          "text": "Producer and consumer integration"
+        },
+        {
+          "type": "p",
+          "text": "Spring Data Redis"
+        },
+        {
+          "type": "p",
+          "text": "Redis integration"
+        },
+        {
+          "type": "p",
+          "text": "Spring Cache"
+        },
+        {
+          "type": "p",
+          "text": "Cache abstraction"
+        },
+        {
+          "type": "p",
+          "text": "Flyway"
+        },
+        {
+          "type": "p",
+          "text": "Database migrations"
+        },
+        {
+          "type": "p",
+          "text": "Mail provider / SMTP"
+        },
+        {
+          "type": "p",
+          "text": "Email delivery"
+        },
+        {
+          "type": "p",
+          "text": "JUnit and Mockito"
+        },
+        {
+          "type": "p",
+          "text": "Automated testing"
+        },
+        {
+          "type": "p",
+          "text": "C. Application Architecture"
+        },
+        {
+          "type": "p",
+          "text": "Frontend Application"
+        },
+        {
+          "type": "p",
+          "text": "Student enrolment and notification interface"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot REST API"
+        },
+        {
+          "type": "p",
+          "text": "Receives requests and applies business rules"
+        },
+        {
+          "type": "p",
+          "text": "Redis"
+        },
+        {
+          "type": "p",
+          "text": "Course and catalogue caching"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "Users, courses, enrolments and notifications"
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ"
+        },
+        {
+          "type": "p",
+          "text": "Notification message queue"
+        },
+        {
+          "type": "p",
+          "text": "Background Notification Worker"
+        },
+        {
+          "type": "p",
+          "text": "Consumes messages, sends email and updates delivery status"
+        },
+        {
+          "type": "p",
+          "text": "Email Provider"
+        },
+        {
+          "type": "p",
+          "text": "Delivers external email notifications"
+        },
+        {
+          "type": "p",
+          "text": "D. Step 1 — Create the Database Entities"
+        },
+        {
+          "type": "p",
+          "text": "Create these entities:"
+        },
+        {
+          "type": "p",
+          "text": "Users"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "name"
+        },
+        {
+          "type": "p",
+          "text": "Student name"
+        },
+        {
+          "type": "p",
+          "text": "email"
+        },
+        {
+          "type": "p",
+          "text": "Email address"
+        },
+        {
+          "type": "p",
+          "text": "created_at"
+        },
+        {
+          "type": "p",
+          "text": "Registration timestamp"
+        },
+        {
+          "type": "p",
+          "text": "Courses"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "title"
+        },
+        {
+          "type": "p",
+          "text": "Course title"
+        },
+        {
+          "type": "p",
+          "text": "description"
+        },
+        {
+          "type": "p",
+          "text": "Course details"
+        },
+        {
+          "type": "p",
+          "text": "status"
+        },
+        {
+          "type": "p",
+          "text": "Course status"
+        },
+        {
+          "type": "p",
+          "text": "updated_at"
+        },
+        {
+          "type": "p",
+          "text": "Last modification"
+        },
+        {
+          "type": "p",
+          "text": "Enrollments"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "user_id"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "course_id"
+        },
+        {
+          "type": "p",
+          "text": "Course"
+        },
+        {
+          "type": "p",
+          "text": "status"
+        },
+        {
+          "type": "p",
+          "text": "Enrolment status"
+        },
+        {
+          "type": "p",
+          "text": "enrolled_at"
+        },
+        {
+          "type": "p",
+          "text": "Enrolment timestamp"
+        },
+        {
+          "type": "p",
+          "text": "Notifications"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Notification ID"
+        },
+        {
+          "type": "p",
+          "text": "user_id"
+        },
+        {
+          "type": "p",
+          "text": "Recipient"
+        },
+        {
+          "type": "p",
+          "text": "event_id"
+        },
+        {
+          "type": "p",
+          "text": "Related event identifier"
+        },
+        {
+          "type": "p",
+          "text": "type"
+        },
+        {
+          "type": "p",
+          "text": "Notification type"
+        },
+        {
+          "type": "p",
+          "text": "subject"
+        },
+        {
+          "type": "p",
+          "text": "Notification subject"
+        },
+        {
+          "type": "p",
+          "text": "message"
+        },
+        {
+          "type": "p",
+          "text": "Notification content"
+        },
+        {
+          "type": "p",
+          "text": "status"
+        },
+        {
+          "type": "p",
+          "text": "Delivery status"
+        },
+        {
+          "type": "p",
+          "text": "created_at"
+        },
+        {
+          "type": "p",
+          "text": "Creation timestamp"
+        },
+        {
+          "type": "p",
+          "text": "Processed Events"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Primary key"
+        },
+        {
+          "type": "p",
+          "text": "event_id"
+        },
+        {
+          "type": "p",
+          "text": "Unique event ID"
+        },
+        {
+          "type": "p",
+          "text": "consumer_name"
+        },
+        {
+          "type": "p",
+          "text": "Processing component"
+        },
+        {
+          "type": "p",
+          "text": "processed_at"
+        },
+        {
+          "type": "p",
+          "text": "Processing timestamp"
+        },
+        {
+          "type": "p",
+          "text": "Outbox Events"
+        },
+        {
+          "type": "p",
+          "text": "Column"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "id"
+        },
+        {
+          "type": "p",
+          "text": "Event ID"
+        },
+        {
+          "type": "p",
+          "text": "event_type"
+        },
+        {
+          "type": "p",
+          "text": "Event type"
+        },
+        {
+          "type": "p",
+          "text": "payload"
+        },
+        {
+          "type": "p",
+          "text": "Event data"
+        },
+        {
+          "type": "p",
+          "text": "status"
+        },
+        {
+          "type": "p",
+          "text": "Publication status"
+        },
+        {
+          "type": "p",
+          "text": "created_at"
+        },
+        {
+          "type": "p",
+          "text": "Creation timestamp"
+        },
+        {
+          "type": "p",
+          "text": "published_at"
+        },
+        {
+          "type": "p",
+          "text": "Publication timestamp"
+        },
+        {
+          "type": "p",
+          "text": "E. Step 2 — Implement Course Caching"
+        },
+        {
+          "type": "p",
+          "text": "Use Redis to cache commonly accessed course data."
+        },
+        {
+          "type": "p",
+          "text": "Create endpoints:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses GET /api/courses/{id} PUT /api/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve course details from Redis when available."
+        },
+        {
+          "type": "p",
+          "text": "Load from PostgreSQL on a cache miss."
+        },
+        {
+          "type": "p",
+          "text": "Store eligible results in Redis."
+        },
+        {
+          "type": "p",
+          "text": "Configure cache expiration."
+        },
+        {
+          "type": "p",
+          "text": "Invalidate cache when course information changes."
+        },
+        {
+          "type": "p",
+          "text": "Handle Redis unavailability gracefully."
+        },
+        {
+          "type": "p",
+          "text": "Ensure PostgreSQL remains authoritative."
+        },
+        {
+          "type": "p",
+          "text": "Example cache keys:"
+        },
+        {
+          "type": "p",
+          "text": "course:101 course:102 course:103 course:catalog:page:1 course:catalog:page:2"
+        },
+        {
+          "type": "p",
+          "text": "Test the API with Redis enabled and disabled."
+        },
+        {
+          "type": "p",
+          "text": "Measure the differences in response time and database query frequency under the same workload."
+        },
+        {
+          "type": "p",
+          "text": "F. Step 3 — Implement the Enrolment Event"
+        },
+        {
+          "type": "p",
+          "text": "When a student successfully enrols in a course:"
+        },
+        {
+          "type": "p",
+          "text": "Validate the student and course."
+        },
+        {
+          "type": "p",
+          "text": "Create the enrolment."
+        },
+        {
+          "type": "p",
+          "text": "Save the StudentEnrolled event in the outbox."
+        },
+        {
+          "type": "p",
+          "text": "Commit the database transaction."
+        },
+        {
+          "type": "p",
+          "text": "Let the outbox publisher publish the event to RabbitMQ."
+        },
+        {
+          "type": "p",
+          "text": "Example event:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"eventId\": \"evt-6001\", \"eventType\": \"StudentEnrolled\", \"userId\": 101, \"courseId\": 501, \"occurredAt\": \"2026-11-27T09:00:00Z\" }"
+        },
+        {
+          "type": "p",
+          "text": "The original enrolment API should not wait for the email provider to finish sending the message."
+        },
+        {
+          "type": "p",
+          "text": "G. Step 4 — Implement the Notification Producer"
+        },
+        {
+          "type": "p",
+          "text": "Create an event publisher that sends messages to RabbitMQ."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Service public class NotificationPublisher { private final RabbitTemplate rabbitTemplate; public NotificationPublisher( RabbitTemplate rabbitTemplate) { this.rabbitTemplate = rabbitTemplate; } public void publish(EnrollmentEvent event) { rabbitTemplate.convertAndSend( \"notification.exchange\", \"enrollment.confirmed\", event ); } }"
+        },
+        {
+          "type": "p",
+          "text": "Configure:"
+        },
+        {
+          "type": "p",
+          "text": "Durable queue."
+        },
+        {
+          "type": "p",
+          "text": "Appropriate exchange."
+        },
+        {
+          "type": "p",
+          "text": "Routing key."
+        },
+        {
+          "type": "p",
+          "text": "Persistent delivery where required."
+        },
+        {
+          "type": "p",
+          "text": "Message serialization."
+        },
+        {
+          "type": "p",
+          "text": "Publisher confirmation and failure handling."
+        },
+        {
+          "type": "p",
+          "text": "For the practical implementation, use the transactional outbox publisher rather than relying on a direct database-write-plus-message-publish sequence."
+        },
+        {
+          "type": "p",
+          "text": "H. Step 5 — Implement the Notification Consumer"
+        },
+        {
+          "type": "p",
+          "text": "Create a background worker to process incoming events."
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "p",
+          "text": "Receive the enrolment event."
+        },
+        {
+          "type": "p",
+          "text": "Validate its structure."
+        },
+        {
+          "type": "p",
+          "text": "Check for duplicate processing."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve student details."
+        },
+        {
+          "type": "p",
+          "text": "Create an in-app notification."
+        },
+        {
+          "type": "p",
+          "text": "Send a confirmation email."
+        },
+        {
+          "type": "p",
+          "text": "Record the delivery status."
+        },
+        {
+          "type": "p",
+          "text": "Acknowledge successful processing."
+        },
+        {
+          "type": "p",
+          "text": "Maintain separate statuses where appropriate, such as:"
+        },
+        {
+          "type": "p",
+          "text": "QUEUED PROCESSING EMAIL_SENT FAILED RETRYING"
+        },
+        {
+          "type": "p",
+          "text": "Do not mark an email as successfully delivered merely because the notification record was created."
+        },
+        {
+          "type": "p",
+          "text": "I. Step 6 — Implement Retry and Dead-Letter Handling"
+        },
+        {
+          "type": "p",
+          "text": "Simulate an email provider failure."
+        },
+        {
+          "type": "p",
+          "text": "Your worker should:"
+        },
+        {
+          "type": "p",
+          "text": "Retry temporary failures."
+        },
+        {
+          "type": "p",
+          "text": "Apply controlled delays."
+        },
+        {
+          "type": "p",
+          "text": "Prevent infinite retries."
+        },
+        {
+          "type": "p",
+          "text": "Move permanently failed messages to a DLQ."
+        },
+        {
+          "type": "p",
+          "text": "Retain the failure reason."
+        },
+        {
+          "type": "p",
+          "text": "Support investigation and controlled redelivery."
+        },
+        {
+          "type": "p",
+          "text": "Do not retry permanently invalid recipient data indefinitely."
+        },
+        {
+          "type": "p",
+          "text": "J. Step 7 — Implement Duplicate-Event Protection"
+        },
+        {
+          "type": "p",
+          "text": "Simulate the same enrolment event being delivered multiple times."
+        },
+        {
+          "type": "p",
+          "text": "Requirements:"
+        },
+        {
+          "type": "p",
+          "text": "Every event must have a unique ID."
+        },
+        {
+          "type": "p",
+          "text": "Record completed event processing."
+        },
+        {
+          "type": "p",
+          "text": "Enforce deduplication using database constraints."
+        },
+        {
+          "type": "p",
+          "text": "Avoid creating duplicate notifications."
+        },
+        {
+          "type": "p",
+          "text": "Avoid sending duplicate emails where the provider's capabilities allow idempotent submission."
+        },
+        {
+          "type": "p",
+          "text": "Handle worker crashes and redelivery."
+        },
+        {
+          "type": "p",
+          "text": "Remember that an email provider may accept an email and then the worker may crash before recording success. Broker deduplication alone cannot guarantee that the recipient receives exactly one email."
+        },
+        {
+          "type": "p",
+          "text": "K. Step 8 — Implement Notification APIs"
+        },
+        {
+          "type": "p",
+          "text": "Create these endpoints:"
+        },
+        {
+          "type": "p",
+          "text": "HTTP Method"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/api/notifications"
+        },
+        {
+          "type": "p",
+          "text": "List user notifications"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/api/notifications/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve a notification"
+        },
+        {
+          "type": "p",
+          "text": "PUT"
+        },
+        {
+          "type": "p",
+          "text": "/api/notifications/{id}/read"
+        },
+        {
+          "type": "p",
+          "text": "Mark notification as read"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/api/notifications/unread-count"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve unread count"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/api/jobs/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve background job status"
+        },
+        {
+          "type": "p",
+          "text": "Protect user-specific endpoints so that users can access only their own notifications."
+        },
+        {
+          "type": "p",
+          "text": "L. Step 9 — Test Reliability"
+        },
+        {
+          "type": "p",
+          "text": "Test these situations:"
+        },
+        {
+          "type": "p",
+          "text": "Scenario"
+        },
+        {
+          "type": "p",
+          "text": "Expected result"
+        },
+        {
+          "type": "p",
+          "text": "Course requested for first time"
+        },
+        {
+          "type": "p",
+          "text": "Loaded from PostgreSQL and cached"
+        },
+        {
+          "type": "p",
+          "text": "Course requested again"
+        },
+        {
+          "type": "p",
+          "text": "Served from Redis"
+        },
+        {
+          "type": "p",
+          "text": "Course updated"
+        },
+        {
+          "type": "p",
+          "text": "Relevant cache invalidated"
+        },
+        {
+          "type": "p",
+          "text": "Redis temporarily unavailable"
+        },
+        {
+          "type": "p",
+          "text": "API falls back to PostgreSQL where appropriate"
+        },
+        {
+          "type": "p",
+          "text": "Student enrols"
+        },
+        {
+          "type": "p",
+          "text": "Enrolment saved successfully"
+        },
+        {
+          "type": "p",
+          "text": "Notification event published"
+        },
+        {
+          "type": "p",
+          "text": "Worker receives message"
+        },
+        {
+          "type": "p",
+          "text": "Email succeeds"
+        },
+        {
+          "type": "p",
+          "text": "Delivery status updated"
+        },
+        {
+          "type": "p",
+          "text": "Email service unavailable"
+        },
+        {
+          "type": "p",
+          "text": "Message retried"
+        },
+        {
+          "type": "p",
+          "text": "Message repeatedly fails"
+        },
+        {
+          "type": "p",
+          "text": "Moved to DLQ"
+        },
+        {
+          "type": "p",
+          "text": "Same event delivered twice"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate business effect prevented"
+        },
+        {
+          "type": "p",
+          "text": "Worker crashes"
+        },
+        {
+          "type": "p",
+          "text": "Message/job can recover according to delivery configuration"
+        },
+        {
+          "type": "p",
+          "text": "Large notification backlog"
+        },
+        {
+          "type": "p",
+          "text": "Workers process with controlled concurrency"
+        },
+        {
+          "type": "p",
+          "text": "M. Final Lab Deliverables"
+        },
+        {
+          "type": "p",
+          "text": "Your completed practical project should contain:"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot REST API."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL database integration."
+        },
+        {
+          "type": "p",
+          "text": "Redis caching."
+        },
+        {
+          "type": "p",
+          "text": "Cache expiration and invalidation."
+        },
+        {
+          "type": "p",
+          "text": "RabbitMQ configuration."
+        },
+        {
+          "type": "p",
+          "text": "Notification producer."
+        },
+        {
+          "type": "p",
+          "text": "Background consumer."
+        },
+        {
+          "type": "p",
+          "text": "Outbox publisher."
+        },
+        {
+          "type": "p",
+          "text": "Notification storage."
+        },
+        {
+          "type": "p",
+          "text": "Email integration."
+        },
+        {
+          "type": "p",
+          "text": "Retry and DLQ implementation."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate-event handling."
+        },
+        {
+          "type": "p",
+          "text": "Notification APIs."
+        },
+        {
+          "type": "p",
+          "text": "Background job monitoring."
+        },
+        {
+          "type": "p",
+          "text": "Automated tests and performance comparisons."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Section 5",
+      "title": "5. Assignment — Implement Background Processing and Caching for a Course Platform",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Independent Engineering Assignment"
+        },
+        {
+          "type": "p",
+          "text": "Problem Statement"
+        },
+        {
+          "type": "p",
+          "text": "Build a backend system for an online learning platform where thousands of students access courses, enrol in programs and receive notifications."
+        },
+        {
+          "type": "p",
+          "text": "Your application should improve API performance through caching and process time-consuming operations asynchronously."
+        },
+        {
+          "type": "p",
+          "text": "Part A — Database and Application Design"
+        },
+        {
+          "type": "p",
+          "text": "Design entities for:"
+        },
+        {
+          "type": "p",
+          "text": "User."
+        },
+        {
+          "type": "p",
+          "text": "Course."
+        },
+        {
+          "type": "p",
+          "text": "Enrollment."
+        },
+        {
+          "type": "p",
+          "text": "Notification."
+        },
+        {
+          "type": "p",
+          "text": "Background Job."
+        },
+        {
+          "type": "p",
+          "text": "Processed Event."
+        },
+        {
+          "type": "p",
+          "text": "Outbox Event."
+        },
+        {
+          "type": "p",
+          "text": "Define the relevant relationships, indexes, constraints and status fields."
+        },
+        {
+          "type": "p",
+          "text": "Part B — Redis Caching"
+        },
+        {
+          "type": "p",
+          "text": "Implement caching for:"
+        },
+        {
+          "type": "p",
+          "text": "Course details."
+        },
+        {
+          "type": "p",
+          "text": "Course catalogues."
+        },
+        {
+          "type": "p",
+          "text": "Frequently accessed public information."
+        },
+        {
+          "type": "p",
+          "text": "Suitable user-specific information."
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate:"
+        },
+        {
+          "type": "p",
+          "text": "Cache hit and cache miss."
+        },
+        {
+          "type": "p",
+          "text": "TTL configuration."
+        },
+        {
+          "type": "p",
+          "text": "Cache invalidation."
+        },
+        {
+          "type": "p",
+          "text": "Cache eviction."
+        },
+        {
+          "type": "p",
+          "text": "Cache stampede prevention."
+        },
+        {
+          "type": "p",
+          "text": "Cache consistency after database updates."
+        },
+        {
+          "type": "p",
+          "text": "Part C — Asynchronous Notification System"
+        },
+        {
+          "type": "p",
+          "text": "Implement events for:"
+        },
+        {
+          "type": "p",
+          "text": "UserRegistered StudentEnrolled CourseCompleted CertificateGenerated PasswordResetRequested"
+        },
+        {
+          "type": "p",
+          "text": "Create producers and consumers for these events."
+        },
+        {
+          "type": "p",
+          "text": "Notifications must be processed independently of the main API request."
+        },
+        {
+          "type": "p",
+          "text": "Part D — Reliable Message Processing"
+        },
+        {
+          "type": "p",
+          "text": "Implement:"
+        },
+        {
+          "type": "p",
+          "text": "Durable message queues."
+        },
+        {
+          "type": "p",
+          "text": "Message acknowledgements."
+        },
+        {
+          "type": "p",
+          "text": "Retry mechanisms."
+        },
+        {
+          "type": "p",
+          "text": "Dead-letter queues."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate-event protection."
+        },
+        {
+          "type": "p",
+          "text": "Message versioning."
+        },
+        {
+          "type": "p",
+          "text": "Consumer scaling."
+        },
+        {
+          "type": "p",
+          "text": "Controlled message redelivery."
+        },
+        {
+          "type": "p",
+          "text": "Part E — Background Scheduling"
+        },
+        {
+          "type": "p",
+          "text": "Implement at least three scheduled tasks:"
+        },
+        {
+          "type": "p",
+          "text": "Send learning reminders to inactive students."
+        },
+        {
+          "type": "p",
+          "text": "Generate daily course analytics."
+        },
+        {
+          "type": "p",
+          "text": "Clean up expired notification or temporary records."
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate how you prevent the same scheduled task from running independently on every backend instance when only one global execution is intended."
+        },
+        {
+          "type": "p",
+          "text": "Part F — Data Consistency"
+        },
+        {
+          "type": "p",
+          "text": "Implement reliable cache invalidation after database updates."
+        },
+        {
+          "type": "p",
+          "text": "Implement the transactional outbox pattern for at least one business event."
+        },
+        {
+          "type": "p",
+          "text": "Demonstrate how the application recovers when the message broker or Redis becomes temporarily unavailable."
+        },
+        {
+          "type": "p",
+          "text": "Part G — Performance Testing"
+        },
+        {
+          "type": "p",
+          "text": "Compare API behaviour under different workloads:"
+        },
+        {
+          "type": "p",
+          "text": "Without caching."
+        },
+        {
+          "type": "p",
+          "text": "With caching."
+        },
+        {
+          "type": "p",
+          "text": "With asynchronous notification processing."
+        },
+        {
+          "type": "p",
+          "text": "With multiple background workers."
+        },
+        {
+          "type": "p",
+          "text": "Measure:"
+        },
+        {
+          "type": "p",
+          "text": "Average response time."
+        },
+        {
+          "type": "p",
+          "text": "p95 and p99 response times."
+        },
+        {
+          "type": "p",
+          "text": "Database query count."
+        },
+        {
+          "type": "p",
+          "text": "Cache hit ratio."
+        },
+        {
+          "type": "p",
+          "text": "Queue-processing throughput."
+        },
+        {
+          "type": "p",
+          "text": "Failed message count."
+        },
+        {
+          "type": "p",
+          "text": "Retry count."
+        },
+        {
+          "type": "p",
+          "text": "Worker resource consumption."
+        },
+        {
+          "type": "p",
+          "text": "Use the same workload for meaningful comparisons."
+        },
+        {
+          "type": "p",
+          "text": "Final Submission"
+        },
+        {
+          "type": "p",
+          "text": "Your submission should include the architecture diagram, database schema, Java source code, Redis configuration, RabbitMQ configuration, producer and consumer implementations, notification worker, caching strategy, retry and DLQ configuration, scheduled tasks, outbox implementation, test cases and a performance report."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Section 6",
+      "title": "6. Suggested Evaluation Criteria",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Evaluation area"
+        },
+        {
+          "type": "p",
+          "text": "Weight"
+        },
+        {
+          "type": "p",
+          "text": "Synchronous and asynchronous architecture"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Background jobs and scheduling"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Messaging and producer-consumer implementation"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Redis and caching strategies"
+        },
+        {
+          "type": "p",
+          "text": "20%"
+        },
+        {
+          "type": "p",
+          "text": "Cache invalidation and consistency"
+        },
+        {
+          "type": "p",
+          "text": "15%"
+        },
+        {
+          "type": "p",
+          "text": "Retry queues and dead-letter handling"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate-event prevention"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Reliability testing and documentation"
+        },
+        {
+          "type": "p",
+          "text": "10%"
+        },
+        {
+          "type": "p",
+          "text": "Total"
+        },
+        {
+          "type": "p",
+          "text": "100%"
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Section 7",
+      "title": "7. Real-World Engineering Challenges",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "After completing the lab and assignment, you should be able to reason about the following situations."
+        },
+        {
+          "type": "p",
+          "text": "Challenge 1 — Slow API response"
+        },
+        {
+          "type": "p",
+          "text": "Your enrolment API takes 15 seconds because it waits for email delivery. How will you move notification processing into the background without compromising enrolment consistency?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 2 — Redis unavailable"
+        },
+        {
+          "type": "p",
+          "text": "Redis becomes unavailable during peak traffic. How will your application continue serving course information without immediately overwhelming PostgreSQL?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 3 — Stale course data"
+        },
+        {
+          "type": "p",
+          "text": "An instructor updates a course, but thousands of users continue seeing old information. How will your cache invalidation system solve this?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 4 — Worker crash"
+        },
+        {
+          "type": "p",
+          "text": "A notification worker crashes after sending an email but before acknowledging the message. What happens when the broker redelivers it?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 5 — Message broker outage"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL successfully records an enrolment, but RabbitMQ is unavailable. How will you guarantee that the notification event is eventually published?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 6 — Notification backlog"
+        },
+        {
+          "type": "p",
+          "text": "Your application receives 50,000 notification events, but your email provider has a much smaller processing capacity. How will you control queue growth and worker concurrency?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 7 — Duplicate events"
+        },
+        {
+          "type": "p",
+          "text": "The same StudentEnrolled event reaches three notification workers. How will you make sure the business operation is performed only once?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 8 — Distributed scheduling"
+        },
+        {
+          "type": "p",
+          "text": "Your backend runs on five servers, and a nightly report scheduler executes on all five. How will you ensure that only one intended global report-generation job runs?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 9 — Cache stampede"
+        },
+        {
+          "type": "p",
+          "text": "A popular course's Redis key expires while 10,000 students request it simultaneously. How will you prevent all requests from querying PostgreSQL?"
+        },
+        {
+          "type": "p",
+          "text": "Challenge 10 — Poison message"
+        },
+        {
+          "type": "p",
+          "text": "A malformed notification repeatedly fails processing. How will you isolate it without blocking other valid notifications?"
+        },
+        {
+          "type": "p",
+          "text": "These scenarios test whether you understand how caching and asynchronous systems behave under real production conditions."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Section 8",
+      "title": "8. Important Engineering Principles",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Throughout this module, follow these principles:"
+        },
+        {
+          "type": "p",
+          "text": "Do not make users wait for work that can safely be processed independently."
+        },
+        {
+          "type": "p",
+          "text": "Keep authoritative application data in an appropriate persistent database."
+        },
+        {
+          "type": "p",
+          "text": "Use background workers for long-running operations."
+        },
+        {
+          "type": "p",
+          "text": "Configure bounded thread pools and controlled concurrency."
+        },
+        {
+          "type": "p",
+          "text": "Use message brokers for reliable work distribution."
+        },
+        {
+          "type": "p",
+          "text": "Use Redis caching only where the data access pattern justifies it."
+        },
+        {
+          "type": "p",
+          "text": "Give cached values appropriate expiration and invalidation policies."
+        },
+        {
+          "type": "p",
+          "text": "Never assume database and cache writes are automatically atomic."
+        },
+        {
+          "type": "p",
+          "text": "Acknowledge messages only after the required processing has succeeded."
+        },
+        {
+          "type": "p",
+          "text": "Assume messages may be delivered more than once."
+        },
+        {
+          "type": "p",
+          "text": "Design consumers to be idempotent."
+        },
+        {
+          "type": "p",
+          "text": "Use retries with limits and appropriate delays."
+        },
+        {
+          "type": "p",
+          "text": "Isolate permanently failing messages using a DLQ."
+        },
+        {
+          "type": "p",
+          "text": "Use an outbox pattern when database changes and event publication must remain coordinated."
+        },
+        {
+          "type": "p",
+          "text": "Monitor queues, workers, caches and background jobs."
+        },
+        {
+          "type": "p",
+          "text": "Recommended Engineering Resources"
+        },
+        {
+          "type": "p",
+          "text": "For deeper study, explore these official resources:"
+        },
+        {
+          "type": "p",
+          "text": "[Spring Scheduling and Asynchronous Execution](https://docs.spring.io/spring-framework/reference/integration/scheduling.html?utm_source=chatgpt.com) — background execution and scheduling."
+        },
+        {
+          "type": "p",
+          "text": "[Spring AMQP Documentation](https://docs.spring.io/spring-amqp/reference/?utm_source=chatgpt.com) — RabbitMQ integration."
+        },
+        {
+          "type": "p",
+          "text": "[RabbitMQ Tutorials](https://www.rabbitmq.com/tutorials?utm_source=chatgpt.com) — queues, exchanges, routing and consumers."
+        },
+        {
+          "type": "p",
+          "text": "[Apache Kafka Documentation](https://kafka.apache.org/documentation/?utm_source=chatgpt.com) — event streaming and consumer groups."
+        },
+        {
+          "type": "p",
+          "text": "[Redis Documentation](https://redis.io/docs/latest/?utm_source=chatgpt.com) — data structures, caching and persistence."
+        },
+        {
+          "type": "p",
+          "text": "[Spring Data Redis Caching](https://docs.spring.io/spring-data/redis/reference/redis/redis-cache.html?utm_source=chatgpt.com) — Redis-backed caching with Spring."
+        },
+        {
+          "type": "p",
+          "text": "[Transactional Outbox Pattern](https://microservices.io/patterns/data/transactional-outbox.html?utm_source=chatgpt.com) — reliable event publication."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Section 9",
+      "title": "9. Final Learning Outcome",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "By the end of Module 07, you should understand how professional backend applications improve performance and process work independently of user-facing requests."
+        },
+        {
+          "type": "p",
+          "text": "You will know how to use Redis to reduce repeated database queries, RabbitMQ to distribute background tasks, event-driven architecture to connect independent components, and background workers to process notifications and other long-running operations."
+        },
+        {
+          "type": "p",
+          "text": "You will also understand that asynchronous processing introduces new engineering challenges, including duplicate events, message delivery failures, queue backlogs, cache inconsistency and worker crashes."
+        },
+        {
+          "type": "p",
+          "text": "The important concepts work together:"
+        },
+        {
+          "type": "p",
+          "text": "Asynchronous processing improves request responsiveness."
+        },
+        {
+          "type": "p",
+          "text": "Background jobs handle independent and long-running work."
+        },
+        {
+          "type": "p",
+          "text": "Message brokers distribute tasks between components."
+        },
+        {
+          "type": "p",
+          "text": "Event-driven architecture reduces direct dependencies."
+        },
+        {
+          "type": "p",
+          "text": "Redis improves frequently accessed data retrieval."
+        },
+        {
+          "type": "p",
+          "text": "Cache invalidation keeps cached information reasonably fresh."
+        },
+        {
+          "type": "p",
+          "text": "Retry queues recover from temporary failures."
+        },
+        {
+          "type": "p",
+          "text": "Dead-letter queues isolate permanently failing messages."
+        },
+        {
+          "type": "p",
+          "text": "Idempotent consumers prevent duplicate business effects."
+        },
+        {
+          "type": "p",
+          "text": "Transactional outbox patterns coordinate database changes and event publication."
+        },
+        {
+          "type": "p",
+          "text": "Your final objective: Be able to design and implement a high-performance backend that combines Redis caching, asynchronous task execution, message queues and reliable event processing to support a growing real-world platform such as PrepSpaces."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T09:40:44+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

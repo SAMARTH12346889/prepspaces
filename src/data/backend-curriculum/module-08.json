@@ -1,0 +1,5936 @@
+{
+  "moduleNumber": "08",
+  "title": "MODULE 08 — Backend Testing and API Quality Engineering",
+  "badges": [
+    "Core Module",
+    "Advanced Backend Engineering"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module objective: Learn how to prove that a backend application works correctly, protects data, handles unexpected situations, and remains reliable as the codebase grows."
+    },
+    {
+      "type": "p",
+      "text": "A backend application is not complete simply because its API endpoints return successful responses. A 200 OK response does not prove that the correct data was saved, that another user cannot access private information, that transactions work correctly, or that the application can handle 1,000 simultaneous requests."
+    },
+    {
+      "type": "p",
+      "text": "Backend testing is the engineering process of checking all these behaviours automatically and repeatedly."
+    },
+    {
+      "type": "p",
+      "text": "We will use a Java + Spring Boot + PostgreSQL course management API as our running example. The examples will connect testing concepts to controllers, services, repositories, database transactions, authentication, and authorization."
+    }
+  ],
+  "sections": [
+    {
+      "id": "section-1",
+      "badge": "Section 1",
+      "title": "1. Why Backend Testing Matters",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 What is backend testing?"
+        },
+        {
+          "type": "p",
+          "text": "Backend testing is the process of verifying that the server-side components of an application behave as expected."
+        },
+        {
+          "type": "p",
+          "text": "A typical backend contains several layers:"
+        },
+        {
+          "type": "p",
+          "text": "Client / Frontend"
+        },
+        {
+          "type": "p",
+          "text": "Sends HTTP requests"
+        },
+        {
+          "type": "p",
+          "text": "Controller Layer"
+        },
+        {
+          "type": "p",
+          "text": "Receives requests, validates input, returns responses"
+        },
+        {
+          "type": "p",
+          "text": "Service Layer"
+        },
+        {
+          "type": "p",
+          "text": "Contains business rules and application logic"
+        },
+        {
+          "type": "p",
+          "text": "Repository Layer"
+        },
+        {
+          "type": "p",
+          "text": "Reads and writes application data"
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL Database"
+        },
+        {
+          "type": "p",
+          "text": "Stores persistent information"
+        },
+        {
+          "type": "p",
+          "text": "Every layer can fail independently."
+        },
+        {
+          "type": "p",
+          "text": "For example, imagine a student registers for a course:"
+        },
+        {
+          "type": "p",
+          "text": "The controller receives POST /api/courses/10/enroll."
+        },
+        {
+          "type": "p",
+          "text": "The service checks whether the course exists and whether the student is already enrolled."
+        },
+        {
+          "type": "p",
+          "text": "The repository writes the enrollment record."
+        },
+        {
+          "type": "p",
+          "text": "PostgreSQL stores it."
+        },
+        {
+          "type": "p",
+          "text": "The API returns a successful response."
+        },
+        {
+          "type": "p",
+          "text": "A test should not only check whether the API returned 200 or 201. It should also verify that the correct student was enrolled, duplicate enrollment was prevented, and the database contains the expected record."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Why is testing necessary?"
+        },
+        {
+          "type": "p",
+          "text": "Consider a backend without automated tests."
+        },
+        {
+          "type": "p",
+          "text": "A developer changes the enrollment service to add a discount feature. The new feature works, but the developer accidentally breaks the existing duplicate-enrollment check."
+        },
+        {
+          "type": "p",
+          "text": "The application may still start normally. Other APIs may continue working. The bug could remain unnoticed until students begin enrolling twice."
+        },
+        {
+          "type": "p",
+          "text": "Automated tests help identify these regressions before the code is released."
+        },
+        {
+          "type": "p",
+          "text": "Testing helps with:"
+        },
+        {
+          "type": "p",
+          "text": "Correctness: Verifies that business rules produce expected results."
+        },
+        {
+          "type": "p",
+          "text": "Reliability: Detects failures before they affect users."
+        },
+        {
+          "type": "p",
+          "text": "Security: Checks that protected data and operations are restricted."
+        },
+        {
+          "type": "p",
+          "text": "Maintainability: Makes it safer to modify existing code."
+        },
+        {
+          "type": "p",
+          "text": "Regression prevention: Detects when a new change breaks old functionality."
+        },
+        {
+          "type": "p",
+          "text": "Confidence in deployment: Provides repeatable evidence that important behaviours still work."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 What should be tested?"
+        },
+        {
+          "type": "p",
+          "text": "For the course management API, imagine these requirements:"
+        },
+        {
+          "type": "p",
+          "text": "Requirement"
+        },
+        {
+          "type": "p",
+          "text": "What should be verified?"
+        },
+        {
+          "type": "p",
+          "text": "Create a course"
+        },
+        {
+          "type": "p",
+          "text": "A valid course is saved"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve a course"
+        },
+        {
+          "type": "p",
+          "text": "Correct course details are returned"
+        },
+        {
+          "type": "p",
+          "text": "Update a course"
+        },
+        {
+          "type": "p",
+          "text": "Only permitted fields are changed"
+        },
+        {
+          "type": "p",
+          "text": "Delete a course"
+        },
+        {
+          "type": "p",
+          "text": "The expected course is deleted"
+        },
+        {
+          "type": "p",
+          "text": "Enroll a student"
+        },
+        {
+          "type": "p",
+          "text": "An enrollment record is created"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate enrollment"
+        },
+        {
+          "type": "p",
+          "text": "The request is rejected"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized access"
+        },
+        {
+          "type": "p",
+          "text": "Anonymous users cannot perform protected actions"
+        },
+        {
+          "type": "p",
+          "text": "Database failure"
+        },
+        {
+          "type": "p",
+          "text": "The application does not report a false success"
+        },
+        {
+          "type": "p",
+          "text": "Invalid input"
+        },
+        {
+          "type": "p",
+          "text": "The API returns a meaningful validation error"
+        },
+        {
+          "type": "p",
+          "text": "The purpose is to translate every important requirement into one or more test cases."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Testing versus debugging"
+        },
+        {
+          "type": "p",
+          "text": "These terms are related, but they are not the same."
+        },
+        {
+          "type": "p",
+          "text": "Testing attempts to discover whether software behaves incorrectly."
+        },
+        {
+          "type": "p",
+          "text": "Debugging investigates the cause of a discovered problem and helps fix it."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "A test reports that enrollment allows the same student to join a course twice."
+        },
+        {
+          "type": "p",
+          "text": "Debugging traces the problem to a missing duplicate check in the service layer."
+        },
+        {
+          "type": "p",
+          "text": "The developer fixes the service and runs the tests again."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 A testing mindset"
+        },
+        {
+          "type": "p",
+          "text": "A strong backend engineer does not ask only:"
+        },
+        {
+          "type": "p",
+          "text": "\"Does this endpoint work?\""
+        },
+        {
+          "type": "p",
+          "text": "They ask:"
+        },
+        {
+          "type": "p",
+          "text": "Does it work with valid input?"
+        },
+        {
+          "type": "p",
+          "text": "Does it reject invalid input?"
+        },
+        {
+          "type": "p",
+          "text": "Does it behave correctly when data is missing?"
+        },
+        {
+          "type": "p",
+          "text": "Does it protect against unauthorized users?"
+        },
+        {
+          "type": "p",
+          "text": "Does it handle database failures?"
+        },
+        {
+          "type": "p",
+          "text": "Does it behave correctly under concurrent requests?"
+        },
+        {
+          "type": "p",
+          "text": "Does it continue working after unrelated code changes?"
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: Testing is not an activity performed only at the end of development. It is part of the development process itself."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "badge": "Section 2",
+      "title": "2. Unit Testing",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 What is unit testing?"
+        },
+        {
+          "type": "p",
+          "text": "Unit testing means testing the smallest independently testable unit of an application."
+        },
+        {
+          "type": "p",
+          "text": "In Java backend development, a unit is commonly:"
+        },
+        {
+          "type": "p",
+          "text": "A method."
+        },
+        {
+          "type": "p",
+          "text": "A class."
+        },
+        {
+          "type": "p",
+          "text": "A service containing business logic."
+        },
+        {
+          "type": "p",
+          "text": "A utility function."
+        },
+        {
+          "type": "p",
+          "text": "A validator."
+        },
+        {
+          "type": "p",
+          "text": "A component that performs a specific calculation."
+        },
+        {
+          "type": "p",
+          "text": "The primary objective is to check whether a particular unit produces the expected result without depending on the entire application."
+        },
+        {
+          "type": "p",
+          "text": "Consider a course enrollment service."
+        },
+        {
+          "type": "code",
+          "text": "public class EnrollmentService { public boolean canEnroll(int availableSeats) { return availableSeats > 0; } }"
+        },
+        {
+          "type": "p",
+          "text": "The business requirement is simple:"
+        },
+        {
+          "type": "p",
+          "text": "If seats are available, enrollment is allowed."
+        },
+        {
+          "type": "p",
+          "text": "If no seats are available, enrollment is rejected."
+        },
+        {
+          "type": "p",
+          "text": "We can test this method without starting Spring Boot, connecting to PostgreSQL, or sending an HTTP request."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Writing your first unit test"
+        },
+        {
+          "type": "p",
+          "text": "Java commonly uses JUnit Jupiter (JUnit 5) for organizing and executing unit tests."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.*; class EnrollmentServiceTest { @Test void shouldAllowEnrollmentWhenSeatsAreAvailable() { EnrollmentService service = new EnrollmentService(); boolean result = service.canEnroll(10); assertTrue(result); } @Test void shouldRejectEnrollmentWhenNoSeatsAreAvailable() { EnrollmentService service = new EnrollmentService(); boolean result = service.canEnroll(0); assertFalse(result); } }"
+        },
+        {
+          "type": "p",
+          "text": "Let's understand the important parts."
+        },
+        {
+          "type": "code",
+          "text": "@Test"
+        },
+        {
+          "type": "p",
+          "text": "Identifies a method as a test case. The test framework discovers and executes it."
+        },
+        {
+          "type": "p",
+          "text": "assertTrue()"
+        },
+        {
+          "type": "p",
+          "text": "Checks whether a condition is true."
+        },
+        {
+          "type": "p",
+          "text": "assertFalse()"
+        },
+        {
+          "type": "p",
+          "text": "Checks whether a condition is false."
+        },
+        {
+          "type": "p",
+          "text": "assertEquals()"
+        },
+        {
+          "type": "p",
+          "text": "Checks whether an actual result matches an expected result."
+        },
+        {
+          "type": "p",
+          "text": "assertNotNull()"
+        },
+        {
+          "type": "p",
+          "text": "Checks that an object is not null."
+        },
+        {
+          "type": "p",
+          "text": "assertThrows()"
+        },
+        {
+          "type": "p",
+          "text": "Checks whether executing code produces the expected exception."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 The Arrange–Act–Assert pattern"
+        },
+        {
+          "type": "p",
+          "text": "A well-written unit test normally follows three stages."
+        },
+        {
+          "type": "p",
+          "text": "01 · ARRANGE"
+        },
+        {
+          "type": "p",
+          "text": "Prepare the test environment"
+        },
+        {
+          "type": "p",
+          "text": "Create the objects, input values and dependencies required by the test."
+        },
+        {
+          "type": "p",
+          "text": "02 · ACT"
+        },
+        {
+          "type": "p",
+          "text": "Execute the operation"
+        },
+        {
+          "type": "p",
+          "text": "Call the method or functionality being tested."
+        },
+        {
+          "type": "p",
+          "text": "03 · ASSERT"
+        },
+        {
+          "type": "p",
+          "text": "Verify the result"
+        },
+        {
+          "type": "p",
+          "text": "Compare the actual output with the expected result."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Test void shouldCalculateCoursePrice() { // Arrange CoursePricingService service = new CoursePricingService(); double originalPrice = 2000; double discount = 20; // Act double finalPrice = service.calculateDiscount(originalPrice, discount); // Assert assertEquals(1600, finalPrice); }"
+        },
+        {
+          "type": "p",
+          "text": "Why is this important?"
+        },
+        {
+          "type": "p",
+          "text": "A test should clearly explain:"
+        },
+        {
+          "type": "p",
+          "text": "What situation is being tested?"
+        },
+        {
+          "type": "p",
+          "text": "What action is performed?"
+        },
+        {
+          "type": "p",
+          "text": "What result is expected?"
+        },
+        {
+          "type": "p",
+          "text": "This makes tests easier to understand when another developer encounters a failure."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 Testing normal cases and edge cases"
+        },
+        {
+          "type": "p",
+          "text": "Testing only normal input is insufficient."
+        },
+        {
+          "type": "p",
+          "text": "Suppose your course platform calculates a course discount."
+        },
+        {
+          "type": "p",
+          "text": "Input"
+        },
+        {
+          "type": "p",
+          "text": "Expected result"
+        },
+        {
+          "type": "p",
+          "text": "Price = ₹2,000, discount = 20%"
+        },
+        {
+          "type": "p",
+          "text": "₹1,600"
+        },
+        {
+          "type": "p",
+          "text": "Price = ₹1,000, discount = 0%"
+        },
+        {
+          "type": "p",
+          "text": "₹1,000"
+        },
+        {
+          "type": "p",
+          "text": "Price = ₹500, discount = 100%"
+        },
+        {
+          "type": "p",
+          "text": "₹0"
+        },
+        {
+          "type": "p",
+          "text": "Price = ₹0"
+        },
+        {
+          "type": "p",
+          "text": "Depends on pricing rules"
+        },
+        {
+          "type": "p",
+          "text": "Negative price"
+        },
+        {
+          "type": "p",
+          "text": "Reject"
+        },
+        {
+          "type": "p",
+          "text": "Discount greater than 100%"
+        },
+        {
+          "type": "p",
+          "text": "Reject"
+        },
+        {
+          "type": "p",
+          "text": "Negative discount"
+        },
+        {
+          "type": "p",
+          "text": "Reject"
+        },
+        {
+          "type": "p",
+          "text": "These additional conditions are called edge cases or boundary cases."
+        },
+        {
+          "type": "p",
+          "text": "They are important because many software defects occur at the boundaries of valid input."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Testing exceptions"
+        },
+        {
+          "type": "p",
+          "text": "Consider an application that does not permit a negative course price."
+        },
+        {
+          "type": "p",
+          "text": "public double calculateDiscount( double price, double discount) { if (price < 0 || discount < 0 || discount > 100) { throw new IllegalArgumentException( \"Invalid pricing information\" ); } return price - (price * discount / 100); }"
+        },
+        {
+          "type": "p",
+          "text": "Test:"
+        },
+        {
+          "type": "code",
+          "text": "@Test void shouldRejectNegativeCoursePrice() { CoursePricingService service = new CoursePricingService(); assertThrows( IllegalArgumentException.class, () -> service.calculateDiscount(-100, 10) ); }"
+        },
+        {
+          "type": "p",
+          "text": "This verifies that the application rejects invalid business input instead of silently calculating an incorrect result."
+        },
+        {
+          "type": "h3",
+          "text": "2.6 Parameterized testing"
+        },
+        {
+          "type": "p",
+          "text": "Sometimes you need to test the same method with many different inputs."
+        },
+        {
+          "type": "p",
+          "text": "Instead of writing ten separate test methods, you can use parameterized testing."
+        },
+        {
+          "type": "p",
+          "text": "@ParameterizedTest @ValueSource(ints = {0, -1, -10}) void shouldRejectInvalidSeatCounts(int seats) { EnrollmentService service = new EnrollmentService(); assertFalse(service.canEnroll(seats)); }"
+        },
+        {
+          "type": "p",
+          "text": "The framework executes the same test with each supplied value."
+        },
+        {
+          "type": "p",
+          "text": "Parameterized tests are useful for:"
+        },
+        {
+          "type": "p",
+          "text": "Input validation."
+        },
+        {
+          "type": "p",
+          "text": "Password rules."
+        },
+        {
+          "type": "p",
+          "text": "Pricing calculations."
+        },
+        {
+          "type": "p",
+          "text": "Pagination limits."
+        },
+        {
+          "type": "p",
+          "text": "Date validation."
+        },
+        {
+          "type": "p",
+          "text": "Business-rule boundaries."
+        },
+        {
+          "type": "p",
+          "text": "JUnit's official documentation explains parameterized tests and their argument sources."
+        },
+        {
+          "type": "p",
+          "text": "docs.junit.org+1"
+        },
+        {
+          "type": "h3",
+          "text": "2.7 When should unit testing be used?"
+        },
+        {
+          "type": "p",
+          "text": "Use unit testing when:"
+        },
+        {
+          "type": "p",
+          "text": "You want to verify business logic."
+        },
+        {
+          "type": "p",
+          "text": "You want to test calculations."
+        },
+        {
+          "type": "p",
+          "text": "You need to validate conditional statements."
+        },
+        {
+          "type": "p",
+          "text": "You need to test exception handling."
+        },
+        {
+          "type": "p",
+          "text": "You want fast feedback during development."
+        },
+        {
+          "type": "p",
+          "text": "Important: A unit test should not require a real database or a running external service. Those dependencies are generally replaced with controlled test doubles."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "badge": "Section 3",
+      "title": "3. Integration Testing",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 What is integration testing?"
+        },
+        {
+          "type": "p",
+          "text": "Unit testing verifies an individual component. Integration testing verifies whether multiple components work correctly together."
+        },
+        {
+          "type": "p",
+          "text": "Consider this backend request:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/courses/10/enroll"
+        },
+        {
+          "type": "p",
+          "text": "The application needs to coordinate:"
+        },
+        {
+          "type": "p",
+          "text": "The controller."
+        },
+        {
+          "type": "p",
+          "text": "The enrollment service."
+        },
+        {
+          "type": "p",
+          "text": "The course repository."
+        },
+        {
+          "type": "p",
+          "text": "The enrollment repository."
+        },
+        {
+          "type": "p",
+          "text": "The PostgreSQL database."
+        },
+        {
+          "type": "p",
+          "text": "Every component might pass its individual unit tests and the overall operation could still fail because the components do not integrate correctly."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "The service calls the wrong repository method."
+        },
+        {
+          "type": "p",
+          "text": "The entity mapping is incorrect."
+        },
+        {
+          "type": "p",
+          "text": "The database query returns unexpected results."
+        },
+        {
+          "type": "p",
+          "text": "A transaction is not committed."
+        },
+        {
+          "type": "p",
+          "text": "Dependency injection is incorrectly configured."
+        },
+        {
+          "type": "p",
+          "text": "Integration testing helps discover these problems."
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Unit testing versus integration testing"
+        },
+        {
+          "type": "p",
+          "text": "Unit testing"
+        },
+        {
+          "type": "p",
+          "text": "Integration testing"
+        },
+        {
+          "type": "p",
+          "text": "Tests an isolated unit"
+        },
+        {
+          "type": "p",
+          "text": "Tests multiple connected components"
+        },
+        {
+          "type": "p",
+          "text": "Usually mocks dependencies"
+        },
+        {
+          "type": "p",
+          "text": "Uses real selected dependencies"
+        },
+        {
+          "type": "p",
+          "text": "Very fast"
+        },
+        {
+          "type": "p",
+          "text": "Usually slower"
+        },
+        {
+          "type": "p",
+          "text": "Does not need a database"
+        },
+        {
+          "type": "p",
+          "text": "Often uses a test database"
+        },
+        {
+          "type": "p",
+          "text": "Checks individual logic"
+        },
+        {
+          "type": "p",
+          "text": "Checks component interaction"
+        },
+        {
+          "type": "p",
+          "text": "Example: service calculation"
+        },
+        {
+          "type": "p",
+          "text": "Example: service + repository + database"
+        },
+        {
+          "type": "h3",
+          "text": "3.3 A practical integration example"
+        },
+        {
+          "type": "p",
+          "text": "Imagine the following structure:"
+        },
+        {
+          "type": "p",
+          "text": "CourseController | v CourseService | v CourseRepository | v PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "You want to test whether creating a course actually saves it."
+        },
+        {
+          "type": "p",
+          "text": "An integration test might look like:"
+        },
+        {
+          "type": "code",
+          "text": "@SpringBootTest class CourseIntegrationTest { @Autowired private CourseRepository courseRepository; @Autowired private CourseService courseService; @Test void shouldSaveAndRetrieveCourse() { Course course = new Course(); course.setTitle(\"Backend Engineering\"); course.setDescription(\"Learn backend development\"); Course saved = courseRepository.save(course); Course result = courseRepository .findById(saved.getId()) .orElseThrow(); assertEquals( \"Backend Engineering\", result.getTitle() ); } }"
+        },
+        {
+          "type": "p",
+          "text": "This test loads the Spring application context and uses the actual repository implementation."
+        },
+        {
+          "type": "p",
+          "text": "The objective is not merely to check whether a Java object was created. It is to check whether the connected application components can perform the operation."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Spring Boot testing annotations"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot provides different testing configurations depending on what you want to test."
+        },
+        {
+          "type": "p",
+          "text": "Annotation"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "code",
+          "text": "@SpringBootTest"
+        },
+        {
+          "type": "p",
+          "text": "Loads the application context for broader integration testing"
+        },
+        {
+          "type": "code",
+          "text": "@WebMvcTest"
+        },
+        {
+          "type": "p",
+          "text": "Focuses on Spring MVC controllers"
+        },
+        {
+          "type": "code",
+          "text": "@DataJpaTest"
+        },
+        {
+          "type": "p",
+          "text": "Focuses on JPA repositories and persistence"
+        },
+        {
+          "type": "p",
+          "text": "@JsonTest"
+        },
+        {
+          "type": "p",
+          "text": "Focuses on JSON serialization and deserialization"
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "@SpringBootTest is useful when you need multiple application layers working together.\n@DataJpaTest is useful when you want to test entity mappings, repository methods and database operations without loading the entire application.\n@WebMvcTest is useful when you want to test HTTP controller behaviour without loading the entire backend."
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot also distinguishes between mock web environments and real servers started on a random port."
+        },
+        {
+          "type": "p",
+          "text": "Home"
+        },
+        {
+          "type": "h3",
+          "text": "3.5 What should integration tests verify?"
+        },
+        {
+          "type": "p",
+          "text": "For our course management backend:"
+        },
+        {
+          "type": "p",
+          "text": "Course creation"
+        },
+        {
+          "type": "p",
+          "text": "Check whether the course service and repository correctly create a course."
+        },
+        {
+          "type": "p",
+          "text": "Course retrieval"
+        },
+        {
+          "type": "p",
+          "text": "Check whether the correct database record is returned."
+        },
+        {
+          "type": "p",
+          "text": "Course update"
+        },
+        {
+          "type": "p",
+          "text": "Check whether changes are persisted."
+        },
+        {
+          "type": "p",
+          "text": "Course deletion"
+        },
+        {
+          "type": "p",
+          "text": "Check whether the correct record is deleted."
+        },
+        {
+          "type": "p",
+          "text": "Enrollment"
+        },
+        {
+          "type": "p",
+          "text": "Check whether both course and student relationships are stored correctly."
+        },
+        {
+          "type": "p",
+          "text": "Transactions"
+        },
+        {
+          "type": "p",
+          "text": "Check whether related database changes succeed or fail together."
+        },
+        {
+          "type": "h3",
+          "text": "3.6 Transaction testing"
+        },
+        {
+          "type": "p",
+          "text": "Transactions are important when multiple database operations must behave as one logical operation."
+        },
+        {
+          "type": "p",
+          "text": "Imagine student enrollment requires:"
+        },
+        {
+          "type": "p",
+          "text": "Creating an enrollment record."
+        },
+        {
+          "type": "p",
+          "text": "Reducing the number of available seats."
+        },
+        {
+          "type": "p",
+          "text": "Recording an enrollment event."
+        },
+        {
+          "type": "p",
+          "text": "Suppose the enrollment record is created successfully but updating the seat count fails."
+        },
+        {
+          "type": "p",
+          "text": "Without correct transactional behaviour, the database might contain inconsistent information."
+        },
+        {
+          "type": "p",
+          "text": "The intended behaviour is:"
+        },
+        {
+          "type": "p",
+          "text": "Transaction begins"
+        },
+        {
+          "type": "p",
+          "text": "Success"
+        },
+        {
+          "type": "p",
+          "text": "Create enrollment record"
+        },
+        {
+          "type": "p",
+          "text": "Success"
+        },
+        {
+          "type": "p",
+          "text": "Update available seats"
+        },
+        {
+          "type": "p",
+          "text": "Failure"
+        },
+        {
+          "type": "p",
+          "text": "Record enrollment event"
+        },
+        {
+          "type": "p",
+          "text": "ROLLBACK"
+        },
+        {
+          "type": "p",
+          "text": "All changes in the transaction are undone."
+        },
+        {
+          "type": "p",
+          "text": "This is the atomicity principle of database transactions."
+        },
+        {
+          "type": "p",
+          "text": "You should test both:"
+        },
+        {
+          "type": "p",
+          "text": "Successful transactions."
+        },
+        {
+          "type": "p",
+          "text": "Failed transactions that must roll back."
+        },
+        {
+          "type": "p",
+          "text": "When to use integration testing: Whenever the correctness of a feature depends on two or more components working together."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "badge": "Section 4",
+      "title": "4. API Testing",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 What is API testing?"
+        },
+        {
+          "type": "p",
+          "text": "API testing verifies that an API behaves according to its expected interface and requirements."
+        },
+        {
+          "type": "p",
+          "text": "Unlike a unit test, an API test focuses on what a client actually experiences when communicating with the backend."
+        },
+        {
+          "type": "p",
+          "text": "Imagine PrepSpaces has these endpoints:"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses"
+        },
+        {
+          "type": "p",
+          "text": "Create a course"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses"
+        },
+        {
+          "type": "p",
+          "text": "Get all courses"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Get one course"
+        },
+        {
+          "type": "p",
+          "text": "PUT"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Update a course"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/{id}"
+        },
+        {
+          "type": "p",
+          "text": "Delete a course"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/{id}/enroll"
+        },
+        {
+          "type": "p",
+          "text": "Enroll a student"
+        },
+        {
+          "type": "p",
+          "text": "API testing verifies whether each endpoint behaves correctly."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 What should an API test check?"
+        },
+        {
+          "type": "p",
+          "text": "There is much more to API testing than checking whether an endpoint responds."
+        },
+        {
+          "type": "p",
+          "text": "A. HTTP status codes"
+        },
+        {
+          "type": "p",
+          "text": "The backend should return appropriate status codes."
+        },
+        {
+          "type": "p",
+          "text": "Status"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "200"
+        },
+        {
+          "type": "p",
+          "text": "OK"
+        },
+        {
+          "type": "p",
+          "text": "Course retrieved successfully"
+        },
+        {
+          "type": "p",
+          "text": "201"
+        },
+        {
+          "type": "p",
+          "text": "Created"
+        },
+        {
+          "type": "p",
+          "text": "Course created successfully"
+        },
+        {
+          "type": "p",
+          "text": "204"
+        },
+        {
+          "type": "p",
+          "text": "No Content"
+        },
+        {
+          "type": "p",
+          "text": "Deletion completed without response body"
+        },
+        {
+          "type": "p",
+          "text": "400"
+        },
+        {
+          "type": "p",
+          "text": "Bad Request"
+        },
+        {
+          "type": "p",
+          "text": "Invalid course data"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized"
+        },
+        {
+          "type": "p",
+          "text": "Authentication required"
+        },
+        {
+          "type": "p",
+          "text": "403"
+        },
+        {
+          "type": "p",
+          "text": "Forbidden"
+        },
+        {
+          "type": "p",
+          "text": "Insufficient permission"
+        },
+        {
+          "type": "p",
+          "text": "404"
+        },
+        {
+          "type": "p",
+          "text": "Not Found"
+        },
+        {
+          "type": "p",
+          "text": "Course does not exist"
+        },
+        {
+          "type": "p",
+          "text": "409"
+        },
+        {
+          "type": "p",
+          "text": "Conflict"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate enrollment"
+        },
+        {
+          "type": "p",
+          "text": "500"
+        },
+        {
+          "type": "p",
+          "text": "Internal Server Error"
+        },
+        {
+          "type": "p",
+          "text": "Unexpected server failure"
+        },
+        {
+          "type": "p",
+          "text": "The exact status code depends on the API's documented behaviour."
+        },
+        {
+          "type": "p",
+          "text": "B. Response body"
+        },
+        {
+          "type": "p",
+          "text": "For example, a course retrieval endpoint might return:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"id\": 10, \"title\": \"Backend Engineering\", \"description\": \"Complete backend development course\", \"active\": true }"
+        },
+        {
+          "type": "p",
+          "text": "The test should verify that:"
+        },
+        {
+          "type": "p",
+          "text": "The id is correct."
+        },
+        {
+          "type": "p",
+          "text": "The title is correct."
+        },
+        {
+          "type": "p",
+          "text": "The description is correct."
+        },
+        {
+          "type": "p",
+          "text": "The active status is correct."
+        },
+        {
+          "type": "p",
+          "text": "Required fields are present."
+        },
+        {
+          "type": "p",
+          "text": "Sensitive internal fields are not exposed."
+        },
+        {
+          "type": "p",
+          "text": "C. Response headers"
+        },
+        {
+          "type": "p",
+          "text": "Check important response headers such as:"
+        },
+        {
+          "type": "p",
+          "text": "Content-Type"
+        },
+        {
+          "type": "p",
+          "text": "Location after resource creation, when provided by the API."
+        },
+        {
+          "type": "p",
+          "text": "Cache-related headers where applicable."
+        },
+        {
+          "type": "p",
+          "text": "Security-related headers where applicable."
+        },
+        {
+          "type": "p",
+          "text": "D. Request validation"
+        },
+        {
+          "type": "p",
+          "text": "Try sending:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"title\": \"\", \"description\": null }"
+        },
+        {
+          "type": "p",
+          "text": "The backend should reject the request if these fields are mandatory."
+        },
+        {
+          "type": "p",
+          "text": "E. HTTP methods"
+        },
+        {
+          "type": "p",
+          "text": "An API should not accidentally permit the wrong operation through an endpoint."
+        },
+        {
+          "type": "p",
+          "text": "For example, a student should not be able to delete a course through an endpoint intended only for retrieval."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Testing an API using Spring MockMvc"
+        },
+        {
+          "type": "p",
+          "text": "MockMvc allows you to perform HTTP-style requests against the Spring MVC infrastructure without starting an actual HTTP server."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@WebMvcTest(CourseController.class) class CourseControllerTest { @Autowired private MockMvc mockMvc; @MockitoBean private CourseService courseService; @Test void shouldReturnCourseDetails() throws Exception { when(courseService.getCourse(10L)) .thenReturn( new CourseResponse( 10L, \"Backend Engineering\" ) ); mockMvc.perform(get(\"/api/courses/10\")) .andExpect(status().isOk()) .andExpect(jsonPath(\"$.id\").value(10)) .andExpect( jsonPath(\"$.title\") .value(\"Backend Engineering\") ); } }"
+        },
+        {
+          "type": "p",
+          "text": "Here:"
+        },
+        {
+          "type": "code",
+          "text": "@WebMvcTest configures the MVC testing environment."
+        },
+        {
+          "type": "p",
+          "text": "MockMvc performs the simulated HTTP request."
+        },
+        {
+          "type": "code",
+          "text": "@MockitoBean provides a mock service dependency."
+        },
+        {
+          "type": "p",
+          "text": "status().isOk() checks the HTTP response."
+        },
+        {
+          "type": "p",
+          "text": "jsonPath() checks fields in the returned JSON."
+        },
+        {
+          "type": "p",
+          "text": "In versions of Spring Boot that predate the newer bean-override support, @MockBean may be used instead."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 API testing tools"
+        },
+        {
+          "type": "p",
+          "text": "[EL makhfi mohamed](https://images.openai.com/static-rsc-4/R-7FaQ1MZjm4UjL0aC8QSam7eNj8Vr8jgVg1zEMIg_YTdNScbTqlvAZ_6vMgPjncSRrmEvD-Rhobxdair-zTfRvz8qdRpsuUSZFsolK1lNcvCUqEcXqgGDxTTkX5pjyNMYpgcOKMcfZsuIRpZPgzOh7oRpaVRhKFjJJin0hfGzo?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Postman"
+        },
+        {
+          "type": "p",
+          "text": "Send requests manually, examine responses, organize collections and automate API checks."
+        },
+        {
+          "type": "p",
+          "text": "Useful for exploratory testing and API collections."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://www.postman.com/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "[GitHub - rest-assured/rest-assured: Java DSL for easy testing of REST services](https://images.openai.com/static-rsc-4/0jJN_4gvaYHH9xEu_Kf50v8KbqlQdTtdLfoFOdNULCjz3sLh_sHqDQucp2JTcboRUPwGowq8Ndax78dVJbis5YQuXByTUyb1l3Ejq03pHMizFFpjCbw_7c2iXZFUDb94_dn8F07ZtPGdYhTGw4QRFP5x8eDxuvznQl42MGtjDEI?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "REST Assured"
+        },
+        {
+          "type": "p",
+          "text": "Write automated API tests in Java with readable request and response assertions."
+        },
+        {
+          "type": "p",
+          "text": "Useful for automated HTTP API tests."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://rest-assured.io/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "[madhub · GitHub](https://images.openai.com/static-rsc-4/77AHC9i8LWLWCKj1EvByMjvEC2x43Q2ICnL2fLP8XPcl7lLSUnMe7Hb5OyGRlpmiW_Un2eNEbUaFZGHnCZqXnavGqVs_NgqJt8i233XqadVeSPa49lHc-pHRRft6Tva4BYDf8qENl2gjNJdslWO0xg4Uyv6k5GRHGXAjzo9v5XE?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Swagger / OpenAPI"
+        },
+        {
+          "type": "p",
+          "text": "Describe API endpoints, request schemas, responses and expected API contracts."
+        },
+        {
+          "type": "p",
+          "text": "Useful for API documentation and schema validation."
+        },
+        {
+          "type": "p",
+          "text": "[OpenAPI specification](https://swagger.io/specification/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "h3",
+          "text": "4.5 API testing scenarios"
+        },
+        {
+          "type": "p",
+          "text": "For a course creation endpoint, consider the following:"
+        },
+        {
+          "type": "p",
+          "text": "Scenario"
+        },
+        {
+          "type": "p",
+          "text": "Expected behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Valid course data"
+        },
+        {
+          "type": "p",
+          "text": "201 Created"
+        },
+        {
+          "type": "p",
+          "text": "Empty course title"
+        },
+        {
+          "type": "p",
+          "text": "400 Bad Request"
+        },
+        {
+          "type": "p",
+          "text": "Missing required field"
+        },
+        {
+          "type": "p",
+          "text": "400 Bad Request"
+        },
+        {
+          "type": "p",
+          "text": "Unauthenticated request"
+        },
+        {
+          "type": "p",
+          "text": "401 Unauthorized"
+        },
+        {
+          "type": "p",
+          "text": "Student tries to create a course"
+        },
+        {
+          "type": "p",
+          "text": "403 Forbidden"
+        },
+        {
+          "type": "p",
+          "text": "Duplicate course identifier"
+        },
+        {
+          "type": "p",
+          "text": "Reject according to defined conflict rules"
+        },
+        {
+          "type": "p",
+          "text": "Database unavailable"
+        },
+        {
+          "type": "p",
+          "text": "Appropriate server error"
+        },
+        {
+          "type": "p",
+          "text": "Invalid JSON"
+        },
+        {
+          "type": "p",
+          "text": "400 Bad Request"
+        },
+        {
+          "type": "p",
+          "text": "Important distinction: API testing checks the externally observable behaviour. It should not depend on how the controller or service is internally implemented."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "badge": "Section 5",
+      "title": "5. Testing Controllers and Services",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This lesson focuses on testing the two most important application layers separately."
+        },
+        {
+          "type": "h3",
+          "text": "5.1 Controller testing"
+        },
+        {
+          "type": "p",
+          "text": "The controller is responsible for receiving HTTP requests and returning HTTP responses."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@RestController @RequestMapping(\"/api/courses\") public class CourseController { private final CourseService courseService; public CourseController(CourseService courseService) { this.courseService = courseService; } @GetMapping(\"/{id}\") public CourseResponse getCourse( @PathVariable Long id) { return courseService.getCourse(id); } }"
+        },
+        {
+          "type": "p",
+          "text": "The controller should not contain complex business logic."
+        },
+        {
+          "type": "p",
+          "text": "Its responsibilities include:"
+        },
+        {
+          "type": "p",
+          "text": "Mapping URLs to methods."
+        },
+        {
+          "type": "p",
+          "text": "Reading path variables."
+        },
+        {
+          "type": "p",
+          "text": "Reading query parameters."
+        },
+        {
+          "type": "p",
+          "text": "Accepting request bodies."
+        },
+        {
+          "type": "p",
+          "text": "Triggering input validation."
+        },
+        {
+          "type": "p",
+          "text": "Calling the appropriate service."
+        },
+        {
+          "type": "p",
+          "text": "Returning the appropriate response."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 What should controller tests verify?"
+        },
+        {
+          "type": "p",
+          "text": "For this endpoint:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses/10"
+        },
+        {
+          "type": "p",
+          "text": "Test the following:"
+        },
+        {
+          "type": "p",
+          "text": "The URL maps to the correct controller method."
+        },
+        {
+          "type": "p",
+          "text": "The course ID is correctly extracted."
+        },
+        {
+          "type": "p",
+          "text": "The service is called with the correct ID."
+        },
+        {
+          "type": "p",
+          "text": "The response contains the expected JSON."
+        },
+        {
+          "type": "p",
+          "text": "The expected HTTP status is returned."
+        },
+        {
+          "type": "p",
+          "text": "Service exceptions are translated into the expected HTTP errors."
+        },
+        {
+          "type": "p",
+          "text": "Authentication and authorization rules are applied."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Test void shouldReturn404WhenCourseDoesNotExist() throws Exception { when(courseService.getCourse(999L)) .thenThrow(new CourseNotFoundException()); mockMvc.perform(get(\"/api/courses/999\")) .andExpect(status().isNotFound()); }"
+        },
+        {
+          "type": "p",
+          "text": "This verifies the interaction between the HTTP controller and service exception handling."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Service testing"
+        },
+        {
+          "type": "p",
+          "text": "The service layer contains business logic."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@Service public class CourseService { private final CourseRepository courseRepository; public CourseService( CourseRepository courseRepository) { this.courseRepository = courseRepository; } public Course getCourse(Long id) { return courseRepository.findById(id) .orElseThrow( () -> new CourseNotFoundException() ); } }"
+        },
+        {
+          "type": "p",
+          "text": "You need tests for two situations:"
+        },
+        {
+          "type": "p",
+          "text": "The course exists."
+        },
+        {
+          "type": "p",
+          "text": "The course does not exist."
+        },
+        {
+          "type": "p",
+          "text": "A unit test:"
+        },
+        {
+          "type": "p",
+          "text": "@ExtendWith(MockitoExtension.class) class CourseServiceTest { @Mock private CourseRepository courseRepository; @InjectMocks private CourseService courseService; @Test void shouldReturnExistingCourse() { Course course = new Course(); course.setId(10L); course.setTitle(\"Backend Engineering\"); when(courseRepository.findById(10L)) .thenReturn(Optional.of(course)); Course result = courseService.getCourse(10L); assertEquals( \"Backend Engineering\", result.getTitle() ); verify(courseRepository).findById(10L); } @Test void shouldThrowExceptionForMissingCourse() { when(courseRepository.findById(999L)) .thenReturn(Optional.empty()); assertThrows( CourseNotFoundException.class, () -> courseService.getCourse(999L) ); } }"
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Controller versus service testing"
+        },
+        {
+          "type": "p",
+          "text": "Controller testing"
+        },
+        {
+          "type": "p",
+          "text": "Service testing"
+        },
+        {
+          "type": "p",
+          "text": "Tests HTTP-related behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Tests business rules"
+        },
+        {
+          "type": "p",
+          "text": "Checks status codes"
+        },
+        {
+          "type": "p",
+          "text": "Checks business outcomes"
+        },
+        {
+          "type": "p",
+          "text": "Checks JSON responses"
+        },
+        {
+          "type": "p",
+          "text": "Checks returned objects"
+        },
+        {
+          "type": "p",
+          "text": "Tests URL mappings"
+        },
+        {
+          "type": "p",
+          "text": "Tests conditions and calculations"
+        },
+        {
+          "type": "p",
+          "text": "Tests validation integration"
+        },
+        {
+          "type": "p",
+          "text": "Tests domain validation"
+        },
+        {
+          "type": "p",
+          "text": "Usually uses MockMvc"
+        },
+        {
+          "type": "p",
+          "text": "Usually uses JUnit and Mockito"
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Why should these layers be tested separately?"
+        },
+        {
+          "type": "p",
+          "text": "Suppose an enrollment endpoint returns 409 Conflict instead of 201 Created."
+        },
+        {
+          "type": "p",
+          "text": "There could be two possible problems:"
+        },
+        {
+          "type": "p",
+          "text": "The service incorrectly identifies a student as already enrolled."
+        },
+        {
+          "type": "p",
+          "text": "The controller incorrectly translates a successful operation into an error response."
+        },
+        {
+          "type": "p",
+          "text": "Separate tests help isolate these failures."
+        },
+        {
+          "type": "p",
+          "text": "A mature backend will usually have:"
+        },
+        {
+          "type": "p",
+          "text": "CourseControllerTest EnrollmentControllerTest CourseServiceTest EnrollmentServiceTest"
+        },
+        {
+          "type": "p",
+          "text": "This separation makes the test suite easier to maintain and debug."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "badge": "Section 6",
+      "title": "6. Mocking and Test Doubles",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 What is mocking?"
+        },
+        {
+          "type": "p",
+          "text": "Mocking means replacing a real dependency with a controlled object during testing."
+        },
+        {
+          "type": "p",
+          "text": "Imagine the enrollment service depends on PostgreSQL through a repository."
+        },
+        {
+          "type": "p",
+          "text": "A normal service operation might look like:"
+        },
+        {
+          "type": "p",
+          "text": "EnrollmentService | v EnrollmentRepository | v PostgreSQL"
+        },
+        {
+          "type": "p",
+          "text": "For a unit test, you may not want to connect to PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Instead, replace the repository with a mock:"
+        },
+        {
+          "type": "p",
+          "text": "EnrollmentService | v Mock EnrollmentRepository | v Controlled test response"
+        },
+        {
+          "type": "p",
+          "text": "This lets you test the service independently."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Why is mocking necessary?"
+        },
+        {
+          "type": "p",
+          "text": "Consider an external payment service."
+        },
+        {
+          "type": "p",
+          "text": "Your enrollment service depends on payment confirmation."
+        },
+        {
+          "type": "p",
+          "text": "During testing, you do not want to charge an actual credit card every time the test runs."
+        },
+        {
+          "type": "p",
+          "text": "Instead, simulate the payment service:"
+        },
+        {
+          "type": "p",
+          "text": "It can return payment successful."
+        },
+        {
+          "type": "p",
+          "text": "It can return payment declined."
+        },
+        {
+          "type": "p",
+          "text": "It can simulate a timeout."
+        },
+        {
+          "type": "p",
+          "text": "It can simulate an unavailable service."
+        },
+        {
+          "type": "p",
+          "text": "This gives you predictable tests without requiring the external service."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Types of test doubles"
+        },
+        {
+          "type": "p",
+          "text": "Test doubles are replacement objects used to control dependencies during testing."
+        },
+        {
+          "type": "p",
+          "text": "Type"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Dummy"
+        },
+        {
+          "type": "p",
+          "text": "Passed into a method but not meaningfully used"
+        },
+        {
+          "type": "p",
+          "text": "Stub"
+        },
+        {
+          "type": "p",
+          "text": "Returns predefined responses"
+        },
+        {
+          "type": "p",
+          "text": "Mock"
+        },
+        {
+          "type": "p",
+          "text": "Allows behaviour and interactions to be verified"
+        },
+        {
+          "type": "p",
+          "text": "Fake"
+        },
+        {
+          "type": "p",
+          "text": "Provides a simplified working implementation"
+        },
+        {
+          "type": "p",
+          "text": "Spy"
+        },
+        {
+          "type": "p",
+          "text": "Wraps a real object and can observe or override selected behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Stub:"
+        },
+        {
+          "type": "p",
+          "text": "You ask the mock repository to return an existing course."
+        },
+        {
+          "type": "p",
+          "text": "when(courseRepository.findById(10L)) .thenReturn(Optional.of(course));"
+        },
+        {
+          "type": "p",
+          "text": "Mock verification:"
+        },
+        {
+          "type": "p",
+          "text": "You check whether the repository was called."
+        },
+        {
+          "type": "p",
+          "text": "verify(courseRepository).findById(10L);"
+        },
+        {
+          "type": "p",
+          "text": "Spy:"
+        },
+        {
+          "type": "p",
+          "text": "A spy wraps a real object and permits selected methods to be controlled or observed."
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Mockito"
+        },
+        {
+          "type": "p",
+          "text": "[Mockito를 활용하여 테스트 코드 작성하기](https://images.openai.com/static-rsc-4/gP54k378ABaE1LAjgrd2WWzu_IMtyDJQOiZ-O8WqTFJskq5uODgtxqCunzdLBO9XeM9fWpxmm5lgxafOPHYgSE-krdJiWSqdr4eg8-gPlfp_2dC9gFl4I0TtVCgWwhEoXTH4WD3m5pnPGzxF8wD2JBtyYXyJe5V5ZD7h8w19TfE?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Mockito"
+        },
+        {
+          "type": "p",
+          "text": "A widely used Java framework for creating mock objects and verifying interactions."
+        },
+        {
+          "type": "p",
+          "text": "[Official documentation](https://site.mockito.org/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Important Mockito annotations:"
+        },
+        {
+          "type": "p",
+          "text": "Annotation"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "code",
+          "text": "@Mock"
+        },
+        {
+          "type": "p",
+          "text": "Creates a mock object"
+        },
+        {
+          "type": "code",
+          "text": "@InjectMocks"
+        },
+        {
+          "type": "p",
+          "text": "Creates an object and injects available mocks"
+        },
+        {
+          "type": "p",
+          "text": "@Spy"
+        },
+        {
+          "type": "p",
+          "text": "Creates a spy of an object"
+        },
+        {
+          "type": "p",
+          "text": "@Captor"
+        },
+        {
+          "type": "p",
+          "text": "Captures arguments passed to a mocked method"
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Testing a complete enrollment decision with Mockito"
+        },
+        {
+          "type": "p",
+          "text": "Imagine the following business rules:"
+        },
+        {
+          "type": "p",
+          "text": "The course must exist."
+        },
+        {
+          "type": "p",
+          "text": "The student must not already be enrolled."
+        },
+        {
+          "type": "p",
+          "text": "An enrollment must be saved."
+        },
+        {
+          "type": "p",
+          "text": "Simplified service:"
+        },
+        {
+          "type": "p",
+          "text": "public Enrollment enroll(Long studentId, Long courseId) { if (!courseRepository.existsById(courseId)) { throw new CourseNotFoundException(); } if (enrollmentRepository .existsByStudentIdAndCourseId( studentId, courseId)) { throw new DuplicateEnrollmentException(); } Enrollment enrollment = new Enrollment(studentId, courseId); return enrollmentRepository.save(enrollment); }"
+        },
+        {
+          "type": "p",
+          "text": "Now test the duplicate case:"
+        },
+        {
+          "type": "code",
+          "text": "@Test void shouldRejectDuplicateEnrollment() { when(courseRepository.existsById(10L)) .thenReturn(true); when(enrollmentRepository .existsByStudentIdAndCourseId(7L, 10L)) .thenReturn(true); assertThrows( DuplicateEnrollmentException.class, () -> enrollmentService.enroll(7L, 10L) ); verify(enrollmentRepository, never()).save(any()); }"
+        },
+        {
+          "type": "p",
+          "text": "This test verifies an important business rule without a database."
+        },
+        {
+          "type": "h3",
+          "text": "6.6 When should you avoid mocking?"
+        },
+        {
+          "type": "p",
+          "text": "Mocking everything creates tests that can pass even when the real application is broken."
+        },
+        {
+          "type": "p",
+          "text": "For example, mocking a repository in every test does not prove that its SQL queries, entity relationships or database configuration work."
+        },
+        {
+          "type": "p",
+          "text": "Avoid mocking:"
+        },
+        {
+          "type": "p",
+          "text": "Simple value objects."
+        },
+        {
+          "type": "p",
+          "text": "Every class in the application."
+        },
+        {
+          "type": "p",
+          "text": "The same business logic that you are supposed to test."
+        },
+        {
+          "type": "p",
+          "text": "Database behaviour in tests specifically intended to verify database integration."
+        },
+        {
+          "type": "p",
+          "text": "Mockito itself recommends avoiding excessive mocking and not mocking objects you do not own indiscriminately."
+        },
+        {
+          "type": "p",
+          "text": "site.mockito.org"
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: Mock external dependencies to isolate the unit being tested, but retain integration tests to verify that the actual dependencies work together."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "badge": "Section 7",
+      "title": "7. Database Integration Testing",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 What is database integration testing?"
+        },
+        {
+          "type": "p",
+          "text": "Database integration testing verifies that the application correctly interacts with its actual database engine."
+        },
+        {
+          "type": "p",
+          "text": "For PrepSpaces, imagine PostgreSQL stores:"
+        },
+        {
+          "type": "p",
+          "text": "Students."
+        },
+        {
+          "type": "p",
+          "text": "Courses."
+        },
+        {
+          "type": "p",
+          "text": "Modules."
+        },
+        {
+          "type": "p",
+          "text": "Lessons."
+        },
+        {
+          "type": "p",
+          "text": "Enrollments."
+        },
+        {
+          "type": "p",
+          "text": "Course progress."
+        },
+        {
+          "type": "p",
+          "text": "User permissions."
+        },
+        {
+          "type": "p",
+          "text": "Your Java code might compile perfectly, but the application can still have database-related bugs."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Incorrect entity relationships."
+        },
+        {
+          "type": "p",
+          "text": "Wrong table or column names."
+        },
+        {
+          "type": "p",
+          "text": "Missing foreign keys."
+        },
+        {
+          "type": "p",
+          "text": "Incorrect SQL queries."
+        },
+        {
+          "type": "p",
+          "text": "Broken cascade operations."
+        },
+        {
+          "type": "p",
+          "text": "Transaction problems."
+        },
+        {
+          "type": "p",
+          "text": "Data not being persisted."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate data being stored."
+        },
+        {
+          "type": "p",
+          "text": "These problems require database-level testing."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 What exactly should be tested?"
+        },
+        {
+          "type": "p",
+          "text": "A. Create operations"
+        },
+        {
+          "type": "p",
+          "text": "Verify that new records are actually inserted."
+        },
+        {
+          "type": "p",
+          "text": "B. Read operations"
+        },
+        {
+          "type": "p",
+          "text": "Verify that repository methods return the expected records."
+        },
+        {
+          "type": "p",
+          "text": "C. Update operations"
+        },
+        {
+          "type": "p",
+          "text": "Verify that changes remain saved after the operation finishes."
+        },
+        {
+          "type": "p",
+          "text": "D. Delete operations"
+        },
+        {
+          "type": "p",
+          "text": "Verify that the intended record is removed and database constraints are respected."
+        },
+        {
+          "type": "p",
+          "text": "E. Relationship operations"
+        },
+        {
+          "type": "p",
+          "text": "For example, a course can have many modules, and a student can enroll in multiple courses."
+        },
+        {
+          "type": "p",
+          "text": "You should verify that:"
+        },
+        {
+          "type": "p",
+          "text": "The correct foreign keys are assigned."
+        },
+        {
+          "type": "p",
+          "text": "Related records can be retrieved."
+        },
+        {
+          "type": "p",
+          "text": "Relationships behave as intended."
+        },
+        {
+          "type": "p",
+          "text": "Cascade operations do not accidentally delete unrelated data."
+        },
+        {
+          "type": "p",
+          "text": "F. Database constraints"
+        },
+        {
+          "type": "p",
+          "text": "Check that the database rejects invalid operations."
+        },
+        {
+          "type": "p",
+          "text": "Examples:"
+        },
+        {
+          "type": "p",
+          "text": "Unique email addresses."
+        },
+        {
+          "type": "p",
+          "text": "Unique course codes."
+        },
+        {
+          "type": "p",
+          "text": "Non-null course titles."
+        },
+        {
+          "type": "p",
+          "text": "Valid foreign key references."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 The problem with using an in-memory database"
+        },
+        {
+          "type": "p",
+          "text": "A developer may use H2 during testing because it is easy to configure."
+        },
+        {
+          "type": "p",
+          "text": "However, PrepSpaces uses PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Different database engines can have different SQL behaviour, data types, constraint handling, indexing behaviour and transaction characteristics."
+        },
+        {
+          "type": "p",
+          "text": "A test passing in H2 does not guarantee it will pass in PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Development: Java + Spring Boot + PostgreSQL Test: Java + Spring Boot + H2"
+        },
+        {
+          "type": "p",
+          "text": "This can hide database-specific problems."
+        },
+        {
+          "type": "p",
+          "text": "A more realistic strategy is:"
+        },
+        {
+          "type": "p",
+          "text": "Development: Java + Spring Boot + PostgreSQL Test: Java + Spring Boot + PostgreSQL"
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Testcontainers"
+        },
+        {
+          "type": "p",
+          "text": "[Model-Based Testing with Testcontainers and Jqwik | Docker](https://images.openai.com/static-rsc-4/QHfoRHG_r_2QPrqDdSO2SRxeEfzPAjv6K5ViRNFaxfgPmfJOpQD_n9p2jCAdsrpPpT_MqylS3mP8CUCbidKNIpC7lIxXZzMVJIR-970tbiaLB4efMIDBymnQCirxnFZj_uhMYx0ZqjBMJvgr_XmIYjG87WCgcQvrOuXF5vbVtsE?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Testcontainers"
+        },
+        {
+          "type": "p",
+          "text": "Starts disposable instances of real dependencies, such as PostgreSQL, for automated testing."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://testcontainers.com/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Testcontainers allows your tests to start a PostgreSQL container, connect the Spring application to it, run tests and clean up the container afterward."
+        },
+        {
+          "type": "p",
+          "text": "The architecture becomes:"
+        },
+        {
+          "type": "p",
+          "text": "Automated Test Suite"
+        },
+        {
+          "type": "p",
+          "text": "JUnit + Spring Boot"
+        },
+        {
+          "type": "p",
+          "text": "Test Application"
+        },
+        {
+          "type": "p",
+          "text": "Repositories and Hibernate"
+        },
+        {
+          "type": "p",
+          "text": "Disposable PostgreSQL Container"
+        },
+        {
+          "type": "p",
+          "text": "Real PostgreSQL database with isolated test data"
+        },
+        {
+          "type": "p",
+          "text": "A simplified PostgreSQL test setup:"
+        },
+        {
+          "type": "code",
+          "text": "@Testcontainers @DataJpaTest @AutoConfigureTestDatabase( replace = AutoConfigureTestDatabase.Replace.NONE ) class CourseRepositoryTest { @Container static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(\"postgres:16-alpine\") .withDatabaseName(\"course_test\") .withUsername(\"test\") .withPassword(\"test\"); @DynamicPropertySource static void configureProperties( DynamicPropertyRegistry registry) { registry.add(\"spring.datasource.url\", postgres::getJdbcUrl); registry.add(\"spring.datasource.username\", postgres::getUsername); registry.add(\"spring.datasource.password\", postgres::getPassword); } @Autowired private CourseRepository courseRepository; @Test void shouldSaveCourse() { Course course = new Course(); course.setTitle(\"Backend Engineering\"); Course saved = courseRepository.save(course); assertNotNull(saved.getId()); assertTrue( courseRepository.findById(saved.getId()).isPresent() ); } }"
+        },
+        {
+          "type": "p",
+          "text": "This example assumes a configured Spring Data JPA project and a Docker environment supported by Testcontainers."
+        },
+        {
+          "type": "p",
+          "text": "The Spring Boot/Testcontainers guide demonstrates this real-database testing approach with Spring MVC, JPA and PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Testcontainers"
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Transaction rollback testing"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a student enrolls in a course, but a later operation fails."
+        },
+        {
+          "type": "p",
+          "text": "Your test should verify that the transaction does not leave partial data behind."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "@Test @Transactional void shouldRollbackEnrollmentWhenOperationFails() { // Arrange: create required test data. // Act: invoke an operation that fails. // Assert: verify the transaction was not committed. }"
+        },
+        {
+          "type": "p",
+          "text": "Be aware that a test-level @Transactional usually rolls back the test transaction after completion. To prove that a service's own transaction rolls back, design the test to observe the committed database state outside the transaction being tested. Otherwise, the test may only be verifying JUnit's cleanup behaviour."
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Testing concurrent database operations"
+        },
+        {
+          "type": "p",
+          "text": "Consider two students trying to claim the final available seat simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "Both requests might read:"
+        },
+        {
+          "type": "p",
+          "text": "Available seats = 1"
+        },
+        {
+          "type": "p",
+          "text": "Both conclude that enrollment is allowed."
+        },
+        {
+          "type": "p",
+          "text": "Both then attempt enrollment."
+        },
+        {
+          "type": "p",
+          "text": "The system could accidentally produce two enrollments despite having only one available seat."
+        },
+        {
+          "type": "p",
+          "text": "This is a concurrency problem."
+        },
+        {
+          "type": "p",
+          "text": "You should test:"
+        },
+        {
+          "type": "p",
+          "text": "Simultaneous enrollment requests."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate submissions."
+        },
+        {
+          "type": "p",
+          "text": "Database uniqueness constraints."
+        },
+        {
+          "type": "p",
+          "text": "Transaction isolation."
+        },
+        {
+          "type": "p",
+          "text": "Optimistic or pessimistic locking where required."
+        },
+        {
+          "type": "p",
+          "text": "Correct seat counts after concurrent operations."
+        },
+        {
+          "type": "p",
+          "text": "Important: Checking for duplicate enrollment in Java is not necessarily sufficient. A database-level unique constraint on the student-course pair can provide an additional correctness guarantee."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "badge": "Section 8",
+      "title": "8. Contract Testing",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 What is contract testing?"
+        },
+        {
+          "type": "p",
+          "text": "Contract testing verifies that two systems communicate according to an agreed interface."
+        },
+        {
+          "type": "p",
+          "text": "This becomes especially important in applications that have:"
+        },
+        {
+          "type": "p",
+          "text": "A frontend and backend maintained separately."
+        },
+        {
+          "type": "p",
+          "text": "Multiple backend services."
+        },
+        {
+          "type": "p",
+          "text": "External API integrations."
+        },
+        {
+          "type": "p",
+          "text": "Mobile applications."
+        },
+        {
+          "type": "p",
+          "text": "Third-party consumers."
+        },
+        {
+          "type": "p",
+          "text": "Imagine the PrepSpaces frontend expects the course API to return:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"id\": 10, \"title\": \"Backend Engineering\", \"level\": \"Advanced\" }"
+        },
+        {
+          "type": "p",
+          "text": "Now suppose a backend developer changes the response:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"courseId\": 10, \"courseName\": \"Backend Engineering\", \"level\": \"Advanced\" }"
+        },
+        {
+          "type": "p",
+          "text": "The backend may be working correctly internally."
+        },
+        {
+          "type": "p",
+          "text": "However, the frontend still expects id and title."
+        },
+        {
+          "type": "p",
+          "text": "The integration breaks."
+        },
+        {
+          "type": "p",
+          "text": "Contract testing helps detect this kind of incompatibility before deployment."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Consumer and provider"
+        },
+        {
+          "type": "p",
+          "text": "Two important terms:"
+        },
+        {
+          "type": "p",
+          "text": "Consumer: The application that uses an API."
+        },
+        {
+          "type": "p",
+          "text": "Example: PrepSpaces frontend."
+        },
+        {
+          "type": "p",
+          "text": "Provider: The application that exposes the API."
+        },
+        {
+          "type": "p",
+          "text": "Example: PrepSpaces backend."
+        },
+        {
+          "type": "p",
+          "text": "Consumer — PrepSpaces Frontend"
+        },
+        {
+          "type": "p",
+          "text": "Expects course API response with id and title"
+        },
+        {
+          "type": "p",
+          "text": "Shared API Contract"
+        },
+        {
+          "type": "p",
+          "text": "Provider — PrepSpaces Backend"
+        },
+        {
+          "type": "p",
+          "text": "Must satisfy the agreed API behaviour"
+        },
+        {
+          "type": "p",
+          "text": "Both systems should agree on:"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint URLs."
+        },
+        {
+          "type": "p",
+          "text": "HTTP methods."
+        },
+        {
+          "type": "p",
+          "text": "Request formats."
+        },
+        {
+          "type": "p",
+          "text": "Response formats."
+        },
+        {
+          "type": "p",
+          "text": "Required fields."
+        },
+        {
+          "type": "p",
+          "text": "Data types."
+        },
+        {
+          "type": "p",
+          "text": "Status codes."
+        },
+        {
+          "type": "p",
+          "text": "Error formats."
+        },
+        {
+          "type": "p",
+          "text": "Authentication requirements."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 Types of contract testing"
+        },
+        {
+          "type": "p",
+          "text": "A. API schema validation"
+        },
+        {
+          "type": "p",
+          "text": "Check that the actual response matches its documented schema."
+        },
+        {
+          "type": "p",
+          "text": "For example, if the API specification says id must be an integer, the backend should not return a string."
+        },
+        {
+          "type": "p",
+          "text": "OpenAPI can describe the structure of API requests and responses."
+        },
+        {
+          "type": "p",
+          "text": "B. Consumer-driven contract testing"
+        },
+        {
+          "type": "p",
+          "text": "The consumer defines the interactions it depends on."
+        },
+        {
+          "type": "p",
+          "text": "The provider then verifies that it satisfies those interactions."
+        },
+        {
+          "type": "p",
+          "text": "This is useful when frontend and backend developers work independently."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Pact"
+        },
+        {
+          "type": "p",
+          "text": "[🤝 Contract Testing with Pact - DEV Community](https://images.openai.com/static-rsc-4/jplMCJjpiLA-92g3YVp-tnm5JQxF_lfjFX-Xcq9Fzzhc91COnv2mJyM24IEkO720EO15XU1KIjXNbNfOGkGL3GGDhL2qNSsuwRYXH1qzKlrEHEuWYMjuI1LCrc_3bfHyohwL_lcTMd-b4F-GX3WwQesPGmWc8u5LBcUGaNv__dI?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Pact"
+        },
+        {
+          "type": "p",
+          "text": "A contract-testing tool for verifying interactions between consumers and providers."
+        },
+        {
+          "type": "p",
+          "text": "[Official documentation](https://docs.pact.io/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "A simplified Pact workflow:"
+        },
+        {
+          "type": "p",
+          "text": "The frontend team defines the API interaction it expects."
+        },
+        {
+          "type": "p",
+          "text": "A consumer test generates a contract."
+        },
+        {
+          "type": "p",
+          "text": "The contract is shared with the backend team."
+        },
+        {
+          "type": "p",
+          "text": "The backend verifies that its actual API satisfies the contract."
+        },
+        {
+          "type": "p",
+          "text": "A breaking change is detected before incompatible systems are released."
+        },
+        {
+          "type": "p",
+          "text": "Pact describes this as consumer-driven contract testing."
+        },
+        {
+          "type": "p",
+          "text": "Pact Docs+1"
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Example of a contract requirement"
+        },
+        {
+          "type": "p",
+          "text": "Suppose the consumer expects:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses/10"
+        },
+        {
+          "type": "p",
+          "text": "Expected status:"
+        },
+        {
+          "type": "p",
+          "text": "200 OK"
+        },
+        {
+          "type": "p",
+          "text": "Expected response:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"id\": 10, \"title\": \"Backend Engineering\" }"
+        },
+        {
+          "type": "p",
+          "text": "The provider must satisfy the expected interaction."
+        },
+        {
+          "type": "p",
+          "text": "If the backend removes the title field or changes its type without coordinating the change, the provider verification should fail."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 When is contract testing useful?"
+        },
+        {
+          "type": "p",
+          "text": "It is especially useful when:"
+        },
+        {
+          "type": "p",
+          "text": "Frontend and backend teams deploy independently."
+        },
+        {
+          "type": "p",
+          "text": "Microservices communicate with each other."
+        },
+        {
+          "type": "p",
+          "text": "Multiple clients consume the same API."
+        },
+        {
+          "type": "p",
+          "text": "API versions are maintained."
+        },
+        {
+          "type": "p",
+          "text": "Third-party integrations exist."
+        },
+        {
+          "type": "p",
+          "text": "Breaking changes must be prevented."
+        },
+        {
+          "type": "p",
+          "text": "Important distinction: An OpenAPI document describes the interface. Contract testing adds executable verification that connected applications can rely on the agreed interactions."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "badge": "Section 9",
+      "title": "9. Authentication and Authorization Testing",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This is one of the most important lessons for a production backend."
+        },
+        {
+          "type": "p",
+          "text": "An API can return correct data and still be dangerously insecure if users can access information or perform operations they are not permitted to access."
+        },
+        {
+          "type": "h3",
+          "text": "9.1 Authentication versus authorization"
+        },
+        {
+          "type": "p",
+          "text": "These are two different security concepts."
+        },
+        {
+          "type": "p",
+          "text": "Authentication — Who are you?"
+        },
+        {
+          "type": "p",
+          "text": "Authentication verifies a user's identity."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "A student logs into PrepSpaces using their email and password. The backend verifies their credentials and issues an access token."
+        },
+        {
+          "type": "p",
+          "text": "Authorization — What are you allowed to do?"
+        },
+        {
+          "type": "p",
+          "text": "Authorization determines which operations the authenticated user is allowed to perform."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Student: Can view courses and enroll."
+        },
+        {
+          "type": "p",
+          "text": "Instructor: Can create and manage their own courses."
+        },
+        {
+          "type": "p",
+          "text": "Admin: Can manage all courses."
+        },
+        {
+          "type": "p",
+          "text": "Security verification flow"
+        },
+        {
+          "type": "p",
+          "text": "User sends API request with credentials or token"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "Is the user's identity valid?"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "Does the user have permission?"
+        },
+        {
+          "type": "p",
+          "text": "Allowed"
+        },
+        {
+          "type": "p",
+          "text": "Perform operation"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Reject request"
+        },
+        {
+          "type": "h3",
+          "text": "9.2 Understanding 401 and 403"
+        },
+        {
+          "type": "p",
+          "text": "These status codes are especially important when testing secured APIs."
+        },
+        {
+          "type": "p",
+          "text": "Status"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "401 Unauthorized"
+        },
+        {
+          "type": "p",
+          "text": "Authentication is missing or invalid"
+        },
+        {
+          "type": "p",
+          "text": "User has not logged in"
+        },
+        {
+          "type": "p",
+          "text": "403 Forbidden"
+        },
+        {
+          "type": "p",
+          "text": "User is authenticated but not permitted"
+        },
+        {
+          "type": "p",
+          "text": "Student tries to delete a course"
+        },
+        {
+          "type": "p",
+          "text": "A successful login does not automatically mean that a user can access every endpoint."
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Role-based access control testing"
+        },
+        {
+          "type": "p",
+          "text": "Suppose your platform has three roles:"
+        },
+        {
+          "type": "p",
+          "text": "ADMIN INSTRUCTOR STUDENT"
+        },
+        {
+          "type": "p",
+          "text": "Your permissions could look like this:"
+        },
+        {
+          "type": "p",
+          "text": "Operation"
+        },
+        {
+          "type": "p",
+          "text": "Admin"
+        },
+        {
+          "type": "p",
+          "text": "Instructor"
+        },
+        {
+          "type": "p",
+          "text": "Student"
+        },
+        {
+          "type": "p",
+          "text": "View courses"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Create course"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes, if permitted"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Update own course"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Update another instructor's course"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Delete course"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "No"
+        },
+        {
+          "type": "p",
+          "text": "Enroll in course"
+        },
+        {
+          "type": "p",
+          "text": "Optional"
+        },
+        {
+          "type": "p",
+          "text": "Optional"
+        },
+        {
+          "type": "p",
+          "text": "Yes"
+        },
+        {
+          "type": "p",
+          "text": "These are example policies; the actual permissions should match your application's requirements."
+        },
+        {
+          "type": "p",
+          "text": "You must test every important permission boundary."
+        },
+        {
+          "type": "h3",
+          "text": "9.4 Testing authentication in Spring Security"
+        },
+        {
+          "type": "p",
+          "text": "Spring Security provides test utilities that let you simulate authenticated users."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@WebMvcTest(CourseController.class) class CourseSecurityTest { @Autowired private MockMvc mockMvc; @MockitoBean private CourseService courseService; @Test void anonymousUserCannotAccessProtectedEndpoint() throws Exception { mockMvc.perform( get(\"/api/admin/courses\") ).andExpect(status().isUnauthorized()); } @Test @WithMockUser(roles = \"ADMIN\") void adminCanAccessAdminEndpoint() throws Exception { mockMvc.perform( get(\"/api/admin/courses\") ).andExpect(status().isOk()); } @Test @WithMockUser(roles = \"STUDENT\") void studentCannotAccessAdminEndpoint() throws Exception { mockMvc.perform( get(\"/api/admin/courses\") ).andExpect(status().isForbidden()); } }"
+        },
+        {
+          "type": "p",
+          "text": "This assumes the application has the corresponding Spring Security configuration."
+        },
+        {
+          "type": "code",
+          "text": "@WithMockUser creates a simulated authenticated identity for Spring security tests."
+        },
+        {
+          "type": "p",
+          "text": "Home+1"
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Testing resource ownership"
+        },
+        {
+          "type": "p",
+          "text": "Role testing alone is insufficient."
+        },
+        {
+          "type": "p",
+          "text": "Consider these two users:"
+        },
+        {
+          "type": "p",
+          "text": "Student A: ID 101 Student B: ID 102"
+        },
+        {
+          "type": "p",
+          "text": "Student A is enrolled in course 10."
+        },
+        {
+          "type": "p",
+          "text": "Student B sends:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/users/101/enrollments"
+        },
+        {
+          "type": "p",
+          "text": "Even though Student B is authenticated and has the STUDENT role, they should not automatically receive Student A's private enrollment information."
+        },
+        {
+          "type": "p",
+          "text": "You need to test:"
+        },
+        {
+          "type": "p",
+          "text": "A user cannot access another user's private data."
+        },
+        {
+          "type": "p",
+          "text": "A user cannot modify another user's records."
+        },
+        {
+          "type": "p",
+          "text": "A user cannot delete another user's information."
+        },
+        {
+          "type": "p",
+          "text": "An instructor cannot modify someone else's course without permission."
+        },
+        {
+          "type": "p",
+          "text": "Changing a URL ID cannot bypass ownership checks."
+        },
+        {
+          "type": "p",
+          "text": "This type of vulnerability is often associated with insecure direct object references and broken object-level authorization."
+        },
+        {
+          "type": "h3",
+          "text": "9.6 JWT authentication testing"
+        },
+        {
+          "type": "p",
+          "text": "Many modern backend applications use JSON Web Tokens."
+        },
+        {
+          "type": "p",
+          "text": "You should test:"
+        },
+        {
+          "type": "p",
+          "text": "Scenario"
+        },
+        {
+          "type": "p",
+          "text": "Expected result"
+        },
+        {
+          "type": "p",
+          "text": "Valid token"
+        },
+        {
+          "type": "p",
+          "text": "Request accepted if permissions allow"
+        },
+        {
+          "type": "p",
+          "text": "Missing token"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Expired token"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Invalid signature"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Modified token"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Valid token with wrong role"
+        },
+        {
+          "type": "p",
+          "text": "403"
+        },
+        {
+          "type": "p",
+          "text": "Valid token for another user's resource"
+        },
+        {
+          "type": "p",
+          "text": "Denied"
+        },
+        {
+          "type": "p",
+          "text": "Revoked or otherwise invalidated token"
+        },
+        {
+          "type": "p",
+          "text": "Denied, according to the token design"
+        },
+        {
+          "type": "p",
+          "text": "Also test:"
+        },
+        {
+          "type": "p",
+          "text": "Whether sensitive information is exposed in token claims."
+        },
+        {
+          "type": "p",
+          "text": "Whether token expiration is enforced."
+        },
+        {
+          "type": "p",
+          "text": "Whether refresh-token rules work correctly."
+        },
+        {
+          "type": "p",
+          "text": "Whether role changes and permission revocation are handled appropriately."
+        },
+        {
+          "type": "p",
+          "text": "Important: @WithMockUser tests the authorization context. It does not prove that your real JWT parsing, signature verification, expiration checks or token issuance work. Those need separate authentication tests. For tests against an actual running HTTP server, send credentials or a bearer token with the request itself."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "badge": "Section 10",
+      "title": "10. Testing Error Scenarios",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "10.1 What is error scenario testing?"
+        },
+        {
+          "type": "p",
+          "text": "A backend is not reliable simply because it works when everything goes right."
+        },
+        {
+          "type": "p",
+          "text": "Production applications encounter:"
+        },
+        {
+          "type": "p",
+          "text": "Invalid user input."
+        },
+        {
+          "type": "p",
+          "text": "Missing records."
+        },
+        {
+          "type": "p",
+          "text": "Database outages."
+        },
+        {
+          "type": "p",
+          "text": "Network interruptions."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate requests."
+        },
+        {
+          "type": "p",
+          "text": "External API failures."
+        },
+        {
+          "type": "p",
+          "text": "Permission errors."
+        },
+        {
+          "type": "p",
+          "text": "Unexpected application exceptions."
+        },
+        {
+          "type": "p",
+          "text": "Error scenario testing verifies that the application handles such situations safely and predictably."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 Testing invalid input"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a course requires a title."
+        },
+        {
+          "type": "p",
+          "text": "A valid request:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"title\": \"Backend Engineering\", \"description\": \"Learn backend development\" }"
+        },
+        {
+          "type": "p",
+          "text": "An invalid request:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"title\": \"\", \"description\": null }"
+        },
+        {
+          "type": "p",
+          "text": "Your API should reject this request with an appropriate response."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "code",
+          "text": "{ \"status\": 400, \"code\": \"VALIDATION_ERROR\", \"message\": \"Course title is required\" }"
+        },
+        {
+          "type": "p",
+          "text": "The exact response structure should follow the API's agreed error format."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Testing resource-not-found errors"
+        },
+        {
+          "type": "p",
+          "text": "Imagine a user requests:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses/999999"
+        },
+        {
+          "type": "p",
+          "text": "The course does not exist."
+        },
+        {
+          "type": "p",
+          "text": "Expected behaviour:"
+        },
+        {
+          "type": "p",
+          "text": "The API returns 404 Not Found."
+        },
+        {
+          "type": "p",
+          "text": "The application does not crash."
+        },
+        {
+          "type": "p",
+          "text": "The response explains the problem clearly."
+        },
+        {
+          "type": "p",
+          "text": "Internal database information is not exposed."
+        },
+        {
+          "type": "p",
+          "text": "The error is logged appropriately."
+        },
+        {
+          "type": "h3",
+          "text": "10.4 Testing duplicate operations"
+        },
+        {
+          "type": "p",
+          "text": "Suppose a student submits enrollment twice."
+        },
+        {
+          "type": "p",
+          "text": "First request:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/courses/10/enroll"
+        },
+        {
+          "type": "p",
+          "text": "Expected:"
+        },
+        {
+          "type": "p",
+          "text": "201 Created"
+        },
+        {
+          "type": "p",
+          "text": "Second request:"
+        },
+        {
+          "type": "code",
+          "text": "POST /api/courses/10/enroll"
+        },
+        {
+          "type": "p",
+          "text": "Expected:"
+        },
+        {
+          "type": "p",
+          "text": "409 Conflict"
+        },
+        {
+          "type": "p",
+          "text": "The backend should avoid creating a duplicate record."
+        },
+        {
+          "type": "p",
+          "text": "Also test what happens when both requests arrive almost simultaneously. A sequential test alone cannot guarantee that concurrency is handled correctly."
+        },
+        {
+          "type": "h3",
+          "text": "10.5 Testing database failures"
+        },
+        {
+          "type": "p",
+          "text": "Imagine PostgreSQL becomes temporarily unavailable."
+        },
+        {
+          "type": "p",
+          "text": "Your backend receives a course creation request."
+        },
+        {
+          "type": "p",
+          "text": "Questions you should investigate:"
+        },
+        {
+          "type": "p",
+          "text": "Does the application return a controlled failure?"
+        },
+        {
+          "type": "p",
+          "text": "Does it avoid reporting that the course was created?"
+        },
+        {
+          "type": "p",
+          "text": "Does it log sufficient diagnostic information?"
+        },
+        {
+          "type": "p",
+          "text": "Does it leave partially written records?"
+        },
+        {
+          "type": "p",
+          "text": "Does it recover after the database becomes available?"
+        },
+        {
+          "type": "p",
+          "text": "A successful HTTP response must never be returned when the required database transaction has actually failed."
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Testing external service failures"
+        },
+        {
+          "type": "p",
+          "text": "Imagine your application depends on an external payment provider."
+        },
+        {
+          "type": "p",
+          "text": "Possible situations:"
+        },
+        {
+          "type": "p",
+          "text": "Failure"
+        },
+        {
+          "type": "p",
+          "text": "Expected handling"
+        },
+        {
+          "type": "p",
+          "text": "External service returns 500"
+        },
+        {
+          "type": "p",
+          "text": "Controlled error or defined retry"
+        },
+        {
+          "type": "p",
+          "text": "Service times out"
+        },
+        {
+          "type": "p",
+          "text": "Timeout handling"
+        },
+        {
+          "type": "p",
+          "text": "Network unavailable"
+        },
+        {
+          "type": "p",
+          "text": "Appropriate failure"
+        },
+        {
+          "type": "p",
+          "text": "Invalid external response"
+        },
+        {
+          "type": "p",
+          "text": "Response validation"
+        },
+        {
+          "type": "p",
+          "text": "Rate limit exceeded"
+        },
+        {
+          "type": "p",
+          "text": "Respect provider limits"
+        },
+        {
+          "type": "p",
+          "text": "Service recovers"
+        },
+        {
+          "type": "p",
+          "text": "Application resumes normally"
+        },
+        {
+          "type": "p",
+          "text": "You should also verify that retries do not accidentally create duplicate payments or duplicate enrollments."
+        },
+        {
+          "type": "p",
+          "text": "This is where concepts such as idempotency keys, timeouts, retries and circuit breakers become relevant."
+        },
+        {
+          "type": "h3",
+          "text": "10.7 Centralized exception handling"
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot applications commonly use @RestControllerAdvice to handle exceptions consistently."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "@RestControllerAdvice public class GlobalExceptionHandler { @ExceptionHandler(CourseNotFoundException.class) public ResponseEntity<Map<String, String>> handleNotFound( CourseNotFoundException exception) { Map<String, String> response = new HashMap<>(); response.put(\"error\", \"Course not found\"); return ResponseEntity .status(HttpStatus.NOT_FOUND) .body(response); } }"
+        },
+        {
+          "type": "p",
+          "text": "A test should verify that the exception is converted into the correct HTTP response."
+        },
+        {
+          "type": "p",
+          "text": "You can test the error response through MockMvc, as well as test the underlying service exception separately."
+        },
+        {
+          "type": "h3",
+          "text": "10.8 Security considerations during error testing"
+        },
+        {
+          "type": "p",
+          "text": "Never expose the following in a public API error response:"
+        },
+        {
+          "type": "p",
+          "text": "Database passwords."
+        },
+        {
+          "type": "p",
+          "text": "Secret keys."
+        },
+        {
+          "type": "p",
+          "text": "Access tokens."
+        },
+        {
+          "type": "p",
+          "text": "SQL statements containing sensitive information."
+        },
+        {
+          "type": "p",
+          "text": "Internal file paths."
+        },
+        {
+          "type": "p",
+          "text": "Stack traces."
+        },
+        {
+          "type": "p",
+          "text": "Private infrastructure details."
+        },
+        {
+          "type": "p",
+          "text": "The objective is to communicate useful information to the client without revealing internal implementation details."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: A production-quality backend should fail safely, return predictable errors, protect data and recover where appropriate."
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "badge": "Section 11",
+      "title": "11. Performance and Load Testing Fundamentals",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "11.1 What is performance testing?"
+        },
+        {
+          "type": "p",
+          "text": "Performance testing measures how well your backend operates under different workloads."
+        },
+        {
+          "type": "p",
+          "text": "A backend can pass every functional test and still fail when many users access it simultaneously."
+        },
+        {
+          "type": "p",
+          "text": "Imagine:"
+        },
+        {
+          "type": "p",
+          "text": "10 users → Works correctly 100 users → Slow responses 500 users → Database connection pool exhausted 1,000 users → Server stops responding"
+        },
+        {
+          "type": "p",
+          "text": "Performance testing helps identify these limits before real users experience them."
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Important performance metrics"
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "badge": "Section 1",
+      "title": "1. Response time",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "How long the API takes to return a response."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "GET /api/courses Response time = 150 ms"
+        },
+        {
+          "type": "p",
+          "text": "2. Throughput"
+        },
+        {
+          "type": "p",
+          "text": "How many requests a system processes within a given period."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "500 requests per second"
+        },
+        {
+          "type": "p",
+          "text": "3. Concurrent users"
+        },
+        {
+          "type": "p",
+          "text": "How many users are accessing the application at the same time."
+        },
+        {
+          "type": "p",
+          "text": "This is not identical to requests per second. One user can generate multiple requests, and requests can have different durations."
+        },
+        {
+          "type": "p",
+          "text": "4. Error rate"
+        },
+        {
+          "type": "p",
+          "text": "The proportion of failed requests."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "Total requests = 10,000 Failed requests = 100 Error rate = 1%"
+        },
+        {
+          "type": "p",
+          "text": "5. CPU utilization"
+        },
+        {
+          "type": "p",
+          "text": "How much processing capacity the application consumes."
+        },
+        {
+          "type": "p",
+          "text": "6. Memory utilization"
+        },
+        {
+          "type": "p",
+          "text": "How much memory the backend uses."
+        },
+        {
+          "type": "p",
+          "text": "7. Database performance"
+        },
+        {
+          "type": "p",
+          "text": "You should monitor:"
+        },
+        {
+          "type": "p",
+          "text": "Query execution time."
+        },
+        {
+          "type": "p",
+          "text": "Connection pool usage."
+        },
+        {
+          "type": "p",
+          "text": "Slow queries."
+        },
+        {
+          "type": "p",
+          "text": "Lock contention."
+        },
+        {
+          "type": "p",
+          "text": "Database CPU."
+        },
+        {
+          "type": "p",
+          "text": "Database memory."
+        },
+        {
+          "type": "h3",
+          "text": "11.3 Understanding response-time percentiles"
+        },
+        {
+          "type": "p",
+          "text": "An average response time can hide performance problems."
+        },
+        {
+          "type": "p",
+          "text": "Imagine 100 requests:"
+        },
+        {
+          "type": "p",
+          "text": "Most requests complete quickly."
+        },
+        {
+          "type": "p",
+          "text": "A few requests take several seconds."
+        },
+        {
+          "type": "p",
+          "text": "The average might still look acceptable."
+        },
+        {
+          "type": "p",
+          "text": "This is why engineers monitor response-time percentiles."
+        },
+        {
+          "type": "p",
+          "text": "Metric"
+        },
+        {
+          "type": "p",
+          "text": "Meaning"
+        },
+        {
+          "type": "p",
+          "text": "p50"
+        },
+        {
+          "type": "p",
+          "text": "50% of requests complete within this time"
+        },
+        {
+          "type": "p",
+          "text": "p90"
+        },
+        {
+          "type": "p",
+          "text": "90% complete within this time"
+        },
+        {
+          "type": "p",
+          "text": "p95"
+        },
+        {
+          "type": "p",
+          "text": "95% complete within this time"
+        },
+        {
+          "type": "p",
+          "text": "p99"
+        },
+        {
+          "type": "p",
+          "text": "99% complete within this time"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Sample API response times"
+        },
+        {
+          "type": "p",
+          "text": "p50"
+        },
+        {
+          "type": "p",
+          "text": "100 ms"
+        },
+        {
+          "type": "p",
+          "text": "p90"
+        },
+        {
+          "type": "p",
+          "text": "250 ms"
+        },
+        {
+          "type": "p",
+          "text": "p95"
+        },
+        {
+          "type": "p",
+          "text": "400 ms"
+        },
+        {
+          "type": "p",
+          "text": "p99"
+        },
+        {
+          "type": "p",
+          "text": "1,200 ms"
+        },
+        {
+          "type": "p",
+          "text": "Illustrative data, not a performance target."
+        },
+        {
+          "type": "p",
+          "text": "A high p99 compared with p50 indicates that a small proportion of users may experience much slower requests."
+        },
+        {
+          "type": "h3",
+          "text": "11.4 Types of performance testing"
+        },
+        {
+          "type": "p",
+          "text": "A. Load testing"
+        },
+        {
+          "type": "p",
+          "text": "Checks application behaviour under expected user traffic."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Expected concurrent users: 100 Test duration: 10 minutes"
+        },
+        {
+          "type": "p",
+          "text": "B. Stress testing"
+        },
+        {
+          "type": "p",
+          "text": "Pushes the backend beyond its expected capacity to identify its breaking point."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "100 → 200 → 500 → 1,000 → 2,000 users"
+        },
+        {
+          "type": "p",
+          "text": "You observe where error rates increase, response times deteriorate or resources become exhausted."
+        },
+        {
+          "type": "p",
+          "text": "C. Spike testing"
+        },
+        {
+          "type": "p",
+          "text": "Suddenly increases traffic."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "Normal traffic: 50 users Sudden traffic: 1,000 users"
+        },
+        {
+          "type": "p",
+          "text": "Useful for situations such as a course launch, marketing campaign or registration event."
+        },
+        {
+          "type": "p",
+          "text": "D. Soak testing"
+        },
+        {
+          "type": "p",
+          "text": "Runs a sustained workload for an extended period."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "200 concurrent users Duration: 8 hours"
+        },
+        {
+          "type": "p",
+          "text": "It can help identify memory leaks, resource exhaustion, connection leaks and performance degradation over time."
+        },
+        {
+          "type": "h3",
+          "text": "11.5 Load testing tools"
+        },
+        {
+          "type": "p",
+          "text": "[File:K6-load-testing-tool-logo.svg - Wikimedia Commons](https://images.openai.com/static-rsc-4/wp0EljWjHSw9jfQL-q7EpqlQ30-OVAe_YBPQC3ytvXU3TKVBOcxMr9CjjyyNX6bleeoMomT9aepL3ItOrMJLtERBrh6HSlwmWEw_dI8ExAgZQ3U3K3sdAcK5Krxw-QwiKtEYMBMlylSPrKAc9YkPd_pQymh1VqU89KI3imDc0fQ?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "k6"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript-based load testing for HTTP APIs and other protocols."
+        },
+        {
+          "type": "p",
+          "text": "[Official documentation](https://grafana.com/docs/k6/latest/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "[JMeter - Opsera](https://images.openai.com/static-rsc-4/iF0hXaiY7nYUCd0kMlyEYbzm6tbn_rAxM8O9GZHSqHhwV7Tn0iv_PFP8D2xwBgRpN467NCbskDExELXci0OYCX8mHIDlc3GilWbHSOCROJQX93syrjkeKB7BEEl9I01bhte_P639d_QwbluMw7Dj8oAxHSy-mGZ6F805gJhcZgY?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Apache JMeter"
+        },
+        {
+          "type": "p",
+          "text": "Simulates workloads and measures performance across supported protocols."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://jmeter.apache.org/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "[Technology Logo PNG Vectors Free Download - Page 913](https://images.openai.com/static-rsc-4/st56z9BWAcTC9vNPBVcgJbwXXAV85XGjPFk3pSHVla-qm84zh3Pg6H4rhzSPdNDYz4g5RLach9Kp91NzvNW02ezvUw-B-0eDthUHSL0AlbX11zhsmnNSUEFqUiySTY2KGdBEdkQcbtst1ZG3-Eerx9g__OSX52vOhHlbIUfrnz4?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "Gatling"
+        },
+        {
+          "type": "p",
+          "text": "Supports scripted performance tests and detailed workload analysis."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://gatling.io/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "h3",
+          "text": "11.6 Writing a simple k6 test"
+        },
+        {
+          "type": "p",
+          "text": "Imagine you want to test the course-list endpoint."
+        },
+        {
+          "type": "p",
+          "text": "Create course-load-test.js:"
+        },
+        {
+          "type": "p",
+          "text": "import http from 'k6/http'; import { check, sleep } from 'k6'; export const options = { stages: [ { duration: '30s', target: 10 }, { duration: '1m', target: 50 }, { duration: '30s', target: 0 }, ], thresholds: { http_req_failed: ['rate<0.01'], http_req_duration: ['p(95)<500'], }, }; export default function () { const response = http.get( 'http://localhost:8080/api/courses' ); check(response, { 'status is 200': (res) => res.status === 200, }); sleep(1); }"
+        },
+        {
+          "type": "p",
+          "text": "The stages gradually increase traffic to 10 users, then 50 users, and finally reduce traffic."
+        },
+        {
+          "type": "p",
+          "text": "The thresholds define example acceptance criteria:"
+        },
+        {
+          "type": "p",
+          "text": "Less than 1% failed requests."
+        },
+        {
+          "type": "p",
+          "text": "95th percentile response time below 500 ms."
+        },
+        {
+          "type": "p",
+          "text": "These are illustrative thresholds. A real application should choose limits based on its requirements and service-level objectives."
+        },
+        {
+          "type": "p",
+          "text": "Run:"
+        },
+        {
+          "type": "p",
+          "text": "k6 run course-load-test.js"
+        },
+        {
+          "type": "p",
+          "text": "The k6 documentation describes scripting API workflows, simulating virtual users and defining performance thresholds."
+        },
+        {
+          "type": "p",
+          "text": "Grafana k6 documentation+1"
+        },
+        {
+          "type": "h3",
+          "text": "11.7 What should you monitor during load testing?"
+        },
+        {
+          "type": "p",
+          "text": "Do not look only at the k6 output."
+        },
+        {
+          "type": "p",
+          "text": "Monitor the entire application:"
+        },
+        {
+          "type": "code",
+          "text": "Virtual Users | v API Requests | v Spring Boot Application | +---- CPU | +---- RAM | +---- Thread Pool | +---- Database Connection Pool | v PostgreSQL | +---- Query Execution | +---- Locks | +---- Database CPU"
+        },
+        {
+          "type": "p",
+          "text": "A slow endpoint could be caused by:"
+        },
+        {
+          "type": "p",
+          "text": "Unoptimized database queries."
+        },
+        {
+          "type": "p",
+          "text": "Missing indexes."
+        },
+        {
+          "type": "p",
+          "text": "Too many database connections."
+        },
+        {
+          "type": "p",
+          "text": "Inefficient Java code."
+        },
+        {
+          "type": "p",
+          "text": "Slow external services."
+        },
+        {
+          "type": "p",
+          "text": "Large response payloads."
+        },
+        {
+          "type": "p",
+          "text": "Thread exhaustion."
+        },
+        {
+          "type": "p",
+          "text": "Key takeaway: Performance testing is not simply about discovering how many requests a server can handle. It is about identifying bottlenecks and ensuring that application performance remains within acceptable limits."
+        },
+        {
+          "type": "p",
+          "text": "12. Test Coverage and Quality Standards"
+        },
+        {
+          "type": "h3",
+          "text": "12.1 What is test coverage?"
+        },
+        {
+          "type": "p",
+          "text": "Test coverage measures how much of the application's code is executed when automated tests run."
+        },
+        {
+          "type": "p",
+          "text": "Imagine your service contains 100 executable lines."
+        },
+        {
+          "type": "p",
+          "text": "Your tests execute 80 of those lines."
+        },
+        {
+          "type": "p",
+          "text": "The approximate line coverage is:"
+        },
+        {
+          "type": "p",
+          "text": "\\[ \\text{Line Coverage} = \\frac{\\text{Lines Executed}}{\\text{Total Executable Lines}} \\times 100 \\]"
+        },
+        {
+          "type": "p",
+          "text": "\\[ =\\frac{80}{100}\\times100=80\\% \\]"
+        },
+        {
+          "type": "p",
+          "text": "This means your test suite executed 80% of the measured lines."
+        },
+        {
+          "type": "p",
+          "text": "It does not mean that 80% of the software is guaranteed to be correct."
+        },
+        {
+          "type": "h3",
+          "text": "12.2 Types of test coverage"
+        },
+        {
+          "type": "p",
+          "text": "A. Line coverage"
+        },
+        {
+          "type": "p",
+          "text": "Measures how many executable lines were executed."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "p",
+          "text": "if (availableSeats > 0) { return true; } return false;"
+        },
+        {
+          "type": "p",
+          "text": "If your test only checks when seats are available, the final return false might never execute."
+        },
+        {
+          "type": "p",
+          "text": "You need another test to exercise that path."
+        },
+        {
+          "type": "p",
+          "text": "B. Branch coverage"
+        },
+        {
+          "type": "p",
+          "text": "Measures whether both outcomes of decision points have been tested."
+        },
+        {
+          "type": "p",
+          "text": "For example:"
+        },
+        {
+          "type": "p",
+          "text": "if (availableSeats > 0) { return true; } else { return false; }"
+        },
+        {
+          "type": "p",
+          "text": "You should test:"
+        },
+        {
+          "type": "p",
+          "text": "The true branch."
+        },
+        {
+          "type": "p",
+          "text": "The false branch."
+        },
+        {
+          "type": "p",
+          "text": "C. Method coverage"
+        },
+        {
+          "type": "p",
+          "text": "Measures which methods have been executed by tests."
+        },
+        {
+          "type": "p",
+          "text": "D. Instruction coverage"
+        },
+        {
+          "type": "p",
+          "text": "Measures the proportion of bytecode instructions executed."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 Code coverage tools"
+        },
+        {
+          "type": "p",
+          "text": "[Basic setups for JaCoCo Integration | by amol pawar | softAai Blogs | Medium](https://images.openai.com/static-rsc-4/T-8rowVDCPrbaRH5wFuyJbI2OmO9P_nCdQCrT3_KcG7f_ekI55qkeTz1R7OCM0p9Lml068aY4V3868QPuClJePtS8MffClSdZEHOwaFm5bR0SS7MNTxt1hNTOiga85KtSIf_wktm-jW8mrXlPr6SRfql0pbDguEzCwGPECovdsQ?purpose=inline)"
+        },
+        {
+          "type": "p",
+          "text": "JaCoCo"
+        },
+        {
+          "type": "p",
+          "text": "A Java code coverage library that integrates with Maven and Gradle and produces coverage reports."
+        },
+        {
+          "type": "p",
+          "text": "[Official website](https://www.jacoco.org/jacoco/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "JaCoCo can generate reports showing which lines and branches are covered."
+        },
+        {
+          "type": "p",
+          "text": "Example Maven command after configuring the JaCoCo plugin:"
+        },
+        {
+          "type": "code",
+          "text": "mvn clean verify"
+        },
+        {
+          "type": "p",
+          "text": "A typical generated report is available at:"
+        },
+        {
+          "type": "p",
+          "text": "target/site/jacoco/index.html"
+        },
+        {
+          "type": "p",
+          "text": "You can open it to inspect:"
+        },
+        {
+          "type": "p",
+          "text": "Overall line coverage."
+        },
+        {
+          "type": "p",
+          "text": "Branch coverage."
+        },
+        {
+          "type": "p",
+          "text": "Package coverage."
+        },
+        {
+          "type": "p",
+          "text": "Class coverage."
+        },
+        {
+          "type": "p",
+          "text": "Uncovered lines."
+        },
+        {
+          "type": "p",
+          "text": "JaCoCo also supports coverage verification rules that can make a build fail when configured thresholds are not met."
+        },
+        {
+          "type": "p",
+          "text": "Maven Plug-in+1"
+        },
+        {
+          "type": "h3",
+          "text": "12.4 Is 100% code coverage necessary?"
+        },
+        {
+          "type": "p",
+          "text": "Not necessarily."
+        },
+        {
+          "type": "p",
+          "text": "Consider two examples."
+        },
+        {
+          "type": "p",
+          "text": "Example A: 100% line coverage"
+        },
+        {
+          "type": "p",
+          "text": "Every line executed, but the tests do not verify whether the output is correct."
+        },
+        {
+          "type": "p",
+          "text": "Example B: 85% line coverage"
+        },
+        {
+          "type": "p",
+          "text": "The tests cover important business rules, security conditions, data persistence and failure paths."
+        },
+        {
+          "type": "p",
+          "text": "Example B could provide much stronger confidence."
+        },
+        {
+          "type": "p",
+          "text": "Coverage measures execution, not test quality."
+        },
+        {
+          "type": "h3",
+          "text": "12.5 What should be covered first?"
+        },
+        {
+          "type": "p",
+          "text": "Prioritize:"
+        },
+        {
+          "type": "p",
+          "text": "Authentication and authorization."
+        },
+        {
+          "type": "p",
+          "text": "Core business logic."
+        },
+        {
+          "type": "p",
+          "text": "Payment and financial operations, if applicable."
+        },
+        {
+          "type": "p",
+          "text": "Database write operations."
+        },
+        {
+          "type": "p",
+          "text": "Data access and privacy."
+        },
+        {
+          "type": "p",
+          "text": "Validation and error handling."
+        },
+        {
+          "type": "p",
+          "text": "Critical API workflows."
+        },
+        {
+          "type": "p",
+          "text": "Secondary utility functions."
+        },
+        {
+          "type": "p",
+          "text": "Not all classes carry the same business or security risk."
+        },
+        {
+          "type": "h3",
+          "text": "12.6 Mutation testing"
+        },
+        {
+          "type": "p",
+          "text": "An additional quality technique is mutation testing."
+        },
+        {
+          "type": "p",
+          "text": "Instead of checking only whether code executes, mutation testing deliberately introduces small changes into the application to see whether the tests detect them."
+        },
+        {
+          "type": "p",
+          "text": "For example, the original condition is:"
+        },
+        {
+          "type": "p",
+          "text": "if (availableSeats > 0)"
+        },
+        {
+          "type": "p",
+          "text": "A mutation changes it to:"
+        },
+        {
+          "type": "p",
+          "text": "if (availableSeats >= 0)"
+        },
+        {
+          "type": "p",
+          "text": "If your test suite still passes, it might not adequately verify the boundary condition."
+        },
+        {
+          "type": "p",
+          "text": "A mutation-testing tool such as PIT can help measure whether tests detect these injected changes."
+        },
+        {
+          "type": "p",
+          "text": "[PIT mutation testing documentation](https://pitest.org/?utm_source=chatgpt.com)12.7 Quality standards for a professional backend"
+        },
+        {
+          "type": "p",
+          "text": "A good testing strategy should have the following characteristics:"
+        },
+        {
+          "type": "p",
+          "text": "Quality standard"
+        },
+        {
+          "type": "p",
+          "text": "What it means"
+        },
+        {
+          "type": "p",
+          "text": "Reliable"
+        },
+        {
+          "type": "p",
+          "text": "Tests produce consistent results"
+        },
+        {
+          "type": "p",
+          "text": "Repeatable"
+        },
+        {
+          "type": "p",
+          "text": "Tests can run repeatedly"
+        },
+        {
+          "type": "p",
+          "text": "Isolated"
+        },
+        {
+          "type": "p",
+          "text": "Tests do not interfere with each other"
+        },
+        {
+          "type": "p",
+          "text": "Readable"
+        },
+        {
+          "type": "p",
+          "text": "Test intent is easy to understand"
+        },
+        {
+          "type": "p",
+          "text": "Maintainable"
+        },
+        {
+          "type": "p",
+          "text": "Tests can evolve with the application"
+        },
+        {
+          "type": "p",
+          "text": "Comprehensive"
+        },
+        {
+          "type": "p",
+          "text": "Covers important success and failure paths"
+        },
+        {
+          "type": "p",
+          "text": "Automated"
+        },
+        {
+          "type": "p",
+          "text": "Runs without manual intervention"
+        },
+        {
+          "type": "p",
+          "text": "Secure"
+        },
+        {
+          "type": "p",
+          "text": "Covers access control and sensitive operations"
+        },
+        {
+          "type": "p",
+          "text": "Performance-aware"
+        },
+        {
+          "type": "p",
+          "text": "Checks important performance requirements"
+        },
+        {
+          "type": "h3",
+          "text": "12.8 The testing pyramid"
+        },
+        {
+          "type": "p",
+          "text": "You should not write only large integration tests or only small unit tests."
+        },
+        {
+          "type": "p",
+          "text": "A balanced strategy uses multiple testing levels."
+        },
+        {
+          "type": "p",
+          "text": "Fewest"
+        },
+        {
+          "type": "p",
+          "text": "End-to-end tests"
+        },
+        {
+          "type": "p",
+          "text": "Verify complete user workflows"
+        },
+        {
+          "type": "p",
+          "text": "Integration and API tests"
+        },
+        {
+          "type": "p",
+          "text": "Verify interactions between connected components"
+        },
+        {
+          "type": "p",
+          "text": "Unit tests"
+        },
+        {
+          "type": "p",
+          "text": "Large number of fast, isolated tests"
+        },
+        {
+          "type": "p",
+          "text": "The usual principle is:"
+        },
+        {
+          "type": "p",
+          "text": "Many unit tests."
+        },
+        {
+          "type": "p",
+          "text": "A substantial number of integration and API tests."
+        },
+        {
+          "type": "p",
+          "text": "A smaller number of complete end-to-end tests."
+        },
+        {
+          "type": "p",
+          "text": "The pyramid is a guideline, not a strict numerical requirement."
+        },
+        {
+          "type": "p",
+          "text": "Practical Lab — Build an Automated Test Suite for the Course Management API"
+        },
+        {
+          "type": "p",
+          "text": "Hands-on Engineering Lab"
+        },
+        {
+          "type": "p",
+          "text": "Objective: Build a testing system that automatically verifies whether a Spring Boot course management API works correctly across its controllers, services, repositories, PostgreSQL database and security layer."
+        },
+        {
+          "type": "p",
+          "text": "You will work with a realistic backend rather than isolated examples."
+        },
+        {
+          "type": "p",
+          "text": "Lab 1. Understand the application being tested"
+        },
+        {
+          "type": "p",
+          "text": "Assume you have a course management backend with this structure:"
+        },
+        {
+          "type": "code",
+          "text": "course-management/ │ ├── src/ │ ├── main/ │ │ └── java/ │ │ └── com.example.course/ │ │ ├── controller/ │ │ │ ├── CourseController.java │ │ │ └── EnrollmentController.java │ │ │ │ │ ├── service/ │ │ │ ├── CourseService.java │ │ │ └── EnrollmentService.java │ │ │ │ │ ├── repository/ │ │ │ ├── CourseRepository.java │ │ │ └── EnrollmentRepository.java │ │ │ │ │ ├── entity/ │ │ ├── dto/ │ │ ├── exception/ │ │ └── security/ │ │ │ └── test/ │ └── java/ │ └── com.example.course/ │ ├── controller/ │ ├── service/ │ ├── repository/ │ ├── integration/ │ ├── security/ │ └── contract/ │ └── pom.xml"
+        },
+        {
+          "type": "p",
+          "text": "This separation allows each layer to have its own automated tests."
+        },
+        {
+          "type": "p",
+          "text": "Lab 2. Configure testing dependencies"
+        },
+        {
+          "type": "p",
+          "text": "For a Maven-based Spring Boot project, start with:"
+        },
+        {
+          "type": "code",
+          "text": "<dependencies> <!-- Spring Boot testing --> <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-test</artifactId> <scope>test</scope> </dependency> <!-- Security testing --> <dependency> <groupId>org.springframework.security</groupId> <artifactId>spring-security-test</artifactId> <scope>test</scope> </dependency> <!-- Testcontainers --> <dependency> <groupId>org.testcontainers</groupId> <artifactId>junit-jupiter</artifactId> <scope>test</scope> </dependency> <dependency> <groupId>org.testcontainers</groupId> <artifactId>postgresql</artifactId> <scope>test</scope> </dependency> </dependencies>"
+        },
+        {
+          "type": "p",
+          "text": "Use compatible dependency versions managed through the relevant Spring Boot and Testcontainers dependency management."
+        },
+        {
+          "type": "p",
+          "text": "You also need Docker available for the PostgreSQL Testcontainers tests."
+        },
+        {
+          "type": "p",
+          "text": "Lab 3. Define the API test requirements"
+        },
+        {
+          "type": "p",
+          "text": "Implement or use these endpoints:"
+        },
+        {
+          "type": "p",
+          "text": "Endpoint"
+        },
+        {
+          "type": "p",
+          "text": "Method"
+        },
+        {
+          "type": "p",
+          "text": "Expected functionality"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Create course"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve all courses"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/10"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve individual course"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/10"
+        },
+        {
+          "type": "p",
+          "text": "PUT"
+        },
+        {
+          "type": "p",
+          "text": "Update course"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/10"
+        },
+        {
+          "type": "p",
+          "text": "DELETE"
+        },
+        {
+          "type": "p",
+          "text": "Delete course"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/10/enroll"
+        },
+        {
+          "type": "p",
+          "text": "POST"
+        },
+        {
+          "type": "p",
+          "text": "Enroll student"
+        },
+        {
+          "type": "p",
+          "text": "/api/courses/10/enroll"
+        },
+        {
+          "type": "p",
+          "text": "GET"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve enrollment information"
+        },
+        {
+          "type": "p",
+          "text": "Your test suite must cover both successful requests and unsuccessful requests."
+        },
+        {
+          "type": "p",
+          "text": "Lab 4. Create service unit tests"
+        },
+        {
+          "type": "p",
+          "text": "Start with CourseServiceTest.java."
+        },
+        {
+          "type": "p",
+          "text": "Write tests for:"
+        },
+        {
+          "type": "p",
+          "text": "Creating a course with valid information."
+        },
+        {
+          "type": "p",
+          "text": "Rejecting an empty course title."
+        },
+        {
+          "type": "p",
+          "text": "Retrieving an existing course."
+        },
+        {
+          "type": "p",
+          "text": "Rejecting a nonexistent course ID."
+        },
+        {
+          "type": "p",
+          "text": "Updating an existing course."
+        },
+        {
+          "type": "p",
+          "text": "Preventing unauthorized business operations at the service boundary where applicable."
+        },
+        {
+          "type": "p",
+          "text": "Then create EnrollmentServiceTest.java."
+        },
+        {
+          "type": "p",
+          "text": "Test:"
+        },
+        {
+          "type": "p",
+          "text": "Successful enrollment."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate enrollment rejection."
+        },
+        {
+          "type": "p",
+          "text": "Course does not exist."
+        },
+        {
+          "type": "p",
+          "text": "Student does not exist."
+        },
+        {
+          "type": "p",
+          "text": "Enrollment is saved correctly."
+        },
+        {
+          "type": "p",
+          "text": "Repository failure handling."
+        },
+        {
+          "type": "p",
+          "text": "Concurrent enrollment rules are protected by the appropriate database-level design and integration tests."
+        },
+        {
+          "type": "p",
+          "text": "Use JUnit and Mockito."
+        },
+        {
+          "type": "p",
+          "text": "Lab 5. Create controller and API tests"
+        },
+        {
+          "type": "p",
+          "text": "Create:"
+        },
+        {
+          "type": "p",
+          "text": "CourseControllerTest.java"
+        },
+        {
+          "type": "p",
+          "text": "Use MockMvc."
+        },
+        {
+          "type": "p",
+          "text": "Test:"
+        },
+        {
+          "type": "p",
+          "text": "POST returns 201 for valid creation."
+        },
+        {
+          "type": "p",
+          "text": "GET returns 200."
+        },
+        {
+          "type": "p",
+          "text": "Invalid input returns 400."
+        },
+        {
+          "type": "p",
+          "text": "Missing course returns 404."
+        },
+        {
+          "type": "p",
+          "text": "Correct JSON properties are returned."
+        },
+        {
+          "type": "p",
+          "text": "Unexpected service errors produce the documented error response."
+        },
+        {
+          "type": "p",
+          "text": "Example test:"
+        },
+        {
+          "type": "code",
+          "text": "@Test void shouldRejectEmptyCourseTitle() throws Exception { String request = \"\"\" { \"title\": \"\", \"description\": \"Backend course\" } \"\"\"; mockMvc.perform( post(\"/api/courses\") .contentType(MediaType.APPLICATION_JSON) .content(request) ) .andExpect(status().isBadRequest()); }"
+        },
+        {
+          "type": "p",
+          "text": "Make sure your controller uses appropriate validation annotations and your test environment includes any necessary security and exception-handler configuration."
+        },
+        {
+          "type": "p",
+          "text": "Lab 6. Test database operations"
+        },
+        {
+          "type": "p",
+          "text": "Create:"
+        },
+        {
+          "type": "p",
+          "text": "CourseRepositoryTest.java"
+        },
+        {
+          "type": "p",
+          "text": "Use @DataJpaTest and Testcontainers."
+        },
+        {
+          "type": "p",
+          "text": "Test:"
+        },
+        {
+          "type": "p",
+          "text": "Saving a course."
+        },
+        {
+          "type": "p",
+          "text": "Retrieving a course."
+        },
+        {
+          "type": "p",
+          "text": "Updating a course."
+        },
+        {
+          "type": "p",
+          "text": "Deleting a course."
+        },
+        {
+          "type": "p",
+          "text": "Finding courses using custom queries."
+        },
+        {
+          "type": "p",
+          "text": "Enforcing unique course identifiers."
+        },
+        {
+          "type": "p",
+          "text": "Enforcing database relationships."
+        },
+        {
+          "type": "p",
+          "text": "Preventing invalid foreign key references."
+        },
+        {
+          "type": "p",
+          "text": "Use a real PostgreSQL test instance rather than relying exclusively on mocks."
+        },
+        {
+          "type": "p",
+          "text": "Lab 7. Test authentication and authorization"
+        },
+        {
+          "type": "p",
+          "text": "Create:"
+        },
+        {
+          "type": "p",
+          "text": "CourseSecurityTest.java"
+        },
+        {
+          "type": "p",
+          "text": "Simulate the different user roles."
+        },
+        {
+          "type": "p",
+          "text": "Test case"
+        },
+        {
+          "type": "p",
+          "text": "Expected result"
+        },
+        {
+          "type": "p",
+          "text": "Anonymous user creates course"
+        },
+        {
+          "type": "p",
+          "text": "401"
+        },
+        {
+          "type": "p",
+          "text": "Student creates course"
+        },
+        {
+          "type": "p",
+          "text": "403"
+        },
+        {
+          "type": "p",
+          "text": "Instructor creates permitted course"
+        },
+        {
+          "type": "p",
+          "text": "201"
+        },
+        {
+          "type": "p",
+          "text": "Admin creates course"
+        },
+        {
+          "type": "p",
+          "text": "201"
+        },
+        {
+          "type": "p",
+          "text": "Student retrieves public course"
+        },
+        {
+          "type": "p",
+          "text": "200"
+        },
+        {
+          "type": "p",
+          "text": "Student accesses another student's private data"
+        },
+        {
+          "type": "p",
+          "text": "403 or appropriately restricted response"
+        },
+        {
+          "type": "p",
+          "text": "Instructor modifies another instructor's course"
+        },
+        {
+          "type": "p",
+          "text": "403"
+        },
+        {
+          "type": "p",
+          "text": "Admin performs permitted administrative action"
+        },
+        {
+          "type": "p",
+          "text": "Success"
+        },
+        {
+          "type": "p",
+          "text": "Also add tests for real JWT validation, expiration and invalid signatures."
+        },
+        {
+          "type": "p",
+          "text": "Lab 8. Test error scenarios"
+        },
+        {
+          "type": "p",
+          "text": "Create a test suite covering:"
+        },
+        {
+          "type": "p",
+          "text": "Invalid JSON."
+        },
+        {
+          "type": "p",
+          "text": "Missing mandatory fields."
+        },
+        {
+          "type": "p",
+          "text": "Invalid course ID."
+        },
+        {
+          "type": "p",
+          "text": "Database connection failure."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate requests."
+        },
+        {
+          "type": "p",
+          "text": "Transaction rollback."
+        },
+        {
+          "type": "p",
+          "text": "Expired authentication."
+        },
+        {
+          "type": "p",
+          "text": "Permission violations."
+        },
+        {
+          "type": "p",
+          "text": "External dependency timeout."
+        },
+        {
+          "type": "p",
+          "text": "For every failure, verify both the HTTP response and the application's resulting state."
+        },
+        {
+          "type": "p",
+          "text": "For example, a failed enrollment must not leave an incomplete enrollment record in PostgreSQL."
+        },
+        {
+          "type": "p",
+          "text": "Lab 9. Perform performance testing"
+        },
+        {
+          "type": "p",
+          "text": "Create a k6 script for the following workflows:"
+        },
+        {
+          "type": "p",
+          "text": "Retrieve all courses."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve an individual course."
+        },
+        {
+          "type": "p",
+          "text": "Retrieve course modules."
+        },
+        {
+          "type": "p",
+          "text": "Enroll in a course using separate test accounts."
+        },
+        {
+          "type": "p",
+          "text": "Submit repeated authenticated requests."
+        },
+        {
+          "type": "p",
+          "text": "Test different traffic levels, such as:"
+        },
+        {
+          "type": "p",
+          "text": "Test"
+        },
+        {
+          "type": "p",
+          "text": "Virtual users"
+        },
+        {
+          "type": "p",
+          "text": "Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Baseline"
+        },
+        {
+          "type": "p",
+          "text": "10"
+        },
+        {
+          "type": "p",
+          "text": "Establish normal performance"
+        },
+        {
+          "type": "p",
+          "text": "Normal load"
+        },
+        {
+          "type": "p",
+          "text": "50"
+        },
+        {
+          "type": "p",
+          "text": "Test expected traffic"
+        },
+        {
+          "type": "p",
+          "text": "Higher load"
+        },
+        {
+          "type": "p",
+          "text": "100"
+        },
+        {
+          "type": "p",
+          "text": "Identify bottlenecks"
+        },
+        {
+          "type": "p",
+          "text": "Stress"
+        },
+        {
+          "type": "p",
+          "text": "Gradually increase"
+        },
+        {
+          "type": "p",
+          "text": "Find saturation point"
+        },
+        {
+          "type": "p",
+          "text": "These are lab workloads, not guaranteed production capacity targets."
+        },
+        {
+          "type": "p",
+          "text": "Record response percentiles, requests per second, errors, memory, CPU and database connection utilization."
+        },
+        {
+          "type": "p",
+          "text": "Do not run stress tests against your production environment without explicit authorization and an appropriate safety plan."
+        },
+        {
+          "type": "p",
+          "text": "Lab 10. Measure code coverage"
+        },
+        {
+          "type": "p",
+          "text": "Configure JaCoCo."
+        },
+        {
+          "type": "p",
+          "text": "Generate a report:"
+        },
+        {
+          "type": "code",
+          "text": "mvn clean verify"
+        },
+        {
+          "type": "p",
+          "text": "Review:"
+        },
+        {
+          "type": "p",
+          "text": "target/site/jacoco/index.html"
+        },
+        {
+          "type": "p",
+          "text": "Identify:"
+        },
+        {
+          "type": "p",
+          "text": "Uncovered service methods."
+        },
+        {
+          "type": "p",
+          "text": "Untested conditional branches."
+        },
+        {
+          "type": "p",
+          "text": "Missing error-path tests."
+        },
+        {
+          "type": "p",
+          "text": "Untested security-sensitive code."
+        },
+        {
+          "type": "p",
+          "text": "Add tests to address high-risk uncovered areas rather than simply trying to achieve a high percentage."
+        },
+        {
+          "type": "p",
+          "text": "Practical Lab — Final Test Matrix"
+        },
+        {
+          "type": "p",
+          "text": "When the lab is complete, your automated suite should include at least the following scenarios."
+        },
+        {
+          "type": "p",
+          "text": "Category"
+        },
+        {
+          "type": "p",
+          "text": "Test scenarios"
+        },
+        {
+          "type": "p",
+          "text": "Expected outcome"
+        },
+        {
+          "type": "p",
+          "text": "Unit tests"
+        },
+        {
+          "type": "p",
+          "text": "6"
+        },
+        {
+          "type": "p",
+          "text": "Business rules verified"
+        },
+        {
+          "type": "p",
+          "text": "Controller/API"
+        },
+        {
+          "type": "p",
+          "text": "6"
+        },
+        {
+          "type": "p",
+          "text": "HTTP behaviour verified"
+        },
+        {
+          "type": "p",
+          "text": "Database"
+        },
+        {
+          "type": "p",
+          "text": "6"
+        },
+        {
+          "type": "p",
+          "text": "Persistence verified"
+        },
+        {
+          "type": "p",
+          "text": "Authentication"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "Identity validation verified"
+        },
+        {
+          "type": "p",
+          "text": "Authorization"
+        },
+        {
+          "type": "p",
+          "text": "4"
+        },
+        {
+          "type": "p",
+          "text": "Permission boundaries verified"
+        },
+        {
+          "type": "p",
+          "text": "Error handling"
+        },
+        {
+          "type": "p",
+          "text": "5"
+        },
+        {
+          "type": "p",
+          "text": "Failure behaviour verified"
+        },
+        {
+          "type": "p",
+          "text": "Contract testing"
+        },
+        {
+          "type": "p",
+          "text": "3"
+        },
+        {
+          "type": "p",
+          "text": "Interface compatibility verified"
+        },
+        {
+          "type": "p",
+          "text": "Performance"
+        },
+        {
+          "type": "p",
+          "text": "3 workloads"
+        },
+        {
+          "type": "p",
+          "text": "Performance measured"
+        },
+        {
+          "type": "p",
+          "text": "Suggested minimum learning targets. Add more tests for additional application features and edge cases."
+        },
+        {
+          "type": "p",
+          "text": "Final deliverable: A working automated test suite that can be executed repeatedly without manually checking each endpoint."
+        },
+        {
+          "type": "p",
+          "text": "Assignment — Backend API Quality Engineering"
+        },
+        {
+          "type": "p",
+          "text": "Individual Engineering Assignment"
+        },
+        {
+          "type": "p",
+          "text": "Assignment title: Design and Implement a Production-Quality Automated Test Suite for a Course Management API."
+        },
+        {
+          "type": "p",
+          "text": "Part A — Functional testing"
+        },
+        {
+          "type": "p",
+          "text": "Create tests for:"
+        },
+        {
+          "type": "p",
+          "text": "Course creation."
+        },
+        {
+          "type": "p",
+          "text": "Course retrieval."
+        },
+        {
+          "type": "p",
+          "text": "Course updates."
+        },
+        {
+          "type": "p",
+          "text": "Course deletion."
+        },
+        {
+          "type": "p",
+          "text": "Student enrollment."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate enrollment prevention."
+        },
+        {
+          "type": "p",
+          "text": "Part B — Database testing"
+        },
+        {
+          "type": "p",
+          "text": "Verify:"
+        },
+        {
+          "type": "p",
+          "text": "Database insert operations."
+        },
+        {
+          "type": "p",
+          "text": "Database read operations."
+        },
+        {
+          "type": "p",
+          "text": "Database update operations."
+        },
+        {
+          "type": "p",
+          "text": "Database deletion."
+        },
+        {
+          "type": "p",
+          "text": "Foreign key relationships."
+        },
+        {
+          "type": "p",
+          "text": "Transaction rollback."
+        },
+        {
+          "type": "p",
+          "text": "Part C — Security testing"
+        },
+        {
+          "type": "p",
+          "text": "Verify:"
+        },
+        {
+          "type": "p",
+          "text": "Authentication enforcement."
+        },
+        {
+          "type": "p",
+          "text": "Role-based permissions."
+        },
+        {
+          "type": "p",
+          "text": "Unauthorized operations."
+        },
+        {
+          "type": "p",
+          "text": "Resource ownership."
+        },
+        {
+          "type": "p",
+          "text": "JWT expiration."
+        },
+        {
+          "type": "p",
+          "text": "Invalid token rejection."
+        },
+        {
+          "type": "p",
+          "text": "Part D — Failure testing"
+        },
+        {
+          "type": "p",
+          "text": "Simulate:"
+        },
+        {
+          "type": "p",
+          "text": "Invalid request data."
+        },
+        {
+          "type": "p",
+          "text": "Missing resources."
+        },
+        {
+          "type": "p",
+          "text": "Duplicate requests."
+        },
+        {
+          "type": "p",
+          "text": "Database failures."
+        },
+        {
+          "type": "p",
+          "text": "External service failures."
+        },
+        {
+          "type": "p",
+          "text": "Unexpected server exceptions."
+        },
+        {
+          "type": "p",
+          "text": "Part E — Performance testing"
+        },
+        {
+          "type": "p",
+          "text": "Perform:"
+        },
+        {
+          "type": "p",
+          "text": "Normal load testing."
+        },
+        {
+          "type": "p",
+          "text": "Stress testing."
+        },
+        {
+          "type": "p",
+          "text": "Spike testing."
+        },
+        {
+          "type": "p",
+          "text": "Submit the performance report with measured response times, throughput and error rates."
+        },
+        {
+          "type": "p",
+          "text": "Part F — Quality and automation"
+        },
+        {
+          "type": "p",
+          "text": "Configure:"
+        },
+        {
+          "type": "p",
+          "text": "JUnit."
+        },
+        {
+          "type": "p",
+          "text": "Mockito."
+        },
+        {
+          "type": "p",
+          "text": "Spring Boot Test."
+        },
+        {
+          "type": "p",
+          "text": "Testcontainers."
+        },
+        {
+          "type": "p",
+          "text": "JaCoCo."
+        },
+        {
+          "type": "p",
+          "text": "API contract validation."
+        },
+        {
+          "type": "p",
+          "text": "Automated execution through a CI pipeline."
+        },
+        {
+          "type": "p",
+          "text": "Submission requirements"
+        },
+        {
+          "type": "p",
+          "text": "Your submission should contain:"
+        },
+        {
+          "type": "p",
+          "text": "Deliverable"
+        },
+        {
+          "type": "p",
+          "text": "Description"
+        },
+        {
+          "type": "p",
+          "text": "Source code"
+        },
+        {
+          "type": "p",
+          "text": "Complete test implementation"
+        },
+        {
+          "type": "p",
+          "text": "Test cases"
+        },
+        {
+          "type": "p",
+          "text": "Documented test scenarios"
+        },
+        {
+          "type": "p",
+          "text": "Test execution report"
+        },
+        {
+          "type": "p",
+          "text": "Passed and failed tests"
+        },
+        {
+          "type": "p",
+          "text": "Coverage report"
+        },
+        {
+          "type": "p",
+          "text": "JaCoCo report"
+        },
+        {
+          "type": "p",
+          "text": "Security report"
+        },
+        {
+          "type": "p",
+          "text": "Authentication and authorization findings"
+        },
+        {
+          "type": "p",
+          "text": "Performance report"
+        },
+        {
+          "type": "p",
+          "text": "k6 results"
+        },
+        {
+          "type": "p",
+          "text": "CI configuration"
+        },
+        {
+          "type": "p",
+          "text": "Automated test execution"
+        },
+        {
+          "type": "p",
+          "text": "Final documentation"
+        },
+        {
+          "type": "p",
+          "text": "Testing approach and identified defects"
+        },
+        {
+          "type": "p",
+          "text": "What you should be able to do after this module"
+        },
+        {
+          "type": "p",
+          "text": "By completing this module, you should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Write JUnit tests for Java backend applications."
+        },
+        {
+          "type": "p",
+          "text": "Use Mockito to isolate dependencies."
+        },
+        {
+          "type": "p",
+          "text": "Test Spring Boot controllers and services."
+        },
+        {
+          "type": "p",
+          "text": "Test real PostgreSQL interactions."
+        },
+        {
+          "type": "p",
+          "text": "Build integration tests using Testcontainers."
+        },
+        {
+          "type": "p",
+          "text": "Test API requests and responses."
+        },
+        {
+          "type": "p",
+          "text": "Verify authentication and authorization."
+        },
+        {
+          "type": "p",
+          "text": "Test exception handling and failure scenarios."
+        },
+        {
+          "type": "p",
+          "text": "Create consumer-provider contract tests."
+        },
+        {
+          "type": "p",
+          "text": "Perform performance and load testing."
+        },
+        {
+          "type": "p",
+          "text": "Measure and interpret code coverage."
+        },
+        {
+          "type": "p",
+          "text": "Automate quality checks in a CI pipeline."
+        },
+        {
+          "type": "p",
+          "text": "Recommended learning resources"
+        },
+        {
+          "type": "p",
+          "text": "These are useful alongside the lessons and practical assignment."
+        },
+        {
+          "type": "p",
+          "text": "Resource"
+        },
+        {
+          "type": "p",
+          "text": "What to learn"
+        },
+        {
+          "type": "p",
+          "text": "[JUnit Documentation](https://docs.junit.org/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Unit and parameterized testing"
+        },
+        {
+          "type": "p",
+          "text": "[Mockito](https://site.mockito.org/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Mock objects and test isolation"
+        },
+        {
+          "type": "p",
+          "text": "[Spring Boot Testing](https://docs.spring.io/spring-boot/reference/testing/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Spring testing architecture"
+        },
+        {
+          "type": "p",
+          "text": "[Testcontainers](https://testcontainers.com/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Real database integration testing"
+        },
+        {
+          "type": "p",
+          "text": "[Pact](https://docs.pact.io/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Contract testing"
+        },
+        {
+          "type": "p",
+          "text": "[Grafana k6](https://grafana.com/docs/k6/latest/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Load and performance testing"
+        },
+        {
+          "type": "p",
+          "text": "[JaCoCo](https://www.jacoco.org/jacoco/?utm_source=chatgpt.com)"
+        },
+        {
+          "type": "p",
+          "text": "Code coverage"
+        },
+        {
+          "type": "p",
+          "text": "The central engineering principle of Module 08:"
+        },
+        {
+          "type": "p",
+          "text": "A backend API should not be considered production-ready merely because it works during manual testing. It should have repeatable automated evidence that its business logic, database operations, security rules, API contracts and failure handling behave as expected."
+        },
+        {
+          "type": "p",
+          "text": "</USER_REQUEST>"
+        },
+        {
+          "type": "p",
+          "text": "<ADDITIONAL_METADATA>"
+        },
+        {
+          "type": "p",
+          "text": "The current local time is: 2026-11-27T10:04:07+05:30."
+        },
+        {
+          "type": "p",
+          "text": "</ADDITIONAL_METADATA>"
+        }
+      ]
+    }
+  ]
+}

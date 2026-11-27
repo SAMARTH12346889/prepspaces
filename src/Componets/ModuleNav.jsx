@@ -477,21 +477,39 @@ export default function ModuleNav({
 
   useEffect(() => {
     const container = scrollRef.current;
-    if (container) {
+    if (!container) return;
+
+    const rafId = requestAnimationFrame(() => {
       const activeBtn = container.querySelector("[data-active='true']");
-      if (activeBtn) {
-        const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-        const targetLeft = Math.max(
-          0,
-          activeBtn.offsetLeft - container.clientWidth / 2 + activeBtn.offsetWidth / 2
-        );
-        if (typeof container.scrollTo === "function") {
-          container.scrollTo({ left: targetLeft, behavior: isTouch ? "auto" : "smooth" });
-        } else {
-          container.scrollLeft = targetLeft;
+      if (!activeBtn) return;
+
+      const containerRect = container.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      const btnLeftInContent = container.scrollLeft + (btnRect.left - containerRect.left);
+      const maxScroll = Math.max(0, container.scrollWidth - container.clientWidth);
+
+      let targetLeft;
+      if (btnRect.width >= container.clientWidth - 16) {
+        // Long title: align start of active tab cleanly so the beginning is never clipped
+        targetLeft = Math.max(0, btnLeftInContent - 8);
+      } else {
+        const centered = btnLeftInContent - (container.clientWidth - btnRect.width) / 2;
+        targetLeft = Math.min(maxScroll, Math.max(0, centered));
+        // Ensure active tab's left edge is never clipped on the left
+        if (btnLeftInContent - targetLeft < 8) {
+          targetLeft = Math.max(0, btnLeftInContent - 8);
         }
       }
-    }
+
+      const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+      if (typeof container.scrollTo === "function") {
+        container.scrollTo({ left: targetLeft, behavior: isTouch ? "auto" : "smooth" });
+      } else {
+        container.scrollLeft = targetLeft;
+      }
+    });
+
+    return () => cancelAnimationFrame(rafId);
   }, [currentModuleId, modules]);
 
   // Automatic engagement completion:
@@ -533,9 +551,12 @@ export default function ModuleNav({
       track === "ai" || track === "ai-engineering" ? "foundations" :
       track === "data-engineering" ? "intro" :
       track === "machine-learning" || track === "ml" ? "environment-workflow" :
+      track === "backend-engineering" || track === "backend" ? "foundations" :
       "intro"
     )
       ? "/learning"
+      : track === "backend-engineering" || track === "backend"
+      ? "/learning/backend-engineering"
       : track === "devops"
       ? "/learning/devops/linux"
       : track === "system-design"
@@ -726,6 +747,8 @@ export default function ModuleNav({
                   ? "Cybersecurity"
                   : track === "blockchain"
                   ? "Blockchain"
+                  : track === "backend-engineering" || track === "backend"
+                  ? "Backend Engineering"
                   : ""
               }
             />
@@ -746,7 +769,7 @@ export default function ModuleNav({
 
         <div
           ref={scrollRef}
-          className="no-scrollbar flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto rounded-xl sm:rounded-2xl border border-[#e7e3da] bg-white/90 p-1 sm:p-1.5 shadow-2xs backdrop-blur-md scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
+          className="relative no-scrollbar flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto rounded-xl sm:rounded-2xl border border-[#e7e3da] bg-white/90 p-1 sm:p-1.5 shadow-2xs backdrop-blur-md scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {modules.map((mod) => {
