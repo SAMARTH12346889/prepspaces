@@ -302,6 +302,7 @@ export const FRONTEND_ENGINEERING_MODULES = [
   { id: "nextjs-architecture", name: "11. Next.js and Modern Web Application Architecture", route: "/learning/frontend-engineering/nextjs-architecture" },
   { id: "frontend-testing-quality", name: "12. Frontend Testing and Quality Engineering", route: "/learning/frontend-engineering/frontend-testing-quality" },
   { id: "frontend-performance-security-seo", name: "13. Frontend Performance, Web Security and Technical SEO", route: "/learning/frontend-engineering/frontend-performance-security-seo" },
+  { id: "frontend-production-capstone", name: "14. Frontend Production Engineering and Industry Capstone", route: "/learning/frontend-engineering/frontend-production-capstone" },
 ];
 
 export default function ModuleNav({

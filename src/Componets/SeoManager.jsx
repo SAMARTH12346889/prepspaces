@@ -439,6 +439,18 @@ const routeMeta = {
     keywords: "Frontend Performance, Core Web Vitals, LCP, INP, CLS, Web Security, XSS, CSRF, CSP, CORS, Technical SEO, JSON-LD, JavaScript SEO, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/frontend-performance-security-seo`,
   },
+  "/learning/frontend-engineering/frontend-production-capstone": {
+    title: "Module 14: Frontend Production Engineering and Industry Capstone | PrepSpaces",
+    description: "Master Vite production builds, CI/CD, Cloudflare Pages & Vercel deployment, CDN caching, Sentry monitoring, PWAs, Service Workers, Micro-Frontends, i18n, refactoring, and the Production-Ready LMS Industry Capstone.",
+    keywords: "Frontend Production Engineering, Vite, CI/CD, Cloudflare Pages, Vercel, PWA, Service Workers, Micro-Frontends, i18n, Industry Capstone, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/frontend-production-capstone`,
+  },
+  "/courses/frontend-engineering/frontend-production-capstone": {
+    title: "Module 14: Frontend Production Engineering and Industry Capstone | PrepSpaces",
+    description: "Master Vite production builds, CI/CD, Cloudflare Pages & Vercel deployment, CDN caching, Sentry monitoring, PWAs, Service Workers, Micro-Frontends, i18n, refactoring, and the Production-Ready LMS Industry Capstone.",
+    keywords: "Frontend Production Engineering, Vite, CI/CD, Cloudflare Pages, Vercel, PWA, Service Workers, Micro-Frontends, i18n, Industry Capstone, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/frontend-production-capstone`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

@@ -214,6 +214,7 @@ const FrontendDataEngineering = React.lazy(() => import("./Componets/FrontendDat
 const FrontendNextjsArchitecture = React.lazy(() => import("./Componets/FrontendNextjsArchitecture"));
 const FrontendTestingQuality = React.lazy(() => import("./Componets/FrontendTestingQuality"));
 const FrontendPerfSecuritySeo = React.lazy(() => import("./Componets/FrontendPerfSecuritySeo"));
+const FrontendProductionCapstone = React.lazy(() => import("./Componets/FrontendProductionCapstone"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2121,6 +2122,11 @@ function App() {
             <Route path="/courses/frontend-engineering/frontend-performance-security-seo" element={<FrontendPerfSecuritySeo />} />
             <Route path="/learning/frontend/frontend-performance-security-seo" element={<FrontendPerfSecuritySeo />} />
             <Route path="/learning/frontend/module-13" element={<FrontendPerfSecuritySeo />} />
+            <Route path="/learning/frontend-engineering/frontend-production-capstone" element={<FrontendProductionCapstone />} />
+            <Route path="/learning/frontend-engineering/module-14" element={<FrontendProductionCapstone />} />
+            <Route path="/courses/frontend-engineering/frontend-production-capstone" element={<FrontendProductionCapstone />} />
+            <Route path="/learning/frontend/frontend-production-capstone" element={<FrontendProductionCapstone />} />
+            <Route path="/learning/frontend/module-14" element={<FrontendProductionCapstone />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

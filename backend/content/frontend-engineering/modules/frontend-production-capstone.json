@@ -1,0 +1,130 @@
+{
+  "id": "frontend-production-capstone",
+  "courseId": "frontend-engineering",
+  "index": 14,
+  "name": "14. Frontend Production Engineering and Industry Capstone",
+  "route": "/learning/frontend-engineering/frontend-production-capstone",
+  "componentName": "FrontendProductionCapstone",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why must private API keys and database secrets never be placed in Vite variables prefixed with VITE_?",
+      "options": [
+        "Vite ignores variables starting with VITE_",
+        "VITE_ variables are embedded into client-side JavaScript bundles and can be inspected by any browser user",
+        "VITE_ variables only work in CSS files",
+        "They disable tree shaking"
+      ],
+      "correctIndex": 1,
+      "explanation": "In Vite, variables prefixed with `VITE_` are exposed to browser-delivered bundles; private secrets must stay on the backend or protected server environment."
+    },
+    {
+      "id": 2,
+      "question": "How do ESLint and Prettier differ in a frontend code-quality workflow?",
+      "options": [
+        "Prettier compiles TypeScript, while ESLint deploys to Vercel",
+        "ESLint identifies code-quality issues and bugs, while Prettier enforces consistent code formatting",
+        "ESLint only formats CSS, while Prettier runs unit tests",
+        "They perform the exact same task"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prettier handles presentation and formatting (indentation, spacing, quotes), whereas ESLint analyzes code for potential bugs, hook rules, and unused declarations."
+    },
+    {
+      "id": 3,
+      "question": "Why does an SPA hosted on Cloudflare Pages or Vercel require fallback/rewrite routing for nested URLs?",
+      "options": [
+        "To disable HTTPS certificates",
+        "So direct browser navigation or refresh on nested client routes serves the SPA entry point instead of a server 404",
+        "To prevent JavaScript from loading",
+        "To bypass CORS"
+      ],
+      "correctIndex": 1,
+      "explanation": "Without an SPA fallback rewrite to `index.html`, directly opening `/courses/frontend/react` makes the static host look for a physical file and return 404."
+    },
+    {
+      "id": 4,
+      "question": "Which caching strategy is best suited for content-hashed JavaScript and CSS bundles (e.g., app.a83f21.js)?",
+      "options": [
+        "no-store on every request",
+        "Long-lived immutable caching",
+        "Disabling CDN edge caching",
+        "Serving only from LocalStorage"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because content hashes change whenever file contents change, hashed assets can safely use long-lived immutable caching while HTML entries revalidate."
+    },
+    {
+      "id": 5,
+      "question": "What is the key difference between Continuous Delivery and Continuous Deployment?",
+      "options": [
+        "Continuous Delivery prepares validated releases for manual approval; Continuous Deployment releases validated changes to production automatically",
+        "Continuous Deployment skips all automated tests",
+        "Continuous Delivery does not use Git",
+        "There is no difference"
+      ],
+      "correctIndex": 0,
+      "explanation": "Continuous Delivery keeps every validated build ready to release with an approval gate, while Continuous Deployment pushes passing builds to production automatically."
+    },
+    {
+      "id": 6,
+      "question": "In Service Worker caching strategies, how does Stale-While-Revalidate work?",
+      "options": [
+        "It blocks all network requests permanently",
+        "It returns cached content immediately while requesting an updated version in the background",
+        "It deletes the cache before every fetch",
+        "It only works over plain HTTP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stale-While-Revalidate serves the cached response immediately for speed while fetching a fresh copy in the background to update the cache."
+    },
+    {
+      "id": 7,
+      "question": "When is Micro-Frontend architecture typically justified over a modular monolithic frontend?",
+      "options": [
+        "For every small 5-page React project",
+        "When large independent teams need separate ownership and deployment lifecycles for distinct frontend domains",
+        "To remove the need for shared design tokens",
+        "To avoid writing TypeScript"
+      ],
+      "correctIndex": 1,
+      "explanation": "Micro-frontends add operational and dependency complexity; they are justified mainly when large, independent teams need autonomous release cycles."
+    },
+    {
+      "id": 8,
+      "question": "Which browser APIs support locale-aware date and number/currency formatting in internationalization (i18n)?",
+      "options": [
+        "localStorage and sessionStorage",
+        "Intl.DateTimeFormat and Intl.NumberFormat",
+        "XMLHttpRequest and FormData",
+        "PerformanceObserver and IntersectionObserver"
+      ],
+      "correctIndex": 1,
+      "explanation": "The standard `Intl.DateTimeFormat` and `Intl.NumberFormat` browser APIs format dates, numbers, and currencies according to user locale."
+    },
+    {
+      "id": 9,
+      "question": "What is an Architecture Decision Record (ADR) used for in large frontend teams?",
+      "options": [
+        "Storing database passwords in Git",
+        "Documenting the problem, options considered, chosen solution, rationale, and consequences of key technical decisions",
+        "Replacing ESLint and Prettier",
+        "Generating CSS grid layouts"
+      ],
+      "correctIndex": 1,
+      "explanation": "ADRs preserve the context and trade-offs behind important architectural choices so growing teams understand why decisions were made."
+    },
+    {
+      "id": 10,
+      "question": "What is the safest workflow before refactoring an area with high technical debt?",
+      "options": [
+        "Rewrite the entire application from scratch without tests",
+        "Verify existing behavior with tests, refactor a small scoped area, re-run tests, and verify behavior",
+        "Delete package-lock.json",
+        "Disable TypeScript and linting"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe refactoring improves internal structure without changing external behavior by establishing tests first and refactoring incrementally."
+    }
+  ]
+}

@@ -1,0 +1,1844 @@
+{
+  "moduleNumber": "14",
+  "title": "MODULE 14 — Frontend Production Engineering and Industry Capstone",
+  "badges": [
+    "Production & Capstone",
+    "24 Lessons",
+    "Vite, CI/CD, PWA & Monitoring",
+    "Industry Capstone"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module objective: Combine everything learned throughout Modern Web & Frontend Engineering to design, develop, test, deploy, monitor and maintain a complete production-ready frontend application."
+    },
+    {
+      "type": "p",
+      "text": "Previous modules focused on learning frontend technologies, programming concepts, browser APIs, application architecture, React development, API integration, performance, security and SEO."
+    },
+    {
+      "type": "p",
+      "text": "This module moves from development to professional frontend engineering. Students will learn how real development teams prepare applications for production, maintain code quality, manage deployments, handle failures, support different devices and build software that can grow over time."
+    },
+    {
+      "type": "p",
+      "text": "The module concludes with an industry-style capstone: building a complete Production-Ready Learning Management Platform."
+    }
+  ],
+  "sections": [
+    {
+      "id": "lesson-01",
+      "badge": "Lesson 01",
+      "title": "Frontend Build Systems and Bundlers",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Modern frontend applications contain JavaScript, JSX, TypeScript, CSS, images, fonts, icons and other resources. Browsers cannot always use these development files directly in their original form. Build systems prepare these resources for browsers by processing, transforming, organizing and optimizing them."
+        },
+        {
+          "type": "h3",
+          "text": "1.1 Understanding the Frontend Build Process"
+        },
+        {
+          "type": "p",
+          "text": "A frontend build process transforms source code into deployable production assets (React JSX, JS modules, CSS/Tailwind, SVG/images, fonts, third-party libraries)."
+        },
+        {
+          "type": "p",
+          "text": "Pipeline: Source code collection -> Dependency resolution -> Module processing -> JSX and TypeScript transformation -> CSS processing -> Asset optimization -> Code splitting -> Bundling -> Minification -> Production output generation."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 Understanding Modules and Dependency Graphs"
+        },
+        {
+          "type": "code",
+          "text": "// App.jsx\nimport Navbar from \"./components/Navbar\";\nimport Dashboard from \"./pages/Dashboard\";\n\nexport default function App() {\n  return (\n    <>\n      <Navbar />\n      <Dashboard />\n    </>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Students will understand entry points, static imports, dynamic imports, dependency graphs, module resolution, circular dependencies, third-party package dependencies, and how unused modules can be removed."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Understanding Bundlers"
+        },
+        {
+          "type": "p",
+          "text": "Study the roles of Vite, Rollup, Webpack, and esbuild: module bundling, tree shaking, dead-code elimination, minification, code splitting, asset hashing, dependency optimization, and chunk generation."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Tree Shaking and Dead-Code Elimination"
+        },
+        {
+          "type": "p",
+          "text": "Tree shaking removes unused code from the final production bundle when ES modules and side-effect configuration allow static analysis."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 Development Build vs Production Build"
+        },
+        {
+          "type": "p",
+          "text": "Development builds prioritize developer productivity; production builds prioritize smaller download sizes, faster execution, optimized assets, efficient caching, reduced debugging overhead, and stable delivery."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a small React application containing multiple components and dependencies. Inspect its dependency graph and production output, identify unnecessary code and compare the development and production builds."
+        }
+      ]
+    },
+    {
+      "id": "lesson-02",
+      "badge": "Lesson 02",
+      "title": "Vite Configuration and Production Builds",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "2.1 Understanding Vite Architecture"
+        },
+        {
+          "type": "p",
+          "text": "Understand Vite's development server, native ES module development workflow, dependency pre-bundling, plugin system, production build pipeline, and build preview."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Understanding vite.config.js"
+        },
+        {
+          "type": "code",
+          "text": "import { defineConfig } from \"vite\";\nimport react from \"@vitejs/plugin-react\";\n\nexport default defineConfig({\n  plugins: [react()],\n  server: { port: 3000, host: true },\n  build: { sourcemap: true }\n});"
+        },
+        {
+          "type": "p",
+          "text": "Configuration areas: plugins, dev server settings, port, host, path aliases, base paths, output directories, source maps, asset handling, build targets, and dependency optimization."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Environment-Specific Configuration"
+        },
+        {
+          "type": "p",
+          "text": "Organize separate settings for local development, testing, staging, and production without leaking dev configs to production."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 Production Build Generation"
+        },
+        {
+          "type": "p",
+          "text": "Run npm run build, inspect generated assets, resolve missing dependencies, investigate build warnings, and preview the production build locally."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 Build Optimization and Chunk Management"
+        },
+        {
+          "type": "p",
+          "text": "Understand vendor chunks, application chunks, route-based chunks, dynamic imports, lazy loading, manual chunk configuration, dependency duplication, and chunk size warnings."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Configure a React application using Vite, organize its environment settings, implement route-based code splitting, generate a production build and inspect its output."
+        }
+      ]
+    },
+    {
+      "id": "lesson-03",
+      "badge": "Lesson 03",
+      "title": "Environment Variables and Application Configuration",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 Understanding Environment Variables"
+        },
+        {
+          "type": "code",
+          "text": "VITE_API_BASE_URL=http://localhost:8787\nVITE_APP_ENV=development"
+        },
+        {
+          "type": "code",
+          "text": "const API_URL = import.meta.env.VITE_API_BASE_URL;"
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Development, Staging and Production Environments"
+        },
+        {
+          "type": "p",
+          "text": "Development is for local coding/testing; Staging validates production-like behavior; Production serves actual users."
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Environment Files in Vite"
+        },
+        {
+          "type": "p",
+          "text": "Understand .env, .env.local, .env.development, .env.production, build modes, and variable precedence."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Public Configuration vs Secret Configuration"
+        },
+        {
+          "type": "p",
+          "text": "In Vite, variables prefixed with VITE_ are exposed to client-side bundles. Public API URLs, analytics IDs, and feature flags can be exposed; database passwords, private API keys, and auth signing secrets must never enter frontend code."
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Application Configuration Architecture"
+        },
+        {
+          "type": "code",
+          "text": "export const config = {\n  apiBaseUrl: import.meta.env.VITE_API_BASE_URL,\n  environment: import.meta.env.VITE_APP_ENV\n};"
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Configure a frontend application for development, staging and production. Verify that public configuration is correctly loaded and that private credentials never enter the frontend bundle."
+        }
+      ]
+    },
+    {
+      "id": "lesson-04",
+      "badge": "Lesson 04",
+      "title": "ESLint, Prettier and Code Quality Standards",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "4.1 Understanding Code Quality"
+        },
+        {
+          "type": "p",
+          "text": "Readability, consistency, predictable behavior, reusability, low complexity, proper naming, limited duplication, clear responsibilities, and meaningful error handling."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 Understanding ESLint"
+        },
+        {
+          "type": "p",
+          "text": "Identifies potential bugs, unused variables, React hook dependency problems, and enforces coding rules."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Understanding Prettier"
+        },
+        {
+          "type": "p",
+          "text": "Standardizes presentation (indentation, spacing, line breaks, quotes, JSX formatting). Prettier handles formatting while ESLint checks code quality and rules."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 Integrating Code Quality Tools"
+        },
+        {
+          "type": "p",
+          "text": "Config files, editor integration, format/lint scripts, pre-commit checks, PR quality checks, and CI pipeline integration."
+        },
+        {
+          "type": "h3",
+          "text": "4.5 Professional Code Review Standards"
+        },
+        {
+          "type": "p",
+          "text": "Review for correctness, maintainability, security, accessibility, performance, reusability, naming, and component complexity."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Configure ESLint and Prettier in a React project. Introduce common coding mistakes and formatting inconsistencies, then use automated tools to identify and resolve them."
+        }
+      ]
+    },
+    {
+      "id": "lesson-05",
+      "badge": "Lesson 05",
+      "title": "Frontend Project Structure and Maintainable Codebases",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "5.1 Understanding Project Architecture"
+        },
+        {
+          "type": "p",
+          "text": "Organize entry points, pages/routes, components, feature modules, hooks, API services, utilities, state management, styles, assets, configuration, and tests."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 Feature-Based vs Type-Based Folder Structures"
+        },
+        {
+          "type": "p",
+          "text": "Type-based structure groups by technical role (components/, pages/, hooks/, services/, utils/, styles/)."
+        },
+        {
+          "type": "p",
+          "text": "Feature-based structure groups by domain (features/authentication/, features/courses/, features/dashboard/, features/profile/, shared/, app/, assets/), improving scalability for large apps."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Separation of Concerns"
+        },
+        {
+          "type": "p",
+          "text": "Separate presentation logic, business logic, API communication, state management, routing, form validation, and shared utilities."
+        },
+        {
+          "type": "h3",
+          "text": "5.4 Reusable and Maintainable Components"
+        },
+        {
+          "type": "p",
+          "text": "Focus on clear responsibilities, composition, typed props, shared vs feature-specific components, reusable hooks, and dependency boundaries."
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Managing a Growing Codebase"
+        },
+        {
+          "type": "p",
+          "text": "Manage large component collections, duplicate functionality, import organization, deprecated components, dead code, and technical documentation."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Architecture Documentation"
+        },
+        {
+          "type": "p",
+          "text": "Document folder structures, key components, routing, state decisions, API communication, auth flow, configuration, and deployment procedures."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Take a poorly organized React project and restructure it into a maintainable feature-based architecture without changing its existing functionality or UI."
+        }
+      ]
+    },
+    {
+      "id": "lesson-06",
+      "badge": "Lesson 06",
+      "title": "Component Documentation with Storybook",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "6.1 Understanding Component-Driven Development"
+        },
+        {
+          "type": "p",
+          "text": "Build and validate independent UI components (Button, Input, CourseCard, Progress, Nav, Dialog, Alert) in isolation before assembling full pages."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 Understanding Storybook Architecture"
+        },
+        {
+          "type": "p",
+          "text": "Storybook setup, story files, component previews, documentation, and state stories (Primary, Secondary, Disabled, Loading, Destructive, Sizes)."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 Component Variations and Controls"
+        },
+        {
+          "type": "p",
+          "text": "Preview course cards across different titles, instructors, thumbnails, progress values, and completed/in-progress states without launching the full app."
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Interaction and Accessibility Testing"
+        },
+        {
+          "type": "p",
+          "text": "Use Storybook for interaction testing, keyboard navigation checks, accessibility checks, and visual regression testing."
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Maintaining a Component Library"
+        },
+        {
+          "type": "p",
+          "text": "Document component purpose, props, variations, expected behavior, accessibility requirements, usage examples, and design constraints."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a small Storybook component library containing buttons, inputs, course cards, modals and progress indicators. Document different states and demonstrate how other developers can reuse the components."
+        }
+      ]
+    },
+    {
+      "id": "lesson-07",
+      "badge": "Lesson 07",
+      "title": "Working with UI Libraries and Component Systems",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 Understanding UI Libraries"
+        },
+        {
+          "type": "p",
+          "text": "Established ecosystems (Material UI, Ant Design, Chakra UI, Radix UI) provide buttons, inputs, dialogs, dropdowns, tables, tabs, and form controls."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 Understanding Component Systems"
+        },
+        {
+          "type": "p",
+          "text": "Compare full UI libraries, headless component libraries (behavior + a11y primitives without fixed styling), design systems, CSS frameworks, and utility-first systems."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Design Tokens and Consistent Styling"
+        },
+        {
+          "type": "p",
+          "text": "Primary/secondary colors, typography scales, spacing, border radius, shadows, breakpoints, and component dimensions."
+        },
+        {
+          "type": "h3",
+          "text": "7.4 Customization and Theming"
+        },
+        {
+          "type": "p",
+          "text": "Theme configuration, CSS variables, design tokens, variants, and dark/light themes without mixing incompatible UI systems."
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Evaluating and Selecting UI Libraries"
+        },
+        {
+          "type": "p",
+          "text": "Evaluate accessibility, docs, customization, bundle size, maintenance, community, compatibility, licensing, and long-term suitability."
+        },
+        {
+          "type": "h3",
+          "text": "7.6 Avoiding Excessive Dependency on UI Libraries"
+        },
+        {
+          "type": "p",
+          "text": "Balance library reuse against abstraction risks and lock-in."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Build a consistent application interface using a selected UI library or component system. Customize its theme, establish design tokens and implement reusable components that match a defined design specification."
+        }
+      ]
+    },
+    {
+      "id": "lesson-08",
+      "badge": "Lesson 08",
+      "title": "Production Deployment with Cloudflare Pages and Vercel",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 Understanding Frontend Deployment"
+        },
+        {
+          "type": "p",
+          "text": "Develop locally -> Commit to Git -> Push to GitHub -> Connect host -> Configure build command & output directory -> Set env vars -> Build assets -> Publish -> Verify deployed app."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 Understanding Cloudflare Pages"
+        },
+        {
+          "type": "p",
+          "text": "GitHub integration, build settings, env vars, preview deployments, production deployments, custom domains, HTTPS, deployment logs, and rollbacks."
+        },
+        {
+          "type": "h3",
+          "text": "8.3 Understanding Vercel"
+        },
+        {
+          "type": "p",
+          "text": "Git integration, framework detection, build settings, env vars, preview/production deployments, custom domains, build logs, and deployment history."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 Single-Page Application Routing"
+        },
+        {
+          "type": "p",
+          "text": "Configure SPA fallback/rewrite rules so direct access or refresh on nested client routes (e.g. /courses/frontend/react) serves the SPA entry instead of a 404."
+        },
+        {
+          "type": "h3",
+          "text": "8.5 Domain and HTTPS Configuration"
+        },
+        {
+          "type": "p",
+          "text": "Custom domains, DNS records, apex/subdomain setup, HTTPS/SSL/TLS certificates, redirects, canonical URLs, and www vs non-www normalization."
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Preview and Production Deployments"
+        },
+        {
+          "type": "p",
+          "text": "Use preview deployments for PR reviews before publishing to production."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Deploy the same React application to Cloudflare Pages and Vercel. Configure production and preview environments, connect a custom domain and verify direct access to nested application routes."
+        }
+      ]
+    },
+    {
+      "id": "lesson-09",
+      "badge": "Lesson 09",
+      "title": "CDN Integration, Asset Delivery and Cache Management",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 Understanding Content Delivery Networks"
+        },
+        {
+          "type": "p",
+          "text": "Origin servers, edge locations, cache hits/misses, latency reduction, asset delivery, and cache invalidation."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 Static Asset Optimization"
+        },
+        {
+          "type": "p",
+          "text": "Optimize images, SVGs, fonts, CSS, JS, icons, and downloadable documents."
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Browser Caching and HTTP Cache Headers"
+        },
+        {
+          "type": "p",
+          "text": "Cache-Control, ETag, Last-Modified, Expires, max-age, s-maxage, no-cache, no-store, immutable, and revalidation."
+        },
+        {
+          "type": "h3",
+          "text": "9.4 Cache Versioning and Cache Invalidation"
+        },
+        {
+          "type": "p",
+          "text": "Content-hashed filenames (app.a83f21.js), fingerprinting, CDN purge operations, and HTML entry revalidation."
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Cache Strategy Design"
+        },
+        {
+          "type": "p",
+          "text": "Resource | Typical caching approach"
+        },
+        {
+          "type": "p",
+          "text": "Hashed JavaScript files | Long-lived immutable caching"
+        },
+        {
+          "type": "p",
+          "text": "Hashed CSS files | Long-lived immutable caching"
+        },
+        {
+          "type": "p",
+          "text": "HTML entry document | Revalidation or short caching"
+        },
+        {
+          "type": "p",
+          "text": "Frequently changing API data | Application-specific caching"
+        },
+        {
+          "type": "p",
+          "text": "Sensitive private data | No shared public caching"
+        },
+        {
+          "type": "p",
+          "text": "Static public images | Long-lived caching when versioned"
+        },
+        {
+          "type": "h3",
+          "text": "9.6 CDN Performance Troubleshooting"
+        },
+        {
+          "type": "p",
+          "text": "Investigate unexpected cache misses, stale asset delivery, wrong cache headers, broken static resources, origin failures, and invalidation issues."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Configure caching for a deployed frontend application, inspect HTTP response headers, verify CDN behavior and implement an asset versioning strategy."
+        }
+      ]
+    },
+    {
+      "id": "lesson-10",
+      "badge": "Lesson 10",
+      "title": "Frontend CI/CD and Release Workflows",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "10.1 Understanding Continuous Integration"
+        },
+        {
+          "type": "p",
+          "text": "Automated PR checks: dependency installation, linting, type checking, unit tests, integration tests, production builds, and security/dependency checks."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 Understanding Continuous Delivery and Deployment"
+        },
+        {
+          "type": "p",
+          "text": "Continuous Delivery prepares validated releases requiring approval; Continuous Deployment releases validated changes automatically."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 GitHub-Based CI/CD Workflows"
+        },
+        {
+          "type": "p",
+          "text": "Pull Request -> Install Dependencies -> ESLint -> Tests -> Production Build -> All checks pass? -> Deploy Preview -> Review -> Approve Production -> Deploy Release."
+        },
+        {
+          "type": "h3",
+          "text": "10.4 Branching and Release Strategies"
+        },
+        {
+          "type": "p",
+          "text": "Feature branches, dev branches, main/production branches, PRs, release branches, version tags, hotfix branches, and code reviews."
+        },
+        {
+          "type": "h3",
+          "text": "10.5 Automated Deployment Workflows"
+        },
+        {
+          "type": "p",
+          "text": "Automated previews, production deployments, build artifacts, env vars, secrets management, approvals, release history, and failure handling."
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Release Management"
+        },
+        {
+          "type": "p",
+          "text": "Release notes, version numbers, change summaries, deployment verification, API compatibility awareness, rollback planning, and post-release monitoring."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Create a GitHub Actions workflow that installs dependencies, runs linting, executes tests and builds the application. Connect it to a preview deployment and a production release workflow."
+        }
+      ]
+    },
+    {
+      "id": "lesson-11",
+      "badge": "Lesson 11",
+      "title": "Error Monitoring and Application Analytics",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "11.1 Understanding Production Errors"
+        },
+        {
+          "type": "p",
+          "text": "JS runtime exceptions, failed API requests, auth failures, rendering errors, component crashes, asset loading failures, browser compatibility issues, unhandled promise rejections."
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Error Monitoring Systems"
+        },
+        {
+          "type": "p",
+          "text": "Platforms like Sentry capture error events, stack traces, error grouping, browser/device context, release tracking, source maps, and user-impact analysis."
+        },
+        {
+          "type": "h3",
+          "text": "11.3 React Error Boundaries"
+        },
+        {
+          "type": "code",
+          "text": "class ErrorBoundary extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = { hasError: false };\n  }\n  static getDerivedStateFromError() {\n    return { hasError: true };\n  }\n  render() {\n    if (this.state.hasError) {\n      return <h2>Something went wrong.</h2>;\n    }\n    return this.props.children;\n  }\n}"
+        },
+        {
+          "type": "p",
+          "text": "Error boundaries isolate rendering crashes but do not automatically catch event-handler or async callback errors."
+        },
+        {
+          "type": "h3",
+          "text": "11.4 Application Analytics"
+        },
+        {
+          "type": "p",
+          "text": "Track page views, navigation, feature usage, session duration, conversions, form completion, search, course engagement, and retention."
+        },
+        {
+          "type": "h3",
+          "text": "11.5 Performance Monitoring"
+        },
+        {
+          "type": "p",
+          "text": "Measure Core Web Vitals, page loads, JS execution, API latency, resource failures, slow interactions, and device/network differences."
+        },
+        {
+          "type": "h3",
+          "text": "11.6 Privacy and Responsible Analytics"
+        },
+        {
+          "type": "p",
+          "text": "Enforce data minimization, avoid collecting sensitive form data/PII, respect consent, and configure access controls and retention."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Integrate an error-monitoring tool and analytics solution into a deployed React application. Trigger controlled errors, inspect reports and measure selected user interactions."
+        }
+      ]
+    },
+    {
+      "id": "lesson-12",
+      "badge": "Lesson 12",
+      "title": "Production Debugging and Rollback Strategies",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "12.1 Understanding Production Debugging"
+        },
+        {
+          "type": "p",
+          "text": "Investigate using browser DevTools, console, network, performance, storage, source maps, error-monitoring dashboards, deployment logs, and API responses."
+        },
+        {
+          "type": "h3",
+          "text": "12.2 Debugging API and Network Problems"
+        },
+        {
+          "type": "p",
+          "text": "Diagnose HTTP 400, 401/403, 404, 429 rate limits, 500 errors, CORS failures, timeouts, invalid JSON, request cancellation, and expired auth."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 Production-Only Bugs"
+        },
+        {
+          "type": "p",
+          "text": "Missing env vars, wrong API URLs, broken SPA routing, wrong asset paths, CORS issues, stale cached files, case-sensitive imports, build-only errors, and browser differences."
+        },
+        {
+          "type": "h3",
+          "text": "12.4 Understanding Rollback"
+        },
+        {
+          "type": "p",
+          "text": "Return to a previous known-good release using deployment history, release verification, hotfixes, and cache considerations."
+        },
+        {
+          "type": "h3",
+          "text": "12.5 Incident Response and Postmortems"
+        },
+        {
+          "type": "p",
+          "text": "Detect -> Determine impact -> Identify affected features -> Restore/Rollback -> Investigate root cause -> Permanent fix -> Verify -> Document lessons learned."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Deploy an intentionally faulty release, identify the issue using browser and deployment logs, restore the previous version and document the incident."
+        }
+      ]
+    },
+    {
+      "id": "lesson-13",
+      "badge": "Lesson 13",
+      "title": "Progressive Web Applications (PWA)",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "13.1 Understanding Progressive Web Applications"
+        },
+        {
+          "type": "p",
+          "text": "Web-based delivery, installability, responsive UI, HTTPS, Web App Manifest, service worker integration, offline support, and update handling."
+        },
+        {
+          "type": "h3",
+          "text": "13.2 Web App Manifest"
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"name\": \"Learning Platform\",\n  \"short_name\": \"Learn\",\n  \"start_url\": \"/\",\n  \"display\": \"standalone\",\n  \"background_color\": \"#ffffff\",\n  \"theme_color\": \"#111111\"\n}"
+        },
+        {
+          "type": "h3",
+          "text": "13.3 Application Installation"
+        },
+        {
+          "type": "p",
+          "text": "Browser installability criteria, install prompts, home-screen installation, standalone display, icons, and platform differences."
+        },
+        {
+          "type": "h3",
+          "text": "13.4 PWA Capabilities"
+        },
+        {
+          "type": "p",
+          "text": "Offline access, push notifications (where permitted), background sync, local data access, shortcuts, and share APIs."
+        },
+        {
+          "type": "h3",
+          "text": "13.5 When to Use a PWA"
+        },
+        {
+          "type": "p",
+          "text": "Evaluate suitability for learning platforms, productivity tools, news, docs, and business dashboards."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Convert a React application into an installable PWA. Create a manifest, configure its icons and verify installation behavior across supported browsers."
+        }
+      ]
+    },
+    {
+      "id": "lesson-14",
+      "badge": "Lesson 14",
+      "title": "Service Workers and Offline Experiences",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "14.1 Understanding Service Workers"
+        },
+        {
+          "type": "p",
+          "text": "Background scripts running separately from the main page context that intercept network requests and enable caching/offline behavior over HTTPS (or localhost)."
+        },
+        {
+          "type": "h3",
+          "text": "14.2 Service Worker Lifecycle"
+        },
+        {
+          "type": "p",
+          "text": "Registration -> Installation -> Waiting -> Activation -> Fetch event handling -> Updating -> Unregistration."
+        },
+        {
+          "type": "h3",
+          "text": "14.3 Cache Storage API"
+        },
+        {
+          "type": "p",
+          "text": "Open caches, add resources, store responses, match requests, delete outdated caches, and manage cache versions."
+        },
+        {
+          "type": "h3",
+          "text": "14.4 Caching Strategies"
+        },
+        {
+          "type": "p",
+          "text": "Cache First, Network First, Stale While Revalidate, Network Only, and Cache Only — choose based on freshness and sensitivity."
+        },
+        {
+          "type": "h3",
+          "text": "14.5 Designing Offline Experiences"
+        },
+        {
+          "type": "p",
+          "text": "Offline status indicators, downloaded lessons, cached app shell, retry actions, offline fallback pages, and safe pending sync."
+        },
+        {
+          "type": "h3",
+          "text": "14.6 Service Worker Update Management"
+        },
+        {
+          "type": "p",
+          "text": "Cache versioning, cleanup, new-worker detection, update prompts, and reload strategies."
+        },
+        {
+          "type": "h3",
+          "text": "14.7 Limitations and Risks"
+        },
+        {
+          "type": "p",
+          "text": "Storage limits, cache expiration, stale content, sync conflicts, auth expiration, sensitive data, and browser differences."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Implement a service worker for the learning platform. Cache the application shell, create an offline fallback page and implement an appropriate caching strategy for public course resources."
+        }
+      ]
+    },
+    {
+      "id": "lesson-15",
+      "badge": "Lesson 15",
+      "title": "Micro-Frontend Architecture Fundamentals",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "15.1 Understanding Micro-Frontends"
+        },
+        {
+          "type": "p",
+          "text": "Divides large frontend applications (dashboard, catalogue, learning player, auth, admin) into independently developed/deployed sections owned by separate teams."
+        },
+        {
+          "type": "h3",
+          "text": "15.2 Monolithic Frontend vs Micro-Frontend"
+        },
+        {
+          "type": "p",
+          "text": "Compare single-app monolithic frontends with independently managed micro-frontend modules connected via defined boundaries."
+        },
+        {
+          "type": "h3",
+          "text": "15.3 Micro-Frontend Integration Approaches"
+        },
+        {
+          "type": "p",
+          "text": "Build-time integration, runtime integration, Module Federation, Web Components, JS-based integration, and iframe integration."
+        },
+        {
+          "type": "h3",
+          "text": "15.4 Shared Dependencies and Design Systems"
+        },
+        {
+          "type": "p",
+          "text": "Manage shared React versions, component libraries, design tokens, auth context, routing, events, and utilities."
+        },
+        {
+          "type": "h3",
+          "text": "15.5 Communication Between Micro-Frontends"
+        },
+        {
+          "type": "p",
+          "text": "Custom events, shared interfaces, routing conventions, data contracts, and error isolation."
+        },
+        {
+          "type": "h3",
+          "text": "15.6 Challenges and Trade-Offs"
+        },
+        {
+          "type": "p",
+          "text": "Deployment complexity, dependency duplication, shared-state issues, performance overhead, UI inconsistency, testing complexity, and version conflicts. Use modular monoliths when micro-frontends are unnecessary."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Design a learning platform architecture with independently owned student dashboard, course catalogue and administration interfaces. Create an integration plan showing routing, shared components, communication and deployment boundaries."
+        }
+      ]
+    },
+    {
+      "id": "lesson-16",
+      "badge": "Lesson 16",
+      "title": "Internationalization and Localization",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "16.1 Understanding Internationalization and Localization"
+        },
+        {
+          "type": "p",
+          "text": "Internationalization (i18n) designs apps to support multiple languages/regions without major rewrites; Localization (l10n) adapts an app for a specific language/region."
+        },
+        {
+          "type": "h3",
+          "text": "16.2 Managing Translated Content"
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"welcome\": \"Welcome\",\n  \"login\": \"Log in\",\n  \"logout\": \"Log out\",\n  \"dashboard\": \"Dashboard\"\n}"
+        },
+        {
+          "type": "p",
+          "text": "Manage translation keys, resource files, default/fallback languages, dynamic values, and pluralization."
+        },
+        {
+          "type": "h3",
+          "text": "16.3 Internationalization Libraries"
+        },
+        {
+          "type": "p",
+          "text": "Use libraries like i18next + React hooks for detection, namespaces, resource loading, and fallbacks."
+        },
+        {
+          "type": "h3",
+          "text": "16.4 Dates, Numbers and Currency"
+        },
+        {
+          "type": "p",
+          "text": "Use standard browser APIs (Intl.DateTimeFormat, Intl.NumberFormat) for locale-aware dates, numbers, and currencies."
+        },
+        {
+          "type": "h3",
+          "text": "16.5 Right-to-Left Languages"
+        },
+        {
+          "type": "p",
+          "text": "Support RTL languages (Arabic, Hebrew) with text/layout direction, logical CSS properties, icon alignment, and bidirectional content."
+        },
+        {
+          "type": "h3",
+          "text": "16.6 Localization Beyond Translation"
+        },
+        {
+          "type": "p",
+          "text": "Currency, units, time zones, date conventions, address formats, cultural conventions, localized media, and regional features."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Add multiple-language support to the learning platform. Implement language switching, locale-based date and number formatting and an RTL-compatible layout."
+        }
+      ]
+    },
+    {
+      "id": "lesson-17",
+      "badge": "Lesson 17",
+      "title": "Frontend Architecture for Large Teams",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "17.1 Understanding Team-Based Frontend Development"
+        },
+        {
+          "type": "p",
+          "text": "Address code conflicts, inconsistent components, duplicate code, style drift, dependency mismatches, and unclear ownership."
+        },
+        {
+          "type": "h3",
+          "text": "17.2 Architecture Boundaries and Responsibilities"
+        },
+        {
+          "type": "p",
+          "text": "Application area | Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "Authentication | Login, registration and session interfaces"
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue | Course discovery, search and filtering"
+        },
+        {
+          "type": "p",
+          "text": "Learning environment | Lesson presentation and navigation"
+        },
+        {
+          "type": "p",
+          "text": "Student dashboard | Progress and learning overview"
+        },
+        {
+          "type": "p",
+          "text": "Administration | Management interfaces"
+        },
+        {
+          "type": "h3",
+          "text": "17.3 Monorepo and Multi-Repository Architecture"
+        },
+        {
+          "type": "p",
+          "text": "Compare monorepos (shared packages, workspace management, coordinated builds) vs multi-repos (separate lifecycles, independent ownership)."
+        },
+        {
+          "type": "h3",
+          "text": "17.4 Shared Components and Design Standards"
+        },
+        {
+          "type": "p",
+          "text": "Shared component libraries, design tokens, reusable hooks, coding/a11y standards, naming conventions, docs, and versioning."
+        },
+        {
+          "type": "h3",
+          "text": "17.5 Team Development Workflows"
+        },
+        {
+          "type": "p",
+          "text": "Feature branches, PR reviews, issue tracking, task ownership, conflict resolution, shared dev environments, CI, and release coordination."
+        },
+        {
+          "type": "h3",
+          "text": "17.6 Architecture Decisions and Documentation"
+        },
+        {
+          "type": "p",
+          "text": "Use Architecture Decision Records (ADRs) to capture the problem, options, chosen solution, rationale, and consequences."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Design the frontend architecture and development workflow for a team of five developers building the learning platform. Define module ownership, shared components, branch strategy and code review requirements."
+        }
+      ]
+    },
+    {
+      "id": "lesson-18",
+      "badge": "Lesson 18",
+      "title": "Maintainability, Technical Debt and Refactoring",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "18.1 Understanding Technical Debt"
+        },
+        {
+          "type": "p",
+          "text": "Future maintenance cost caused by shortcuts, duplicate components, oversized files, repeated API logic, missing tests, or outdated libraries."
+        },
+        {
+          "type": "h3",
+          "text": "18.2 Identifying Maintainability Problems"
+        },
+        {
+          "type": "p",
+          "text": "God components, deep nesting, duplicated logic, unclear naming, tight coupling, untestable code, and excessive global state."
+        },
+        {
+          "type": "h3",
+          "text": "18.3 Understanding Refactoring"
+        },
+        {
+          "type": "p",
+          "text": "Improving internal structure without changing externally observable behavior (extracting functions, components, custom hooks, simplifying state and folders)."
+        },
+        {
+          "type": "h3",
+          "text": "18.4 Safe Refactoring Techniques"
+        },
+        {
+          "type": "p",
+          "text": "Understand existing behavior -> verify/add tests -> plan small change -> refactor small area -> run tests -> compare behavior -> review quality -> document."
+        },
+        {
+          "type": "h3",
+          "text": "18.5 Managing Dependencies and Technical Debt"
+        },
+        {
+          "type": "p",
+          "text": "Handle outdated packages, deprecated APIs, unused libraries, CVEs, and breaking upgrades safely."
+        },
+        {
+          "type": "h3",
+          "text": "18.6 Building a Long-Term Maintenance Strategy"
+        },
+        {
+          "type": "p",
+          "text": "Track technical debt registers, prioritize maintenance, schedule refactoring, prevent regressions, and conduct periodic architecture reviews."
+        },
+        {
+          "type": "p",
+          "text": "Practical exercise: Inspect an existing React application containing duplicated components, complex state handling and unnecessary dependencies. Prepare a technical debt report, refactor selected areas and demonstrate that the original functionality remains intact."
+        }
+      ]
+    },
+    {
+      "id": "lesson-19",
+      "badge": "Lesson 19",
+      "title": "Capstone Architecture and Technical Planning",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "19.1 Understanding Project Requirements"
+        },
+        {
+          "type": "p",
+          "text": "Identify functional requirements (landing, registration/login, course discovery, course/module pages, dashboard, progress tracking) and non-functional requirements (responsive design, a11y, performance, security, maintainability, browser compatibility, reliability, scalability)."
+        },
+        {
+          "type": "h3",
+          "text": "19.2 Identifying Users and User Journeys"
+        },
+        {
+          "type": "p",
+          "text": "Visitor -> Landing Page -> Course Discovery -> Course Details -> Register / Login -> Student Dashboard -> Open Course -> Start Learning -> Track Progress."
+        },
+        {
+          "type": "h3",
+          "text": "19.3 Frontend Architecture Design"
+        },
+        {
+          "type": "p",
+          "text": "Define entry point, routing, page structure, component hierarchy, shared UI, feature modules, state management, API services, auth flow, error handling, config, and tests."
+        },
+        {
+          "type": "h3",
+          "text": "19.4 Data and API Contract Planning"
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"id\": \"frontend-101\",\n  \"title\": \"Modern Frontend Engineering\",\n  \"description\": \"Learn modern frontend development.\",\n  \"instructor\": \"Instructor Name\",\n  \"thumbnail\": \"/assets/frontend.jpg\",\n  \"modules\": 14,\n  \"difficulty\": \"Intermediate\"\n}"
+        },
+        {
+          "type": "h3",
+          "text": "19.5 Wireframes and UI Planning"
+        },
+        {
+          "type": "p",
+          "text": "Plan landing page, auth screens, course catalogue, course detail, learning dashboard, module page, and progress UI."
+        },
+        {
+          "type": "h3",
+          "text": "19.6 Technology and Architecture Decisions"
+        },
+        {
+          "type": "p",
+          "text": "Area | Example technology"
+        },
+        {
+          "type": "p",
+          "text": "Frontend framework | React"
+        },
+        {
+          "type": "p",
+          "text": "Build tool | Vite"
+        },
+        {
+          "type": "p",
+          "text": "Language | JavaScript or TypeScript"
+        },
+        {
+          "type": "p",
+          "text": "Styling | Tailwind CSS or CSS"
+        },
+        {
+          "type": "p",
+          "text": "Routing | React Router"
+        },
+        {
+          "type": "p",
+          "text": "API integration | Fetch or Axios"
+        },
+        {
+          "type": "p",
+          "text": "Server-state management | TanStack Query"
+        },
+        {
+          "type": "p",
+          "text": "Testing | Vitest, React Testing Library and Playwright"
+        },
+        {
+          "type": "p",
+          "text": "Component documentation | Storybook"
+        },
+        {
+          "type": "p",
+          "text": "Deployment | Cloudflare Pages or Vercel"
+        },
+        {
+          "type": "p",
+          "text": "Version control | Git and GitHub"
+        },
+        {
+          "type": "p",
+          "text": "Practical deliverable: Project requirement document, user journeys, wireframes, application architecture diagram, folder structure, API contract plan and technology selection document."
+        }
+      ]
+    },
+    {
+      "id": "lesson-20",
+      "badge": "Lesson 20",
+      "title": "Component Design and Application Development",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "20.1 Establishing the Design System"
+        },
+        {
+          "type": "p",
+          "text": "Define primary/secondary colors, typography, spacing, border radius, shadows, breakpoints, icons, button variants, form styles, and component states."
+        },
+        {
+          "type": "h3",
+          "text": "20.2 Creating the Application Foundation"
+        },
+        {
+          "type": "p",
+          "text": "Set up project, Vite config, entry point, global styles, routing, shared layouts, app config, and error boundaries."
+        },
+        {
+          "type": "h3",
+          "text": "20.3 Developing Reusable Components"
+        },
+        {
+          "type": "p",
+          "text": "Build Navbar, Footer, Sidebar, Buttons, Inputs, Dropdowns, Search bar, Course cards, Progress indicators, Modals, Notifications, and Pagination."
+        },
+        {
+          "type": "h3",
+          "text": "20.4 Developing Main Application Pages"
+        },
+        {
+          "type": "p",
+          "text": "Implement Landing page, Course catalogue, Course details, Student dashboard, and Learning interface."
+        },
+        {
+          "type": "h3",
+          "text": "20.5 Component State and Interactive Behavior"
+        },
+        {
+          "type": "p",
+          "text": "Dropdowns, search, pagination, active nav, modals, forms, loading skeletons, empty states, error states, and progress displays."
+        },
+        {
+          "type": "h3",
+          "text": "20.6 Design Consistency and Maintainability"
+        },
+        {
+          "type": "p",
+          "text": "Verify consistent component behavior across pages without duplicated styling or uncontrolled complexity."
+        },
+        {
+          "type": "p",
+          "text": "Practical deliverable: A functional React frontend containing the major platform pages, shared components, application navigation and consistent design system."
+        }
+      ]
+    },
+    {
+      "id": "lesson-21",
+      "badge": "Lesson 21",
+      "title": "API Integration and Application State",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "21.1 Understanding Frontend and Backend Communication"
+        },
+        {
+          "type": "p",
+          "text": "Frontend presents UI and collects interactions; backend handles auth, profiles, courses, learning content, progress, and enrollments."
+        },
+        {
+          "type": "h3",
+          "text": "21.2 Creating an API Service Layer"
+        },
+        {
+          "type": "code",
+          "text": "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;\n\nexport async function getCourses() {\n  const response = await fetch(`${API_BASE_URL}/courses`);\n  if (!response.ok) {\n    throw new Error(\"Failed to fetch courses\");\n  }\n  return response.json();\n}"
+        },
+        {
+          "type": "h3",
+          "text": "21.3 Authentication API Integration"
+        },
+        {
+          "type": "p",
+          "text": "Integrate registration, login, session handling, expiration, logout, protected routes, and unauthorized responses while keeping backend authorization authoritative."
+        },
+        {
+          "type": "h3",
+          "text": "21.4 Server State and Client State"
+        },
+        {
+          "type": "p",
+          "text": "Separate server state (courses, progress) from client state (menus, tabs, modals)."
+        },
+        {
+          "type": "h3",
+          "text": "21.5 Data Fetching and Synchronization"
+        },
+        {
+          "type": "p",
+          "text": "Implement loading, success, empty, and error states, refetching, caching, pagination, search, and invalidation."
+        },
+        {
+          "type": "h3",
+          "text": "21.6 Student Progress Integration"
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"courseId\": \"frontend-101\",\n  \"completedModules\": 8,\n  \"totalModules\": 14,\n  \"progress\": 57\n}"
+        },
+        {
+          "type": "h3",
+          "text": "21.7 Handling Real-World API Problems"
+        },
+        {
+          "type": "p",
+          "text": "Handle network failures, invalid responses, expired sessions, 401/403, rate limits, slow responses, duplicate requests, and backend downtime."
+        },
+        {
+          "type": "p",
+          "text": "Practical deliverable: A frontend integrated with authentication and course APIs, featuring session handling, protected experiences, reusable API services and synchronized application state."
+        }
+      ]
+    },
+    {
+      "id": "lesson-22",
+      "badge": "Lesson 22",
+      "title": "Responsive Design and Accessibility",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "22.1 Mobile-First Development"
+        },
+        {
+          "type": "p",
+          "text": "Design for smaller screens first using mobile-first CSS, breakpoints, Grid, Flexbox, fluid typography, and responsive images."
+        },
+        {
+          "type": "h3",
+          "text": "22.2 Cross-Device Layout Design"
+        },
+        {
+          "type": "p",
+          "text": "Verify mobile phones, tablets, laptops, and desktops for zero horizontal overflow, no overlap, proper scaling, and accessible menus."
+        },
+        {
+          "type": "h3",
+          "text": "22.3 Understanding Web Accessibility"
+        },
+        {
+          "type": "p",
+          "text": "Semantic HTML, accessible navigation, keyboard interaction, screen-reader support, focus management, contrast, labels, error messages, alt text, and headings."
+        },
+        {
+          "type": "h3",
+          "text": "22.4 WCAG Fundamentals"
+        },
+        {
+          "type": "p",
+          "text": "Apply Perceivable, Operable, Understandable, and Robust (POUR) principles across all interactive UI."
+        },
+        {
+          "type": "h3",
+          "text": "22.5 Accessible Forms and Interactive Components"
+        },
+        {
+          "type": "p",
+          "text": "Proper input labels, validation announcements, keyboard-operable dropdowns, accessible modals, visible focus states, and clear button names."
+        },
+        {
+          "type": "h3",
+          "text": "22.6 Accessibility and Responsive Testing"
+        },
+        {
+          "type": "p",
+          "text": "Verify via keyboard-only navigation, browser zoom, screen-reader checks, contrast analysis, automated accessibility tools, and multi-viewport checks."
+        },
+        {
+          "type": "p",
+          "text": "Practical deliverable: A responsive learning platform that provides a consistent experience across supported devices and implements appropriate accessibility practices."
+        }
+      ]
+    },
+    {
+      "id": "lesson-23",
+      "badge": "Lesson 23",
+      "title": "Testing and Performance Optimization",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "23.1 Understanding Frontend Testing Strategy"
+        },
+        {
+          "type": "p",
+          "text": "Combine unit testing, integration testing, and end-to-end testing."
+        },
+        {
+          "type": "h3",
+          "text": "23.2 Unit Testing"
+        },
+        {
+          "type": "p",
+          "text": "Test utilities, validation, transformations, reusable hooks, individual components, and conditional rendering."
+        },
+        {
+          "type": "h3",
+          "text": "23.3 Component and Integration Testing"
+        },
+        {
+          "type": "p",
+          "text": "Test forms + validation, buttons + state, components + API services, auth + protected routes, and course pages + progress."
+        },
+        {
+          "type": "h3",
+          "text": "23.4 End-to-End Testing"
+        },
+        {
+          "type": "p",
+          "text": "Landing -> Course catalogue -> Search -> Course details -> Login -> Student dashboard -> Learning module -> Verify progress display."
+        },
+        {
+          "type": "h3",
+          "text": "23.5 Testing Tools"
+        },
+        {
+          "type": "p",
+          "text": "Vitest, React Testing Library, Playwright, accessibility testing utilities, and Browser DevTools."
+        },
+        {
+          "type": "h3",
+          "text": "23.6 Performance Profiling"
+        },
+        {
+          "type": "p",
+          "text": "Measure browser rendering, React rendering, JS execution, network requests, bundle size, memory, long tasks, and layout shifts."
+        },
+        {
+          "type": "h3",
+          "text": "23.7 Frontend Performance Optimization"
+        },
+        {
+          "type": "p",
+          "text": "Route-based code splitting, lazy loading, dynamic imports, image/font optimization, bundle reduction, caching, and efficient rendering."
+        },
+        {
+          "type": "h3",
+          "text": "23.8 Core Web Vitals"
+        },
+        {
+          "type": "p",
+          "text": "Measure and improve LCP (loading), INP (responsiveness), and CLS (visual stability)."
+        },
+        {
+          "type": "h3",
+          "text": "23.9 SEO and Frontend Quality"
+        },
+        {
+          "type": "p",
+          "text": "Verify titles, meta descriptions, canonical URLs, semantic HTML, structured data, crawlable links, social metadata, sitemaps, robots directives, and mobile usability."
+        },
+        {
+          "type": "p",
+          "text": "Practical deliverable: A complete testing suite for major platform workflows, a test report, a performance report and an optimization record showing improvements and remaining limitations."
+        }
+      ]
+    },
+    {
+      "id": "lesson-24",
+      "badge": "Lesson 24",
+      "title": "Production Deployment and Final Evaluation",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "24.1 Production Readiness Review"
+        },
+        {
+          "type": "p",
+          "text": "Inspect functionality, build success, env config, auth, APIs, error handling, responsiveness, a11y, security, SEO, performance, and browser compatibility."
+        },
+        {
+          "type": "h3",
+          "text": "24.2 Production Build and Release Preparation"
+        },
+        {
+          "type": "p",
+          "text": "Review code quality, resolve lint issues, run automated tests, verify production build, check env vars, inspect assets, verify API config, and prepare release docs."
+        },
+        {
+          "type": "h3",
+          "text": "24.3 Production Deployment"
+        },
+        {
+          "type": "p",
+          "text": "Deploy to Cloudflare Pages or Vercel with production build settings, env vars, custom domain, HTTPS, SPA routing fallback, CDN, and cache rules."
+        },
+        {
+          "type": "h3",
+          "text": "24.4 Post-Deployment Verification"
+        },
+        {
+          "type": "p",
+          "text": "Test homepage, direct nested routes, registration/login, catalogue, search/filtering, course details, dashboard, APIs, progress, responsiveness, error handling, and browsers in production."
+        },
+        {
+          "type": "h3",
+          "text": "24.5 Monitoring and Maintenance"
+        },
+        {
+          "type": "p",
+          "text": "Configure error monitoring, performance monitoring, analytics, deployment history, release tracking, incident investigation, and rollback procedures."
+        },
+        {
+          "type": "h3",
+          "text": "24.6 Final Technical Evaluation"
+        },
+        {
+          "type": "p",
+          "text": "Evaluate architecture, code organization, reusability, API integration, state, auth, responsiveness, a11y, testing, performance, SEO, deployment, and documentation."
+        },
+        {
+          "type": "h3",
+          "text": "24.7 Technical Presentation"
+        },
+        {
+          "type": "p",
+          "text": "Present overview, problem, user journeys, architecture, component design, API integration, security, testing, performance, deployment, challenges, and future improvements."
+        },
+        {
+          "type": "p",
+          "text": "Final deliverable: A deployed frontend application, its complete source code, architecture documentation, automated test reports and a technical presentation."
+        }
+      ]
+    },
+    {
+      "id": "industry-capstone",
+      "badge": "Industry Capstone",
+      "title": "Production-Ready Learning Management Platform",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Final industry capstone"
+        },
+        {
+          "type": "p",
+          "text": "Students will engineer a complete frontend for a modern learning platform, applying the concepts from all previous modules and the production engineering practices introduced in Module 14."
+        },
+        {
+          "type": "h3",
+          "text": "Project overview"
+        },
+        {
+          "type": "p",
+          "text": "Build a frontend application where visitors can discover educational courses, register, log in, access a student dashboard, open courses and modules, and monitor their learning progress, integrated with authentication, course, and progress APIs."
+        },
+        {
+          "type": "h3",
+          "text": "Project requirements"
+        },
+        {
+          "type": "h3",
+          "text": "1. Responsive Landing Page and Course Discovery: Navigation bar, hero section, platform intro, featured courses, categories, benefits, CTAs, footer, and responsive navigation without horizontal overflow."
+        },
+        {
+          "type": "h3",
+          "text": "2. Student Registration and Login Interface: Registration & login forms, email/password validation, error messages, loading states, success/failure states, logout, session handling, and protected experiences aligned with the auth API contract."
+        },
+        {
+          "type": "h3",
+          "text": "3. Course Catalogue with Search, Filters and Pagination: Course cards, thumbnails, titles/descriptions, categories, difficulty levels, search, filtering, sorting, pagination, loading/empty/error states."
+        },
+        {
+          "type": "h3",
+          "text": "4. Individual Course and Module Pages: Course overview, description, learning objectives, module list, course navigation, and readable module/lesson learning interface."
+        },
+        {
+          "type": "h3",
+          "text": "5. Interactive Learning Dashboard: Student info, enrolled courses, course progress, recent activity, completed modules, continue-learning actions, and API-backed statistics."
+        },
+        {
+          "type": "h3",
+          "text": "6. Student Progress and Completion Interfaces: Course/module/lesson completion status, progress indicators, and backend-synchronized updates."
+        },
+        {
+          "type": "h3",
+          "text": "7. Reusable Component Architecture and Design System: Navbar, buttons, inputs, cards, progress bars, dropdowns, modals, notifications, skeletons, and error messages with consistent tokens."
+        },
+        {
+          "type": "h3",
+          "text": "8. API Integration and Data Synchronization: Auth, catalogue, course details, learning content, profile, enrollment, and progress with loading/success/empty/error handling."
+        },
+        {
+          "type": "h3",
+          "text": "9. Form Validation and Error Handling: Required/email/password validation, invalid input messages, submission loading, API/network errors, accessible error announcements."
+        },
+        {
+          "type": "h3",
+          "text": "10. Protected User Experiences and Appropriate Session Handling: Protected routes, auth status handling, login redirects, logout, session expiration, 401 handling, with backend remaining the authorization authority."
+        },
+        {
+          "type": "h3",
+          "text": "11. Accessibility and Cross-Device Compatibility: Mobile-responsive layouts, keyboard navigation, semantic HTML, form labels, headings, screen-reader controls, contrast, focus indicators, accessible dialogs, responsive images."
+        },
+        {
+          "type": "h3",
+          "text": "12. Unit, Integration and End-to-End Tests: Unit tests (utilities, validation, components), integration tests (components + API + forms + state), and E2E tests (discovery, auth, dashboard)."
+        },
+        {
+          "type": "h3",
+          "text": "13. SEO and Performance Optimization: Titles, descriptions, canonicals, semantic structure, headings, image optimization, lazy loading, code splitting, bundle optimization, caching, Core Web Vitals."
+        },
+        {
+          "type": "h3",
+          "text": "14. Production Deployment with Monitoring: Production build, env config, hosting, custom domain, HTTPS, SPA routing fallback, CDN/cache rules, post-release verification, error/performance monitoring, rollback readiness."
+        },
+        {
+          "type": "h3",
+          "text": "Recommended Project Development Workflow"
+        },
+        {
+          "type": "h3",
+          "text": "Phase 1 — Requirements and Planning: Requirements, target users, user journeys, wireframes, feature scope, API contracts."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 2 — Architecture and Setup: React, Vite, routing, folder structure, design tokens, env vars, shared components."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 3 — Core UI Development: Landing page, auth screens, course catalogue, course pages, student dashboard."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 4 — API and State Integration: Auth, courses, progress APIs, data fetching, state, error handling."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 5 — Responsive Design and Accessibility: Mobile/desktop adaptation, keyboard access, semantic structure, a11y validation."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 6 — Testing and Optimization: Automated tests, performance profiling, asset optimization, SEO verification."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 7 — Deployment and Monitoring: Production env, deployment, live workflow verification, monitoring setup."
+        },
+        {
+          "type": "h3",
+          "text": "Phase 8 — Final Review and Presentation: Documentation, test reports, demonstration, architectural defense."
+        },
+        {
+          "type": "h3",
+          "text": "Final Deliverables"
+        },
+        {
+          "type": "p",
+          "text": "Deliverable | Expected content"
+        },
+        {
+          "type": "p",
+          "text": "GitHub repository | Complete, organized source code"
+        },
+        {
+          "type": "p",
+          "text": "Architecture documentation | Architecture diagram, folder structure and technical decisions"
+        },
+        {
+          "type": "p",
+          "text": "UI documentation | Wireframes, design system and reusable component documentation"
+        },
+        {
+          "type": "p",
+          "text": "API documentation | API endpoints, request/response expectations and integration details"
+        },
+        {
+          "type": "p",
+          "text": "Testing reports | Unit, integration and end-to-end test results"
+        },
+        {
+          "type": "p",
+          "text": "Performance report | Measurements, identified issues and optimization results"
+        },
+        {
+          "type": "p",
+          "text": "Accessibility report | Testing results and identified improvements"
+        },
+        {
+          "type": "p",
+          "text": "Deployment documentation | Build configuration, environment setup and deployment procedure"
+        },
+        {
+          "type": "p",
+          "text": "Deployed application | Working production frontend"
+        },
+        {
+          "type": "p",
+          "text": "Technical presentation | Project demonstration and engineering decisions"
+        }
+      ]
+    },
+    {
+      "id": "summary-resources",
+      "badge": "Summary & Outcomes",
+      "title": "Final Learning Outcomes and Completion Standard",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Final Learning Outcomes"
+        },
+        {
+          "type": "p",
+          "text": "After successfully completing Module 14, students should be able to:"
+        },
+        {
+          "type": "p",
+          "text": "Understand modern frontend build systems and production bundling."
+        },
+        {
+          "type": "p",
+          "text": "Configure Vite for development and production."
+        },
+        {
+          "type": "p",
+          "text": "Manage environment variables and application configuration securely."
+        },
+        {
+          "type": "p",
+          "text": "Establish professional code-quality standards with ESLint and Prettier."
+        },
+        {
+          "type": "p",
+          "text": "Design maintainable frontend project architectures."
+        },
+        {
+          "type": "p",
+          "text": "Document reusable components with Storybook."
+        },
+        {
+          "type": "p",
+          "text": "Work with UI libraries and design systems."
+        },
+        {
+          "type": "p",
+          "text": "Deploy React applications using Cloudflare Pages and Vercel."
+        },
+        {
+          "type": "p",
+          "text": "Optimize CDN delivery and browser caching."
+        },
+        {
+          "type": "p",
+          "text": "Implement CI/CD pipelines and release workflows."
+        },
+        {
+          "type": "p",
+          "text": "Monitor frontend errors and application performance."
+        },
+        {
+          "type": "p",
+          "text": "Debug production problems and perform rollbacks."
+        },
+        {
+          "type": "p",
+          "text": "Build installable Progressive Web Applications."
+        },
+        {
+          "type": "p",
+          "text": "Implement service workers and offline functionality."
+        },
+        {
+          "type": "p",
+          "text": "Understand micro-frontend architecture and its trade-offs."
+        },
+        {
+          "type": "p",
+          "text": "Implement internationalization and localization."
+        },
+        {
+          "type": "p",
+          "text": "Organize frontend development for large engineering teams."
+        },
+        {
+          "type": "p",
+          "text": "Identify technical debt and safely refactor codebases."
+        },
+        {
+          "type": "p",
+          "text": "Plan complete frontend application architecture."
+        },
+        {
+          "type": "p",
+          "text": "Build reusable, responsive and accessible production interfaces."
+        },
+        {
+          "type": "p",
+          "text": "Integrate frontend applications with backend APIs."
+        },
+        {
+          "type": "p",
+          "text": "Implement testing and performance optimization strategies."
+        },
+        {
+          "type": "p",
+          "text": "Deploy and maintain production frontend applications."
+        },
+        {
+          "type": "p",
+          "text": "Present a complete industry-style frontend engineering project."
+        },
+        {
+          "type": "p",
+          "text": "Module completion standard: Students should not consider the module complete simply because the application runs locally. They must demonstrate that their learning platform is properly structured, integrated, tested, accessible, responsive, deployed and documented."
+        },
+        {
+          "type": "p",
+          "text": "This completes the Modern Web & Frontend Engineering course's journey from frontend fundamentals to professional production engineering."
+        }
+      ]
+    }
+  ]
+}

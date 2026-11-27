@@ -141,5 +141,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "frontend-production-capstone",
+    "courseId": "frontend-engineering",
+    "index": 14,
+    "name": "14. Frontend Production Engineering and Industry Capstone",
+    "route": "/learning/frontend-engineering/frontend-production-capstone",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
