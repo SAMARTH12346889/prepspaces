@@ -299,6 +299,7 @@ export const FRONTEND_ENGINEERING_MODULES = [
   { id: "react-fundamentals", name: "8. React Fundamentals and Component Engineering", route: "/learning/frontend-engineering/react-fundamentals" },
   { id: "advanced-react", name: "9. Advanced React, Application Architecture and State Management", route: "/learning/frontend-engineering/advanced-react" },
   { id: "frontend-data-engineering", name: "10. Frontend Data Engineering, Forms and API Integration", route: "/learning/frontend-engineering/frontend-data-engineering" },
+  { id: "nextjs-architecture", name: "11. Next.js and Modern Web Application Architecture", route: "/learning/frontend-engineering/nextjs-architecture" },
 ];
 
 export default function ModuleNav({

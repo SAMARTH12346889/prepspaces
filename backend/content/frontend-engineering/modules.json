@@ -108,5 +108,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "nextjs-architecture",
+    "courseId": "frontend-engineering",
+    "index": 11,
+    "name": "11. Next.js and Modern Web Application Architecture",
+    "route": "/learning/frontend-engineering/nextjs-architecture",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

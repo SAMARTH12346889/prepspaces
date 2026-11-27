@@ -211,6 +211,7 @@ const FrontendTypeScript = React.lazy(() => import("./Componets/FrontendTypeScri
 const FrontendReactFundamentals = React.lazy(() => import("./Componets/FrontendReactFundamentals"));
 const FrontendAdvancedReact = React.lazy(() => import("./Componets/FrontendAdvancedReact"));
 const FrontendDataEngineering = React.lazy(() => import("./Componets/FrontendDataEngineering"));
+const FrontendNextjsArchitecture = React.lazy(() => import("./Componets/FrontendNextjsArchitecture"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -2103,6 +2104,11 @@ function App() {
             <Route path="/courses/frontend-engineering/frontend-data-engineering" element={<FrontendDataEngineering />} />
             <Route path="/learning/frontend/frontend-data-engineering" element={<FrontendDataEngineering />} />
             <Route path="/learning/frontend/module-10" element={<FrontendDataEngineering />} />
+            <Route path="/learning/frontend-engineering/nextjs-architecture" element={<FrontendNextjsArchitecture />} />
+            <Route path="/learning/frontend-engineering/module-11" element={<FrontendNextjsArchitecture />} />
+            <Route path="/courses/frontend-engineering/nextjs-architecture" element={<FrontendNextjsArchitecture />} />
+            <Route path="/learning/frontend/nextjs-architecture" element={<FrontendNextjsArchitecture />} />
+            <Route path="/learning/frontend/module-11" element={<FrontendNextjsArchitecture />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

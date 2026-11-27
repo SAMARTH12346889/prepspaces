@@ -1,0 +1,3132 @@
+{
+  "moduleNumber": "11",
+  "title": "MODULE 11 — Next.js and Modern Web Application Architecture",
+  "badges": [
+    "Advanced Frontend Engineering",
+    "16 Lessons",
+    "Next.js App Router",
+    "TypeScript & SSR/SSG/ISR"
+  ],
+  "overview": [
+    {
+      "type": "p",
+      "text": "Module overview"
+    },
+    {
+      "type": "p",
+      "text": "Next.js is a React framework used to build production-grade web applications. It provides routing, server-side rendering, static generation, server-side data fetching, caching, image optimization, metadata management, and deployment capabilities."
+    },
+    {
+      "type": "p",
+      "text": "In this module, you will progress from understanding Next.js fundamentals to designing a complete application architecture that can support real-world traffic, dynamic content, search-engine indexing, and scalable development."
+    },
+    {
+      "type": "h3",
+      "text": "What you will learn"
+    },
+    {
+      "type": "p",
+      "text": "By the end of this module, you should be able to:"
+    },
+    {
+      "type": "p",
+      "text": "Understand how Next.js extends React."
+    },
+    {
+      "type": "p",
+      "text": "Create production-ready Next.js applications using TypeScript."
+    },
+    {
+      "type": "p",
+      "text": "Design an application using the App Router."
+    },
+    {
+      "type": "p",
+      "text": "Build static, dynamic, and nested routes."
+    },
+    {
+      "type": "p",
+      "text": "Design reusable layouts and navigation systems."
+    },
+    {
+      "type": "p",
+      "text": "Understand Server Components and Client Components."
+    },
+    {
+      "type": "p",
+      "text": "Choose the appropriate rendering strategy for different pages."
+    },
+    {
+      "type": "p",
+      "text": "Implement SSR, SSG, and ISR."
+    },
+    {
+      "type": "p",
+      "text": "Understand hydration and the React rendering lifecycle."
+    },
+    {
+      "type": "p",
+      "text": "Fetch, cache, and revalidate application data."
+    },
+    {
+      "type": "p",
+      "text": "Implement streaming and Suspense."
+    },
+    {
+      "type": "p",
+      "text": "Build SEO-friendly pages with dynamic metadata."
+    },
+    {
+      "type": "p",
+      "text": "Optimize images, fonts, and application performance."
+    },
+    {
+      "type": "p",
+      "text": "Implement production-grade error and loading interfaces."
+    },
+    {
+      "type": "p",
+      "text": "Deploy and understand the architecture of a Next.js application."
+    },
+    {
+      "type": "h3",
+      "text": "How the lessons fit together"
+    },
+    {
+      "type": "p",
+      "text": "Next.js foundations — Lessons 1–3: Framework architecture, TypeScript and project structure."
+    },
+    {
+      "type": "p",
+      "text": "Routing and application architecture — Lessons 4–5: Dynamic routes, layouts and navigation."
+    },
+    {
+      "type": "p",
+      "text": "React rendering architecture — Lessons 6–10: Server Components, rendering strategies and hydration."
+    },
+    {
+      "type": "p",
+      "text": "Data and performance engineering — Lessons 11–12: Data fetching, caching, streaming and Suspense."
+    },
+    {
+      "type": "p",
+      "text": "SEO and production readiness — Lessons 13–16: Metadata, optimization, error handling and deployment."
+    }
+  ],
+  "sections": [
+    {
+      "id": "lesson-01",
+      "badge": "Lesson 01",
+      "title": "Introduction to Next.js and React Framework Architecture",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "1.1 What is Next.js?"
+        },
+        {
+          "type": "p",
+          "text": "Next.js is a React-based web framework that provides the infrastructure required to build complete web applications."
+        },
+        {
+          "type": "p",
+          "text": "To understand why Next.js exists, first understand what React does."
+        },
+        {
+          "type": "p",
+          "text": "React is primarily a user-interface library. It gives developers tools to create components, manage state, and build interactive interfaces."
+        },
+        {
+          "type": "p",
+          "text": "However, a production web application needs much more than components."
+        },
+        {
+          "type": "p",
+          "text": "For example, consider building an educational platform like PrepSpaces."
+        },
+        {
+          "type": "p",
+          "text": "It might contain:"
+        },
+        {
+          "type": "p",
+          "text": "A homepage."
+        },
+        {
+          "type": "p",
+          "text": "Course listing pages."
+        },
+        {
+          "type": "p",
+          "text": "Individual course pages."
+        },
+        {
+          "type": "p",
+          "text": "Student dashboards."
+        },
+        {
+          "type": "p",
+          "text": "Authentication pages."
+        },
+        {
+          "type": "p",
+          "text": "Dynamic lesson pages."
+        },
+        {
+          "type": "p",
+          "text": "Search-engine-friendly content pages."
+        },
+        {
+          "type": "p",
+          "text": "Administrative interfaces."
+        },
+        {
+          "type": "p",
+          "text": "With React alone, you need to make many additional architectural decisions and integrate different tools."
+        },
+        {
+          "type": "p",
+          "text": "Next.js provides an integrated framework for many of these requirements."
+        },
+        {
+          "type": "h3",
+          "text": "1.2 React vs Next.js"
+        },
+        {
+          "type": "p",
+          "text": "Capability | React alone | Next.js"
+        },
+        {
+          "type": "p",
+          "text": "UI components | Yes | Yes"
+        },
+        {
+          "type": "p",
+          "text": "Component state | Yes | Yes"
+        },
+        {
+          "type": "p",
+          "text": "File-based routing | External library needed | Built in"
+        },
+        {
+          "type": "p",
+          "text": "Server rendering | Additional setup | Built in"
+        },
+        {
+          "type": "p",
+          "text": "Static generation | Additional setup | Built in"
+        },
+        {
+          "type": "p",
+          "text": "Server Components | React infrastructure/setup | Integrated"
+        },
+        {
+          "type": "p",
+          "text": "Metadata management | Manual or external tools | Built in"
+        },
+        {
+          "type": "p",
+          "text": "Image optimization | External solution | Built in"
+        },
+        {
+          "type": "p",
+          "text": "Route-level loading UI | Custom implementation | Built-in conventions"
+        },
+        {
+          "type": "p",
+          "text": "Deployment | Depends on chosen stack | Framework-aware deployment"
+        },
+        {
+          "type": "p",
+          "text": "React is the foundation for building the UI. Next.js adds application-level architecture around React."
+        },
+        {
+          "type": "h3",
+          "text": "1.3 Understanding traditional React architecture"
+        },
+        {
+          "type": "p",
+          "text": "In a typical client-rendered React application, the browser downloads JavaScript, executes the application and renders the interface."
+        },
+        {
+          "type": "p",
+          "text": "Consider the process:"
+        },
+        {
+          "type": "code",
+          "text": "User opens website\n       ↓\nBrowser requests application\n       ↓\nHTML and JavaScript downloaded\n       ↓\nJavaScript executes\n       ↓\nReact renders components\n       ↓\nUser sees application"
+        },
+        {
+          "type": "p",
+          "text": "This architecture is commonly known as Client-Side Rendering (CSR)."
+        },
+        {
+          "type": "p",
+          "text": "One potential disadvantage is that the browser may need to execute JavaScript before the meaningful page content is available."
+        },
+        {
+          "type": "p",
+          "text": "The actual experience depends on how the application is built, how much JavaScript it downloads, and whether it uses prerendering."
+        },
+        {
+          "type": "h3",
+          "text": "1.4 Understanding Next.js architecture"
+        },
+        {
+          "type": "p",
+          "text": "Next.js can render content on the server, generate pages ahead of time, or combine server-generated and client-rendered interfaces."
+        },
+        {
+          "type": "code",
+          "text": "              User\n               ↓\n            Browser\n               ↓\n      Next.js Application\n        ┌──────┴──────┐\n        ↓             ↓\n     Server        Client\n   Rendering     Interaction\n        ↓             ↓\n  Database/API    React UI\n        └──────┬──────┘\n               ↓\n      Complete Interface"
+        },
+        {
+          "type": "p",
+          "text": "The server can retrieve data and render content before the browser receives the page. The browser can then hydrate the interactive Client Components."
+        },
+        {
+          "type": "h3",
+          "text": "1.5 Important features of Next.js"
+        },
+        {
+          "type": "h3",
+          "text": "1. File-based routing: Your folder structure determines your application URLs."
+        },
+        {
+          "type": "h3",
+          "text": "2. Server Components: Components can execute on the server and retrieve data without sending their component implementation to the browser."
+        },
+        {
+          "type": "h3",
+          "text": "3. Client Components: Components can provide browser-based functionality such as buttons, forms, event handling, and interactive dashboards."
+        },
+        {
+          "type": "h3",
+          "text": "4. Rendering strategies: Next.js supports different rendering approaches depending on whether content is static, dynamic, or periodically updated."
+        },
+        {
+          "type": "h3",
+          "text": "5. Data fetching: Server Components can retrieve information from APIs, databases, and other server-side sources."
+        },
+        {
+          "type": "h3",
+          "text": "6. Optimization: Next.js provides built-in facilities for image handling, font loading, code splitting, and navigation prefetching."
+        },
+        {
+          "type": "h3",
+          "text": "1.6 When should you use Next.js?"
+        },
+        {
+          "type": "p",
+          "text": "Next.js is particularly useful for:"
+        },
+        {
+          "type": "p",
+          "text": "Educational platforms."
+        },
+        {
+          "type": "p",
+          "text": "E-commerce applications."
+        },
+        {
+          "type": "p",
+          "text": "SaaS platforms."
+        },
+        {
+          "type": "p",
+          "text": "Blogs and publishing systems."
+        },
+        {
+          "type": "p",
+          "text": "Business websites."
+        },
+        {
+          "type": "p",
+          "text": "Documentation platforms."
+        },
+        {
+          "type": "p",
+          "text": "Job portals."
+        },
+        {
+          "type": "p",
+          "text": "Content-driven applications."
+        },
+        {
+          "type": "p",
+          "text": "Applications requiring a combination of public SEO pages and private dashboards."
+        },
+        {
+          "type": "p",
+          "text": "For example, a learning platform can use server rendering for publicly accessible course pages and authenticated, dynamic content for its student dashboard."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should understand why a React framework is useful, how Next.js extends React, and which application requirements it addresses."
+        }
+      ]
+    },
+    {
+      "id": "lesson-02",
+      "badge": "Lesson 02",
+      "title": "Creating Next.js Applications with TypeScript",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This lesson teaches you how to initialize a Next.js application, configure the development environment, and establish a maintainable TypeScript codebase."
+        },
+        {
+          "type": "h3",
+          "text": "2.1 Understanding the development environment"
+        },
+        {
+          "type": "p",
+          "text": "Before creating a Next.js application, you need to understand the tools involved."
+        },
+        {
+          "type": "p",
+          "text": "Technology | Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "Node.js | Runs JavaScript outside the browser"
+        },
+        {
+          "type": "p",
+          "text": "npm | Manages project dependencies"
+        },
+        {
+          "type": "p",
+          "text": "Next.js | Provides the React application framework"
+        },
+        {
+          "type": "p",
+          "text": "React | Builds the user interface"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript | Adds static type checking"
+        },
+        {
+          "type": "p",
+          "text": "ESLint | Helps identify code-quality problems"
+        },
+        {
+          "type": "p",
+          "text": "Git | Tracks project changes"
+        },
+        {
+          "type": "p",
+          "text": "You should also understand the difference between a development environment and a production environment."
+        },
+        {
+          "type": "p",
+          "text": "Development environment: Used to write code, test functionality, and identify errors."
+        },
+        {
+          "type": "p",
+          "text": "Production environment: Used to serve the optimized application to real users."
+        },
+        {
+          "type": "h3",
+          "text": "2.2 Creating a Next.js application"
+        },
+        {
+          "type": "p",
+          "text": "Run:"
+        },
+        {
+          "type": "code",
+          "text": "npx create-next-app@latest my-platform"
+        },
+        {
+          "type": "p",
+          "text": "You will be prompted to configure several project options, including:"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript."
+        },
+        {
+          "type": "p",
+          "text": "ESLint."
+        },
+        {
+          "type": "p",
+          "text": "Tailwind CSS."
+        },
+        {
+          "type": "p",
+          "text": "App Router."
+        },
+        {
+          "type": "p",
+          "text": "Import aliases."
+        },
+        {
+          "type": "p",
+          "text": "Optional project-directory preferences."
+        },
+        {
+          "type": "p",
+          "text": "For this course, select TypeScript and App Router."
+        },
+        {
+          "type": "p",
+          "text": "Navigate into the project:"
+        },
+        {
+          "type": "code",
+          "text": "cd my-platform"
+        },
+        {
+          "type": "p",
+          "text": "Start the development server:"
+        },
+        {
+          "type": "code",
+          "text": "npm run dev"
+        },
+        {
+          "type": "p",
+          "text": "Open: http://localhost:3000 — Your Next.js development server is now running."
+        },
+        {
+          "type": "h3",
+          "text": "2.3 Understanding package.json"
+        },
+        {
+          "type": "p",
+          "text": "The package.json file contains project information, dependencies and scripts."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"next build\",\n    \"start\": \"next start\",\n    \"lint\": \"eslint\"\n  },\n  \"dependencies\": {\n    \"next\": \"latest\",\n    \"react\": \"latest\",\n    \"react-dom\": \"latest\"\n  }\n}"
+        },
+        {
+          "type": "p",
+          "text": "Command | Purpose"
+        },
+        {
+          "type": "p",
+          "text": "npm run dev | Starts development mode"
+        },
+        {
+          "type": "p",
+          "text": "npm run build | Builds the production application"
+        },
+        {
+          "type": "p",
+          "text": "npm run start | Starts the production server"
+        },
+        {
+          "type": "p",
+          "text": "npm run lint | Runs configured lint checks"
+        },
+        {
+          "type": "p",
+          "text": "The exact scripts may differ between project templates and package versions."
+        },
+        {
+          "type": "h3",
+          "text": "2.4 What is TypeScript?"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript is dynamically typed, meaning variables do not require predefined types."
+        },
+        {
+          "type": "code",
+          "text": "let age = 21;\nage = \"Student\";"
+        },
+        {
+          "type": "p",
+          "text": "JavaScript allows this assignment."
+        },
+        {
+          "type": "p",
+          "text": "TypeScript introduces static type checking."
+        },
+        {
+          "type": "code",
+          "text": "let age: number = 21;\n// TypeScript reports a type error.\nage = \"Student\";"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript helps catch incorrect data usage during development."
+        },
+        {
+          "type": "h3",
+          "text": "2.5 TypeScript in React components"
+        },
+        {
+          "type": "p",
+          "text": "Consider a reusable course card."
+        },
+        {
+          "type": "code",
+          "text": "interface Course {\n  id: number;\n  title: string;\n  description: string;\n  duration: number;\n}\n\ninterface CourseCardProps {\n  course: Course;\n}\n\nexport default function CourseCard({ course }: CourseCardProps) {\n  return (\n    <article>\n      <h2>{course.title}</h2>\n      <p>{course.description}</p>\n      <span>{course.duration} hours</span>\n    </article>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Here:"
+        },
+        {
+          "type": "p",
+          "text": "Course describes the structure of course information."
+        },
+        {
+          "type": "p",
+          "text": "CourseCardProps defines the properties accepted by the component."
+        },
+        {
+          "type": "p",
+          "text": "CourseCard receives strongly typed data."
+        },
+        {
+          "type": "p",
+          "text": "This makes components more predictable and maintainable."
+        },
+        {
+          "type": "h3",
+          "text": "2.6 Understanding project configuration"
+        },
+        {
+          "type": "p",
+          "text": "Students should understand the purpose of:"
+        },
+        {
+          "type": "p",
+          "text": "tsconfig.json: TypeScript compiler configuration."
+        },
+        {
+          "type": "p",
+          "text": "next.config.ts: Next.js configuration."
+        },
+        {
+          "type": "p",
+          "text": "eslint.config.mjs: ESLint configuration."
+        },
+        {
+          "type": "p",
+          "text": ".gitignore: Files excluded from version control."
+        },
+        {
+          "type": "p",
+          "text": ".env.local: Local environment variables."
+        },
+        {
+          "type": "p",
+          "text": "package-lock.json: Locked dependency versions."
+        },
+        {
+          "type": "h3",
+          "text": "2.7 Environment variables"
+        },
+        {
+          "type": "p",
+          "text": "Applications frequently connect to external APIs and databases."
+        },
+        {
+          "type": "p",
+          "text": "You should not place private credentials directly inside source code."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "DATABASE_URL=your_database_url\nAPI_SECRET=your_secret\nNEXT_PUBLIC_API_URL=https://api.example.com"
+        },
+        {
+          "type": "p",
+          "text": "Access server-side environment variables using:"
+        },
+        {
+          "type": "code",
+          "text": "const databaseUrl = process.env.DATABASE_URL;"
+        },
+        {
+          "type": "p",
+          "text": "Variables beginning with NEXT_PUBLIC_ can be exposed to the browser. Never put passwords, private API credentials, or database secrets in them."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to initialize a Next.js TypeScript project, configure the development environment, create typed React components, and manage project configuration safely."
+        }
+      ]
+    },
+    {
+      "id": "lesson-03",
+      "badge": "Lesson 03",
+      "title": "App Router and Project Structure",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "3.1 What is the App Router?"
+        },
+        {
+          "type": "p",
+          "text": "The App Router is Next.js's modern routing architecture. It uses the application's file and folder structure to define routes."
+        },
+        {
+          "type": "p",
+          "text": "It is built around modern React features, including Server Components and Suspense."
+        },
+        {
+          "type": "p",
+          "text": "The App Router is different from the older Pages Router, which uses the pages/ directory."
+        },
+        {
+          "type": "p",
+          "text": "This course focuses on the App Router."
+        },
+        {
+          "type": "h3",
+          "text": "3.2 Understanding the project structure"
+        },
+        {
+          "type": "p",
+          "text": "Consider the following project:"
+        },
+        {
+          "type": "code",
+          "text": "my-platform/\n├── app/\n│   ├── layout.tsx\n│   ├── page.tsx\n│   ├── globals.css\n│   ├── courses/\n│   │   ├── page.tsx\n│   │   └── [slug]/\n│   │       └── page.tsx\n│   ├── dashboard/\n│   │   ├── layout.tsx\n│   │   └── page.tsx\n│   ├── about/\n│   │   └── page.tsx\n│   └── api/\n│       └── courses/\n│           └── route.ts\n├── components/\n│   ├── Navbar.tsx\n│   ├── Footer.tsx\n│   └── CourseCard.tsx\n├── lib/\n│   ├── database.ts\n│   └── courses.ts\n├── public/\n│   └── images/\n├── types/\n│   └── course.ts\n├── next.config.ts\n├── tsconfig.json\n└── package.json"
+        },
+        {
+          "type": "p",
+          "text": "Let's understand the important directories."
+        },
+        {
+          "type": "p",
+          "text": "1. app/: Contains route definitions, pages, layouts, loading interfaces and error interfaces."
+        },
+        {
+          "type": "p",
+          "text": "2. components/: Contains reusable UI components such as navigation bars, buttons, cards and forms."
+        },
+        {
+          "type": "p",
+          "text": "3. lib/: Contains shared application logic, data access functions, database connections and utilities."
+        },
+        {
+          "type": "p",
+          "text": "4. public/: Contains static assets such as logos, images, icons and other publicly accessible files."
+        },
+        {
+          "type": "p",
+          "text": "5. types/: Contains reusable TypeScript types and interfaces."
+        },
+        {
+          "type": "p",
+          "text": "This separation makes a large application easier to maintain."
+        },
+        {
+          "type": "h3",
+          "text": "3.3 Understanding special App Router files"
+        },
+        {
+          "type": "p",
+          "text": "Next.js recognizes specific filenames and assigns them special functionality."
+        },
+        {
+          "type": "p",
+          "text": "File | Responsibility"
+        },
+        {
+          "type": "p",
+          "text": "page.tsx | Creates a route's page"
+        },
+        {
+          "type": "p",
+          "text": "layout.tsx | Creates a shared layout"
+        },
+        {
+          "type": "p",
+          "text": "template.tsx | Creates a layout-like structure with a new instance during navigation"
+        },
+        {
+          "type": "p",
+          "text": "loading.tsx | Provides a loading interface"
+        },
+        {
+          "type": "p",
+          "text": "error.tsx | Handles errors in a route segment"
+        },
+        {
+          "type": "p",
+          "text": "not-found.tsx | Displays a not-found interface"
+        },
+        {
+          "type": "p",
+          "text": "route.ts | Defines an API endpoint or route handler"
+        },
+        {
+          "type": "p",
+          "text": "global-error.tsx | Handles errors at the root level"
+        },
+        {
+          "type": "p",
+          "text": "globals.css | Contains global styles"
+        },
+        {
+          "type": "p",
+          "text": "These conventions allow Next.js to coordinate routing and rendering automatically."
+        },
+        {
+          "type": "h3",
+          "text": "3.4 Understanding page.tsx"
+        },
+        {
+          "type": "p",
+          "text": "A page.tsx file creates the actual page associated with a URL."
+        },
+        {
+          "type": "p",
+          "text": "Example: app/page.tsx"
+        },
+        {
+          "type": "code",
+          "text": "export default function HomePage() {\n  return (\n    <main>\n      <h1>Welcome to PrepSpaces</h1>\n      <p>Learn technology through structured educational courses.</p>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "This creates the homepage: http://localhost:3000/"
+        },
+        {
+          "type": "p",
+          "text": "Now create: app/courses/page.tsx"
+        },
+        {
+          "type": "code",
+          "text": "export default function CoursesPage() {\n  return (\n    <main>\n      <h1>Available Courses</h1>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "This creates: http://localhost:3000/courses"
+        },
+        {
+          "type": "p",
+          "text": "Notice that the folder name determines the URL segment."
+        },
+        {
+          "type": "h3",
+          "text": "3.5 Understanding root layout"
+        },
+        {
+          "type": "p",
+          "text": "The root layout is the shared foundation of the application."
+        },
+        {
+          "type": "p",
+          "text": "app/layout.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import type { Metadata } from \"next\";\n\nexport const metadata: Metadata = {\n  title: \"PrepSpaces\",\n  description: \"Technology learning platform\"\n};\n\nexport default function RootLayout({\n  children\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <html lang=\"en\">\n      <body>{children}</body>\n    </html>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The root layout contains elements shared across pages, including the HTML document structure."
+        },
+        {
+          "type": "p",
+          "text": "For example, your navigation bar, global providers and common application wrappers may be placed here or in nested layouts, depending on their scope."
+        },
+        {
+          "type": "h3",
+          "text": "3.6 Organizing a large project"
+        },
+        {
+          "type": "p",
+          "text": "A common mistake is putting every component, API call and utility inside the app/ directory."
+        },
+        {
+          "type": "p",
+          "text": "A cleaner architecture separates responsibilities:"
+        },
+        {
+          "type": "code",
+          "text": "Application\n├── Routing (Pages, Layouts, Loading, Errors)\n├── Components (Common UI, Forms, Course Components)\n├── Business Logic (Data Services, Database, Utilities)\n└── Types (Interfaces, Data Models)"
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand how the App Router recognizes routes, how its special files work, and how to structure a maintainable Next.js project."
+        }
+      ]
+    },
+    {
+      "id": "lesson-04",
+      "badge": "Lesson 04",
+      "title": "File-Based Routing and Dynamic Routes",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Routing determines which page is displayed when a user visits a particular URL."
+        },
+        {
+          "type": "h3",
+          "text": "4.1 Understanding file-based routing"
+        },
+        {
+          "type": "p",
+          "text": "Traditional routing often requires manually defining URL-to-component mappings."
+        },
+        {
+          "type": "p",
+          "text": "In Next.js App Router, folders and special files determine the routes."
+        },
+        {
+          "type": "code",
+          "text": "app/\n├── page.tsx\n├── about/\n│   └── page.tsx\n├── contact/\n│   └── page.tsx\n└── courses/\n    └── page.tsx"
+        },
+        {
+          "type": "p",
+          "text": "File location | URL"
+        },
+        {
+          "type": "p",
+          "text": "app/page.tsx | /"
+        },
+        {
+          "type": "p",
+          "text": "app/about/page.tsx | /about"
+        },
+        {
+          "type": "p",
+          "text": "app/contact/page.tsx | /contact"
+        },
+        {
+          "type": "p",
+          "text": "app/courses/page.tsx | /courses"
+        },
+        {
+          "type": "p",
+          "text": "The important concept is that a folder by itself does not create a publicly accessible page. A route becomes a page when it contains a page.tsx file."
+        },
+        {
+          "type": "h3",
+          "text": "4.2 What are dynamic routes?"
+        },
+        {
+          "type": "p",
+          "text": "Suppose your platform contains 100 courses."
+        },
+        {
+          "type": "p",
+          "text": "You could manually create 100 separate page files, but this would be difficult to maintain."
+        },
+        {
+          "type": "p",
+          "text": "Instead, dynamic routing allows a single page template to display different content based on the URL."
+        },
+        {
+          "type": "p",
+          "text": "Example: app/courses/[slug]/page.tsx"
+        },
+        {
+          "type": "p",
+          "text": "This route can handle: /courses/react, /courses/javascript, /courses/python, /courses/system-design."
+        },
+        {
+          "type": "p",
+          "text": "The [slug] segment is a dynamic route parameter."
+        },
+        {
+          "type": "h3",
+          "text": "4.3 Accessing route parameters"
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "interface Course {\n  title: string;\n  description: string;\n}\n\nconst courses: Record<string, Course> = {\n  react: {\n    title: \"React Development\",\n    description: \"Learn modern React.\"\n  },\n  python: {\n    title: \"Python Programming\",\n    description: \"Learn Python fundamentals.\"\n  }\n};\n\nexport default async function CoursePage({\n  params\n}: {\n  params: Promise<{ slug: string }>;\n}) {\n  const { slug } = await params;\n  const course = courses[slug];\n\n  if (!course) {\n    return <h1>Course not found</h1>;\n  }\n\n  return (\n    <main>\n      <h1>{course.title}</h1>\n      <p>{course.description}</p>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "An important modern Next.js detail: route params are asynchronous in current App Router conventions, so you should await them. Older tutorials may show synchronous access."
+        },
+        {
+          "type": "h3",
+          "text": "4.4 Dynamic route types"
+        },
+        {
+          "type": "p",
+          "text": "There are several ways to define dynamic segments."
+        },
+        {
+          "type": "p",
+          "text": "Single dynamic segment: app/blog/[slug]/page.tsx (e.g. /blog/nextjs, /blog/react, /blog/typescript)"
+        },
+        {
+          "type": "p",
+          "text": "Multiple dynamic segments: app/courses/[courseId]/lessons/[lessonId]/page.tsx (e.g. /courses/101/lessons/5)"
+        },
+        {
+          "type": "p",
+          "text": "Catch-all routes: app/docs/[...slug]/page.tsx (e.g. /docs/frontend, /docs/frontend/react, /docs/frontend/react/hooks)"
+        },
+        {
+          "type": "p",
+          "text": "Optional catch-all routes: app/docs/[[...slug]]/page.tsx (can also match /docs without requiring a slug)"
+        },
+        {
+          "type": "h3",
+          "text": "4.5 Query parameters"
+        },
+        {
+          "type": "p",
+          "text": "Dynamic route segments are not the same as query parameters."
+        },
+        {
+          "type": "p",
+          "text": "Consider: /courses?category=frontend&level=advanced"
+        },
+        {
+          "type": "p",
+          "text": "Here category and level are query parameters, not part of the pathname."
+        },
+        {
+          "type": "p",
+          "text": "Query parameters are useful for Search, Filtering, Pagination, Sorting, and Category selection."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "export default async function CoursesPage({\n  searchParams\n}: {\n  searchParams: Promise<{\n    category?: string;\n    level?: string;\n  }>;\n}) {\n  const filters = await searchParams;\n\n  return (\n    <main>\n      <h1>Courses</h1>\n      <p>Category: {filters.category ?? \"All\"}</p>\n      <p>Level: {filters.level ?? \"All\"}</p>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "4.6 Generating routes at build time"
+        },
+        {
+          "type": "p",
+          "text": "Next.js provides generateStaticParams() to identify dynamic paths that can be generated during the build."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "export async function generateStaticParams() {\n  return [\n    { slug: \"react\" },\n    { slug: \"python\" },\n    { slug: \"javascript\" }\n  ];\n}"
+        },
+        {
+          "type": "p",
+          "text": "Next.js can use these parameters to prerender the specified dynamic pages."
+        },
+        {
+          "type": "p",
+          "text": "You will study this more deeply in the Static Site Generation lesson."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to create static routes, dynamic routes, nested URL structures, catch-all routes, and query-based filtering systems."
+        }
+      ]
+    },
+    {
+      "id": "lesson-05",
+      "badge": "Lesson 05",
+      "title": "Layouts, Templates and Nested Navigation",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A production application usually contains multiple pages that share the same design and interface elements."
+        },
+        {
+          "type": "p",
+          "text": "For example, an educational platform may contain:"
+        },
+        {
+          "type": "p",
+          "text": "A common navigation bar."
+        },
+        {
+          "type": "p",
+          "text": "A common footer."
+        },
+        {
+          "type": "p",
+          "text": "A sidebar."
+        },
+        {
+          "type": "p",
+          "text": "A dashboard header."
+        },
+        {
+          "type": "p",
+          "text": "A shared course navigation system."
+        },
+        {
+          "type": "p",
+          "text": "You should not need to recreate these elements independently for every page."
+        },
+        {
+          "type": "p",
+          "text": "Next.js provides layouts and templates to solve this problem."
+        },
+        {
+          "type": "h3",
+          "text": "5.1 What is a layout?"
+        },
+        {
+          "type": "p",
+          "text": "A layout is a reusable UI structure surrounding the content of one or more pages."
+        },
+        {
+          "type": "p",
+          "text": "Example: app/layout.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import Navbar from \"@/components/Navbar\";\nimport Footer from \"@/components/Footer\";\n\nexport default function RootLayout({\n  children\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <html lang=\"en\">\n      <body>\n        <Navbar />\n        {children}\n        <Footer />\n      </body>\n    </html>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Every route using this root layout receives the same shared application structure."
+        },
+        {
+          "type": "h3",
+          "text": "5.2 What are nested layouts?"
+        },
+        {
+          "type": "p",
+          "text": "A large application may contain different sections with different designs."
+        },
+        {
+          "type": "code",
+          "text": "app/\n├── layout.tsx\n├── page.tsx\n├── dashboard/\n│   ├── layout.tsx\n│   ├── page.tsx\n│   ├── courses/\n│   │   └── page.tsx\n│   └── settings/\n│       └── page.tsx\n└── courses/\n    └── page.tsx"
+        },
+        {
+          "type": "p",
+          "text": "The dashboard layout applies to /dashboard, /dashboard/courses, and /dashboard/settings."
+        },
+        {
+          "type": "p",
+          "text": "It can contain a sidebar, student profile navigation and dashboard-specific navigation."
+        },
+        {
+          "type": "p",
+          "text": "The other routes can use the root layout without the dashboard sidebar."
+        },
+        {
+          "type": "h3",
+          "text": "5.3 Layout composition"
+        },
+        {
+          "type": "code",
+          "text": "Root Layout\n├── Main Navbar\n├── Dashboard Layout\n│   ├── Dashboard Sidebar\n│   └── Dashboard Page\n└── Footer"
+        },
+        {
+          "type": "p",
+          "text": "Nested layouts are composed automatically by Next.js."
+        },
+        {
+          "type": "h3",
+          "text": "5.4 What is a template?"
+        },
+        {
+          "type": "p",
+          "text": "A template is similar to a layout, but it creates a new component instance when users navigate between certain route segments."
+        },
+        {
+          "type": "p",
+          "text": "Layouts: Preserve their component state during navigation, avoid unnecessary remounting, and are suitable for persistent interface elements."
+        },
+        {
+          "type": "p",
+          "text": "Templates: Create a fresh instance when their segment is navigated, can reset component state, and can be useful when an animation, effect or component initialization should run again."
+        },
+        {
+          "type": "p",
+          "text": "For example, a persistent dashboard sidebar is generally better suited to a layout than a template."
+        },
+        {
+          "type": "h3",
+          "text": "5.5 Navigation using Link"
+        },
+        {
+          "type": "p",
+          "text": "Next.js provides the Link component."
+        },
+        {
+          "type": "code",
+          "text": "import Link from \"next/link\";\n\nexport default function Navbar() {\n  return (\n    <nav>\n      <Link href=\"/\">Home</Link>\n      <Link href=\"/courses\">Courses</Link>\n      <Link href=\"/dashboard\">Dashboard</Link>\n    </nav>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The Link component provides optimized client-side navigation and can prefetch routes when appropriate."
+        },
+        {
+          "type": "p",
+          "text": "This can reduce the waiting time when users move between pages."
+        },
+        {
+          "type": "h3",
+          "text": "5.6 Route groups"
+        },
+        {
+          "type": "p",
+          "text": "Route groups allow developers to organize related routes without adding the group name to the URL."
+        },
+        {
+          "type": "code",
+          "text": "app/\n├── (marketing)/\n│   ├── about/\n│   │   └── page.tsx\n│   └── pricing/\n│       └── page.tsx\n├── (authentication)/\n│   ├── login/\n│   │   └── page.tsx\n│   └── register/\n│       └── page.tsx\n└── layout.tsx"
+        },
+        {
+          "type": "p",
+          "text": "The URLs remain /about, /pricing, /login, /register. The parentheses are not included in the URL."
+        },
+        {
+          "type": "p",
+          "text": "Route groups are useful for organizing applications with different interface requirements."
+        },
+        {
+          "type": "h3",
+          "text": "5.7 Practical architecture example"
+        },
+        {
+          "type": "p",
+          "text": "Section | Layout requirements"
+        },
+        {
+          "type": "p",
+          "text": "Public homepage | Navbar and footer"
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue | Public navigation"
+        },
+        {
+          "type": "p",
+          "text": "Course details | Public navigation and course information"
+        },
+        {
+          "type": "p",
+          "text": "Student dashboard | Sidebar and dashboard navigation"
+        },
+        {
+          "type": "p",
+          "text": "Lesson interface | Course sidebar and learning content"
+        },
+        {
+          "type": "p",
+          "text": "Authentication | Simplified authentication layout"
+        },
+        {
+          "type": "p",
+          "text": "Your task is to design the route hierarchy and decide which elements should persist across navigation."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand shared layouts, nested layouts, templates, route groups, and optimized navigation."
+        }
+      ]
+    },
+    {
+      "id": "lesson-06",
+      "badge": "Lesson 06",
+      "title": "Server Components and Client Components",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This is one of the most important lessons in modern Next.js."
+        },
+        {
+          "type": "p",
+          "text": "To build efficient applications, you must understand where React components execute, why some components run on the server, and why others need to run inside the browser."
+        },
+        {
+          "type": "h3",
+          "text": "6.1 Understanding the two environments"
+        },
+        {
+          "type": "p",
+          "text": "A Next.js application works across two primary environments."
+        },
+        {
+          "type": "p",
+          "text": "Server environment: Access databases, communicate with private APIs, read server-side environment variables, retrieve protected information, generate page content, execute server-side application logic."
+        },
+        {
+          "type": "p",
+          "text": "Client environment: Respond to button clicks, manage interactive states, display animations, access browser APIs, read browser storage, manage client-side forms and interactions."
+        },
+        {
+          "type": "p",
+          "text": "These environments have different responsibilities."
+        },
+        {
+          "type": "h3",
+          "text": "6.2 What are Server Components?"
+        },
+        {
+          "type": "p",
+          "text": "Server Components are React components that execute on the server."
+        },
+        {
+          "type": "p",
+          "text": "In the App Router, layouts and pages are Server Components by default."
+        },
+        {
+          "type": "p",
+          "text": "Example: app/courses/page.tsx"
+        },
+        {
+          "type": "code",
+          "text": "export default async function CoursesPage() {\n  const response = await fetch(\"https://api.example.com/courses\");\n  const courses = await response.json();\n\n  return (\n    <main>\n      <h1>Available Courses</h1>\n      {courses.map((course: any) => (\n        <article key={course.id}>\n          <h2>{course.title}</h2>\n        </article>\n      ))}\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Notice that the component is asynchronous. It retrieves course information before returning the rendered interface."
+        },
+        {
+          "type": "p",
+          "text": "Important characteristics:"
+        },
+        {
+          "type": "p",
+          "text": "Server Components can retrieve information from databases and APIs."
+        },
+        {
+          "type": "p",
+          "text": "Their component implementation does not need to be included in the browser's JavaScript bundle."
+        },
+        {
+          "type": "p",
+          "text": "They can access server-only resources."
+        },
+        {
+          "type": "p",
+          "text": "They cannot directly use browser-only APIs."
+        },
+        {
+          "type": "p",
+          "text": "They cannot use interactive React hooks such as useState and useEffect."
+        },
+        {
+          "type": "h3",
+          "text": "6.3 What are Client Components?"
+        },
+        {
+          "type": "p",
+          "text": "Client Components are components that participate in browser-side interactivity."
+        },
+        {
+          "type": "p",
+          "text": "To create a Client Component, use the \"use client\" directive at the top of the file."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport { useState } from \"react\";\n\nexport default function Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <h2>Counter: {count}</h2>\n      <button onClick={() => setCount(count + 1)}>\n        Increase\n      </button>\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Client Components support: useState, useEffect, useReducer, event handlers, browser APIs, interactive forms, client-side navigation hooks, animations and interactive UI libraries."
+        },
+        {
+          "type": "h3",
+          "text": "6.4 Server Components vs Client Components"
+        },
+        {
+          "type": "p",
+          "text": "Feature | Server Component | Client Component"
+        },
+        {
+          "type": "p",
+          "text": "Default in App Router | Yes | No"
+        },
+        {
+          "type": "p",
+          "text": "Server-side data access | Yes | Through APIs or passed data"
+        },
+        {
+          "type": "p",
+          "text": "useState | No | Yes"
+        },
+        {
+          "type": "p",
+          "text": "useEffect | No | Yes"
+        },
+        {
+          "type": "p",
+          "text": "Browser APIs | No | Yes"
+        },
+        {
+          "type": "p",
+          "text": "Event handlers | No | Yes"
+        },
+        {
+          "type": "p",
+          "text": "Server secrets | Yes, in server-only code | Never directly"
+        },
+        {
+          "type": "p",
+          "text": "Browser JavaScript required for component logic | No | Yes"
+        },
+        {
+          "type": "h3",
+          "text": "6.5 Understanding the component boundary"
+        },
+        {
+          "type": "code",
+          "text": "Course Page (Server Component)\n├── Course Information\n├── Course Description\n├── Course Syllabus\n├── Enrolment Button (Client)\n└── Progress Tracker (Client)"
+        },
+        {
+          "type": "p",
+          "text": "This avoids turning the entire course page into a Client Component unnecessarily."
+        },
+        {
+          "type": "h3",
+          "text": "6.6 Building a combined component"
+        },
+        {
+          "type": "p",
+          "text": "Server Component: app/courses/[slug]/page.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import EnrolButton from \"@/components/EnrolButton\";\n\nexport default async function CoursePage({\n  params\n}: {\n  params: Promise<{ slug: string }>;\n}) {\n  const { slug } = await params;\n  const course = await getCourse(slug);\n\n  return (\n    <main>\n      <h1>{course.title}</h1>\n      <p>{course.description}</p>\n      <EnrolButton courseId={course.id} />\n    </main>\n  );\n}\n\nasync function getCourse(slug: string) {\n  return {\n    id: slug,\n    title: \"Modern React Development\",\n    description: \"Learn React architecture.\"\n  };\n}"
+        },
+        {
+          "type": "p",
+          "text": "Client Component: components/EnrolButton.tsx"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport { useState } from \"react\";\n\nexport default function EnrolButton({\n  courseId\n}: {\n  courseId: string;\n}) {\n  const [enrolled, setEnrolled] = useState(false);\n\n  return (\n    <button onClick={() => setEnrolled(true)}>\n      {enrolled ? \"Enrolled\" : `Enrol in ${courseId}`}\n    </button>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The example only changes local UI state; an actual enrolment system must also save and verify enrolment on the server."
+        },
+        {
+          "type": "h3",
+          "text": "6.7 Understanding the RSC Payload"
+        },
+        {
+          "type": "p",
+          "text": "React Server Components use a representation called the React Server Component Payload (RSC Payload)."
+        },
+        {
+          "type": "p",
+          "text": "It contains information about:"
+        },
+        {
+          "type": "p",
+          "text": "The rendered Server Component tree."
+        },
+        {
+          "type": "p",
+          "text": "Placeholders for Client Components."
+        },
+        {
+          "type": "p",
+          "text": "References to the JavaScript needed by those Client Components."
+        },
+        {
+          "type": "p",
+          "text": "Props passed between components."
+        },
+        {
+          "type": "p",
+          "text": "On the initial load, Next.js uses the RSC Payload and Client Component code to generate an HTML preview. The browser then hydrates the Client Components."
+        },
+        {
+          "type": "p",
+          "text": "On later navigations, Next.js can use RSC data to update the interface without downloading and reconstructing the entire application from scratch. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "6.8 Common mistakes"
+        },
+        {
+          "type": "p",
+          "text": "Mistake 1: Using \"use client\" everywhere. This unnecessarily increases the amount of JavaScript sent to the browser."
+        },
+        {
+          "type": "p",
+          "text": "Mistake 2: Accessing window inside a Server Component. The window object exists in the browser, not in the server environment."
+        },
+        {
+          "type": "p",
+          "text": "Mistake 3: Trying to fetch private database information directly from a Client Component. Database credentials and private business logic should remain server-side."
+        },
+        {
+          "type": "p",
+          "text": "Mistake 4: Passing non-serializable values across the Server-to-Client boundary. Ordinary component props crossing this boundary should use supported serializable values. You cannot simply pass an ordinary server-defined callback as an event handler to a Client Component."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to design applications that combine Server Components and Client Components while minimizing unnecessary browser JavaScript."
+        }
+      ]
+    },
+    {
+      "id": "lesson-07",
+      "badge": "Lesson 07",
+      "title": "Understanding Server-Side Rendering (SSR)",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "7.1 What is Server-Side Rendering?"
+        },
+        {
+          "type": "p",
+          "text": "Server-Side Rendering is a rendering approach in which the server generates HTML for a page in response to a request."
+        },
+        {
+          "type": "p",
+          "text": "The browser receives the generated HTML instead of having to construct the entire initial page from JavaScript alone."
+        },
+        {
+          "type": "p",
+          "text": "Consider a student visiting /courses/react: the server receives the request, identifies the route, retrieves the required course information, renders the page, and sends the generated response to the browser."
+        },
+        {
+          "type": "h3",
+          "text": "7.2 CSR vs SSR"
+        },
+        {
+          "type": "p",
+          "text": "Client-Side Rendering (CSR): Browser requests the application -> JavaScript is downloaded -> React executes in the browser -> Components render and content becomes visible."
+        },
+        {
+          "type": "p",
+          "text": "Server-Side Rendering (SSR): Browser requests the page -> Server retrieves required information -> Server generates HTML -> Browser displays the returned HTML -> Client Components hydrate for interaction."
+        },
+        {
+          "type": "h3",
+          "text": "7.3 Why is SSR useful?"
+        },
+        {
+          "type": "p",
+          "text": "SSR is useful when page content depends on information that should be retrieved at request time:"
+        },
+        {
+          "type": "p",
+          "text": "Personalized dashboards."
+        },
+        {
+          "type": "p",
+          "text": "Authenticated student interfaces."
+        },
+        {
+          "type": "p",
+          "text": "Pages using request-specific information."
+        },
+        {
+          "type": "p",
+          "text": "Frequently changing data."
+        },
+        {
+          "type": "p",
+          "text": "Content that must reflect the latest server-side state."
+        },
+        {
+          "type": "p",
+          "text": "SSR can also improve the initial delivery of meaningful content compared with a purely client-rendered page, depending on the implementation. However, SSR is not automatically faster in every situation. It adds server processing and may introduce request latency."
+        },
+        {
+          "type": "h3",
+          "text": "7.4 How to implement request-time rendering"
+        },
+        {
+          "type": "code",
+          "text": "import { cookies } from \"next/headers\";\n\nexport default async function DashboardPage() {\n  const cookieStore = await cookies();\n  const session = cookieStore.get(\"session\");\n\n  return (\n    <main>\n      <h1>Student Dashboard</h1>\n      <p>Session: {session ? \"Available\" : \"Not found\"}</p>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Because this page accesses request-specific cookie data, it cannot be fully generated as one identical static page for all requests."
+        },
+        {
+          "type": "p",
+          "text": "In a real application, the session must be validated securely on the server before showing private information."
+        },
+        {
+          "type": "h3",
+          "text": "7.5 Understanding request-time rendering"
+        },
+        {
+          "type": "p",
+          "text": "Compare two pages:"
+        },
+        {
+          "type": "p",
+          "text": "Example A: Public course description — changes only when an administrator updates the course; can be generated ahead of time and cached."
+        },
+        {
+          "type": "p",
+          "text": "Example B: Student dashboard — depends on the current student's authenticated session and progress; needs request-specific data."
+        },
+        {
+          "type": "p",
+          "text": "This is why production applications frequently combine different rendering strategies."
+        },
+        {
+          "type": "h3",
+          "text": "7.6 SSR does not mean every Server Component renders on every request"
+        },
+        {
+          "type": "p",
+          "text": "This is an important distinction."
+        },
+        {
+          "type": "p",
+          "text": "A Server Component can participate in a page that was prerendered at build time. Being a Server Component does not automatically mean it runs on every incoming request."
+        },
+        {
+          "type": "p",
+          "text": "Rendering strategy and component execution environment are related but different concepts."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand request-time HTML generation, personalized server rendering, the differences between CSR and SSR, and when SSR is appropriate."
+        }
+      ]
+    },
+    {
+      "id": "lesson-08",
+      "badge": "Lesson 08",
+      "title": "Static Site Generation and Prerendering",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "8.1 What is Static Site Generation?"
+        },
+        {
+          "type": "p",
+          "text": "Static Site Generation (SSG) is a rendering approach in which pages are generated ahead of time rather than individually rendered for every incoming visitor."
+        },
+        {
+          "type": "p",
+          "text": "The generated HTML can then be served repeatedly."
+        },
+        {
+          "type": "p",
+          "text": "Consider a documentation platform containing 500 articles. If those articles are mostly the same for all visitors, generating them beforehand can reduce the work required to serve each request."
+        },
+        {
+          "type": "h3",
+          "text": "8.2 How SSG works"
+        },
+        {
+          "type": "code",
+          "text": "Source Code\n     ↓\nNext.js Build\n     ↓\nData Retrieval\n     ↓\nPage Generation\n     ↓\nStatic HTML Files\n     ↓\nCDN / Host\n     ↓\nVisitors"
+        },
+        {
+          "type": "h3",
+          "text": "8.3 Static rendering example"
+        },
+        {
+          "type": "code",
+          "text": "export default function AboutPage() {\n  return (\n    <main>\n      <h1>About PrepSpaces</h1>\n      <p>A platform for technology learning.</p>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "A page with stable content can be eligible for prerendering."
+        },
+        {
+          "type": "h3",
+          "text": "8.4 SSG with dynamic routes"
+        },
+        {
+          "type": "p",
+          "text": "For app/courses/[slug]/page.tsx:"
+        },
+        {
+          "type": "code",
+          "text": "export async function generateStaticParams() {\n  const courses = [\n    { slug: \"react\" },\n    { slug: \"python\" },\n    { slug: \"javascript\" }\n  ];\n\n  return courses;\n}"
+        },
+        {
+          "type": "p",
+          "text": "Next.js can generate these specified routes during the build. The actual page content is then retrieved using the corresponding slug."
+        },
+        {
+          "type": "h3",
+          "text": "8.5 SSG vs SSR"
+        },
+        {
+          "type": "p",
+          "text": "Feature | SSG | SSR"
+        },
+        {
+          "type": "p",
+          "text": "HTML generation | Ahead of time | At request time"
+        },
+        {
+          "type": "p",
+          "text": "Server work per visitor | Usually lower | Required for dynamic rendering"
+        },
+        {
+          "type": "p",
+          "text": "Best for | Stable public content | Request-specific content"
+        },
+        {
+          "type": "p",
+          "text": "CDN delivery | Straightforward | Depends on response and caching"
+        },
+        {
+          "type": "p",
+          "text": "Personalization | Not directly in shared static HTML | Can use request-specific data"
+        },
+        {
+          "type": "p",
+          "text": "Content freshness | Depends on rebuild or revalidation | Can retrieve current data per request"
+        },
+        {
+          "type": "h3",
+          "text": "8.6 Where should you use SSG?"
+        },
+        {
+          "type": "p",
+          "text": "SSG is particularly useful for:"
+        },
+        {
+          "type": "p",
+          "text": "Documentation."
+        },
+        {
+          "type": "p",
+          "text": "Public course descriptions."
+        },
+        {
+          "type": "p",
+          "text": "Blog articles."
+        },
+        {
+          "type": "p",
+          "text": "Product descriptions."
+        },
+        {
+          "type": "p",
+          "text": "Company information."
+        },
+        {
+          "type": "p",
+          "text": "Public landing pages."
+        },
+        {
+          "type": "p",
+          "text": "Frequently accessed pages with relatively stable content."
+        },
+        {
+          "type": "p",
+          "text": "It is less suitable when the entire page must be personalized for each request."
+        },
+        {
+          "type": "h3",
+          "text": "8.7 Understanding prerendering"
+        },
+        {
+          "type": "p",
+          "text": "Prerendering means preparing the page output before the visitor requests it."
+        },
+        {
+          "type": "p",
+          "text": "SSG is an important form of prerendering."
+        },
+        {
+          "type": "p",
+          "text": "Do not confuse prerendering with caching: prerendering creates output ahead of time, whereas caching controls whether previously generated output or data can be reused."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand build-time page generation, dynamic-route prerendering, the purpose of generateStaticParams(), and when static rendering is more suitable than request-time rendering."
+        }
+      ]
+    },
+    {
+      "id": "lesson-09",
+      "badge": "Lesson 09",
+      "title": "Incremental Static Regeneration and Revalidation",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "9.1 What is ISR?"
+        },
+        {
+          "type": "p",
+          "text": "Incremental Static Regeneration (ISR) allows a Next.js application to update previously generated pages without requiring a complete application rebuild for every content change."
+        },
+        {
+          "type": "p",
+          "text": "It combines the benefits of static generation with the ability to refresh content over time."
+        },
+        {
+          "type": "h3",
+          "text": "9.2 Understanding the ISR lifecycle"
+        },
+        {
+          "type": "code",
+          "text": "First Page Generation\n         ↓\n   Store Output\n         ↓\n  Serve Cached Page\n         ↓\nRevalidation Condition\n         ↓\nRegenerate Page Output\n         ↓\n  Store Updated Output\n         ↓\n  Serve Fresh Version"
+        },
+        {
+          "type": "p",
+          "text": "With time-based ISR, an expired or stale cached page can be served while regeneration occurs in the background. The regenerated result replaces the previously cached output after successful completion. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "9.3 Time-based revalidation"
+        },
+        {
+          "type": "p",
+          "text": "In the classic App Router caching model, you can configure time-based revalidation."
+        },
+        {
+          "type": "code",
+          "text": "export const revalidate = 3600;\n\nexport default async function BlogPage() {\n  const response = await fetch(\"https://api.example.com/blog\");\n  const posts = await response.json();\n\n  return (\n    <main>\n      <h1>Latest Articles</h1>\n      {posts.map((post: any) => (\n        <article key={post.id}>{post.title}</article>\n      ))}\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The value 3600 represents 3,600 seconds, or one hour. This is an upper-bound freshness interval, not a guarantee that the page regenerates exactly at the one-hour mark."
+        },
+        {
+          "type": "h3",
+          "text": "9.4 On-demand revalidation"
+        },
+        {
+          "type": "p",
+          "text": "Next.js provides revalidatePath() and revalidateTag()."
+        },
+        {
+          "type": "p",
+          "text": "Example using path-based revalidation:"
+        },
+        {
+          "type": "code",
+          "text": "\"use server\";\n\nimport { revalidatePath } from \"next/cache\";\n\nexport async function updateCourse() {\n  // Update course information in database.\n  revalidatePath(\"/courses\");\n}"
+        },
+        {
+          "type": "p",
+          "text": "This invalidates the relevant cached route so that a subsequent request can obtain regenerated output."
+        },
+        {
+          "type": "h3",
+          "text": "9.5 Understanding tag-based revalidation"
+        },
+        {
+          "type": "p",
+          "text": "You can associate tags with cached data and invalidate data using those tags (e.g. courses, course-101) without unnecessarily invalidating unrelated course data."
+        },
+        {
+          "type": "h3",
+          "text": "9.6 Modern Next.js caching: an important version distinction"
+        },
+        {
+          "type": "p",
+          "text": "The caching APIs and defaults have evolved. The current documentation describes two approaches:"
+        },
+        {
+          "type": "p",
+          "text": "Approach A: Previous caching model — Without Cache Components enabled, you can use the traditional route-segment revalidate configuration, fetch caching options, and on-demand revalidation."
+        },
+        {
+          "type": "p",
+          "text": "Approach B: Cache Components — Introduced in Next.js 16, enabled using:"
+        },
+        {
+          "type": "code",
+          "text": "import type { NextConfig } from \"next\";\n\nconst nextConfig: NextConfig = {\n  cacheComponents: true\n};\n\nexport default nextConfig;"
+        },
+        {
+          "type": "p",
+          "text": "You can then use \"use cache\", cacheLife(), cacheTag(), revalidateTag(), updateTag(), and revalidatePath()."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "import { cacheLife } from \"next/cache\";\n\nexport async function getCourses() {\n  \"use cache\";\n  cacheLife(\"hours\");\n  const response = await fetch(\"https://api.example.com/courses\");\n  return response.json();\n}"
+        },
+        {
+          "type": "p",
+          "text": "The caching configuration should be chosen deliberately for the project's Next.js version. Do not mix examples from the previous caching model with Cache Components without understanding their different semantics. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "9.7 Where should you use ISR?"
+        },
+        {
+          "type": "p",
+          "text": "Application content | Suitable strategy"
+        },
+        {
+          "type": "p",
+          "text": "Public blog articles | Static generation with revalidation"
+        },
+        {
+          "type": "p",
+          "text": "Course descriptions | Static generation with revalidation"
+        },
+        {
+          "type": "p",
+          "text": "Product catalogue | Static generation with revalidation"
+        },
+        {
+          "type": "p",
+          "text": "Frequently updated news | Shorter revalidation or dynamic rendering"
+        },
+        {
+          "type": "p",
+          "text": "Private student dashboard | Request-specific rendering"
+        },
+        {
+          "type": "p",
+          "text": "Live user activity | Dynamic or client-side data updates"
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand ISR, stale content, regeneration, cache invalidation, and the difference between the classic caching model and modern Cache Components."
+        }
+      ]
+    },
+    {
+      "id": "lesson-10",
+      "badge": "Lesson 10",
+      "title": "Hydration and Rendering Lifecycle",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This lesson connects everything you have learned about server rendering and Client Components."
+        },
+        {
+          "type": "h3",
+          "text": "10.1 What is hydration?"
+        },
+        {
+          "type": "p",
+          "text": "Hydration is the process through which React attaches client-side functionality to HTML that has already been generated by the server."
+        },
+        {
+          "type": "h3",
+          "text": "10.2 Understanding the complete rendering lifecycle"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport { useState } from \"react\";\n\nexport default function LikeButton() {\n  const [liked, setLiked] = useState(false);\n\n  return (\n    <button onClick={() => setLiked(!liked)}>\n      {liked ? \"Liked\" : \"Like\"}\n    </button>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "The initial HTML can contain the text Like. The browser can display that button immediately, and the click interaction becomes functional after hydration."
+        },
+        {
+          "type": "h3",
+          "text": "10.3 Step-by-step hydration process"
+        },
+        {
+          "type": "code",
+          "text": "User Requests Page\n       ↓\n  Next.js Server\n       ↓\nRender Server Components -> Generate RSC Payload -> Generate Initial HTML\n       ↓\nBrowser Receives HTML -> Content Displayed\n       ↓\nClient Component JavaScript -> Hydration -> Interactive Components"
+        },
+        {
+          "type": "p",
+          "text": "Next.js coordinates the HTML preview, RSC Payload and Client Component JavaScript to provide this experience. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "10.4 What is a hydration mismatch?"
+        },
+        {
+          "type": "p",
+          "text": "A hydration mismatch happens when React encounters a difference between the server-generated output and the initial browser-side rendering."
+        },
+        {
+          "type": "p",
+          "text": "Example:"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nexport default function TimeComponent() {\n  return <p>{new Date().toLocaleTimeString()}</p>;\n}"
+        },
+        {
+          "type": "p",
+          "text": "Other common causes include:"
+        },
+        {
+          "type": "p",
+          "text": "Using Math.random() during rendering."
+        },
+        {
+          "type": "p",
+          "text": "Reading localStorage directly during the initial render."
+        },
+        {
+          "type": "p",
+          "text": "Accessing browser-only information before hydration."
+        },
+        {
+          "type": "p",
+          "text": "Invalid HTML nesting."
+        },
+        {
+          "type": "p",
+          "text": "Rendering different content based on inconsistent server and client state."
+        },
+        {
+          "type": "p",
+          "text": "Date or number formatting differences."
+        },
+        {
+          "type": "h3",
+          "text": "10.5 How to prevent hydration mismatches"
+        },
+        {
+          "type": "p",
+          "text": "Browser-specific data that is not available on the server should generally be read after the component mounts."
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport { useEffect, useState } from \"react\";\n\nexport default function CurrentTime() {\n  const [time, setTime] = useState(\"\");\n\n  useEffect(() => {\n    setTime(new Date().toLocaleTimeString());\n  }, []);\n\n  return <p>{time || \"Loading time...\"}</p>;\n}"
+        },
+        {
+          "type": "h3",
+          "text": "10.6 Hydration vs rendering"
+        },
+        {
+          "type": "p",
+          "text": "Concept | Meaning"
+        },
+        {
+          "type": "p",
+          "text": "Rendering | Producing the UI representation"
+        },
+        {
+          "type": "p",
+          "text": "Server rendering | Producing the initial output on the server"
+        },
+        {
+          "type": "p",
+          "text": "Client rendering | Rendering UI in the browser"
+        },
+        {
+          "type": "p",
+          "text": "Hydration | Attaching React functionality to server-generated HTML"
+        },
+        {
+          "type": "p",
+          "text": "Reconciliation | React comparing UI changes and updating the rendered interface"
+        },
+        {
+          "type": "h3",
+          "text": "10.7 Why hydration matters for performance"
+        },
+        {
+          "type": "p",
+          "text": "The user experience has two important milestones: Content visibility and Interactivity."
+        },
+        {
+          "type": "p",
+          "text": "A large Client Component bundle may delay interactivity even when the server-generated HTML is already visible. Minimizing unnecessary Client Components, reducing JavaScript and using appropriate component boundaries matter."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: Understand how Next.js generates HTML, how RSC Payload works, how hydration activates interactive components, and how to diagnose hydration mismatch problems."
+        }
+      ]
+    },
+    {
+      "id": "lesson-11",
+      "badge": "Lesson 11",
+      "title": "Data Fetching and Caching in Next.js",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "11.1 Understanding data fetching"
+        },
+        {
+          "type": "p",
+          "text": "Data fetching means retrieving information from a data source (REST APIs, GraphQL APIs, SQL/NoSQL databases, external or internal services)."
+        },
+        {
+          "type": "h3",
+          "text": "11.2 Fetching data inside Server Components"
+        },
+        {
+          "type": "code",
+          "text": "interface Course {\n  id: number;\n  title: string;\n  level: string;\n}\n\nexport default async function CoursesPage() {\n  const response = await fetch(\"https://api.example.com/courses\");\n  if (!response.ok) {\n    throw new Error(\"Unable to load courses\");\n  }\n  const courses: Course[] = await response.json();\n\n  return (\n    <main>\n      <h1>Available Courses</h1>\n      {courses.map(course => (\n        <article key={course.id}>\n          <h2>{course.title}</h2>\n          <p>{course.level}</p>\n        </article>\n      ))}\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "11.3 Creating a reusable data service layer"
+        },
+        {
+          "type": "p",
+          "text": "lib/services/courseService.ts"
+        },
+        {
+          "type": "code",
+          "text": "export async function getCourses() {\n  const response = await fetch(\"https://api.example.com/courses\");\n  if (!response.ok) {\n    throw new Error(\"Failed to fetch courses\");\n  }\n  return response.json();\n}"
+        },
+        {
+          "type": "p",
+          "text": "app/courses/page.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import { getCourses } from \"@/lib/services/courseService\";\n\nexport default async function CoursesPage() {\n  const courses = await getCourses();\n\n  return (\n    <main>\n      {courses.map((course: any) => (\n        <h2 key={course.id}>{course.title}</h2>\n      ))}\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "11.4 Connecting directly to a database"
+        },
+        {
+          "type": "code",
+          "text": "import { db } from \"@/lib/database\";\nimport { courses } from \"@/lib/schema\";\n\nexport default async function CoursesPage() {\n  const allCourses = await db.select().from(courses);\n\n  return (\n    <main>\n      {allCourses.map(course => (\n        <article key={course.id}>{course.title}</article>\n      ))}\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Important: Database credentials and database access modules must remain on the server. Use server-only module protections where appropriate."
+        },
+        {
+          "type": "h3",
+          "text": "11.5 Understanding caching"
+        },
+        {
+          "type": "p",
+          "text": "Caching stores previously retrieved or generated information so it can be reused, reducing repeated processing, database requests, latency, and infrastructure costs."
+        },
+        {
+          "type": "h3",
+          "text": "11.6 Types of caching concepts"
+        },
+        {
+          "type": "p",
+          "text": "Concept | Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Request memoization | Reuses identical work within an individual render request"
+        },
+        {
+          "type": "p",
+          "text": "Data caching | Reuses previously retrieved data"
+        },
+        {
+          "type": "p",
+          "text": "Full route output caching | Reuses prerendered route output"
+        },
+        {
+          "type": "p",
+          "text": "Client Router Cache | Reuses route data during browser navigation"
+        },
+        {
+          "type": "p",
+          "text": "CDN caching | Distributes reusable responses closer to users"
+        },
+        {
+          "type": "h3",
+          "text": "11.7 Understanding current Next.js fetch behavior"
+        },
+        {
+          "type": "p",
+          "text": "In the current previous-model documentation, fetch requests are not cached by default. Persistent caching can be configured explicitly. With Cache Components enabled, developers can also use \"use cache\" and cacheLife()."
+        },
+        {
+          "type": "code",
+          "text": "const cached = await fetch(\"https://api.example.com/courses\", {\n  cache: \"force-cache\"\n});\n\nconst dynamic = await fetch(\"https://api.example.com/student-progress\", {\n  cache: \"no-store\"\n});"
+        },
+        {
+          "type": "h3",
+          "text": "11.8 Server State vs Client State"
+        },
+        {
+          "type": "p",
+          "text": "State type | Category"
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue | Server state"
+        },
+        {
+          "type": "p",
+          "text": "Database enrolment | Server state"
+        },
+        {
+          "type": "p",
+          "text": "Open navigation menu | Client state"
+        },
+        {
+          "type": "p",
+          "text": "Search input value | Client state"
+        },
+        {
+          "type": "p",
+          "text": "Saved student progress | Server state"
+        },
+        {
+          "type": "p",
+          "text": "Current modal visibility | Client state"
+        },
+        {
+          "type": "h3",
+          "text": "11.9 Understanding TanStack Query"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nimport { useQuery } from \"@tanstack/react-query\";\n\nexport default function Courses() {\n  const { data, isLoading, error } = useQuery({\n    queryKey: [\"courses\"],\n    queryFn: async () => {\n      const response = await fetch(\"/api/courses\");\n      if (!response.ok) {\n        throw new Error(\"Failed to load courses\");\n      }\n      return response.json();\n    }\n  });\n\n  if (isLoading) return <p>Loading courses...</p>;\n  if (error) return <p>Unable to load courses.</p>;\n\n  return (\n    <div>\n      {data.map((course: any) => (\n        <h2 key={course.id}>{course.title}</h2>\n      ))}\n    </div>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "You must configure a QueryClientProvider in the appropriate Client Component provider."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to retrieve information from APIs and databases, build reusable data services, understand caching, distinguish server and client state, and choose an appropriate data-fetching strategy."
+        }
+      ]
+    },
+    {
+      "id": "lesson-12",
+      "badge": "Lesson 12",
+      "title": "Streaming and Suspense Boundaries",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "12.1 What is streaming?"
+        },
+        {
+          "type": "p",
+          "text": "Streaming is a rendering technique where the server sends parts of the response progressively rather than waiting for the entire page to finish rendering."
+        },
+        {
+          "type": "h3",
+          "text": "12.2 Traditional rendering vs streaming"
+        },
+        {
+          "type": "p",
+          "text": "Traditional all-at-once approach waits for the slowest request before sending the complete page. Streaming renders available content (such as Profile and Course List) immediately while slower sections (like Analytics) stream in when ready."
+        },
+        {
+          "type": "h3",
+          "text": "12.3 What is Suspense?"
+        },
+        {
+          "type": "code",
+          "text": "import { Suspense } from \"react\";\nimport CourseList from \"@/components/CourseList\";\n\nexport default function CoursesPage() {\n  return (\n    <main>\n      <h1>Courses</h1>\n      <Suspense fallback={<p>Loading courses...</p>}>\n        <CourseList />\n      </Suspense>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "12.4 Creating an asynchronous Server Component"
+        },
+        {
+          "type": "code",
+          "text": "export default async function CourseList() {\n  const response = await fetch(\"https://api.example.com/courses\");\n  const courses = await response.json();\n\n  return (\n    <section>\n      {courses.map((course: any) => (\n        <article key={course.id}>\n          <h2>{course.title}</h2>\n        </article>\n      ))}\n    </section>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "12.5 Understanding loading.tsx"
+        },
+        {
+          "type": "p",
+          "text": "app/dashboard/loading.tsx"
+        },
+        {
+          "type": "code",
+          "text": "export default function Loading() {\n  return (\n    <main>\n      <h1>Student Dashboard</h1>\n      <p>Loading your dashboard...</p>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Next.js uses this file to provide an automatic loading fallback for the route segment while shared layouts remain interactive. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "12.6 Designing skeleton loading interfaces"
+        },
+        {
+          "type": "code",
+          "text": "export default function CourseSkeleton() {\n  return (\n    <div>\n      <div className=\"skeleton title\" />\n      <div className=\"skeleton card\" />\n      <div className=\"skeleton card\" />\n      <div className=\"skeleton card\" />\n    </div>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "12.7 Where should you use streaming?"
+        },
+        {
+          "type": "p",
+          "text": "Large dashboards, content feeds, search results, course catalogues, analytics pages, and pages retrieving data from multiple services with different loading times."
+        },
+        {
+          "type": "h3",
+          "text": "12.8 Understanding streaming limitations"
+        },
+        {
+          "type": "p",
+          "text": "Streaming does not automatically make a slow database query faster; it allows available content to become visible before slower work finishes. Infrastructure (servers, reverse proxies, CDNs) must preserve streaming behavior."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to implement Suspense boundaries, loading interfaces, skeleton screens and progressive server rendering."
+        }
+      ]
+    },
+    {
+      "id": "lesson-13",
+      "badge": "Lesson 13",
+      "title": "Next.js Metadata API and SEO",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "13.1 What is metadata?"
+        },
+        {
+          "type": "p",
+          "text": "Metadata describes a webpage's content for browsers, search engines, and social platforms (page title, meta description, canonical URL, Open Graph, robots directives, icons)."
+        },
+        {
+          "type": "h3",
+          "text": "13.2 Static metadata"
+        },
+        {
+          "type": "p",
+          "text": "app/about/page.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import type { Metadata } from \"next\";\n\nexport const metadata: Metadata = {\n  title: \"About PrepSpaces\",\n  description: \"Learn about the PrepSpaces learning platform.\"\n};\n\nexport default function AboutPage() {\n  return (\n    <main>\n      <h1>About PrepSpaces</h1>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "13.3 Dynamic metadata"
+        },
+        {
+          "type": "p",
+          "text": "app/courses/[slug]/page.tsx"
+        },
+        {
+          "type": "code",
+          "text": "import type { Metadata } from \"next\";\n\nasync function getCourse(slug: string) {\n  const response = await fetch(`https://api.example.com/courses/${slug}`);\n  if (!response.ok) return null;\n  return response.json();\n}\n\nexport async function generateMetadata({\n  params\n}: {\n  params: Promise<{ slug: string }>;\n}): Promise<Metadata> {\n  const { slug } = await params;\n  const course = await getCourse(slug);\n\n  if (!course) {\n    return { title: \"Course Not Found\" };\n  }\n\n  return {\n    title: `${course.title} | PrepSpaces`,\n    description: course.description,\n    openGraph: {\n      title: course.title,\n      description: course.description,\n      type: \"article\"\n    }\n  };\n}\n\nexport default async function CoursePage({\n  params\n}: {\n  params: Promise<{ slug: string }>;\n}) {\n  const { slug } = await params;\n  const course = await getCourse(slug);\n  if (!course) return <h1>Course not found</h1>;\n  return <h1>{course.title}</h1>;\n}"
+        },
+        {
+          "type": "p",
+          "text": "generateMetadata runs on the server and is not a Client Component export. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "13.4 Understanding metadata inheritance"
+        },
+        {
+          "type": "p",
+          "text": "Layouts can define title templates:"
+        },
+        {
+          "type": "code",
+          "text": "export const metadata = {\n  title: {\n    template: \"%s | PrepSpaces\",\n    default: \"PrepSpaces\"\n  }\n};"
+        },
+        {
+          "type": "h3",
+          "text": "13.5 Open Graph metadata"
+        },
+        {
+          "type": "code",
+          "text": "export const metadata = {\n  openGraph: {\n    title: \"Modern React Development\",\n    description: \"Explore structured React learning content.\",\n    images: [\"/images/react-course.png\"],\n    type: \"article\"\n  }\n};"
+        },
+        {
+          "type": "h3",
+          "text": "13.6 Technical SEO requirements"
+        },
+        {
+          "type": "p",
+          "text": "SEO element | Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Title tag | Describes the page title"
+        },
+        {
+          "type": "p",
+          "text": "Meta description | Summarizes page content"
+        },
+        {
+          "type": "p",
+          "text": "Canonical URL | Identifies the preferred page URL"
+        },
+        {
+          "type": "p",
+          "text": "Robots meta | Controls indexing instructions"
+        },
+        {
+          "type": "p",
+          "text": "Sitemap | Helps search engines discover URLs"
+        },
+        {
+          "type": "p",
+          "text": "robots.txt | Provides crawling instructions"
+        },
+        {
+          "type": "p",
+          "text": "Open Graph | Controls supported social previews"
+        },
+        {
+          "type": "p",
+          "text": "Structured data | Helps describe entities and content"
+        },
+        {
+          "type": "p",
+          "text": "Internal links | Helps users and crawlers navigate the site"
+        },
+        {
+          "type": "h3",
+          "text": "13.7 Sitemap and robots files"
+        },
+        {
+          "type": "p",
+          "text": "app/robots.ts"
+        },
+        {
+          "type": "code",
+          "text": "import type { MetadataRoute } from \"next\";\n\nexport default function robots(): MetadataRoute.Robots {\n  return {\n    rules: { userAgent: \"*\", allow: \"/\" },\n    sitemap: \"https://example.com/sitemap.xml\"\n  };\n}"
+        },
+        {
+          "type": "p",
+          "text": "app/sitemap.ts"
+        },
+        {
+          "type": "code",
+          "text": "import type { MetadataRoute } from \"next\";\n\nexport default function sitemap(): MetadataRoute.Sitemap {\n  return [\n    { url: \"https://example.com\", lastModified: new Date() },\n    { url: \"https://example.com/courses\", lastModified: new Date() }\n  ];\n}"
+        },
+        {
+          "type": "h3",
+          "text": "13.8 Important SEO distinction"
+        },
+        {
+          "type": "p",
+          "text": "Having metadata does not guarantee search engine indexing or ranking. You still need valuable original content, crawlable public URLs, canonical URLs, reliable server responses, mobile-friendly pages, good loading performance, and correct robots/indexing instructions."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to configure static and dynamic metadata, social previews, canonical URLs, robots directives and dynamic sitemaps."
+        }
+      ]
+    },
+    {
+      "id": "lesson-14",
+      "badge": "Lesson 14",
+      "title": "Image Optimization and Font Optimization",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "14.1 Understanding image optimization"
+        },
+        {
+          "type": "p",
+          "text": "Image optimization involves choosing appropriate dimensions, compressing images, selecting modern formats, supporting responsive sizes, and preventing layout shifts."
+        },
+        {
+          "type": "h3",
+          "text": "14.2 Understanding next/image"
+        },
+        {
+          "type": "code",
+          "text": "import Image from \"next/image\";\n\nexport default function CourseCard() {\n  return (\n    <article>\n      <Image\n        src=\"/images/react-course.jpg\"\n        alt=\"React development course\"\n        width={600}\n        height={400}\n      />\n      <h2>React Development</h2>\n    </article>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Properties: src, alt, width, height, fill, sizes, priority / preload configuration."
+        },
+        {
+          "type": "h3",
+          "text": "14.3 Optimizing remote images"
+        },
+        {
+          "type": "p",
+          "text": "next.config.ts"
+        },
+        {
+          "type": "code",
+          "text": "import type { NextConfig } from \"next\";\n\nconst nextConfig: NextConfig = {\n  images: {\n    remotePatterns: [\n      {\n        protocol: \"https\",\n        hostname: \"images.example.com\",\n        pathname: \"/courses/**\"\n      }\n    ]\n  }\n};\n\nexport default nextConfig;"
+        },
+        {
+          "type": "h3",
+          "text": "14.4 Responsive image optimization"
+        },
+        {
+          "type": "code",
+          "text": "<Image\n  src=\"/images/course.jpg\"\n  alt=\"Course illustration\"\n  width={1200}\n  height={800}\n  sizes=\"(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw\"\n/>"
+        },
+        {
+          "type": "h3",
+          "text": "14.5 Understanding Image formats"
+        },
+        {
+          "type": "p",
+          "text": "Format | Typical usage"
+        },
+        {
+          "type": "p",
+          "text": "JPEG | Photographs"
+        },
+        {
+          "type": "p",
+          "text": "PNG | Images requiring transparency"
+        },
+        {
+          "type": "p",
+          "text": "WebP | Optimized web images"
+        },
+        {
+          "type": "p",
+          "text": "AVIF | Modern image compression"
+        },
+        {
+          "type": "p",
+          "text": "SVG | Logos, icons and vector graphics"
+        },
+        {
+          "type": "h3",
+          "text": "14.6 What is font optimization?"
+        },
+        {
+          "type": "p",
+          "text": "Poorly managed font loading can cause delayed text rendering, layout shifts, and extra network requests. Next.js provides next/font."
+        },
+        {
+          "type": "h3",
+          "text": "14.7 Using Google Fonts"
+        },
+        {
+          "type": "code",
+          "text": "import { Inter } from \"next/font/google\";\n\nconst inter = Inter({ subsets: [\"latin\"] });\n\nexport default function RootLayout({\n  children\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <html lang=\"en\" className={inter.className}>\n      <body>{children}</body>\n    </html>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "14.8 Using local fonts"
+        },
+        {
+          "type": "code",
+          "text": "import localFont from \"next/font/local\";\n\nconst brandFont = localFont({\n  src: \"./fonts/brand-font.woff2\"\n});\n\nexport default function RootLayout({\n  children\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <html lang=\"en\" className={brandFont.className}>\n      <body>{children}</body>\n    </html>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "14.9 Performance considerations"
+        },
+        {
+          "type": "p",
+          "text": "Understand the relationship with Core Web Vitals: Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), and Interaction to Next Paint (INP)."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to implement optimized images, configure remote images, manage responsive images, load custom fonts, and understand the relationship between media optimization and web performance."
+        }
+      ]
+    },
+    {
+      "id": "lesson-15",
+      "badge": "Lesson 15",
+      "title": "Error Handling, Loading Interfaces and Not Found Pages",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "15.1 Understanding application errors"
+        },
+        {
+          "type": "h3",
+          "text": "1. Expected errors: Incorrect password, invalid form input, insufficient permissions, course not found, payment declined."
+        },
+        {
+          "type": "h3",
+          "text": "2. Unexpected errors: Database connection failure, unexpected runtime exception, invalid external service response, rendering failure."
+        },
+        {
+          "type": "h3",
+          "text": "15.2 Understanding error.tsx"
+        },
+        {
+          "type": "p",
+          "text": "app/dashboard/error.tsx"
+        },
+        {
+          "type": "code",
+          "text": "\"use client\";\n\nexport default function DashboardError({\n  error,\n  reset\n}: {\n  error: Error & { digest?: string };\n  reset: () => void;\n}) {\n  return (\n    <main>\n      <h1>Something went wrong</h1>\n      <p>We could not load your dashboard.</p>\n      <button onClick={() => reset()}>Try Again</button>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "p",
+          "text": "Error boundaries must be Client Components. Server-side error details should be logged securely rather than exposed to visitors. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "15.3 Understanding loading.tsx"
+        },
+        {
+          "type": "p",
+          "text": "app/courses/loading.tsx"
+        },
+        {
+          "type": "code",
+          "text": "export default function Loading() {\n  return (\n    <main>\n      <h1>Loading courses</h1>\n      <p>Please wait while courses load.</p>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "15.4 Understanding not-found.tsx"
+        },
+        {
+          "type": "p",
+          "text": "app/courses/[slug]/not-found.tsx"
+        },
+        {
+          "type": "code",
+          "text": "export default function NotFound() {\n  return (\n    <main>\n      <h1>Course Not Found</h1>\n      <p>The course you requested does not exist.</p>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "15.5 Programmatically triggering not-found"
+        },
+        {
+          "type": "code",
+          "text": "import { notFound } from \"next/navigation\";\n\nexport default async function CoursePage({\n  params\n}: {\n  params: Promise<{ slug: string }>;\n}) {\n  const { slug } = await params;\n  const course = await getCourse(slug);\n\n  if (!course) {\n    notFound();\n  }\n\n  return (\n    <main>\n      <h1>{course.title}</h1>\n    </main>\n  );\n}"
+        },
+        {
+          "type": "h3",
+          "text": "15.6 Understanding the difference"
+        },
+        {
+          "type": "p",
+          "text": "File | Purpose"
+        },
+        {
+          "type": "p",
+          "text": "loading.tsx | Displays loading UI"
+        },
+        {
+          "type": "p",
+          "text": "error.tsx | Handles unexpected runtime errors"
+        },
+        {
+          "type": "p",
+          "text": "not-found.tsx | Handles missing pages or resources"
+        },
+        {
+          "type": "p",
+          "text": "global-error.tsx | Handles root-level errors"
+        },
+        {
+          "type": "h3",
+          "text": "15.7 Designing production-grade error experiences"
+        },
+        {
+          "type": "p",
+          "text": "Provide clear, reassuring feedback with recovery actions, plus server-side error logging, error monitoring, retry behavior, timeout handling, and duplicate submission prevention."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should be able to implement loading states, route-level error boundaries, not-found handling, recovery interfaces and secure error reporting."
+        }
+      ]
+    },
+    {
+      "id": "lesson-16",
+      "badge": "Lesson 16",
+      "title": "Deployment Architecture for Next.js Applications",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "16.1 What is deployment?"
+        },
+        {
+          "type": "p",
+          "text": "Deployment is the process of making an application available in a production environment (Write Code -> Test -> Push to Git -> Build -> Deploy -> Production Website)."
+        },
+        {
+          "type": "h3",
+          "text": "16.2 Understanding the Next.js production build"
+        },
+        {
+          "type": "p",
+          "text": "Run npm run build to generate an optimized production build, then npm run start to start the production server. Always test the production build before launching."
+        },
+        {
+          "type": "h3",
+          "text": "16.3 Understanding deployment architecture"
+        },
+        {
+          "type": "code",
+          "text": "                 Users\n                   ↓\n                Internet\n                   ↓\n              CDN / Proxy\n                   ↓\n          Next.js Application\n     ┌─────────────┼─────────────┐\n     ↓             ↓             ↓\nServer Rendering  Cache     Static Assets\n                   ↓\n              Data Layer\n             ┌─────┴─────┐\n             ↓           ↓\n         Database   External APIs"
+        },
+        {
+          "type": "h3",
+          "text": "16.4 Deployment options"
+        },
+        {
+          "type": "p",
+          "text": "Hosting platforms include Vercel, Amazon Web Services (containers/servers/managed services), Docker, Cloudflare, and self-hosted Node.js servers."
+        },
+        {
+          "type": "h3",
+          "text": "16.5 Understanding Node.js deployment"
+        },
+        {
+          "type": "code",
+          "text": "npm install\nnpm run build\nnpm run start"
+        },
+        {
+          "type": "p",
+          "text": "The Next.js documentation identifies a Node.js server as the baseline for supporting the framework's full feature set, including Server Components, ISR and Server Actions. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "16.6 Understanding Docker deployment"
+        },
+        {
+          "type": "code",
+          "text": "FROM node:22-alpine AS builder\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci\nCOPY . .\nRUN npm run build\n\nFROM node:22-alpine AS runner\nWORKDIR /app\nENV NODE_ENV=production\nCOPY --from=builder /app ./\nEXPOSE 3000\nCMD [\"npm\", \"run\", \"start\"]"
+        },
+        {
+          "type": "p",
+          "text": "A production implementation should use a non-root user, a minimal runtime image and only the necessary build artifacts and dependencies."
+        },
+        {
+          "type": "h3",
+          "text": "16.7 Environment variables in production"
+        },
+        {
+          "type": "p",
+          "text": "Never place production secrets inside public source repositories, frontend JavaScript, public environment variables, or client-side configuration files."
+        },
+        {
+          "type": "h3",
+          "text": "16.8 Understanding production caching"
+        },
+        {
+          "type": "p",
+          "text": "When deploying multiple Next.js instances behind a CDN, independent local caches may temporarily serve different versions. Production systems with multiple instances may need shared cache storage, cache coordination, consistent tag invalidation, and appropriate CDN configuration. (Next.js)"
+        },
+        {
+          "type": "h3",
+          "text": "16.9 Static export vs full Next.js deployment"
+        },
+        {
+          "type": "p",
+          "text": "Feature | Full server deployment | Static export"
+        },
+        {
+          "type": "p",
+          "text": "Static pages | Yes | Yes"
+        },
+        {
+          "type": "p",
+          "text": "Server Components | Yes | Build-time output only"
+        },
+        {
+          "type": "p",
+          "text": "Request-time SSR | Yes | No"
+        },
+        {
+          "type": "p",
+          "text": "ISR | Yes, with supported runtime | No"
+        },
+        {
+          "type": "p",
+          "text": "Server Actions | Yes, with supported runtime | No"
+        },
+        {
+          "type": "p",
+          "text": "Dynamic request-dependent data | Yes | No"
+        },
+        {
+          "type": "p",
+          "text": "Static assets | Yes | Yes"
+        },
+        {
+          "type": "h3",
+          "text": "16.10 Production readiness checklist"
+        },
+        {
+          "type": "p",
+          "text": "Verify: production build succeeds, routes work, Server/Client Components are used appropriately, APIs and DB work, authentication is secure, env vars are configured, loading/error states work, metadata/images/fonts/caching behave as expected, mobile navigation works, and logs/monitoring are active."
+        },
+        {
+          "type": "p",
+          "text": "Lesson outcome: You should understand production builds, hosting architectures, Node.js deployment, Docker, environment management, caching infrastructure and the limitations of static exports."
+        }
+      ]
+    },
+    {
+      "id": "practical-project",
+      "badge": "Practical Project",
+      "title": "Build a Content-Driven Web Platform",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Major practical project"
+        },
+        {
+          "type": "h3",
+          "text": "Project objective"
+        },
+        {
+          "type": "p",
+          "text": "Build a complete content-driven learning platform using Next.js, TypeScript and the App Router."
+        },
+        {
+          "type": "p",
+          "text": "The application should demonstrate how a modern frontend framework handles routing, reusable layouts, content retrieval, server rendering, caching, SEO, loading states and deployment."
+        },
+        {
+          "type": "h3",
+          "text": "1. Application requirements"
+        },
+        {
+          "type": "p",
+          "text": "Page | Route | Purpose"
+        },
+        {
+          "type": "p",
+          "text": "Homepage | / | Platform introduction"
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue | /courses | Display available courses"
+        },
+        {
+          "type": "p",
+          "text": "Course details | /courses/[slug] | Display individual courses"
+        },
+        {
+          "type": "p",
+          "text": "Category pages | /categories/[slug] | Display courses by category"
+        },
+        {
+          "type": "p",
+          "text": "Article catalogue | /articles | Display educational articles"
+        },
+        {
+          "type": "p",
+          "text": "Article details | /articles/[slug] | Display individual articles"
+        },
+        {
+          "type": "p",
+          "text": "About page | /about | Platform information"
+        },
+        {
+          "type": "p",
+          "text": "Search page | /search | Search and filter content"
+        },
+        {
+          "type": "h3",
+          "text": "2. Application architecture"
+        },
+        {
+          "type": "code",
+          "text": "content-platform/\n├── app/\n│   ├── layout.tsx\n│   ├── page.tsx\n│   ├── globals.css\n│   ├── courses/\n│   │   ├── page.tsx\n│   │   ├── loading.tsx\n│   │   └── [slug]/\n│   │       ├── page.tsx\n│   │       └── not-found.tsx\n│   ├── categories/\n│   │   └── [slug]/\n│   │       └── page.tsx\n│   ├── articles/\n│   │   ├── page.tsx\n│   │   └── [slug]/\n│   │       └── page.tsx\n│   ├── about/\n│   │   └── page.tsx\n│   └── search/\n│       └── page.tsx\n├── components/\n│   ├── Navbar.tsx\n│   ├── Footer.tsx\n│   ├── CourseCard.tsx\n│   ├── SearchBar.tsx\n│   ├── CategoryFilter.tsx\n│   └── LoadingSkeleton.tsx\n├── lib/\n│   ├── api.ts\n│   ├── courses.ts\n│   ├── articles.ts\n│   └── utilities.ts\n├── types/\n│   ├── course.ts\n│   └── article.ts\n├── public/\n│   └── images/\n├── next.config.ts\n├── tsconfig.json\n└── package.json"
+        },
+        {
+          "type": "h3",
+          "text": "3. Functional requirements"
+        },
+        {
+          "type": "p",
+          "text": "A. Course management: Retrieve courses from an API or database, display course cards, implement dynamic course URLs, display descriptions/levels, implement category filtering."
+        },
+        {
+          "type": "p",
+          "text": "B. Article management: Retrieve educational articles, generate dynamic article pages, display content and publication info, generate metadata per article."
+        },
+        {
+          "type": "p",
+          "text": "C. Search functionality: Search interface, query parameters, filter courses and articles, empty-result and loading states."
+        },
+        {
+          "type": "p",
+          "text": "D. Rendering architecture: Server Components for content retrieval; Client Components for interactive search inputs, filters, and menus."
+        },
+        {
+          "type": "p",
+          "text": "E. SEO: Dynamic page titles, meta descriptions, canonical URLs, Open Graph metadata, sitemap generation, robots configuration."
+        },
+        {
+          "type": "p",
+          "text": "F. User experience: Responsive layout, loading skeletons, error boundaries, custom not-found interfaces, optimized images and fonts."
+        },
+        {
+          "type": "h3",
+          "text": "4. Rendering strategy for the project"
+        },
+        {
+          "type": "p",
+          "text": "Page | Recommended approach"
+        },
+        {
+          "type": "p",
+          "text": "Homepage | Static or cached rendering"
+        },
+        {
+          "type": "p",
+          "text": "Course catalogue | Static or cached rendering"
+        },
+        {
+          "type": "p",
+          "text": "Course details | SSG with revalidation where suitable"
+        },
+        {
+          "type": "p",
+          "text": "Article details | SSG with revalidation where suitable"
+        },
+        {
+          "type": "p",
+          "text": "Search | Dynamic or interactive client-side retrieval"
+        },
+        {
+          "type": "p",
+          "text": "Authenticated dashboard extension | Request-specific rendering"
+        },
+        {
+          "type": "p",
+          "text": "A critical requirement is that private, user-specific information must never be placed in a shared public cache."
+        },
+        {
+          "type": "h3",
+          "text": "5. Required engineering tasks"
+        },
+        {
+          "type": "h3",
+          "text": "1. Initialize a Next.js TypeScript application — Configure App Router, project dependencies and development scripts."
+        },
+        {
+          "type": "h3",
+          "text": "2. Create the application folder architecture — Separate pages, layouts, components, services and TypeScript types."
+        },
+        {
+          "type": "h3",
+          "text": "3. Build reusable layouts and navigation — Implement root layout, nested layouts and route navigation."
+        },
+        {
+          "type": "h3",
+          "text": "4. Implement dynamic routes — Build course and article pages using dynamic slugs."
+        },
+        {
+          "type": "h3",
+          "text": "5. Connect the data layer — Retrieve course and article content through reusable data services."
+        },
+        {
+          "type": "h3",
+          "text": "6. Implement rendering strategies — Demonstrate static generation and request-time rendering."
+        },
+        {
+          "type": "h3",
+          "text": "7. Implement caching and revalidation — Configure caching for public content and update it after content changes."
+        },
+        {
+          "type": "h3",
+          "text": "8. Implement streaming and Suspense — Display independently loading page sections."
+        },
+        {
+          "type": "h3",
+          "text": "9. Implement metadata and SEO — Add dynamic metadata, social previews, sitemap and robots."
+        },
+        {
+          "type": "h3",
+          "text": "10. Optimize images and fonts — Use next/image, remotePatterns and next/font."
+        },
+        {
+          "type": "h3",
+          "text": "11. Implement error handling — Add loading, not-found and error interfaces."
+        },
+        {
+          "type": "h3",
+          "text": "12. Prepare production deployment — Verify builds, environment variables, performance and hosting."
+        },
+        {
+          "type": "h3",
+          "text": "6. Final project evaluation"
+        },
+        {
+          "type": "p",
+          "text": "Evaluation area | Expected result"
+        },
+        {
+          "type": "p",
+          "text": "Architecture | Maintainable folder structure"
+        },
+        {
+          "type": "p",
+          "text": "Routing | Working static and dynamic routes"
+        },
+        {
+          "type": "p",
+          "text": "Components | Reusable UI architecture"
+        },
+        {
+          "type": "p",
+          "text": "TypeScript | Proper types and interfaces"
+        },
+        {
+          "type": "p",
+          "text": "Rendering | Appropriate rendering decisions"
+        },
+        {
+          "type": "p",
+          "text": "Data fetching | Reusable API/data-access layer"
+        },
+        {
+          "type": "p",
+          "text": "Caching | Correct caching and invalidation"
+        },
+        {
+          "type": "p",
+          "text": "Streaming | Progressive loading"
+        },
+        {
+          "type": "p",
+          "text": "SEO | Correct dynamic metadata"
+        },
+        {
+          "type": "p",
+          "text": "Optimization | Responsive media and fonts"
+        },
+        {
+          "type": "p",
+          "text": "Reliability | Error and not-found handling"
+        },
+        {
+          "type": "p",
+          "text": "Deployment | Successful production build and deployment"
+        },
+        {
+          "type": "p",
+          "text": "Final deliverable: A working, production-buildable Next.js content platform with documented architectural decisions and source code."
+        }
+      ]
+    },
+    {
+      "id": "summary-resources",
+      "badge": "Summary & Resources",
+      "title": "Advanced Extensions, Resources & Completion Standard",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Additional advanced concepts to master"
+        },
+        {
+          "type": "p",
+          "text": "Concept | Why it matters"
+        },
+        {
+          "type": "p",
+          "text": "Route Groups | Organizing large applications"
+        },
+        {
+          "type": "p",
+          "text": "Parallel Routes | Rendering multiple independent route sections"
+        },
+        {
+          "type": "p",
+          "text": "Intercepting Routes | Creating URL-aware modal navigation"
+        },
+        {
+          "type": "p",
+          "text": "Middleware/Proxy architecture | Handling request interception and routing logic"
+        },
+        {
+          "type": "p",
+          "text": "Server Actions | Executing server-side mutations"
+        },
+        {
+          "type": "p",
+          "text": "Route Handlers | Building API endpoints"
+        },
+        {
+          "type": "p",
+          "text": "Authentication architecture | Protecting private application routes"
+        },
+        {
+          "type": "p",
+          "text": "Authorization | Controlling access to resources"
+        },
+        {
+          "type": "p",
+          "text": "Partial Prerendering | Combining static shells and dynamic content"
+        },
+        {
+          "type": "p",
+          "text": "Bundle analysis | Finding unnecessary JavaScript"
+        },
+        {
+          "type": "p",
+          "text": "Core Web Vitals | Measuring real-world user experience"
+        },
+        {
+          "type": "p",
+          "text": "Production monitoring | Tracking failures and performance"
+        },
+        {
+          "type": "h3",
+          "text": "Recommended learning resources"
+        },
+        {
+          "type": "p",
+          "text": "[Next.js App Router documentation](https://nextjs.org/docs/app) — primary reference for the App Router, routing, rendering and framework APIs."
+        },
+        {
+          "type": "p",
+          "text": "[Server and Client Components](https://nextjs.org/docs/app/getting-started/server-and-client-components)"
+        },
+        {
+          "type": "p",
+          "text": "[Incremental Static Regeneration](https://nextjs.org/docs/app/guides/incremental-static-regeneration)"
+        },
+        {
+          "type": "p",
+          "text": "[Metadata and SEO](https://nextjs.org/docs/app/getting-started/metadata-and-og-images)"
+        },
+        {
+          "type": "p",
+          "text": "[Loading UI and Streaming](https://nextjs.org/docs/app/api-reference/file-conventions/loading)"
+        },
+        {
+          "type": "p",
+          "text": "[Error Handling](https://nextjs.org/docs/app/api-reference/file-conventions/error)"
+        },
+        {
+          "type": "p",
+          "text": "[Deployment Architecture](https://nextjs.org/docs/app/guides/deploying-to-platforms)"
+        },
+        {
+          "type": "p",
+          "text": "[Production Checklist](https://nextjs.org/docs/app/guides/production-checklist)"
+        },
+        {
+          "type": "p",
+          "text": "Important course-version note: This module follows the modern App Router documentation, checked against the Next.js documentation updated in 2026. In particular, students must understand asynchronous route parameters and the distinction between the previous caching model and the newer optional Cache Components architecture. They should not blindly copy examples from older Next.js tutorials."
+        },
+        {
+          "type": "h3",
+          "text": "What students should be able to build after this module"
+        },
+        {
+          "type": "p",
+          "text": "Content platforms: Courses, articles and documentation systems."
+        },
+        {
+          "type": "p",
+          "text": "SaaS applications: Dynamic dashboards and authenticated interfaces."
+        },
+        {
+          "type": "p",
+          "text": "E-commerce: Product catalogues, dynamic pages and metadata."
+        },
+        {
+          "type": "p",
+          "text": "Documentation systems: Searchable documentation and static content."
+        },
+        {
+          "type": "p",
+          "text": "Completion standard: Students should not merely know Next.js syntax. They should be able to explain why a page uses Server Components, whether its content should be statically generated or dynamically rendered, how its data is cached, how its metadata is generated, and how the whole application reaches production."
+        }
+      ]
+    }
+  ]
+}

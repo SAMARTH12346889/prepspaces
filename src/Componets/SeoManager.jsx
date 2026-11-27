@@ -403,6 +403,18 @@ const routeMeta = {
     keywords: "Frontend Data Engineering, REST API Integration, TanStack Query, React Query, Zod, React Hook Form, Optimistic Updates, File Upload Progress, WebSockets, PrepSpaces",
     canonical: `${BASE_URL}/learning/frontend-engineering/frontend-data-engineering`,
   },
+  "/learning/frontend-engineering/nextjs-architecture": {
+    title: "Module 11: Next.js and Modern Web Application Architecture | PrepSpaces",
+    description: "Master Next.js App Router, Server vs Client Components, SSR, SSG, ISR, Cache Components, hydration, streaming & Suspense, dynamic Metadata SEO, next/image & next/font, error boundaries, and production deployment.",
+    keywords: "Next.js, App Router, Server Components, Client Components, SSR, SSG, ISR, Hydration, Streaming, Suspense, Metadata API, Deployment, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/nextjs-architecture`,
+  },
+  "/courses/frontend-engineering/nextjs-architecture": {
+    title: "Module 11: Next.js and Modern Web Application Architecture | PrepSpaces",
+    description: "Master Next.js App Router, Server vs Client Components, SSR, SSG, ISR, Cache Components, hydration, streaming & Suspense, dynamic Metadata SEO, next/image & next/font, error boundaries, and production deployment.",
+    keywords: "Next.js, App Router, Server Components, Client Components, SSR, SSG, ISR, Hydration, Streaming, Suspense, Metadata API, Deployment, PrepSpaces",
+    canonical: `${BASE_URL}/learning/frontend-engineering/nextjs-architecture`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

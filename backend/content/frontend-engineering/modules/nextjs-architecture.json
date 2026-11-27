@@ -1,0 +1,130 @@
+{
+  "id": "nextjs-architecture",
+  "courseId": "frontend-engineering",
+  "index": 11,
+  "name": "11. Next.js and Modern Web Application Architecture",
+  "route": "/learning/frontend-engineering/nextjs-architecture",
+  "componentName": "FrontendNextjsArchitecture",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "In the Next.js App Router, what is the default component type for page.tsx and layout.tsx files?",
+      "options": [
+        "Client Components",
+        "Server Components",
+        "Web Workers",
+        "Static HTML templates only"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pages and layouts in the App Router are Server Components by default; you add \"use client\" only when browser interactivity or hooks are needed."
+    },
+    {
+      "id": 2,
+      "question": "Why should you await params in modern Next.js App Router dynamic routes?",
+      "options": [
+        "To convert JSX into CSS",
+        "Because route params are asynchronous Promises in current App Router conventions",
+        "To disable Server Components",
+        "To store params in LocalStorage"
+      ],
+      "correctIndex": 1,
+      "explanation": "In current Next.js App Router conventions, `params` and `searchParams` are passed as Promises that should be awaited."
+    },
+    {
+      "id": 3,
+      "question": "What is the key behavioral difference between layout.tsx and template.tsx during navigation?",
+      "options": [
+        "layout.tsx cannot render children",
+        "layout.tsx preserves state across navigations, whereas template.tsx creates a new instance",
+        "template.tsx runs only on the server",
+        "layout.tsx deletes browser cookies"
+      ],
+      "correctIndex": 1,
+      "explanation": "Layouts persist and preserve state across child route navigations, while templates remount a fresh component instance on navigation."
+    },
+    {
+      "id": 4,
+      "question": "When is Server-Side Rendering (SSR) preferred over Static Site Generation (SSG)?",
+      "options": [
+        "For company About pages that rarely change",
+        "When page content depends on request-specific data such as authenticated cookies or live user state",
+        "For static logos and fonts",
+        "To eliminate the need for a server"
+      ],
+      "correctIndex": 1,
+      "explanation": "SSR generates HTML at request time when output depends on cookies, headers, or live personalized data."
+    },
+    {
+      "id": 5,
+      "question": "What does Incremental Static Regeneration (ISR) enable?",
+      "options": [
+        "Running SQL queries directly inside browser CSS",
+        "Updating previously generated static pages without rebuilding the entire application",
+        "Replacing all Client Components with iframes",
+        "Disabling HTTP caching headers"
+      ],
+      "correctIndex": 1,
+      "explanation": "ISR refreshes cached static pages via time-based or on-demand revalidation (`revalidatePath` / `revalidateTag`) without a full rebuild."
+    },
+    {
+      "id": 6,
+      "question": "What is hydration in Next.js?",
+      "options": [
+        "Compressing PNG images into WebP",
+        "Attaching React's client-side interactivity and event handlers to server-generated HTML",
+        "Writing environment variables to .env.local",
+        "Deploying Docker containers to AWS"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hydration attaches React event listeners and client state to the HTML preview already rendered by the server."
+    },
+    {
+      "id": 7,
+      "question": "What is the main benefit of combining React Suspense with streaming in Next.js?",
+      "options": [
+        "It automatically fixes SQL syntax errors",
+        "It sends available page content progressively while slower async sections show fallbacks",
+        "It removes the need for a backend server",
+        "It disables Client Components"
+      ],
+      "correctIndex": 1,
+      "explanation": "Streaming with Suspense or `loading.tsx` lets fast page shells and sections display immediately instead of blocking on the slowest data fetch."
+    },
+    {
+      "id": 8,
+      "question": "Which Next.js convention generates dynamic SEO metadata per route on the server?",
+      "options": [
+        "useEffect",
+        "generateMetadata()",
+        "localStorage.setItem()",
+        "useState()"
+      ],
+      "correctIndex": 1,
+      "explanation": "`generateMetadata()` runs on the server and returns a typed `Metadata` object based on route `params` and fetched data."
+    },
+    {
+      "id": 9,
+      "question": "Why must Next.js error.tsx files include the \"use client\" directive?",
+      "options": [
+        "Error boundaries rely on client-side React error boundary recovery and reset() handlers",
+        "Server Components cannot throw errors",
+        "error.tsx is only for CSS styling",
+        "Next.js blocks TypeScript inside error.tsx"
+      ],
+      "correctIndex": 0,
+      "explanation": "Route-segment `error.tsx` boundaries are Client Components so React can catch rendering errors and invoke the interactive `reset()` function."
+    },
+    {
+      "id": 10,
+      "question": "Which Next.js features are NOT supported when using a static export instead of a full Next.js server?",
+      "options": [
+        "HTML and CSS files",
+        "Request-time SSR, ISR, and Server Actions",
+        "Static pages and public/ assets",
+        "TypeScript compilation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Static export only emits build-time static files, so request-time SSR, ISR, and Server Actions require a full Next.js server/runtime."
+    }
+  ]
+}
