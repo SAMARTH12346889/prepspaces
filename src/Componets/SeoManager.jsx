@@ -217,6 +217,18 @@ const routeMeta = {
     keywords: "API Validation, RFC 9457 Problem Details, Idempotency Key, Redis Rate Limiting, Resilience4j Circuit Breaker, Exponential Backoff Jitter, Transactional Outbox, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/validation-reliability`,
   },
+  "/learning/backend-engineering/caching-async-messaging": {
+    title: "Module 07: Caching, Asynchronous Processing and Messaging | PrepSpaces",
+    description: "Scale backends with Redis caching (Cache-Aside, TTL, invalidation), Spring @Async & @Scheduled, RabbitMQ, Kafka event-driven architecture, Retry/DLQs, and idempotent consumers.",
+    keywords: "Redis Caching, Cache-Aside, Cache Invalidation, RabbitMQ, Spring AMQP, Apache Kafka, Dead-Letter Queue, Idempotent Consumer, ShedLock, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/caching-async-messaging`,
+  },
+  "/courses/backend-engineering/caching-async-messaging": {
+    title: "Module 07: Caching, Asynchronous Processing and Messaging | PrepSpaces",
+    description: "Scale backends with Redis caching (Cache-Aside, TTL, invalidation), Spring @Async & @Scheduled, RabbitMQ, Kafka event-driven architecture, Retry/DLQs, and idempotent consumers.",
+    keywords: "Redis Caching, Cache-Aside, Cache Invalidation, RabbitMQ, Spring AMQP, Apache Kafka, Dead-Letter Queue, Idempotent Consumer, ShedLock, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/caching-async-messaging`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

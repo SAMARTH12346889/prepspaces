@@ -1,0 +1,130 @@
+{
+  "id": "caching-async-messaging",
+  "courseId": "backend-engineering",
+  "index": 7,
+  "name": "7. Caching, Asynchronous Processing and Messaging",
+  "route": "/learning/backend-engineering/caching-async-messaging",
+  "componentName": "BackendCachingAsync",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does HTTP 202 Accepted indicate when an API starts a background report-generation job?",
+      "options": [
+        "The report is already finished and attached",
+        "The request has been accepted for asynchronous processing, which has not necessarily completed yet",
+        "The request failed validation",
+        "The server is shutting down"
+      ],
+      "correctIndex": 1,
+      "explanation": "202 Accepted tells the client that the job was accepted/queued and can be tracked (e.g., via jobId) asynchronously."
+    },
+    {
+      "id": 2,
+      "question": "How do you prevent a @Scheduled nightly job from running multiple times when a backend is deployed across 5 instances?",
+      "options": [
+        "Remove @Scheduled completely",
+        "Use distributed lock/scheduler coordination such as ShedLock or Quartz so only one instance executes the global job",
+        "Set corePoolSize to 1",
+        "Use FetchType.LAZY"
+      ],
+      "correctIndex": 1,
+      "explanation": "Distributed coordination (ShedLock, Quartz, or persistent job ownership) ensures a global scheduled task runs once instead of once per instance."
+    },
+    {
+      "id": 3,
+      "question": "What is the key architectural difference between RabbitMQ and Apache Kafka?",
+      "options": [
+        "RabbitMQ is a database; Kafka is a web server",
+        "RabbitMQ is a message broker focused on task queues/routing/acknowledgements; Kafka is a distributed event log retaining events for replay by multiple consumer groups",
+        "Kafka deletes messages immediately after reading",
+        "RabbitMQ cannot use exchanges"
+      ],
+      "correctIndex": 1,
+      "explanation": "RabbitMQ pushes/routes messages to task queues and typically removes them upon ACK; Kafka appends events to partitioned logs with configurable retention for replay."
+    },
+    {
+      "id": 4,
+      "question": "In the Cache-Aside pattern, what happens on a cache miss?",
+      "options": [
+        "The API returns 404 Not Found",
+        "The application queries PostgreSQL, stores the result in Redis with a TTL, and returns the data",
+        "Redis automatically queries PostgreSQL without application code",
+        "The backend deletes all Redis keys"
+      ],
+      "correctIndex": 1,
+      "explanation": "In Cache-Aside, the application checks Redis first; on a miss, it loads from PostgreSQL, populates Redis, and returns the result."
+    },
+    {
+      "id": 5,
+      "question": "Why should Write-Behind (Write-Back) caching NOT be used casually for critical enrolments or payments?",
+      "options": [
+        "Redis cannot store numbers",
+        "Delayed persistence risks losing pending writes in the cache before they reach PostgreSQL",
+        "Write-Behind is slower than SQL joins",
+        "It requires HTTP/1.0"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because Write-Behind acknowledges writes in cache before persisting to the database, cache crashes can lose authoritative data."
+    },
+    {
+      "id": 6,
+      "question": "What is a cache stampede (thundering herd)?",
+      "options": [
+        "Redis running out of disk space",
+        "When a popular cache key expires and thousands of concurrent requests miss the cache and hit PostgreSQL simultaneously",
+        "When a user logs out twice",
+        "When RabbitMQ delivers a message once"
+      ],
+      "correctIndex": 1,
+      "explanation": "Simultaneous cache misses on a hot key overload the database; mitigate with jittered TTLs, single-flight/coalescing, distributed locks, or stale-while-revalidate."
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of a Dead-Letter Queue (DLQ)?",
+      "options": [
+        "To store user passwords",
+        "To isolate poison or repeatedly failing messages after max retries so they can be inspected without blocking valid messages",
+        "To cache public course descriptions",
+        "To replace PostgreSQL backups"
+      ],
+      "correctIndex": 1,
+      "explanation": "A DLQ captures messages that exceed retry limits or fail unrecoverably so they do not loop infinitely or stall the main queue."
+    },
+    {
+      "id": 8,
+      "question": "Why must message consumers be designed to be idempotent?",
+      "options": [
+        "Brokers typically provide at-least-once delivery, meaning crashes or retries can deliver the same event more than once",
+        "Idempotent consumers run without a database",
+        "RabbitMQ always duplicates every message 10 times",
+        "Redis requires idempotent consumers"
+      ],
+      "correctIndex": 0,
+      "explanation": "Under at-least-once delivery, tracking processed event IDs with a unique DB constraint prevents duplicate emails or side effects."
+    },
+    {
+      "id": 9,
+      "question": "What is the dual-write problem between PostgreSQL and Redis or RabbitMQ?",
+      "options": [
+        "Writing to two SQL tables in one transaction",
+        "Updating PostgreSQL and Redis/RabbitMQ as two separate non-atomic operations where one succeeds and the other fails, leaving inconsistent state",
+        "Using both @Cacheable and @CacheEvict",
+        "Running two Spring Boot apps on port 8080"
+      ],
+      "correctIndex": 1,
+      "explanation": "Separate writes to DB and cache/broker are not atomic; use post-commit invalidation, TTLs, or the Transactional Outbox Pattern."
+    },
+    {
+      "id": 10,
+      "question": "Why is backpressure important when 50,000 notification events arrive for an email provider limited to 100 emails/minute?",
+      "options": [
+        "To delete 49,900 events",
+        "To control worker concurrency, prefetch, and batching so downstream providers and workers are not overwhelmed",
+        "To disable Redis caching",
+        "To force synchronous HTTP responses"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bounded concurrency, prefetch limits, and rate-aware workers prevent downstream provider throttling and resource exhaustion."
+    }
+  ]
+}

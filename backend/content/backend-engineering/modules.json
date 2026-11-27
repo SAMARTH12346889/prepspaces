@@ -64,5 +64,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "caching-async-messaging",
+    "courseId": "backend-engineering",
+    "index": 7,
+    "name": "7. Caching, Asynchronous Processing and Messaging",
+    "route": "/learning/backend-engineering/caching-async-messaging",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
