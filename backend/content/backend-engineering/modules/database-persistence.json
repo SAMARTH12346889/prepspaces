@@ -1,0 +1,130 @@
+{
+  "id": "database-persistence",
+  "courseId": "backend-engineering",
+  "index": 4,
+  "name": "4. Database Engineering and Backend Persistence",
+  "route": "/learning/backend-engineering/database-persistence",
+  "componentName": "BackendDatabasePersistence",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of database connection pooling (such as HikariCP in Spring Boot)?",
+      "options": [
+        "To encrypt PostgreSQL tables on disk",
+        "To maintain a reusable pool of database connections instead of opening and closing a new connection on every request",
+        "To replace SQL with JSON",
+        "To bypass database authentication"
+      ],
+      "correctIndex": 1,
+      "explanation": "Opening a fresh database connection for every HTTP request is expensive; connection pools like HikariCP reuse established connections efficiently."
+    },
+    {
+      "id": 2,
+      "question": "In a learning platform, why is an independent Enrollment entity generally preferred over a plain @ManyToMany mapping between User and Course?",
+      "options": [
+        "JPA does not support @ManyToMany",
+        "Enrolments typically store extra attributes like enrolledAt, status, completion percentage, and payment status",
+        "PostgreSQL cannot join three tables",
+        "@ManyToMany prevents primary keys"
+      ],
+      "correctIndex": 1,
+      "explanation": "When a relationship carries its own attributes (status, enrolledAt, progress), modeling it as an explicit Enrollment entity with @ManyToOne links is cleaner and extensible."
+    },
+    {
+      "id": 3,
+      "question": "What is the difference between JPA and Hibernate?",
+      "options": [
+        "JPA is a relational database; Hibernate is a web server",
+        "JPA (Jakarta Persistence API) is the specification; Hibernate is an ORM implementation of that specification",
+        "Hibernate replaces SQL completely",
+        "They are two competing databases"
+      ],
+      "correctIndex": 1,
+      "explanation": "JPA defines the Java persistence specification (annotations, EntityManager, JPQL), while Hibernate implements it and translates operations into SQL."
+    },
+    {
+      "id": 4,
+      "question": "How does a database guarantee that two simultaneous requests cannot create duplicate enrolments for the same student and course?",
+      "options": [
+        "Using frontend form validation only",
+        "Enforcing a composite UNIQUE constraint on (user_id, course_id) at the database level",
+        "Using FetchType.EAGER",
+        "Disabling connection pooling"
+      ],
+      "correctIndex": 1,
+      "explanation": "Application-level checks alone have race windows under concurrency; a database-level composite UNIQUE constraint on (user_id, course_id) is the final enforcement layer."
+    },
+    {
+      "id": 5,
+      "question": "What causes the N+1 query problem in JPA/Hibernate?",
+      "options": [
+        "Executing one initial query to load N parent entities, then executing N additional queries when accessing each parent's lazy-loaded collection",
+        "Using too many Flyway migration files",
+        "Setting spring.jpa.show-sql=false",
+        "Using PostgreSQL instead of H2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Loading N entities (1 query) and iterating over a lazy collection on each entity triggers N extra SELECT queries, totaling N+1 queries."
+    },
+    {
+      "id": 6,
+      "question": "Which technique directly solves the N+1 query problem when loading users together with their enrolments?",
+      "options": [
+        "Using a JPQL JOIN FETCH query, an EntityGraph, or a DTO projection",
+        "Removing all foreign keys",
+        "Switching from POST to GET",
+        "Increasing HikariCP maximum pool size to 1000"
+      ],
+      "correctIndex": 0,
+      "explanation": "JOIN FETCH, EntityGraphs, batch fetching, and targeted DTO projections retrieve the required data without issuing per-entity queries."
+    },
+    {
+      "id": 7,
+      "question": "What do the four ACID properties of a database transaction stand for?",
+      "options": [
+        "Authentication, Caching, Indexing, Durability",
+        "Atomicity, Consistency, Isolation, Durability",
+        "API, Controller, Interface, Database",
+        "Availability, Concurrency, Integrity, Distribution"
+      ],
+      "correctIndex": 1,
+      "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability."
+    },
+    {
+      "id": 8,
+      "question": "Why should production applications use versioned migration tools (like Flyway or Liquibase) instead of ddl-auto=update?",
+      "options": [
+        "Flyway makes PostgreSQL run in memory",
+        "Versioned migrations provide ordered, reviewable, repeatable schema evolution across environments without risky automatic DDL changes",
+        "ddl-auto=update cannot create tables",
+        "Liquibase replaces JPA repositories"
+      ],
+      "correctIndex": 1,
+      "explanation": "Versioned migrations track exact schema history in source control and execute changes predictably across dev, staging, and production."
+    },
+    {
+      "id": 9,
+      "question": "How does Optimistic Locking (@Version) detect concurrent modification conflicts?",
+      "options": [
+        "It locks the entire table for 10 seconds on every read",
+        "Hibernate checks a @Version column during UPDATE; if another transaction incremented it first, the update fails with an optimistic locking conflict",
+        "It queues all HTTP requests into one thread",
+        "It deletes conflicting rows automatically"
+      ],
+      "correctIndex": 1,
+      "explanation": "Optimistic locking checks the version number on write and rejects stale updates instead of silently overwriting newer changes."
+    },
+    {
+      "id": 10,
+      "question": "How does an atomic SQL update prevent over-enrolment when two students race for the last available seat?",
+      "options": [
+        "SELECT available_seats, then sleep 1 second, then UPDATE",
+        "Execute UPDATE courses SET available_seats = available_seats - 1 WHERE id = ? AND available_seats > 0 and check the affected row count",
+        "Store available_seats in browser cookies",
+        "Use FetchType.LAZY on Course"
+      ],
+      "correctIndex": 1,
+      "explanation": "Combining the condition (available_seats > 0) and decrement in one atomic SQL UPDATE ensures at most one concurrent request reserves the final seat."
+    }
+  ]
+}
