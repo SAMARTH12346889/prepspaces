@@ -1,0 +1,130 @@
+{
+  "id": "api-security",
+  "courseId": "backend-engineering",
+  "index": 9,
+  "name": "9. API Security Engineering",
+  "route": "/learning/backend-engineering/api-security",
+  "componentName": "BackendApiSecurity",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the key difference between BOLA (Broken Object Level Authorization) and BFLA (Broken Function Level Authorization)?",
+      "options": [
+        "BOLA is about accessing the wrong object (e.g., another student's progress); BFLA is about executing an unauthorized function (e.g., a student calling an admin endpoint)",
+        "BOLA is for PostgreSQL; BFLA is for Redis",
+        "They are identical",
+        "BFLA only applies to GET requests"
+      ],
+      "correctIndex": 0,
+      "explanation": "BOLA fails to check object ownership on a resource ID; BFLA fails to restrict privileged functions/operations by role or permission."
+    },
+    {
+      "id": 2,
+      "question": "Why does replacing sequential integer IDs with random UUIDs NOT solve BOLA on its own?",
+      "options": [
+        "UUIDs cannot be stored in PostgreSQL",
+        "Unpredictable IDs only make guessing harder; if an attacker obtains a valid UUID, the backend must still verify ownership and permissions",
+        "UUIDs disable HTTPS",
+        "UUIDs break JSON serialization"
+      ],
+      "correctIndex": 1,
+      "explanation": "OWASP warns that obscurity/unpredictability does not replace explicit server-side object-level authorization checks."
+    },
+    {
+      "id": 3,
+      "question": "What is the primary defense against SQL injection when querying a database, and how should dynamic ORDER BY sorting be handled?",
+      "options": [
+        "Delete special characters from input; concatenate sort columns directly",
+        "Use parameterized queries/prepared statements for values, and strict allowlists for dynamic SQL elements like sort columns and directions",
+        "Use Base64 encoding on SQL strings",
+        "Rely only on frontend regex validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Parameterization separates SQL structure from data values; structural elements like column names cannot be parameterized and must use an allowlist."
+    },
+    {
+      "id": 4,
+      "question": "How do you prevent Mass Assignment vulnerabilities in a Spring Boot REST API?",
+      "options": [
+        "Bind @RequestBody directly to the JPA @Entity",
+        "Use explicit request DTOs containing only client-editable fields and never bind protected fields like role or accountEnabled from the request",
+        "Use Access-Control-Allow-Origin: *",
+        "Disable Bean Validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Explicit request and response DTOs restrict which fields clients can submit or read, preventing unauthorized property modification."
+    },
+    {
+      "id": 5,
+      "question": "What is a common security misconception about CORS (Cross-Origin Resource Sharing)?",
+      "options": [
+        "CORS uses HTTP headers",
+        "Thinking CORS replaces backend authentication or authorization—non-browser clients bypass browser CORS checks completely",
+        "CORS checks scheme, host, and port",
+        "OPTIONS preflight requests are part of CORS"
+      ],
+      "correctIndex": 1,
+      "explanation": "CORS only governs browser-based cross-origin response access; curl, Postman, and scripts ignore CORS, so servers must always authenticate and authorize requests."
+    },
+    {
+      "id": 6,
+      "question": "When securing file uploads, why is checking only the filename extension and Content-Type header insufficient?",
+      "options": [
+        "Browsers cannot send Content-Type headers",
+        "Both filename and Content-Type are client-supplied and can be spoofed; backends must check actual file signatures, size limits, malware scans, and generate server-side storage keys",
+        "PostgreSQL rejects PDF files",
+        "Spring Boot disables MultipartFile"
+      ],
+      "correctIndex": 1,
+      "explanation": "Secure uploads inspect actual file content/signatures, enforce size limits, scan for malware, and store privately with server-generated keys."
+    },
+    {
+      "id": 7,
+      "question": "In STRIDE threat modeling, what does 'Elevation of Privilege' represent?",
+      "options": [
+        "Pretending to be another user",
+        "A user gaining permissions beyond their authorized role (e.g., submitting role: ADMIN)",
+        "Flooding an endpoint with requests",
+        "Denying having deleted a course"
+      ],
+      "correctIndex": 1,
+      "explanation": "Elevation of privilege occurs when an attacker obtains higher privileges or administrative capabilities without authorization."
+    },
+    {
+      "id": 8,
+      "question": "If a production API key is accidentally committed to a Git repository, what is the correct first action?",
+      "options": [
+        "Delete the line in a new commit and assume it is safe",
+        "Immediately revoke the exposed key, issue a replacement, update secure runtime secrets, and audit whether the old key was used",
+        "Add the file to .gitignore without revoking the key",
+        "Base64-encode the key in application.yml"
+      ],
+      "correctIndex": 1,
+      "explanation": "Git history retains old commits; any exposed secret must be treated as compromised, revoked immediately, and rotated."
+    },
+    {
+      "id": 9,
+      "question": "Which items should NEVER be written directly into application logs?",
+      "options": [
+        "Request IDs and HTTP status codes",
+        "Passwords, access tokens, refresh tokens, session IDs, API keys, and full Authorization headers",
+        "Timestamps and actor IDs",
+        "Course IDs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Logging credentials or full auth headers turns centralized logs into a credential exposure vector; also sanitize untrusted text to prevent log injection."
+    },
+    {
+      "id": 10,
+      "question": "What is the difference between SAST and DAST in security testing?",
+      "options": [
+        "SAST inspects source code statically (e.g., Semgrep); DAST tests a running application via HTTP requests (e.g., OWASP ZAP)",
+        "DAST reads Java files without running the server",
+        "They are identical",
+        "SAST requires PostgreSQL"
+      ],
+      "correctIndex": 0,
+      "explanation": "SAST analyzes source code patterns statically, while DAST probes a running test server dynamically."
+    }
+  ]
+}
