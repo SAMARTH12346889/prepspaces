@@ -278,6 +278,7 @@ export const BACKEND_ENGINEERING_MODULES = [
   { id: "foundations", name: "1. Backend Engineering Foundations", route: "/learning/backend-engineering" },
   { id: "http-api-design", name: "2. HTTP Protocol and API Design", route: "/learning/backend-engineering/http-api-design" },
   { id: "spring-boot", name: "3. Java Backend Development with Spring Boot", route: "/learning/backend-engineering/spring-boot" },
+  { id: "database-persistence", name: "4. Database Engineering and Backend Persistence", route: "/learning/backend-engineering/database-persistence" },
 ];
 
 export default function ModuleNav({

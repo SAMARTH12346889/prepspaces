@@ -181,6 +181,18 @@ const routeMeta = {
     keywords: "Spring Boot 4.2, Java 21 Backend, Spring MVC, Spring Data JPA, Dependency Injection, DTO vs Entity, Hexagonal Architecture, Student Management API, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/spring-boot`,
   },
+  "/learning/backend-engineering/database-persistence": {
+    title: "Module 04: Database Engineering and Backend Persistence | PrepSpaces",
+    description: "Master PostgreSQL integration, JPA/Hibernate entity relationships, ACID transactions, database constraints, N+1 query optimization, Flyway migrations, and concurrency locking.",
+    keywords: "PostgreSQL, Spring Data JPA, Hibernate, N+1 Query Problem, ACID Transactions, Flyway Migrations, Optimistic Locking, Pessimistic Locking, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/database-persistence`,
+  },
+  "/courses/backend-engineering/database-persistence": {
+    title: "Module 04: Database Engineering and Backend Persistence | PrepSpaces",
+    description: "Master PostgreSQL integration, JPA/Hibernate entity relationships, ACID transactions, database constraints, N+1 query optimization, Flyway migrations, and concurrency locking.",
+    keywords: "PostgreSQL, Spring Data JPA, Hibernate, N+1 Query Problem, ACID Transactions, Flyway Migrations, Optimistic Locking, Pessimistic Locking, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/database-persistence`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

@@ -31,5 +31,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "database-persistence",
+    "courseId": "backend-engineering",
+    "index": 4,
+    "name": "4. Database Engineering and Backend Persistence",
+    "route": "/learning/backend-engineering/database-persistence",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
