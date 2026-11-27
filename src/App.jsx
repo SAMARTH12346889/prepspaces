@@ -192,6 +192,7 @@ const BlockchainSolanaRust = React.lazy(() => import("./Componets/BlockchainSola
 const BlockchainFinalCapstone = React.lazy(() => import("./Componets/BlockchainFinalCapstone"));
 const BackendFoundations = React.lazy(() => import("./Componets/BackendFoundations"));
 const BackendHttpApiDesign = React.lazy(() => import("./Componets/BackendHttpApiDesign"));
+const BackendSpringBoot = React.lazy(() => import("./Componets/BackendSpringBoot"));
 const MachineLearningIntro = React.lazy(() => import("./Componets/MachineLearningIntro"));
 const MachineLearningNumpy = React.lazy(() => import("./Componets/MachineLearningNumpy"));
 const MachineLearningPandas = React.lazy(() => import("./Componets/MachineLearningPandas"));
@@ -1985,6 +1986,11 @@ function App() {
             <Route path="/courses/backend-engineering/http-api-design" element={<BackendHttpApiDesign />} />
             <Route path="/learning/backend/http-api-design" element={<BackendHttpApiDesign />} />
             <Route path="/learning/backend/module-2" element={<BackendHttpApiDesign />} />
+            <Route path="/learning/backend-engineering/spring-boot" element={<BackendSpringBoot />} />
+            <Route path="/learning/backend-engineering/module-3" element={<BackendSpringBoot />} />
+            <Route path="/courses/backend-engineering/spring-boot" element={<BackendSpringBoot />} />
+            <Route path="/learning/backend/spring-boot" element={<BackendSpringBoot />} />
+            <Route path="/learning/backend/module-3" element={<BackendSpringBoot />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

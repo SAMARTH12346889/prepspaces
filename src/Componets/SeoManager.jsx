@@ -169,6 +169,18 @@ const routeMeta = {
     keywords: "HTTP Protocol, API Design, REST vs GraphQL vs gRPC, OpenAPI 3.2.1, Swagger, Pagination, API Versioning, Contract-First Design, PrepSpaces",
     canonical: `${BASE_URL}/learning/backend-engineering/http-api-design`,
   },
+  "/learning/backend-engineering/spring-boot": {
+    title: "Module 03: Java Backend Development with Spring Boot | PrepSpaces",
+    description: "Build real Java 21 + Spring Boot 4.2.0 backends with Spring MVC controllers, services, Spring Data JPA repositories, dependency injection, DTOs, validation, and Clean/Hexagonal architecture.",
+    keywords: "Spring Boot 4.2, Java 21 Backend, Spring MVC, Spring Data JPA, Dependency Injection, DTO vs Entity, Hexagonal Architecture, Student Management API, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/spring-boot`,
+  },
+  "/courses/backend-engineering/spring-boot": {
+    title: "Module 03: Java Backend Development with Spring Boot | PrepSpaces",
+    description: "Build real Java 21 + Spring Boot 4.2.0 backends with Spring MVC controllers, services, Spring Data JPA repositories, dependency injection, DTOs, validation, and Clean/Hexagonal architecture.",
+    keywords: "Spring Boot 4.2, Java 21 Backend, Spring MVC, Spring Data JPA, Dependency Injection, DTO vs Entity, Hexagonal Architecture, Student Management API, PrepSpaces",
+    canonical: `${BASE_URL}/learning/backend-engineering/spring-boot`,
+  },
   "/courses/machine-learning": {
     title: "Machine Learning Master Course | 24 Modules: Scikit-learn, XGBoost, Optuna & Capstone – PrepSpaces",
     description: "Master machine learning from environment configuration, data preparation, NumPy, Pandas, EDA, regression, classification, ensembles (XGBoost, LightGBM), SVM, clustering, PCA, time series, Bayesian ML, Optuna, SHAP, and real-world capstone interview defense.",

@@ -1,0 +1,130 @@
+{
+  "id": "spring-boot",
+  "courseId": "backend-engineering",
+  "index": 3,
+  "name": "3. Java Backend Development with Spring Boot",
+  "route": "/learning/backend-engineering/spring-boot",
+  "componentName": "BackendSpringBoot",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "In Spring Boot 4.x, which starter dependency is used for traditional Spring MVC REST APIs (replacing the deprecated spring-boot-starter-web)?",
+      "options": [
+        "spring-boot-starter-http",
+        "spring-boot-starter-webmvc",
+        "spring-boot-starter-servlet-old",
+        "spring-boot-starter-tomcat-only"
+      ],
+      "correctIndex": 1,
+      "explanation": "In Spring Boot 4.x, spring-boot-starter-webmvc is the standard starter for Spring MVC web applications and REST APIs, replacing spring-boot-starter-web."
+    },
+    {
+      "id": 2,
+      "question": "What three capabilities does @SpringBootApplication combine?",
+      "options": [
+        "@Entity, @Table, and @Repository",
+        "@SpringBootConfiguration, @EnableAutoConfiguration, and @ComponentScan",
+        "@RestController, @Service, and @Transactional",
+        "@GetMapping, @PostMapping, and @Valid"
+      ],
+      "correctIndex": 1,
+      "explanation": "@SpringBootApplication combines @SpringBootConfiguration, @EnableAutoConfiguration, and @ComponentScan starting from the root application package."
+    },
+    {
+      "id": 3,
+      "question": "Why is constructor injection generally preferred over field injection (@Autowired on fields) for required dependencies?",
+      "options": [
+        "Constructor injection makes required dependencies explicit, supports final immutable fields, and simplifies unit testing without starting Spring",
+        "Field injection is not supported in Spring Boot 4",
+        "Constructor injection automatically connects to PostgreSQL",
+        "Field injection prevents HTTP requests from reaching controllers"
+      ],
+      "correctIndex": 0,
+      "explanation": "Constructor injection ensures dependencies are explicit, allows final fields, prevents partially initialized objects, and lets unit tests pass mocks directly."
+    },
+    {
+      "id": 4,
+      "question": "Why should JPA @Entity classes generally NOT be returned directly from REST controller endpoints?",
+      "options": [
+        "Spring MVC cannot serialize Java classes",
+        "Returning entities can expose sensitive fields (like passwordHash), couple the API to database structure, and cause lazy-loading serialization issues",
+        "Entities cannot have getters",
+        "DTOs are required by the JVM compiler"
+      ],
+      "correctIndex": 1,
+      "explanation": "Separating JPA entities from request/response DTOs protects sensitive fields, avoids over-posting, prevents lazy-loading serialization problems, and decouples API contracts from DB tables."
+    },
+    {
+      "id": 5,
+      "question": "What is the role of the DispatcherServlet in Spring MVC?",
+      "options": [
+        "It compiles Java bytecode",
+        "It acts as the central front controller/dispatcher that routes incoming HTTP requests via HandlerMapping to controller methods and message converters",
+        "It manages PostgreSQL connection pooling",
+        "It replaces Maven"
+      ],
+      "correctIndex": 1,
+      "explanation": "DispatcherServlet is the central request dispatcher in Spring MVC, coordinating HandlerMapping, controller execution, and HTTP message conversion."
+    },
+    {
+      "id": 6,
+      "question": "What is the difference between @Component and @Bean in Spring?",
+      "options": [
+        "@Component is placed on a class for component scanning; @Bean is placed on a method inside a @Configuration class to explicitly register the returned object",
+        "@Bean is only for controllers; @Component is only for repositories",
+        "They are identical",
+        "@Component only works for third-party JAR classes"
+      ],
+      "correctIndex": 0,
+      "explanation": "@Component marks your own class for component scanning, while @Bean on a @Configuration method registers a returned object (especially useful for third-party library classes)."
+    },
+    {
+      "id": 7,
+      "question": "In application.yml, what does spring.jpa.hibernate.ddl-auto: validate do?",
+      "options": [
+        "Drops and recreates all tables on every restart",
+        "Automatically alters production tables when entities change",
+        "Checks that the existing database schema matches JPA entity mappings without modifying the schema",
+        "Disables SQL queries"
+      ],
+      "correctIndex": 2,
+      "explanation": "ddl-auto: validate verifies schema compatibility against entities without mutating tables; production schema changes should use versioned migrations like Flyway or Liquibase."
+    },
+    {
+      "id": 8,
+      "question": "In Hexagonal Architecture (Ports and Adapters), what is a Port and what is an Adapter?",
+      "options": [
+        "A port is a TCP socket; an adapter is a USB cable",
+        "A port is an interface defining what the application core needs or exposes; an adapter implements or connects a specific technology (like JPA or REST) to that port",
+        "A port is a SQL table; an adapter is a DTO",
+        "Both terms refer to Maven plugins"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ports define technology-agnostic interfaces at the application core boundary, and adapters (e.g., REST controller or JPA repository adapter) connect external technologies to those ports."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of @RestControllerAdvice in a Spring Boot REST API?",
+      "options": [
+        "To start an embedded Tomcat server",
+        "To centralize exception handling across controllers and return consistent error responses (such as 404, 409, or 400 validation errors)",
+        "To generate database migrations",
+        "To inject dependencies into static methods"
+      ],
+      "correctIndex": 1,
+      "explanation": "@RestControllerAdvice centralizes @ExceptionHandler methods so all controllers return a consistent, sanitized error format."
+    },
+    {
+      "id": 10,
+      "question": "Why should a @Transactional database transaction NOT be held open while calling a slow external email API?",
+      "options": [
+        "Spring Boot forbids @Transactional on services",
+        "Holding a DB transaction open during slow network I/O ties up database connections and locks; instead, store an event/outbox record or handle external calls separately",
+        "Email APIs cannot run in Java 21",
+        "Transactions automatically roll back after 1 millisecond"
+      ],
+      "correctIndex": 1,
+      "explanation": "Long-running external I/O inside a DB transaction exhausts connection pools and increases contention; keep DB transactions focused on coherent database operations."
+    }
+  ]
+}

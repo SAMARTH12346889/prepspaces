@@ -277,6 +277,7 @@ export const MACHINE_LEARNING_MODULES = [
 export const BACKEND_ENGINEERING_MODULES = [
   { id: "foundations", name: "1. Backend Engineering Foundations", route: "/learning/backend-engineering" },
   { id: "http-api-design", name: "2. HTTP Protocol and API Design", route: "/learning/backend-engineering/http-api-design" },
+  { id: "spring-boot", name: "3. Java Backend Development with Spring Boot", route: "/learning/backend-engineering/spring-boot" },
 ];
 
 export default function ModuleNav({

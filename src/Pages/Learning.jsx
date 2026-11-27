@@ -257,7 +257,7 @@ const learningTracks = [
     icon: Server,
     route: "/learning/backend-engineering",
     tag: "Backend & Architecture",
-    modulesCount: "2 Comprehensive Modules",
+    modulesCount: "3 Comprehensive Modules",
     color: "from-stone-900 via-orange-950 to-orange-600",
     badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
     highlights: [
